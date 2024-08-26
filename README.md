@@ -9,12 +9,12 @@ Takes raw source files and exports data to more usable json formats
 Hero\
 ✅ Base Stats\
 ❌ Ability Stats\
-❌ Description\
+❌ Description
 
 Items\
 ❌ Cost+Stats\
-❌ Description\
+❌ Description
 
 Neutral Enemies/Buildings\
 ❌ Stats\
-❌ Descriptions\
+❌ Descriptions
