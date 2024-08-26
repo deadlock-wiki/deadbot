@@ -3,7 +3,8 @@ A place for any scripts that support the development of https://deadlocked.wiki/
 
 
 ## Data Fetcher
-Takes raw source files and exports data to more usable json formats
+Takes raw source files and exports data to more usable json formats\
+[See README for details](./data-fetcher/README.md)
 
 **Currently fetches the following**\
 Hero\
