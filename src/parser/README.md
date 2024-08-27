@@ -1,7 +1,7 @@
-# Deadlock Wiki Data Fetcher
-Data fetcher that builds the master_table file that is consumed by DeadBot
+# Deadlock Wiki Parser
+The parser decompiles the raw game files in order to extract game data for heroes, items, buildings etc.
 
-## Fetched Data
+## Currently Fetched Data
 Takes raw source files and exports data to more usable json formats\
 
 **Currently fetches the following**\
