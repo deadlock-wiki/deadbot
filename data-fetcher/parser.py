@@ -34,6 +34,8 @@ class Parser:
         self.parse_abilities()
 
     def parse_heroes(self):
+        attr_map = json.read('attr-maps/hero-map.json')
+
         hero_keys = self.hero_data.keys()
 
         # Base hero stats
@@ -45,17 +47,21 @@ class Parser:
             if hero_key.startswith('hero') and hero_key != 'hero_base':
                 merged_stats = dict()
 
-                merged_stats['name'] = self.localizations.get(hero_key, 'Unknown')
-
                 # Hero specific stats applied over base stats
                 hero_stats = self.hero_data[hero_key]['m_mapStartingStats']
                 merged_stats.update(base_hero_stats)
                 merged_stats.update(hero_stats)
 
-                all_hero_stats[hero_key] = merged_stats
+                merged_stats = self.map_attr_names(merged_stats, attr_map)
+
+                # Add extra data to the hero
+                merged_stats['name'] = self.localizations.get(hero_key, 'Unknown')
+
+                all_hero_stats[hero_key]= merged_stats
 
         json.write('output/hero-data.json', all_hero_stats) 
-    
+
+
     def parse_abilities(self):
         ability_keys = self.abilities_data.keys()
         all_abilities = dict()
@@ -70,6 +76,21 @@ class Parser:
         json.write('output/ability-data.json', all_abilities)
 
 
+    '''
+      Maps all keys for the set of data to a more human readable ones, defined in /attr-maps
+      Any keys that do not have an associated human key are omitted
+    '''
+    def map_attr_names(self, data, attr_map):
+        output_data = dict()
+        for key in data:
+            if key not in attr_map:
+                continue
+            
+            human_key = attr_map[key]
+            output_data[human_key] = data[key]
+
+        return output_data
+    
 if __name__ == "__main__":
     parser = Parser() 
     parser.run()  
