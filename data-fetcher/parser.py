@@ -39,7 +39,7 @@ class Parser:
         hero_stats = self.parse_heroes()
         self.add_to_master_table(hero_stats)
 
-        # ability_stats = self.parse_abilities()
+        ability_stats = self.parse_abilities()
         json.write(self.out_dir + 'master-table.json', self.master_table)
 
     def parse_heroes(self):
