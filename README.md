@@ -1,4 +1,4 @@
-# <img src="Bebop_card.png" width="36">  DeadBot 
+# <img src="assets/Bebop_card.png" width="36">  DeadBot 
 DeadBot is an automation tool for maintaining the Deadlock Wiki - https://deadlocked.wiki/
 
 ## Setup
