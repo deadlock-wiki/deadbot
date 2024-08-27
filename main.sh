@@ -15,4 +15,4 @@ echo "Running DeadBot..."
 python3 deadbot.py
 
 echo ""
-echo "Done! exported data to 'output/'"
+echo "Done!"
