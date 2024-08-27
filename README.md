@@ -1,4 +1,4 @@
-# DeadBot
+# Deadlock Wiki Scripts
 A place for any scripts that support the development of https://deadlocked.wiki/
 
 ## DeadBot
