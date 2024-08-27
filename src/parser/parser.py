@@ -1,6 +1,10 @@
 import keyvalues3 as kv3
 import tempfile
 import os
+import sys
+
+# bring utils module in scope
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from utils import json
 
 class Parser:
