@@ -1,11 +1,20 @@
-# Deadlock Wiki Data Scraper
+# Deadlock Wiki Data Fetcher
+Data fetcher that builds the master_table file that is consumed by DeadBot
 
-## Setup
-Download Decompiler.exe from https://github.com/ValveResourceFormat/ValveResourceFormat/releases
-Extract decompiler into downloads folder
-`pip install -r requirements.txt`
+## Fetched Data
+Takes raw source files and exports data to more usable json formats\
+[See README for details](./data-fetcher/README.md)
 
+**Currently fetches the following**\
+Hero\
+✅ Base Stats\
+❌ Ability Stats\
+❌ Description
 
-## Usage
+Items\
+❌ Cost+Stats\
+❌ Description
 
-`bash main.sh`
+Neutral Enemies/Buildings\
+❌ Stats\
+❌ Descriptions
