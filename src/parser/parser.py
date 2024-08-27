@@ -19,13 +19,7 @@ class Parser:
                 tf.write(content)
                 self.abilities_data = kv3.read(tf.name)
 
-
         self.hero_data = kv3.read(os.path.join(self.data_dir, 'scripts/heroes.vdata'))
-
-        # Initialise master table
-        json.write(self.out_dir + 'master-table.json', {})
-        self.master_table = json.read(self.out_dir + '/master-table.json')
-
 
     def run(self): 
         self.localizations = dict()
@@ -37,10 +31,7 @@ class Parser:
         self.localizations.update(descriptions)
     
         hero_stats = self.parse_heroes()
-        self.add_to_master_table(hero_stats)
-
         ability_stats = self.parse_abilities()
-        json.write(self.out_dir + 'master-table.json', self.master_table)
 
     def parse_heroes(self):
         attr_map = json.read('attr-maps/hero-map.json')
@@ -50,12 +41,12 @@ class Parser:
         # Base hero stats
         base_hero_stats = self.hero_data['hero_base']['m_mapStartingStats']
 
-        hero_stats_array = []
+        all_hero_stats = dict()
 
         for hero_key in hero_keys:
             if hero_key.startswith('hero') and hero_key != 'hero_base':
                 merged_stats = dict()
-            
+
                 # Hero specific stats applied over base stats
                 hero_stats = self.hero_data[hero_key]['m_mapStartingStats']
                 merged_stats.update(base_hero_stats)
@@ -64,13 +55,16 @@ class Parser:
                 merged_stats = self.map_attr_names(merged_stats, attr_map)
 
                 # Add extra data to the hero
-                merged_stats['name'] = self.localizations.get(hero_key, 'Unknown')
-                merged_stats['key'] = hero_key.replace('hero_', '')
+                name = self.localizations.get(hero_key, 'Unknown')
+                merged_stats['name'] = name
+                
+                # create a key associated with the name because of old hero names 
+                # being used as keys. this will keep a familiar key for usage on the wiki
+                merged_stats['key'] = name.lower().replace(' ', '_')
+                
+                all_hero_stats[hero_key] = merged_stats
 
-                hero_stats_array.append(merged_stats)
-
-        json.write(self.out_dir + '/hero-data.json', hero_stats_array) 
-        return hero_stats_array
+        json.write(self.out_dir + '/hero-data.json', all_hero_stats) 
 
     def parse_abilities(self):
         ability_keys = self.abilities_data.keys()
@@ -84,20 +78,6 @@ class Parser:
             all_abilities[ability_key] = ability_data
 
         json.write(self.out_dir + '/ability-data.json', all_abilities)
-
-
-    '''
-        Flattens object array and adds it to the master table for easier find and replacement
-    '''
-    def add_to_master_table(self, array):
-        for item in array:
-            for item_attr in item:
-                # Valve have a lot of mismatched names vs hero keys, we could have a map,
-                # but for now we can presume the names are set in stone
-                master_key = item['name'].lower() + '#' + item_attr
-                
-                value = item[item_attr]
-                self.master_table[master_key] = value
 
     '''
         Maps all keys for the set of data to a more human readable ones, defined in /attr-maps

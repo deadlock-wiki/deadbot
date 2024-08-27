@@ -2,10 +2,11 @@
 # exit on error
 set -e 
 
-cd data-fetcher
+cd src/parser
 echo "Decompiling source files..."
 bash decompile.sh
 
+echo ""
 echo "Parsing decompiled files..."
 python3 parser.py
 
