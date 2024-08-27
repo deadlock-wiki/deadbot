@@ -1,21 +1,14 @@
 # Deadlock Wiki Scripts
 A place for any scripts that support the development of https://deadlocked.wiki/
 
+## DeadBot
+DeadBot is the dedicated bot for finding and replacing values on the wiki
 
-## Data Fetcher
-Takes raw source files and exports data to more usable json formats\
-[See README for details](./data-fetcher/README.md)
+### Setup
+- Download Decompiler.exe from https://github.com/ValveResourceFormat/ValveResourceFormat/releases
+- Extract decompiler into downloads folder
+- `pip install -r requirements.txt`
 
-**Currently fetches the following**\
-Hero\
-✅ Base Stats\
-❌ Ability Stats\
-❌ Description
+### Usage
+`bash main.sh`
 
-Items\
-❌ Cost+Stats\
-❌ Description
-
-Neutral Enemies/Buildings\
-❌ Stats\
-❌ Descriptions
