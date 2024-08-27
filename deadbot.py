@@ -45,10 +45,9 @@ class DeadBot:
     def replace_values(self, match):
         value_key = match.group(1)
         old_value = match.group(2)
-
         if value_key in self.master_table:
             new_value = self.master_table[value_key]
-            if new_value != old_value:
+            if str(new_value) != str(old_value):
                 self.edit_counter += 1
                 return f"{{{{BotValue|key={value_key}|value={new_value}}}}}"
         
