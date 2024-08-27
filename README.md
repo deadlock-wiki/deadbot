@@ -1,14 +1,10 @@
-# Deadlock Wiki Scripts
-A place for any scripts that support the development of https://deadlocked.wiki/
+# <img src="Bebop_card.png" width="36">  DeadBot 
+DeadBot is an automation tool for maintaining the Deadlock Wiki - https://deadlocked.wiki/
 
-## DeadBot
-DeadBot is the dedicated bot for finding and replacing values on the wiki
-
-### Setup
+## Setup
 - Download Decompiler.exe from https://github.com/ValveResourceFormat/ValveResourceFormat/releases
-- Extract decompiler into downloads folder
+- Extract decompiler into `Downloads/` folder
 - `pip install -r requirements.txt`
 
-### Usage
+## Usage
 `bash main.sh`
-
