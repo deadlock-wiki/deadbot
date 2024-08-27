@@ -1,7 +1,7 @@
 import keyvalues3 as kv3
-import json
 import tempfile
 import os
+from utils import json
 
 class Parser:
     def __init__(self):
@@ -21,16 +21,15 @@ class Parser:
 
         self.hero_data = kv3.read(os.path.join(self.data_dir, 'scripts/heroes.vdata'))
 
-        self.localizations = dict()
-        with open(os.path.join(self.data_dir, 'localizations/citadel_gc_english.json'), 'r') as f:
-            names = json.load(f)
-            self.localizations.update(names)
-        
-        with open(os.path.join(self.data_dir, 'localizations/citadel_mods_english.json'), 'r') as f:
-            descriptions = json.load(f)
-            self.localizations.update(descriptions)
-
     def run(self): 
+        self.localizations = dict()
+        
+        names = json.read('localizations/citadel_gc_english.json')
+        self.localizations.update(names)
+        
+        descriptions = json.read('localizations/citadel_mods_english.json')
+        self.localizations.update(descriptions)
+    
         self.parse_heroes()
         self.parse_abilities()
 
@@ -44,7 +43,6 @@ class Parser:
 
         for hero_key in hero_keys:
             if hero_key.startswith('hero') and hero_key != 'hero_base':
-
                 merged_stats = dict()
 
                 merged_stats['name'] = self.localizations.get(hero_key, 'Unknown')
@@ -56,7 +54,7 @@ class Parser:
 
                 all_hero_stats[hero_key] = merged_stats
 
-        self.write('output/hero-data.json', all_hero_stats) 
+        json.write('output/hero-data.json', all_hero_stats) 
     
     def parse_abilities(self):
         ability_keys = self.abilities_data.keys()
@@ -69,11 +67,7 @@ class Parser:
 
             all_abilities[ability_key] = ability_data
 
-        self.write('output/ability-data.json', all_abilities)
-
-    def write(self, path, data):
-        with open(path, "w") as outfile:
-            json.dump(data, outfile, indent=4)
+        json.write('output/ability-data.json', all_abilities)
 
 
 if __name__ == "__main__":
