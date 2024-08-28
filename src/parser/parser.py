@@ -2,12 +2,15 @@ import keyvalues3 as kv3
 import tempfile
 import os
 import sys
+from python_mermaid.diagram import MermaidDiagram, Node, Link
 
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from utils import json
 
-missing_map = []
+
+nodes = []
+links = []
 
 
 class Parser:
@@ -46,10 +49,15 @@ class Parser:
 
     def run(self):
         print('Parsing...')
-        self._parse_heroes()
-        self._parse_abilities()
+        # self._parse_heroes()
+        # self._parse_abilities()
         self._parse_items()
         print('Done parsing')
+
+        chart = MermaidDiagram(title='Items', nodes=nodes, links=links)
+
+        with open(self.OUTPUT_DIR + '/item-component-tree.txt', 'w') as f:
+            f.write(str(chart))
 
     def _parse_heroes(self):
         print('Parsing Heroes...')
@@ -111,6 +119,7 @@ class Parser:
             item_ability_attrs = item_value['m_mapAbilityProperties']
 
             parsed_item_data = {
+                'Key': key,
                 'Name': self.localizations['names'].get(key),
                 'Description': self.localizations['descriptions'].get(key),
             }
@@ -126,8 +135,18 @@ class Parser:
                 parsed_item_data['Components'] = item_value['m_vecComponentItems']
 
             all_items[key.replace('upgrade_', '')] = parsed_item_data
+            self._add_item_to_component_tree(parsed_item_data)
 
         json.write(self.OUTPUT_DIR + '/item-data.json', all_items)
+
+    # Add items to mermaid tree
+    def _add_item_to_component_tree(self, item):
+        if 'Components' not in item:
+            return
+
+        for component in item['Components']:
+            # nodes.append(Node(component))
+            links.append(Link(Node(item['Name']), Node(self.localizations['names'].get(component))))
 
     """
         Maps all keys for the set of data to a more human readable ones, defined in /attr-maps
@@ -138,8 +157,6 @@ class Parser:
         output_data = dict()
         for key in data:
             if key not in attr_map:
-                if key not in missing_map:
-                    missing_map.append(key)
                 continue
 
             value = data[key]
