@@ -133,20 +133,16 @@ class Parser:
 
             if 'm_vecComponentItems' in item_value:
                 parsed_item_data['Components'] = item_value['m_vecComponentItems']
+                self._add_children_to_tree(parsed_item_data['Name'], parsed_item_data['Components'])
 
             all_items[key.replace('upgrade_', '')] = parsed_item_data
-            self._add_item_to_component_tree(parsed_item_data)
 
         json.write(self.OUTPUT_DIR + '/item-data.json', all_items)
 
     # Add items to mermaid tree
-    def _add_item_to_component_tree(self, item):
-        if 'Components' not in item:
-            return
-
-        for component in item['Components']:
-            # nodes.append(Node(component))
-            links.append(Link(Node(self.localizations['names'].get(component)), Node(item['Name'])))
+    def _add_children_to_tree(self, parent_key, child_keys):
+        for child_key in child_keys:
+            links.append(Link(Node(self.localizations['names'].get(child_key)), Node(parent_key)))
 
     """
         Maps all keys for the set of data to a more human readable ones, defined in /attr-maps
