@@ -6,12 +6,13 @@ cd src/parser
 echo "Decompiling source files..."
 bash decompile.sh
 
+cd ../..
 echo ""
 echo "Parsing decompiled files..."
-python3 parser.py
+bash parser.sh
 echo ""
 
-cd ..
+cd src
 echo "Running DeadBot..."
 python3 deadbot.py
 

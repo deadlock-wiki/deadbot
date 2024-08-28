@@ -53,8 +53,8 @@ class Parser:
 
     def run(self):
         print('Parsing...')
-        # self._parse_heroes()
-        # self._parse_abilities()
+        self._parse_heroes()
+        self._parse_abilities()
         self._parse_items()
         print('Done parsing')
 

@@ -17,3 +17,4 @@ def convert_array_to_string(value):
 
 if __name__ == '__main__':
     export_json_file_to_csv('item-data')
+    export_json_file_to_csv('hero-data')
