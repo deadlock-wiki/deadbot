@@ -146,7 +146,7 @@ class Parser:
 
         for component in item['Components']:
             # nodes.append(Node(component))
-            links.append(Link(Node(item['Name']), Node(self.localizations['names'].get(component))))
+            links.append(Link(Node(self.localizations['names'].get(component)), Node(item['Name'])))
 
     """
         Maps all keys for the set of data to a more human readable ones, defined in /attr-maps
