@@ -2,7 +2,8 @@ repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.6.2
     hooks:
-      # Run the formatter.
-      - id: ruff-format
       # Run the linter.
       - id: ruff
+        args: [ --fix ]
+      # Run the formatter.
+      - id: ruff-format
