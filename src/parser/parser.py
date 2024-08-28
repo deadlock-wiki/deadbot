@@ -65,7 +65,7 @@ class Parser:
 
     def _parse_heroes(self):
         print('Parsing Heroes...')
-        attr_map = json.read('attr-maps/hero-map.json')
+        attr_map = json.read('maps/hero-map.json')
 
         hero_keys = self.hero_data.keys()
 
@@ -151,18 +151,14 @@ class Parser:
             if tier is not None:
                 cost = self.generic_data['m_nItemPricePerTier'][int(tier)]
 
-            description = self.localizations['descriptions'].get(key + '_desc')
-            if description is not None:
-                # strip away all html tags for displaying as text
-                description = re.sub(r'<span\b[^>]*>|<\/span>', '', description)
-
             parsed_item_data = {
                 'Name': self.localizations['names'].get(key),
-                'Description': description,
+                'Description': '',
                 'Cost': str(cost),
                 'Tier': tier,
                 'Activation': maps.get_ability_activation(item_value['m_eAbilityActivation']),
                 'Slot': maps.get_slot_type(item_value.get('m_eItemSlotType')),
+                'Components': None,
                 # 'ImagePath': str(item_value.get('m_strAbilityImage', None)),
                 'TargetTypes': target_types,
                 'ShopFilters': shop_filters,
@@ -179,9 +175,27 @@ class Parser:
                 parsed_item_data['Components'] = item_value['m_vecComponentItems']
                 self._add_children_to_tree(parsed_item_data['Name'], parsed_item_data['Components'])
 
+            description = self.localizations['descriptions'].get(key + '_desc')
+            if description is not None:
+                # strip away all html tags for displaying as text
+                description = re.sub(r'<span\b[^>]*>|<\/span>', '', description)
+                parsed_item_data['Description'] = self._format_description(
+                    description, parsed_item_data
+                )
+
             all_items[key] = parsed_item_data
 
         json.write(self.OUTPUT_DIR + 'json/item-data.json', all_items)
+
+    # format description with data. eg. "When you are above {s:LifeThreshold}% health"
+    # should become "When you are above 20% health"
+    def _format_description(self, desc, data):
+        def replace_match(match):
+            key = match.group(1)
+            return data.get(key, '')
+
+        formatted_desc = re.sub(r'\{s:(.*?)\}', replace_match, desc)
+        return formatted_desc
 
     # Add items to mermaid tree
     def _add_children_to_tree(self, parent_key, child_keys):
