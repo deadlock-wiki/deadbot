@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "DeadBot" 
+version = "0.1.0"  # REQUIRED, although can be dynamic
+description = "Bot that lives to serve deadlocked.wiki"
+readme = "README.md"
+authors=[]
+
+[tool.poetry.dependencies]
+python="^3.11"
+mwclient="^0.11.0"
+keyvalues3="^0.1"
+ruff="^0.6.2"
+pre-commit="^3.8.0"
+
+[tool.ruff.lint]
+extend-select = ["E501"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
