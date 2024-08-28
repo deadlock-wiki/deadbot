@@ -7,6 +7,8 @@ import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from utils import json
 
+missing_map = []
+
 
 class Parser:
     def __init__(self):
@@ -14,61 +16,13 @@ class Parser:
         self.DATA_DIR = './decompiled-data/'
         self.OUTPUT_DIR = './output/'
 
+        self._load_files()
         self._load_localizations()
 
-    def _load_localizations(self):
-        self.localizations = dict()
-
-        names = json.read('decompiled-data/localizations/citadel_gc_english.json')
-        self.localizations.update(names)
-
-        descriptions = json.read('decompiled-data/localizations/citadel_mods_english.json')
-        self.localizations.update(descriptions)
-
-    def run(self):
-        self._parse_heroes()
-        self._parse_abilities()
-        self._parse_items()
-
-    def _parse_heroes(self):
-        print('Parsing Heroes...')
+    def _load_files(self):
         hero_data_path = os.path.join(self.DATA_DIR, 'scripts/heroes.vdata')
-        hero_data = kv3.read(hero_data_path)
+        self.hero_data = kv3.read(hero_data_path)
 
-        attr_map = json.read('attr-maps/hero-map.json')
-
-        hero_keys = hero_data.keys()
-
-        # Base hero stats
-        base_hero_stats = hero_data['hero_base']['m_mapStartingStats']
-
-        all_hero_stats = dict()
-
-        for hero_key in hero_keys:
-            if hero_key.startswith('hero') and hero_key != 'hero_base':
-                merged_stats = dict()
-
-                # Hero specific stats applied over base stats
-                hero_stats = hero_data[hero_key]['m_mapStartingStats']
-                merged_stats.update(base_hero_stats)
-                merged_stats.update(hero_stats)
-
-                merged_stats = self._map_attr_names(merged_stats, attr_map)
-
-                # Add extra data to the hero
-                name = self.localizations.get(hero_key, 'Unknown')
-                merged_stats['name'] = name
-
-                # create a key associated with the name because of old hero names
-                # being used as keys. this will keep a familiar key for usage on the wiki
-                merged_stats['key'] = name.lower().replace(' ', '_')
-
-                all_hero_stats[hero_key] = merged_stats
-
-        json.write(self.OUTPUT_DIR + '/hero-data.json', all_hero_stats)
-
-    def _parse_abilities(self):
-        print('Parsing Abilities...')
         abilities_data_path = os.path.join(self.DATA_DIR, 'scripts/abilities.vdata')
 
         with open(abilities_data_path, 'r') as f:
@@ -81,13 +35,66 @@ class Parser:
                 tf.write(content)
                 self.abilities_data = kv3.read(tf.name)
 
+    def _load_localizations(self):
+        names = json.read('decompiled-data/localizations/citadel_gc_english.json')
+
+        descriptions = json.read('decompiled-data/localizations/citadel_mods_english.json')
+        self.localizations = {
+            'names': names,
+            'descriptions': descriptions,
+        }
+
+    def run(self):
+        print('Parsing...')
+        self._parse_heroes()
+        self._parse_abilities()
+        self._parse_items()
+        print('Done parsing')
+
+    def _parse_heroes(self):
+        print('Parsing Heroes...')
+        attr_map = json.read('attr-maps/hero-map.json')
+
+        hero_keys = self.hero_data.keys()
+
+        # Base hero stats
+        base_hero_stats = self.hero_data['hero_base']['m_mapStartingStats']
+
+        all_hero_stats = dict()
+
+        for hero_key in hero_keys:
+            if hero_key.startswith('hero') and hero_key != 'hero_base':
+                merged_stats = dict()
+
+                # Hero specific stats applied over base stats
+                hero_stats = self.hero_data[hero_key]['m_mapStartingStats']
+                merged_stats.update(base_hero_stats)
+                merged_stats.update(hero_stats)
+
+                merged_stats = self._map_attr_names(merged_stats, attr_map)
+
+                # Add extra data to the hero
+                name = self.localizations['names'].get(hero_key, 'Unknown')
+                merged_stats['name'] = name
+
+                # create a key associated with the name because of old hero names
+                # being used as keys. this will keep a familiar key for usage on the wiki
+                merged_stats['key'] = name.lower().replace(' ', '_')
+
+                all_hero_stats[hero_key] = merged_stats
+
+        json.write(self.OUTPUT_DIR + '/hero-data.json', all_hero_stats)
+
+    def _parse_abilities(self):
+        print('Parsing Abilities...')
+
         ability_keys = self.abilities_data.keys()
         all_abilities = dict()
 
         for ability_key in ability_keys:
             ability_data = {}
 
-            ability_data['name'] = self.localizations.get(ability_key, 'Unknown')
+            ability_data['name'] = self.localizations['names'].get(ability_key, 'Unknown')
 
             all_abilities[ability_key] = ability_data
 
@@ -95,6 +102,32 @@ class Parser:
 
     def _parse_items(self):
         print('Parsing Items...')
+
+        item_keys = [key for key in self.abilities_data if key.startswith('upgrade_')]  #
+
+        all_items = {}
+        for key in item_keys:
+            item_value = self.abilities_data[key]
+            item_ability_attrs = item_value['m_mapAbilityProperties']
+
+            parsed_item_data = {
+                'Name': self.localizations['names'].get(key),
+                'Description': self.localizations['descriptions'].get(key),
+            }
+
+            for attr_key in item_ability_attrs.keys():
+                # "Ability" prefix on attr names is redundant
+                new_key = (
+                    attr_key.replace('Ability', '') if attr_key.startswith('Ability') else attr_key
+                )
+                parsed_item_data[new_key] = item_ability_attrs[attr_key]['m_strValue']
+
+            if 'm_vecComponentItems' in item_value:
+                parsed_item_data['Components'] = item_value['m_vecComponentItems']
+
+            all_items[key.replace('upgrade_', '')] = parsed_item_data
+
+        json.write(self.OUTPUT_DIR + '/item-data.json', all_items)
 
     """
         Maps all keys for the set of data to a more human readable ones, defined in /attr-maps
@@ -105,10 +138,14 @@ class Parser:
         output_data = dict()
         for key in data:
             if key not in attr_map:
+                if key not in missing_map:
+                    missing_map.append(key)
                 continue
 
+            value = data[key]
+
             human_key = attr_map[key]
-            output_data[human_key] = data[key]
+            output_data[human_key] = value
 
         return output_data
 
