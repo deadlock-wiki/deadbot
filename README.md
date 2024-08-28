@@ -15,9 +15,11 @@ For use of the raw data itself, all can be found in `output-data` directory, inc
 3. `pip install poetry`
 4. `python -m poetry install`
 5. `python -m pre_commit install`
-6. Download Decompiler.exe for your particular OS from https://github.com/ValveResourceFormat/ValveResourceFormat/releases 
-7. Extract decompiler into `Downloads/` folder
-8. Ensure the paths to Deadlock files and Decompiler are correct in `src/parser/decompile.sh`
+6. `pip install keyvalues3`
+7. `pip install python-mermaid`
+8. Download Decompiler.exe for your particular OS from https://github.com/ValveResourceFormat/ValveResourceFormat/releases 
+9. Extract decompiler into `Downloads/` folder
+10. Ensure the paths to Deadlock files and Decompiler are correct in `src/parser/decompile.sh`
 
 ### Usage
 `bash main.sh` to run end-to-end decompilation, parsing and bot (bot is a WIP)
