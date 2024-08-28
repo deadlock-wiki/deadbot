@@ -15,13 +15,11 @@ class DeadBot:
     def __init__(self):
         self.edit_counter = 0
 
-        site = mwclient.Site("deadlocked.wiki", path="/")
-        site.login("DeadBot", os.environ.get("BOT_WIKI_PASSWORD"))
+        site = mwclient.Site('deadlocked.wiki', path='/')
+        site.login('DeadBot', os.environ.get('BOT_WIKI_PASSWORD'))
 
         self.attribute_pages = [
-            page
-            for page in site.pages
-            if pages.page_has_category(page, "Category:Attribute")
+            page for page in site.pages if pages.page_has_category(page, 'Category:Attribute')
         ]
 
     def run(self):
@@ -29,16 +27,16 @@ class DeadBot:
             self._update_page(page)
 
     def _update_page(self, page):
-        updated_text = "all the stats"
+        updated_text = 'all the stats'
 
         # Save the page with the updated content
         if self.edit_counter != 0:
-            page.save(updated_text, summary="DeadBot auto-update")
+            page.save(updated_text, summary='DeadBot auto-update')
             print(f"Page '{page.name}' updated - {self.edit_counter} new changes")
         else:
             print(f"No changes made to '{page.name}'")
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     bot = DeadBot()
     bot.run()

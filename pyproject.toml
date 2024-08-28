@@ -12,8 +12,15 @@ keyvalues3="^0.1"
 ruff="^0.6.2"
 pre-commit="^3.8.0"
 
+[tool.ruff]
+line-length = 100
+
 [tool.ruff.lint]
 extend-select = ["E501"]
+
+[tool.ruff.format]
+quote-style = "single"
+
 
 [build-system]
 requires = ["poetry-core"]

@@ -9,6 +9,8 @@ bash decompile.sh
 echo ""
 echo "Parsing decompiled files..."
 python3 parser.py
+echo "Done parsing!"
+echo ""
 
 cd ..
 echo "Running DeadBot..."
