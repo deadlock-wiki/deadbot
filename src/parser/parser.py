@@ -67,37 +67,31 @@ class Parser:
         print('Parsing Heroes...')
         hero_keys = self.hero_data.keys()
 
-        # Base hero stats
-        base_hero_stats = self.hero_data['hero_base']['m_mapStartingStats']
-
         all_hero_stats = dict()
 
         for hero_key in hero_keys:
             if hero_key.startswith('hero') and hero_key != 'hero_base':
                 hero_value = self.hero_data[hero_key]
 
-                merged_stats = {
+                hero_stats = {
                     'Name': self.localizations['names'].get(hero_key, None),
                 }
 
-                # Hero specific stats applied over base stats
-                hero_stats = hero_value['m_mapStartingStats']
-                merged_stats.update(base_hero_stats)
-                merged_stats.update(hero_stats)
-
-                merged_stats = self._map_attr_names(merged_stats, maps.get_hero_attr)
+                hero_stats.update(
+                    self._map_attr_names(hero_value['m_mapStartingStats'], maps.get_hero_attr)
+                )
 
                 # merged_stats['Dps'] = merged_stats[]
 
                 level_upgrades = hero_value['m_mapStandardLevelUpUpgrades']
                 for key in level_upgrades:
-                    merged_stats[maps.get_level_mod(key)] = level_upgrades[key]
+                    hero_stats[maps.get_level_mod(key)] = level_upgrades[key]
 
                 # create a key associated with the name because of old hero names
                 # being used as keys. this will keep a familiar key for usage on the wiki
-                merged_stats['key'] = merged_stats['Name'].lower().replace(' ', '_')
+                hero_stats['key'] = hero_stats['Name'].lower().replace(' ', '_')
 
-                all_hero_stats[hero_key] = merged_stats
+                all_hero_stats[hero_key] = hero_stats
 
         json.write(self.OUTPUT_DIR + 'json/hero-data.json', all_hero_stats)
 
