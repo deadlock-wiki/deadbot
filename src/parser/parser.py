@@ -65,8 +65,6 @@ class Parser:
 
     def _parse_heroes(self):
         print('Parsing Heroes...')
-        attr_map = json.read('maps/hero-map.json')
-
         hero_keys = self.hero_data.keys()
 
         # Base hero stats
@@ -76,22 +74,28 @@ class Parser:
 
         for hero_key in hero_keys:
             if hero_key.startswith('hero') and hero_key != 'hero_base':
-                merged_stats = dict()
+                hero_value = self.hero_data[hero_key]
+
+                merged_stats = {
+                    'Name': self.localizations['names'].get(hero_key, None),
+                }
 
                 # Hero specific stats applied over base stats
-                hero_stats = self.hero_data[hero_key]['m_mapStartingStats']
+                hero_stats = hero_value['m_mapStartingStats']
                 merged_stats.update(base_hero_stats)
                 merged_stats.update(hero_stats)
 
-                merged_stats = self._map_attr_names(merged_stats, attr_map)
+                merged_stats = self._map_attr_names(merged_stats, maps.get_hero_attr)
 
-                # Add extra data to the hero
-                name = self.localizations['names'].get(hero_key, 'Unknown')
-                merged_stats['name'] = name
+                # merged_stats['Dps'] = merged_stats[]
+
+                level_upgrades = hero_value['m_mapStandardLevelUpUpgrades']
+                for key in level_upgrades:
+                    merged_stats[maps.get_level_mod(key)] = level_upgrades[key]
 
                 # create a key associated with the name because of old hero names
                 # being used as keys. this will keep a familiar key for usage on the wiki
-                merged_stats['key'] = name.lower().replace(' ', '_')
+                merged_stats['key'] = merged_stats['Name'].lower().replace(' ', '_')
 
                 all_hero_stats[hero_key] = merged_stats
 
@@ -202,21 +206,12 @@ class Parser:
         for child_key in child_keys:
             links.append(Link(Node(self.localizations['names'].get(child_key)), Node(parent_key)))
 
-    """
-        Maps all keys for the set of data to a more human readable ones, defined in /attr-maps
-        Any keys that do not have an associated human key are omitted
-    """
-
-    def _map_attr_names(self, data, attr_map):
+    # maps all keys in an object using the provided function
+    def _map_attr_names(self, data, func):
         output_data = dict()
         for key in data:
-            if key not in attr_map:
-                continue
-
-            value = data[key]
-
-            human_key = attr_map[key]
-            output_data[human_key] = value
+            mapped_key = func(key)
+            output_data[mapped_key] = data[key]
 
         return output_data
 

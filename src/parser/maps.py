@@ -59,3 +59,23 @@ def get_ability_activation(value):
     if value not in ABILITY_ACTIVATION_MAP:
         raise Exception(f'{value} is not a valid ability activation type')
     return ABILITY_ACTIVATION_MAP.get(value)
+
+
+def get_hero_attr(value):
+    return value.replace('E', '')
+
+
+LEVEL_MOD_MAP = {
+    'MODIFIER_VALUE_BASE_BULLET_DAMAGE_FROM_LEVEL': 'BulletDamagePerLevel',
+    'MODIFIER_VALUE_BASE_MELEE_DAMAGE_FROM_LEVEL': 'MeleeDamagePerLevel',
+    'MODIFIER_VALUE_BASE_HEALTH_FROM_LEVEL': 'BaseHealthPerLevel',
+    'MODIFIER_VALUE_TECH_DAMAGE_PERCENT': 'TechDamagePercPerLevel',
+    'MODIFIER_VALUE_BULLET_ARMOR_DAMAGE_RESIST': 'BulletArmorPerLevel',
+    'MODIFIER_VALUE_BONUS_ATTACK_RANGE': 'BonusAttackRange',
+}
+
+
+def get_level_mod(value):
+    if value not in LEVEL_MOD_MAP:
+        raise Exception(f'{value} is not a valid level mod')
+    return LEVEL_MOD_MAP.get(value)
