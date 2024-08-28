@@ -1,6 +1,6 @@
 import os
 import mwclient
-from utils import json, pages
+from utils import pages
 
 """
 DeadBot pulls all aggregated data for heros, items ,buildings and more to populate
