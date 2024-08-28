@@ -9,7 +9,7 @@
         "TargetTypes": [
             "Hero"
         ],
-        "ShopFilters": [],
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "2.0",
         "CastRange": "0",
@@ -31,8 +31,8 @@
         "Tier": null,
         "Activation": "Passive",
         "Slot": null,
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -54,8 +54,8 @@
         "Tier": null,
         "Activation": "Passive",
         "Slot": "Armor",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -77,8 +77,8 @@
         "Tier": "1",
         "Activation": "Passive",
         "Slot": "Armor",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -100,8 +100,8 @@
         "Tier": "2",
         "Activation": "Passive",
         "Slot": "Armor",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -123,8 +123,8 @@
         "Tier": "3",
         "Activation": "Passive",
         "Slot": "Armor",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -146,8 +146,8 @@
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Armor",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -169,8 +169,8 @@
         "Tier": null,
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -192,8 +192,8 @@
         "Tier": "1",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -215,8 +215,8 @@
         "Tier": "2",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -238,8 +238,8 @@
         "Tier": "3",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -261,8 +261,8 @@
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -284,8 +284,8 @@
         "Tier": null,
         "Activation": "Passive",
         "Slot": "Tech",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -307,8 +307,8 @@
         "Tier": "1",
         "Activation": "Passive",
         "Slot": "Tech",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -330,8 +330,8 @@
         "Tier": "2",
         "Activation": "Passive",
         "Slot": "Tech",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -353,8 +353,8 @@
         "Tier": "3",
         "Activation": "Passive",
         "Slot": "Tech",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -376,8 +376,8 @@
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Tech",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -394,12 +394,12 @@
     },
     "upgrade_clip_size": {
         "Name": "Basic Magazine",
-        "Description": null,
+        "Description": "Increases ammo.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "WeaponDamage",
             "ClipSize"
@@ -422,12 +422,12 @@
     },
     "upgrade_non_player_bonus": {
         "Name": "Monster Rounds",
-        "Description": null,
+        "Description": "Gain additional {s:NonPlayerBonusWeaponPower}% Weapon Damage when attacking Troopers, Neutrals and Bosses.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "WeaponDamage",
             "Durability",
@@ -453,12 +453,12 @@
     },
     "upgrade_ammo_scavenger": {
         "Name": "Ammo Scavenger",
-        "Description": null,
+        "Description": "Any time you secure or deny a Soul you get ammo back and gain stacking Spirit Power.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
         "Slot": "Tech",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "WeaponDamage",
             "ClipSize"
@@ -484,13 +484,13 @@
     },
     "upgrade_clip_size_fixed": {
         "Name": "Extended Magazine",
-        "Description": null,
+        "Description": "Increases ammo.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -508,13 +508,13 @@
     },
     "upgrade_clip_size_fixed_t3": {
         "Name": "Extra Large Magazine",
-        "Description": null,
+        "Description": "Greatly Increases ammo.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -532,7 +532,7 @@
     },
     "upgrade_chain_lightning": {
         "Name": "Tesla Bullets",
-        "Description": null,
+        "Description": "Your bullets have a chance to shock your target.  The shock will jump to a nearby enemy.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -576,7 +576,7 @@
         "TargetTypes": [
             "AllEnemy"
         ],
-        "ShopFilters": [],
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -606,7 +606,7 @@
     },
     "upgrade_hollow_point_rounds": {
         "Name": "Hollow Point Ward",
-        "Description": null,
+        "Description": "When you are above {s:LifeThreshold}% health, deal additional Weapon Damage.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
@@ -637,7 +637,7 @@
     },
     "upgrade_pristine_emblem": {
         "Name": "Pristine Emblem",
-        "Description": null,
+        "Description": "Your attacks have additional Weapon Damage against enemies above {s:EnemyLifeThreshold}% health.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -669,13 +669,13 @@
     },
     "upgrade_stabilizer": {
         "Name": "Stabilizer",
-        "Description": null,
+        "Description": "Removes the movement speed penalty while shooting, and increases bullet speed.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -700,7 +700,7 @@
         "Tier": "1",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "WeaponDamage"
         ],
@@ -723,7 +723,7 @@
     },
     "upgrade_lifestrike_gauntlets": {
         "Name": "Melee Lifesteal",
-        "Description": null,
+        "Description": "Your Melee attacks heal you for {s:LifestrikeHealPercent}% of the Melee Damage dealt plus {s:LifestrikeHeal}. This heal is {s:NonHeroHealPct}% effective vs non-heroes.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
@@ -757,12 +757,12 @@
     },
     "upgrade_close_range": {
         "Name": "Close Quarters",
-        "Description": null,
+        "Description": "Deal additional Weapon Damage when in close range to your target.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "WeaponDamage",
             "Durability"
@@ -786,12 +786,12 @@
     },
     "upgrade_long_range": {
         "Name": "Long Range",
-        "Description": null,
+        "Description": "Deal additional Weapon Damage when beyond a minimum distance from your target.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "WeaponDamage",
             "ClipSize"
@@ -815,7 +815,7 @@
     },
     "upgrade_slowing_bullets": {
         "Name": "Slowing Bullets",
-        "Description": null,
+        "Description": "Your bullets apply Movement Slow.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -846,7 +846,7 @@
     },
     "upgrade_inhibitor": {
         "Name": "Inhibitor",
-        "Description": null,
+        "Description": "Your bullets apply Movement Slow and reduce the target's outgoing damage on hit.",
         "Cost": "6300",
         "Tier": "4",
         "Activation": "Passive",
@@ -881,13 +881,13 @@
     },
     "upgrade_small_attack_speed": {
         "Name": "Basic Fire Rate",
-        "Description": null,
+        "Description": "Increases your Fire Rate.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -905,7 +905,7 @@
     },
     "upgrade_tech_defense_shredders": {
         "Name": "Soul Shredder Bullets",
-        "Description": null,
+        "Description": "Your bullets apply a debuff that amplifies your Spirit Damage against the target and grants you Spirit Lifesteal against them.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -937,13 +937,13 @@
     },
     "upgrade_attack_speed_1": {
         "Name": "Fire Rate",
-        "Description": null,
+        "Description": "Increases your Fire Rate.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -961,7 +961,7 @@
     },
     "upgrade_nearby_enemy_boost": {
         "Name": "Adrenaline Rush",
-        "Description": null,
+        "Description": "Gain bonus Weapon Damage and Fire Rate when there are two or more enemy heroes nearby.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -997,7 +997,7 @@
     },
     "upgrade_dps_aura": {
         "Name": "Heroic Aura",
-        "Description": null,
+        "Description": "Provides Fire Rate to nearby player minions.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "InstantCast",
@@ -1034,7 +1034,7 @@
     },
     "upgrade_armor_reduction_debuff": {
         "Name": "Armor Piercing Rounds",
-        "Description": null,
+        "Description": "Your bullets reduce the target's bullet resistance by {s:ResistReduction}% of their current value for {s:AbilityDuration}s and deal bonus damage against bullet shields.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -1066,7 +1066,7 @@
     },
     "upgrade_weapon_detention_ammo": {
         "Name": "Detention Rounds",
-        "Description": null,
+        "Description": "Your bullets build up on enemies, causing them to be tethered to their position.",
         "Cost": "6300",
         "Tier": "4",
         "Activation": "Passive",
@@ -1100,13 +1100,13 @@
     },
     "upgrade_height_advantage": {
         "Name": "Height Advantage",
-        "Description": null,
+        "Description": "Gain additional {s:HighGroundBonusWeaponPower}% Weapon Damage when attacking targets that are below you.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -1124,7 +1124,7 @@
     },
     "upgrade_targeted_silence": {
         "Name": "Silence Glyph",
-        "Description": null,
+        "Description": "Fires a projectile which silences and damages the target. Silence does not interrupt channeling abilities.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "ActivationPress",
@@ -1155,7 +1155,7 @@
     },
     "upgrade_proc_silence": {
         "Name": "EMP Bullets",
-        "Description": null,
+        "Description": "Your bullets charge up an EMP on enemy heroes that will prevent targets from using abilities. Victims are immune to emp bullets for {s:ImmunityDuration}s after application expires.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -1163,7 +1163,7 @@
         "TargetTypes": [
             "HeroEnemy"
         ],
-        "ShopFilters": [],
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -1220,7 +1220,7 @@
     },
     "upgrade_proc_disarm": {
         "Name": "Disarming Bullets",
-        "Description": null,
+        "Description": "Your bullets disarm enemies, them preventing them from shooting their weapon.  Victims are immune to disarming bullets for {s:ImmunityDuration}s after application expires.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -1228,7 +1228,7 @@
         "TargetTypes": [
             "HeroEnemy"
         ],
-        "ShopFilters": [],
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "5",
         "CastRange": "0",
@@ -1248,12 +1248,12 @@
     },
     "upgrade_berserker": {
         "Name": "Berserker",
-        "Description": null,
+        "Description": "Your Weapon Damage increases as you take sustained damage.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "WeaponDamage",
             "ClipSize",
@@ -1286,7 +1286,7 @@
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "WeaponDamage",
             "FireRate",
@@ -1353,12 +1353,12 @@
     },
     "upgrade_headshot_booster": {
         "Name": "Headshot Booster",
-        "Description": null,
+        "Description": "Deal bonus Weapon Damage with headshots.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "Durability",
             "FireRate"
@@ -1382,12 +1382,12 @@
     },
     "upgrade_sharpshooter": {
         "Name": "Sharpshooter",
-        "Description": null,
+        "Description": "Deal additional Weapon Damage when beyond a minimum distance from your target.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "WeaponDamage",
             "ClipSize"
@@ -1424,7 +1424,7 @@
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "WeaponDamage",
             "Disruption"
@@ -1451,13 +1451,13 @@
     },
     "upgrade_proc_tech_damage": {
         "Name": "Magitech Rounds",
-        "Description": null,
+        "Description": "Your bullets also deal your base bullet damage [{s:BaseDamagePerShot}]  as spirit damage.  Magitech Rounds receives {s:SpellAmplificationMultiplier}x amplification from Spirit Power. Shotguns split the damage between each pellet. This effect can only happen once every {s:ProcCooldown}s.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -1479,7 +1479,7 @@
     },
     "upgrade_crackshot": {
         "Name": "Mystic Shot",
-        "Description": null,
+        "Description": "Your next bullet deals bonus Spirit Damage.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -1513,7 +1513,7 @@
     },
     "upgrade_critshot": {
         "Name": "Lucky Shot",
-        "Description": null,
+        "Description": "Your bullets have a chance to be empowered, causing them to deal bonus damage and Slow on hit.",
         "Cost": "6300",
         "Tier": "4",
         "Activation": "Passive",
@@ -1547,7 +1547,7 @@
     },
     "upgrade_close_quarter_combat": {
         "Name": "Point Blank",
-        "Description": null,
+        "Description": "When in close range to your target, gain Weapon Damage and your bullets apply a Movement Slow.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -1585,13 +1585,13 @@
     },
     "upgrade_clip_size_2": {
         "Name": "Big Clip",
-        "Description": null,
+        "Description": "Big Increase ammo.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -1609,13 +1609,13 @@
     },
     "upgrade_clip_size_3": {
         "Name": "Extra Large Magazine",
-        "Description": null,
+        "Description": "Greatly Increases ammo.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -1633,7 +1633,7 @@
     },
     "upgrade_toxic_bullets": {
         "Name": "Toxic Bullets",
-        "Description": null,
+        "Description": "Your bullets build up a Bleed on enemies, causing them to lose a percentage of their current health over time. Also applies Healing Reduction on the bleeding target.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -1671,13 +1671,13 @@
     },
     "upgrade_attack_speed_2": {
         "Name": "Improved Fire Rate",
-        "Description": null,
+        "Description": "Increases your Fire Rate.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -1695,13 +1695,13 @@
     },
     "upgrade_drum_magazine": {
         "Name": "Drum Magazine",
-        "Description": null,
+        "Description": "Provides a large ammo bonus, and increased reload speed",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -1720,7 +1720,7 @@
     },
     "upgrade_ricochet": {
         "Name": "Ricochet",
-        "Description": null,
+        "Description": "Your bullets will ricochet on enemies near your target, applying any bullet procs and dealing a percentage of the original damage.",
         "Cost": "6300",
         "Tier": "4",
         "Activation": "Passive",
@@ -1757,12 +1757,12 @@
     },
     "upgrade_health": {
         "Name": "Extra Health",
-        "Description": null,
+        "Description": "Increase health.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
         "Slot": "Armor",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "WeaponDamage",
             "Durability"
@@ -1785,13 +1785,13 @@
     },
     "upgrade_toughness_3": {
         "Name": "Toughness",
-        "Description": null,
+        "Description": "Increases Health and health regen.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
         "Slot": "Armor",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -1810,12 +1810,12 @@
     },
     "upgrade_bullet_armor": {
         "Name": "Bullet Armor",
-        "Description": null,
+        "Description": "Decreases damage taken from bullets.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
         "Slot": "Armor",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "WeaponDamage",
             "Durability"
@@ -1838,12 +1838,12 @@
     },
     "upgrade_tech_armor": {
         "Name": "Spirit Armor",
-        "Description": null,
+        "Description": "Reduces the damage you take from Spirit abilities.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
         "Slot": "Armor",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "MagicDamage",
             "Durability"
@@ -1865,13 +1865,13 @@
     },
     "upgrade_health_regen_1": {
         "Name": "Health Regen",
-        "Description": null,
+        "Description": "Increases health regen.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
         "Slot": "Armor",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -1889,12 +1889,12 @@
     },
     "upgrade_vampire": {
         "Name": "Bullet Lifesteal",
-        "Description": null,
+        "Description": "Your bullets heal you for a percentage of the damage they deal to enemies. Half as effective vs Non-Heroes.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
         "Slot": "Armor",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "Durability",
             "Healing"
@@ -1917,13 +1917,13 @@
     },
     "upgrade_double_jump": {
         "Name": "Double-Jump",
-        "Description": null,
+        "Description": "Allows you to perform an additional jump in mid-air.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
         "Slot": "Armor",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "8",
         "Duration": "0",
         "CastRange": "0",
@@ -1943,7 +1943,7 @@
     },
     "upgrade_health_regen_aura": {
         "Name": "Healing Aura",
-        "Description": null,
+        "Description": "Automatically provides a burst of healing to yourself and nearby friendlies every {s:HealInterval} seconds.  <br>Effect does not stack.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -1951,7 +1951,7 @@
         "TargetTypes": [
             "AllFriendly"
         ],
-        "ShopFilters": [],
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -1971,7 +1971,7 @@
     },
     "upgrade_combo_breaker": {
         "Name": "Combo Breaker",
-        "Description": null,
+        "Description": "Remove all debuffs and heal yourself. <br>Can be used while stunned.",
         "Cost": "6300",
         "Tier": "4",
         "Activation": "InstantCast",
@@ -1979,7 +1979,7 @@
         "TargetTypes": [
             "AllFriendly"
         ],
-        "ShopFilters": [],
+        "ShopFilters": null,
         "Cooldown": "22",
         "Duration": "0",
         "CastRange": "0",
@@ -2000,12 +2000,12 @@
     },
     "upgrade_debuff_reducer": {
         "Name": "Debuff Reducer",
-        "Description": null,
+        "Description": "Reduces the duration of all negative effects applied to you.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
         "Slot": "Armor",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "WeaponDamage"
         ],
@@ -2028,12 +2028,12 @@
     },
     "upgrade_reduce_debuff_duration": {
         "Name": "Debuff Remover",
-        "Description": null,
+        "Description": "Reduces the duration of all negative effects applied to you.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "InstantCast",
         "Slot": "Armor",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "WeaponDamage"
         ],
@@ -2061,13 +2061,13 @@
     },
     "upgrade_high_impact_armor": {
         "Name": "High Impact Armor",
-        "Description": null,
+        "Description": "Provides protection against high-damage bullets. Any bullet damage portion above the threshold is reduced by {s:DamageReduction}%.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
         "Slot": "Armor",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -2086,13 +2086,13 @@
     },
     "upgrade_slow_immunity": {
         "Name": "Unstoppable - Deprecated",
-        "Description": null,
+        "Description": "Purges any roots and chains on use and makes you immune to slows for the duration",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "InstantCast",
         "Slot": "Armor",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "30",
         "Duration": "6",
         "CastRange": "0",
@@ -2109,13 +2109,13 @@
     },
     "upgrade_bullet_armor_2": {
         "Name": "Improved Bullet Armor",
-        "Description": null,
+        "Description": "Decreases damage taken from bullets.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
         "Slot": "Armor",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -2133,13 +2133,13 @@
     },
     "upgrade_weapon_power_and_health_drain": {
         "Name": "Overdrive",
-        "Description": null,
+        "Description": "Increase your Courage while draining your own health.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "InstantCast",
         "Slot": "Armor",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "11",
         "Duration": "4",
         "CastRange": "0",
@@ -2159,7 +2159,7 @@
     },
     "upgrade_active_bullet_shield": {
         "Name": "Shield Rush",
-        "Description": null,
+        "Description": "Give temporary bullet shield for you and nearby allied Heros and their minions.",
         "Cost": "6300",
         "Tier": "4",
         "Activation": "InstantCast",
@@ -2168,7 +2168,7 @@
             "HeroFriendly",
             "MinionFriendly"
         ],
-        "ShopFilters": [],
+        "ShopFilters": null,
         "Cooldown": "60",
         "Duration": "15",
         "CastRange": "25m",
@@ -2189,13 +2189,13 @@
     },
     "upgrade_ablative_coat": {
         "Name": "Ablative Coat",
-        "Description": null,
+        "Description": "Provides Bullet Resist but you lose some each time you take Weapon Damage. Loss can only happen once every {s:StackLossFrequency}s. Bullet Resist is restored when out of combat.",
         "Cost": "6300",
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Armor",
         "TargetTypes": [],
-        "ShopFilters": [],
+        "ShopFilters": null,
         "Cooldown": "20",
         "Duration": "0",
         "CastRange": "0",
@@ -2222,7 +2222,7 @@
         "Tier": "3",
         "Activation": "Passive",
         "Slot": "Armor",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "MagicDamage",
             "Durability"
@@ -2247,12 +2247,12 @@
     },
     "upgrade_improved_bullet_armor": {
         "Name": "Improved Bullet Armor",
-        "Description": null,
+        "Description": "Decreases damage taken from bullets.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
         "Slot": "Armor",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "WeaponDamage",
             "Durability"
@@ -2278,12 +2278,12 @@
     },
     "upgrade_metal_skin": {
         "Name": "Metal Skin",
-        "Description": null,
+        "Description": "Become immune to bullets and melee attacks.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "InstantCast",
         "Slot": "Armor",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "Durability",
             "FireRate"
@@ -2306,12 +2306,12 @@
     },
     "upgrade_healing_booster": {
         "Name": "Healing Booster",
-        "Description": null,
+        "Description": "Increases the effectiveness of your Healing by {s:HealAmpRegenPercent}%.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
         "Slot": "Armor",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "Healing"
         ],
@@ -2336,12 +2336,12 @@
     },
     "upgrade_chonky": {
         "Name": "Fortitude",
-        "Description": null,
+        "Description": "After not taking damage for {s:RestoreDelay}s, gain {s:HealLifePercentOutOfCombat}% Max Health Regen.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
         "Slot": "Armor",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "WeaponDamage",
             "Durability",
@@ -2370,12 +2370,12 @@
     },
     "upgrade_damage_recycler": {
         "Name": "Leech",
-        "Description": null,
+        "Description": "Reduces the effect of enemy applied healing reduction.",
         "Cost": "6300",
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Armor",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "MagicDamage",
             "Healing"
@@ -2401,7 +2401,7 @@
     },
     "upgrade_bullet_damage_reduction_aura": {
         "Name": "Weapon Jammer",
-        "Description": null,
+        "Description": "Reduces the Fire Rate of all nearby enemies.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -2411,7 +2411,7 @@
             "CreepEnemy",
             "MinionEnemy"
         ],
-        "ShopFilters": [],
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -2430,12 +2430,12 @@
     },
     "upgrade_sprint_booster": {
         "Name": "Sprint Boots",
-        "Description": null,
+        "Description": "Increases your forward movement speed over time. Taking damage resets the effect for 1.5s",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
         "Slot": "Armor",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "WeaponDamage",
             "Healing",
@@ -2460,12 +2460,12 @@
     },
     "upgrade_cardio_calibrator": {
         "Name": "Enduring Speed",
-        "Description": null,
+        "Description": "Reduces the effect of enemy Movement Slow.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
         "Slot": "Armor",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "Movement",
             "Durability"
@@ -2499,7 +2499,7 @@
         "Tier": "3",
         "Activation": "Passive",
         "Slot": "Armor",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "MagicDamage",
             "Movement",
@@ -2533,7 +2533,7 @@
         "Tier": "1",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "FireRate",
             "Movement"
@@ -2562,7 +2562,7 @@
         "Tier": "1",
         "Activation": "Passive",
         "Slot": "Armor",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "FireRate",
             "Movement"
@@ -2586,7 +2586,7 @@
     },
     "upgrade_bullet_armor_reduction_aura": {
         "Name": "Hunter's Aura",
-        "Description": null,
+        "Description": "Reduces nearby enemies' Bullet Resist and Fire Rate. If there is only one enemy hero nearby, this effect is tripled.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -2622,13 +2622,13 @@
     },
     "upgrade_camouflage": {
         "Name": "Camouflage Suit",
-        "Description": null,
+        "Description": "Go invisible and maintain invisibility by not moving or attacking.  Taking damage will not reveal the Hero.  Bonus Regen while Invisible.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "InstantCast",
         "Slot": "Armor",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "10",
         "Duration": "0",
         "CastRange": "0",
@@ -2654,13 +2654,13 @@
     },
     "upgrade_regenerative_armor": {
         "Name": "Regenerative Armor",
-        "Description": null,
+        "Description": "Gain a short burst of health regeneration when taking bullet damage from heroes",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
         "Slot": "Armor",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "5",
         "CastRange": "0",
@@ -2678,12 +2678,12 @@
     },
     "upgrade_regenerating_bullet_shield": {
         "Name": "Combat Barrier",
-        "Description": null,
+        "Description": "While you have a Bullet Shield, gain Weapon Damage.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
         "Slot": "Armor",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "WeaponDamage",
             "Durability"
@@ -2706,12 +2706,12 @@
     },
     "upgrade_magic_shield": {
         "Name": "Enchanter's Barrier",
-        "Description": null,
+        "Description": "While you have a Spirit Shield, gain bonus Spirit Power.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
         "Slot": "Armor",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "MagicDamage",
             "Durability"
@@ -2739,7 +2739,7 @@
         "Tier": "1",
         "Activation": "Passive",
         "Slot": "Tech",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "MagicDamage",
             "Healing"
@@ -2767,7 +2767,7 @@
         "Tier": "3",
         "Activation": "Passive",
         "Slot": "Tech",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "Movement",
             "MagicDamage"
@@ -2794,7 +2794,7 @@
     },
     "upgrade_tech_overflow": {
         "Name": "Spiritual Overflow",
-        "Description": null,
+        "Description": "Gain bonus Spirit Power by charging up with your bullets on enemy heroes.",
         "Cost": "6300",
         "Tier": "4",
         "Activation": "Passive",
@@ -2828,12 +2828,12 @@
     },
     "upgrade_return_fire": {
         "Name": "Return Fire",
-        "Description": null,
+        "Description": "Automatically fire a bullet towards any attacker who damages you with their abilities or weapon.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "InstantCast",
         "Slot": "Armor",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "Durability",
             "MagicDamage",
@@ -2859,12 +2859,12 @@
     },
     "upgrade_tech_range": {
         "Name": "Improved Reach",
-        "Description": null,
+        "Description": "Increases the range and effect radius of your abilities and items.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
         "Slot": "Tech",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "MagicDamage"
         ],
@@ -2892,13 +2892,13 @@
     },
     "upgrade_magic_reach": {
         "Name": "Mystic Reach",
-        "Description": null,
+        "Description": "Increases the range and effect radius of your abilities and items.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
         "Slot": "Tech",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -2918,12 +2918,12 @@
     },
     "upgrade_extra_charge": {
         "Name": "Extra Charge",
-        "Description": null,
+        "Description": "Adds one to your ability max charges.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
         "Slot": "Tech",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "MagicDamage"
         ],
@@ -2947,12 +2947,12 @@
     },
     "upgrade_health_stealing_magic": {
         "Name": "Spirit Lifesteal",
-        "Description": null,
+        "Description": "Your spirit items and abilities heal you for a percentage of the damage they deal. Heals for less on Non-Heroes and does not work on buildings.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
         "Slot": "Armor",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "MagicDamage",
             "Healing",
@@ -2977,7 +2977,7 @@
     },
     "upgrade_disarm": {
         "Name": "Drain Will",
-        "Description": null,
+        "Description": "Fires a projectile which reduces the Fire Rate of the target and steals Spirit.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "ActivationPress",
@@ -3009,7 +3009,7 @@
     },
     "upgrade_bullet_resist_shredder": {
         "Name": "Bullet Resist Shredder",
-        "Description": null,
+        "Description": "Reduces Bullet Resist on enemies when you deal Spirit Damage.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -3042,7 +3042,7 @@
     },
     "upgrade_tech_bleed": {
         "Name": "Mystic Reverb",
-        "Description": null,
+        "Description": "Imbue an ability to apply slow in a radius around the target and deal an additional percentage of the damage dealt to enemies around the target after a short delay.",
         "Cost": "6300",
         "Tier": "4",
         "Activation": "Passive",
@@ -3079,7 +3079,7 @@
     },
     "upgrade_magic_burst": {
         "Name": "Mystic Burst",
-        "Description": null,
+        "Description": "Abilities deal bonus Spirit Damage if they deal {s:MinimumDamage} damage or more in a single hit.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
@@ -3111,7 +3111,7 @@
     },
     "upgrade_magic_shock": {
         "Name": "Improved Burst",
-        "Description": null,
+        "Description": "Abilities deal bonus Spirit Damage if they deal {s:MinimumDamage} damage or more in a single hit.<br/>Targets are immune to the effects of Improved Burst for {s:ReProcLockoutTime}s after taking damage from it.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -3147,7 +3147,7 @@
     },
     "upgrade_arcane_medallion": {
         "Name": "Arcane Medallion",
-        "Description": null,
+        "Description": "Whenever you deal {s:MinimumDamage} Spirit damage or more in a single hit against an enemy hero, gain temporary Spirit Power.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -3155,7 +3155,7 @@
         "TargetTypes": [
             "HeroEnemy"
         ],
-        "ShopFilters": [],
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "12",
         "CastRange": "0",
@@ -3173,7 +3173,7 @@
     },
     "upgrade_magic_vulnerability": {
         "Name": "Mystic Vulnerability",
-        "Description": null,
+        "Description": "When the target takes Spirit Damage, they have their Spirit Resist reduced.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -3203,7 +3203,7 @@
     },
     "upgrade_healbane": {
         "Name": "Healbane",
-        "Description": null,
+        "Description": "Your Spirit Damage applies Healing Reduction. If an enemy hero dies under this effect, you receive a large heal.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -3236,7 +3236,7 @@
     },
     "upgrade_magic_slow": {
         "Name": "Mystic Slow",
-        "Description": null,
+        "Description": "When the target takes Spirit Damage, they have their Movement Speed and Fire Rate reduced.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -3270,7 +3270,7 @@
     },
     "upgrade_escalating_exposure": {
         "Name": "Escalating Exposure",
-        "Description": null,
+        "Description": "Dealing Spirit Damage applies a stacking Spirit Amp that increases your Spirit Damage to the target.",
         "Cost": "6300",
         "Tier": "4",
         "Activation": "Passive",
@@ -3311,8 +3311,8 @@
         "Tier": "3",
         "Activation": "Passive",
         "Slot": "Tech",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -3335,12 +3335,12 @@
     },
     "upgrade_magic_tempo": {
         "Name": "Improved Cooldown",
-        "Description": null,
+        "Description": "Reduces the Cooldown of your abilities and items.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
         "Slot": "Tech",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "Healing"
         ],
@@ -3362,12 +3362,12 @@
     },
     "upgrade_cooldown_reduction": {
         "Name": "Superior Cooldown",
-        "Description": null,
+        "Description": "Reduces the Cooldown of your abilities and items.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
         "Slot": "Tech",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "Healing"
         ],
@@ -3393,12 +3393,12 @@
     },
     "upgrade_duration_extender": {
         "Name": "[Deprecated] Duration Extender",
-        "Description": null,
+        "Description": "Increases Duration of your abilities and items by {s:NonImbuedBonusDuration}%.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
         "Slot": "Tech",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "Durability"
         ],
@@ -3419,7 +3419,7 @@
     },
     "upgrade_slowing_tech": {
         "Name": "Slowing Spirit",
-        "Description": null,
+        "Description": "Dealing Spirit Damage applies Movement Slows to your target.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
@@ -3428,7 +3428,7 @@
             "HeroEnemy",
             "CreepEnemy"
         ],
-        "ShopFilters": [],
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -3447,7 +3447,7 @@
     },
     "upgrade_containment": {
         "Name": "Slowing Hex",
-        "Description": null,
+        "Description": "Deals Spirit Damage and Slows targets movement and dashes. Also Silences their movement-based items and abilities.<br>Does not affect target's stamina usage.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "ActivationPress",
@@ -3480,7 +3480,7 @@
     },
     "upgrade_withering_whip": {
         "Name": "Withering Whip",
-        "Description": null,
+        "Description": "Target an enemy to apply Fire Rate Slow and reduce their Bullet Resist.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "ActivationPress",
@@ -3513,7 +3513,7 @@
     },
     "upgrade_rescue_beam": {
         "Name": "Rescue Beam",
-        "Description": null,
+        "Description": "Heals a target allied hero and yourself for a percentage of Max Health. Once while healing, you can Pull the target towards you. Can be self-cast.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "ActivationPress",
@@ -3552,13 +3552,13 @@
     },
     "upgrade_personal_rejuvenator": {
         "Name": "Rebirth",
-        "Description": null,
+        "Description": "Respawns the hero at the spot they died.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
         "Slot": "Tech",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "480",
         "Duration": "0",
         "CastRange": "0",
@@ -3582,8 +3582,8 @@
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Armor",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "200",
         "Duration": "0",
         "CastRange": "0",
@@ -3604,7 +3604,7 @@
     },
     "upgrade_long_range_slowing_tech": {
         "Name": "Omni Spirit",
-        "Description": null,
+        "Description": "Applies a movement slow to enemies when dealing spirit damage.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -3613,7 +3613,7 @@
             "HeroEnemy",
             "CreepEnemy"
         ],
-        "ShopFilters": [],
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -3642,7 +3642,7 @@
         "TargetTypes": [
             "AllEnemy"
         ],
-        "ShopFilters": [],
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -3664,13 +3664,13 @@
     },
     "upgrade_tech_cleave": {
         "Name": "Quantum Chimaera",
-        "Description": null,
+        "Description": "Your Tech attacks strike additional nearby enemies for 75% of the total damage.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
         "Slot": "Tech",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -3690,13 +3690,13 @@
     },
     "upgrade_bonus_ability_charge_3": {
         "Name": "Hyper Charge",
-        "Description": null,
+        "Description": "+{s:BonusAbilityCharges} to your max ability charges.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
         "Slot": "Tech",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -3719,8 +3719,8 @@
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Tech",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -3741,7 +3741,7 @@
     },
     "upgrade_rupture": {
         "Name": "Decay",
-        "Description": null,
+        "Description": "Reduces healing received of targeted enemy and inflicts damage over time of their current health.<br>Decay's damage is non-lethal.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "ActivationPress",
@@ -3773,7 +3773,7 @@
     },
     "upgrade_discord": {
         "Name": "Discord",
-        "Description": null,
+        "Description": "Apply an aura around enemy or friendly target that damages enemies in the radius and suppresses their healing by {s:HealAmpReceivePenaltyPercent}%. If cast on a friendly, it also heals them.",
         "Cost": "6300",
         "Tier": "4",
         "Activation": "ActivationPress",
@@ -3781,7 +3781,7 @@
         "TargetTypes": [
             "Hero"
         ],
-        "ShopFilters": [],
+        "ShopFilters": null,
         "Cooldown": "30",
         "Duration": "10",
         "CastRange": "25m",
@@ -3803,7 +3803,7 @@
     },
     "upgrade_aoe_tech_shield": {
         "Name": "Spirit Barrier Pulse",
-        "Description": null,
+        "Description": "Temporarily gain spirit barrier for you and all nearby allied units.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "InstantCast",
@@ -3811,7 +3811,7 @@
         "TargetTypes": [
             "AllFriendly"
         ],
-        "ShopFilters": [],
+        "ShopFilters": null,
         "Cooldown": "30",
         "Duration": "16",
         "CastRange": "0",
@@ -3830,7 +3830,7 @@
     },
     "upgrade_target_stun": {
         "Name": "Knockdown",
-        "Description": null,
+        "Description": "Target is knocked down and Stunned after a {s:StunDelay}s delay, interrupting and temporarily preventing them from taking any action.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "ActivationPress",
@@ -3864,7 +3864,7 @@
     },
     "upgrade_phantom_strike": {
         "Name": "Phantom Strike",
-        "Description": null,
+        "Description": "Teleport to an enemy target, applying Disarm, Slow, and dealing damage.",
         "Cost": "6300",
         "Tier": "4",
         "Activation": "ActivationPress",
@@ -3899,12 +3899,12 @@
     },
     "upgrade_warp_stone": {
         "Name": "Warp Stone",
-        "Description": null,
+        "Description": "Teleport straight ahead, gaining Bullet Resist.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "InstantCast",
         "Slot": "Weapon",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "WeaponDamage",
             "Movement"
@@ -3936,7 +3936,7 @@
         "TargetTypes": [
             "AllEnemy"
         ],
-        "ShopFilters": [],
+        "ShopFilters": null,
         "Cooldown": "40",
         "Duration": "0",
         "CastRange": "0",
@@ -3958,13 +3958,13 @@
     },
     "upgrade_ability_refresher": {
         "Name": "Refresher",
-        "Description": null,
+        "Description": "Reset the cooldown of all your abilities and restore all your charges.",
         "Cost": "6300",
         "Tier": "4",
         "Activation": "InstantCast",
         "Slot": "Tech",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "200",
         "Duration": "0",
         "CastRange": "0",
@@ -3987,7 +3987,7 @@
         "Tier": "4",
         "Activation": "InstantCast",
         "Slot": "Tech",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "Movement",
             "MagicDamage"
@@ -4010,7 +4010,7 @@
     },
     "upgrade_tech_damage_pulse": {
         "Name": "Torment Pulse",
-        "Description": null,
+        "Description": "Periodically deals Spirit Damage to the closest two enemies nearby.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -4049,7 +4049,7 @@
         "TargetTypes": [
             "AllEnemy"
         ],
-        "ShopFilters": [],
+        "ShopFilters": null,
         "Cooldown": "150",
         "Duration": "0",
         "CastRange": "0",
@@ -4073,13 +4073,13 @@
     },
     "upgrade_reload_speed": {
         "Name": "Fast Reload",
-        "Description": null,
+        "Description": "Increased reload speed.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -4097,13 +4097,13 @@
     },
     "upgrade_cloaking_device": {
         "Name": "Cloaking Device",
-        "Description": null,
+        "Description": "Become invisible. Nearby enemies will temporaily reveal the hero.  Attacking or taking damage will remove the invisibility for {s:AbilityCooldown}s.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
         "Slot": "Armor",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "10",
         "Duration": "0",
         "CastRange": "0",
@@ -4128,12 +4128,12 @@
     },
     "upgrade_cloaking_device_active": {
         "Name": "Shadow Weave",
-        "Description": null,
+        "Description": "Become Stealthed. Whenever you take damage while Stealthed you get briefly revealed.",
         "Cost": "6300",
         "Tier": "4",
         "Activation": "InstantCast",
         "Slot": "Armor",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "MagicDamage",
             "FireRate",
@@ -4169,13 +4169,13 @@
     },
     "upgrade_zipine_mastery": {
         "Name": "Zip Line Mastery",
-        "Description": null,
+        "Description": "Zip line speed accelerates and allows you to use neutral zip lines and capture them while zip lining.  Provides a movement speed bonus when jumping off a zip line whose duration increases the longer you are on the zip line.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
         "Slot": "Armor",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -4196,7 +4196,7 @@
     },
     "upgrade_fire_rate_aura": {
         "Name": "Fire Rate Aura",
-        "Description": null,
+        "Description": "Provides a Fire Rate increase to you and nearby teammates.  Different bonus to non-Heroes",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -4204,7 +4204,7 @@
         "TargetTypes": [
             "AllFriendly"
         ],
-        "ShopFilters": [],
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -4224,13 +4224,13 @@
     },
     "upgrade_weapon_overdrive_clip": {
         "Name": "Overdrive Clip",
-        "Description": null,
+        "Description": "Deal non-lethal damage based on your max health to yourself and reload bullets in your clip equal to your max ammo, no matter how many bullets are left.  The bullets in this clip have additional courage.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "InstantCast",
         "Slot": "Weapon",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "50",
         "Duration": "0",
         "CastRange": "0",
@@ -4251,12 +4251,12 @@
     },
     "upgrade_rocket_boots": {
         "Name": "Majestic Leap - Disabled",
-        "Description": null,
+        "Description": "Launch yourself high into the air. Cannot be used for {s:InteruptCooldown}s if damaged by enemy Hero.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "InstantCast",
         "Slot": "Armor",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "MagicDamage",
             "Movement"
@@ -4281,7 +4281,7 @@
     },
     "upgrade_rocket_booster": {
         "Name": "Majestic Leap",
-        "Description": null,
+        "Description": "Launch yourself high into the air. While in the air, you can use the active again to drop down faster.<br>Cannot be used for {s:InteruptCooldown}s if attacked by enemy Hero.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "InstantCast",
@@ -4329,7 +4329,7 @@
         "TargetTypes": [
             "AllEnemy"
         ],
-        "ShopFilters": [],
+        "ShopFilters": null,
         "Cooldown": "25",
         "Duration": "0",
         "CastRange": "0",
@@ -4354,7 +4354,7 @@
     },
     "upgrade_health_nova": {
         "Name": "Health Nova",
-        "Description": null,
+        "Description": "Heal yourself and nearby allies. Heals an additional {s:HeroTargetBonus}% per ally.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "InstantCast",
@@ -4419,7 +4419,7 @@
     },
     "upgrade_health_stimpak": {
         "Name": "Healing Rite",
-        "Description": null,
+        "Description": "Grant Regen and Sprint Speed to the target. Gets dispelled if you take damage from enemy players or objectives. Can be self-cast.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "ActivationPress",
@@ -4450,12 +4450,12 @@
     },
     "upgrade_infuser": {
         "Name": "Infuser",
-        "Description": null,
+        "Description": "Gain Spirit Power and Spirit Lifesteal.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "InstantCast",
         "Slot": "Tech",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "MagicDamage"
         ],
@@ -4479,7 +4479,7 @@
     },
     "upgrade_savior": {
         "Name": "Divine Barrier",
-        "Description": null,
+        "Description": "Provide the target with Bullet Shield, Spirit Shield, and Movement Speed. Can be self-cast.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "ActivationPress",
@@ -4513,7 +4513,7 @@
     },
     "upgrade_aoe_smoke_bomb": {
         "Name": "Smoke",
-        "Description": null,
+        "Description": "Give you and teammates invisibility and a movement speed bonus.  Attacking or taking damage will remove the invisibility.<br>Cast delay: {s:AbilityCastDelay}s.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "InstantCast",
@@ -4521,7 +4521,7 @@
         "TargetTypes": [
             "HeroFriendly"
         ],
-        "ShopFilters": [],
+        "ShopFilters": null,
         "Cooldown": "60",
         "Duration": "25",
         "CastRange": "0",
@@ -4547,7 +4547,7 @@
     },
     "upgrade_thermal_detonator": {
         "Name": "Alchemical Fire",
-        "Description": null,
+        "Description": "Throw a flask that explodes on contact, creating an area that does increasing Spirit Damage per second and causes enemies to receive additional Weapon Damage from your team.<br><br>Deals {s:NonHeroReductionPercent}% less DPS vs non-heroes.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "ActivationPress",
@@ -4590,7 +4590,7 @@
         "Tier": "2",
         "Activation": "InstantCast",
         "Slot": "Weapon",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "ClipSize",
             "Movement"
@@ -4618,12 +4618,12 @@
     },
     "upgrade_kinetic_sash": {
         "Name": "Kinetic Dash",
-        "Description": null,
+        "Description": "Your next Dash-Jump does not cost an extra stamina and you gain Fire Rate and bonus Ammo until your next reload. Lasts up to {s:AbilityDuration}s.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "FireRate",
             "ClipSize",
@@ -4650,13 +4650,13 @@
     },
     "upgrade_weapon_eater": {
         "Name": "Weapon Eater",
-        "Description": null,
+        "Description": "Reduces Courage by {s:BaseBonusCounter}. <br>Gain {s:WeaponPowerPerKill} Courage (Up to {s:MaxWeaponPower}) for killing an enemy Hero but lose {s:WeaponPowerPerDeath} gained Courage on Death. Bonus applied if damage was done within {s:KillWindow}s of enemy killed.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -4678,13 +4678,13 @@
     },
     "upgrade_weapon_instant_reload": {
         "Name": "Reloader + Huge Clip",
-        "Description": null,
+        "Description": "Press the [Reload] key while reloading to instantly finish your reload",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "20",
         "Duration": "0",
         "CastRange": "0",
@@ -4707,8 +4707,8 @@
         "Tier": "4",
         "Activation": "InstantCast",
         "Slot": "Armor",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "90",
         "Duration": "6",
         "CastRange": "0",
@@ -4727,12 +4727,12 @@
     },
     "upgrade_unstoppable": {
         "Name": "Unstoppable",
-        "Description": null,
+        "Description": "Suppress negative status effects and become Immune to Stun, Silence, Sleep, Root, and Disarm.",
         "Cost": "6300",
         "Tier": "4",
         "Activation": "InstantCast",
         "Slot": "Armor",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "Durability",
             "Movement"
@@ -4757,12 +4757,12 @@
     },
     "upgrade_colossus": {
         "Name": "Colossus",
-        "Description": null,
+        "Description": "Gain Bullet and Spirit Resist, and slow the movement and dash speed of enemies nearby. Your model size grows by 20%.",
         "Cost": "6300",
         "Tier": "4",
         "Activation": "InstantCast",
         "Slot": "Armor",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "Durability"
         ],
@@ -4791,7 +4791,7 @@
     },
     "upgrade_cold_front": {
         "Name": "Cold Front",
-        "Description": null,
+        "Description": "Release an expanding ice blast that deals Spirit Damage and Slows targets it hits.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "InstantCast",
@@ -4826,7 +4826,7 @@
     },
     "upgrade_aoe_silence": {
         "Name": "EMP Grenade",
-        "Description": null,
+        "Description": "Throw a grenade that silences enemies and lowers their spirit resistance.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "ActivationPress",
@@ -4859,12 +4859,12 @@
     },
     "upgrade_self_bubble": {
         "Name": "Ethereal Shift",
-        "Description": null,
+        "Description": "You enter a void state and become untargetable and invincible for a short duration, during which you cannot move or perform any actions. Afterwards you instantly reload and gain bonus Spirit Power.<br>Press [{s:in_mantle}] to cancel early.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "InstantCast",
         "Slot": "Tech",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "FireRate"
         ],
@@ -4894,8 +4894,8 @@
         "Tier": "4",
         "Activation": "InstantCast",
         "Slot": "Armor",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "35",
         "Duration": "6",
         "CastRange": "20m",
@@ -4926,7 +4926,7 @@
     },
     "upgrade_quarantine": {
         "Name": "Quarantine",
-        "Description": null,
+        "Description": "Quarantine an enemy Hero, making them invincible but also silencing and disarming them.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "ActivationPress",
@@ -4934,7 +4934,7 @@
         "TargetTypes": [
             "HeroEnemy"
         ],
-        "ShopFilters": [],
+        "ShopFilters": null,
         "Cooldown": "40",
         "Duration": "4.5",
         "CastRange": "30m",
@@ -4951,7 +4951,7 @@
     },
     "upgrade_glitch": {
         "Name": "Curse",
-        "Description": null,
+        "Description": "Curses an enemy - interrupting, Silencing, Disarming, and preventing item usage.",
         "Cost": "6300",
         "Tier": "4",
         "Activation": "ActivationPress",
@@ -4990,7 +4990,7 @@
         "TargetTypes": [
             "AllEnemy"
         ],
-        "ShopFilters": [],
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -5012,13 +5012,13 @@
     },
     "upgrade_arcane_extension": {
         "Name": "Duration Extender",
-        "Description": null,
+        "Description": "Increases the Duration of your abilities and items.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
         "Slot": "Tech",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -5038,7 +5038,7 @@
     },
     "upgrade_imbued_duration_extender": {
         "Name": "Superior Duration",
-        "Description": null,
+        "Description": "Increases the duration of your abilities and items.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -5046,7 +5046,7 @@
         "TargetTypes": [
             "AllEnemy"
         ],
-        "ShopFilters": [],
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -5071,12 +5071,12 @@
     },
     "upgrade_glass_cannon": {
         "Name": "Glass Cannon",
-        "Description": null,
+        "Description": "Each hero kill grants permanent Weapon Damage (up to a max of {s:MaxStacks} times).  Death results in the loss of 1 stack.",
         "Cost": "6300",
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "WeaponDamage",
             "ClipSize",
@@ -5142,7 +5142,7 @@
     },
     "upgrade_mod_disruptor": {
         "Name": "Soul Disruptor",
-        "Description": null,
+        "Description": "Throw a grenade that explodes on contact and applies silence and increasing amounts of damage to each enemy.",
         "Cost": "6300",
         "Tier": "4",
         "Activation": "ActivationPress",
@@ -5150,7 +5150,7 @@
         "TargetTypes": [
             "AllEnemy"
         ],
-        "ShopFilters": [],
+        "ShopFilters": null,
         "Cooldown": "30",
         "Duration": "5",
         "CastRange": "0",
@@ -5178,8 +5178,8 @@
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Armor",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -5203,7 +5203,7 @@
     },
     "upgrade_burst_fire_actuator": {
         "Name": "Burst Fire Actuator",
-        "Description": null,
+        "Description": "Your weapon  fires an additional percentage of your gun's starting clip as a burst.  If all bullets in a burst connect with an enemy Hero, gain temporary Base Bullet Damage for the rest of the clip.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -5211,7 +5211,7 @@
         "TargetTypes": [
             "HeroEnemy"
         ],
-        "ShopFilters": [],
+        "ShopFilters": null,
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -5237,7 +5237,7 @@
     },
     "upgrade_boxing_glove": {
         "Name": "Lifestrike",
-        "Description": null,
+        "Description": "Your Melee Attack applies Movement Slow and heals you for {s:LifestealHealPercent}% of the Melee Damage dealt plus {s:LifestealHeal}. This heal is {s:NonHeroHealPct}% effective vs non-heroes.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -5277,7 +5277,7 @@
     },
     "upgrade_acolytes_glove": {
         "Name": "Spirit Strike",
-        "Description": null,
+        "Description": "When you perform a Light or Heavy Melee attack against a hero, deal extra Spirit Damage with the attack and reduce the target's Spirit Resist.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
@@ -5310,7 +5310,7 @@
     },
     "upgrade_melee_charge": {
         "Name": "Melee Charge",
-        "Description": null,
+        "Description": "Increases your Heavy Melee charge distance. When you perform a Heavy Melee attack against an enemy, your weapon reloads instantly.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -5343,7 +5343,7 @@
     },
     "upgrade_charmed_wraps": {
         "Name": "Charmed Wraps",
-        "Description": null,
+        "Description": "Your abilities get their cooldowns reduced when you perform a heavy melee attack against a hero (or two light melee attacks within {s:LightMeleeTimeWindow}s).",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -5351,7 +5351,7 @@
         "TargetTypes": [
             "HeroEnemy"
         ],
-        "ShopFilters": [],
+        "ShopFilters": null,
         "Cooldown": "25",
         "Duration": "0",
         "CastRange": "0",
@@ -5370,12 +5370,12 @@
     },
     "upgrade_belt_fed_magazine": {
         "Name": "Belt-Fed Magazine",
-        "Description": null,
+        "Description": "Your weapon gains a much larger magazine that requires spin-up time, starting with a slower initial fire rate and becoming faster over the spin-up time.",
         "Cost": "6300",
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "FireRate",
             "ClipSize"
@@ -5402,12 +5402,12 @@
     },
     "upgrade_diviners_kevlar": {
         "Name": "Diviner's Kevlar",
-        "Description": null,
+        "Description": "Upon casting an ultimate ability gain temporary Bullet Shield, Spirit Shield, and Spirit Power.",
         "Cost": "6300",
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Tech",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "MagicDamage",
             "Durability",
@@ -5434,7 +5434,7 @@
     },
     "upgrade_stabilizing_tripod": {
         "Name": "Stabilizing Tripod",
-        "Description": null,
+        "Description": "Disarm yourself to toss your weapon to the target location where it transforms into a Field Sentry that will attack enemies using your weapon with an unlimited clip.  You can melee the sentry to end the effect early.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "ActivationPress",
@@ -5442,7 +5442,7 @@
         "TargetTypes": [
             "AllEnemy"
         ],
-        "ShopFilters": [],
+        "ShopFilters": null,
         "Cooldown": "60",
         "Duration": "20",
         "CastRange": "15m",
@@ -5476,7 +5476,7 @@
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Tech",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "MagicDamage",
             "Movement",
@@ -5504,12 +5504,12 @@
     },
     "upgrade_burst_fire": {
         "Name": "Burst Fire",
-        "Description": null,
+        "Description": "Briefly gain Fire Rate and Move Speed when one of your bullets hits an enemy hero.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "FireRate"
         ],
@@ -5538,7 +5538,7 @@
         "Tier": "1",
         "Activation": "Passive",
         "Slot": "Armor",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "MagicDamage",
             "Durability"
@@ -5566,7 +5566,7 @@
         "Tier": "1",
         "Activation": "Passive",
         "Slot": "Armor",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "ClipSize",
             "Healing"
@@ -5590,13 +5590,13 @@
     },
     "upgrade_magic_clarity": {
         "Name": "Clarity",
-        "Description": null,
+        "Description": "On ability or item use, gain a move speed bonus for {s:AbilityDuration}s.  Your next ability cast will remove the move speed bonus and apply a Spirit bonus to that ability.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
         "Slot": "Tech",
-        "TargetTypes": [],
-        "ShopFilters": [],
+        "TargetTypes": null,
+        "ShopFilters": null,
         "Cooldown": "15",
         "Duration": "8",
         "CastRange": "0",
@@ -5618,12 +5618,12 @@
     },
     "upgrade_magic_storm": {
         "Name": "Surge of Power",
-        "Description": null,
+        "Description": "Imbue an ability with permanent Spirit Power. When that ability is used, gain bonus Movement Speed.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
         "Slot": "Tech",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "MagicDamage",
             "Movement"
@@ -5648,7 +5648,7 @@
     },
     "upgrade_suppressor": {
         "Name": "Suppressor",
-        "Description": null,
+        "Description": "When you deal Spirit Damage to enemies, you also apply Fire Rate Slow.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -5679,7 +5679,7 @@
     },
     "upgrade_quick_silver": {
         "Name": "Quicksilver Reload",
-        "Description": null,
+        "Description": "Imbue an ability with bonus Spirit Damage on the first hit.  When the ability is used, your weapon is reloaded and has a Fire Rate bonus for that clip.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -5712,7 +5712,7 @@
     },
     "upgrade_arcane_eater": {
         "Name": "Arcane Eater",
-        "Description": null,
+        "Description": "Your bullets Steal Spirit Power from enemy Heroes.  Steal {s:HeadshotBonusSteal} extra Spirit Power with Headshots.  This effect stacks.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -5746,12 +5746,12 @@
     },
     "upgrade_predator_precision": {
         "Name": "Predator Precision",
-        "Description": null,
+        "Description": "Gain additional weapon damage against enemy Heroes that are low health",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "FireRate"
         ],
@@ -5774,12 +5774,12 @@
     },
     "upgrade_intensifying_clip": {
         "Name": "Intensifying Magazine",
-        "Description": null,
+        "Description": "Increases Weapon Damage as you continuously fire your weapon.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "ClipSize",
             "WeaponDamage"
@@ -5804,12 +5804,12 @@
     },
     "upgrade_reinforcing_casings": {
         "Name": "Escalating Resilience",
-        "Description": null,
+        "Description": "Grants Bullet Resist when your bullets hit an enemy hero. Each shot can only grant one stack.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "WeaponDamage",
             "Durability",
@@ -5841,7 +5841,7 @@
         "Tier": "2",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "FireRate"
         ],
@@ -5863,12 +5863,12 @@
     },
     "upgrade_veil_walker": {
         "Name": "Veil Walker",
-        "Description": null,
+        "Description": "Walking through a cosmic veil grants you Stealth, increased Movement Speed, restores all Bullet and Spirit Shields, and grants bonus Fire Rate for your next magazine.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
         "Slot": "Armor",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "Durability",
             "ClipSize"
@@ -5904,12 +5904,12 @@
     },
     "upgrade_vex_barrier": {
         "Name": "Reactive Barrier",
-        "Description": null,
+        "Description": "Automatically deploy temporary Bullet and Spirit Shields when you are movement locked, Stunned, Chained, Immobilized, or Slept.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
         "Slot": "Armor",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "Durability",
             "ClipSize",
@@ -5937,7 +5937,7 @@
     },
     "upgrade_medic_bullets": {
         "Name": "Restorative Shot",
-        "Description": null,
+        "Description": "Your next bullet will heal you based on what target you hit.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
@@ -5976,7 +5976,7 @@
         "Tier": "3",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "ClipSize",
             "WeaponDamage"
@@ -6003,12 +6003,12 @@
     },
     "upgrade_active_reload": {
         "Name": "Active Reload",
-        "Description": null,
+        "Description": "While reloading, pressing [{s:key_reload}] during the highlighted portion will instantly finish your reload and grant you Fire Rate and Bullet Lifesteal.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "WeaponDamage"
         ],
@@ -6032,12 +6032,12 @@
     },
     "upgrade_magic_carpet": {
         "Name": "Magic Carpet",
-        "Description": null,
+        "Description": "Summon a Magic Carpet that will fly you away. Gain Bullet and Spirit shields while flying.  Cannot use abilities while the carpet is being summoned.  While flying doing any action will dismiss the carpet.",
         "Cost": "6300",
         "Tier": "4",
         "Activation": "InstantCast",
         "Slot": "Tech",
-        "TargetTypes": [],
+        "TargetTypes": null,
         "ShopFilters": [
             "Movement"
         ],

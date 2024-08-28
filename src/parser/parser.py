@@ -2,6 +2,7 @@ import keyvalues3 as kv3
 import tempfile
 import os
 import sys
+import re
 from python_mermaid.diagram import MermaidDiagram, Node, Link
 import maps
 
@@ -17,7 +18,7 @@ class Parser:
     def __init__(self):
         # constants
         self.DATA_DIR = './decompiled-data/'
-        self.OUTPUT_DIR = './output/'
+        self.OUTPUT_DIR = '../../output-data/'
 
         self._load_vdata()
         self._load_localizations()
@@ -94,7 +95,7 @@ class Parser:
 
                 all_hero_stats[hero_key] = merged_stats
 
-        json.write(self.OUTPUT_DIR + '/hero-data.json', all_hero_stats)
+        json.write(self.OUTPUT_DIR + 'json/hero-data.json', all_hero_stats)
 
     def _parse_abilities(self):
         print('Parsing Abilities...')
@@ -109,7 +110,7 @@ class Parser:
 
             all_abilities[ability_key] = ability_data
 
-        json.write(self.OUTPUT_DIR + '/ability-data.json', all_abilities)
+        json.write(self.OUTPUT_DIR + 'json/ability-data.json', all_abilities)
 
     def _parse_items(self):
         print('Parsing Items...')
@@ -131,14 +132,14 @@ class Parser:
             item_ability_attrs = item_value['m_mapAbilityProperties']
 
             # Assign target types
-            target_types = []
+            target_types = None
             if 'm_nAbilityTargetTypes' in item_value:
                 target_types = self._format_pipe_sep_string(
                     item_value['m_nAbilityTargetTypes'], maps.get_target_type
                 )
 
             # Assign shop filters
-            shop_filters = []
+            shop_filters = None
             if 'm_eShopFilters' in item_value:
                 shop_filters = self._format_pipe_sep_string(
                     item_value['m_eShopFilters'], maps.get_shop_filter
@@ -150,9 +151,14 @@ class Parser:
             if tier is not None:
                 cost = self.generic_data['m_nItemPricePerTier'][int(tier)]
 
+            description = self.localizations['descriptions'].get(key + '_desc')
+            if description is not None:
+                # strip away all html tags for displaying as text
+                description = re.sub(r'<span\b[^>]*>|<\/span>', '', description)
+
             parsed_item_data = {
                 'Name': self.localizations['names'].get(key),
-                'Description': self.localizations['descriptions'].get(key),
+                'Description': description,
                 'Cost': str(cost),
                 'Tier': tier,
                 'Activation': maps.get_ability_activation(item_value['m_eAbilityActivation']),
@@ -175,7 +181,7 @@ class Parser:
 
             all_items[key] = parsed_item_data
 
-        json.write(self.OUTPUT_DIR + '/item-data.json', all_items)
+        json.write(self.OUTPUT_DIR + 'json/item-data.json', all_items)
 
     # Add items to mermaid tree
     def _add_children_to_tree(self, parent_key, child_keys):
