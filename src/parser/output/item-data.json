@@ -1,12 +1,38 @@
 {
-    "base": {
-        "Key": "upgrade_base",
+    "ability_item_pickup_effects": {
         "Name": null,
         "Description": null,
-        "Slot": "None",
-        "Tier": "None",
-        "ImagePath": "None",
+        "Cost": "None",
+        "Tier": null,
+        "Activation": "ActivationPress",
+        "Slot": null,
+        "TargetTypes": [
+            "Hero"
+        ],
+        "ShopFilters": [],
+        "Cooldown": "0",
+        "Duration": "2.0",
+        "CastRange": "0",
+        "UnitTargetLimit": "1",
+        "CastDelay": "0",
+        "ChannelTime": "0",
+        "PostCastDuration": "0",
+        "Charges": "0",
+        "CooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "ResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0"
+    },
+    "upgrade_base": {
+        "Name": null,
+        "Description": null,
+        "Cost": "None",
+        "Tier": null,
+        "Activation": "Passive",
+        "Slot": null,
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -21,14 +47,363 @@
         "TechPower": "0",
         "WeaponPower": "0"
     },
-    "clip_size": {
-        "Key": "upgrade_clip_size",
+    "armor_upgrade_base": {
+        "Name": null,
+        "Description": null,
+        "Cost": "None",
+        "Tier": null,
+        "Activation": "Passive",
+        "Slot": "Armor",
+        "TargetTypes": [],
+        "ShopFilters": [],
+        "Cooldown": "0",
+        "Duration": "0",
+        "CastRange": "0",
+        "UnitTargetLimit": "1",
+        "CastDelay": "0",
+        "ChannelTime": "0",
+        "PostCastDuration": "0",
+        "Charges": "0",
+        "CooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "ResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0"
+    },
+    "armor_upgrade_t1": {
+        "Name": null,
+        "Description": null,
+        "Cost": "500",
+        "Tier": "1",
+        "Activation": "Passive",
+        "Slot": "Armor",
+        "TargetTypes": [],
+        "ShopFilters": [],
+        "Cooldown": "0",
+        "Duration": "0",
+        "CastRange": "0",
+        "UnitTargetLimit": "1",
+        "CastDelay": "0",
+        "ChannelTime": "0",
+        "PostCastDuration": "0",
+        "Charges": "0",
+        "CooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "ResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0"
+    },
+    "armor_upgrade_t2": {
+        "Name": null,
+        "Description": null,
+        "Cost": "1250",
+        "Tier": "2",
+        "Activation": "Passive",
+        "Slot": "Armor",
+        "TargetTypes": [],
+        "ShopFilters": [],
+        "Cooldown": "0",
+        "Duration": "0",
+        "CastRange": "0",
+        "UnitTargetLimit": "1",
+        "CastDelay": "0",
+        "ChannelTime": "0",
+        "PostCastDuration": "0",
+        "Charges": "0",
+        "CooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "ResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0"
+    },
+    "armor_upgrade_t3": {
+        "Name": null,
+        "Description": null,
+        "Cost": "3000",
+        "Tier": "3",
+        "Activation": "Passive",
+        "Slot": "Armor",
+        "TargetTypes": [],
+        "ShopFilters": [],
+        "Cooldown": "0",
+        "Duration": "0",
+        "CastRange": "0",
+        "UnitTargetLimit": "1",
+        "CastDelay": "0",
+        "ChannelTime": "0",
+        "PostCastDuration": "0",
+        "Charges": "0",
+        "CooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "ResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0"
+    },
+    "armor_upgrade_t4": {
+        "Name": null,
+        "Description": null,
+        "Cost": "6300",
+        "Tier": "4",
+        "Activation": "Passive",
+        "Slot": "Armor",
+        "TargetTypes": [],
+        "ShopFilters": [],
+        "Cooldown": "0",
+        "Duration": "0",
+        "CastRange": "0",
+        "UnitTargetLimit": "1",
+        "CastDelay": "0",
+        "ChannelTime": "0",
+        "PostCastDuration": "0",
+        "Charges": "0",
+        "CooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "ResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0"
+    },
+    "weapon_upgrade_base": {
+        "Name": null,
+        "Description": null,
+        "Cost": "None",
+        "Tier": null,
+        "Activation": "Passive",
+        "Slot": "Weapon",
+        "TargetTypes": [],
+        "ShopFilters": [],
+        "Cooldown": "0",
+        "Duration": "0",
+        "CastRange": "0",
+        "UnitTargetLimit": "1",
+        "CastDelay": "0",
+        "ChannelTime": "0",
+        "PostCastDuration": "0",
+        "Charges": "0",
+        "CooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "ResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0"
+    },
+    "weapon_upgrade_t1": {
+        "Name": null,
+        "Description": null,
+        "Cost": "500",
+        "Tier": "1",
+        "Activation": "Passive",
+        "Slot": "Weapon",
+        "TargetTypes": [],
+        "ShopFilters": [],
+        "Cooldown": "0",
+        "Duration": "0",
+        "CastRange": "0",
+        "UnitTargetLimit": "1",
+        "CastDelay": "0",
+        "ChannelTime": "0",
+        "PostCastDuration": "0",
+        "Charges": "0",
+        "CooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "ResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0"
+    },
+    "weapon_upgrade_t2": {
+        "Name": null,
+        "Description": null,
+        "Cost": "1250",
+        "Tier": "2",
+        "Activation": "Passive",
+        "Slot": "Weapon",
+        "TargetTypes": [],
+        "ShopFilters": [],
+        "Cooldown": "0",
+        "Duration": "0",
+        "CastRange": "0",
+        "UnitTargetLimit": "1",
+        "CastDelay": "0",
+        "ChannelTime": "0",
+        "PostCastDuration": "0",
+        "Charges": "0",
+        "CooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "ResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0"
+    },
+    "weapon_upgrade_t3": {
+        "Name": null,
+        "Description": null,
+        "Cost": "3000",
+        "Tier": "3",
+        "Activation": "Passive",
+        "Slot": "Weapon",
+        "TargetTypes": [],
+        "ShopFilters": [],
+        "Cooldown": "0",
+        "Duration": "0",
+        "CastRange": "0",
+        "UnitTargetLimit": "1",
+        "CastDelay": "0",
+        "ChannelTime": "0",
+        "PostCastDuration": "0",
+        "Charges": "0",
+        "CooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "ResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0"
+    },
+    "weapon_upgrade_t4": {
+        "Name": null,
+        "Description": null,
+        "Cost": "6300",
+        "Tier": "4",
+        "Activation": "Passive",
+        "Slot": "Weapon",
+        "TargetTypes": [],
+        "ShopFilters": [],
+        "Cooldown": "0",
+        "Duration": "0",
+        "CastRange": "0",
+        "UnitTargetLimit": "1",
+        "CastDelay": "0",
+        "ChannelTime": "0",
+        "PostCastDuration": "0",
+        "Charges": "0",
+        "CooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "ResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0"
+    },
+    "tech_upgrade_base": {
+        "Name": null,
+        "Description": null,
+        "Cost": "None",
+        "Tier": null,
+        "Activation": "Passive",
+        "Slot": "Tech",
+        "TargetTypes": [],
+        "ShopFilters": [],
+        "Cooldown": "0",
+        "Duration": "0",
+        "CastRange": "0",
+        "UnitTargetLimit": "1",
+        "CastDelay": "0",
+        "ChannelTime": "0",
+        "PostCastDuration": "0",
+        "Charges": "0",
+        "CooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "ResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0"
+    },
+    "tech_upgrade_t1": {
+        "Name": null,
+        "Description": null,
+        "Cost": "500",
+        "Tier": "1",
+        "Activation": "Passive",
+        "Slot": "Tech",
+        "TargetTypes": [],
+        "ShopFilters": [],
+        "Cooldown": "0",
+        "Duration": "0",
+        "CastRange": "0",
+        "UnitTargetLimit": "1",
+        "CastDelay": "0",
+        "ChannelTime": "0",
+        "PostCastDuration": "0",
+        "Charges": "0",
+        "CooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "ResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0"
+    },
+    "tech_upgrade_t2": {
+        "Name": null,
+        "Description": null,
+        "Cost": "1250",
+        "Tier": "2",
+        "Activation": "Passive",
+        "Slot": "Tech",
+        "TargetTypes": [],
+        "ShopFilters": [],
+        "Cooldown": "0",
+        "Duration": "0",
+        "CastRange": "0",
+        "UnitTargetLimit": "1",
+        "CastDelay": "0",
+        "ChannelTime": "0",
+        "PostCastDuration": "0",
+        "Charges": "0",
+        "CooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "ResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0"
+    },
+    "tech_upgrade_t3": {
+        "Name": null,
+        "Description": null,
+        "Cost": "3000",
+        "Tier": "3",
+        "Activation": "Passive",
+        "Slot": "Tech",
+        "TargetTypes": [],
+        "ShopFilters": [],
+        "Cooldown": "0",
+        "Duration": "0",
+        "CastRange": "0",
+        "UnitTargetLimit": "1",
+        "CastDelay": "0",
+        "ChannelTime": "0",
+        "PostCastDuration": "0",
+        "Charges": "0",
+        "CooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "ResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0"
+    },
+    "tech_upgrade_t4": {
+        "Name": null,
+        "Description": null,
+        "Cost": "6300",
+        "Tier": "4",
+        "Activation": "Passive",
+        "Slot": "Tech",
+        "TargetTypes": [],
+        "ShopFilters": [],
+        "Cooldown": "0",
+        "Duration": "0",
+        "CastRange": "0",
+        "UnitTargetLimit": "1",
+        "CastDelay": "0",
+        "ChannelTime": "0",
+        "PostCastDuration": "0",
+        "Charges": "0",
+        "CooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "ResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0"
+    },
+    "upgrade_clip_size": {
         "Name": "Basic Magazine",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "500",
         "Tier": "1",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD9176C50>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [],
+        "ShopFilters": [
+            "WeaponDamage",
+            "ClipSize"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -45,14 +420,19 @@
         "BonusClipSizePercent": "24",
         "BaseAttackDamagePercent": "15"
     },
-    "non_player_bonus": {
-        "Key": "upgrade_non_player_bonus",
+    "upgrade_non_player_bonus": {
         "Name": "Monster Rounds",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "500",
         "Tier": "1",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD9176CB0>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [],
+        "ShopFilters": [
+            "WeaponDamage",
+            "Durability",
+            "Healing"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -71,14 +451,18 @@
         "BonusHealthRegen": "1",
         "NonPlayerBulletResist": "30"
     },
-    "ammo_scavenger": {
-        "Key": "upgrade_ammo_scavenger",
+    "upgrade_ammo_scavenger": {
         "Name": "Ammo Scavenger",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "500",
         "Tier": "1",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD9176BC0>",
+        "Activation": "Passive",
+        "Slot": "Tech",
         "TargetTypes": [],
+        "ShopFilters": [
+            "WeaponDamage",
+            "ClipSize"
+        ],
         "Cooldown": "0",
         "Duration": "35",
         "CastRange": "0",
@@ -98,14 +482,15 @@
         "SpiritPowerPerSoul": "2",
         "MaxStacks": "12"
     },
-    "clip_size_fixed": {
-        "Key": "upgrade_clip_size_fixed",
+    "upgrade_clip_size_fixed": {
         "Name": "Extended Magazine",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91767D0>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -121,14 +506,15 @@
         "WeaponPower": "0",
         "BonusClipSize": "6"
     },
-    "clip_size_fixed_t3": {
-        "Key": "upgrade_clip_size_fixed_t3",
+    "upgrade_clip_size_fixed_t3": {
         "Name": "Extra Large Magazine",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "None",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -144,15 +530,19 @@
         "WeaponPower": "0",
         "BonusClipSize": "12"
     },
-    "chain_lightning": {
-        "Key": "upgrade_chain_lightning",
+    "upgrade_chain_lightning": {
         "Name": "Tesla Bullets",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91766E0>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [
             "AllEnemy"
+        ],
+        "ShopFilters": [
+            "MagicDamage",
+            "FireRate"
         ],
         "Cooldown": "0.4",
         "Duration": "0",
@@ -176,16 +566,17 @@
         "ChainTickRate": "0.4",
         "BonusFireRate": "14"
     },
-    "galvanic_storm": {
-        "Key": "upgrade_galvanic_storm",
+    "upgrade_galvanic_storm": {
         "Name": "Galvanic Storm",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD9176E30>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [
             "AllEnemy"
         ],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -213,15 +604,19 @@
         "BuffDamageMult": "2",
         "BuffMoveSpeedBonus": "3m"
     },
-    "hollow_point_rounds": {
-        "Key": "upgrade_hollow_point_rounds",
+    "upgrade_hollow_point_rounds": {
         "Name": "Hollow Point Ward",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "500",
         "Tier": "1",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD9176950>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [
             "AllEnemy"
+        ],
+        "ShopFilters": [
+            "MagicDamage",
+            "Durability"
         ],
         "Cooldown": "0",
         "Duration": "0",
@@ -240,15 +635,19 @@
         "BaseAttackDamagePercent": "20",
         "TechShieldMaxHealth": "80"
     },
-    "pristine_emblem": {
-        "Key": "upgrade_pristine_emblem",
+    "upgrade_pristine_emblem": {
         "Name": "Pristine Emblem",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD9176EC0>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [
             "AllEnemy"
+        ],
+        "ShopFilters": [
+            "MagicDamage",
+            "Durability"
         ],
         "Cooldown": "0",
         "Duration": "0",
@@ -268,14 +667,15 @@
         "BaseAttackDamagePercentBonus": "25",
         "TechResist": "12"
     },
-    "stabilizer": {
-        "Key": "upgrade_stabilizer",
+    "upgrade_stabilizer": {
         "Name": "Stabilizer",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "500",
         "Tier": "1",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD9176F20>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -293,14 +693,17 @@
         "MoveWhileZoomedSpeedPenaltyReductionPercent": "100",
         "BonusBulletSpeedPercent": "30"
     },
-    "high_velocity_mag": {
-        "Key": "upgrade_high_velocity_mag",
+    "upgrade_high_velocity_mag": {
         "Name": "High-Velocity Mag",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "500",
         "Tier": "1",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD9176FE0>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [],
+        "ShopFilters": [
+            "WeaponDamage"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -318,15 +721,20 @@
         "BaseAttackDamagePercent": "14",
         "BulletShieldMaxHealth": "50"
     },
-    "lifestrike_gauntlets": {
-        "Key": "upgrade_lifestrike_gauntlets",
+    "upgrade_lifestrike_gauntlets": {
         "Name": "Melee Lifesteal",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "500",
         "Tier": "1",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD9177100>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [
             "AllEnemy"
+        ],
+        "ShopFilters": [
+            "Durability",
+            "Melee",
+            "Healing"
         ],
         "Cooldown": "7",
         "Duration": "0",
@@ -347,14 +755,18 @@
         "BonusHealth": "75",
         "NonHeroHealPct": "35"
     },
-    "close_range": {
-        "Key": "upgrade_close_range",
+    "upgrade_close_range": {
         "Name": "Close Quarters",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "500",
         "Tier": "1",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD9176F80>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [],
+        "ShopFilters": [
+            "WeaponDamage",
+            "Durability"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -372,14 +784,18 @@
         "CloseRangeBonusDamageRange": "15m",
         "BulletShieldMaxHealth": "85"
     },
-    "long_range": {
-        "Key": "upgrade_long_range",
+    "upgrade_long_range": {
         "Name": "Long Range",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD9176B60>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [],
+        "ShopFilters": [
+            "WeaponDamage",
+            "ClipSize"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -397,15 +813,19 @@
         "LongRangeBonusWeaponPowerMinRange": "15m",
         "BonusClipSizePercent": "20"
     },
-    "slowing_bullets": {
-        "Key": "upgrade_slowing_bullets",
+    "upgrade_slowing_bullets": {
         "Name": "Slowing Bullets",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD9176E00>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [
             "HeroEnemy"
+        ],
+        "ShopFilters": [
+            "WeaponDamage",
+            "Disruption"
         ],
         "Cooldown": "0",
         "Duration": "0",
@@ -424,15 +844,20 @@
         "SlowDuration": "1.3",
         "BaseAttackDamagePercent": "16"
     },
-    "inhibitor": {
-        "Key": "upgrade_inhibitor",
+    "upgrade_inhibitor": {
         "Name": "Inhibitor",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91770D0>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [
             "HeroEnemy"
+        ],
+        "ShopFilters": [
+            "WeaponDamage",
+            "Disruption",
+            "FireRate"
         ],
         "Cooldown": "0",
         "Duration": "0",
@@ -454,14 +879,15 @@
         "OutgoingAbilityDamagePenaltyPercent": "-35",
         "OutgoingBulletDamagePenaltyPercent": "-40"
     },
-    "small_attack_speed": {
-        "Key": "upgrade_small_attack_speed",
+    "upgrade_small_attack_speed": {
         "Name": "Basic Fire Rate",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "500",
         "Tier": "1",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD9177250>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -477,15 +903,19 @@
         "WeaponPower": "0",
         "BonusFireRate": "8"
     },
-    "tech_defense_shredders": {
-        "Key": "upgrade_tech_defense_shredders",
+    "upgrade_tech_defense_shredders": {
         "Name": "Soul Shredder Bullets",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91770A0>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [
             "AllEnemy"
+        ],
+        "ShopFilters": [
+            "MagicDamage",
+            "Healing"
         ],
         "Cooldown": "0",
         "Duration": "0",
@@ -505,14 +935,15 @@
         "DebuffDuration": "6",
         "LifestealPercentHero": "20"
     },
-    "attack_speed_1": {
-        "Key": "upgrade_attack_speed_1",
+    "upgrade_attack_speed_1": {
         "Name": "Fire Rate",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91772E0>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -528,15 +959,20 @@
         "WeaponPower": "0",
         "BonusFireRate": "15"
     },
-    "nearby_enemy_boost": {
-        "Key": "upgrade_nearby_enemy_boost",
+    "upgrade_nearby_enemy_boost": {
         "Name": "Adrenaline Rush",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD9177340>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [
             "HeroEnemy"
+        ],
+        "ShopFilters": [
+            "WeaponDamage",
+            "FireRate",
+            "Movement"
         ],
         "Cooldown": "0",
         "Duration": "0",
@@ -559,15 +995,20 @@
         "BonusHealth": "125",
         "BonusMoveSpeed": "1m"
     },
-    "dps_aura": {
-        "Key": "upgrade_dps_aura",
+    "upgrade_dps_aura": {
         "Name": "Heroic Aura",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91773A0>",
+        "Activation": "InstantCast",
+        "Slot": "Weapon",
         "TargetTypes": [
             "AllFriendly"
+        ],
+        "ShopFilters": [
+            "FireRate",
+            "Healing",
+            "Movement"
         ],
         "Cooldown": "30",
         "Duration": "5",
@@ -591,17 +1032,20 @@
         "BonusHealth": "150",
         "BonusMoveSpeed": "1m"
     },
-    "armor_reduction_debuff": {
-        "Key": "upgrade_armor_reduction_debuff",
+    "upgrade_armor_reduction_debuff": {
         "Name": "Armor Piercing Rounds",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD9177490>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [
             "HeroEnemy",
             "CreepEnemy",
             "MinionEnemy"
+        ],
+        "ShopFilters": [
+            "WeaponDamage"
         ],
         "Cooldown": "0",
         "Duration": "8",
@@ -620,15 +1064,18 @@
         "BaseAttackDamagePercent": "12",
         "BulletShieldDamagePercent": "60"
     },
-    "weapon_detention_ammo": {
-        "Key": "upgrade_weapon_detention_ammo",
+    "upgrade_weapon_detention_ammo": {
         "Name": "Detention Rounds",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD9177700>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [
             "HeroEnemy"
+        ],
+        "ShopFilters": [
+            "Disruption"
         ],
         "Cooldown": "0",
         "Duration": "0",
@@ -651,14 +1098,15 @@
         "BuildUpDuration": "10",
         "TetherRadius": "7m"
     },
-    "height_advantage": {
-        "Key": "upgrade_height_advantage",
+    "upgrade_height_advantage": {
         "Name": "Height Advantage",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "500",
         "Tier": "1",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD9177070>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -674,15 +1122,19 @@
         "WeaponPower": "0",
         "HighGroundBonusWeaponPower": "50"
     },
-    "targeted_silence": {
-        "Key": "upgrade_targeted_silence",
+    "upgrade_targeted_silence": {
         "Name": "Silence Glyph",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD9177790>",
+        "Activation": "ActivationPress",
+        "Slot": "Tech",
         "TargetTypes": [
             "HeroEnemy"
+        ],
+        "ShopFilters": [
+            "WeaponDamage",
+            "Disruption"
         ],
         "Cooldown": "30",
         "Duration": "3.5",
@@ -701,16 +1153,17 @@
         "TechShieldMaxHealth": "200",
         "BonusSprintSpeed": "1m"
     },
-    "proc_silence": {
-        "Key": "upgrade_proc_silence",
+    "upgrade_proc_silence": {
         "Name": "EMP Bullets",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD9177A90>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [
             "HeroEnemy"
         ],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -730,15 +1183,19 @@
         "BuildUpPerShot": "1.6",
         "BuildUpDuration": "10"
     },
-    "silencer": {
-        "Key": "upgrade_silencer",
+    "upgrade_silencer": {
         "Name": "Silencer",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91779A0>",
+        "Activation": "InstantCast",
+        "Slot": "Weapon",
         "TargetTypes": [
             "HeroEnemy"
+        ],
+        "ShopFilters": [
+            "WeaponDamage",
+            "Disruption"
         ],
         "Cooldown": "34",
         "Duration": "4",
@@ -761,16 +1218,17 @@
             "upgrade_slowing_bullets"
         ]
     },
-    "proc_disarm": {
-        "Key": "upgrade_proc_disarm",
+    "upgrade_proc_disarm": {
         "Name": "Disarming Bullets",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91779D0>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [
             "HeroEnemy"
         ],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "5",
         "CastRange": "0",
@@ -788,14 +1246,19 @@
         "BuildUpPerShot": "1.0",
         "BuildUpDuration": "10"
     },
-    "berserker": {
-        "Key": "upgrade_berserker",
+    "upgrade_berserker": {
         "Name": "Berserker",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD9177CD0>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [],
+        "ShopFilters": [
+            "WeaponDamage",
+            "ClipSize",
+            "Durability"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -816,14 +1279,20 @@
         "BonusClipSize": "4",
         "BulletResist": "8"
     },
-    "fervor": {
-        "Key": "upgrade_fervor",
+    "upgrade_fervor": {
         "Name": "Frenzy",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD9177D60>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [],
+        "ShopFilters": [
+            "WeaponDamage",
+            "FireRate",
+            "ClipSize",
+            "Movement"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -846,15 +1315,19 @@
         "FervorTechResist": "45",
         "LingerDuration": "4"
     },
-    "siphon_bullets": {
-        "Key": "upgrade_siphon_bullets",
+    "upgrade_siphon_bullets": {
         "Name": "Siphon Bullets",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD9177FD0>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [
             "HeroEnemy"
+        ],
+        "ShopFilters": [
+            "WeaponDamage",
+            "Healing"
         ],
         "Cooldown": "0",
         "Duration": "0",
@@ -878,14 +1351,18 @@
         "HealthSteal": "45",
         "ParticleRadius": "1m"
     },
-    "headshot_booster": {
-        "Key": "upgrade_headshot_booster",
+    "upgrade_headshot_booster": {
         "Name": "Headshot Booster",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "500",
         "Tier": "1",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD9177F40>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [],
+        "ShopFilters": [
+            "Durability",
+            "FireRate"
+        ],
         "Cooldown": "7",
         "Duration": "0",
         "CastRange": "0",
@@ -903,14 +1380,18 @@
         "BulletShieldMaxHealth": "40",
         "HeadShotBonusDamage": "45"
     },
-    "sharpshooter": {
-        "Key": "upgrade_sharpshooter",
+    "upgrade_sharpshooter": {
         "Name": "Sharpshooter",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F01F0>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [],
+        "ShopFilters": [
+            "WeaponDamage",
+            "ClipSize"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -936,14 +1417,18 @@
             "upgrade_long_range"
         ]
     },
-    "banshee_slugs": {
-        "Key": "upgrade_banshee_slugs",
+    "upgrade_banshee_slugs": {
         "Name": "Crippling Headshot",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F01C0>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [],
+        "ShopFilters": [
+            "WeaponDamage",
+            "Disruption"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -964,14 +1449,15 @@
         "MagicResistReduction": "24",
         "DebuffDuration": "5"
     },
-    "proc_tech_damage": {
-        "Key": "upgrade_proc_tech_damage",
+    "upgrade_proc_tech_damage": {
         "Name": "Magitech Rounds",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F0280>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -991,15 +1477,19 @@
         "BaseDamagePerShot": "1",
         "SpellAmplificationMultiplier": "5"
     },
-    "crackshot": {
-        "Key": "upgrade_crackshot",
+    "upgrade_crackshot": {
         "Name": "Mystic Shot",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F02B0>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [
             "AllEnemy"
+        ],
+        "ShopFilters": [
+            "WeaponDamage",
+            "MagicDamage"
         ],
         "Cooldown": "6",
         "Duration": "0",
@@ -1021,15 +1511,19 @@
         "BaseAttackDamagePercent": "12",
         "SpiritPower": "4"
     },
-    "critshot": {
-        "Key": "upgrade_critshot",
+    "upgrade_critshot": {
         "Name": "Lucky Shot",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F0160>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [
             "AllEnemy"
+        ],
+        "ShopFilters": [
+            "WeaponDamage",
+            "ClipSize"
         ],
         "Cooldown": "0",
         "Duration": "0",
@@ -1051,15 +1545,20 @@
         "CritDamagePercent": "80",
         "BonusClipSizePercent": "30"
     },
-    "close_quarter_combat": {
-        "Key": "upgrade_close_quarter_combat",
+    "upgrade_close_quarter_combat": {
         "Name": "Point Blank",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F03A0>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [
             "HeroEnemy"
+        ],
+        "ShopFilters": [
+            "WeaponDamage",
+            "Durability",
+            "Disruption"
         ],
         "Cooldown": "0",
         "Duration": "0",
@@ -1084,14 +1583,15 @@
             "upgrade_close_range"
         ]
     },
-    "clip_size_2": {
-        "Key": "upgrade_clip_size_2",
+    "upgrade_clip_size_2": {
         "Name": "Big Clip",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "None",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -1107,14 +1607,15 @@
         "WeaponPower": "0",
         "BonusClipSizePercent": "30"
     },
-    "clip_size_3": {
-        "Key": "upgrade_clip_size_3",
+    "upgrade_clip_size_3": {
         "Name": "Extra Large Magazine",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "None",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -1130,17 +1631,21 @@
         "WeaponPower": "0",
         "BonusClipSizePercent": "60"
     },
-    "toxic_bullets": {
-        "Key": "upgrade_toxic_bullets",
+    "upgrade_toxic_bullets": {
         "Name": "Toxic Bullets",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F0460>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [
             "HeroEnemy",
             "CreepEnemy",
             "MinionEnemy"
+        ],
+        "ShopFilters": [
+            "MagicDamage",
+            "Disruption"
         ],
         "Cooldown": "0",
         "Duration": "0",
@@ -1164,14 +1669,15 @@
         "HealAmpRegenPenaltyPercent": "-55",
         "DotMultiplerTroopers": "0.5"
     },
-    "attack_speed_2": {
-        "Key": "upgrade_attack_speed_2",
+    "upgrade_attack_speed_2": {
         "Name": "Improved Fire Rate",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F0910>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -1187,14 +1693,15 @@
         "WeaponPower": "0",
         "BonusFireRate": "25"
     },
-    "drum_magazine": {
-        "Key": "upgrade_drum_magazine",
+    "upgrade_drum_magazine": {
         "Name": "Drum Magazine",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F0730>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -1211,19 +1718,22 @@
         "BonusClipSize": "20",
         "ReloadSpeedMultipler": "-25"
     },
-    "ricochet": {
-        "Key": "upgrade_ricochet",
+    "upgrade_ricochet": {
         "Name": "Ricochet",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F0520>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [
             "HeroEnemy",
             "TrooperEnemy",
             "PropEnemy",
             "MinionEnemy",
             "Neutral"
+        ],
+        "ShopFilters": [
+            "ClipSize"
         ],
         "Cooldown": "0",
         "Duration": "0",
@@ -1245,14 +1755,18 @@
         "BonusHealth": "150",
         "BonusFireRate": "12"
     },
-    "health": {
-        "Key": "upgrade_health",
+    "upgrade_health": {
         "Name": "Extra Health",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "500",
         "Tier": "1",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F0790>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [
+            "WeaponDamage",
+            "Durability"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -1269,14 +1783,15 @@
         "BonusHealth": "160",
         "BaseAttackDamagePercent": "5"
     },
-    "toughness_3": {
-        "Key": "upgrade_toughness_3",
+    "upgrade_toughness_3": {
         "Name": "Toughness",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F0B20>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -1293,14 +1808,18 @@
         "BonusHealth": "175",
         "BonusHealthRegen": "2"
     },
-    "bullet_armor": {
-        "Key": "upgrade_bullet_armor",
+    "upgrade_bullet_armor": {
         "Name": "Bullet Armor",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F09A0>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [
+            "WeaponDamage",
+            "Durability"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -1317,14 +1836,18 @@
         "BulletResist": "20",
         "BaseAttackDamagePercent": "6"
     },
-    "tech_armor": {
-        "Key": "upgrade_tech_armor",
+    "upgrade_tech_armor": {
         "Name": "Spirit Armor",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F0A00>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [
+            "MagicDamage",
+            "Durability"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -1340,14 +1863,15 @@
         "WeaponPower": "0",
         "TechResist": "20"
     },
-    "health_regen_1": {
-        "Key": "upgrade_health_regen_1",
+    "upgrade_health_regen_1": {
         "Name": "Health Regen",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "500",
         "Tier": "1",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F0760>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -1363,14 +1887,18 @@
         "WeaponPower": "0",
         "BonusHealthRegen": "2.75"
     },
-    "vampire": {
-        "Key": "upgrade_vampire",
+    "upgrade_vampire": {
         "Name": "Bullet Lifesteal",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F08E0>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [
+            "Durability",
+            "Healing"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -1387,14 +1915,15 @@
         "BulletLifestealPercent": "28",
         "BonusHealth": "75"
     },
-    "double_jump": {
-        "Key": "upgrade_double_jump",
+    "upgrade_double_jump": {
         "Name": "Double-Jump",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "500",
         "Tier": "1",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F0BE0>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "8",
         "Duration": "0",
         "CastRange": "0",
@@ -1412,16 +1941,17 @@
         "AirJumpVerticalSpeedPercent": "75",
         "InteruptCooldown": "4"
     },
-    "health_regen_aura": {
-        "Key": "upgrade_health_regen_aura",
+    "upgrade_health_regen_aura": {
         "Name": "Healing Aura",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F0610>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [
             "AllFriendly"
         ],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -1439,16 +1969,17 @@
         "HealAmount": "40",
         "HealRadius": "9m"
     },
-    "combo_breaker": {
-        "Key": "upgrade_combo_breaker",
+    "upgrade_combo_breaker": {
         "Name": "Combo Breaker",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F0F10>",
+        "Activation": "InstantCast",
+        "Slot": "Armor",
         "TargetTypes": [
             "AllFriendly"
         ],
+        "ShopFilters": [],
         "Cooldown": "22",
         "Duration": "0",
         "CastRange": "0",
@@ -1467,14 +1998,17 @@
         "HealPercentAmount": "30",
         "RegenDuration": "10"
     },
-    "debuff_reducer": {
-        "Key": "upgrade_debuff_reducer",
+    "upgrade_debuff_reducer": {
         "Name": "Debuff Reducer",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F0D30>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [
+            "WeaponDamage"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -1492,14 +2026,17 @@
         "BaseAttackDamagePercent": "6",
         "BonusHealth": "75"
     },
-    "reduce_debuff_duration": {
-        "Key": "upgrade_reduce_debuff_duration",
+    "upgrade_reduce_debuff_duration": {
         "Name": "Debuff Remover",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F0E80>",
+        "Activation": "InstantCast",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [
+            "WeaponDamage"
+        ],
         "Cooldown": "45",
         "Duration": "0",
         "CastRange": "0",
@@ -1522,14 +2059,15 @@
             "upgrade_debuff_reducer"
         ]
     },
-    "high_impact_armor": {
-        "Key": "upgrade_high_impact_armor",
+    "upgrade_high_impact_armor": {
         "Name": "High Impact Armor",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F0E50>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -1546,14 +2084,15 @@
         "DamageThreshold": "40",
         "DamageReduction": "60"
     },
-    "slow_immunity": {
-        "Key": "upgrade_slow_immunity",
+    "upgrade_slow_immunity": {
         "Name": "Unstoppable - Deprecated",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F1180>",
+        "Activation": "InstantCast",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "30",
         "Duration": "6",
         "CastRange": "0",
@@ -1568,14 +2107,15 @@
         "TechPower": "0",
         "WeaponPower": "0"
     },
-    "bullet_armor_2": {
-        "Key": "upgrade_bullet_armor_2",
+    "upgrade_bullet_armor_2": {
         "Name": "Improved Bullet Armor",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F0FD0>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -1591,14 +2131,15 @@
         "WeaponPower": "0",
         "BulletArmor": "2"
     },
-    "weapon_power_and_health_drain": {
-        "Key": "upgrade_weapon_power_and_health_drain",
+    "upgrade_weapon_power_and_health_drain": {
         "Name": "Overdrive",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F10F0>",
+        "Activation": "InstantCast",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "11",
         "Duration": "4",
         "CastRange": "0",
@@ -1616,17 +2157,18 @@
         "HealthDrainedPerSecond": "35",
         "Interval": "0.1"
     },
-    "active_bullet_shield": {
-        "Key": "upgrade_active_bullet_shield",
+    "upgrade_active_bullet_shield": {
         "Name": "Shield Rush",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F1420>",
+        "Activation": "InstantCast",
+        "Slot": "Armor",
         "TargetTypes": [
             "HeroFriendly",
             "MinionFriendly"
         ],
+        "ShopFilters": [],
         "Cooldown": "60",
         "Duration": "15",
         "CastRange": "25m",
@@ -1645,14 +2187,15 @@
         "BulletShieldMaxHealth": "400",
         "BonusSprintSpeed": "5m"
     },
-    "ablative_coat": {
-        "Key": "upgrade_ablative_coat",
+    "upgrade_ablative_coat": {
         "Name": "Ablative Coat",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F11E0>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "20",
         "Duration": "0",
         "CastRange": "0",
@@ -1672,14 +2215,18 @@
         "BulletArmor": "1",
         "BonusSprintSpeed": "3m"
     },
-    "tech_purge": {
-        "Key": "upgrade_tech_purge",
+    "upgrade_tech_purge": {
         "Name": "Improved Spirit Armor",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F11B0>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [
+            "MagicDamage",
+            "Durability"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -1698,14 +2245,18 @@
             "upgrade_tech_armor"
         ]
     },
-    "improved_bullet_armor": {
-        "Key": "upgrade_improved_bullet_armor",
+    "upgrade_improved_bullet_armor": {
         "Name": "Improved Bullet Armor",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F1270>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [
+            "WeaponDamage",
+            "Durability"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -1725,14 +2276,18 @@
             "upgrade_bullet_armor"
         ]
     },
-    "metal_skin": {
-        "Key": "upgrade_metal_skin",
+    "upgrade_metal_skin": {
         "Name": "Metal Skin",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F1540>",
+        "Activation": "InstantCast",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [
+            "Durability",
+            "FireRate"
+        ],
         "Cooldown": "25",
         "Duration": "3.5",
         "CastRange": "0",
@@ -1749,14 +2304,17 @@
         "BonusFireRate": "8",
         "BonusHealth": "125"
     },
-    "healing_booster": {
-        "Key": "upgrade_healing_booster",
+    "upgrade_healing_booster": {
         "Name": "Healing Booster",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F1570>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [
+            "Healing"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -1776,14 +2334,20 @@
         "TechResist": "6",
         "BulletResist": "6"
     },
-    "chonky": {
-        "Key": "upgrade_chonky",
+    "upgrade_chonky": {
         "Name": "Fortitude",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F12D0>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [
+            "WeaponDamage",
+            "Durability",
+            "Healing",
+            "Movement"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -1804,14 +2368,18 @@
         "BaseAttackDamagePercent": "25",
         "BonusHealth": "275"
     },
-    "damage_recycler": {
-        "Key": "upgrade_damage_recycler",
+    "upgrade_damage_recycler": {
         "Name": "Leech",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F1840>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [
+            "MagicDamage",
+            "Healing"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -1831,18 +2399,19 @@
         "BonusHealth": "175",
         "DegenResistance": "30"
     },
-    "bullet_damage_reduction_aura": {
-        "Key": "upgrade_bullet_damage_reduction_aura",
+    "upgrade_bullet_damage_reduction_aura": {
         "Name": "Weapon Jammer",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F1780>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [
             "HeroEnemy",
             "CreepEnemy",
             "MinionEnemy"
         ],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -1859,14 +2428,19 @@
         "Radius": "12m",
         "FireRateSlow": "30"
     },
-    "sprint_booster": {
-        "Key": "upgrade_sprint_booster",
+    "upgrade_sprint_booster": {
         "Name": "Sprint Boots",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "500",
         "Tier": "1",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F1870>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [
+            "WeaponDamage",
+            "Healing",
+            "Movement"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -1884,14 +2458,18 @@
         "BaseAttackDamagePercent": "4",
         "BonusHealthRegen": "1"
     },
-    "cardio_calibrator": {
-        "Key": "upgrade_cardio_calibrator",
+    "upgrade_cardio_calibrator": {
         "Name": "Enduring Speed",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F1810>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [
+            "Movement",
+            "Durability"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -1914,14 +2492,19 @@
             "upgrade_sprint_booster"
         ]
     },
-    "superior_stamina": {
-        "Key": "upgrade_superior_stamina",
+    "upgrade_superior_stamina": {
         "Name": "Superior Stamina",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F1990>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [
+            "MagicDamage",
+            "Movement",
+            "FireRate"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -1943,14 +2526,18 @@
             "upgrade_improved_stamina"
         ]
     },
-    "rapid_rounds": {
-        "Key": "upgrade_rapid_rounds",
+    "upgrade_rapid_rounds": {
         "Name": "Rapid Rounds",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "500",
         "Tier": "1",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F1A50>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [],
+        "ShopFilters": [
+            "FireRate",
+            "Movement"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -1968,14 +2555,18 @@
         "BonusSprintSpeed": "1m",
         "MaxHealth": "-50"
     },
-    "improved_stamina": {
-        "Key": "upgrade_improved_stamina",
+    "upgrade_improved_stamina": {
         "Name": "Extra Stamina",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "500",
         "Tier": "1",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F1C30>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [
+            "FireRate",
+            "Movement"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -1993,17 +2584,22 @@
         "StaminaCooldownReduction": "10",
         "BonusFireRate": "7"
     },
-    "bullet_armor_reduction_aura": {
-        "Key": "upgrade_bullet_armor_reduction_aura",
+    "upgrade_bullet_armor_reduction_aura": {
         "Name": "Hunter's Aura",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F1C00>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [
             "HeroEnemy",
             "CreepEnemy",
             "MinionEnemy"
+        ],
+        "ShopFilters": [
+            "WeaponDamage",
+            "Disruption",
+            "ClipSize"
         ],
         "Cooldown": "0",
         "Duration": "0",
@@ -2024,14 +2620,15 @@
         "FireRateSlow": "10",
         "SingleTargetPlayerMultiplier": "3"
     },
-    "camouflage": {
-        "Key": "upgrade_camouflage",
+    "upgrade_camouflage": {
         "Name": "Camouflage Suit",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F1A20>",
+        "Activation": "InstantCast",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "10",
         "Duration": "0",
         "CastRange": "0",
@@ -2055,14 +2652,15 @@
         "MovementThresholdSq": "200",
         "RegenWhileInvisible": "5"
     },
-    "regenerative_armor": {
-        "Key": "upgrade_regenerative_armor",
+    "upgrade_regenerative_armor": {
         "Name": "Regenerative Armor",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F1930>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "5",
         "CastRange": "0",
@@ -2078,14 +2676,18 @@
         "WeaponPower": "0",
         "BonusHealthRegen": "20"
     },
-    "regenerating_bullet_shield": {
-        "Key": "upgrade_regenerating_bullet_shield",
+    "upgrade_regenerating_bullet_shield": {
         "Name": "Combat Barrier",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F1A80>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [
+            "WeaponDamage",
+            "Durability"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -2102,14 +2704,18 @@
         "BulletShieldMaxHealth": "300",
         "AttackDamageWhenShielded": "28"
     },
-    "magic_shield": {
-        "Key": "upgrade_magic_shield",
+    "upgrade_magic_shield": {
         "Name": "Enchanter's Barrier",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F1B40>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [
+            "MagicDamage",
+            "Durability"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -2126,14 +2732,18 @@
         "TechShieldMaxHealth": "300",
         "BonusSpiritWithMagicShield": "20"
     },
-    "improved_spirit": {
-        "Key": "upgrade_improved_spirit",
+    "upgrade_improved_spirit": {
         "Name": "Extra Spirit",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "500",
         "Tier": "1",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F1E10>",
+        "Activation": "Passive",
+        "Slot": "Tech",
         "TargetTypes": [],
+        "ShopFilters": [
+            "MagicDamage",
+            "Healing"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -2150,14 +2760,18 @@
         "BonusHealthRegen": "1",
         "BonusHealth": "25"
     },
-    "soaring_spirit": {
-        "Key": "upgrade_soaring_spirit",
+    "upgrade_soaring_spirit": {
         "Name": "Improved Spirit",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F1BA0>",
+        "Activation": "Passive",
+        "Slot": "Tech",
         "TargetTypes": [],
+        "ShopFilters": [
+            "Movement",
+            "MagicDamage"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -2178,15 +2792,19 @@
             "upgrade_improved_spirit"
         ]
     },
-    "tech_overflow": {
-        "Key": "upgrade_tech_overflow",
+    "upgrade_tech_overflow": {
         "Name": "Spiritual Overflow",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F1C60>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [
             "HeroEnemy"
+        ],
+        "ShopFilters": [
+            "MagicDamage",
+            "FireRate"
         ],
         "Cooldown": "0",
         "Duration": "18",
@@ -2208,14 +2826,19 @@
         "BuildUpPerShot": "0.75",
         "BuildUpDuration": "5"
     },
-    "return_fire": {
-        "Key": "upgrade_return_fire",
+    "upgrade_return_fire": {
         "Name": "Return Fire",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F1ED0>",
+        "Activation": "InstantCast",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [
+            "Durability",
+            "MagicDamage",
+            "FireRate"
+        ],
         "Cooldown": "24",
         "Duration": "7",
         "CastRange": "0",
@@ -2234,14 +2857,17 @@
         "BonusHealth": "125",
         "SpiritDamageReflectedPct": "30"
     },
-    "tech_range": {
-        "Key": "upgrade_tech_range",
+    "upgrade_tech_range": {
         "Name": "Improved Reach",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F1E40>",
+        "Activation": "Passive",
+        "Slot": "Tech",
         "TargetTypes": [],
+        "ShopFilters": [
+            "MagicDamage"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -2264,14 +2890,15 @@
             "upgrade_magic_reach"
         ]
     },
-    "magic_reach": {
-        "Key": "upgrade_magic_reach",
+    "upgrade_magic_reach": {
         "Name": "Mystic Reach",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "500",
         "Tier": "1",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F1F90>",
+        "Activation": "Passive",
+        "Slot": "Tech",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -2289,14 +2916,17 @@
         "TechRadiusMultiplier": "15",
         "TechResist": "5"
     },
-    "extra_charge": {
-        "Key": "upgrade_extra_charge",
+    "upgrade_extra_charge": {
         "Name": "Extra Charge",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "500",
         "Tier": "1",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F1DB0>",
+        "Activation": "Passive",
+        "Slot": "Tech",
         "TargetTypes": [],
+        "ShopFilters": [
+            "MagicDamage"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -2315,14 +2945,19 @@
         "CooldownReductionOnChargedAbilities": "8",
         "BaseAttackDamagePercent": "6"
     },
-    "health_stealing_magic": {
-        "Key": "upgrade_health_stealing_magic",
+    "upgrade_health_stealing_magic": {
         "Name": "Spirit Lifesteal",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F2320>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [
+            "MagicDamage",
+            "Healing",
+            "Durability"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -2340,15 +2975,19 @@
         "NonHeroAbilityLifestealTooltipOnly": "3",
         "BonusHealth": "75"
     },
-    "disarm": {
-        "Key": "upgrade_disarm",
+    "upgrade_disarm": {
         "Name": "Drain Will",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "500",
         "Tier": "1",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F1960>",
+        "Activation": "ActivationPress",
+        "Slot": "Tech",
         "TargetTypes": [
             "HeroEnemy"
+        ],
+        "ShopFilters": [
+            "MagicDamage",
+            "Disruption"
         ],
         "Cooldown": "25",
         "Duration": "6",
@@ -2368,17 +3007,21 @@
         "SpiritStealDuration": "6",
         "BonusHealth": "50"
     },
-    "bullet_resist_shredder": {
-        "Key": "upgrade_bullet_resist_shredder",
+    "upgrade_bullet_resist_shredder": {
         "Name": "Bullet Resist Shredder",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F2470>",
+        "Activation": "Passive",
+        "Slot": "Tech",
         "TargetTypes": [
             "HeroEnemy",
             "CreepEnemy",
             "MinionEnemy"
+        ],
+        "ShopFilters": [
+            "WeaponDamage",
+            "Durability"
         ],
         "Cooldown": "0",
         "Duration": "8",
@@ -2397,15 +3040,19 @@
         "BonusHealth": "100",
         "BulletResist": "5"
     },
-    "tech_bleed": {
-        "Key": "upgrade_tech_bleed",
+    "upgrade_tech_bleed": {
         "Name": "Mystic Reverb",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F24D0>",
+        "Activation": "Passive",
+        "Slot": "Tech",
         "TargetTypes": [
             "AllEnemy"
+        ],
+        "ShopFilters": [
+            "MagicDamage",
+            "Healing"
         ],
         "Cooldown": "6",
         "Duration": "0",
@@ -2430,15 +3077,19 @@
         "TechRadiusMultiplier": "15",
         "MovementSpeedSlow": "50"
     },
-    "magic_burst": {
-        "Key": "upgrade_magic_burst",
+    "upgrade_magic_burst": {
         "Name": "Mystic Burst",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "500",
         "Tier": "1",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F2410>",
+        "Activation": "Passive",
+        "Slot": "Tech",
         "TargetTypes": [
             "AllEnemy"
+        ],
+        "ShopFilters": [
+            "MagicDamage",
+            "Healing"
         ],
         "Cooldown": "6",
         "Duration": "0",
@@ -2458,15 +3109,19 @@
         "TechShieldMaxHealth": "40",
         "BaseAttackDamagePercent": "6"
     },
-    "magic_shock": {
-        "Key": "upgrade_magic_shock",
+    "upgrade_magic_shock": {
         "Name": "Improved Burst",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F2380>",
+        "Activation": "Passive",
+        "Slot": "Tech",
         "TargetTypes": [
             "AllEnemy"
+        ],
+        "ShopFilters": [
+            "MagicDamage",
+            "Disruption"
         ],
         "Cooldown": "0",
         "Duration": "0",
@@ -2490,16 +3145,17 @@
             "upgrade_magic_burst"
         ]
     },
-    "arcane_medallion": {
-        "Key": "upgrade_arcane_medallion",
+    "upgrade_arcane_medallion": {
         "Name": "Arcane Medallion",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F2800>",
+        "Activation": "Passive",
+        "Slot": "Tech",
         "TargetTypes": [
             "HeroEnemy"
         ],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "12",
         "CastRange": "0",
@@ -2515,15 +3171,19 @@
         "WeaponPower": "0",
         "MinimumDamage": "200"
     },
-    "magic_vulnerability": {
-        "Key": "upgrade_magic_vulnerability",
+    "upgrade_magic_vulnerability": {
         "Name": "Mystic Vulnerability",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F28F0>",
+        "Activation": "Passive",
+        "Slot": "Tech",
         "TargetTypes": [
             "AllEnemy"
+        ],
+        "ShopFilters": [
+            "MagicDamage",
+            "Disruption"
         ],
         "Cooldown": "0",
         "Duration": "6",
@@ -2541,15 +3201,20 @@
         "TechArmorDamageReduction": "-12",
         "TechResist": "6"
     },
-    "healbane": {
-        "Key": "upgrade_healbane",
+    "upgrade_healbane": {
         "Name": "Healbane",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F2920>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [
             "AllEnemy"
+        ],
+        "ShopFilters": [
+            "Healing",
+            "Disruption",
+            "Durability"
         ],
         "Cooldown": "0",
         "Duration": "6",
@@ -2569,15 +3234,18 @@
         "HealOnKill": "350",
         "BonusHealth": "75"
     },
-    "magic_slow": {
-        "Key": "upgrade_magic_slow",
+    "upgrade_magic_slow": {
         "Name": "Mystic Slow",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F2B60>",
+        "Activation": "Passive",
+        "Slot": "Tech",
         "TargetTypes": [
             "AllEnemy"
+        ],
+        "ShopFilters": [
+            "Disruption"
         ],
         "Cooldown": "0",
         "Duration": "2.0",
@@ -2600,15 +3268,19 @@
             "upgrade_suppressor"
         ]
     },
-    "escalating_exposure": {
-        "Key": "upgrade_escalating_exposure",
+    "upgrade_escalating_exposure": {
         "Name": "Escalating Exposure",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F2950>",
+        "Activation": "Passive",
+        "Slot": "Tech",
         "TargetTypes": [
             "AllEnemy"
+        ],
+        "ShopFilters": [
+            "MagicDamage",
+            "Durability"
         ],
         "Cooldown": "0",
         "Duration": "15",
@@ -2632,14 +3304,15 @@
             "upgrade_magic_vulnerability"
         ]
     },
-    "rapid_recharge": {
-        "Key": "upgrade_rapid_recharge",
+    "upgrade_rapid_recharge": {
         "Name": "Rapid Recharge",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F2B00>",
+        "Activation": "Passive",
+        "Slot": "Tech",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -2660,14 +3333,17 @@
             "upgrade_extra_charge"
         ]
     },
-    "magic_tempo": {
-        "Key": "upgrade_magic_tempo",
+    "upgrade_magic_tempo": {
         "Name": "Improved Cooldown",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F2BC0>",
+        "Activation": "Passive",
+        "Slot": "Tech",
         "TargetTypes": [],
+        "ShopFilters": [
+            "Healing"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -2684,14 +3360,17 @@
         "CooldownReduction": "15",
         "BonusHealthRegen": "1.5"
     },
-    "cooldown_reduction": {
-        "Key": "upgrade_cooldown_reduction",
+    "upgrade_cooldown_reduction": {
         "Name": "Superior Cooldown",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F2CE0>",
+        "Activation": "Passive",
+        "Slot": "Tech",
         "TargetTypes": [],
+        "ShopFilters": [
+            "Healing"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -2712,14 +3391,17 @@
             "upgrade_magic_tempo"
         ]
     },
-    "duration_extender": {
-        "Key": "upgrade_duration_extender",
+    "upgrade_duration_extender": {
         "Name": "[Deprecated] Duration Extender",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F2F80>",
+        "Activation": "Passive",
+        "Slot": "Tech",
         "TargetTypes": [],
+        "ShopFilters": [
+            "Durability"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -2735,17 +3417,18 @@
         "WeaponPower": "0",
         "BonusAbilityDurationPercent": "20"
     },
-    "slowing_tech": {
-        "Key": "upgrade_slowing_tech",
+    "upgrade_slowing_tech": {
         "Name": "Slowing Spirit",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "500",
         "Tier": "1",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F2B30>",
+        "Activation": "Passive",
+        "Slot": "Tech",
         "TargetTypes": [
             "HeroEnemy",
             "CreepEnemy"
         ],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -2762,15 +3445,20 @@
         "SlowPercent": "15",
         "SlowDuration": "2"
     },
-    "containment": {
-        "Key": "upgrade_containment",
+    "upgrade_containment": {
         "Name": "Slowing Hex",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F2FB0>",
+        "Activation": "ActivationPress",
+        "Slot": "Tech",
         "TargetTypes": [
             "HeroEnemy"
+        ],
+        "ShopFilters": [
+            "Movement",
+            "Disruption",
+            "MagicDamage"
         ],
         "Cooldown": "27",
         "Duration": "3",
@@ -2790,15 +3478,19 @@
         "BonusSprintSpeed": "1m",
         "GroundDashReductionPercent": "-30"
     },
-    "withering_whip": {
-        "Key": "upgrade_withering_whip",
+    "upgrade_withering_whip": {
         "Name": "Withering Whip",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F28C0>",
+        "Activation": "ActivationPress",
+        "Slot": "Tech",
         "TargetTypes": [
             "HeroEnemy"
+        ],
+        "ShopFilters": [
+            "Disruption",
+            "MagicDamage"
         ],
         "Cooldown": "40",
         "Duration": "4.5",
@@ -2819,15 +3511,21 @@
         "SpiritPower": "4",
         "BonusHealth": "50"
     },
-    "rescue_beam": {
-        "Key": "upgrade_rescue_beam",
+    "upgrade_rescue_beam": {
         "Name": "Rescue Beam",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F3100>",
+        "Activation": "ActivationPress",
+        "Slot": "Armor",
         "TargetTypes": [
             "HeroFriendly"
+        ],
+        "ShopFilters": [
+            "MagicDamage",
+            "Durability",
+            "Healing",
+            "Movement"
         ],
         "Cooldown": "25",
         "Duration": "0",
@@ -2852,14 +3550,15 @@
             "upgrade_health_stimpak"
         ]
     },
-    "personal_rejuvenator": {
-        "Key": "upgrade_personal_rejuvenator",
+    "upgrade_personal_rejuvenator": {
         "Name": "Rebirth",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F31C0>",
+        "Activation": "Passive",
+        "Slot": "Tech",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "480",
         "Duration": "0",
         "CastRange": "0",
@@ -2876,14 +3575,15 @@
         "RespawnDelay": "5",
         "RespawnBonusHealthDuration": "0"
     },
-    "rebirth": {
-        "Key": "upgrade_rebirth",
+    "upgrade_rebirth": {
         "Name": "Soul Rebirth",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F2EF0>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "200",
         "Duration": "0",
         "CastRange": "0",
@@ -2902,17 +3602,18 @@
         "CooldownReduction": "15",
         "BaseAttackDamagePercent": "20"
     },
-    "long_range_slowing_tech": {
-        "Key": "upgrade_long_range_slowing_tech",
+    "upgrade_long_range_slowing_tech": {
         "Name": "Omni Spirit",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F3640>",
+        "Activation": "Passive",
+        "Slot": "Tech",
         "TargetTypes": [
             "HeroEnemy",
             "CreepEnemy"
         ],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -2931,16 +3632,17 @@
         "SlowPercent": "20",
         "SlowDuration": "2"
     },
-    "full_spectrum": {
-        "Key": "upgrade_full_spectrum",
+    "upgrade_full_spectrum": {
         "Name": "Full Spectrum",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F3850>",
+        "Activation": "Passive",
+        "Slot": "Tech",
         "TargetTypes": [
             "AllEnemy"
         ],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -2960,14 +3662,15 @@
         "SlowDuration": "2",
         "BonusDamagePerHero": "5"
     },
-    "tech_cleave": {
-        "Key": "upgrade_tech_cleave",
+    "upgrade_tech_cleave": {
         "Name": "Quantum Chimaera",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F3760>",
+        "Activation": "Passive",
+        "Slot": "Tech",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -2985,14 +3688,15 @@
         "TechCleaveRadius": "10m",
         "ProcCooldown": "0.05"
     },
-    "bonus_ability_charge_3": {
-        "Key": "upgrade_bonus_ability_charge_3",
+    "upgrade_bonus_ability_charge_3": {
         "Name": "Hyper Charge",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F3790>",
+        "Activation": "Passive",
+        "Slot": "Tech",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -3008,14 +3712,15 @@
         "WeaponPower": "0",
         "BonusAbilityCharges": "3"
     },
-    "charge_mastery": {
-        "Key": "upgrade_charge_mastery",
+    "upgrade_charge_mastery": {
         "Name": "Charge Mastery",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F3970>",
+        "Activation": "Passive",
+        "Slot": "Tech",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -3034,15 +3739,19 @@
         "BonusChargedAbilityDamage": "15",
         "BonusChargedCooldownReduction": "15"
     },
-    "rupture": {
-        "Key": "upgrade_rupture",
+    "upgrade_rupture": {
         "Name": "Decay",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F3610>",
+        "Activation": "ActivationPress",
+        "Slot": "Tech",
         "TargetTypes": [
             "HeroEnemy"
+        ],
+        "ShopFilters": [
+            "MagicDamage",
+            "Disruption"
         ],
         "Cooldown": "30",
         "Duration": "10",
@@ -3062,16 +3771,17 @@
         "TickRate": "1.0",
         "DotHealthPercent": "3.1"
     },
-    "discord": {
-        "Key": "upgrade_discord",
+    "upgrade_discord": {
         "Name": "Discord",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F3A00>",
+        "Activation": "ActivationPress",
+        "Slot": "Tech",
         "TargetTypes": [
             "Hero"
         ],
+        "ShopFilters": [],
         "Cooldown": "30",
         "Duration": "10",
         "CastRange": "25m",
@@ -3091,16 +3801,17 @@
         "MaxHealthPercentAsHealPerSecond": "5",
         "AuraRadius": "10m"
     },
-    "aoe_tech_shield": {
-        "Key": "upgrade_aoe_tech_shield",
+    "upgrade_aoe_tech_shield": {
         "Name": "Spirit Barrier Pulse",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F3AF0>",
+        "Activation": "InstantCast",
+        "Slot": "Tech",
         "TargetTypes": [
             "AllFriendly"
         ],
+        "ShopFilters": [],
         "Cooldown": "30",
         "Duration": "16",
         "CastRange": "0",
@@ -3117,15 +3828,19 @@
         "TempTechShieldHealth": "400",
         "Radius": "30m"
     },
-    "target_stun": {
-        "Key": "upgrade_target_stun",
+    "upgrade_target_stun": {
         "Name": "Knockdown",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD91F3CA0>",
+        "Activation": "ActivationPress",
+        "Slot": "Tech",
         "TargetTypes": [
             "HeroEnemy"
+        ],
+        "ShopFilters": [
+            "MagicDamage",
+            "Disruption"
         ],
         "Cooldown": "45",
         "Duration": "0",
@@ -3147,15 +3862,21 @@
         "TechShieldMaxHealth": "200",
         "Stamina": "1"
     },
-    "phantom_strike": {
-        "Key": "upgrade_phantom_strike",
+    "upgrade_phantom_strike": {
         "Name": "Phantom Strike",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B01C0>",
+        "Activation": "ActivationPress",
+        "Slot": "Armor",
         "TargetTypes": [
             "HeroEnemy"
+        ],
+        "ShopFilters": [
+            "WeaponDamage",
+            "Durability",
+            "Movement",
+            "Disruption"
         ],
         "Cooldown": "25",
         "Duration": "0",
@@ -3176,14 +3897,18 @@
         "SlowDuration": "3",
         "ImpactDamage": "150"
     },
-    "warp_stone": {
-        "Key": "upgrade_warp_stone",
+    "upgrade_warp_stone": {
         "Name": "Warp Stone",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B02B0>",
+        "Activation": "InstantCast",
+        "Slot": "Weapon",
         "TargetTypes": [],
+        "ShopFilters": [
+            "WeaponDamage",
+            "Movement"
+        ],
         "Cooldown": "15",
         "Duration": "0",
         "CastRange": "13m",
@@ -3201,16 +3926,17 @@
         "BulletResist": "40",
         "CasterBuffDuration": "5"
     },
-    "aoe_root": {
-        "Key": "upgrade_aoe_root",
+    "upgrade_aoe_root": {
         "Name": "Vacuum Web",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B0520>",
+        "Activation": "ActivationPress",
+        "Slot": "Tech",
         "TargetTypes": [
             "AllEnemy"
         ],
+        "ShopFilters": [],
         "Cooldown": "40",
         "Duration": "0",
         "CastRange": "0",
@@ -3230,14 +3956,15 @@
         "TechRangeMultiplier": "20",
         "TechRadiusMultiplier": "20"
     },
-    "ability_refresher": {
-        "Key": "upgrade_ability_refresher",
+    "upgrade_ability_refresher": {
         "Name": "Refresher",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B0580>",
+        "Activation": "InstantCast",
+        "Slot": "Tech",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "200",
         "Duration": "0",
         "CastRange": "0",
@@ -3253,14 +3980,18 @@
         "WeaponPower": "0",
         "TechResist": "16"
     },
-    "ability_power_shard": {
-        "Key": "upgrade_ability_power_shard",
+    "upgrade_ability_power_shard": {
         "Name": "Echo Shard",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B0670>",
+        "Activation": "InstantCast",
+        "Slot": "Tech",
         "TargetTypes": [],
+        "ShopFilters": [
+            "Movement",
+            "MagicDamage"
+        ],
         "Cooldown": "20",
         "Duration": "0",
         "CastRange": "0",
@@ -3277,15 +4008,19 @@
         "BonusMoveSpeed": "1m",
         "BulletResist": "16"
     },
-    "tech_damage_pulse": {
-        "Key": "upgrade_tech_damage_pulse",
+    "upgrade_tech_damage_pulse": {
         "Name": "Torment Pulse",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B0820>",
+        "Activation": "Passive",
+        "Slot": "Tech",
         "TargetTypes": [
             "AllEnemy"
+        ],
+        "ShopFilters": [
+            "MagicDamage",
+            "Durability"
         ],
         "Cooldown": "1.5",
         "Duration": "0",
@@ -3304,16 +4039,17 @@
         "DamagePulseAmount": "40",
         "DamagePulseRadius": "9m"
     },
-    "cheat_death": {
-        "Key": "upgrade_cheat_death",
+    "upgrade_cheat_death": {
         "Name": "Cheat Death",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B0970>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [
             "AllEnemy"
         ],
+        "ShopFilters": [],
         "Cooldown": "150",
         "Duration": "0",
         "CastRange": "0",
@@ -3335,14 +4071,15 @@
         "BonusHealth": "175",
         "BonusHealthRegen": "2"
     },
-    "reload_speed": {
-        "Key": "upgrade_reload_speed",
+    "upgrade_reload_speed": {
         "Name": "Fast Reload",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B0A60>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -3358,14 +4095,15 @@
         "WeaponPower": "0",
         "ReloadSpeedMultipler": "-35"
     },
-    "cloaking_device": {
-        "Key": "upgrade_cloaking_device",
+    "upgrade_cloaking_device": {
         "Name": "Cloaking Device",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B09D0>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "10",
         "Duration": "0",
         "CastRange": "0",
@@ -3388,14 +4126,19 @@
         "RevealOnSpottedDuration": "1.5",
         "FullInvisDistance": "50m"
     },
-    "cloaking_device_active": {
-        "Key": "upgrade_cloaking_device_active",
+    "upgrade_cloaking_device_active": {
         "Name": "Shadow Weave",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B0B80>",
+        "Activation": "InstantCast",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [
+            "MagicDamage",
+            "FireRate",
+            "Movement"
+        ],
         "Cooldown": "45",
         "Duration": "25",
         "CastRange": "0",
@@ -3424,14 +4167,15 @@
         "BonusHealthRegen": "15",
         "BonusClipSizePercent": "30"
     },
-    "zipine_mastery": {
-        "Key": "upgrade_zipine_mastery",
+    "upgrade_zipine_mastery": {
         "Name": "Zip Line Mastery",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B0CD0>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -3450,16 +4194,17 @@
         "ZiplineJumpBonusTimeScale": "1.5",
         "ZiplineJumpBonusDurationMax": "6"
     },
-    "fire_rate_aura": {
-        "Key": "upgrade_fire_rate_aura",
+    "upgrade_fire_rate_aura": {
         "Name": "Fire Rate Aura",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B0C10>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [
             "AllFriendly"
         ],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -3477,14 +4222,15 @@
         "BonusFireRateNPC": "35",
         "AuraRadius": "30m"
     },
-    "weapon_overdrive_clip": {
-        "Key": "upgrade_weapon_overdrive_clip",
+    "upgrade_weapon_overdrive_clip": {
         "Name": "Overdrive Clip",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B0EE0>",
+        "Activation": "InstantCast",
+        "Slot": "Weapon",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "50",
         "Duration": "0",
         "CastRange": "0",
@@ -3503,14 +4249,18 @@
         "BonusWeaponPower": "100",
         "OverdriveClipDuration": "5"
     },
-    "rocket_boots": {
-        "Key": "upgrade_rocket_boots",
+    "upgrade_rocket_boots": {
         "Name": "Majestic Leap - Disabled",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B0F10>",
+        "Activation": "InstantCast",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [
+            "MagicDamage",
+            "Movement"
+        ],
         "Cooldown": "15",
         "Duration": "0",
         "CastRange": "0",
@@ -3529,15 +4279,18 @@
         "AirControlPercent": "100",
         "BonusHealth": "75"
     },
-    "rocket_booster": {
-        "Key": "upgrade_rocket_booster",
+    "upgrade_rocket_booster": {
         "Name": "Majestic Leap",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B0FD0>",
+        "Activation": "InstantCast",
+        "Slot": "Armor",
         "TargetTypes": [
             "AllEnemy"
+        ],
+        "ShopFilters": [
+            "Movement"
         ],
         "Cooldown": "26",
         "Duration": "0",
@@ -3566,16 +4319,17 @@
         "MinAimAngle": "30",
         "BonusHealth": "125"
     },
-    "aerial_assault": {
-        "Key": "upgrade_aerial_assault",
+    "upgrade_aerial_assault": {
         "Name": "Aerial Assault",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B1480>",
+        "Activation": "InstantCast",
+        "Slot": "Armor",
         "TargetTypes": [
             "AllEnemy"
         ],
+        "ShopFilters": [],
         "Cooldown": "25",
         "Duration": "0",
         "CastRange": "0",
@@ -3598,15 +4352,18 @@
         "AssaultFireRate": "60",
         "ExplodeRadius": "3m"
     },
-    "health_nova": {
-        "Key": "upgrade_health_nova",
+    "upgrade_health_nova": {
         "Name": "Health Nova",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B13C0>",
+        "Activation": "InstantCast",
+        "Slot": "Armor",
         "TargetTypes": [
             "AllFriendly"
+        ],
+        "ShopFilters": [
+            "Healing"
         ],
         "Cooldown": "60",
         "Duration": "0",
@@ -3628,15 +4385,19 @@
         "BaseAttackDamagePercent": "10",
         "BonusHealth": "100"
     },
-    "restorative_locket": {
-        "Key": "upgrade_restorative_locket",
+    "upgrade_restorative_locket": {
         "Name": "Restorative Locket",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B1570>",
+        "Activation": "ActivationPress",
+        "Slot": "Armor",
         "TargetTypes": [
             "HeroFriendly"
+        ],
+        "ShopFilters": [
+            "Healing",
+            "Durability"
         ],
         "Cooldown": "28",
         "Duration": "0",
@@ -3656,15 +4417,18 @@
         "HealPerStack": "35",
         "MaxStacks": "15"
     },
-    "health_stimpak": {
-        "Key": "upgrade_health_stimpak",
+    "upgrade_health_stimpak": {
         "Name": "Healing Rite",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "500",
         "Tier": "1",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B15D0>",
+        "Activation": "ActivationPress",
+        "Slot": "Armor",
         "TargetTypes": [
             "HeroFriendly"
+        ],
+        "ShopFilters": [
+            "Healing"
         ],
         "Cooldown": "65",
         "Duration": "0",
@@ -3684,14 +4448,17 @@
         "BonusHealth": "45",
         "BonusSprintSpeed": "2m"
     },
-    "infuser": {
-        "Key": "upgrade_infuser",
+    "upgrade_infuser": {
         "Name": "Infuser",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "500",
         "Tier": "1",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B17B0>",
+        "Activation": "InstantCast",
+        "Slot": "Tech",
         "TargetTypes": [],
+        "ShopFilters": [
+            "MagicDamage"
+        ],
         "Cooldown": "35",
         "Duration": "6",
         "CastRange": "0",
@@ -3710,15 +4477,19 @@
         "BonusSpirit": "16",
         "LifestealPercentHero": "20"
     },
-    "savior": {
-        "Key": "upgrade_savior",
+    "upgrade_savior": {
         "Name": "Divine Barrier",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B1750>",
+        "Activation": "ActivationPress",
+        "Slot": "Armor",
         "TargetTypes": [
             "HeroFriendly"
+        ],
+        "ShopFilters": [
+            "Durability",
+            "Movement"
         ],
         "Cooldown": "28",
         "Duration": "0",
@@ -3740,16 +4511,17 @@
         "SaviorMagicShieldHealth": "300",
         "BonusMoveSpeed": "2m"
     },
-    "aoe_smoke_bomb": {
-        "Key": "upgrade_aoe_smoke_bomb",
+    "upgrade_aoe_smoke_bomb": {
         "Name": "Smoke",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B1A20>",
+        "Activation": "InstantCast",
+        "Slot": "Tech",
         "TargetTypes": [
             "HeroFriendly"
         ],
+        "ShopFilters": [],
         "Cooldown": "60",
         "Duration": "25",
         "CastRange": "0",
@@ -3773,15 +4545,19 @@
         "Radius": "30m",
         "FullInvisDistance": "50m"
     },
-    "thermal_detonator": {
-        "Key": "upgrade_thermal_detonator",
+    "upgrade_thermal_detonator": {
         "Name": "Alchemical Fire",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B1B10>",
+        "Activation": "ActivationPress",
+        "Slot": "Weapon",
         "TargetTypes": [
             "AllEnemy"
+        ],
+        "ShopFilters": [
+            "WeaponDamage",
+            "MagicDamage"
         ],
         "Cooldown": "28",
         "Duration": "5",
@@ -3807,14 +4583,18 @@
         "BulletShieldMaxHealth": "225",
         "BaseAttackDamagePercent": "14"
     },
-    "fleetfoot_boots": {
-        "Key": "upgrade_fleetfoot_boots",
+    "upgrade_fleetfoot_boots": {
         "Name": "Fleetfoot",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B1F00>",
+        "Activation": "InstantCast",
+        "Slot": "Weapon",
         "TargetTypes": [],
+        "ShopFilters": [
+            "ClipSize",
+            "Movement"
+        ],
         "Cooldown": "22",
         "Duration": "4",
         "CastRange": "0",
@@ -3836,14 +4616,20 @@
         "BonusHealth": "75",
         "SlideScale": "25"
     },
-    "kinetic_sash": {
-        "Key": "upgrade_kinetic_sash",
+    "upgrade_kinetic_sash": {
         "Name": "Kinetic Dash",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B20E0>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [],
+        "ShopFilters": [
+            "FireRate",
+            "ClipSize",
+            "Movement",
+            "Durability"
+        ],
         "Cooldown": "10",
         "Duration": "8",
         "CastRange": "0",
@@ -3862,14 +4648,15 @@
         "BonusHealth": "100",
         "BonusHealthRegen": "1.5"
     },
-    "weapon_eater": {
-        "Key": "upgrade_weapon_eater",
+    "upgrade_weapon_eater": {
         "Name": "Weapon Eater",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B1F90>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -3889,14 +4676,15 @@
         "MaxWeaponPower": "30",
         "BaseBonusCounter": "-5"
     },
-    "weapon_instant_reload": {
-        "Key": "upgrade_weapon_instant_reload",
+    "upgrade_weapon_instant_reload": {
         "Name": "Reloader + Huge Clip",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B2230>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "20",
         "Duration": "0",
         "CastRange": "0",
@@ -3912,14 +4700,15 @@
         "WeaponPower": "0",
         "BonusClipSizePercent": "60"
     },
-    "tech_defender": {
-        "Key": "upgrade_tech_defender",
+    "upgrade_tech_defender": {
         "Name": "Tech Defender",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B23E0>",
+        "Activation": "InstantCast",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "90",
         "Duration": "6",
         "CastRange": "0",
@@ -3936,14 +4725,18 @@
         "BonusHealth": "125",
         "TechArmor": "1"
     },
-    "unstoppable": {
-        "Key": "upgrade_unstoppable",
+    "upgrade_unstoppable": {
         "Name": "Unstoppable",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B2200>",
+        "Activation": "InstantCast",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [
+            "Durability",
+            "Movement"
+        ],
         "Cooldown": "65",
         "Duration": "6",
         "CastRange": "0",
@@ -3962,14 +4755,17 @@
         "BonusMoveSpeed": "1m",
         "SpiritPower": "12"
     },
-    "colossus": {
-        "Key": "upgrade_colossus",
+    "upgrade_colossus": {
         "Name": "Colossus",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B2290>",
+        "Activation": "InstantCast",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [
+            "Durability"
+        ],
         "Cooldown": "45",
         "Duration": "7",
         "CastRange": "0",
@@ -3993,15 +4789,20 @@
         "Radius": "10m",
         "ModelScaleGrowth": "1.2"
     },
-    "cold_front": {
-        "Key": "upgrade_cold_front",
+    "upgrade_cold_front": {
         "Name": "Cold Front",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B22C0>",
+        "Activation": "InstantCast",
+        "Slot": "Tech",
         "TargetTypes": [
             "AllEnemy"
+        ],
+        "ShopFilters": [
+            "MagicDamage",
+            "Disruption",
+            "Durability"
         ],
         "Cooldown": "32",
         "Duration": "3.0",
@@ -4023,15 +4824,19 @@
         "Damage": "75",
         "TechResist": "10"
     },
-    "aoe_silence": {
-        "Key": "upgrade_aoe_silence",
+    "upgrade_aoe_silence": {
         "Name": "EMP Grenade",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B25F0>",
+        "Activation": "ActivationPress",
+        "Slot": "Tech",
         "TargetTypes": [
             "AllEnemy"
+        ],
+        "ShopFilters": [
+            "MagicDamage",
+            "Disruption"
         ],
         "Cooldown": "30",
         "Duration": "0.25",
@@ -4052,14 +4857,17 @@
         "TechResist": "-20",
         "TechShieldMaxHealth": "225"
     },
-    "self_bubble": {
-        "Key": "upgrade_self_bubble",
+    "upgrade_self_bubble": {
         "Name": "Ethereal Shift",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B25C0>",
+        "Activation": "InstantCast",
+        "Slot": "Tech",
         "TargetTypes": [],
+        "ShopFilters": [
+            "FireRate"
+        ],
         "Cooldown": "30",
         "Duration": "3.5",
         "CastRange": "0",
@@ -4079,14 +4887,15 @@
         "LiftHeight": "120",
         "MoveSpeedMax": "0m"
     },
-    "stasis_bomb": {
-        "Key": "upgrade_stasis_bomb",
+    "upgrade_stasis_bomb": {
         "Name": "Stasis Bomb",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B2AD0>",
+        "Activation": "InstantCast",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "35",
         "Duration": "6",
         "CastRange": "20m",
@@ -4115,16 +4924,17 @@
         "SlamdownSpeed": "500",
         "MoveSpeedMax": "4m"
     },
-    "quarantine": {
-        "Key": "upgrade_quarantine",
+    "upgrade_quarantine": {
         "Name": "Quarantine",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B29B0>",
+        "Activation": "ActivationPress",
+        "Slot": "Tech",
         "TargetTypes": [
             "HeroEnemy"
         ],
+        "ShopFilters": [],
         "Cooldown": "40",
         "Duration": "4.5",
         "CastRange": "30m",
@@ -4139,15 +4949,19 @@
         "TechPower": "0",
         "WeaponPower": "0"
     },
-    "glitch": {
-        "Key": "upgrade_glitch",
+    "upgrade_glitch": {
         "Name": "Curse",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B2E60>",
+        "Activation": "ActivationPress",
+        "Slot": "Tech",
         "TargetTypes": [
             "HeroEnemy"
+        ],
+        "ShopFilters": [
+            "Disruption",
+            "WeaponDamage"
         ],
         "Cooldown": "50",
         "Duration": "3.5",
@@ -4166,16 +4980,17 @@
         "SlowPercent": "0",
         "BaseAttackDamagePercent": "20"
     },
-    "imbued_ability": {
-        "Key": "upgrade_imbued_ability",
+    "upgrade_imbued_ability": {
         "Name": "Imbued Ability",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B2F20>",
+        "Activation": "Passive",
+        "Slot": "Tech",
         "TargetTypes": [
             "AllEnemy"
         ],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -4195,14 +5010,15 @@
         "SlowPercent": "15",
         "SlowDuration": "2"
     },
-    "arcane_extension": {
-        "Key": "upgrade_arcane_extension",
+    "upgrade_arcane_extension": {
         "Name": "Duration Extender",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B31C0>",
+        "Activation": "Passive",
+        "Slot": "Tech",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -4220,16 +5036,17 @@
         "BonusHealth": "100",
         "BonusHealthRegen": "1.5"
     },
-    "imbued_duration_extender": {
-        "Key": "upgrade_imbued_duration_extender",
+    "upgrade_imbued_duration_extender": {
         "Name": "Superior Duration",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B3220>",
+        "Activation": "Passive",
+        "Slot": "Tech",
         "TargetTypes": [
             "AllEnemy"
         ],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -4252,14 +5069,19 @@
             "upgrade_arcane_extension"
         ]
     },
-    "glass_cannon": {
-        "Key": "upgrade_glass_cannon",
+    "upgrade_glass_cannon": {
         "Name": "Glass Cannon",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B3250>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [],
+        "ShopFilters": [
+            "WeaponDamage",
+            "ClipSize",
+            "FireRate"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -4282,15 +5104,21 @@
         "WeaponPowerPerKill": "10",
         "MaxStacks": "5"
     },
-    "surging_power": {
-        "Key": "upgrade_surging_power",
+    "upgrade_surging_power": {
         "Name": "Vampiric Burst",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B3370>",
+        "Activation": "InstantCast",
+        "Slot": "Weapon",
         "TargetTypes": [
             "HeroFriendly"
+        ],
+        "ShopFilters": [
+            "FireRate",
+            "WeaponDamage",
+            "Movement",
+            "Healing"
         ],
         "Cooldown": "35",
         "Duration": "4.5",
@@ -4312,16 +5140,17 @@
         "BonusHealth": "150",
         "ActiveReloadPercent": "50"
     },
-    "mod_disruptor": {
-        "Key": "upgrade_mod_disruptor",
+    "upgrade_mod_disruptor": {
         "Name": "Soul Disruptor",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B3580>",
+        "Activation": "ActivationPress",
+        "Slot": "Tech",
         "TargetTypes": [
             "AllEnemy"
         ],
+        "ShopFilters": [],
         "Cooldown": "30",
         "Duration": "5",
         "CastRange": "0",
@@ -4342,14 +5171,15 @@
         "TickRate": "0.5",
         "TechResist": "-18"
     },
-    "frenzy": {
-        "Key": "upgrade_frenzy",
+    "upgrade_frenzy": {
         "Name": null,
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B3760>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -4371,16 +5201,17 @@
         "KillBonusMoveSpeedPerStack": "2m",
         "MaxKillBonusMoveSpeedStack": "3"
     },
-    "burst_fire_actuator": {
-        "Key": "upgrade_burst_fire_actuator",
+    "upgrade_burst_fire_actuator": {
         "Name": "Burst Fire Actuator",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B3790>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [
             "HeroEnemy"
         ],
+        "ShopFilters": [],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -4404,15 +5235,20 @@
         "IntraBurstFireRateIncrease": "0",
         "NonBurstFireConversionFactor": "3"
     },
-    "boxing_glove": {
-        "Key": "upgrade_boxing_glove",
+    "upgrade_boxing_glove": {
         "Name": "Lifestrike",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B3A60>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [
             "AllEnemy"
+        ],
+        "ShopFilters": [
+            "Durability",
+            "Melee",
+            "Healing"
         ],
         "Cooldown": "5",
         "Duration": "0",
@@ -4439,15 +5275,19 @@
             "upgrade_lifestrike_gauntlets"
         ]
     },
-    "acolytes_glove": {
-        "Key": "upgrade_acolytes_glove",
+    "upgrade_acolytes_glove": {
         "Name": "Spirit Strike",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "500",
         "Tier": "1",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B36D0>",
+        "Activation": "Passive",
+        "Slot": "Tech",
         "TargetTypes": [
             "HeroEnemy"
+        ],
+        "ShopFilters": [
+            "MagicDamage",
+            "Melee"
         ],
         "Cooldown": "8",
         "Duration": "8",
@@ -4468,18 +5308,21 @@
         "BonusHealthRegen": "1",
         "BonusMeleeDamagePercent": "15"
     },
-    "melee_charge": {
-        "Key": "upgrade_melee_charge",
+    "upgrade_melee_charge": {
         "Name": "Melee Charge",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B3AF0>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [
             "HeroEnemy",
             "TrooperEnemy",
             "MinionEnemy",
             "Neutral"
+        ],
+        "ShopFilters": [
+            "Melee"
         ],
         "Cooldown": "0",
         "Duration": "0",
@@ -4498,16 +5341,17 @@
         "BonusHealth": "100",
         "MeleeDistanceScale": "40"
     },
-    "charmed_wraps": {
-        "Key": "upgrade_charmed_wraps",
+    "upgrade_charmed_wraps": {
         "Name": "Charmed Wraps",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B3C10>",
+        "Activation": "Passive",
+        "Slot": "Tech",
         "TargetTypes": [
             "HeroEnemy"
         ],
+        "ShopFilters": [],
         "Cooldown": "25",
         "Duration": "0",
         "CastRange": "0",
@@ -4524,14 +5368,18 @@
         "CooldownReductionFlat": "8.0",
         "LightMeleeTimeWindow": "4.0"
     },
-    "belt_fed_magazine": {
-        "Key": "upgrade_belt_fed_magazine",
+    "upgrade_belt_fed_magazine": {
         "Name": "Belt-Fed Magazine",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B3970>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [],
+        "ShopFilters": [
+            "FireRate",
+            "ClipSize"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -4552,14 +5400,19 @@
         "MaxFireRateIncrease": "60",
         "BonusReloadTime": "0.0"
     },
-    "diviners_kevlar": {
-        "Key": "upgrade_diviners_kevlar",
+    "upgrade_diviners_kevlar": {
         "Name": "Diviner's Kevlar",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B3AC0>",
+        "Activation": "Passive",
+        "Slot": "Tech",
         "TargetTypes": [],
+        "ShopFilters": [
+            "MagicDamage",
+            "Durability",
+            "Healing"
+        ],
         "Cooldown": "60",
         "Duration": "0",
         "CastRange": "0",
@@ -4579,16 +5432,17 @@
         "BuffDuration": "15",
         "CooldownReduction": "12"
     },
-    "stabilizing_tripod": {
-        "Key": "upgrade_stabilizing_tripod",
+    "upgrade_stabilizing_tripod": {
         "Name": "Stabilizing Tripod",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B3A90>",
+        "Activation": "ActivationPress",
+        "Slot": "Weapon",
         "TargetTypes": [
             "AllEnemy"
         ],
+        "ShopFilters": [],
         "Cooldown": "60",
         "Duration": "20",
         "CastRange": "15m",
@@ -4615,14 +5469,19 @@
         "CasterHealthPercent": "100",
         "BulletSpeedOverride": "6500"
     },
-    "mega_spirit": {
-        "Key": "upgrade_mega_spirit",
+    "upgrade_mega_spirit": {
         "Name": "Boundless Spirit",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B3DF0>",
+        "Activation": "Passive",
+        "Slot": "Tech",
         "TargetTypes": [],
+        "ShopFilters": [
+            "MagicDamage",
+            "Movement",
+            "Healing"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -4643,14 +5502,17 @@
             "upgrade_soaring_spirit"
         ]
     },
-    "burst_fire": {
-        "Key": "upgrade_burst_fire",
+    "upgrade_burst_fire": {
         "Name": "Burst Fire",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B3C70>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [],
+        "ShopFilters": [
+            "FireRate"
+        ],
         "Cooldown": "8",
         "Duration": "3.0",
         "CastRange": "0",
@@ -4669,14 +5531,18 @@
         "SlideScale": "50",
         "BonusMoveSpeed": "2m"
     },
-    "resilience": {
-        "Key": "upgrade_resilience",
+    "upgrade_resilience": {
         "Name": "Enduring Spirit",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "500",
         "Tier": "1",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B3DC0>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [
+            "MagicDamage",
+            "Durability"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -4693,14 +5559,18 @@
         "BonusHealth": "75",
         "LifestealPercentHero": "8"
     },
-    "endurance": {
-        "Key": "upgrade_endurance",
+    "upgrade_endurance": {
         "Name": "Extra Regen",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "500",
         "Tier": "1",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD92B3CA0>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [
+            "ClipSize",
+            "Healing"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -4718,14 +5588,15 @@
         "BonusClipSizePercent": "8",
         "BonusHealth": "25"
     },
-    "magic_clarity": {
-        "Key": "upgrade_magic_clarity",
+    "upgrade_magic_clarity": {
         "Name": "Clarity",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD9324040>",
+        "Activation": "Passive",
+        "Slot": "Tech",
         "TargetTypes": [],
+        "ShopFilters": [],
         "Cooldown": "15",
         "Duration": "8",
         "CastRange": "0",
@@ -4745,14 +5616,18 @@
         "BonusSpiritWindow": "1",
         "BonusSpiritMin": "2"
     },
-    "magic_storm": {
-        "Key": "upgrade_magic_storm",
+    "upgrade_magic_storm": {
         "Name": "Surge of Power",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD9324070>",
+        "Activation": "Passive",
+        "Slot": "Tech",
         "TargetTypes": [],
+        "ShopFilters": [
+            "MagicDamage",
+            "Movement"
+        ],
         "Cooldown": "10",
         "Duration": "0",
         "CastRange": "0",
@@ -4771,15 +5646,19 @@
         "MovementSpeedBonusDuration": "6",
         "BonusHealth": "75"
     },
-    "suppressor": {
-        "Key": "upgrade_suppressor",
+    "upgrade_suppressor": {
         "Name": "Suppressor",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD9324280>",
+        "Activation": "Passive",
+        "Slot": "Tech",
         "TargetTypes": [
             "AllEnemy"
+        ],
+        "ShopFilters": [
+            "Healing",
+            "Disruption"
         ],
         "Cooldown": "0",
         "Duration": "2.0",
@@ -4798,15 +5677,19 @@
         "BonusHealthRegen": "3",
         "FireRateSlow": "30"
     },
-    "quick_silver": {
-        "Key": "upgrade_quick_silver",
+    "upgrade_quick_silver": {
         "Name": "Quicksilver Reload",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD9324520>",
+        "Activation": "Passive",
+        "Slot": "Tech",
         "TargetTypes": [
             "AllEnemy"
+        ],
+        "ShopFilters": [
+            "MagicDamage",
+            "FireRate"
         ],
         "Cooldown": "0",
         "Duration": "0",
@@ -4827,15 +5710,19 @@
         "Damage": "50",
         "ReloadSpeedMultipler": "10"
     },
-    "arcane_eater": {
-        "Key": "upgrade_arcane_eater",
+    "upgrade_arcane_eater": {
         "Name": "Arcane Eater",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD93242E0>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [
             "HeroEnemy"
+        ],
+        "ShopFilters": [
+            "MagicDamage",
+            "FireRate"
         ],
         "Cooldown": "0",
         "Duration": "0",
@@ -4857,14 +5744,17 @@
         "MaxStacks": "99",
         "StealDuration": "12"
     },
-    "predator_precision": {
-        "Key": "upgrade_predator_precision",
+    "upgrade_predator_precision": {
         "Name": "Predator Precision",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD9324430>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [],
+        "ShopFilters": [
+            "FireRate"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -4882,14 +5772,18 @@
         "LifeThreshold": "50",
         "BaseAttackDamagePercent": "50"
     },
-    "intensifying_clip": {
-        "Key": "upgrade_intensifying_clip",
+    "upgrade_intensifying_clip": {
         "Name": "Intensifying Magazine",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD93241F0>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [],
+        "ShopFilters": [
+            "ClipSize",
+            "WeaponDamage"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -4908,14 +5802,19 @@
         "ShootDurationForMax": "3.0",
         "BaseAttackDamagePercentAtMaxDuration": "75"
     },
-    "reinforcing_casings": {
-        "Key": "upgrade_reinforcing_casings",
+    "upgrade_reinforcing_casings": {
         "Name": "Escalating Resilience",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD9324670>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [],
+        "ShopFilters": [
+            "WeaponDamage",
+            "Durability",
+            "FireRate"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -4935,14 +5834,17 @@
         "BaseAttackDamagePercent": "14",
         "BonusFireRate": "14"
     },
-    "blitz_bullets": {
-        "Key": "upgrade_blitz_bullets",
+    "upgrade_blitz_bullets": {
         "Name": "Swift Striker",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD9324460>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [],
+        "ShopFilters": [
+            "FireRate"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -4959,14 +5861,18 @@
         "BonusFireRate": "22",
         "LocalBulletArmorReduction": "-5"
     },
-    "veil_walker": {
-        "Key": "upgrade_veil_walker",
+    "upgrade_veil_walker": {
         "Name": "Veil Walker",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD9324700>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [
+            "Durability",
+            "ClipSize"
+        ],
         "Cooldown": "18",
         "Duration": "16",
         "CastRange": "0",
@@ -4996,14 +5902,19 @@
         "InvisDuration": "5",
         "BonusMoveSpeed": "3m"
     },
-    "vex_barrier": {
-        "Key": "upgrade_vex_barrier",
+    "upgrade_vex_barrier": {
         "Name": "Reactive Barrier",
         "Description": null,
-        "Slot": "Armor",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD93244C0>",
+        "Activation": "Passive",
+        "Slot": "Armor",
         "TargetTypes": [],
+        "ShopFilters": [
+            "Durability",
+            "ClipSize",
+            "Healing"
+        ],
         "Cooldown": "30",
         "Duration": "10",
         "CastRange": "0",
@@ -5024,15 +5935,19 @@
         "BonusHealthRegen": "2",
         "VexBarrierShieldDuration": "13"
     },
-    "medic_bullets": {
-        "Key": "upgrade_medic_bullets",
+    "upgrade_medic_bullets": {
         "Name": "Restorative Shot",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "500",
         "Tier": "1",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD93248E0>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [
             "AllEnemy"
+        ],
+        "ShopFilters": [
+            "WeaponDamage",
+            "Healing"
         ],
         "Cooldown": "6",
         "Duration": "0",
@@ -5054,14 +5969,18 @@
         "HealFromNPC": "10",
         "BulletResist": "7"
     },
-    "titan_round": {
-        "Key": "upgrade_titan_round",
+    "upgrade_titan_round": {
         "Name": "Titanic Magazine",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "3000",
         "Tier": "3",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD9324580>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [],
+        "ShopFilters": [
+            "ClipSize",
+            "WeaponDamage"
+        ],
         "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
@@ -5082,14 +6001,17 @@
             "upgrade_clip_size"
         ]
     },
-    "active_reload": {
-        "Key": "upgrade_active_reload",
+    "upgrade_active_reload": {
         "Name": "Active Reload",
         "Description": null,
-        "Slot": "Weapon",
+        "Cost": "1250",
         "Tier": "2",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD9324400>",
+        "Activation": "Passive",
+        "Slot": "Weapon",
         "TargetTypes": [],
+        "ShopFilters": [
+            "WeaponDamage"
+        ],
         "Cooldown": "17",
         "Duration": "8",
         "CastRange": "0",
@@ -5108,14 +6030,17 @@
         "BulletLifestealPercent": "30",
         "BonusFireRate": "20"
     },
-    "magic_carpet": {
-        "Key": "upgrade_magic_carpet",
+    "upgrade_magic_carpet": {
         "Name": "Magic Carpet",
         "Description": null,
-        "Slot": "Tech",
+        "Cost": "6300",
         "Tier": "4",
-        "ImagePath": "<keyvalues3.keyvalues3.flagged_value object at 0x0000029BD9324640>",
+        "Activation": "InstantCast",
+        "Slot": "Tech",
         "TargetTypes": [],
+        "ShopFilters": [
+            "Movement"
+        ],
         "Cooldown": "40",
         "Duration": "7",
         "CastRange": "0",

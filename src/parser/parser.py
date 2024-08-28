@@ -19,10 +19,13 @@ class Parser:
         self.DATA_DIR = './decompiled-data/'
         self.OUTPUT_DIR = './output/'
 
-        self._load_files()
+        self._load_vdata()
         self._load_localizations()
 
-    def _load_files(self):
+    def _load_vdata(self):
+        generic_data_path = os.path.join(self.DATA_DIR, 'scripts/generic_data.vdata')
+        self.generic_data = kv3.read(generic_data_path)
+
         hero_data_path = os.path.join(self.DATA_DIR, 'scripts/heroes.vdata')
         self.hero_data = kv3.read(hero_data_path)
 
@@ -111,33 +114,52 @@ class Parser:
     def _parse_items(self):
         print('Parsing Items...')
 
-        item_keys = [key for key in self.abilities_data if key.startswith('upgrade_')]  #
-
         all_items = {}
-        missing_types = []
-        for key in item_keys:
-            item_value = self.abilities_data[key]
+
+        for key in self.abilities_data:
+            ability = self.abilities_data[key]
+            if type(ability) is not dict:
+                continue
+
+            if 'm_eAbilityType' not in ability:
+                continue
+
+            if ability['m_eAbilityType'] != 'EAbilityType_Item':
+                continue
+
+            item_value = ability
             item_ability_attrs = item_value['m_mapAbilityProperties']
 
-            # Assign target types array
+            # Assign target types
             target_types = []
             if 'm_nAbilityTargetTypes' in item_value:
-                for target_type in item_value['m_nAbilityTargetTypes'].split('|'):
-                    # strip all whitespace
-                    target_type = target_type.replace(' ', '')
-                    if target_type == '':
-                        continue
-                    mapped_type = maps.TARGET_TYPE[target_type]
-                    target_types.append(mapped_type)
+                target_types = self._format_pipe_sep_string(
+                    item_value['m_nAbilityTargetTypes'], maps.get_target_type
+                )
+
+            # Assign shop filters
+            shop_filters = []
+            if 'm_eShopFilters' in item_value:
+                shop_filters = self._format_pipe_sep_string(
+                    item_value['m_eShopFilters'], maps.get_shop_filter
+                )
+
+            tier = maps.get_tier(item_value.get('m_iItemTier'))
+
+            cost = None
+            if tier is not None:
+                cost = self.generic_data['m_nItemPricePerTier'][int(tier)]
 
             parsed_item_data = {
-                'Key': key,
                 'Name': self.localizations['names'].get(key),
                 'Description': self.localizations['descriptions'].get(key),
-                'Slot': maps.SLOT_TYPE.get(item_value.get('m_eItemSlotType'), 'None'),
-                'Tier': maps.TIER.get(item_value.get('m_iItemTier'), 'None'),
-                # 'ImagePath': str(item_value.get('m_strAbilityImage', 'None')),
+                'Cost': str(cost),
+                'Tier': tier,
+                'Activation': maps.get_ability_activation(item_value['m_eAbilityActivation']),
+                'Slot': maps.get_slot_type(item_value.get('m_eItemSlotType')),
+                # 'ImagePath': str(item_value.get('m_strAbilityImage', None)),
                 'TargetTypes': target_types,
+                'ShopFilters': shop_filters,
             }
 
             for attr_key in item_ability_attrs.keys():
@@ -151,10 +173,9 @@ class Parser:
                 parsed_item_data['Components'] = item_value['m_vecComponentItems']
                 self._add_children_to_tree(parsed_item_data['Name'], parsed_item_data['Components'])
 
-            all_items[key.replace('upgrade_', '')] = parsed_item_data
+            all_items[key] = parsed_item_data
 
         json.write(self.OUTPUT_DIR + '/item-data.json', all_items)
-        print(missing_types)
 
     # Add items to mermaid tree
     def _add_children_to_tree(self, parent_key, child_keys):
@@ -178,6 +199,20 @@ class Parser:
             output_data[human_key] = value
 
         return output_data
+
+    # Formats pipe separated string and maps the value
+    # eg. "A | B | C" to [map(A), map(B), map(C)]
+    def _format_pipe_sep_string(self, pipe_sep_string, map_func):
+        output_array = []
+        for value in pipe_sep_string.split('|'):
+            # strip all whitespace
+            value = value.replace(' ', '')
+            if value == '':
+                continue
+            mapped_value = map_func(value)
+            output_array.append(mapped_value)
+
+        return output_array
 
 
 if __name__ == '__main__':
