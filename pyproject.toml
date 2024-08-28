@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "DeadBot" 
+version = "0.1.0"  # REQUIRED, although can be dynamic
+description = "Bot that lives to serve deadlocked.wiki"
+readme = "README.md"
+authors=[]
+
+[tool.poetry.dependencies]
+python="^3.11"
+mwclient="^0.11.0"
+keyvalues3="^0.1"
+black="^24.8.0"
+
+[tool.poetry.scripts]
+
+
