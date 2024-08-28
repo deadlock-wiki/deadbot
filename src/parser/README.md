@@ -17,3 +17,13 @@ Items\
 Neutral Enemies/Buildings\
 ❌ Stats\
 ❌ Descriptions
+
+### Ability File
+Prefixes for ability data
+Hero abilities - 'citadel', 'ability', 'super', 'trooper', 'rutger', 'gunslinger', 'yakuza', 'thumper', 'signature', 'ultimate', 'hero', 'cadence', 'genericperson', 'mirage', 'slork', 'synth', 'tokamak', 'viscous', 'tech'
+
+npc abilities + stats - 'npc', 'melee', 'targetdummy'
+
+Items - 'upgrade'
+
+Misc - 'tier1', 'tier2', 'tier3', 'tier4', 'armor',  'common', 'invis', 'inherent', 'held'
