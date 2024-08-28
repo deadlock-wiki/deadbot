@@ -125,15 +125,18 @@ class Parser:
                 for target_type in item_value['m_nAbilityTargetTypes'].split('|'):
                     # strip all whitespace
                     target_type = target_type.replace(' ', '')
-                    mapped_type = maps.target_type_map[target_type]
+                    if target_type == '':
+                        continue
+                    mapped_type = maps.TARGET_TYPE[target_type]
                     target_types.append(mapped_type)
 
             parsed_item_data = {
                 'Key': key,
                 'Name': self.localizations['names'].get(key),
                 'Description': self.localizations['descriptions'].get(key),
-                'Tier': item_value.get('m_iItemTier', 'None'),
-                # 'ImagePath': item_value.get('m_strAbilityImage', 'None'),
+                'Slot': maps.SLOT_TYPE.get(item_value.get('m_eItemSlotType'), 'None'),
+                'Tier': maps.TIER.get(item_value.get('m_iItemTier'), 'None'),
+                # 'ImagePath': str(item_value.get('m_strAbilityImage', 'None')),
                 'TargetTypes': target_types,
             }
 
