@@ -3,11 +3,11 @@ import tempfile
 import os
 import sys
 from python_mermaid.diagram import MermaidDiagram, Node, Link
+import maps
 
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from utils import json
-
 
 nodes = []
 links = []
@@ -49,8 +49,8 @@ class Parser:
 
     def run(self):
         print('Parsing...')
-        self._parse_heroes()
-        self._parse_abilities()
+        # self._parse_heroes()
+        # self._parse_abilities()
         self._parse_items()
         print('Done parsing')
 
@@ -114,14 +114,27 @@ class Parser:
         item_keys = [key for key in self.abilities_data if key.startswith('upgrade_')]  #
 
         all_items = {}
+        missing_types = []
         for key in item_keys:
             item_value = self.abilities_data[key]
             item_ability_attrs = item_value['m_mapAbilityProperties']
+
+            # Assign target types array
+            target_types = []
+            if 'm_nAbilityTargetTypes' in item_value:
+                for target_type in item_value['m_nAbilityTargetTypes'].split('|'):
+                    # strip all whitespace
+                    target_type = target_type.replace(' ', '')
+                    mapped_type = maps.target_type_map[target_type]
+                    target_types.append(mapped_type)
 
             parsed_item_data = {
                 'Key': key,
                 'Name': self.localizations['names'].get(key),
                 'Description': self.localizations['descriptions'].get(key),
+                'Tier': item_value.get('m_iItemTier', 'None'),
+                # 'ImagePath': item_value.get('m_strAbilityImage', 'None'),
+                'TargetTypes': target_types,
             }
 
             for attr_key in item_ability_attrs.keys():
@@ -138,6 +151,7 @@ class Parser:
             all_items[key.replace('upgrade_', '')] = parsed_item_data
 
         json.write(self.OUTPUT_DIR + '/item-data.json', all_items)
+        print(missing_types)
 
     # Add items to mermaid tree
     def _add_children_to_tree(self, parent_key, child_keys):
