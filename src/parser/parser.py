@@ -81,7 +81,8 @@ class Parser:
                     self._map_attr_names(hero_value['m_mapStartingStats'], maps.get_hero_attr)
                 )
 
-                # merged_stats['Dps'] = merged_stats[]
+                weapon_stats = self._parse_hero_weapon(hero_value)
+                hero_stats.update(weapon_stats)
 
                 level_upgrades = hero_value['m_mapStandardLevelUpUpgrades']
                 for key in level_upgrades:
@@ -94,6 +95,22 @@ class Parser:
                 all_hero_stats[hero_key] = hero_stats
 
         json.write(self.OUTPUT_DIR + 'json/hero-data.json', all_hero_stats)
+
+    def _parse_hero_weapon(self, hero_value):
+        weapon_stats = {}
+
+        weapon_prim_id = hero_value['m_mapBoundAbilities']['ESlot_Weapon_Primary']
+        weapon_prim = self.abilities_data[weapon_prim_id]['m_WeaponInfo']
+
+        weapon_stats = {
+            'BulletDamage': weapon_prim['m_flBulletDamage'],
+            'BulletsPerSec': 1 / weapon_prim['m_flCycleTime'],
+            'Ammo': weapon_prim['m_iClipSize'],
+            'ReloadTime': weapon_prim['m_reloadDuration'],
+        }
+
+        weapon_stats['Dps'] = weapon_stats['BulletDamage'] * weapon_stats['BulletsPerSec']
+        return weapon_stats
 
     def _parse_abilities(self):
         print('Parsing Abilities...')
