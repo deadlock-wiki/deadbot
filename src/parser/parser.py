@@ -65,37 +65,48 @@ class Parser:
 
     def _parse_heroes(self):
         print('Parsing Heroes...')
-        attr_map = json.read('maps/hero-map.json')
-
         hero_keys = self.hero_data.keys()
-
-        # Base hero stats
-        base_hero_stats = self.hero_data['hero_base']['m_mapStartingStats']
 
         all_hero_stats = dict()
 
         for hero_key in hero_keys:
             if hero_key.startswith('hero') and hero_key != 'hero_base':
-                merged_stats = dict()
+                hero_value = self.hero_data[hero_key]
 
-                # Hero specific stats applied over base stats
-                hero_stats = self.hero_data[hero_key]['m_mapStartingStats']
-                merged_stats.update(base_hero_stats)
-                merged_stats.update(hero_stats)
+                hero_stats = {
+                    'Name': self.localizations['names'].get(hero_key, None),
+                }
 
-                merged_stats = self._map_attr_names(merged_stats, attr_map)
+                hero_stats.update(
+                    self._map_attr_names(hero_value['m_mapStartingStats'], maps.get_hero_attr)
+                )
 
-                # Add extra data to the hero
-                name = self.localizations['names'].get(hero_key, 'Unknown')
-                merged_stats['name'] = name
+                weapon_stats = self._parse_hero_weapon(hero_value)
+                hero_stats.update(weapon_stats)
 
-                # create a key associated with the name because of old hero names
-                # being used as keys. this will keep a familiar key for usage on the wiki
-                merged_stats['key'] = name.lower().replace(' ', '_')
+                level_upgrades = hero_value['m_mapStandardLevelUpUpgrades']
+                for key in level_upgrades:
+                    hero_stats[maps.get_level_mod(key)] = level_upgrades[key]
 
-                all_hero_stats[hero_key] = merged_stats
+                all_hero_stats[hero_key] = sort_dict(hero_stats)
 
-        json.write(self.OUTPUT_DIR + 'json/hero-data.json', all_hero_stats)
+        json.write(self.OUTPUT_DIR + 'json/hero-data.json', sort_dict(all_hero_stats))
+
+    def _parse_hero_weapon(self, hero_value):
+        weapon_stats = {}
+
+        weapon_prim_id = hero_value['m_mapBoundAbilities']['ESlot_Weapon_Primary']
+        weapon_prim = self.abilities_data[weapon_prim_id]['m_WeaponInfo']
+
+        weapon_stats = {
+            'BulletDamage': weapon_prim['m_flBulletDamage'],
+            'BulletsPerSec': 1 / weapon_prim['m_flCycleTime'],
+            'Ammo': weapon_prim['m_iClipSize'],
+            'ReloadTime': weapon_prim['m_reloadDuration'],
+        }
+
+        weapon_stats['Dps'] = weapon_stats['BulletDamage'] * weapon_stats['BulletsPerSec']
+        return weapon_stats
 
     def _parse_abilities(self):
         print('Parsing Abilities...')
@@ -185,7 +196,7 @@ class Parser:
 
             all_items[key] = parsed_item_data
 
-        json.write(self.OUTPUT_DIR + 'json/item-data.json', all_items)
+        json.write(self.OUTPUT_DIR + 'json/item-data.json', sort_dict(all_items))
 
     # format description with data. eg. "When you are above {s:LifeThreshold}% health"
     # should become "When you are above 20% health"
@@ -202,21 +213,12 @@ class Parser:
         for child_key in child_keys:
             links.append(Link(Node(self.localizations['names'].get(child_key)), Node(parent_key)))
 
-    """
-        Maps all keys for the set of data to a more human readable ones, defined in /attr-maps
-        Any keys that do not have an associated human key are omitted
-    """
-
-    def _map_attr_names(self, data, attr_map):
+    # maps all keys in an object using the provided function
+    def _map_attr_names(self, data, func):
         output_data = dict()
         for key in data:
-            if key not in attr_map:
-                continue
-
-            value = data[key]
-
-            human_key = attr_map[key]
-            output_data[human_key] = value
+            mapped_key = func(key)
+            output_data[mapped_key] = data[key]
 
         return output_data
 
@@ -233,6 +235,12 @@ class Parser:
             output_array.append(mapped_value)
 
         return output_array
+
+
+def sort_dict(dict):
+    keys = list(dict.keys())
+    keys.sort()
+    return {key: dict[key] for key in keys}
 
 
 if __name__ == '__main__':
