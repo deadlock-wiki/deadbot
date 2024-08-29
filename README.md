@@ -1,10 +1,14 @@
 # <img src="assets/Bebop_card.png" width="36">  DeadBot 
-DeadBot is an automation tool for maintaining the Deadlock Wiki - https://deadlocked.wiki/
+DeadBot is an Open Source automation tool for aggregating data from the raw game files with the purpose of accurately maintaining the Deadlock Wiki - https://deadlocked.wiki/
 
 ## Guide
-For use of the raw data itself, all can be found in `output-data` directory, including json and csv formats
+All data can be found in the `output-data` directory, which includes json and csv formats
 
-## Development
+### Google Sheets
+Some data has been processed and formatted for google sheets:\
+[Item Data](https://docs.google.com/spreadsheets/d/1p_uRmHc-XDJGBQeSbilOlMRboepZP5GMTsaFcFf--1c/edit?usp=sharing)
+
+## Installation
 
 ### Setup
 1. Install Python 3.11+
@@ -20,5 +24,12 @@ For use of the raw data itself, all can be found in `output-data` directory, inc
 8. Ensure the paths to Deadlock files and Decompiler are correct in `src/parser/decompile.sh`
 
 ### Usage
-`bash main.sh` to run end-to-end decompilation, parsing and bot (bot is a WIP)
+`bash main.sh` to run end-to-end decompilation, parsing and bot (bot is a WIP)\
 `bash parser.sh` to just run the parser. Must have already run `main.sh` once to decompile the source files
+
+
+## Contributing
+DeadBot is currently early in its development and welcomes new contributers to get involved no matter what level experience you have. 
+
+At the moment the work is fairly ad-hoc, so find me in [the Discord server](https://discord.com/invite/jUyhZKwxSW) under the name "HariyoSaag" if you're not sure where to start.
+
