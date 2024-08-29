@@ -88,13 +88,9 @@ class Parser:
                 for key in level_upgrades:
                     hero_stats[maps.get_level_mod(key)] = level_upgrades[key]
 
-                # create a key associated with the name because of old hero names
-                # being used as keys. this will keep a familiar key for usage on the wiki
-                hero_stats['key'] = hero_stats['Name'].lower().replace(' ', '_')
+                all_hero_stats[hero_key] = sort_dict(hero_stats)
 
-                all_hero_stats[hero_key] = hero_stats
-
-        json.write(self.OUTPUT_DIR + 'json/hero-data.json', all_hero_stats)
+        json.write(self.OUTPUT_DIR + 'json/hero-data.json', sort_dict(all_hero_stats))
 
     def _parse_hero_weapon(self, hero_value):
         weapon_stats = {}
@@ -200,7 +196,7 @@ class Parser:
 
             all_items[key] = parsed_item_data
 
-        json.write(self.OUTPUT_DIR + 'json/item-data.json', all_items)
+        json.write(self.OUTPUT_DIR + 'json/item-data.json', sort_dict(all_items))
 
     # format description with data. eg. "When you are above {s:LifeThreshold}% health"
     # should become "When you are above 20% health"
@@ -239,6 +235,12 @@ class Parser:
             output_array.append(mapped_value)
 
         return output_array
+
+
+def sort_dict(dict):
+    keys = list(dict.keys())
+    keys.sort()
+    return {key: dict[key] for key in keys}
 
 
 if __name__ == '__main__':
