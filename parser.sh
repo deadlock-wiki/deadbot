@@ -1,5 +1,5 @@
 cd src/parser
-python3 parser.py
+python parser.py
 
 cd ..
-python3 csv-writer.py
+python csv-writer.py
