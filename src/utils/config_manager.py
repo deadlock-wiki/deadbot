@@ -14,7 +14,7 @@ else:
 # Retrieve a configuration key's associated value from .env.local
 def get_config_value(key):
     # Return the path to the config file
-    
+
     value = os.getenv(key)
     if value is None:
         raise ValueError(f'Key {key} not found in .env.local')
@@ -30,5 +30,5 @@ if __name__ == '__main__':
     deadlock_path = get_config_value('DEADLOCK_PATH')
     decompiler_path = get_config_value('DECOMPILER_PATH')
 
-    print("deadlock_path:", deadlock_path)
-    print("decompiler_path", decompiler_path)
+    print('deadlock_path:', deadlock_path)
+    print('decompiler_path', decompiler_path)
