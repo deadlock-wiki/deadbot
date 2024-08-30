@@ -29,7 +29,9 @@ Some data has been processed and formatted for google sheets:\
 
 
 ## Contributing
-DeadBot is currently early in its development and welcomes new contributers to get involved no matter what level experience you have. 
+DeadBot is currently early in its development and welcomes new contributers to get involved no matter what level experience you have.
 
-At the moment the work is fairly ad-hoc, so find me in [the Discord server](https://discord.com/invite/jUyhZKwxSW) under the name "HariyoSaag" if you're not sure where to start.
+Regularly discussed in the wiki channel on [the Discord server](https://discord.com/invite/jUyhZKwxSW). Ask for access on there if you are interested in contributing.
+
+At the moment the work is fairly ad-hoc, so find me on discord as "HariyoSaag" if you're not sure where to start.
 
