@@ -9,10 +9,11 @@ Hero\
 ✅ Base Stats\
 ❌ Ability Stats\
 ❌ Description
+❌ Weapons
 
 Items\
-❌ Cost+Stats\
-❌ Description
+✅ Cost+Stats\
+✅ Description
 
 Neutral Enemies/Buildings\
 ❌ Stats\
