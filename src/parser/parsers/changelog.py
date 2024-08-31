@@ -4,15 +4,14 @@ from os import listdir
 from os.path import isfile, join
 
 # bring utils module in scope
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 from utils import json
 
 
 class ChangelogParser:
     def __init__(self):
         print('Parsing changelogs...')
-        self.CHANGELOGS_DIR = './changelogs/'
-        self.OUTPUT_DIR = '../../output-data/'
+        self.CHANGELOGS_DIR = '../changelogs/'
 
     def run_all(self):
         files = [f for f in listdir(self.CHANGELOGS_DIR) if isfile(join(self.CHANGELOGS_DIR, f))]
