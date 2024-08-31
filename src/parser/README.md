@@ -8,7 +8,7 @@ Takes raw source files and exports data to more usable json formats\
 Hero\
 ✅ Base Stats\
 ❌ Ability Stats\
-❌ Description
+❌ Description\
 ❌ Weapons
 
 Items\

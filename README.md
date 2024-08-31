@@ -21,7 +21,7 @@ Some data has been processed and formatted for google sheets:\
 5. `python -m pre_commit install`
 6. Download Decompiler.exe for your particular OS from https://github.com/ValveResourceFormat/ValveResourceFormat/releases 
 7. Extract decompiler into `Downloads/` folder
-8. Ensure the paths to Deadlock files and Decompiler are correct in `src/parser/decompile.sh`
+8. Add the paths to Deadlock files and the Decompiler in `.env.local` using `.env.example` as an example
 
 ### Usage
 `bash main.sh` to run end-to-end decompilation, parsing and bot (bot is a WIP)\
