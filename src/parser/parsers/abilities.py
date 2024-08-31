@@ -12,13 +12,27 @@ class AbilityParser:
         self.localizations = localizations
         
     def run(self):
-        ability_keys = self.abilities_data.keys()
-        all_abilities = dict()
+        all_abilities = {}
 
-        for ability_key in ability_keys:
+        for ability_key in self.abilities_data:
+            ability = self.abilities_data[ability_key]
+            if type(ability) is not dict:
+                continue
+
+            if 'm_eAbilityType' not in ability:
+                continue
+
+            if ability['m_eAbilityType'] != 'EAbilityType_Signature':
+                continue
+
             ability_data = {}
 
-            ability_data['name'] = self.localizations['names'].get(ability_key, 'Unknown')
+            # ability_data['Name'] = self.localizations['names'].get(ability_key, 'Unknown')
+            stats = ability['m_mapAbilityProperties']
+
+            for key in stats:
+                stat = stats[key]
+                ability_data[key] = stat['m_strValue']
 
             all_abilities[ability_key] = ability_data
 

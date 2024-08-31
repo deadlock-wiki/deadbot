@@ -1,1565 +1,3250 @@
 {
-    "generic_data_type": {
-        "name": "Unknown"
-    },
-    "_include": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_bosstier2_set": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_bosstier3_set": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_base_defense_turret": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_rutger_set": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_kali_set": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_gunslinger_set": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_yakuza_set": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_architect_set": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_thumper_set": {
-        "name": "Unknown"
-    },
     "ability_medic_trooper_heal": {
-        "name": "Unknown"
+        "AbilityCooldown": "6",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "15m",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "Heal_Troopers": "80",
+        "Heal_Players": "40",
+        "Heal_Players_Post_Lane": "80",
+        "HeroNearbyRange": "30m",
+        "SecondaryHealHeroRange": "25m"
     },
     "super_neutral_shield": {
-        "name": "Unknown"
+        "AbilityCooldown": "1",
+        "AbilityDuration": "-1",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "ShieldHealth": "10000",
+        "ShieldScale": "2.5"
     },
     "super_neutral_charge": {
-        "name": "Unknown"
+        "AbilityCooldown": "10",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "PrepareTime": "0.8",
+        "TackleDurationMin": "0.5",
+        "TackleDurationMax": "1.0",
+        "TackleSpeed": "1000",
+        "TackleRadius": "2.5m",
+        "Damage": "120",
+        "StunDuration": "0.5",
+        "CameraDistance": "120"
     },
     "trooper_grenade": {
-        "name": "Unknown"
+        "AbilityCooldown": "4",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "1600",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.2",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "BlastRadius": "4m",
+        "Damage": "200",
+        "PlayerDamage": "100",
+        "ImpulseVelocity": "400",
+        "ArmingDuration": "5",
+        "StunDuration": "0",
+        "Grenades": "1"
     },
     "trooper_boss_grenade": {
-        "name": "Unknown"
+        "AbilityCooldown": "40 30 20",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "1500 2000",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.5",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "BlastRadius": "300",
+        "Damage": "100",
+        "PlayerDamage": "100",
+        "ImpulseVelocity": "1200",
+        "ArmingDuration": "0",
+        "FuseDuration": "3",
+        "StunDuration": "1 2 3",
+        "Grenades": "1 1 3"
     },
     "trooper_neutral_grenade": {
-        "name": "Unknown"
-    },
-    "ability_golden_idol": {
-        "name": "Unknown"
-    },
-    "ability_item_pickup_effects": {
-        "name": "Unknown"
-    },
-    "citadel_ability_zip_line": {
-        "name": "Unknown"
-    },
-    "citadel_ability_zipline_boost": {
-        "name": "Unknown"
-    },
-    "citadel_ability_trooper_zip_line": {
-        "name": "Unknown"
-    },
-    "citadel_ability_mantle": {
-        "name": "Unknown"
-    },
-    "citadel_ability_jump": {
-        "name": "Unknown"
-    },
-    "citadel_ability_sprint": {
-        "name": "Unknown"
-    },
-    "citadel_ability_dash": {
-        "name": "Unknown"
-    },
-    "citadel_ability_slide": {
-        "name": "Unknown"
-    },
-    "ability_melee_butcher": {
-        "name": "Unknown"
-    },
-    "citadel_ability_melee_kali": {
-        "name": "Unknown"
-    },
-    "citadel_ability_melee_butcher": {
-        "name": "Unknown"
-    },
-    "citadel_ability_melee_gunslinger": {
-        "name": "Unknown"
-    },
-    "citadel_ability_melee_yakuza": {
-        "name": "Unknown"
-    },
-    "citadel_ability_melee_thumper": {
-        "name": "Unknown"
-    },
-    "citadel_ability_melee_architect": {
-        "name": "Unknown"
-    },
-    "citadel_ability_melee_parry": {
-        "name": "Unknown"
+        "AbilityCooldown": "40",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "2000",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.5",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "BlastRadius": "300",
+        "Damage": "50",
+        "PlayerDamage": "100",
+        "ImpulseVelocity": "1200",
+        "ArmingDuration": "0",
+        "FuseDuration": "3",
+        "StunDuration": "1",
+        "Grenades": "1"
     },
     "citadel_ability_tier2boss_rocket_barrage": {
-        "name": "Unknown"
+        "AbilityCooldown": "10",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "4000",
+        "AbilityUnitTargetLimit": "100",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "3.5",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "VolleyInterval": "0.5",
+        "GrenadesInVolley": "6",
+        "Damage": "200",
+        "DetonateTimer": "10",
+        "ExplosionFalloffDisabled": "1",
+        "Radius": "5m",
+        "FireDuration": "5",
+        "FireDPS": "25",
+        "FireTickRate": "0.5",
+        "FireRadius": "5m"
     },
     "citadel_ability_tier2boss_laser_beam": {
-        "name": "Unknown"
+        "AbilityCooldown": "1",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "1800",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "PathLength": "2000",
+        "PathWidth": "30",
+        "DPS": "125",
+        "CreepDPS": "190",
+        "TrackingSpeed": "30",
+        "SweepSpeed": "1"
     },
     "citadel_ability_tier2boss_stomp": {
-        "name": "Unknown"
+        "AbilityCooldown": "6",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "500",
+        "AbilityUnitTargetLimit": "100",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "StompDamage": "600",
+        "StunDuration": "2",
+        "TossVelocity": "500",
+        "ActivationDistance": "600"
     },
     "citadel_ability_tier3boss_laser_beam": {
-        "name": "Unknown"
+        "AbilityCooldown": "0",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "1200",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "PathLength": "2000",
+        "PathWidth": "40"
     },
     "citadel_ability_tier3boss_damage_pulse": {
-        "name": "Unknown"
+        "AbilityCooldown": "0",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0"
     },
     "rutger_rocket": {
-        "name": "Unknown"
+        "AbilityCooldown": "16",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "1",
+        "AbilityCooldownBetweenCharge": "1",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "TechCleaveExpireTime": "0.2",
+        "FallSpeedMax": "60",
+        "AirSpeedMax": "150",
+        "Damage": "120",
+        "DamageDisplay": "0",
+        "CameraHeightOffset": "20",
+        "CameraHorizontalOffset": "15",
+        "BossDamagePercent": "100",
+        "ImpactRadius": "5m",
+        "LaunchMaxSpeed": "600",
+        "LaunchMinSpeed": "525",
+        "LaunchMinVerticalAmount": ".2",
+        "LaunchVerticalBias": ".75",
+        "SelfLaunchPercent": "175",
+        "SelfDamagePercent": "50"
     },
     "rutger_force_field": {
-        "name": "Unknown"
+        "AbilityCooldown": "40",
+        "AbilityDuration": "10",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.1",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "ChargeUpTime": ".5",
+        "VictimPushTime": "0.4",
+        "SphereRadius": "5m",
+        "SpherePushExtraDistance": "1.5m",
+        "Damage": "70",
+        "ForceFieldThinkRate": "0.05",
+        "Height": "150",
+        "SlowDuration": "0.3",
+        "SlowPercent": "60",
+        "EdgePushDuration": "0.15"
     },
     "rutger_cheat_death": {
-        "name": "Unknown"
-    },
-    "rutger_pulse": {
-        "name": "Unknown"
+        "AbilityCooldown": "40",
+        "AbilityDuration": "4",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "BonusHealthRegen": "2",
+        "BonusMoveSpeed": "0",
+        "BulletLifestealPercent": "0"
     },
     "citadel_ability_kali_spinning_blade": {
-        "name": "Unknown"
+        "AbilityCooldown": "28",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "50m",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.25",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "2",
+        "AbilityCooldownBetweenCharge": "6",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "ProjectileFlyOutTime": "0.6",
+        "ProjectileFlyReturnTime": "1.0",
+        "NoClipDuration": "1",
+        "ReturnUpVelocity": "200",
+        "ReturnOffSetTargetDistance": "150",
+        "MinReflectionDOTResult": "-0.95",
+        "MinReflectionZ": "0.3",
+        "ReflectionSpeedFactor": "0.5",
+        "Damage": "120",
+        "TechCleaveExpireTime": "0.2",
+        "BossDamagePercent": "50",
+        "CooldownReductionOnCatch": "0",
+        "CooldownReductionOnHit": "0",
+        "SlowPercent": "0",
+        "SlowDuration": "0"
     },
     "ability_kali_dust_storm": {
-        "name": "Unknown"
+        "AbilityCooldown": "24",
+        "AbilityDuration": "5",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.2",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "ThrownObjectRadius": "20",
+        "Radius": "3.5m",
+        "OpenHeight": "2m",
+        "DamagePerSecond": "50",
+        "TrackingDistance": "15m",
+        "TickRate": "0.25",
+        "DistanceAboveGround": "2m",
+        "ClimbHeight": "1m",
+        "DropDownRate": "2",
+        "TornadoSpeed": "600",
+        "CloseRangeSpeed": "80",
+        "DebuffDuration": "3.0",
+        "SplitAngle": "0",
+        "SlowPercent": "20",
+        "GroundDashReductionPercent": "-30",
+        "FireRateSlow": "20"
     },
     "citadel_ability_kali_disruptive_charge": {
-        "name": "Unknown"
-    },
-    "ability_kali_trappers_bolo": {
-        "name": "Unknown"
+        "AbilityCooldown": "20",
+        "AbilityDuration": "4",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "Radius": "10m",
+        "MoveSpeedBonusPercentStart": "120",
+        "MoveSpeedBonusPercentEnd": "0",
+        "BonusFireRate": "0",
+        "LifestealPercent": "0"
     },
     "gunslinger_rapid_fire": {
-        "name": "Unknown"
+        "AbilityCooldown": "10",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "15m",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.2",
+        "AbilityChannelTime": "1.5",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "BulletSpeedPercent": "100",
+        "BulletAccuracy": "200",
+        "JuggleAirSpeedMax": "50",
+        "JuggleFallSpeedMax": "20",
+        "CastRangeWhenVertical": "30m",
+        "CastRangeWhenVerticalBias": "0.3",
+        "FireRateMultiplier": "100",
+        "WeaponDamageScale": "-75"
     },
     "gunslinger_rocket_launcher": {
-        "name": "Unknown"
+        "AbilityCooldown": "10",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "1",
+        "AbilityCooldownBetweenCharge": "0.8",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "ExplosionRadius": "3m",
+        "Damage": "100",
+        "LaunchMaxSpeed": "750",
+        "LaunchMinVerticalAmount": "0.7",
+        "LaunchFalloff": "0",
+        "LaunchVerticalBias": "0.5",
+        "LaunchMinSpeed": "700"
     },
     "gunslinger_tenacity": {
-        "name": "Unknown"
-    },
-    "gunslinger_sleep_bomb": {
-        "name": "Unknown"
+        "AbilityCooldown": "0",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "BulletLifestealPercent": "15",
+        "LowHealthHealingScalePercent": "100"
     },
     "yakuza_kobun": {
-        "name": "Unknown"
+        "AbilityCooldown": "30",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "30m",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "SummonMoveSpeed": "200",
+        "SummonHealth": "450",
+        "SummonLifetime": "45",
+        "SummonCount": "1",
+        "SummonDPS": "60",
+        "SummonCasterHealthPct": "0",
+        "CloneDamageTakenIncreasePercent": "0"
     },
     "yakuza_shakedown_target": {
-        "name": "Unknown"
-    },
-    "yakuza_shakedown": {
-        "name": "Unknown"
-    },
-    "yakuza_setting_sun": {
-        "name": "Unknown"
+        "AbilityCooldown": "25",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "AbilityChannelTimeDisplay": "5",
+        "DPS": "45",
+        "IgnoreChannelSlow": "0",
+        "Radius": "6m",
+        "ShareDamagePercent": "33",
+        "ShareDamageThreshold": "20",
+        "TickTime": "0.5",
+        "WeaponPowerDebuff": "0"
     },
     "yakuza_gang_activity": {
-        "name": "Unknown"
+        "AbilityCooldown": "0",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0"
     },
     "yakuza_gang_activity_cancel": {
-        "name": "Unknown"
+        "AbilityCooldown": "0",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0"
     },
     "yakuza_summon_gangster": {
-        "name": "Unknown"
+        "AbilityCooldown": "0",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "GangsterHealth": "200"
     },
     "yakuza_teleport_to_gangster": {
-        "name": "Unknown"
+        "AbilityCooldown": "0",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "5",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0"
     },
     "yakuza_fealty": {
-        "name": "Unknown"
+        "AbilityCooldown": "0",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "25m",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "3",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "DPS": "50",
+        "ThinkInterval": "0.25"
     },
     "yakuza_protection_racket": {
-        "name": "Unknown"
+        "AbilityCooldown": "30",
+        "AbilityDuration": "12",
+        "AbilityCastRange": "30m",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.25",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "BulletShieldHealth": "180",
+        "BonusCritDamagePercent": "20",
+        "WeaponRecoilReduction": "0",
+        "MoveWhileShootingSpeedPenaltyReductionPercent": "0"
     },
     "thumper_ability_1": {
-        "name": "Unknown"
+        "AbilityCooldown": "16",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "40m",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.1",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "1",
+        "AbilityCooldownBetweenCharge": "4",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "BounceRange": "20m",
+        "Damage": "120",
+        "PlaneSpread": "30",
+        "BounceRadians": "0.5",
+        "PushSpeedMax": "1000",
+        "PushSpeedMid": "600",
+        "PushSpeedMin": "100",
+        "MaxPlaneDistance": "1m"
     },
     "thumper_ability_2": {
-        "name": "Unknown"
+        "AbilityCooldown": "25",
+        "AbilityDuration": "6",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.42",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "TechCleaveExpireTime": "0.2",
+        "Damage": "125",
+        "VerticalDifferenceTolerance": "2.5m",
+        "ImpactInterval": "0.1",
+        "StompRange": "25m",
+        "BonusFireRate": "0",
+        "WeaponPowerBuffDuration": "0",
+        "BarbedWireSlow": "50",
+        "BarbedWireDPS": "10",
+        "BarbedWireDamagePerMeter": "30",
+        "BarbedWireRadius": "4m",
+        "BarbedWireHeightOffGround": "1m",
+        "BarbedWireTickRate": "0.5"
     },
     "thumper_ability_3": {
-        "name": "Unknown"
-    },
-    "thumper_ability_4": {
-        "name": "Unknown"
-    },
-    "common_properties": {
-        "name": "Unknown"
-    },
-    "common_button_hints": {
-        "name": "Unknown"
-    },
-    "weapon_info_base": {
-        "name": "Unknown"
-    },
-    "invis_base": {
-        "name": "Unknown"
-    },
-    "ability_trigger_base": {
-        "name": "Unknown"
-    },
-    "inherent_base": {
-        "name": "Unknown"
-    },
-    "held_base": {
-        "name": "Unknown"
+        "AbilityCooldown": "40",
+        "AbilityDuration": "8",
+        "AbilityCastRange": "30m",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.2",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "DPS": "8",
+        "TickInterval": "0.5",
+        "VisibilityTime": "0.2"
     },
     "npc_base": {
-        "name": "Unknown"
-    },
-    "npc_ultimate_base": {
-        "name": "Unknown"
+        "AbilityCooldown": "0",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0"
     },
     "signature_base": {
-        "name": "Unknown"
-    },
-    "ultimate_base": {
-        "name": "Unknown"
-    },
-    "melee_base": {
-        "name": "Unknown"
-    },
-    "weapon_base": {
-        "name": "Unknown"
-    },
-    "hero_weapon_base": {
-        "name": "Unknown"
-    },
-    "hero_shotgun_base": {
-        "name": "Unknown"
-    },
-    "citadel_hold_melee": {
-        "name": "Unknown"
-    },
-    "citadel_ability_melee_genericperson": {
-        "name": "Unknown"
-    },
-    "weapon_alternative_rmb_activate": {
-        "name": "Unknown"
-    },
-    "weapon_alternative_rmb+lmb_activate": {
-        "name": "Unknown"
+        "AbilityCooldown": "0",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0"
     },
     "citadel_base_lockon_ability": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_astro_set": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_astro_set_shotgun_shared_base": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_astro_set_shotgun_shared_weapon_info": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_astro_set_shotgun": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_astro_set_shotgun_backwards": {
-        "name": "Unknown"
-    },
-    "ability_melee_astro": {
-        "name": "Unknown"
+        "TimeToGainLockonStack": "0.7",
+        "LockonConeAngle": "40",
+        "TimeToLoseLockonStack": "2",
+        "LosingLockGraceTime": "0.5",
+        "MaxLockonStacks": "1",
+        "StacksCanDecay": "0"
     },
     "ability_explosive_barrel": {
-        "name": "Unknown"
+        "AbilityCooldown": "30",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.125",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "2",
+        "AbilityCooldownBetweenCharge": "5",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "Radius": "6m",
+        "BarrelLifetime": "8",
+        "BarrelDamage": "100",
+        "BarrelRollSpeedMoveMin": "15m",
+        "BarrelPitchMin": "2",
+        "BarrelPitchMax": "45",
+        "BarrelRollSpeedMoveAir": "10m",
+        "BarrelLightMeleeForceForward": "760",
+        "BarrelLightMeleeForceUp": "550",
+        "BarrelHeavyMeleeForceForward": "1100",
+        "BarrelHeavyMeleeForceUp": "550",
+        "BarrelScale": "1.3",
+        "TossSpeed": "400",
+        "ArmTime": "1",
+        "MinTimeBeforeDestroy": "1.0"
     },
     "ability_bounce_pad": {
-        "name": "Unknown"
+        "AbilityCooldown": "35",
+        "AbilityDuration": "22",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.08",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "1",
+        "AbilityCooldownBetweenCharge": "3.5",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "BounceVelocity": "750",
+        "UpFactor": "1.2",
+        "BarrelBounceVelocity": "800",
+        "BarrelUpFactor": "1",
+        "Scale": "1",
+        "PlaceDistance": "100",
+        "AirControlPercent": "100",
+        "AirControlAccelPercent": "50",
+        "MinAirTimeForStomp": "0.2",
+        "Radius": "8m",
+        "VerticalDifferenceTolerance": "60",
+        "TossSpeed": "350",
+        "StompDamage": "120",
+        "StompStunDuration": "0",
+        "SpeedOnLand": "0m",
+        "SpeedOnLandDuration": "0"
     },
     "ability_target_practice": {
-        "name": "Unknown"
+        "AbilityCooldown": "45",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.2",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "DamageOnBuildup": "125",
+        "TargetPracticeDuration": "10",
+        "SlowPercent": "0",
+        "DebuffDuration": "0",
+        "BulletArmorReduction": "0",
+        "ShotsToProc": "4",
+        "TargetOffSetScale": "2.0",
+        "BonusPerHeadshot": "25"
     },
     "citadel_ability_running_decoy": {
-        "name": "Unknown"
-    },
-    "ability_gravity_lasso": {
-        "name": "Unknown"
+        "AbilityCooldown": "25",
+        "AbilityDuration": "6",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "CloneDamageTakenIncreasePercent": "0",
+        "MoveSpeedMod": "0",
+        "HealOnCloneDamage": "0",
+        "PurgeOnUse": "0"
     },
     "ability_astro_shotgun_toggle": {
-        "name": "Unknown"
+        "AbilityCooldown": "0",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.4",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "8m",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "ClipSizeOverride": "2",
+        "SlowDuration": "0",
+        "SlowPercent": "0",
+        "CloseRangeBonusWeaponPower": "0",
+        "CloseRangeBonusDamageRange": "0m",
+        "BulletDamageIncrease": "0",
+        "BackwardsShotDelayTime": "0.15",
+        "BulletScaleFactor": "-0.75"
     },
     "ability_astro_rifle": {
-        "name": "Unknown"
+        "AbilityCooldown": "10",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "4",
+        "AbilityCooldownBetweenCharge": "2.0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "Damage": "48",
+        "DamageAmplificationPerStack": "10",
+        "DebuffDuration": "15",
+        "MaxStacks": "10",
+        "SlowPercent": "0",
+        "SlowDurationPerStack": "0"
     },
     "ability_hat_trick": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_bull_set": {
-        "name": "Unknown"
-    },
-    "citadel_ability_melee_bull": {
-        "name": "Unknown"
+        "AbilityCooldown": "20",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.15",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "0",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "ExplosionRadius": "2m",
+        "Damage": "100",
+        "DebuffDuration": "5",
+        "SlowPercent": "20"
     },
     "citadel_ability_bull_charge": {
-        "name": "Unknown"
+        "AbilityCooldown": "35",
+        "AbilityDuration": "1.2",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "Damage": "40",
+        "SpeedInitial": "18.75m",
+        "ChargeSpeedMax": "30m",
+        "ChargeDragVerticalOffset": "30",
+        "TossSpeed": "0",
+        "TossUpMagnitude": "0.5",
+        "SideMoveSpeedReduction": "-65",
+        "TurnRateMax": "180",
+        "CameraDistance": "450",
+        "ChargeRadius": "2.2m",
+        "WeaponDamageBonus": "0",
+        "WeaponPowerIncreaseDuration": "0",
+        "CollidePlayersStopTime": "0.3",
+        "StunDuration": "1"
     },
     "citadel_ability_passive_beefy": {
-        "name": "Unknown"
-    },
-    "citadel_ability_bull_leap": {
-        "name": "Unknown"
+        "AbilityCooldown": "0",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "RegenIncomingDamagePercent": "17",
+        "RegenIncomingDamageDuration": "16",
+        "RegenDamageInterval": "1.0",
+        "BonusMaxHealth": "0",
+        "BonusHealthRegen": "1",
+        "BulletResist": "0"
     },
     "citadel_ability_bull_heal": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_bebop_set": {
-        "name": "Unknown"
-    },
-    "citadel_ability_melee_bebop": {
-        "name": "Unknown"
+        "AbilityCooldown": "40",
+        "AbilityDuration": "4",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "Radius": "10m",
+        "HealingFactor": "100",
+        "NonHeroHealingFactor": "50",
+        "LifeDrainPerSecond": "35",
+        "TickRate": "0.25"
     },
     "citadel_ability_uppercut": {
-        "name": "Unknown"
+        "MeleeHalfAngle": "60",
+        "MeleeAttackLength": "6m",
+        "AbilityCooldown": "20",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "EnemyHeroTossVelocity": "20m",
+        "TossVelocity": "25m",
+        "MeleeRadius": "2.5m",
+        "ForceReductionOnAngleDown": "0.75",
+        "UppercutDamage": "0.01",
+        "LandingDamage": "80",
+        "RestoreHookCooldown": "0",
+        "StunOnLand": "0",
+        "OnLandDamageRadius": "14m",
+        "UppercutBuffOnHit": "0",
+        "BuffGunRangePercent": "100",
+        "BuffBaseWeaponPct": "0",
+        "ClipSizeBonus": "0"
     },
     "citadel_ability_sticky_bomb": {
-        "name": "Unknown"
-    },
-    "citadel_ability_bebop_laser_beam": {
-        "name": "Unknown"
+        "AbilityCooldown": "18",
+        "AbilityDuration": "3.0",
+        "AbilityCastRange": "6m",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "Radius": "12m",
+        "FuseTime": "3.0",
+        "Damage": "120",
+        "BonusDamagePctPerPlayerHit": "2.5",
+        "StunTargetOnExplode": "0",
+        "DebuffDuration": "0"
     },
     "citadel_ability_hook": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_bomber_set": {
-        "name": "Unknown"
-    },
-    "ability_melee_bomber": {
-        "name": "Unknown"
+        "AbilityCooldown": "22",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "35m",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "Damage": "40",
+        "HookingSlowSpeedLimit": "0.001",
+        "ReturnSpeed": "2200",
+        "ReturnDelay": "0.5",
+        "ReturnPositionForwardOffset": "100",
+        "EndOfHookSlowTargetSpeed": "0",
+        "EndOfHookSlowTargetDuration": "0",
+        "EndOfHookMoveSpeedBonus": "0m",
+        "EndOfHookCommandRestrictLinger": "0.25",
+        "ResetCooldownOnFriendlyHook": "0",
+        "FriendlyHookIgnoreRange": "8m",
+        "BulletAmp": "0",
+        "BulletAmpDuration": "0",
+        "BulletShieldOnHook": "0",
+        "BulletShieldDuration": "0"
     },
     "ability_charged_bomb": {
-        "name": "Unknown"
-    },
-    "ability_charged_bomb_throw": {
-        "name": "Unknown"
+        "AbilityCooldown": "10",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.2",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "MaxDamage": "100",
+        "Radius": "7m",
+        "MaxChargeTime": "2.0",
+        "BlastJumpVelocityGround": "20m",
+        "BlastJumpVelocity": "25m",
+        "BlastJumpVelocityCrouch": "30m"
     },
     "ability_bomber_ability02": {
-        "name": "Unknown"
+        "AbilityCooldown": "25",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0"
     },
     "ability_bomber_ability03": {
-        "name": "Unknown"
-    },
-    "ability_bomber_ult": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_cadence_set": {
-        "name": "Unknown"
-    },
-    "citadel_ability_melee_cadence": {
-        "name": "Unknown"
+        "AbilityCooldown": "25",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0"
     },
     "cadence_ability_anthem": {
-        "name": "Unknown"
+        "AbilityCooldown": "35",
+        "AbilityDuration": "8",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": ".75",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "PeakFireRateBonus": "100",
+        "Radius": "12m",
+        "ExtraLargeClip": "25",
+        "LingerDuration": ".5"
     },
     "cadence_ability_lullaby": {
-        "name": "Unknown"
+        "AbilityCooldown": "45",
+        "AbilityDuration": "6",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": ".25",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "Radius": "12m",
+        "MinimumSleepTime": "2",
+        "SleepWakeUpDelay": ".25",
+        "ExternalBonusHealthRegen": "15",
+        "LingerDuration": ".25"
     },
     "cadence_ability_silencecontraptions": {
-        "name": "Unknown"
-    },
-    "cadence_ability_grandfinale": {
-        "name": "Unknown"
-    },
-    "cadence_ability_crescendo": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_chrono_set": {
-        "name": "Unknown"
-    },
-    "citadel_ability_melee_chrono": {
-        "name": "Unknown"
+        "AbilityCooldown": "40",
+        "AbilityDuration": "6",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": ".25",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "MeleeEMP": "1",
+        "BonusMoveSpeed": "0m",
+        "SlowPercent": "0",
+        "BonusStamina": "0",
+        "DebuffDuration": "2",
+        "DashDistance": "8m"
     },
     "citadel_ability_chrono_pulse_grenade": {
-        "name": "Unknown"
+        "AbilityCooldown": "26",
+        "AbilityDuration": "4",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.2",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "Radius": "7m",
+        "PulseInterval": "0.8",
+        "PulseDamage": "45",
+        "Pulses": "4",
+        "DamageAmplificationPerStack": "5",
+        "DebuffDuration": "8.0",
+        "SlowPercent": "30",
+        "MovementSlowDuration": "2.0",
+        "BossDamagePercent": "50"
     },
     "citadel_ability_chrono_time_wall": {
-        "name": "Unknown"
+        "AbilityCooldown": "35",
+        "AbilityDuration": "7",
+        "AbilityCastRange": "200",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.2",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "1",
+        "AbilityCooldownBetweenCharge": "8",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "TimeWallWidth": "7m",
+        "TimeWallHeight": "3.5m",
+        "TimeWallDepth": "0.5m",
+        "TimeWallDepthVisualScale": "0.16",
+        "TimeWallTimeScale": "0.0001",
+        "TimeScaleDuration": "1.0",
+        "FriendlyBulletDamageBonus": "20",
+        "FriendlyBulletTimeScale": "3",
+        "MovementSlowPct": "80",
+        "DamagePctPerWallHit": "10",
+        "DamageTickRate": "1.50",
+        "AuraEffectDuration": "1.25",
+        "TimeWallFormationTime": "0.5",
+        "DebuffDuration": "0"
     },
     "citadel_ability_chrono_kinetic_carbine": {
-        "name": "Unknown"
-    },
-    "citadel_ability_chrono_swap": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_sumo_set": {
-        "name": "Unknown"
-    },
-    "citadel_ability_melee_sumo": {
-        "name": "Unknown"
+        "AbilityCooldown": "28",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "SpeedChange": "25",
+        "SpeedBoostDuration": "3.5",
+        "BaseBulletDamage": "5",
+        "MinBonusBulletDamage": "25",
+        "MaxBonusBulletDamage": "85",
+        "MaxSlowDuration": "0.5",
+        "BulletTimeScale": "0.01",
+        "ProjectileTimeScale": "0.01",
+        "TimeWarpRadius": "5m",
+        "BonusBulletSpeed": "100",
+        "ShotCount": "1",
+        "MaxChargeDuration": "2.5",
+        "BulletRadiusOverride": "13.7",
+        "MoveSpeedWhileShootingPenaltyReduction": "100",
+        "MinSlowDuration": "0.25",
+        "TimeScaleDebuff": "90"
     },
     "citadel_ability_stomp": {
-        "name": "Unknown"
+        "AbilityCooldown": "25",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.42",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "1",
+        "AbilityCooldownBetweenCharge": "5",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "TechCleaveExpireTime": "0.2",
+        "Damage": "100",
+        "ClimbHeight": "2.5m",
+        "DistanceAboveGround": "0.5m",
+        "DropDownRate": "8",
+        "TossSpeed": "450",
+        "ImpactInterval": "0.1",
+        "StompRange": "15m",
+        "StompWidth": "5.0m",
+        "SlowPercent": "0",
+        "FireRateSlow": "0",
+        "SlowDuration": "0",
+        "BulletArmorReduction": "0",
+        "BulletArmorReductionDuration": "0"
     },
     "citadel_ability_void_sphere": {
-        "name": "Unknown"
+        "AbilityCooldown": "11",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "9m",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "VoidTime": "1.4",
+        "AllyDistance": "9m",
+        "TrailInterval": "0.01",
+        "FireRateBonus": "25",
+        "FireRateBonusDurationMax": "8",
+        "BonusClipSizePercent": "0"
     },
     "citadel_ability_charged_tackle": {
-        "name": "Unknown"
+        "AbilityCooldown": "20",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "PrepareTime": "0.6",
+        "ChargeDistance": "20m",
+        "TackleSpeed": "25m",
+        "TechCleaveExpireTime": "0.2",
+        "TackleRadius": "3m",
+        "ChargeDragVerticalOffset": "40",
+        "PullTargetSpeed": "25m",
+        "DragReleaseSpeed": "6m",
+        "Damage": "64",
+        "CameraDistance": "120",
+        "TechShield": "0",
+        "TechShieldDuration": "0",
+        "BonusFireRate": "0",
+        "WeaponPowerBuffDuration": "0"
     },
     "citadel_ability_nikuman": {
-        "name": "Unknown"
-    },
-    "citadel_ability_self_vacuum": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_engineer_set": {
-        "name": "Unknown"
-    },
-    "citadel_ability_melee_engineer": {
-        "name": "Unknown"
+        "AbilityCooldown": "45",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "5",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "4.2m",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "HealingPerSecond": "32",
+        "HealMaxHealthPercent": "0",
+        "ShareWithFriendsRadius": "8m",
+        "NoChannel": "0",
+        "MovementSpeedBonus": "0m",
+        "MovementSpeedBonusDuration": "0"
     },
     "citadel_ability_mobile_resupply": {
-        "name": "Unknown"
+        "AbilityCooldown": "45",
+        "AbilityDuration": "6",
+        "AbilityCastRange": "15m",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.2",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "HealRadius": "6m",
+        "ExternalBonusHealthRegen": "25",
+        "TurretHealMult": "1.0",
+        "AuraFireRateBonus": "0",
+        "MaxHealthRegenPct": "0",
+        "MaxHealthRegenPctInterval": "0.5"
     },
     "citadel_ability_shieldedsentry": {
-        "name": "Unknown"
+        "AbilityCooldown": "28",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "15m",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.2",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "1",
+        "AbilityCooldownBetweenCharge": "5",
+        "ChannelMoveSpeed": "0",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "ModelScale": "0.8",
+        "TickRate": "0.5",
+        "TrackingSpeed": "125",
+        "AttackConeAngle": "10",
+        "TurretDeployTime": "1",
+        "TurretBaseHealth": "75",
+        "TurretHealthScaling": "30",
+        "TurretAttackRange": "25m",
+        "TurretAttackFalloffStart": "20m",
+        "TurretAttackFalloffEnd": "35m",
+        "TurretAttackDelay": ".35",
+        "TurretDPS": "60",
+        "TurretLifetime": "30",
+        "TurretDecayDamagePerSecond": "20",
+        "AttackSpeedMult": "100",
+        "TechResist": "60",
+        "NonHeroDamagePercentOutgoing": "60",
+        "BossDamagePercentOutgoing": "40",
+        "BossDamagePercentIncoming": "50",
+        "MoveSlowPercent": "0",
+        "SlowDuration": "0"
     },
     "citadel_ability_fissure_wall": {
-        "name": "Unknown"
-    },
-    "citadel_ability_fissure_wall_trigger": {
-        "name": "Unknown"
-    },
-    "citadel_ability_fissure_wall_cancel": {
-        "name": "Unknown"
-    },
-    "citadel_ability_rocket_barrage": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_genericperson_set": {
-        "name": "Unknown"
+        "AbilityCooldown": "35",
+        "AbilityDuration": "6",
+        "AbilityCastRange": "50m",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "MinRange": "7m",
+        "WallImpactRange": "5m",
+        "PushForce": "175",
+        "Damage": "64",
+        "WallStunDuration": "0",
+        "NumWallSegments": "7",
+        "TimeBetweenSegments": "0.035",
+        "SegmentEmitTime": "0.1",
+        "TimeToMaxDistance": "2",
+        "StaminaReduction": "0",
+        "BonusDamagePercent": "0",
+        "DebuffDuration": "0",
+        "SlowDuration": "2.5",
+        "SlowPercent": "25"
     },
     "genericperson_ability_1": {
-        "name": "Unknown"
+        "AbilityCooldown": "10",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "1",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0"
     },
     "genericperson_ability_2": {
-        "name": "Unknown"
+        "AbilityCooldown": "10",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "1",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0"
     },
     "genericperson_ability_3": {
-        "name": "Unknown"
-    },
-    "genericperson_ability_4": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_targetdummy_set": {
-        "name": "Unknown"
-    },
-    "citadel_ability_melee_targetdummy": {
-        "name": "Unknown"
-    },
-    "targetdummy_inherent": {
-        "name": "Unknown"
+        "AbilityCooldown": "10",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "1",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0"
     },
     "targetdummy_ability_1": {
-        "name": "Unknown"
+        "AbilityCooldown": "10",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "1",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0"
     },
     "targetdummy_ability_2": {
-        "name": "Unknown"
+        "AbilityCooldown": "10",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "1",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0"
     },
     "targetdummy_ability_3": {
-        "name": "Unknown"
-    },
-    "targetdummy_ability_4": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_ghost_set": {
-        "name": "Unknown"
-    },
-    "ability_melee_ghost": {
-        "name": "Unknown"
+        "AbilityCooldown": "10",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "1",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0"
     },
     "ability_blood_bomb": {
-        "name": "Unknown"
+        "AbilityCooldown": "10",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "SelfDamage": "30",
+        "Damage": "100",
+        "BossDamagePercent": "25",
+        "Radius": "7m",
+        "ArmingDuration": "0.5",
+        "BeepSoundIntervalBias": "0.55",
+        "BeepSoundMaxFrequency": "0.1",
+        "BeepSoundBuildupCount": "4",
+        "BloodSpillDPSPercent": "0",
+        "BloodSpillDuration": "0"
     },
     "ability_blood_shards": {
-        "name": "Unknown"
+        "AbilityCooldown": "6",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.12",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0.3",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "-1",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "HealthToDamage": "32",
+        "NumBloodShards": "3",
+        "SpreadAngleDegrees": "6",
+        "MoveSpeedPenaltyPerStack": "20",
+        "MinSlowAmount": "0",
+        "VulnerabilityPerStack": "15",
+        "DebuffDuration": "16",
+        "SlowDuration": "6",
+        "MaxStacks": "5"
     },
     "ability_life_drain": {
-        "name": "Unknown"
-    },
-    "ability_life_drain_cancel_trigger": {
-        "name": "Unknown"
+        "AbilityCooldown": "40",
+        "AbilityDuration": "2",
+        "AbilityCastRange": "20m",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.2",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "MaxRange": "30m",
+        "MoveSpeedReduction": "25",
+        "LifeDrainPerSecond": "35",
+        "TickRate": "0.1",
+        "SilenceOnDrain": "0",
+        "LifeDrainHealthMult": "100"
     },
     "ability_death_tax": {
-        "name": "Unknown"
-    },
-    "ability_health_swap": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_gigawatt_set": {
-        "name": "Unknown"
-    },
-    "citadel_ability_melee_gigawatt": {
-        "name": "Unknown"
+        "AbilityCooldown": "0",
+        "AbilityDuration": "4",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "DeathTaxHeal": "30",
+        "TechPowerAmpBonus": "0",
+        "TechPowerAmpBonusDuration": "0",
+        "TechPowerAmpBonusMaxStacks": "0",
+        "CooldownReductionOnKill": "0"
     },
     "citadel_ability_lightning_ball": {
-        "name": "Unknown"
+        "AbilityCooldown": "22",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.2",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "1",
+        "AbilityCooldownBetweenCharge": "8",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "ShockRadius": "4m",
+        "DPS": "80",
+        "TickRate": "0.1",
+        "MinShockDuration": "0.5",
+        "MaxLifetime": "5",
+        "HitSpeed": "80",
+        "SlowPercent": "0",
+        "BossDamagePercent": "50"
     },
     "citadel_ability_static_charge": {
-        "name": "Unknown"
+        "AbilityCooldown": "40",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "16m",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.2",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "ShockRadius": "5m",
+        "Damage": "40",
+        "ShockDelay": "3.5",
+        "StunDuration": "1.1",
+        "AdditionalShockTarget": "0"
     },
     "citadel_ability_chain_lightning": {
-        "name": "Unknown"
+        "AbilityCooldown": "0.5",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "Damage": "16",
+        "ConeRadius": "6m",
+        "ConeAngle": "45",
+        "MultiChain": "0"
     },
     "ability_power_surge": {
-        "name": "Unknown"
-    },
-    "citadel_ability_storm_cloud": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_haze_set": {
-        "name": "Unknown"
-    },
-    "ability_melee_haze": {
-        "name": "Unknown"
+        "AbilityCooldown": "45",
+        "AbilityDuration": "10",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.2",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "DamagePerChain": "10",
+        "BonusPerChain": "10",
+        "ChainCount": "3",
+        "ChainTickRate": "0.2",
+        "ChainRadius": "10m",
+        "TechResistDebuff": "0",
+        "DebuffDuration": "0",
+        "BossDamagePercent": "50"
     },
     "ability_sleep_dagger": {
-        "name": "Unknown"
+        "AbilityCooldown": "27",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.2",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "Damage": "70",
+        "SleepDuration": "3",
+        "SleepWakeUpDelay": "0.1",
+        "MinimumSleepTime": "0.2",
+        "DamageStacksAdded": "0",
+        "AoESleepArmTime": "0",
+        "AoESleep": "0m",
+        "BombFallHeight": "1.5m",
+        "TickRate": "0.5",
+        "MaxRicochet": "0",
+        "RicochetRadius": "20m",
+        "DoesNotBreakInvis": "1",
+        "BulletResistReduction": "0",
+        "BulletResistReductionDuration": "0",
+        "StaminaReduction": "0",
+        "DrowsyMoveSlowPercent": "60",
+        "DrowsyDuration": "0.25"
     },
     "citadel_ability_poison_bullets": {
-        "name": "Unknown"
+        "AbilityCooldown": "60 50 40",
+        "AbilityDuration": "10",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "BuildUpDuration": "10",
+        "BuildUpPercentPerHit": "10",
+        "SleepDuration": "3 4 5",
+        "AwakenDamage": "50 100 200"
     },
     "ability_smoke_bomb": {
-        "name": "Unknown"
+        "AbilityCooldown": "35",
+        "AbilityDuration": "8",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "InvisAlertWhenFading": "1",
+        "InvisCancelOnDamage": "0",
+        "InvisFadeToDuration": "1.5",
+        "InvisMoveSpeedMod": "2.0m",
+        "SpottedRadius": "20m",
+        "RevealOnDamageDuration": "1.5",
+        "RevealOnSpottedDuration": "0.5",
+        "FullInvisDistance": "50m",
+        "MovementSpeedWhileZoom": "0",
+        "MovementSpeedWhileShoot": "0",
+        "PostInvisBuffDuration": "0",
+        "BulletLifesteal": "0"
     },
     "ability_stacking_damage": {
-        "name": "Unknown"
-    },
-    "ability_bullet_flurry": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_hornet_set": {
-        "name": "Unknown"
-    },
-    "citadel_ability_melee_hornet": {
-        "name": "Unknown"
+        "AbilityCooldown": "0",
+        "AbilityDuration": "6",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "MaxStacks": "30",
+        "DamageBonusFixedPerStack": "0.2",
+        "ProcDamage": "0",
+        "ProcDamageStackCount": "0",
+        "SlowPercent": "0",
+        "SlowDuration": "0",
+        "BossDamagePct": "30"
     },
     "citadel_ability_wing_blast": {
-        "name": "Unknown"
+        "AbilityCooldown": "50",
+        "AbilityDuration": "3",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.6",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "Radius": "5m",
+        "Distance": "20m",
+        "PushVelocity": "110",
+        "MaxPushVelocity": "800",
+        "DPS": "50"
     },
     "citadel_ability_hornet_chain": {
-        "name": "Unknown"
+        "AbilityCooldown": "40",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.2",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "Damage": "60",
+        "SlowPercent": "30",
+        "ChainLength": "6m",
+        "CaptureRadius": "8m",
+        "ChainDuration": "2.25",
+        "HasDisarm": "0",
+        "EnemyDragSpeed": "1000"
     },
     "citadel_ability_hornet_leap": {
-        "name": "Unknown"
+        "AbilityCooldown": "40",
+        "AbilityDuration": "8",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0.2",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "0",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "GravityScale": "0",
+        "MaxFallSpeed": "0",
+        "MaxFlyHeight": "1720",
+        "JumpVelocity": "1000",
+        "AirSpeedBonus": "0m",
+        "AirSideMoveSpeedPercentage": "-35",
+        "AirDrag": "2.0",
+        "MinVelocityZ": "-20.0",
+        "WeaponRecoilReduction": "40",
+        "MagicDamagePerBullet": "10.0",
+        "BonusClipSizePercent": "0"
     },
     "citadel_ability_hornet_sting": {
-        "name": "Unknown"
-    },
-    "citadel_ability_hornet_snipe": {
-        "name": "Unknown"
+        "AbilityCooldown": "25",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.2",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "DotHealthPercent": "3.0",
+        "TickRate": "0.5",
+        "ImpactDamage": "50",
+        "DebuffDuration": "6",
+        "VisualSplashRadius": "1m",
+        "TargetBounceRange": "0m",
+        "TargetBounceCount": "0",
+        "HealAmpReceivePenaltyPercent": "0",
+        "HealAmpRegenPenaltyPercent": "0"
     },
     "citadel_ability_hornet_mark": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_inferno_set": {
-        "name": "Unknown"
-    },
-    "ability_melee_inferno": {
-        "name": "Unknown"
-    },
-    "ability_fire_bomb": {
-        "name": "Unknown"
+        "AbilityCooldown": "40",
+        "AbilityDuration": "12",
+        "AbilityCastRange": "2500",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "ChargeForKill": "0"
     },
     "ability_flame_dash": {
-        "name": "Unknown"
-    },
-    "ability_flame_dash_cancel_trigger": {
-        "name": "Unknown"
+        "AbilityCooldown": "38",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.2",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "18m",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "DashTime": "3.0",
+        "DashSpeed": "12m",
+        "DashAirSpeed": "8m",
+        "FlameAuraRadius": "4.5m",
+        "FlameAuraDPS": "40",
+        "AuraLingerDuration": "1.0",
+        "TickRate": "0.5",
+        "GroundFlameDuration": "4",
+        "GroundAuraSpacing": "1m",
+        "SpeedBurstSpeed": "20m",
+        "SpeedBurstDuration": "0",
+        "SideMoveSpeedReduction": "-65",
+        "FlameDashDebuffDuration": "0",
+        "FlameDashJumpBonus": "50",
+        "FireRateSlow": "0"
     },
     "ability_incendiary_projectile": {
-        "name": "Unknown"
+        "AbilityCooldown": "24",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "20m",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.1",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "1",
+        "AbilityCooldownBetweenCharge": "6",
+        "ChannelMoveSpeed": "18m",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "TickRate": "0.5",
+        "FlameHeightOffGround": "50",
+        "ParticleRadiusMultiplier": "1.15",
+        "DamageAmplification": "30",
+        "DebuffDuration": "8",
+        "Damage": "50",
+        "LifestealPercentHero": "0",
+        "GrowthPerMeter": "0.5m",
+        "InitialWidth": "1m",
+        "SlowDuration": "4",
+        "SlowPercent": "40",
+        "HealAmpReceivePenaltyPercent": "0",
+        "HealAmpRegenPenaltyPercent": "0"
     },
     "ability_afterburn": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_kelvin_set": {
-        "name": "Unknown"
-    },
-    "ability_melee_kelvin": {
-        "name": "Unknown"
+        "AbilityCooldown": "0",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "BuildUpDuration": "15",
+        "BuildUpBulletPercentPerHit": "10",
+        "TickRate": "0.5",
+        "BurnDuration": "3",
+        "DPS": "15",
+        "CritBuildup": "16",
+        "AfterburnSpiritDamageReduction": "0"
     },
     "ability_icebeam": {
-        "name": "Unknown"
+        "AbilityCooldown": "23",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "5.0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "-1",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "ChannelSlowPercent": "8",
+        "DPS": "60",
+        "TickRate": "0.1",
+        "PathLength": "25m",
+        "PathWidth": "1.1m",
+        "CameraDistance": "250",
+        "MinSlowPercent": "30",
+        "MaxSlowPercent": "60",
+        "MaxSlowTime": "2.0",
+        "IceBeamBuildupProcDuration": "2",
+        "SlowDuration": "0.6",
+        "BeamSplitCount": "0",
+        "BeamSplit": "0m"
     },
     "ability_icepath": {
-        "name": "Unknown"
+        "AbilityCooldown": "36",
+        "AbilityDuration": "8",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.2",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "-1",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "IcePathInterval": "0.5",
+        "CameraDistance": "250",
+        "PopupForce": "30",
+        "MinHeight": "20",
+        "IcePathAuraDuration": "18",
+        "ModifierRadius": "5m",
+        "IcePathShardRadius": "1.2m",
+        "IcePathEdgeWidth": "0.7m",
+        "IcePathPullInStrength": "20",
+        "MoveSpeedBonus": "2m",
+        "SprintSpeedBonus": "2m",
+        "BonusTechDamagePercent": "0",
+        "SlowResistancePercent": "60",
+        "BonusSpiritMeter": "0",
+        "BonusSpiritMax": "0",
+        "BonusSpiritLingerDuration": "0",
+        "MoveWhileShootingSpeedPenaltyReductionPercent": "100",
+        "MoveWhileZoomedSpeedPenaltyReductionPercent": "100"
     },
     "ability_ice_grenade": {
-        "name": "Unknown"
-    },
-    "ability_ice_dome": {
-        "name": "Unknown"
-    },
-    "ability_ice_dome_cancel": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_lash_set": {
-        "name": "Unknown"
-    },
-    "ability_melee_lash": {
-        "name": "Unknown"
+        "AbilityCooldown": "21",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.1",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "1",
+        "AbilityCooldownBetweenCharge": "7",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "Radius": "6.5m",
+        "Damage": "80",
+        "SlowPercent": "40",
+        "SlowDuration": "4",
+        "HealAmount": "0"
     },
     "citadel_ability_lash": {
-        "name": "Unknown"
+        "AbilityCooldown": "40",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "30m",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "1",
+        "AbilityCooldownBetweenCharge": "2",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "JumpVelocity": "20m",
+        "LashFriendlies": "1",
+        "LashMetalSkinDuration": "0",
+        "MinDistance": "0m",
+        "JumpSlowResistance": "0.667",
+        "RestoreStaminaOnUse": "1",
+        "WeaponDamageBonus": "0",
+        "WeaponDamageBonusDuration": "0",
+        "WeaponFireRateBonus": "0"
     },
     "citadel_ability_lash_down_strike": {
-        "name": "Unknown"
-    },
-    "citadel_ability_lash_ultimate": {
-        "name": "Unknown"
+        "AbilityCooldown": "18",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.15",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0.4",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "Radius": "11m",
+        "StrikeVelocity": "50m",
+        "StompDamage": "90",
+        "StompDamagePerMeterPrimary": "6.0",
+        "StompDamagePerMeterSecondary": "4.5",
+        "StompDamagePrimaryRange": "25m",
+        "MinAimAngle": "60",
+        "SlowDuration": "0",
+        "EnemySlowPct": "0",
+        "StompVerticalThreshold": "130",
+        "StompBounceHeight": "0"
     },
     "ability_lash_flog": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_mirage_set": {
-        "name": "Unknown"
+        "AbilityCooldown": "25",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "25m",
+        "AbilityUnitTargetLimit": "30",
+        "AbilityCastDelay": "0.15",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "TargetingConeAngle": "30",
+        "EnemySlowPct": "0",
+        "EnemySlowDuration": "0",
+        "HealPctVsNonHeroes": "30",
+        "HealPctVsHeroes": "80",
+        "Damage": "65",
+        "FireRateSlow": "0"
     },
     "mirage_tornado": {
-        "name": "Unknown"
+        "AbilityCooldown": "30",
+        "AbilityDuration": "2.0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.3",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "Radius": "3.5m",
+        "OpenHeight": "3m",
+        "Damage": "60",
+        "TickRate": "0.25",
+        "DistanceAboveGround": "2m",
+        "ClimbHeight": "1m",
+        "DropDownRate": "10",
+        "TornadoSpeed": "1200",
+        "EnemyLiftDuration": "0.6",
+        "SplitAngle": "0",
+        "ForwardOffset": "125",
+        "LiftHeight": "3m",
+        "DampingFactor": "0.3",
+        "MaxDeltaMovementControl": "2m",
+        "MoveSlowPercent": "0",
+        "MoveSlowDuration": "0",
+        "BossDamagePercent": "50"
     },
     "mirage_sand_phantom": {
-        "name": "Unknown"
+        "AbilityCooldown": "45",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "200",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "TimeBeforeTeleport": "3.5",
+        "CameraDistance": "250",
+        "TrailInterval": "0.1",
+        "PreCreationTravelTime": "0.5",
+        "GroundDashReductionPercent": "0",
+        "WhirlwindEvasionChance": "40",
+        "WhirlwindDuration": "8",
+        "BonusMoveSpeed": "3m",
+        "MoveSpeedDuration": "6",
+        "WeaponDamageBonus": "0"
     },
     "mirage_fire_beetles": {
-        "name": "Unknown"
-    },
-    "mirage_djinns_reach": {
-        "name": "Unknown"
-    },
-    "mirage_sunfire_cataclysm": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_digger_set": {
-        "name": "Unknown"
-    },
-    "ability_melee_digger": {
-        "name": "Unknown"
+        "AbilityCooldown": "0",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.05",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "3",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "LaunchWindowCooldown": "35",
+        "LaunchWindowDuration": "20",
+        "AbilityChargesConditionally": "1",
+        "Radius": "4m",
+        "DPS": "30",
+        "DamageInterval": "0.5",
+        "SlowPercent": "20",
+        "DebuffDuration": "4"
     },
     "ability_intimidate": {
-        "name": "Unknown"
+        "AbilityCooldown": "12",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.2",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "Radius": "10m",
+        "Damage": "60",
+        "DamageHealMultNonHero": "0.7",
+        "DamageHealMult": "2.0",
+        "TickRate": "0.1",
+        "DamageBonus": "0",
+        "DebuffDuration": "0"
     },
     "ability_burrow": {
-        "name": "Unknown"
+        "AbilityCooldown": "35",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "1",
+        "AbilityChannelTime": "5",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "-1",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "DPS": "80",
+        "Radius": "5m",
+        "BonusMoveSpeed": "3m",
+        "SpeedLostDuration": "1",
+        "EnemyDamageSpeedPenalty": "0.5",
+        "SpinDuration": "1.5",
+        "SpinSlowPercent": "10",
+        "SpinSlowDuration": "0.3",
+        "TechResist": "30",
+        "BulletResist": "80",
+        "TickRate": "0.1",
+        "UpForce": "250"
     },
     "ability_throw_sand": {
-        "name": "Unknown"
-    },
-    "ability_ult_combo": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_nano_set": {
-        "name": "Unknown"
-    },
-    "ability_melee_nano": {
-        "name": "Unknown"
+        "AbilityCooldown": "40",
+        "AbilityDuration": "3.5",
+        "AbilityCastRange": "30m",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.15",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "Damage": "40",
+        "GrowthPerMeter": "0.5m",
+        "InitialWidth": "5m",
+        "SlowPercent": "0",
+        "Silence": "0"
     },
     "ability_perched_predator": {
-        "name": "Unknown"
-    },
-    "ability_perched_predator_trigger": {
-        "name": "Unknown"
+        "AbilityCooldown": "25",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.2",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "CatLifetime": "8",
+        "CatStartSpeed": "8m",
+        "CatAccel": "10m",
+        "CatMaxSpeed": "20m",
+        "CatAboveGround": "0.1m",
+        "CatDropDownRate": "5",
+        "CatClimbHeight": "3m",
+        "MinTimeBetweenExplosions": "0.5",
+        "ExplosionDamage": "100",
+        "ExplosionRadius": "8m",
+        "TossSpeed": "400",
+        "ChargeRadius": "75",
+        "ChargeDragVerticalOffset": "30"
     },
     "ability_nano_pounce": {
-        "name": "Unknown"
+        "AbilityCooldown": "25",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "16m",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.2",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "1",
+        "AbilityCooldownBetweenCharge": "8",
+        "ChannelMoveSpeed": "-1",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "ExplosionDamage": "60",
+        "InstantReload": "0",
+        "SlowPercent": "20",
+        "SlowDuration": "3",
+        "ExplodeRadius": "4m",
+        "DebuffDuration": "0",
+        "DamageAmplification": "0",
+        "ActiveReloadPercent": "0",
+        "FriendlyTargetCD": "12",
+        "FriendlyRechargeTime": "3"
     },
     "ability_nano_warp": {
-        "name": "Unknown"
+        "AbilityCooldown": "25",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "20m",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.1",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "1",
+        "AbilityCooldownBetweenCharge": "8",
+        "ChannelMoveSpeed": "-1",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "ExplosionDamage": "60",
+        "InstantReload": "0",
+        "SlowPercent": "20",
+        "SlowDuration": "3",
+        "ExplodeRadius": "4m",
+        "DebuffDuration": "0",
+        "DamageAmplification": "0",
+        "ActiveReloadPercent": "0"
     },
     "ability_nano_proximity_ritual": {
-        "name": "Unknown"
-    },
-    "ability_nano_ult_shadow": {
-        "name": "Unknown"
-    },
-    "ability_nano_cat_bullet": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_archer_set": {
-        "name": "Unknown"
-    },
-    "ability_melee_archer": {
-        "name": "Unknown"
+        "AbilityCooldown": "30",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.2",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "1",
+        "AbilityCooldownBetweenCharge": "8",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "StatueHealth": "300",
+        "InactiveRadius": "4m",
+        "ActiveRadius": "18m",
+        "StatueLifetime": "40",
+        "StatueArmTime": "0.2",
+        "CatActivateDuration": "1.5f",
+        "TickInterval": "0.1",
+        "DamageTick": "0.5",
+        "DPS": "20",
+        "FireRateSlow": "0",
+        "HealAmpReceivePenaltyPercent": "-20",
+        "HealAmpRegenPenaltyPercent": "-20",
+        "AbilityLifesteal": "75",
+        "AbilityLifestealNonHero": "25",
+        "SelfHealScale": "0.5"
     },
     "ability_charged_shot": {
-        "name": "Unknown"
+        "AbilityCooldown": "16",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.5",
+        "AbilityChannelTime": "9999",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "1",
+        "AbilityCooldownBetweenCharge": "4",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "TechCleaveExpireTime": "0.2",
+        "FallSpeedMax": "60",
+        "AirSpeedMax": "150",
+        "Damage": "105",
+        "CameraHeightOffset": "20",
+        "CameraHorizontalOffset": "15",
+        "BossDamagePercent": "25"
     },
     "ability_power_jump": {
-        "name": "Unknown"
+        "AbilityCooldown": "33",
+        "AbilityDuration": "7",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.5",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "0",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "JumpPitch": "-60",
+        "JumpSpeed": "27.5m",
+        "SlowPercent": "0",
+        "SlowDuration": "0",
+        "WeaponDamageBonus": "7",
+        "FireRateBonus": "0",
+        "BulletLifestealPercent": "0",
+        "FallSpeedMax": "30",
+        "AirSpeedMax": "150",
+        "BulletSplitShot": "5",
+        "AbilitySplitShot": "0",
+        "FxRadius": "4m",
+        "TechLifestealPercent": "0"
     },
     "ability_immobilize_trap": {
-        "name": "Unknown"
-    },
-    "ability_guided_arrow": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_shiv_set": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_shiv_alt": {
-        "name": "Unknown"
-    },
-    "citadel_ability_melee_shiv": {
-        "name": "Unknown"
+        "AbilityCooldown": "35",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "Radius": "6m",
+        "TrapHeight": "2m",
+        "Lifetime": "20",
+        "Damage": "30",
+        "ImmobilizeDuration": "2",
+        "TripTime": "0.5",
+        "ArmTime": "2.0",
+        "TripUpSpeed": "250",
+        "TripGravity": "0.4",
+        "DisarmTargets": "0",
+        "BulletVulnerbility": "0",
+        "DebuffDuration": "0",
+        "DotDuration": "0",
+        "DotDPS": "0"
     },
     "citadel_ability_shiv_dagger": {
-        "name": "Unknown"
+        "AbilityCooldown": "18",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0.2",
+        "AbilityPostCastDuration": "0.3",
+        "AbilityCharges": "2",
+        "AbilityCooldownBetweenCharge": "2",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "BleedTickRate": "1",
+        "MovementSlow": "35",
+        "ImpactDamage": "35",
+        "BleedDPSPerStack": "5",
+        "DebuffDuration": "5",
+        "AOERadius": "10m",
+        "RicochetCount": "1"
     },
     "citadel_ability_shiv_dash": {
-        "name": "Unknown"
+        "AbilityCooldown": "15",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.25",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0.2",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "TechCleaveExpireTime": "0.35",
+        "DashAngleThreshold": "45",
+        "DashSpeed": "2400",
+        "DashRange": "12m",
+        "DashRadius": "2.5m",
+        "ImpactDamage": "125",
+        "MoveSpeedPenaltyMaxSpeed": "200",
+        "MoveSpeedPenaltyDuration": "0",
+        "CameraDistance": "250",
+        "SideMoveSpeedReduction": "-100",
+        "TurnRateMax": "0",
+        "CooldownReductionOnHit": "0",
+        "MaxCooldownReductionsFromHits": "3"
     },
     "citadel_ability_shiv_defer_damage": {
-        "name": "Unknown"
-    },
-    "citadel_ability_shiv_killing_blow": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_slork_set": {
-        "name": "Unknown"
+        "AbilityCooldown": "20",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.25",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "DamagePctDeferred": "35",
+        "DeferredDamageDuration": "10",
+        "DeferClearPct": "50",
+        "DamagePctDeferredMaxRage": "15"
     },
     "slork_scald": {
-        "name": "Unknown"
-    },
-    "slork_raging_current": {
-        "name": "Unknown"
-    },
-    "ability_chomp_cast_dash": {
-        "name": "Unknown"
+        "AbilityCooldown": "13",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.2",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "ImpactDamage": "40",
+        "DPS": "16",
+        "TickRate": "1",
+        "NumSegments": "3",
+        "SpreadDegrees": "8",
+        "SlowPercent": "0",
+        "BurnDuration": "4"
     },
     "slork_last_breath": {
-        "name": "Unknown"
+        "AbilityCooldown": "27",
+        "AbilityDuration": "8",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "BlastRadius": "8m",
+        "DamageAbsorb": "120",
+        "BurstDamage": "80"
     },
     "slork_chomp": {
-        "name": "Unknown"
-    },
-    "slork_ability_invis": {
-        "name": "Unknown"
+        "AbilityCooldown": "33",
+        "AbilityDuration": "2.5",
+        "AbilityCastRange": "10m",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "LiftHeight": "30",
+        "LiftHorizontal": "-70",
+        "FollowDampingFactor": "5",
+        "TickRate": "0.5",
+        "DPS": "24",
+        "SpeedBonus": "0",
+        "HobbledMovementSlow": "15",
+        "ChompHealPercent": "0",
+        "DamagePercentHealth": "4",
+        "CooldownOnMiss": "5",
+        "BreakRange": "6m"
     },
     "slork_riptide": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_slork_alt": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_synth_set": {
-        "name": "Unknown"
+        "AbilityCooldown": "24",
+        "AbilityDuration": "3",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.2",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "Radius": "3.5m",
+        "OpenHeight": "2m",
+        "DistanceAboveGround": "0.25m",
+        "ClimbHeight": "1m",
+        "DropDownRate": "2",
+        "Speed": "600",
+        "ImpactDamage": "32",
+        "DPS": "24",
+        "TickRate": "0.5",
+        "SlowPercent": "0",
+        "BurnDuration": "2",
+        "TossSpeed": "650"
     },
     "synth_plasma_flux": {
-        "name": "Unknown"
-    },
-    "synth_plasma_flux_trigger": {
-        "name": "Unknown"
+        "AbilityCooldown": "30",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.2",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "Radius": "5m",
+        "Damage": "90",
+        "TickRate": "0.1",
+        "MaxLifetime": "3.2",
+        "WeaponDamageBonus": "0",
+        "WeaponDamageBonusDuration": "0"
     },
     "synth_pulse": {
-        "name": "Unknown"
+        "AbilityCooldown": "16",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.15",
+        "AbilityChannelTime": "2.0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "Radius": "12m",
+        "Damage": "100",
+        "FallSpeedMax": "1",
+        "FireRateSlow": "0",
+        "DebuffDuration": "0"
     },
     "synth_grasp": {
-        "name": "Unknown"
-    },
-    "synth_grasp_cancel": {
-        "name": "Unknown"
+        "AbilityCooldown": "15",
+        "AbilityDuration": "3",
+        "AbilityCastRange": "8m",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.15",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "SlowPercent": "30",
+        "TetherLength": "7m",
+        "EnemyDragSpeed": "1000",
+        "BulletShieldDuration": "10",
+        "BulletShieldPerHero": "100",
+        "LifestealPerSecond": "0",
+        "LifestealHealthMult": "0",
+        "LifestealTickRate": "0"
     },
     "synth_barrage": {
-        "name": "Unknown"
+        "AbilityCooldown": "30",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.3",
+        "AbilityChannelTime": "2",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "DamagePerProjectile": "35",
+        "ProjectileAmount": "4",
+        "PopUpSpeed": "0",
+        "FallSpeedMax": "10",
+        "AirSpeedMax": "100",
+        "AirDrag": "0.3",
+        "Radius": "6.5m",
+        "MoveSlowPercent": "40",
+        "SlowDuration": "1.5",
+        "AmpPercentPerStack": "8",
+        "AmpDuration": "15",
+        "LifeStealPercentOnHit": "0",
+        "LifeStealPercentOnHitNonHero": "0"
     },
     "synth_blitz": {
-        "name": "Unknown"
-    },
-    "synth_affliction": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_tengu_set": {
-        "name": "Unknown"
-    },
-    "citadel_ability_melee_tengu": {
-        "name": "Unknown"
+        "AbilityCooldown": "50",
+        "AbilityDuration": "5",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.15",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "2",
+        "AbilityCooldownBetweenCharge": "6",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "BonusFireRate": "50",
+        "TechAmpPerBullet": "0",
+        "TechAmpLinger": "0s",
+        "FastFireBullets": "5",
+        "MaxStacks": "5",
+        "BulletLifestealPercent": "50"
     },
     "citadel_ability_tangotether": {
-        "name": "Unknown"
-    },
-    "citadel_ability_tangotether_trigger": {
-        "name": "Unknown"
+        "AbilityCooldown": "35",
+        "AbilityDuration": "12",
+        "AbilityCastRange": "16m",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "BonusFireRate": "10",
+        "BulletLifestealPercent": "15",
+        "MoveSpeedBonus": "0m",
+        "TickRate": "0.1",
+        "TetherSharedHealPct": "30",
+        "HealingPerGlub": "20",
+        "TotalTetherTargets": "1"
     },
     "citadel_ability_tengu_urn": {
-        "name": "Unknown"
+        "AbilityCooldown": "30",
+        "AbilityDuration": "4",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.2",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "1",
+        "AbilityCooldownBetweenCharge": "8",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "BossDamagePercent": "50",
+        "TickRate": "0.25",
+        "Radius": "6m",
+        "Height": "3m",
+        "DPS": "60",
+        "SlowPercent": "35"
     },
     "citadel_ability_tengu_stone_form": {
-        "name": "Unknown"
-    },
-    "citadel_ability_tengu_lightningcrash": {
-        "name": "Unknown"
-    },
-    "citadel_ability_tengu_airlift": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_tokamak_set": {
-        "name": "Unknown"
-    },
-    "citadel_ability_melee_tokamak": {
-        "name": "Unknown"
+        "AbilityCooldown": "40",
+        "AbilityDuration": "2",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.25",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "StatueScale": "1.0",
+        "DampingFactor": "0.25",
+        "MaxFallSpeed": "0",
+        "MoveSpeedMax": "8m",
+        "LiftHeight": "180",
+        "LiftTime": "1.0",
+        "BonusHealthRegen": "0",
+        "MaxHealthRegen": "10",
+        "Damage": "80",
+        "StunDuration": "0.75",
+        "Radius": "6m"
     },
     "tokamak_hot_shot": {
-        "name": "Unknown"
+        "AbilityCooldown": "30",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.2",
+        "AbilityChannelTime": "1.0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "2",
+        "AbilityCooldownBetweenCharge": "1",
+        "ChannelMoveSpeed": "70",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "NormalDPS": "55",
+        "HotDPS": "90",
+        "BeamLength": "30m",
+        "BeamWidth": "4.0m",
+        "HeatPowerLength": "0m",
+        "TickRate": "0.1",
+        "TrackingSpeed": "180"
     },
     "tokamak_breach": {
-        "name": "Unknown"
+        "AbilityCooldown": "40",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.25",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "InvisAlertWhenFading": "1",
+        "InvisCancelOnDamage": "0",
+        "InvisFadeToDuration": "1.0",
+        "InvisMoveSpeedMod": "0",
+        "SpottedRadius": "2.5m",
+        "RevealOnDamageDuration": "1.0",
+        "RevealOnSpottedDuration": "1.0",
+        "Radius": "12m",
+        "SmokeDuration": "8",
+        "BulletArmorReduction": "0",
+        "BulletResist": "0",
+        "TechResist": "20",
+        "SlowPercent": "0",
+        "PurgeDebuffs": "0",
+        "EMPEnemies": "0",
+        "FullInvisDistance": "5m"
     },
     "tokamak_radiance": {
-        "name": "Unknown"
-    },
-    "tokamak_heat_sinks": {
-        "name": "Unknown"
-    },
-    "tokamak_heat_sinks_inherent": {
-        "name": "Unknown"
+        "AbilityCooldown": "45",
+        "AbilityDuration": "6",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.25",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "Radius": "40m",
+        "EvasionChance": "20",
+        "MaxDPS": "16",
+        "TickRate": "0.25",
+        "LookRadiusScale": "1m",
+        "LookDotMin": "0.866",
+        "BlindScale": "0.5"
     },
     "tokamak_dying_star": {
-        "name": "Unknown"
-    },
-    "tokamak_crimson_cannon": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_viscous_alt": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_viscous_set": {
-        "name": "Unknown"
-    },
-    "ability_melee_viscous": {
-        "name": "Unknown"
+        "AbilityCooldown": "24",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "20m",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "ExplosionRadius": "6m",
+        "Damage": "80",
+        "TossSpeed": "350",
+        "GravityScale": "1.4"
     },
     "viscous_goo_grenade": {
-        "name": "Unknown"
+        "AbilityCooldown": "20",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.001",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0.5",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "SlowPercent": "35",
+        "MoveSpeedSlowPercent": "0",
+        "MaxBounces": "0",
+        "Damage": "110",
+        "MoveSpeedGroundSlow": "0",
+        "BossDamagePercent": "50",
+        "Radius": "5m",
+        "PuddleDuration": "10",
+        "DetonateCooldown": "0.15",
+        "SecondHitDamagePercentage": "0.66",
+        "ThirdHitDamagePercentage": "0.33"
     },
     "viscous_restorative_goo": {
-        "name": "Unknown"
-    },
-    "viscous_goo_puddle": {
-        "name": "Unknown"
-    },
-    "viscous_goo_bowling_ball": {
-        "name": "Unknown"
-    },
-    "viscous_goo_bowling_ball_cancel": {
-        "name": "Unknown"
+        "AbilityCooldown": "45",
+        "AbilityDuration": "4",
+        "AbilityCastRange": "30m",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.1",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "CubeScale": "1.5",
+        "Friction": "-80",
+        "BonusHealthRegen": "40",
+        "MaxHealthRegen": "0",
+        "PurgeDebuffs": "0",
+        "PushBackRadius": "50",
+        "PushBackForce": "250",
+        "LightMeleeForce": "300",
+        "HeavyMeleeForce": "700",
+        "BulletForce": "600",
+        "SlideForce": "70",
+        "BreakoutTime": "1",
+        "PostCubeBuff": "0",
+        "BonusMoveSpeed": "0m",
+        "PostCubeBuffDuration": "8",
+        "StaminaCooldownReduction": "0"
     },
     "viscous_telepunch": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_warden_set": {
-        "name": "Unknown"
-    },
-    "citadel_ability_melee_warden": {
-        "name": "Unknown"
+        "AbilityCooldown": "24",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "60m",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "1",
+        "AbilityCooldownBetweenCharge": "1.5",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "Damage": "0",
+        "Radius": "4m",
+        "PunchHalfHeight": "5.5m",
+        "TossSpeed": "700",
+        "TossSpeedWall": "750",
+        "TossSpeedUpWall": "500",
+        "TossGroundSideRatio": "0.7",
+        "PunchRollSlow": "-40",
+        "PunchRollSlowDuration": "1",
+        "SlowPercent": "20",
+        "ImpactDuration": "4"
     },
     "ability_warden_lock_down": {
-        "name": "Unknown"
+        "AbilityCooldown": "35",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "20m",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.15",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "ImmobilizeDuration": "1.75",
+        "Damage": "120",
+        "EscapeRange": "16m",
+        "EscapeTime": "2.5",
+        "BulletArmorReduction": "0",
+        "BulletArmorReductionDuration": "0"
     },
     "ability_warden_high_alert": {
-        "name": "Unknown"
+        "AbilityCooldown": "40",
+        "AbilityDuration": "7",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "MoveSpeedBonusPct": "15",
+        "TechShieldPoints": "150"
     },
     "ability_warden_crowd_control": {
-        "name": "Unknown"
-    },
-    "ability_warden_riot_protocol": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_wraith_set": {
-        "name": "Unknown"
-    },
-    "citadel_ability_melee_wraith": {
-        "name": "Unknown"
-    },
-    "citadel_ability_psychic_lift": {
-        "name": "Unknown"
+        "AbilityCooldown": "13",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.1",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "Radius": "7m",
+        "Damage": "55",
+        "WeaponPowerDebuff": "-30",
+        "FireRateSlow": "0",
+        "DebuffDuration": "7",
+        "MoveSpeedSlowPct": "20",
+        "ForwardVelocity": "800",
+        "ProjectileLifetime": "60",
+        "StaminaReduction": "0"
     },
     "citadel_ability_projectmind": {
-        "name": "Unknown"
+        "AbilityCooldown": "45",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "25m",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.75",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "200",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "CameraDistance": "250",
+        "TrailInterval": "0.1",
+        "BulletShieldOnLand": "0",
+        "BulletShieldDuration": "0"
     },
     "citadel_ability_psychic_daggers": {
-        "name": "Unknown"
+        "AbilityCooldown": "40",
+        "AbilityDuration": "3.0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.01",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "Radius": "15m",
+        "DamagePerDagger": "40",
+        "MaxDaggers": "4",
+        "ProjectileOffset": "7",
+        "DistanceOut": "35",
+        "ShootInterval": "0.6",
+        "SpawnDuration": "0.6",
+        "HeightOffset": "110",
+        "ShouldBounce": "0",
+        "ProjectileRowOffset": "5",
+        "DaggersPerRow": "6",
+        "ProjectileHorizontalMinOffset": "5"
     },
     "citadel_ability_wraith_rapidfire": {
-        "name": "Unknown"
+        "AbilityCooldown": "45",
+        "AbilityDuration": "5",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "Radius": "25m",
+        "BonusFireRate": "20",
+        "BulletLifestealPercent": "0",
+        "AlliedFireRatePercentage": "50",
+        "MagicDamagePerBullet": "0.0"
     },
     "citadel_ability_card_toss": {
-        "name": "Unknown"
+        "AbilityCooldown": "0.5",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "500m",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0.2",
+        "AbilityCharges": "1",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "Damage": "100",
+        "Radius": "5m",
+        "AbilityChargesConditionally": "1",
+        "ResourcePerCard": "100",
+        "BonusAbilityResource": "100",
+        "NonPlayerCardResourceScale": "0.35",
+        "CardResourcePerBulletHit": "4",
+        "CardResourcePerBulletCrit": "6",
+        "CardResourcePerLightMelee": "20",
+        "CardResourcePerHeavyMelee": "50",
+        "CardResourceGenPctScale": "100"
     },
     "citadel_ability_psychic_pulse": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_wrecker_set": {
-        "name": "Unknown"
-    },
-    "ability_melee_wrecker": {
-        "name": "Unknown"
+        "AbilityCooldown": "30",
+        "AbilityDuration": "3",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "SenseRange": "30m"
     },
     "ability_wrecking_ball": {
-        "name": "Unknown"
-    },
-    "ability_wrecking_ball_throw": {
-        "name": "Unknown"
+        "AbilityCooldown": "20",
+        "AbilityDuration": "6",
+        "AbilityCastRange": "50m",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "1.2",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "TechCleaveExpireTime": "0.4",
+        "MoveSpeedLimit": "6m",
+        "StunDuration": "1",
+        "WreckingBallPushForce": "280",
+        "WreckingBallDamage": "80",
+        "MinSpeed": "80"
     },
     "ability_wrecker_salvage": {
-        "name": "Unknown"
+        "AbilityCooldown": "12",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "10m",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "40",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "SalvageDuration": "3",
+        "FireRateBuffDuration": "40",
+        "DPS": "80",
+        "TickInterval": "0.25",
+        "SalvageBonus_FireRate": "25",
+        "SalvageBonus_Health": "0"
     },
     "ability_scrap_blast": {
-        "name": "Unknown"
-    },
-    "ability_wrecker_ultimate": {
-        "name": "Unknown"
-    },
-    "ability_wrecker_teleport": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_yamato_set": {
-        "name": "Unknown"
-    },
-    "citadel_weapon_yamato_alt": {
-        "name": "Unknown"
-    },
-    "ability_melee_yamato": {
-        "name": "Unknown"
+        "AbilityCooldown": "60",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "15m",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.25",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0",
+        "AbilityCharges": "2",
+        "AbilityCooldownBetweenCharge": "3",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "BlastRadius": "5m",
+        "ScrapDamage": "75",
+        "EnemyMoveSlowDuration": "5",
+        "EnemyMoveSlow": "10"
     },
     "citadel_ability_power_slash": {
-        "name": "Unknown"
+        "AbilityCooldown": "8",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "1.5",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0.4",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "SlashLength": "25m",
+        "ShortChargeDamagePct": "40",
+        "MediumChargeDamagePct": "60",
+        "FullChargeDamage": "170",
+        "SlashRadius": "45",
+        "FallSpeedMax": "5",
+        "AirSpeedMax": "0",
+        "PowerUpStages": "3",
+        "SlashCollisionRadius": "4",
+        "SlowDuration": "0",
+        "SlowPercent": "0",
+        "BulletResist": "0"
     },
     "citadel_ability_flying_strike": {
-        "name": "Unknown"
+        "AbilityCooldown": "20",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "20m",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0.5",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "Damage": "70",
+        "SlowDuration": "2.5",
+        "SlowPercent": "30",
+        "WeaponDamageBonus": "0",
+        "WeaponPowerIncreaseDuration": "0"
     },
     "citadel_ability_healing_slash": {
-        "name": "Unknown"
-    },
-    "citadel_ability_infinity_slash": {
-        "name": "Unknown"
-    },
-    "upgrade_base": {
-        "name": "Unknown"
-    },
-    "tier1_base": {
-        "name": "Unknown"
-    },
-    "tier2_base": {
-        "name": "Unknown"
-    },
-    "tier3_base": {
-        "name": "Unknown"
-    },
-    "tier4_base": {
-        "name": "Unknown"
-    },
-    "armor_upgrade_base": {
-        "name": "Unknown"
-    },
-    "armor_upgrade_t1": {
-        "name": "Unknown"
-    },
-    "armor_upgrade_t2": {
-        "name": "Unknown"
-    },
-    "armor_upgrade_t3": {
-        "name": "Unknown"
-    },
-    "armor_upgrade_t4": {
-        "name": "Unknown"
-    },
-    "weapon_upgrade_base": {
-        "name": "Unknown"
-    },
-    "weapon_upgrade_t1": {
-        "name": "Unknown"
-    },
-    "weapon_upgrade_t2": {
-        "name": "Unknown"
-    },
-    "weapon_upgrade_t3": {
-        "name": "Unknown"
-    },
-    "weapon_upgrade_t4": {
-        "name": "Unknown"
-    },
-    "tech_upgrade_base": {
-        "name": "Unknown"
-    },
-    "tech_upgrade_t1": {
-        "name": "Unknown"
-    },
-    "tech_upgrade_t2": {
-        "name": "Unknown"
-    },
-    "tech_upgrade_t3": {
-        "name": "Unknown"
-    },
-    "tech_upgrade_t4": {
-        "name": "Unknown"
-    },
-    "upgrade_clip_size": {
-        "name": "Basic Magazine"
-    },
-    "upgrade_non_player_bonus": {
-        "name": "Monster Rounds"
-    },
-    "upgrade_ammo_scavenger": {
-        "name": "Ammo Scavenger"
-    },
-    "upgrade_clip_size_fixed": {
-        "name": "Extended Magazine"
-    },
-    "upgrade_clip_size_fixed_t3": {
-        "name": "Extra Large Magazine"
-    },
-    "upgrade_chain_lightning": {
-        "name": "Tesla Bullets"
-    },
-    "upgrade_galvanic_storm": {
-        "name": "Galvanic Storm"
-    },
-    "upgrade_hollow_point_rounds": {
-        "name": "Hollow Point Ward"
-    },
-    "upgrade_pristine_emblem": {
-        "name": "Pristine Emblem"
-    },
-    "upgrade_stabilizer": {
-        "name": "Stabilizer"
-    },
-    "upgrade_high_velocity_mag": {
-        "name": "High-Velocity Mag"
-    },
-    "upgrade_lifestrike_gauntlets": {
-        "name": "Melee Lifesteal"
-    },
-    "upgrade_close_range": {
-        "name": "Close Quarters"
-    },
-    "upgrade_long_range": {
-        "name": "Long Range"
-    },
-    "upgrade_slowing_bullets": {
-        "name": "Slowing Bullets"
-    },
-    "upgrade_inhibitor": {
-        "name": "Inhibitor"
-    },
-    "upgrade_small_attack_speed": {
-        "name": "Basic Fire Rate"
-    },
-    "upgrade_tech_defense_shredders": {
-        "name": "Soul Shredder Bullets"
-    },
-    "upgrade_attack_speed_1": {
-        "name": "Fire Rate"
-    },
-    "upgrade_nearby_enemy_boost": {
-        "name": "Adrenaline Rush"
-    },
-    "upgrade_dps_aura": {
-        "name": "Heroic Aura"
-    },
-    "upgrade_armor_reduction_debuff": {
-        "name": "Armor Piercing Rounds"
-    },
-    "upgrade_weapon_detention_ammo": {
-        "name": "Detention Rounds"
-    },
-    "upgrade_height_advantage": {
-        "name": "Height Advantage"
-    },
-    "upgrade_targeted_silence": {
-        "name": "Silence Glyph"
-    },
-    "upgrade_proc_silence": {
-        "name": "EMP Bullets"
-    },
-    "upgrade_silencer": {
-        "name": "Silencer"
-    },
-    "upgrade_proc_disarm": {
-        "name": "Disarming Bullets"
-    },
-    "upgrade_berserker": {
-        "name": "Berserker"
-    },
-    "upgrade_fervor": {
-        "name": "Frenzy"
-    },
-    "upgrade_siphon_bullets": {
-        "name": "Siphon Bullets"
-    },
-    "upgrade_headshot_booster": {
-        "name": "Headshot Booster"
-    },
-    "upgrade_sharpshooter": {
-        "name": "Sharpshooter"
-    },
-    "upgrade_banshee_slugs": {
-        "name": "Crippling Headshot"
-    },
-    "upgrade_proc_tech_damage": {
-        "name": "Magitech Rounds"
-    },
-    "upgrade_crackshot": {
-        "name": "Mystic Shot"
-    },
-    "upgrade_critshot": {
-        "name": "Lucky Shot"
-    },
-    "upgrade_close_quarter_combat": {
-        "name": "Point Blank"
-    },
-    "upgrade_clip_size_2": {
-        "name": "Big Clip"
-    },
-    "upgrade_clip_size_3": {
-        "name": "Extra Large Magazine"
-    },
-    "upgrade_toxic_bullets": {
-        "name": "Toxic Bullets"
-    },
-    "upgrade_attack_speed_2": {
-        "name": "Improved Fire Rate"
-    },
-    "upgrade_drum_magazine": {
-        "name": "Drum Magazine"
-    },
-    "upgrade_ricochet": {
-        "name": "Ricochet"
-    },
-    "upgrade_health": {
-        "name": "Extra Health"
-    },
-    "upgrade_toughness_3": {
-        "name": "Toughness"
-    },
-    "upgrade_bullet_armor": {
-        "name": "Bullet Armor"
-    },
-    "upgrade_tech_armor": {
-        "name": "Spirit Armor"
-    },
-    "upgrade_health_regen_1": {
-        "name": "Health Regen"
-    },
-    "upgrade_vampire": {
-        "name": "Bullet Lifesteal"
-    },
-    "upgrade_double_jump": {
-        "name": "Double-Jump"
-    },
-    "upgrade_health_regen_aura": {
-        "name": "Healing Aura"
-    },
-    "upgrade_combo_breaker": {
-        "name": "Combo Breaker"
-    },
-    "upgrade_debuff_reducer": {
-        "name": "Debuff Reducer"
-    },
-    "upgrade_reduce_debuff_duration": {
-        "name": "Debuff Remover"
-    },
-    "upgrade_high_impact_armor": {
-        "name": "High Impact Armor"
-    },
-    "upgrade_slow_immunity": {
-        "name": "Unstoppable - Deprecated"
-    },
-    "upgrade_bullet_armor_2": {
-        "name": "Improved Bullet Armor"
-    },
-    "upgrade_weapon_power_and_health_drain": {
-        "name": "Overdrive"
-    },
-    "upgrade_active_bullet_shield": {
-        "name": "Shield Rush"
-    },
-    "upgrade_ablative_coat": {
-        "name": "Ablative Coat"
-    },
-    "upgrade_tech_purge": {
-        "name": "Improved Spirit Armor"
-    },
-    "upgrade_improved_bullet_armor": {
-        "name": "Improved Bullet Armor"
-    },
-    "upgrade_metal_skin": {
-        "name": "Metal Skin"
-    },
-    "upgrade_healing_booster": {
-        "name": "Healing Booster"
-    },
-    "upgrade_chonky": {
-        "name": "Fortitude"
-    },
-    "upgrade_damage_recycler": {
-        "name": "Leech"
-    },
-    "upgrade_bullet_damage_reduction_aura": {
-        "name": "Weapon Jammer"
-    },
-    "upgrade_sprint_booster": {
-        "name": "Sprint Boots"
-    },
-    "upgrade_cardio_calibrator": {
-        "name": "Enduring Speed"
-    },
-    "upgrade_superior_stamina": {
-        "name": "Superior Stamina"
-    },
-    "upgrade_rapid_rounds": {
-        "name": "Rapid Rounds"
-    },
-    "upgrade_improved_stamina": {
-        "name": "Extra Stamina"
-    },
-    "upgrade_bullet_armor_reduction_aura": {
-        "name": "Hunter's Aura"
-    },
-    "upgrade_camouflage": {
-        "name": "Camouflage Suit"
-    },
-    "upgrade_regenerative_armor": {
-        "name": "Regenerative Armor"
-    },
-    "upgrade_regenerating_bullet_shield": {
-        "name": "Combat Barrier"
-    },
-    "upgrade_magic_shield": {
-        "name": "Enchanter's Barrier"
-    },
-    "upgrade_improved_spirit": {
-        "name": "Extra Spirit"
-    },
-    "upgrade_soaring_spirit": {
-        "name": "Improved Spirit"
-    },
-    "upgrade_tech_overflow": {
-        "name": "Spiritual Overflow"
-    },
-    "upgrade_return_fire": {
-        "name": "Return Fire"
-    },
-    "upgrade_tech_range": {
-        "name": "Improved Reach"
-    },
-    "upgrade_magic_reach": {
-        "name": "Mystic Reach"
-    },
-    "upgrade_extra_charge": {
-        "name": "Extra Charge"
-    },
-    "upgrade_health_stealing_magic": {
-        "name": "Spirit Lifesteal"
-    },
-    "upgrade_disarm": {
-        "name": "Drain Will"
-    },
-    "upgrade_bullet_resist_shredder": {
-        "name": "Bullet Resist Shredder"
-    },
-    "upgrade_tech_bleed": {
-        "name": "Mystic Reverb"
-    },
-    "upgrade_magic_burst": {
-        "name": "Mystic Burst"
-    },
-    "upgrade_magic_shock": {
-        "name": "Improved Burst"
-    },
-    "upgrade_arcane_medallion": {
-        "name": "Arcane Medallion"
-    },
-    "upgrade_magic_vulnerability": {
-        "name": "Mystic Vulnerability"
-    },
-    "upgrade_healbane": {
-        "name": "Healbane"
-    },
-    "upgrade_magic_slow": {
-        "name": "Mystic Slow"
-    },
-    "upgrade_escalating_exposure": {
-        "name": "Escalating Exposure"
-    },
-    "upgrade_rapid_recharge": {
-        "name": "Rapid Recharge"
-    },
-    "upgrade_magic_tempo": {
-        "name": "Improved Cooldown"
-    },
-    "upgrade_cooldown_reduction": {
-        "name": "Superior Cooldown"
-    },
-    "upgrade_duration_extender": {
-        "name": "[Deprecated] Duration Extender"
-    },
-    "upgrade_slowing_tech": {
-        "name": "Slowing Spirit"
-    },
-    "upgrade_containment": {
-        "name": "Slowing Hex"
-    },
-    "upgrade_withering_whip": {
-        "name": "Withering Whip"
-    },
-    "upgrade_rescue_beam": {
-        "name": "Rescue Beam"
-    },
-    "upgrade_personal_rejuvenator": {
-        "name": "Rebirth"
-    },
-    "upgrade_rebirth": {
-        "name": "Soul Rebirth"
-    },
-    "upgrade_long_range_slowing_tech": {
-        "name": "Omni Spirit"
-    },
-    "upgrade_full_spectrum": {
-        "name": "Full Spectrum"
-    },
-    "upgrade_tech_cleave": {
-        "name": "Quantum Chimaera"
-    },
-    "upgrade_bonus_ability_charge_3": {
-        "name": "Hyper Charge"
-    },
-    "upgrade_charge_mastery": {
-        "name": "Charge Mastery"
-    },
-    "upgrade_rupture": {
-        "name": "Decay"
-    },
-    "upgrade_discord": {
-        "name": "Discord"
-    },
-    "upgrade_aoe_tech_shield": {
-        "name": "Spirit Barrier Pulse"
-    },
-    "upgrade_target_stun": {
-        "name": "Knockdown"
-    },
-    "upgrade_phantom_strike": {
-        "name": "Phantom Strike"
-    },
-    "upgrade_warp_stone": {
-        "name": "Warp Stone"
-    },
-    "upgrade_aoe_root": {
-        "name": "Vacuum Web"
-    },
-    "upgrade_ability_refresher": {
-        "name": "Refresher"
-    },
-    "upgrade_ability_power_shard": {
-        "name": "Echo Shard"
-    },
-    "upgrade_tech_damage_pulse": {
-        "name": "Torment Pulse"
-    },
-    "upgrade_cheat_death": {
-        "name": "Cheat Death"
-    },
-    "upgrade_reload_speed": {
-        "name": "Fast Reload"
-    },
-    "upgrade_cloaking_device": {
-        "name": "Cloaking Device"
-    },
-    "upgrade_cloaking_device_active": {
-        "name": "Shadow Weave"
-    },
-    "upgrade_zipine_mastery": {
-        "name": "Zip Line Mastery"
-    },
-    "upgrade_fire_rate_aura": {
-        "name": "Fire Rate Aura"
-    },
-    "upgrade_weapon_overdrive_clip": {
-        "name": "Overdrive Clip"
-    },
-    "upgrade_rocket_boots": {
-        "name": "Majestic Leap - Disabled"
-    },
-    "upgrade_rocket_booster": {
-        "name": "Majestic Leap"
-    },
-    "upgrade_aerial_assault": {
-        "name": "Aerial Assault"
-    },
-    "upgrade_health_nova": {
-        "name": "Health Nova"
-    },
-    "upgrade_restorative_locket": {
-        "name": "Restorative Locket"
-    },
-    "upgrade_health_stimpak": {
-        "name": "Healing Rite"
-    },
-    "upgrade_infuser": {
-        "name": "Infuser"
-    },
-    "upgrade_savior": {
-        "name": "Divine Barrier"
-    },
-    "upgrade_aoe_smoke_bomb": {
-        "name": "Smoke"
-    },
-    "upgrade_thermal_detonator": {
-        "name": "Alchemical Fire"
-    },
-    "upgrade_fleetfoot_boots": {
-        "name": "Fleetfoot"
-    },
-    "upgrade_kinetic_sash": {
-        "name": "Kinetic Dash"
-    },
-    "upgrade_weapon_eater": {
-        "name": "Weapon Eater"
-    },
-    "upgrade_weapon_instant_reload": {
-        "name": "Reloader + Huge Clip"
-    },
-    "upgrade_tech_defender": {
-        "name": "Tech Defender"
-    },
-    "upgrade_unstoppable": {
-        "name": "Unstoppable"
-    },
-    "upgrade_colossus": {
-        "name": "Colossus"
-    },
-    "upgrade_cold_front": {
-        "name": "Cold Front"
-    },
-    "upgrade_aoe_silence": {
-        "name": "EMP Grenade"
-    },
-    "upgrade_self_bubble": {
-        "name": "Ethereal Shift"
-    },
-    "upgrade_stasis_bomb": {
-        "name": "Stasis Bomb"
-    },
-    "upgrade_quarantine": {
-        "name": "Quarantine"
-    },
-    "upgrade_glitch": {
-        "name": "Curse"
-    },
-    "upgrade_imbued_ability": {
-        "name": "Imbued Ability"
-    },
-    "upgrade_arcane_extension": {
-        "name": "Duration Extender"
-    },
-    "upgrade_imbued_duration_extender": {
-        "name": "Superior Duration"
-    },
-    "upgrade_glass_cannon": {
-        "name": "Glass Cannon"
-    },
-    "upgrade_surging_power": {
-        "name": "Vampiric Burst"
-    },
-    "upgrade_mod_disruptor": {
-        "name": "Soul Disruptor"
-    },
-    "upgrade_frenzy": {
-        "name": "Unknown"
-    },
-    "upgrade_burst_fire_actuator": {
-        "name": "Burst Fire Actuator"
-    },
-    "upgrade_boxing_glove": {
-        "name": "Lifestrike"
-    },
-    "upgrade_acolytes_glove": {
-        "name": "Spirit Strike"
-    },
-    "upgrade_melee_charge": {
-        "name": "Melee Charge"
-    },
-    "upgrade_charmed_wraps": {
-        "name": "Charmed Wraps"
-    },
-    "upgrade_belt_fed_magazine": {
-        "name": "Belt-Fed Magazine"
-    },
-    "upgrade_diviners_kevlar": {
-        "name": "Diviner's Kevlar"
-    },
-    "upgrade_stabilizing_tripod": {
-        "name": "Stabilizing Tripod"
-    },
-    "upgrade_mega_spirit": {
-        "name": "Boundless Spirit"
-    },
-    "upgrade_burst_fire": {
-        "name": "Burst Fire"
-    },
-    "upgrade_resilience": {
-        "name": "Enduring Spirit"
-    },
-    "upgrade_endurance": {
-        "name": "Extra Regen"
-    },
-    "upgrade_magic_clarity": {
-        "name": "Clarity"
-    },
-    "upgrade_magic_storm": {
-        "name": "Surge of Power"
-    },
-    "upgrade_suppressor": {
-        "name": "Suppressor"
-    },
-    "upgrade_quick_silver": {
-        "name": "Quicksilver Reload"
-    },
-    "upgrade_arcane_eater": {
-        "name": "Arcane Eater"
-    },
-    "upgrade_predator_precision": {
-        "name": "Predator Precision"
-    },
-    "upgrade_intensifying_clip": {
-        "name": "Intensifying Magazine"
-    },
-    "upgrade_reinforcing_casings": {
-        "name": "Escalating Resilience"
-    },
-    "upgrade_blitz_bullets": {
-        "name": "Swift Striker"
-    },
-    "upgrade_veil_walker": {
-        "name": "Veil Walker"
-    },
-    "upgrade_vex_barrier": {
-        "name": "Reactive Barrier"
-    },
-    "upgrade_medic_bullets": {
-        "name": "Restorative Shot"
-    },
-    "upgrade_titan_round": {
-        "name": "Titanic Magazine"
-    },
-    "upgrade_active_reload": {
-        "name": "Active Reload"
-    },
-    "upgrade_magic_carpet": {
-        "name": "Magic Carpet"
+        "AbilityCooldown": "11",
+        "AbilityDuration": "0",
+        "AbilityCastRange": "0",
+        "AbilityUnitTargetLimit": "1",
+        "AbilityCastDelay": "0.3",
+        "AbilityChannelTime": "0",
+        "AbilityPostCastDuration": "0.4",
+        "AbilityCharges": "0",
+        "AbilityCooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "0",
+        "AbilityResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "Damage": "60",
+        "Radius": "12m",
+        "HealFixedHealth": "70",
+        "HealMaxHealth": "0",
+        "DebuffDuration": "4",
+        "FireRateSlow": "30"
     }
 }
