@@ -129,8 +129,8 @@ class Parser:
 
         weapon_stats = {
             'BulletDamage': weapon_prim['m_flBulletDamage'],
-            'BulletsPerSec': 1 / weapon_prim['m_flCycleTime'],
-            'Ammo': weapon_prim['m_iClipSize'],
+            'RoundsPerSecond': 1 / weapon_prim['m_flCycleTime'],
+            'ClipSize': weapon_prim['m_iClipSize'],
             'ReloadTime': weapon_prim['m_reloadDuration'],
         }
 
