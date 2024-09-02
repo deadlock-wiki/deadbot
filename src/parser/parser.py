@@ -15,10 +15,11 @@ links = []
 
 
 class Parser:
-    def __init__(self):
+    def __init__(self, language='english'):
         # constants
         self.DATA_DIR = './decompiled-data/'
         self.OUTPUT_DIR = '../../output-data/'
+        self.language = language
 
         self._load_vdata()
         self._load_localizations()
@@ -43,9 +44,9 @@ class Parser:
                 self.abilities_data = kv3.read(tf.name)
 
     def _load_localizations(self):
-        names = json.read('decompiled-data/localizations/citadel_gc_english.json')
+        names = json.read('decompiled-data/localizations/gc/citadel_gc_'+self.language+'.json')
 
-        descriptions = json.read('decompiled-data/localizations/citadel_mods_english.json')
+        descriptions = json.read('decompiled-data/localizations/mods/citadel_mods_'+self.language+'.json')
         self.localizations = {
             'names': names,
             'descriptions': descriptions,
@@ -184,7 +185,11 @@ class Parser:
 
             if 'm_vecComponentItems' in item_value:
                 parsed_item_data['Components'] = item_value['m_vecComponentItems']
-                self._add_children_to_tree(parsed_item_data['Name'], parsed_item_data['Components'])
+                parent_name = parsed_item_data['Name']
+                if parent_name is None: #upgrade_headhunter doesnt yet (as of writing) have a localized name, making it otherwise not appear in item-component-tree.txt
+                    parent_name = key
+
+                self._add_children_to_tree(parent_name, parsed_item_data['Components'])
 
             description = self.localizations['descriptions'].get(key + '_desc')
             if description is not None:
@@ -210,7 +215,9 @@ class Parser:
 
     # Add items to mermaid tree
     def _add_children_to_tree(self, parent_key, child_keys):
+        #print(f"child keys: {child_keys} parent key: {parent_key}")
         for child_key in child_keys:
+            #if parent_key is not None: #upgrade_high_velocity_mag seems to have a None parent_key instead of upgrade_headhunter for some reason, making it not appear in item-component-tree.txt #TODO
             links.append(Link(Node(self.localizations['names'].get(child_key)), Node(parent_key)))
 
     # maps all keys in an object using the provided function
@@ -244,5 +251,6 @@ def sort_dict(dict):
 
 
 if __name__ == '__main__':
-    parser = Parser()
+    parser = Parser(language='spanish')
+    #parser = Parser(language='english')
     parser.run()
