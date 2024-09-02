@@ -2,6 +2,7 @@ import sys
 import os
 from os import listdir
 from os.path import isfile, join
+import datetime 
 
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -103,7 +104,7 @@ class ChangelogParser:
                 hero_changelogs[hero][date] = changes
         
         for hero_name, changelog in hero_changelogs.items():
-            json.write(self.PARSED_CHANGELOGS_DIR + f'hero/{hero_name}.txt', changelog)
+            json.write(self.PARSED_CHANGELOGS_DIR + f'hero/{hero_name}.txt', self._sort_object_by_date_key(changelog))
 
         item_changelogs = {}
         for date, changelog in changelogs_by_date.items():
@@ -113,8 +114,16 @@ class ChangelogParser:
                 item_changelogs[item][date] = changes
         
         for item_name, changelog in item_changelogs.items():
-            json.write(self.PARSED_CHANGELOGS_DIR + f'item/{item_name}.txt', changelog)
+            json.write(self.PARSED_CHANGELOGS_DIR + f'item/{item_name}.txt', self._sort_object_by_date_key(changelog))
 
+    def _sort_object_by_date_key(self, changelogs):
+        sorted_keys = sorted(changelogs.keys(), key=lambda x: datetime.datetime.strptime(x, '%m-%d-%Y'))
+    
+        sorted_changelogs = {}
+        for key in reversed(sorted_keys):
+            sorted_changelogs[key] = changelogs[key]
+
+        return sorted_changelogs
 
 if __name__ == '__main__':
     ChangelogParser().run_all()
