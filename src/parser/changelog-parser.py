@@ -12,12 +12,18 @@ class ChangelogParser:
     def __init__(self):
         print('Parsing changelogs...')
         self.CHANGELOGS_DIR = './changelogs/'
+        self.PARSED_CHANGELOGS_DIR = './parsed-changelogs/'
         self.OUTPUT_DIR = '../../output-data/'
 
     def run_all(self):
+        changelogs_by_date = {}
         files = [f for f in listdir(self.CHANGELOGS_DIR) if isfile(join(self.CHANGELOGS_DIR, f))]
         for file in files:
-            self.run(file.replace('.txt', ''))
+            date = file.replace('.txt', '')
+            changelog = self.run(date)
+            changelogs_by_date[date] = changelog
+
+        self._create_resource_changelogs(changelogs_by_date)
 
     def run(self, version):
         logs = self._read_logs(version)
@@ -62,7 +68,8 @@ class ChangelogParser:
             if not resource_found:
                 changelog_dict[current_heading]['General'].append(line)
 
-        json.write(self.OUTPUT_DIR + f'changelogs/{version}.json', changelog_dict)
+        json.write(self.PARSED_CHANGELOGS_DIR + f'date/{version}.json', changelog_dict)
+        return changelog_dict
 
     def _read_logs(self, version):
         # files just
@@ -85,6 +92,28 @@ class ChangelogParser:
 
         return resources
 
+    # Creates historic changelog for each resource (eg. heroes, items etc.)
+    # using each parsed changelog
+    def _create_resource_changelogs(self, changelogs_by_date):
+        hero_changelogs = {}
+        for date, changelog in changelogs_by_date.items():
+            for hero, changes in changelog['Heroes'].items():
+                if hero not in hero_changelogs:
+                    hero_changelogs[hero] = {}
+                hero_changelogs[hero][date] = changes
+        
+        for hero_name, changelog in hero_changelogs.items():
+            json.write(self.PARSED_CHANGELOGS_DIR + f'hero/{hero_name}.txt', changelog)
+
+        item_changelogs = {}
+        for date, changelog in changelogs_by_date.items():
+            for item, changes in changelog['Items'].items():
+                if item not in item_changelogs:
+                    item_changelogs[item] = {}
+                item_changelogs[item][date] = changes
+        
+        for item_name, changelog in item_changelogs.items():
+            json.write(self.PARSED_CHANGELOGS_DIR + f'item/{item_name}.txt', changelog)
 
 
 if __name__ == '__main__':
