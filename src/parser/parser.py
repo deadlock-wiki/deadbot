@@ -85,7 +85,7 @@ class Parser:
                 # Parse Tech scaling
                 if 'm_mapScalingStats' in hero_value:
                     # Move scaling data under TechScaling key
-                    hero_stats["TechScaling"] = {}
+                    hero_stats["SpiritScaling"] = {}
 
                     # Transform each value within m_mapScalingStats from
 
