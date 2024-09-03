@@ -1,11 +1,12 @@
 import sys
 import os
-import re
 from python_mermaid.diagram import MermaidDiagram, Node, Link
 
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 import utils.json_utils as json_utils
+import utils.string_utils as string_utils
+
 from constants import OUTPUT_DIR
 import maps
 
@@ -76,17 +77,14 @@ class ItemParser:
                 )
                 parsed_item_data[new_key] = item_ability_attrs[attr_key]['m_strValue']
 
+            description = self.localizations['descriptions'].get(key + '_desc')
+            parsed_item_data['Description'] = string_utils.format_description(
+                description, parsed_item_data
+            )
+
             if 'm_vecComponentItems' in item_value:
                 parsed_item_data['Components'] = item_value['m_vecComponentItems']
-                self._add_children_to_tree(parsed_item_data['Name'], parsed_item_data['Components'])
-
-            description = self.localizations['descriptions'].get(key + '_desc')
-            if description is not None:
-                # strip away all html tags for displaying as text
-                description = re.sub(r'<span\b[^>]*>|<\/span>', '', description)
-                parsed_item_data['Description'] = self._format_description(
-                    description, parsed_item_data
-                )
+                self._add_children_to_tree(key, parsed_item_data['Components'])
 
             all_items[key] = parsed_item_data
 
@@ -117,13 +115,3 @@ class ItemParser:
             output_array.append(mapped_value)
 
         return output_array
-
-    # format description with data. eg. "When you are above {s:LifeThreshold}% health"
-    # should become "When you are above 20% health"
-    def _format_description(self, desc, data):
-        def replace_match(match):
-            key = match.group(1)
-            return data.get(key, '')
-
-        formatted_desc = re.sub(r'\{s:(.*?)\}', replace_match, desc)
-        return formatted_desc

@@ -5,6 +5,7 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 from constants import OUTPUT_DIR
 import utils.json_utils as json_utils
+import utils.string_utils as string_utils
 
 
 class AbilityParser:
@@ -27,8 +28,7 @@ class AbilityParser:
                 continue
 
             ability_data = {
-                'Name': self.localizations['heroes'].get(ability_key, 'Unknown'),
-                'Description': self.localizations['heroes'].get(ability_key + '_desc', 'Unknown'),
+                'Name': self.localizations['heroes'].get(ability_key, None),
             }
 
             stats = ability['m_mapAbilityProperties']
@@ -36,6 +36,9 @@ class AbilityParser:
             for key in stats:
                 stat = stats[key]
                 ability_data[key] = stat['m_strValue']
+
+            description = (self.localizations['heroes'].get(ability_key + '_desc'),)
+            ability_data['Description'] = string_utils.format_description(description, ability_data)
 
             all_abilities[ability_key] = json_utils.sort_dict(ability_data)
 
