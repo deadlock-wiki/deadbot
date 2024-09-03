@@ -62,19 +62,17 @@ def get_ability_activation(value):
 
 
 def get_hero_attr(value):
-    value = value.replace('E', '') # Remove the 'E' prefix
+    value = value.replace('E', '')  # Remove the 'E' prefix
 
     if value.startswith('Base'):
-        value = value[4:] # Remove the 'Base' prefix (tentative)
+        value = value[4:]  # Remove the 'Base' prefix (tentative)
 
-    value = value.replace('Tech','Spirit') # Replace 'Tech' with 'Spirit'
+    value = value.replace('Tech', 'Spirit')  # Replace 'Tech' with 'Spirit'
 
+    value = value.replace('BulletArmorDamageReduction', 'BulletResist')
+    value = value.replace('BulletArmorDamageResist', 'BulletResist')
+    value = value.replace('DamageReduction', 'Resist')  # Replace 'DamageReduction' with 'Resist'
 
-    value = value.replace('BulletArmorDamageReduction','BulletResist') 
-    value = value.replace('BulletArmorDamageResist','BulletResist')
-    value = value.replace('DamageReduction','Resist') # Replace 'DamageReduction' with 'Resist'
-
-    
     return value
 
 
@@ -92,3 +90,12 @@ def get_level_mod(value):
     if value not in LEVEL_MOD_MAP:
         raise Exception(f'{value} is not a valid level mod')
     return LEVEL_MOD_MAP.get(value)
+
+
+# Get last part of the snake-case ability name
+# Eg. ESlot_Ability_Innate_1 -> Innate1
+def get_bound_abilities(value):
+    parts = list(value.split('_'))
+    if len(parts) == 4:
+        return parts[2] + parts[3]
+    return parts[2]
