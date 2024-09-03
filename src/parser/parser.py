@@ -82,12 +82,41 @@ class Parser:
                     self._map_attr_names(hero_value['m_mapStartingStats'], maps.get_hero_attr)
                 )
 
+
+                # Parse Tech scaling
+                if 'm_mapScalingStats' in hero_value:
+                    # Move scaling data under TechScaling key
+                    hero_stats["SpiritScaling"] = {}
+
+                    # Transform each value within m_mapScalingStats from
+
+                    # "MaxMoveSpeed": {
+                    #     "eScalingStat": "ETechPower",
+                    #     "flScale": 0.04
+                    # },
+
+                    # to
+
+                    # "MaxMoveSpeed": 0.04
+                    spirit_scalings = hero_value['m_mapScalingStats']
+                    for hero_scaling_key, hero_scaling_value in spirit_scalings.items():
+                        hero_stats["TechScaling"][maps.get_hero_attr(hero_scaling_key)] = hero_scaling_value["flScale"]
+
+                        # Ensure the only scalar in here is ETechPower
+                        if "ETechPower" != hero_scaling_value["eScalingStat"]:
+                            raise Exception(f"Expected scaling key 'ETechPower' but is: {hero_scaling_value["eScalingStat"]}")
+
+
                 weapon_stats = self._parse_hero_weapon(hero_value)
                 hero_stats.update(weapon_stats)
 
-                level_upgrades = hero_value['m_mapStandardLevelUpUpgrades']
-                for key in level_upgrades:
-                    hero_stats[maps.get_level_mod(key)] = level_upgrades[key]
+                # Parse Level scaling
+                if 'm_mapStandardLevelUpUpgrades' in hero_value:
+                    level_scalings = hero_value['m_mapStandardLevelUpUpgrades']
+
+                    hero_stats["LevelScaling"] = {}
+                    for key in level_scalings:
+                        hero_stats["LevelScaling"][maps.get_level_mod(key)] = level_scalings[key]
 
                 all_hero_stats[hero_key] = sort_dict(hero_stats)
 
@@ -101,8 +130,8 @@ class Parser:
 
         weapon_stats = {
             'BulletDamage': weapon_prim['m_flBulletDamage'],
-            'BulletsPerSec': 1 / weapon_prim['m_flCycleTime'],
-            'Ammo': weapon_prim['m_iClipSize'],
+            'RoundsPerSecond': 1 / weapon_prim['m_flCycleTime'],
+            'ClipSize': weapon_prim['m_iClipSize'],
             'ReloadTime': weapon_prim['m_reloadDuration'],
         }
 
