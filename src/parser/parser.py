@@ -85,7 +85,7 @@ class Parser:
 
                 # Parse Tech scaling
                 if 'm_mapScalingStats' in hero_value:
-                    # Move scaling data under TechScaling key
+                    # Move scaling data under SpiritScaling key
                     hero_stats["SpiritScaling"] = {}
 
                     # Transform each value within m_mapScalingStats from
@@ -100,7 +100,7 @@ class Parser:
                     # "MaxMoveSpeed": 0.04
                     spirit_scalings = hero_value['m_mapScalingStats']
                     for hero_scaling_key, hero_scaling_value in spirit_scalings.items():
-                        hero_stats["TechScaling"][maps.get_hero_attr(hero_scaling_key)] = hero_scaling_value["flScale"]
+                        hero_stats["SpiritScaling"][maps.get_hero_attr(hero_scaling_key)] = hero_scaling_value["flScale"]
 
                         # Ensure the only scalar in here is ETechPower
                         if "ETechPower" != hero_scaling_value["eScalingStat"]:
@@ -135,7 +135,7 @@ class Parser:
             'ReloadTime': weapon_prim['m_reloadDuration'],
         }
 
-        weapon_stats['Dps'] = weapon_stats['BulletDamage'] * weapon_stats['BulletsPerSec']
+        weapon_stats['Dps'] = weapon_stats['BulletDamage'] * weapon_stats['RoundsPerSecond']
         return weapon_stats
 
     def _parse_abilities(self):
