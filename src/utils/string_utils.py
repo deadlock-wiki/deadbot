@@ -29,10 +29,10 @@ def string_to_number(string):
     number = None
     try:
         number = float(string)
-    except ValueError:
+    except (TypeError, ValueError):
         try:
             number = int(string)
-        except ValueError:
+        except (TypeError, ValueError):
             number = string
 
     return number

@@ -63,6 +63,26 @@
                 "ExplosionRadius": "2m",
                 "Name": "Hat Trick",
                 "SlowPercent": 20.0
+            },
+            "4": {
+                "AbilityCastRange": "10m",
+                "AbilityCooldown": 150.0,
+                "AbilityDuration": 2.5,
+                "AbilityUnitTargetLimit": 1.0,
+                "BouncePadExtendDuration": 2.0,
+                "CameraPreviewDistance": 200.0,
+                "CameraPreviewOffset": 25.0,
+                "CameraPreviewSpeed": 0.6,
+                "Description": "Grab an enemy with your lasso and drag them along behind you. The enemy is stunned and Astro is slowed slightly during the lasso.<br><br> Lasso duration is paused for 2s during the first usage of a bounce pad.",
+                "ExtraTargetConeAngle": 40.0,
+                "ExtraTargetHorizontalOffset": 30.0,
+                "FollowDampingFactor": 12.0,
+                "FollowDistance": 120.0,
+                "GrabExtraTargetsRadiusMult": 2.0,
+                "LassoTargetMaxSpeed": 550.0,
+                "LiftHeight": 7.0,
+                "LiftHorizontal": -30.0,
+                "Name": "Spirit Lasso"
             }
         },
         "BulletDamage": 32.2,
@@ -142,6 +162,17 @@
                 "RegenDamageInterval": 1.0,
                 "RegenIncomingDamageDuration": 18.0,
                 "RegenIncomingDamagePercent": 17.0
+            },
+            "4": {
+                "AbilityCooldown": 150.0,
+                "AbilityUnitTargetLimit": 1.0,
+                "ChannelMoveSpeed": 50.0,
+                "Damage": 150.0,
+                "Description": "Leap high into the air and choose a ground location to crash into.  When you hit the ground, all enemies in the radius are damaged and stunned.<br>Press [] to crash down early.",
+                "ImpactHeight": "4m",
+                "ImpactRadius": "9m",
+                "Name": "Seismic Impact",
+                "StunDuration": 1.0
             }
         },
         "BulletDamage": 4.675,
@@ -225,6 +256,31 @@
                 "ReturnDelay": 0.5,
                 "ReturnPositionForwardOffset": 100.0,
                 "ReturnSpeed": 2200.0
+            },
+            "4": {
+                "AbilityCastDelay": 1.0,
+                "AbilityChannelTime": 8.0,
+                "AbilityCooldown": 110.0,
+                "AbilityUnitTargetLimit": 1.0,
+                "AirSpeedMax": 70.0,
+                "BeamCloseDamagePercent": 75.0,
+                "BeamCloseRadius": "5.0m",
+                "BeamLength": "70m",
+                "BeamWidth": "2.9m",
+                "BossDamagePercent": 20.0,
+                "CameraDistance": "7m",
+                "ChannelMoveSpeed": 70.0,
+                "DPS": 220.0,
+                "Description": "Charge up your laser to unleash a powerful torrent of energy that deals damage and slows enemies' movement and dashes. You have slow movement and turn rate for the duration. If activated in the air, you will hover while unleashing the beam.",
+                "FallSpeedMax": 1.0,
+                "GroundDashReductionPercent": -40.0,
+                "Interval": 0.1,
+                "Name": "Hyper Beam",
+                "SlowPercent": 40.0,
+                "SlowTargetDuration": 0.5,
+                "TrackingSpeed": 55.0,
+                "ZoomBias": 0.5,
+                "ZoomTime": 0.1
             }
         },
         "BulletDamage": 5.3,
@@ -288,6 +344,13 @@
             },
             "3": {
                 "AbilityCooldown": 25.0,
+                "AbilityUnitTargetLimit": 1.0,
+                "ChannelMoveSpeed": 50.0,
+                "Description": null,
+                "Name": null
+            },
+            "4": {
+                "AbilityCooldown": 120.0,
                 "AbilityUnitTargetLimit": 1.0,
                 "ChannelMoveSpeed": 50.0,
                 "Description": null,
@@ -369,6 +432,19 @@
                 "Name": "Lullaby",
                 "Radius": "12m",
                 "SleepWakeUpDelay": 0.25
+            },
+            "4": {
+                "AbilityCastDelay": 0.5,
+                "AbilityChannelTime": 3.0,
+                "AbilityCooldown": 90.0,
+                "AbilityUnitTargetLimit": 1.0,
+                "BulletResist": -20.0,
+                "ChannelMoveSpeed": "0m",
+                "Damage": 120.0,
+                "DebuffDuration": 6.0,
+                "Description": "Encase nearby enemies in glass in an increasing range over a short duration. Cadence then breaks the glass with her powerful voice, breaking any shields on the them, damaging them, and giving them massive bullet vulnerability for a duraiton after.",
+                "Name": "Crescendo",
+                "Radius": "12m"
             }
         },
         "BulletDamage": 4.9,
@@ -472,6 +548,24 @@
                 "SpeedChange": 25.0,
                 "TimeScaleDebuff": 90.0,
                 "TimeWarpRadius": "5m"
+            },
+            "4": {
+                "AbilityCastDelay": 0.15,
+                "AbilityCastRange": "30m",
+                "AbilityCooldown": 45.0,
+                "AbilityUnitTargetLimit": 1.0,
+                "ChannelMoveSpeed": 50.0,
+                "Description": "Fire a projectile that swaps your position with the target enemy hero. While the effect occurs, you gain spirit lifesteal and the enemy takes damage over time.",
+                "DistanceToMaxTime": "30m",
+                "InitialFreezeTime": 0.25,
+                "InitialHeight": 350.0,
+                "MinSwapTime": 0.5,
+                "Name": "Paradoxical Swap",
+                "SpellLifesteal": 100.0,
+                "SpellLifestealNonHero": 25.0,
+                "SwapTime": 1.5,
+                "SwapTotalDamage": 125.0,
+                "TickRate": 0.25
             }
         },
         "BulletDamage": 7.2,
@@ -552,6 +646,21 @@
                 "MovementSpeedBonus": "0m",
                 "Name": "Rejuvenating Aurora",
                 "ShareWithFriendsRadius": "8m"
+            },
+            "4": {
+                "AbilityCastDelay": 0.2,
+                "AbilityChannelTime": 2.75,
+                "AbilityCooldown": 180.0,
+                "AbilityUnitTargetLimit": 1.0,
+                "CameraDistance": 400.0,
+                "DPS": 60.0,
+                "Description": "Create a singularity in your hands that pulls in nearby enemies and damages them. Once it's finished, enemies get knocked into the air.",
+                "Name": "Singularity",
+                "Speed": 200.0,
+                "TickRate": 1.0,
+                "TossAngle": 45.0,
+                "TossSpeed": 350.0,
+                "VacuumRadius": "8m"
             }
         },
         "BulletDamage": 13.0,
@@ -651,6 +760,30 @@
                 "TimeBetweenSegments": 0.035,
                 "TimeToMaxDistance": 2.0,
                 "WallImpactRange": "5m"
+            },
+            "4": {
+                "AbilityCastRange": "50m",
+                "AbilityChannelTime": 13.0,
+                "AbilityCooldown": 100.0,
+                "AbilityUnitTargetLimit": 100.0,
+                "BossDamagePercent": 50.0,
+                "ChannelMoveSpeed": -1.0,
+                "DamagePerRocket": 30.0,
+                "Description": "Unleashes a volley of rockets that home in on a targeted location.",
+                "DetonateTimer": 5.0,
+                "ExplosionFalloffDisabled": 1.0,
+                "ExplosionRadius": "4.5m",
+                "GrenadesPerSecond": 6.0,
+                "IntervalRampUpStart": 0.35,
+                "IntervalRampUpTime": 0.3,
+                "MaxSpread": 5.0,
+                "MinDistance": "7m",
+                "Name": "Heavy Barrage",
+                "ProjectileIgnoreCollisionTime": 0.2,
+                "TrackSpeedFar": 100.0,
+                "TrackSpeedNear": 150.0,
+                "TrackingTime": 0.4,
+                "TrackingVariance": "0m"
             }
         },
         "BulletDamage": 7.15,
@@ -707,6 +840,14 @@
                 "Name": null
             },
             "3": {
+                "AbilityCastDelay": 1.0,
+                "AbilityCooldown": 10.0,
+                "AbilityUnitTargetLimit": 1.0,
+                "ChannelMoveSpeed": 50.0,
+                "Description": null,
+                "Name": null
+            },
+            "4": {
                 "AbilityCastDelay": 1.0,
                 "AbilityCooldown": 10.0,
                 "AbilityUnitTargetLimit": 1.0,
@@ -797,6 +938,22 @@
                 "SlowDuration": 6.0,
                 "SpreadAngleDegrees": 6.0,
                 "VulnerabilityPerStack": 15.0
+            },
+            "4": {
+                "AbilityCastDelay": 0.2,
+                "AbilityCastRange": "7m",
+                "AbilityCooldown": 160.0,
+                "AbilityDuration": 0.25,
+                "AbilityUnitTargetLimit": 1.0,
+                "ChannelMoveSpeed": "2m",
+                "Description": "Swaps health levels with an enemy target. There is a minimum health percentage that enemies can be brought down to and a minimum amount of health received based on victims current health.",
+                "EnemyMinHealthPct": 30.0,
+                "EnemySlowPct": 70.0,
+                "InitialUpSpeed": 150.0,
+                "MinDiffToCast": 0.1,
+                "MinHealthTakenPct": 30.0,
+                "Name": "Soul Exchange",
+                "PostCastHoldTime": 0.7
             }
         },
         "BulletDamage": 25,
@@ -879,6 +1036,23 @@
                 "DamagePerChain": 10.0,
                 "Description": "Power up your weapon with a shock effect, making your bullets proc shock damage on your target. This shock damage bounces to enemies near your target. Occurs once per burst shot.",
                 "Name": "Power Surge"
+            },
+            "4": {
+                "AbilityChannelTime": 7.0,
+                "AbilityCooldown": 180.0,
+                "AbilityUnitTargetLimit": 1.0,
+                "BossDamagePercent": 25.0,
+                "BulletResistOnActive": 20.0,
+                "CameraDistance": 600.0,
+                "CloudHeight": 120.0,
+                "DPS": 124.0,
+                "DamageInterval": 0.25,
+                "Description": "Channel an expanding storm cloud around you that damages all enemies within its radius. Enemies do not take damage when they are out of line-of-sight. You have increased Bullet Resist during the channel.",
+                "EndingSoonTime": 2.0,
+                "ExpandTime": 3.0,
+                "InitialRadius": "12m",
+                "Name": "Storm Cloud",
+                "Radius": "30m"
             }
         },
         "BulletDamage": 11.5,
@@ -960,6 +1134,19 @@
                 "Description": "Gain 15% bullet life steal, increased by up to 100% based on 's missing health.",
                 "LowHealthHealingScalePercent": 100.0,
                 "Name": "Tenacity"
+            },
+            "4": {
+                "AbilityCooldown": 90.0,
+                "AbilityDuration": "",
+                "AbilityUnitTargetLimit": 1.0,
+                "ChannelMoveSpeed": 50.0,
+                "Damage": 50.0,
+                "Description": "Throw out a sleep bomb that explodes on impact, creating an expanding cloud that sleeps enemies it touches.",
+                "EndRadius": "30m",
+                "Name": "Sleep Bomb",
+                "SleepDuration": 6.0,
+                "SpreadDuration": 2.0,
+                "StartRadius": "5m"
             }
         },
         "BulletDamage": 11.6,
@@ -1041,6 +1228,20 @@
                 "Description": "Shooting a target increases your bullet damage on that target. Gain one stack per bullet hit, two if the hit is a headshot.",
                 "MaxStacks": 30.0,
                 "Name": "Fixation"
+            },
+            "4": {
+                "AbilityCastDelay": 0.4,
+                "AbilityChannelTime": 3.0,
+                "AbilityCooldown": 130.0,
+                "AbilityUnitTargetLimit": 1.0,
+                "BonusFireRate": 25.0,
+                "ChannelMoveSpeed": "4m",
+                "Description": "Enter a flurry, firing your weapon at nearby enemies with perfect accuracy.  During the flurry,  gains a fire rate bonus and will evade some of the bullets shot at her.",
+                "EvasionPercent": 50.0,
+                "Name": "Bullet Dance",
+                "Radius": "15m",
+                "TargetsPerTick": 1.0,
+                "WeaponDamageBonus": 2.0
             }
         },
         "BulletDamage": 5.6,
@@ -1124,6 +1325,27 @@
                 "TargetBounceRange": "0m",
                 "TickRate": 0.5,
                 "VisualSplashRadius": "1m"
+            },
+            "4": {
+                "AbilityCharges": 2.0,
+                "AbilityCooldown": 50.0,
+                "AbilityCooldownBetweenCharge": 1.6,
+                "AbilityUnitTargetLimit": 1.0,
+                "BonusGoldOnKill": 250.0,
+                "ChannelMoveSpeed": 50.0,
+                "Damage": 160.0,
+                "Description": "Use your scoped rifle to fire a powerful shot over long distances. Deal only partial damage until fully charged after 1s of being scoped. Does bonus damage to enemies with less than 50% health remaining. Landing a killing blow on a player with Assassinate grants you bonus souls.",
+                "LowHealthEnemyDamageBonus": 145.0,
+                "LowHealthEnemyThresholdPct": 50.0,
+                "MaxSoundDistance": 2000.0,
+                "MoveSpeed": "4m",
+                "Name": "Assassinate",
+                "Range": "1000m",
+                "ShotRadius": 3.0,
+                "SnipeFOV": 18.0,
+                "SnipeZoomDuration": 0.15,
+                "ViewPunch": 2.5,
+                "WeaponDamageBonus": 13.0
             }
         },
         "BulletDamage": 14,
@@ -1216,6 +1438,17 @@
                 "Description": "Your bullets build up to apply a burning effect on enemies. 's bullets and abilities will refresh the duration.",
                 "Name": "Afterburn",
                 "TickRate": 0.5
+            },
+            "4": {
+                "AbilityCooldown": 120.0,
+                "AbilityUnitTargetLimit": 1.0,
+                "ChannelMoveSpeed": 50.0,
+                "Damage": 160.0,
+                "Description": "Turns you into a living bomb that explodes after a short delay, stunning all enemies in its radius.",
+                "ExplodeDelay": 3.0,
+                "Name": "Concussive Combustion",
+                "Radius": "12m",
+                "StunDuration": 1.25
             }
         },
         "BulletDamage": 6.6,
@@ -1309,6 +1542,25 @@
                 "TickRate": 0.25,
                 "TornadoSpeed": 600.0,
                 "TrackingDistance": "15m"
+            },
+            "4": {
+                "AbilityCastDelay": 0.2,
+                "AbilityCastRange": "25m",
+                "AbilityCooldown": 120.0,
+                "AbilityUnitTargetLimit": 1.0,
+                "BoloBounceCount": 6.0,
+                "BoloBounceSpeed": 800.0,
+                "BoloContractRadius": "5m",
+                "BoloHitDamage": 25.0,
+                "BoloProcDamage": 75.0,
+                "BoloRadius": "0.8m",
+                "ChannelMoveSpeed": 50.0,
+                "DebuffDelay": 2.0,
+                "Description": "Throw a bolo that bounces between enemy heroes before returning to you. Victims will slow down over 2s and then become immobilized for 2.0s. Bounces once per hero.",
+                "ImmobilizeDuration": 2.0,
+                "MaxGroundDashReduction": -50.0,
+                "MaxSlow": 100.0,
+                "Name": "Trapper's Delight"
             }
         },
         "BulletDamage": 12.98,
@@ -1403,6 +1655,21 @@
                 "PathWidth": "1.1m",
                 "SlowDuration": 0.6,
                 "TickRate": 0.1
+            },
+            "4": {
+                "AbilityCastDelay": 0.2,
+                "AbilityCooldown": 120.0,
+                "AbilityDuration": 5.5,
+                "AbilityUnitTargetLimit": 1.0,
+                "BlockerScaleFactor": 115.0,
+                "BonusHealthRegen": 120.0,
+                "ChannelMoveSpeed": 50.0,
+                "Description": " freezes the air around him, creating an impenetrable dome around himself. While in the dome, allies rapidly regenerate health and enemies are slowed.",
+                "EnemyDragSpeed": 1000.0,
+                "GrowTime": 0.2,
+                "Name": "Frozen Shelter",
+                "Radius": "10m",
+                "SlowPercent": 35.0
             }
         },
         "BulletDamage": 20.9,
@@ -1488,6 +1755,16 @@
                 "GrowthPerMeter": "0.5m",
                 "InitialWidth": "5m",
                 "Name": "Sand Blast"
+            },
+            "4": {
+                "AbilityCastRange": "5m",
+                "AbilityChannelTime": 2.75,
+                "AbilityCooldown": 90.0,
+                "AbilityUnitTargetLimit": 1.0,
+                "BonusHealthOnKill": 30.0,
+                "DPS": 60.0,
+                "Description": "Hold the target in place, stunning them and dealing damage during the channel. If they die during Combo, you permanently gain max health.",
+                "Name": "Combo"
             }
         },
         "BulletDamage": 3.6,
@@ -1569,6 +1846,33 @@
                 "HealPctVsNonHeroes": 30.0,
                 "Name": "Flog",
                 "TargetingConeAngle": 30.0
+            },
+            "4": {
+                "AbilityCastDelay": 0.3,
+                "AbilityCastRange": "18m",
+                "AbilityChannelTime": 2.0,
+                "AbilityCooldown": 130.0,
+                "AbilityUnitTargetLimit": 6.0,
+                "BoostTime": 1.0,
+                "ChannelMoveSpeed": 50.0,
+                "Description": "Focus on enemies to connect whips to them. After channeling, connected enemies are lifted and stunned then slammed into the ground. Your victims and any enemies in the landing zone will be damaged and slowed. <br>Press [] to throw connected enemies early. Enemies that are not in line of sight or go out of range during the latch time will not be grabbed.",
+                "HangTime": 0.6,
+                "ImpactDamage": 115.0,
+                "ImpactRadius": "5m",
+                "LiftHeight": "6m",
+                "LockonConeAngle": 40.0,
+                "LosingLockGraceTime": 0.4,
+                "MaxLockonStacks": 1.0,
+                "Name": "Death Slam",
+                "NotInConeLosesLock": 1.0,
+                "SlamSpeed": 1600.0,
+                "SlowDuration": 4.0,
+                "SlowPercent": 50.0,
+                "ThrowDistance": "12m",
+                "ThrowStraightDuration": 1.5,
+                "TimeToGainLockonStack": 0.6,
+                "TimeToLoseLockonStack": 2.0,
+                "UpBoostSpeed": 400.0
             }
         },
         "BulletDamage": 10,
@@ -1663,6 +1967,27 @@
                 "TrailInterval": 0.1,
                 "WhirlwindDuration": 8.0,
                 "WhirlwindEvasionChance": 40.0
+            },
+            "4": {
+                "AbilityCastDelay": 1.1,
+                "AbilityChannelTime": 9999.0,
+                "AbilityCooldown": 60.0,
+                "AbilityUnitTargetLimit": 1.0,
+                "AirSpeedMax": 150.0,
+                "BossDamagePercent": 50.0,
+                "BulletResistReduction": -25.0,
+                "ChainLength": "14m",
+                "ChainSlowPercent": 20.0,
+                "ChannelMoveSpeed": -1.0,
+                "DamageSharePercent": 30.0,
+                "DebuffDuration": 7.0,
+                "Description": "Charge up and then launch a projectile that strikes the first enemy hero it hits, tethering it to up to two other enemy heroes nearby. Tethered heroes have their movement constrained to each other, have reduced bullet resistance, and suffer a portion of the damage any of the other tethered heroes receive. <br>Hold [] or [] to hold the shot.",
+                "FallSpeedMax": 60.0,
+                "InitialPullAmount": 100.0,
+                "MaxTargets": 3.0,
+                "Name": "Djinn's Reach",
+                "Radius": "17m",
+                "TechCleaveExpireTime": 0.2
             }
         },
         "BulletDamage": 23,
@@ -1760,6 +2085,27 @@
                 "StatueHealth": 300.0,
                 "StatueLifetime": 40.0,
                 "TickInterval": 0.1
+            },
+            "4": {
+                "AbilityCastDelay": 0.2,
+                "AbilityCooldown": 120.0,
+                "AbilityDuration": 12.0,
+                "AbilityUnitTargetLimit": 1.0,
+                "ChannelMoveSpeed": 50.0,
+                "CooldownReductionOnBullet": 0.3,
+                "CooldownReductionOnMeleeHeavy": 4.0,
+                "CooldownReductionOnMeleeLight": 1.5,
+                "Description": "",
+                "FireRateBonus": 30.0,
+                "InvisAlertWhenFading": 1.0,
+                "LifeSteal": 30.0,
+                "MeleeAttackSpeedBonus": 30.0,
+                "Name": "Queen of Shadows",
+                "RevealOnDamageDuration": 0.25,
+                "RevealOnSpottedDuration": 0.25,
+                "SlowResist": 50.0,
+                "SpottedRadius": "20m",
+                "StaminaRegen": 40.0
             }
         },
         "BulletDamage": 2.4,
@@ -1848,6 +2194,18 @@
                 "TripGravity": 0.4,
                 "TripTime": 0.5,
                 "TripUpSpeed": 250.0
+            },
+            "4": {
+                "AbilityCastDelay": 1.5,
+                "AbilityChannelTime": 14.0,
+                "AbilityCooldown": 110.0,
+                "AbilityUnitTargetLimit": 1.0,
+                "BonusTechPowerPerKill": 5.0,
+                "Damage": 250.0,
+                "Description": "After 1.5s cast time, launch a spirit owl that you control and which explodes on impact, damaging and stunning enemies. Hold [] to accelerate the owl.<br>Press [] to release control. Gain permanent Spirit Power for each enemy hero killed with Guided Owl.",
+                "ExplosionRadius": "12m",
+                "Name": "Guided Owl",
+                "StunDuration": 0.75
             }
         },
         "BulletDamage": 22.0,
@@ -1940,6 +2298,21 @@
                 "ChannelMoveSpeed": 50.0,
                 "Description": "When taking otherwise fatal damage, Rutger becomes unkillable for 4s.",
                 "Name": "Cheat Death"
+            },
+            "4": {
+                "AbilityCooldown": 120.0,
+                "AbilityDuration": 6.0,
+                "AbilityUnitTargetLimit": 1.0,
+                "ChannelMoveSpeed": 50.0,
+                "DamageMax": 350.0,
+                "DamageMax_DistanceFuzz": "2m",
+                "DamageMin": 50.0,
+                "Description": "Release a fast pulse in a large area that damages, slows, and prevents enemies from using abilities.<br>The damage dealt is based on how close the enemy is to the center of the pulse.",
+                "EndRadius": "30m",
+                "MovementSlow": 25.0,
+                "Name": "Pulse",
+                "SpreadDuration": 0.6,
+                "StartRadius": "1m"
             }
         },
         "BulletDamage": 3.24,
@@ -2025,6 +2398,33 @@
                 "DeferredDamageDuration": 10.0,
                 "Description": "Take only a portion of incoming damage immediately and defer the rest to be taken over time.  Activate to clear a portion of the deferred damage.",
                 "Name": "Bloodletting"
+            },
+            "4": {
+                "AbilityCastRange": "20m",
+                "AbilityCooldown": 90.0,
+                "AbilityPostCastDuration": 0.25,
+                "AbilityUnitTargetLimit": 1.0,
+                "BonusAbilityResource": 10.0,
+                "BuffDamage": 25.0,
+                "CameraDistance": 400.0,
+                "ChannelMoveSpeed": 50.0,
+                "Damage": 200.0,
+                "Description": null,
+                "EnemyHealthPercent": 20.0,
+                "EnemyHealthPercentBuffer": 3.0,
+                "JumpHeight": 80.0,
+                "MinTimeToTarget": 0.5,
+                "MoveSpeedToTarget": "25m",
+                "Name": "Killing Blow",
+                "NonPlayerRageScale": 0.2,
+                "PauseOnTargetTime": 0.66,
+                "RageDrainDelayDuration": 7.0,
+                "RageDrainRate": 0.3,
+                "RagePerHeavyMelee": 3.5,
+                "RagePerLightMelee": 1.5,
+                "RagePerSpiritDamage": 0.02,
+                "RagePerWeaponDamage": 0.015,
+                "SlashRange": 80.0
             }
         },
         "BulletDamage": 5.7,
@@ -2111,6 +2511,26 @@
                 "DamageAbsorb": 120.0,
                 "Description": "Encase yourself in a sphere of water that can absorb up to 120 damage before bursting. When the sphere disipates for any reason enemies in range take 80 damage.",
                 "Name": "Deep's Embrace"
+            },
+            "4": {
+                "AbilityCastRange": "20m",
+                "AbilityCharges": 1.0,
+                "AbilityChargesConditionally": 1.0,
+                "AbilityUnitTargetLimit": 100.0,
+                "AmbushDamage": 80.0,
+                "AmbushTime": 0.25,
+                "CantHideTime": 5.0,
+                "ChannelMoveSpeed": 50.0,
+                "Description": "Fade from view when not shooting or using abilities. When fully invisible, can be cast to deal 80 damage and +2 stamina damage to enemies in front of Slork.",
+                "FullInvisDistance": "50m",
+                "InvisFadeToDuration": 10.0,
+                "InvisMoveSpeedMod": "2.0m",
+                "Name": "Ambush Predator",
+                "PreventHealingTime": 7.0,
+                "RevealOnDamageDuration": 5.0,
+                "RevealOnSpottedDuration": 5.0,
+                "SpottedRadius": "16m",
+                "StaminaDamage": 2.0
             }
         },
         "BulletDamage": 11.0,
@@ -2191,6 +2611,19 @@
                 "FallSpeedMax": 1.0,
                 "Name": "Enchanter's Satchel",
                 "Radius": "12m"
+            },
+            "4": {
+                "AbilityCastDelay": 0.6,
+                "AbilityCooldown": 120.0,
+                "AbilityUnitTargetLimit": 1.0,
+                "CanBePurged": 1.0,
+                "ChannelMoveSpeed": 50.0,
+                "DPS": 23.0,
+                "DamageInterval": 0.5,
+                "DebuffDuration": 18.0,
+                "Description": "Apply damage over time to all enemies nearby.<br>Affliction's damage is non-lethal and does not apply item procs.",
+                "Name": "Affliction",
+                "Radius": "14m"
             }
         },
         "BulletDamage": 5.0,
@@ -2247,6 +2680,14 @@
                 "Name": null
             },
             "3": {
+                "AbilityCastDelay": 1.0,
+                "AbilityCooldown": 10.0,
+                "AbilityUnitTargetLimit": 1.0,
+                "ChannelMoveSpeed": 50.0,
+                "Description": null,
+                "Name": null
+            },
+            "4": {
                 "AbilityCastDelay": 1.0,
                 "AbilityCooldown": 10.0,
                 "AbilityUnitTargetLimit": 1.0,
@@ -2341,6 +2782,28 @@
                 "Radius": "6m",
                 "StatueScale": 1.0,
                 "StunDuration": 0.75
+            },
+            "4": {
+                "AbilityCastDelay": 1.3,
+                "AbilityCastRange": "8m",
+                "AbilityCooldown": 80.0,
+                "AbilityDuration": 17.0,
+                "AbilityUnitTargetLimit": 1.0,
+                "AirDropBulletShield": 200.0,
+                "AllyCastDelay": 0.2,
+                "AllyOutgoingDamagePercent": -50.0,
+                "BuffDuration": 12.0,
+                "ChannelMoveSpeed": 50.0,
+                "DebuffDuration": 4.5,
+                "Description": "Take flight with an ally or a bomb. Drop your ally or bomb to cause a large explosion that causes movement slow.  and ally gain a bullet shield when flying ends. <br>While lifted, your ally gains bullet resist but cannot attack and deals -50% damage. Air Drop has faster cast time when targeting an ally. <br>[] to accelerate flying speed. <br>[] to drop ally/bomb.",
+                "ExplodeDamage": 150.0,
+                "FlyingBulletResist": 40.0,
+                "Name": "Air Drop",
+                "OnLandDamageRadius": "14m",
+                "OnLandDamageRadiusStart": "4m",
+                "SilenceBombSpeed": "12m",
+                "SlowPercent": 35.0,
+                "TossSpeed": 400.0
             }
         },
         "BulletDamage": 4.5,
@@ -2430,6 +2893,22 @@
                 "Name": "Badger Drone",
                 "TickInterval": 0.5,
                 "VisibilityTime": 0.2
+            },
+            "4": {
+                "AbilityCooldown": 10.0,
+                "AbilityUnitTargetLimit": 1.0,
+                "ChannelMoveSpeed": 50.0,
+                "ClimbHeight": "1m",
+                "Description": "Blow enemies away with a high powered blast of air.",
+                "DistanceAboveGround": "2m",
+                "DropDownRate": 2.0,
+                "Duration": 4.0,
+                "InitialForce": 300.0,
+                "Name": "Vortex",
+                "PushAccel": 1000.0,
+                "PushNPCSpeed": 800.0,
+                "Radius": "15m",
+                "TornadoSpeed": 350.0
             }
         },
         "BulletDamage": 34.2,
@@ -2514,6 +2993,23 @@
                 "Name": "Blinding Radiance",
                 "Radius": "40m",
                 "TickRate": 0.25
+            },
+            "4": {
+                "AbilityCastDelay": 2.0,
+                "AbilityCastRange": "100m",
+                "AbilityChannelTime": 3.6,
+                "AbilityCooldown": 120.0,
+                "AbilityUnitTargetLimit": 1.0,
+                "AimFOV": 60.0,
+                "AimZoomDuration": 0.15,
+                "AirSpeedMax": 70.0,
+                "ChannelMoveSpeed": 50.0,
+                "Damage": 190.0,
+                "DelayBetweenShots": 0.6,
+                "Description": "Collect targets until ready to unload. Each shot is 0.6s apart.",
+                "FallSpeedMax": 1.0,
+                "Name": "Pulse Cannon",
+                "TargetingWidth": "0.8m"
             }
         },
         "BulletDamage": 8.2,
@@ -2610,6 +3106,33 @@
                 "TossSpeed": 625.0,
                 "TossSpeedUpWall": 500.0,
                 "TossSpeedWall": 750.0
+            },
+            "4": {
+                "AbilityCastDelay": 0.55,
+                "AbilityCooldown": 90.0,
+                "AbilityDuration": 10.0,
+                "AbilityUnitTargetLimit": 1.0,
+                "AccelerationPercentage": -60.0,
+                "AirJumpForce": 500.0,
+                "BallOffset": 50.0,
+                "BallRadius": 63.0,
+                "BallScale": 2.0,
+                "BossDamagePercent": 50.0,
+                "BreakablePropDamageRadius": 75.0,
+                "BulletResist": 60.0,
+                "ChannelMoveSpeed": 275.0,
+                "Damage": 140.0,
+                "Description": "Morph into a large goo ball that deals damage and stuns enemies on impact. The ball grants large amounts of Bullet and Spirit resist, bounces off walls and can double jump.",
+                "FrictionPercentage": -85.0,
+                "JumpForce": 500.0,
+                "KnockForce": 400.0,
+                "MoveSpeedMax": "7m",
+                "Name": "Goo Ball",
+                "ParticleRadiusMultiplier": 1.2,
+                "Radius": null,
+                "StunDuration": 1.0,
+                "TechResist": 70.0,
+                "TickRate": 0.25
             }
         },
         "BulletDamage": 14.0,
@@ -2685,6 +3208,20 @@
                 "EscapeTime": 2.5,
                 "ImmobilizeDuration": 1.75,
                 "Name": "Binding Word"
+            },
+            "4": {
+                "AbilityCastDelay": 2.25,
+                "AbilityCooldown": 130.0,
+                "AbilityDuration": 6.0,
+                "AbilityUnitTargetLimit": 1.0,
+                "ConeAngle": 115.0,
+                "Description": "After charging for 2.25s, release pulses that damage enemies and heal you based on the damage done.",
+                "HealthStealPct": 50.0,
+                "HealthStealPctHero": 100.0,
+                "Name": "Last Stand",
+                "PulseDPS": 100.0,
+                "PulseInterval": 0.5,
+                "Radius": "12m"
             }
         },
         "BulletDamage": 19.8,
@@ -2769,6 +3306,19 @@
                 "MagicDamagePerBullet": 0.0,
                 "Name": "Full Auto",
                 "Radius": "25m"
+            },
+            "4": {
+                "AbilityCastDelay": 0.6,
+                "AbilityCastRange": "20m",
+                "AbilityCooldown": 90.0,
+                "AbilityDuration": 1.25,
+                "AbilityUnitTargetLimit": 1.0,
+                "ChannelMoveSpeed": 50.0,
+                "Damage": 200.0,
+                "DampingFactor": 0.5,
+                "Description": "Lift an enemy hero into the air, stunning them for a short time. When the lift ends, the target receives Telekinesis damage.",
+                "LiftHeight": 120.0,
+                "Name": "Telekinesis"
             }
         },
         "BulletDamage": 5.5,
@@ -2852,6 +3402,18 @@
                 "EnemyMoveSlowDuration": 5.0,
                 "Name": "Bio Blast",
                 "ScrapDamage": 75.0
+            },
+            "4": {
+                "AbilityCastDelay": 1.5,
+                "AbilityChannelTime": 8.0,
+                "AbilityCooldown": 130.0,
+                "AbilityUnitTargetLimit": 1.0,
+                "DamagePerSecondFlown": 16.0,
+                "Description": "Launch a flying shadow copy of yourself that you control, teleporting your original body to wherever it lands. The teleport explosion slows enemies and deals damage based on how long you were flying.",
+                "EnemyMoveSlowDuration": 1.0,
+                "EnemySlowPct": 60.0,
+                "ExplosionRadius": "8m",
+                "Name": "Astral Walk"
             }
         },
         "BulletDamage": 25,
@@ -2927,6 +3489,21 @@
                 "ChannelMoveSpeed": 50.0,
                 "Description": "Create a protective force shield to protect an ally and increase their crit damage. Purges negative effects on the target when cast.",
                 "Name": "Protection Racket"
+            },
+            "4": {
+                "AbilityCooldown": 70.0,
+                "AbilityUnitTargetLimit": 1.0,
+                "BossDamagePercent": 25.0,
+                "CenterDamage": 250.0,
+                "CenterRadius": "5m",
+                "ChannelMoveSpeed": 50.0,
+                "Description": "Call down a precision Gamma Ray blast from orbit, hitting all units in the radius at every height regardless of cover. Units near the center of the beam take more damage.",
+                "Name": "Setting Sun",
+                "OuterDamage": 100.0,
+                "Radius": "10m",
+                "Range": "25m",
+                "ShootDuration": 1.5,
+                "TargetingDuration": 1.0
             }
         },
         "BulletDamage": 5.4,
@@ -3006,6 +3583,21 @@
                 "HealFixedHealth": 70.0,
                 "Name": "Crimson Slash",
                 "Radius": "13m"
+            },
+            "4": {
+                "AbilityChannelTime": 2.0,
+                "AbilityCooldown": 100.0,
+                "AbilityDuration": 5.0,
+                "AbilityPostCastDuration": 0.6,
+                "AbilitySpeedPct": 60.0,
+                "AbilityUnitTargetLimit": 1.0,
+                "BonusMoveSpeed": "0m",
+                "BuffDuration": 20.0,
+                "BulletResist": 55.0,
+                "Description": "Become infused with Yamato's shadow soul. After an initial invincible transformation, your abilities are refreshed and are 60% faster, your weapon has infinite ammo, and you gain damage resists and immunity to negative status effects. You are unable to die in this mode.",
+                "Name": "Shadow Transformation",
+                "Radius": null,
+                "TechResist": 55.0
             }
         },
         "BulletDamage": 5.65,

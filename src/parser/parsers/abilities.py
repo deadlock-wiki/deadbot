@@ -24,7 +24,7 @@ class AbilityParser:
             if 'm_eAbilityType' not in ability:
                 continue
 
-            if ability['m_eAbilityType'] != 'EAbilityType_Signature':
+            if ability['m_eAbilityType'] not in ['EAbilityType_Signature', 'EAbilityType_Ultimate']:
                 continue
 
             ability_data = {
@@ -32,10 +32,18 @@ class AbilityParser:
             }
 
             stats = ability['m_mapAbilityProperties']
-
             for key in stats:
                 stat = stats[key]
-                ability_data[key] = stat['m_strValue']
+
+                value = None
+
+                if 'm_strValue' in stat:
+                    value = stat['m_strValue']
+
+                elif 'm_strVAlue' in stat:
+                    value = stat['m_strVAlue']
+
+                ability_data[key] = value
 
             description = (self.localizations['heroes'].get(ability_key + '_desc'),)
             ability_data['Description'] = string_utils.format_description(description, ability_data)
