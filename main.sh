@@ -2,19 +2,34 @@
 # exit on error
 set -e 
 
+. .env.local # Retrieve env
+
 cd src/parser
-echo "Decompiling source files..."
-bash decompile.sh
+if [ "$SKIP_DECOMPILER" = false ]; then
+    echo "Decompiling source files..."
+    bash decompile.sh
+else
+    echo "! Skipping Decompiler !"
+fi
 
 cd ../..
-echo ""
-echo "Parsing decompiled files..."
-bash parser.sh
-echo ""
+if [ "$SKIP_PARSER" = false ]; then
+    echo ""
+    echo "Parsing decompiled files..."
+    bash parser.sh
+    echo ""
+else
+    echo "! Skipping Parser !"
+fi
 
 cd src
-echo "Running DeadBot..."
-python3 deadbot.py
+if [ "$SKIP_BOT" = "false" ]; then
+    echo "Running DeadBot..."
+    python3 deadbot.py
+else
+    echo "! Skipping DeadBot !"
+fi
+
 
 echo ""
 echo "Done!"

@@ -2,7 +2,7 @@ import sys
 import json
 
 if __name__ == '__main__':
-    with open(sys.argv[1], 'r') as f:
+    with open(sys.argv[1], 'r', encoding='utf8') as f:
         lines = f.readlines()
         out = dict()
         for line in lines:

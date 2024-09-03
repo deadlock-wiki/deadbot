@@ -7,7 +7,10 @@ $DECOMPILER_PATH/Decompiler.exe -i "$DEADLOCK_PATH\game\citadel\pak01_dir.vpk" -
 
 mkdir -p "decompiled-data\localizations"
 cp "$DEADLOCK_PATH\game\citadel\resource\localization\citadel_gc\citadel_gc_english.txt" "decompiled-data\localizations\citadel_gc_english.txt"
-python3 localization_parser.py "decompiled-data\localizations\citadel_gc_english.txt" "decompiled-data\localizations\citadel_gc_english.json"
+python3 parsers/localization.py "decompiled-data\localizations\citadel_gc_english.txt" "decompiled-data\localizations\citadel_gc_english.json"
 
 cp "$DEADLOCK_PATH\game\citadel\resource\localization\citadel_mods\citadel_mods_english.txt" "decompiled-data\localizations\citadel_mods_english.txt"
-python3 localization_parser.py "decompiled-data\localizations\citadel_mods_english.txt" "decompiled-data\localizations\citadel_mods_english.json"
+python3 parsers/localization.py "decompiled-data\localizations\citadel_mods_english.txt" "decompiled-data\localizations\citadel_mods_english.json"
+
+cp "$DEADLOCK_PATH\game\citadel\resource\localization\citadel_heroes\citadel_heroes_english.txt" "decompiled-data\localizations\citadel_heroes_english.txt"
+python3 parsers/localization.py "decompiled-data\localizations\citadel_heroes_english.txt" "decompiled-data\localizations\citadel_heroes_english.json"
