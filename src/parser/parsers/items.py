@@ -84,7 +84,7 @@ class ItemParser:
 
             if 'm_vecComponentItems' in item_value:
                 parsed_item_data['Components'] = item_value['m_vecComponentItems']
-                self._add_children_to_tree(key, parsed_item_data['Components'])
+                self._add_children_to_tree(parsed_item_data['Name'], parsed_item_data['Components'])
 
             all_items[key] = parsed_item_data
 
