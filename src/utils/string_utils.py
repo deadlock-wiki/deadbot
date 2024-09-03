@@ -2,8 +2,6 @@ import re
 
 
 def format_description(description, data):
-    print('--', description)
-
     if isinstance(description, tuple):
         description = description[0]
 

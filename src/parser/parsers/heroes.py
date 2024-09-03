@@ -25,6 +25,7 @@ class HeroParser:
 
                 hero_stats = {
                     'Name': self.localizations['names'].get(hero_key, None),
+                    'BoundAbilities': self._parse_hero_abilities(hero_value),
                 }
 
                 hero_stats.update(
@@ -46,6 +47,10 @@ class HeroParser:
                 all_hero_stats[hero_key] = json_utils.sort_dict(hero_stats)
 
         json_utils.write(OUTPUT_DIR + 'json/hero-data.json', json_utils.sort_dict(all_hero_stats))
+
+    def _parse_hero_abilities(self, hero_value):
+        abilities = hero_value['m_mapBoundAbilities']
+        return self._map_attr_names(abilities, maps.get_bound_abilities)
 
     def _parse_hero_weapon(self, hero_value):
         weapon_stats = {}

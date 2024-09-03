@@ -90,3 +90,12 @@ def get_level_mod(value):
     if value not in LEVEL_MOD_MAP:
         raise Exception(f'{value} is not a valid level mod')
     return LEVEL_MOD_MAP.get(value)
+
+
+# Get last part of the snake-case ability name
+# Eg. ESlot_Ability_Innate_1 -> Innate1
+def get_bound_abilities(value):
+    parts = list(value.split('_'))
+    if len(parts) == 4:
+        return parts[2] + parts[3]
+    return parts[2]
