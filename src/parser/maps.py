@@ -62,15 +62,28 @@ def get_ability_activation(value):
 
 
 def get_hero_attr(value):
-    return value.replace('E', '')
+    value = value.replace('E', '') # Remove the 'E' prefix
+
+    if value.startswith('Base'):
+        value = value[4:] # Remove the 'Base' prefix (tentative)
+
+    value = value.replace('Tech','Spirit') # Replace 'Tech' with 'Spirit'
+
+
+    value = value.replace('BulletArmorDamageReduction','BulletResist') 
+    value = value.replace('BulletArmorDamageResist','BulletResist')
+    value = value.replace('DamageReduction','Resist') # Replace 'DamageReduction' with 'Resist'
+
+    
+    return value
 
 
 LEVEL_MOD_MAP = {
-    'MODIFIER_VALUE_BASE_BULLET_DAMAGE_FROM_LEVEL': 'BulletDamagePerLevel',
-    'MODIFIER_VALUE_BASE_MELEE_DAMAGE_FROM_LEVEL': 'MeleeDamagePerLevel',
-    'MODIFIER_VALUE_BASE_HEALTH_FROM_LEVEL': 'BaseHealthPerLevel',
-    'MODIFIER_VALUE_TECH_DAMAGE_PERCENT': 'TechDamagePercPerLevel',
-    'MODIFIER_VALUE_BULLET_ARMOR_DAMAGE_RESIST': 'BulletArmorPerLevel',
+    'MODIFIER_VALUE_BASE_BULLET_DAMAGE_FROM_LEVEL': 'BulletDamage',
+    'MODIFIER_VALUE_BASE_MELEE_DAMAGE_FROM_LEVEL': 'MeleeDamage',
+    'MODIFIER_VALUE_BASE_HEALTH_FROM_LEVEL': 'Health',
+    'MODIFIER_VALUE_TECH_DAMAGE_PERCENT': 'TechDamagePerc',
+    'MODIFIER_VALUE_BULLET_ARMOR_DAMAGE_RESIST': 'BulletResist',
     'MODIFIER_VALUE_BONUS_ATTACK_RANGE': 'BonusAttackRange',
 }
 
