@@ -132,7 +132,7 @@ class Parser:
             'BulletDamage': weapon_prim['m_flBulletDamage'],
             'RoundsPerSecond': 1 / weapon_prim['m_flCycleTime'],
             'ClipSize': weapon_prim['m_iClipSize'],
-            'ReloadTime': weapon_prim['m_reloadDuration'],
+            'ReloadDuration': weapon_prim['m_reloadDuration'],
         }
 
         weapon_stats['Dps'] = weapon_stats['BulletDamage'] * weapon_stats['RoundsPerSecond']
