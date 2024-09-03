@@ -40,6 +40,14 @@ class AbilityParser:
             description = (self.localizations['heroes'].get(ability_key + '_desc'),)
             ability_data['Description'] = string_utils.format_description(description, ability_data)
 
-            all_abilities[ability_key] = json_utils.sort_dict(ability_data)
+            formatted_ability_data = {}
+            for attr_key, attr_value in ability_data.items():
+                # strip attrs with value of 0, as that just means it is irrelevant
+                if attr_value != '0':
+                    formatted_ability_data[attr_key] = string_utils.string_to_number(attr_value)
+
+            all_abilities[ability_key] = json_utils.sort_dict(formatted_ability_data)
 
         json_utils.write(OUTPUT_DIR + 'json/ability-data.json', json_utils.sort_dict(all_abilities))
+
+        return all_abilities

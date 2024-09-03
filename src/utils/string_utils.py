@@ -22,3 +22,17 @@ def _replace_variables(desc, data):
 
     formatted_desc = re.sub(r'\{s:(.*?)\}', replace_match, desc)
     return formatted_desc
+
+
+# converts string to number if possible
+def string_to_number(string):
+    number = None
+    try:
+        number = float(string)
+    except ValueError:
+        try:
+            number = int(string)
+        except ValueError:
+            number = string
+
+    return number

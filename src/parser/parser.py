@@ -46,18 +46,20 @@ class Parser:
 
     def run(self):
         print('Parsing...')
-        self._parse_heroes()
-        self._parse_abilities()
+        parsed_abilities = self._parse_abilities()
+        self._parse_heroes(parsed_abilities)
         self._parse_items()
         print('Done parsing')
 
-    def _parse_heroes(self):
+    def _parse_heroes(self, parsed_abilities):
         print('Parsing Heroes...')
-        heroes.HeroParser(self.hero_data, self.abilities_data, self.localizations).run()
+        heroes.HeroParser(
+            self.hero_data, self.abilities_data, parsed_abilities, self.localizations
+        ).run()
 
     def _parse_abilities(self):
         print('Parsing Abilities...')
-        abilities.AbilityParser(self.abilities_data, self.localizations).run()
+        return abilities.AbilityParser(self.abilities_data, self.localizations).run()
 
     def _parse_items(self):
         print('Parsing Items...')

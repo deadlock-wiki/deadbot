@@ -9,9 +9,10 @@ from constants import OUTPUT_DIR
 
 
 class HeroParser:
-    def __init__(self, hero_data, abilities_data, localizations):
+    def __init__(self, hero_data, abilities_data, parsed_abilities, localizations):
         self.hero_data = hero_data
         self.abilities_data = abilities_data
+        self.parsed_abilities = parsed_abilities
         self.localizations = localizations
 
     def run(self):
@@ -49,8 +50,18 @@ class HeroParser:
         json_utils.write(OUTPUT_DIR + 'json/hero-data.json', json_utils.sort_dict(all_hero_stats))
 
     def _parse_hero_abilities(self, hero_value):
-        abilities = hero_value['m_mapBoundAbilities']
-        return self._map_attr_names(abilities, maps.get_bound_abilities)
+        bound_abilities = hero_value['m_mapBoundAbilities']
+
+        abilities = {}
+        for ability_position, bound_ability_key in bound_abilities.items():
+            # ignore any abilities without any parsed data
+            if bound_ability_key not in self.parsed_abilities:
+                continue
+            abilities[ability_position] = self.parsed_abilities[bound_ability_key]
+
+        mapped_abilities = self._map_attr_names(abilities, maps.get_bound_abilities)
+
+        return mapped_abilities
 
     def _parse_hero_weapon(self, hero_value):
         weapon_stats = {}
