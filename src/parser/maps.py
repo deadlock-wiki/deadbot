@@ -62,19 +62,17 @@ def get_ability_activation(value):
 
 
 def get_hero_attr(value):
-    value = value.replace('E', '') # Remove the 'E' prefix
+    value = value.replace('E', '')  # Remove the 'E' prefix
 
     if value.startswith('Base'):
-        value = value[4:] # Remove the 'Base' prefix (tentative)
+        value = value[4:]  # Remove the 'Base' prefix (tentative)
 
-    value = value.replace('Tech','Spirit') # Replace 'Tech' with 'Spirit'
+    value = value.replace('Tech', 'Spirit')  # Replace 'Tech' with 'Spirit'
 
+    value = value.replace('BulletArmorDamageReduction', 'BulletResist')
+    value = value.replace('BulletArmorDamageResist', 'BulletResist')
+    value = value.replace('DamageReduction', 'Resist')  # Replace 'DamageReduction' with 'Resist'
 
-    value = value.replace('BulletArmorDamageReduction','BulletResist') 
-    value = value.replace('BulletArmorDamageResist','BulletResist')
-    value = value.replace('DamageReduction','Resist') # Replace 'DamageReduction' with 'Resist'
-
-    
     return value
 
 

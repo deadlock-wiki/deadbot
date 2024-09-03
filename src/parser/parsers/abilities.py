@@ -3,14 +3,15 @@ import os
 
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
-from utils import json
 from constants import OUTPUT_DIR
+import utils.json_utils as json_utils
+
 
 class AbilityParser:
     def __init__(self, abilities_data, localizations):
         self.abilities_data = abilities_data
         self.localizations = localizations
-        
+
     def run(self):
         all_abilities = {}
 
@@ -25,15 +26,17 @@ class AbilityParser:
             if ability['m_eAbilityType'] != 'EAbilityType_Signature':
                 continue
 
-            ability_data = {}
+            ability_data = {
+                'Name': self.localizations['heroes'].get(ability_key, 'Unknown'),
+                'Description': self.localizations['heroes'].get(ability_key + '_desc', 'Unknown'),
+            }
 
-            # ability_data['Name'] = self.localizations['names'].get(ability_key, 'Unknown')
             stats = ability['m_mapAbilityProperties']
 
             for key in stats:
                 stat = stats[key]
                 ability_data[key] = stat['m_strValue']
 
-            all_abilities[ability_key] = ability_data
+            all_abilities[ability_key] = json_utils.sort_dict(ability_data)
 
-        json.write(OUTPUT_DIR + 'json/ability-data.json', all_abilities)
+        json_utils.write(OUTPUT_DIR + 'json/ability-data.json', json_utils.sort_dict(all_abilities))

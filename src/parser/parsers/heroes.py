@@ -3,8 +3,9 @@ import os
 
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
-from utils import json
 import maps as maps
+import utils.json_utils as json_utils
+from constants import OUTPUT_DIR
 
 
 class HeroParser:
@@ -30,33 +31,7 @@ class HeroParser:
                     self._map_attr_names(hero_value['m_mapStartingStats'], maps.get_hero_attr)
                 )
 
-                # Parse Tech scaling
-                if 'm_mapScalingStats' in hero_value:
-                    # Move scaling data under TechScaling key
-                    hero_stats['SpiritScaling'] = {}
-
-                    # Transform each value within m_mapScalingStats from
-
-                    # "MaxMoveSpeed": {
-                    #     "eScalingStat": "ETechPower",
-                    #     "flScale": 0.04
-                    # },
-
-                    # to
-
-                    # "MaxMoveSpeed": 0.04
-                    spirit_scalings = hero_value['m_mapScalingStats']
-                    for hero_scaling_key, hero_scaling_value in spirit_scalings.items():
-                        hero_stats['TechScaling'][maps.get_hero_attr(hero_scaling_key)] = (
-                            hero_scaling_value['flScale']
-                        )
-
-                        # Ensure the only scalar in here is ETechPower
-                        if 'ETechPower' != hero_scaling_value['eScalingStat']:
-                            raise Exception(
-                                f"Expected scaling key 'ETechPower' but is: {hero_scaling_value["eScalingStat"]}"
-                            )
-
+                hero_stats['SpiritScaling'] = self._parse_spirit_scaling(hero_value)
                 weapon_stats = self._parse_hero_weapon(hero_value)
                 hero_stats.update(weapon_stats)
 
@@ -68,9 +43,9 @@ class HeroParser:
                     for key in level_scalings:
                         hero_stats['LevelScaling'][maps.get_level_mod(key)] = level_scalings[key]
 
-                all_hero_stats[hero_key] = sort_dict(hero_stats)
+                all_hero_stats[hero_key] = json_utils.sort_dict(hero_stats)
 
-        json.write(self.OUTPUT_DIR + 'json/hero-data.json', sort_dict(all_hero_stats))
+        json_utils.write(OUTPUT_DIR + 'json/hero-data.json', json_utils.sort_dict(all_hero_stats))
 
     def _parse_hero_weapon(self, hero_value):
         weapon_stats = {}
@@ -80,13 +55,49 @@ class HeroParser:
 
         weapon_stats = {
             'BulletDamage': weapon_prim['m_flBulletDamage'],
-            'RoundsPerSecond': 1 / weapon_prim['m_flCycleTime'],
+            'BulletsPerSec': 1 / weapon_prim['m_flCycleTime'],
             'ClipSize': weapon_prim['m_iClipSize'],
             'ReloadTime': weapon_prim['m_reloadDuration'],
         }
 
         weapon_stats['Dps'] = weapon_stats['BulletDamage'] * weapon_stats['BulletsPerSec']
         return weapon_stats
+
+    def _parse_spirit_scaling(self, hero_value):
+        if 'm_mapScalingStats' not in hero_value:
+            return None
+
+        parsed_spirit_scaling = {}
+
+        """ 
+            Transform each value within m_mapScalingStats from
+            
+            "MaxMoveSpeed": {
+                "eScalingStat": "ETechPower",
+                "flScale": 0.04
+            },
+            
+            to
+            
+            "MaxMoveSpeed": 0.04
+        # `spirit_scalings` is a dictionary that contains scaling stats for a hero. Each key in
+        # `spirit_scalings` corresponds to a specific attribute of the hero (e.g., "MaxMoveSpeed"),
+        # and the value associated with each key is another dictionary that includes the scaling
+        # information for that attribute.
+        """
+        spirit_scalings = hero_value['m_mapScalingStats']
+        for hero_scaling_key, hero_scaling_value in spirit_scalings.items():
+            parsed_spirit_scaling[maps.get_hero_attr(hero_scaling_key)] = hero_scaling_value[
+                'flScale'
+            ]
+
+            # Ensure the only scalar in here is ETechPower
+            if 'ETechPower' != hero_scaling_value['eScalingStat']:
+                raise Exception(
+                    f'Expected scaling key "ETechPower" but is: {hero_scaling_value["eScalingStat"]}'
+                )
+
+        return parsed_spirit_scaling
 
     # maps all keys in an object using the provided function
     def _map_attr_names(self, data, func):

@@ -2,13 +2,13 @@ import keyvalues3 as kv3
 import tempfile
 import os
 import sys
-import re
 
 from parsers import abilities, items, heroes
 
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from utils import json
+
 
 class Parser:
     def __init__(self):
@@ -39,18 +39,16 @@ class Parser:
 
     def _load_localizations(self):
         names = json.read('decompiled-data/localizations/citadel_gc_english.json')
-
         descriptions = json.read('decompiled-data/localizations/citadel_mods_english.json')
-        self.localizations = {
-            'names': names,
-            'descriptions': descriptions,
-        }
+        heroes = json.read('decompiled-data/localizations/citadel_heroes_english.json')
+
+        self.localizations = {'names': names, 'descriptions': descriptions, 'heroes': heroes}
 
     def run(self):
         print('Parsing...')
-        # self._parse_heroes()
+        self._parse_heroes()
         self._parse_abilities()
-        # self._parse_items()
+        self._parse_items()
         print('Done parsing')
 
     def _parse_heroes(self):
@@ -58,12 +56,13 @@ class Parser:
         heroes.HeroParser(self.hero_data, self.abilities_data, self.localizations).run()
 
     def _parse_abilities(self):
-        print('Parsing Abilities...')   
+        print('Parsing Abilities...')
         abilities.AbilityParser(self.abilities_data, self.localizations).run()
 
     def _parse_items(self):
         print('Parsing Items...')
         items.ItemParser(self.abilities_data, self.generic_data, self.localizations).run()
+
 
 if __name__ == '__main__':
     parser = Parser()

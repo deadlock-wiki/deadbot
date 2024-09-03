@@ -1,4 +1,3 @@
-
 import sys
 import os
 import re
@@ -6,9 +5,10 @@ from python_mermaid.diagram import MermaidDiagram, Node, Link
 
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
-from utils import json
+import utils.json_utils as json_utils
 from constants import OUTPUT_DIR
 import maps
+
 
 class ItemParser:
     nodes = []
@@ -90,7 +90,7 @@ class ItemParser:
 
             all_items[key] = parsed_item_data
 
-        json.write(OUTPUT_DIR + 'json/item-data.json', json.sort_dict(all_items))
+        json_utils.write(OUTPUT_DIR + 'json/item-data.json', json_utils.sort_dict(all_items))
 
         chart = MermaidDiagram(title='Items', nodes=self.nodes, links=self.links)
 
@@ -100,7 +100,9 @@ class ItemParser:
     # Add items to mermaid tree
     def _add_children_to_tree(self, parent_key, child_keys):
         for child_key in child_keys:
-            self.links.append(Link(Node(self.localizations['names'].get(child_key)), Node(parent_key)))
+            self.links.append(
+                Link(Node(self.localizations['names'].get(child_key)), Node(parent_key))
+            )
 
     # Formats pipe separated string and maps the value
     # eg. "A | B | C" to [map(A), map(B), map(C)]

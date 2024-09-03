@@ -3,8 +3,8 @@
 set -e 
 
 cd src/parser
-# echo "Decompiling source files..."
-# bash decompile.sh
+echo "Decompiling source files..."
+bash decompile.sh
 
 cd ../..
 echo ""
