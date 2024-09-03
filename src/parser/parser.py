@@ -7,7 +7,7 @@ from parsers import abilities, items, heroes
 
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from utils import json
+from utils import json_utils
 
 
 class Parser:
@@ -39,9 +39,9 @@ class Parser:
                 self.abilities_data = kv3.read(tf.name)
 
     def _load_localizations(self):
-        names = json.read('decompiled-data/localizations/gc/citadel_gc_'+self.language+'.json')
-        descriptions = json.read('decompiled-data/localizations/mods/citadel_mods_'+self.language+'.json')
-        heroes = json.read('decompiled-data/localizations/citadel_heroes_'+self.language+'.json')
+        names = json_utils.read('decompiled-data/localizations/gc/citadel_gc_'+self.language+'.json')
+        descriptions = json_utils.read('decompiled-data/localizations/mods/citadel_mods_'+self.language+'.json')
+        heroes = json_utils.read('decompiled-data/localizations/heroes/citadel_heroes_'+self.language+'.json')
 
         self.localizations = {'names': names, 'descriptions': descriptions, 'heroes': heroes}
 
