@@ -12,7 +12,6 @@ if __name__ == '__main__':
     for filename in os.listdir(input_folder):
         if filename.endswith('.txt'):  # or any other file extension you want to process
             file_path = os.path.join(input_folder, filename)
-            # Process the file here
 
             with open(file_path, 'r', encoding='utf-8') as f:
                 lines = f.readlines()

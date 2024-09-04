@@ -9,7 +9,7 @@ def insert_space_before_capital(string):
 
 # TODO: Better name
 # RoundsPerSecond -> rounds_per_second
-def format_key(key):
+def snake_case(key):
     return insert_space_before_capital(key).replace(' ','_').lower()
 
 def getInfoboxLine(key, value, max_key_length):
@@ -72,7 +72,7 @@ def infobox_hero(hero_data):
                         break
 
 
-            if parameter.endswith(format_key(key)): #i.e. melee_damage affects light_melee_damage and heavy_melee_damage
+            if parameter.endswith(snake_case(key)): #i.e. melee_damage affects light_melee_damage and heavy_melee_damage
                 infobox_data[key] = value
 
             
@@ -90,19 +90,15 @@ def infobox_hero(hero_data):
         
 
     # Calculate the maximum length of keys to align the values
-    max_key_length = max(len(format_key(key)) for key in infobox_data.keys())
+    max_key_length = max(len(snake_case(key)) for key in infobox_data.keys())
 
     # Create the Infobox template
     infobox_template = "{{Infobox hero\n"
 
     # Add infobox data to template
     for key, value in infobox_data.items():
-        # Localize the key
         key = getLocalizedText(key, "spanish", "attributes")
-
-        # Format the key
-        formatted_key = format_key(key)
-
+        formatted_key = snake_case(key)
 
         # Align the key with spaces to the max length
         infobox_template += getInfoboxLine(formatted_key, value, max_key_length)

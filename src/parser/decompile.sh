@@ -22,6 +22,6 @@ for folder in "${folders[@]}"; do
   mkdir -p $dest_path
 
   # Run the Python script to parse the folder
-  python3 localization_parser.py "$src_path" "$dest_path"
+  python3 parsers/localization.py "$src_path" "$dest_path"
   echo "Parsed $src_path to $dest_path"
 done
