@@ -1,6 +1,6 @@
 import json
 import os
-from localization_utilities import getLocalizedText
+from localization_utilities import get_localized_text
 
 # Insert a space before each capital letter except the first one
 # "RoundsPerSecond" -> "Rounds Per Second"
@@ -9,10 +9,10 @@ def insert_space_before_capital(string):
 
 # TODO: Better name
 # RoundsPerSecond -> rounds_per_second
-def snake_case(key):
+def pascal_to_snake_case(key):
     return insert_space_before_capital(key).replace(' ','_').lower()
 
-def getInfoboxLine(key, value, max_key_length):
+def get_infobox_line(key, value, max_key_length):
     return f"| {key.ljust(max_key_length)} = {str(value)}\n"
 
 #TODO
@@ -72,7 +72,7 @@ def infobox_hero(hero_data):
                         break
 
 
-            if parameter.endswith(snake_case(key)): #i.e. melee_damage affects light_melee_damage and heavy_melee_damage
+            if parameter.endswith(pascal_to_snake_case(key)): #i.e. melee_damage affects light_melee_damage and heavy_melee_damage
                 infobox_data[key] = value
 
             
@@ -90,18 +90,18 @@ def infobox_hero(hero_data):
         
 
     # Calculate the maximum length of keys to align the values
-    max_key_length = max(len(snake_case(key)) for key in infobox_data.keys())
+    max_key_length = max(len(pascal_to_snake_case(key)) for key in infobox_data.keys())
 
     # Create the Infobox template
     infobox_template = "{{Infobox hero\n"
 
     # Add infobox data to template
     for key, value in infobox_data.items():
-        key = getLocalizedText(key, "spanish", "attributes")
-        formatted_key = snake_case(key)
+        key = get_localized_text(key, "spanish", "attributes")
+        formatted_key = pascal_to_snake_case(key)
 
         # Align the key with spaces to the max length
-        infobox_template += getInfoboxLine(formatted_key, value, max_key_length)
+        infobox_template += get_infobox_line(formatted_key, value, max_key_length)
 
 
 

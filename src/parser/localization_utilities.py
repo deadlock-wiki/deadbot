@@ -4,7 +4,7 @@ import json
 LOCALIZATION_PATH = "src/parser/decompiled-data/localizations"
 LOCALIZATION_GROUPS = ["attributes","gc","heroes","main","mods"]
 
-def getLocalizedText(unlocalized_text, language, localization_group):
+def get_localized_text(unlocalized_text, language, localization_group):
     if localization_group not in LOCALIZATION_GROUPS:
         raise ValueError(f"Invalid localization group: {localization_group}")
     
@@ -41,6 +41,6 @@ def getLocalizedText(unlocalized_text, language, localization_group):
 # Convert language to the language code/abbreviation that will eventually be used in the wiki link
 # english -> en
 # spanish -> es, etc.
-def getLanguageAbbrev(language):
+def get_language_abbrev(language):
     return language #TODO
     
