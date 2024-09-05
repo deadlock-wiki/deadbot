@@ -96,7 +96,6 @@ class ChangelogParser:
                             continue
                         icon = f'{{AbilityIcon|Ability={resource_name}|Size=20}}'
                         new_log = log.replace(resource_name, f'{icon} {resource_name}')
-                        print(new_log)
                         changelog[header][group_name][index] = new_log
 
         return changelog
@@ -170,7 +169,7 @@ class ChangelogParser:
                             'resource_key': group_name,
                             'resource_type': header,
                             'patch_version': '',
-                            'timestamp': datetime(date),
+                            'timestamp': date,
                         }
                         rows.append(changelog_row)
 
