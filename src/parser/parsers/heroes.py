@@ -5,7 +5,7 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 import maps as maps
 import utils.json_utils as json_utils
-from constants import OUTPUT_DIR
+from .constants import OUTPUT_DIR
 
 
 class HeroParser:

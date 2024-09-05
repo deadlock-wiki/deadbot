@@ -1,9 +1,8 @@
 import keyvalues3 as kv3
-import tempfile
 import os
 import sys
 
-from parsers import abilities, items, heroes
+from parsers import abilities, items, heroes, changelogs
 
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -26,21 +25,12 @@ class Parser:
         self.hero_data = kv3.read(hero_data_path)
 
         abilities_data_path = os.path.join(self.DATA_DIR, 'scripts/abilities.vdata')
-
-        with open(abilities_data_path, 'r') as f:
-            content = f.read()
-            # replace 'subclass:' with ''
-            # subclass features in kv3 don't seem to be supported in the keyvalues3 python library
-            content = content.replace('subclass:', '')
-            # write new content to tempfilex
-            with tempfile.NamedTemporaryFile(mode='w', delete=False) as tf:
-                tf.write(content)
-                self.abilities_data = kv3.read(tf.name)
+        self.abilities_data = kv3.read(abilities_data_path)
 
     def _load_localizations(self):
-        names = json.read('decompiled-data/localizations/citadel_gc_english.json')
-        descriptions = json.read('decompiled-data/localizations/citadel_mods_english.json')
-        heroes = json.read('decompiled-data/localizations/citadel_heroes_english.json')
+        names = json.read(self.DATA_DIR + 'localizations/citadel_gc_english.json')
+        descriptions = json.read(self.DATA_DIR + 'localizations/citadel_mods_english.json')
+        heroes = json.read(self.DATA_DIR + 'localizations/citadel_heroes_english.json')
 
         self.localizations = {'names': names, 'descriptions': descriptions, 'heroes': heroes}
 
@@ -49,6 +39,7 @@ class Parser:
         parsed_abilities = self._parse_abilities()
         self._parse_heroes(parsed_abilities)
         self._parse_items()
+        self._parse_changelogs()
         print('Done parsing')
 
     def _parse_heroes(self, parsed_abilities):
@@ -64,6 +55,10 @@ class Parser:
     def _parse_items(self):
         print('Parsing Items...')
         items.ItemParser(self.abilities_data, self.generic_data, self.localizations).run()
+
+    def _parse_changelogs(self):
+        print('Parsing Changelogs...')
+        changelogs.ChangelogParser().run()
 
 
 if __name__ == '__main__':
