@@ -58,7 +58,7 @@ class Parser:
 
     def _parse_changelogs(self):
         print('Parsing Changelogs...')
-        changelogs.ChangelogParser().run()
+        changelogs.ChangelogParser().run_all()
 
 
 if __name__ == '__main__':

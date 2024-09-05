@@ -8,10 +8,11 @@ import datetime
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import utils.json_utils as json_utils
 
+
 class ChangelogParser:
     def __init__(self):
-        self.CHANGELOGS_DIR = '../raw-changelogs/'
-        self.OUTPUT_DIR = '../../../output-data/'
+        self.CHANGELOGS_DIR = os.path.join(os.path.dirname(__file__), '../raw-changelogs/')
+        self.OUTPUT_DIR = os.path.join(os.path.dirname(__file__), '../../../output-data/')
         self.OUTPUT_CHANGELOGS = self.OUTPUT_DIR + '/changelogs/'
         self.resources = self._get_resources()
 
@@ -25,9 +26,9 @@ class ChangelogParser:
             changelog = self.run(date)
             changelogs_by_date[date] = changelog
 
-        db_data = self._create_changelog_db_data(changelogs_by_date)
-        print(db_data)
-        # self._create_resource_changelogs(changelogs_by_date)
+        # take parsed changelogs and transform them into some other useful formats
+        self._create_resource_changelogs(changelogs_by_date)
+        self._create_changelog_db_data(changelogs_by_date)
 
     def run(self, version):
         logs = self._read_logs(version)
@@ -128,35 +129,37 @@ class ChangelogParser:
 
     # Creates historic changelog for each resource (eg. heroes, items etc.)
     # using each parsed changelog
-    # def _create_resource_changelogs(self, changelogs_by_date):
-    #     hero_changelogs = {}
-    #     for date, changelog in changelogs_by_date.items():
-    #         for hero, changes in changelog['Heroes'].items():
-    #             if hero not in hero_changelogs:
-    #                 hero_changelogs[hero] = {}
-    #             hero_changelogs[hero][date] = changes
+    def _create_resource_changelogs(self, changelogs_by_date):
+        hero_changelogs = {}
+        for date, changelog in changelogs_by_date.items():
+            for hero, changes in changelog['Heroes'].items():
+                if hero not in hero_changelogs:
+                    hero_changelogs[hero] = {}
+                hero_changelogs[hero][date] = changes
 
-    #     for hero_name, changelog in hero_changelogs.items():
-    #         json_utils.write(
-    #             self.OUTPUT_CHANGELOGS + f'hero/{hero_name}.json',
-    #             self._sort_object_by_date_key(changelog),
-    #         )
+        for hero_name, changelog in hero_changelogs.items():
+            json_utils.write(
+                self.OUTPUT_CHANGELOGS + f'hero/{hero_name}.json',
+                self._sort_object_by_date_key(changelog),
+            )
 
-    #     item_changelogs = {}
-    #     for date, changelog in changelogs_by_date.items():
-    #         for item, changes in changelog['Items'].items():
-    #             if item not in item_changelogs:
-    #                 item_changelogs[item] = {}
-    #             item_changelogs[item][date] = changes
+        item_changelogs = {}
+        for date, changelog in changelogs_by_date.items():
+            for item, changes in changelog['Items'].items():
+                if item not in item_changelogs:
+                    item_changelogs[item] = {}
+                item_changelogs[item][date] = changes
 
-    #     for item_name, changelog in item_changelogs.items():
-    #         json_utils.write(
-    #             self.OUTPUT_CHANGELOGS + f'item/{item_name}.json',
-    #             self._sort_object_by_date_key(changelog),
-    #         )
+        for item_name, changelog in item_changelogs.items():
+            json_utils.write(
+                self.OUTPUT_CHANGELOGS + f'item/{item_name}.json',
+                self._sort_object_by_date_key(changelog),
+            )
 
+    # Convert changelogs to an array of rows, with the plan to upload
+    # them to a database (TODO)
     def _create_changelog_db_data(self, changelogs):
-        rows= []
+        rows = []
         for date, changelog in changelogs.items():
             for header, log_groups in changelog.items():
                 for group_name, logs in log_groups.items():
@@ -167,7 +170,7 @@ class ChangelogParser:
                             'resource_key': group_name,
                             'resource_type': header,
                             'patch_version': '',
-                            'timestamp': datetime(date)
+                            'timestamp': datetime(date),
                         }
                         rows.append(changelog_row)
 
