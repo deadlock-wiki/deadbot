@@ -7,7 +7,10 @@ $DECOMPILER_PATH/Decompiler.exe -i "$DEADLOCK_PATH\game\citadel\pak01_dir.vpk" -
 $DECOMPILER_PATH/Decompiler.exe -i "$DEADLOCK_PATH\game\citadel\pak01_dir.vpk" --output "decompiled-data/vdata" --vpk_filepath "scripts/misc.vdata_c" -d
 
 
+python3 remove-subclass.py "decompiled-data\vdata\scripts\heroes.vdata"
 python3 remove-subclass.py "decompiled-data\vdata\scripts\abilities.vdata"
+python3 remove-subclass.py "decompiled-data\vdata\scripts\generic_data.vdata"
+python3 remove-subclass.py "decompiled-data\vdata\scripts\misc.vdata"
 
 mkdir -p "decompiled-data\localizations"
 
