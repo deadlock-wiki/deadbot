@@ -1,9 +1,8 @@
 import keyvalues3 as kv3
-import tempfile
 import os
 import sys
 
-from parsers import abilities, items, heroes
+from parsers import abilities, items, heroes, changelogs
 
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -93,6 +92,7 @@ class Parser:
         parsed_abilities = self._parse_abilities()
         self._parse_heroes(parsed_abilities)
         self._parse_items()
+        self._parse_changelogs()
         print('Done parsing')
 
     def _parse_heroes(self, parsed_abilities):
@@ -112,8 +112,11 @@ class Parser:
         print('Parsing Items...')
         items.ItemParser(self.abilities_data, self.generic_data, self.localizations).run()
 
+    def _parse_changelogs(self):
+        print('Parsing Changelogs...')
+        changelogs.ChangelogParser().run_all()
+
 
 if __name__ == '__main__':
     parser = Parser(language='english')
-    #parser = Parser(language='english')
     parser.run()
