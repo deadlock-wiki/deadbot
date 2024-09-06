@@ -10,7 +10,7 @@ if __name__ == '__main__':
 
     # Iterate all localizations in the input_folder
     for filename in os.listdir(input_folder):
-        if filename.endswith('.txt'):  
+        if filename.endswith('.txt'):
             file_path = os.path.join(input_folder, filename)
 
             with open(file_path, 'r', encoding='utf-8') as f:
@@ -25,8 +25,6 @@ if __name__ == '__main__':
                         right = right.replace('\\', '"')
 
                         out[left] = right
-                output_file_json = os.path.join(output_folder, filename.replace('.txt','.json'))
-                #print(output_file_json)
+                output_file_json = os.path.join(output_folder, filename.replace('.txt', '.json'))
                 with open(output_file_json, 'w', encoding='utf-8') as f:
                     json.dump(out, f, indent=4)
-        
