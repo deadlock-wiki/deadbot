@@ -40,6 +40,7 @@ def kv3_to_json(kv3_obj, output_file):
 
     return json_utils.write(output_file, kv3_to_dict(kv3_obj))
 
+# Removes subclass features from kv3 file and writes to json
 def remove_subclass(path):
     with open(path, 'r') as f:
         content = f.read()

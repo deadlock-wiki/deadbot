@@ -27,10 +27,9 @@ class Parser:
         # Load json files to memory
         for file_name in os.listdir(self.DATA_DIR + scripts_path):
             if file_name.endswith('.json'):
-                key = file_name.split('.')[0].split('/')[
-                    -1
-                ]  # path/to/scripts/abilities.json -> abilities
-                print(file_name)
+                # path/to/scripts/abilities.json -> abilities
+                key = file_name.split('.')[0].split('/')[-1]  
+                #print(file_name)
                 self.data['scripts'][key] = json_utils.read(
                     os.path.join(self.DATA_DIR, scripts_path, file_name)
                 )
