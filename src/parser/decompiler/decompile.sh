@@ -14,10 +14,13 @@ for FILE in "${FILES[@]}"; do
   # Run the decompiler
   "$DECOMPILER_PATH/Decompiler.exe" -i "$INPUT_PATH" --output "$OUTPUT_DIR" --vpk_filepath "$VPK_FILEPATH" -d
 
-  # Remove subclass
+  # Remove subclass and convert to json
   VDATA_FILE="$OUTPUT_DIR/${FILE}.vdata"
-  python3 remove-subclass.py "$VDATA_FILE"
+  python3 kv3_to_json.py "$VDATA_FILE"
 done
+
+# Remove the vdata directory
+rm -rf "$OUTPUT_DIR"
 
 
 mkdir -p "decompiled-data\localizations"
