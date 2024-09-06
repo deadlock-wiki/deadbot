@@ -44,11 +44,11 @@ def kv3_to_json(kv3_obj, output_file):
 
 # Default method to load vdata files
 def _load_vdata_default(vdata_path):
-    print('Starting vdata_path:', vdata_path)
+    #print('Starting vdata_path:', vdata_path)
     data = kv3.read(vdata_path+'.vdata')
     out_path = vdata_path.replace('/vdata','')+'.json'
     kv3_to_json(data, out_path)
-    print('Finished out_path:', out_path)
+    #print('Finished out_path:', out_path)
 
     return data
 
@@ -98,7 +98,7 @@ class Parser:
                 kv3_to_json(self.abilities_data, os.path.join(self.DATA_DIR, abilities_subpath+'.json'))
 
         # Misc
-        self.misc_data = _load_vdata_default(self.DATA_VDATA_DIR+scripts_path+'/misc')
+        #self.misc_data = _load_vdata_default(self.DATA_VDATA_DIR+scripts_path+'/misc')
 
     def _load_localizations(self):
         names = json_utils.read(self.DATA_DIR+'localizations/gc/citadel_gc_'+self.language+'.json')
