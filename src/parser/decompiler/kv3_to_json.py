@@ -51,7 +51,7 @@ if __name__ == '__main__':
         f.write(content)
 
     #print('Starting vdata_path:', vdata_path)
-    data = kv3.read(sys.argv[1]+'.vdata')
-    out_path = sys.argv[1].replace('/vdata','')+'.json'
+    data = kv3.read(sys.argv[1])
+    out_path = sys.argv[1].replace('/vdata','').replace('.vdata','.json')
     #print('Finished out_path:', out_path)
     kv3_to_json(data, out_path)
