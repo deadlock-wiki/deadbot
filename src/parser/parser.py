@@ -1,6 +1,7 @@
 import keyvalues3 as kv3
 import os
 import sys
+import tempfile
 
 from parsers import abilities, items, heroes, changelogs
 
@@ -44,8 +45,8 @@ def kv3_to_json(kv3_obj, output_file):
 class Parser:
     def __init__(self, language='english'):
         # constants
-        self.DATA_VDATA_DIR = './decompiled-data/vdata/'
-        self.DATA_JSON_DIR = './decompiled-data/json/'
+        self.DATA_DIR = './decompiler/decompiled-data/'
+        self.DATA_VDATA_DIR = self.DATA_DIR+'vdata/'
         self.language = language
 
         self._load_vdata()
@@ -58,13 +59,13 @@ class Parser:
         generic_subpath = os.path.join(scripts_path, 'generic_data')
         generic_data_path = os.path.join(self.DATA_VDATA_DIR, generic_subpath+'.vdata')
         self.generic_data = kv3.read(generic_data_path)
-        kv3_to_json(self.generic_data, os.path.join(self.DATA_JSON_DIR, generic_subpath+'.json'))
+        kv3_to_json(self.generic_data, os.path.join(self.DATA_DIR, generic_subpath+'.json'))
 
         # Hero
         hero_subpath = os.path.join(scripts_path, 'heroes')
         hero_data_path = os.path.join(self.DATA_VDATA_DIR, hero_subpath+'.vdata')
         self.hero_data = kv3.read(hero_data_path)
-        kv3_to_json(self.hero_data, os.path.join(self.DATA_JSON_DIR, hero_subpath+'.json'))
+        kv3_to_json(self.hero_data, os.path.join(self.DATA_DIR, hero_subpath+'.json'))
 
         # Abilities
         abilities_subpath = os.path.join(scripts_path, 'abilities')
@@ -78,12 +79,12 @@ class Parser:
             with tempfile.NamedTemporaryFile(mode='w', delete=False) as tf:
                 tf.write(content)
                 self.abilities_data = kv3.read(tf.name)
-                kv3_to_json(self.abilities_data, os.path.join(self.DATA_JSON_DIR, abilities_subpath+'.json'))
+                kv3_to_json(self.abilities_data, os.path.join(self.DATA_DIR, abilities_subpath+'.json'))
 
     def _load_localizations(self):
-        names = json_utils.read('decompiled-data/json/localizations/gc/citadel_gc_'+self.language+'.json')
-        descriptions = json_utils.read('decompiled-data/json/localizations/mods/citadel_mods_'+self.language+'.json')
-        heroes = json_utils.read('decompiled-data/json/localizations/heroes/citadel_heroes_'+self.language+'.json')
+        names = json_utils.read(self.DATA_DIR+'localizations/gc/citadel_gc_'+self.language+'.json')
+        descriptions = json_utils.read(self.DATA_DIR+'localizations/mods/citadel_mods_'+self.language+'.json')
+        heroes = json_utils.read(self.DATA_DIR+'localizations/heroes/citadel_heroes_'+self.language+'.json')
 
         self.localizations = {'names': names, 'descriptions': descriptions, 'heroes': heroes}
 
