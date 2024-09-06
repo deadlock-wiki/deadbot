@@ -9,14 +9,30 @@ from parsers import abilities, items, heroes
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from utils import json_utils
 
+# Recursively accesses all nested objects and hosts json-serializable values in the returned dict
 def kv3_to_dict(kv3_obj):
     # Include all items that are dicts
     dict = {}
-    for key, value in kv3_obj.items():
-        if type(value) is dict:
-            dict[key] = value
+
+    # If cannot access attributes, end recursion
+    try:
+        items = kv3_obj.items()
+    except AttributeError:
+        return None
+    
+    for key, value in items:
+        if not json_utils.is_json_serializable(value): # Only include values that are json serializable
+            try:
+                value = kv3_to_dict(value)
+                if value is None:
+                    continue # Continue to next value if its not serializable
+            except TypeError:
+                return None
+
+        dict[key] = value
 
     return dict
+
 
 # Converts kv3 object to dict, then writes dict to json
 def kv3_to_json(kv3_obj, output_file):
@@ -24,7 +40,7 @@ def kv3_to_json(kv3_obj, output_file):
     if not output_file.endswith('.json'):
         raise ValueError('output_file must end in .json')
     
-    return json_utils.write(output_file, json_utils.sort_dict(kv3_to_dict(kv3_obj)))
+    return json_utils.write(output_file, kv3_to_dict(kv3_obj))
 
 class Parser:
     def __init__(self, language='english'):
@@ -39,19 +55,20 @@ class Parser:
     def _load_vdata(self):
         # Convert .vdata_c to .vdata and .json
         # Generic
-        generic_subpath = 'scripts/generic_data'
+        scripts_path = 'scripts'
+        generic_subpath = os.path.join(scripts_path, 'generic_data')
         generic_data_path = os.path.join(self.DATA_VDATA_DIR, generic_subpath+'.vdata')
         self.generic_data = kv3.read(generic_data_path)
-        kv3_to_json(self.generic_data, os.path.join(self.DATA_JSON_DIR, generic_subpath+'.json'))
+        kv3_to_json(self.generic_data, os.path.join(self.DATA_JSON_DIR, scripts_path, generic_subpath+'.json'))
 
         # Hero
-        hero_subpath = 'scripts/heroes'
+        hero_subpath = os.path.join(scripts_path, 'heroes')
         hero_data_path = os.path.join(self.DATA_VDATA_DIR, hero_subpath+'.vdata')
         self.hero_data = kv3.read(hero_data_path)
         kv3_to_json(self.hero_data, os.path.join(self.DATA_JSON_DIR, hero_subpath+'.json'))
 
         # Abilities
-        abilities_subpath = 'scripts/abilities'
+        abilities_subpath = os.path.join(scripts_path, 'abilities')
         abilities_data_path = os.path.join(self.DATA_VDATA_DIR, abilities_subpath+'.vdata')
         with open(abilities_data_path, 'r') as f:
             content = f.read()
@@ -88,7 +105,7 @@ class Parser:
         print('Parsing Abilities...')
         ability_keys = self.abilities_data.keys()
         filtered_keys = [key for key in ability_keys if not key.startswith('upgrade_')]
-        print(filtered_keys)
+        #print(filtered_keys)
         return abilities.AbilityParser(self.abilities_data, self.localizations).run()
 
     def _parse_items(self):
