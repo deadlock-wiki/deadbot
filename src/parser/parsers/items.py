@@ -7,7 +7,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')
 import utils.json_utils as json_utils
 import utils.string_utils as string_utils
 
-from constants import OUTPUT_DIR
+from .constants import OUTPUT_DIR
 import maps
 
 
@@ -85,7 +85,10 @@ class ItemParser:
             if 'm_vecComponentItems' in item_value:
                 parsed_item_data['Components'] = item_value['m_vecComponentItems']
                 parent_name = parsed_item_data['Name']
-                if parent_name is None: #upgrade_headhunter doesnt yet (as of writing) have a localized name, making it otherwise not appear in item-component-tree.txt
+                if (
+                    parent_name is None
+                ):  # upgrade_headhunter doesnt yet (as of writing) have a localized name, making it
+                    # otherwise not appear in item-component-tree.txt
                     parent_name = key
                 self._add_children_to_tree(parent_name, parsed_item_data['Components'])
 

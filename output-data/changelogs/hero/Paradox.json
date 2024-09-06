@@ -1,0 +1,71 @@
+{
+    "08-29-2024": [
+        "- Fixed {AbilityIcon|Ability=Paradoxical Swap|Size=20} Paradoxical Swap still going through even if Paradox dies during it"
+    ],
+    "08-15-2024": [
+        "- Base ammo reduced from 45 to 40",
+        "- {AbilityIcon|Ability=Kinetic Carbine|Size=20} Kinetic Carbine projectile size reduced by 10%",
+        "- {AbilityIcon|Ability=Kinetic Carbine|Size=20} Kinetic Carbine cooldown increased from 24s to 28s",
+        "- {AbilityIcon|Ability=Kinetic Carbine|Size=20} Kinetic Carbine speed duration reduced from 4s to 3.5s",
+        "- Kinetic Carbine no longer affects channels, cast times or things like Lash's {AbilityIcon|Ability=Death Slam|Size=20} Death Slam",
+        "- {AbilityIcon|Ability=Kinetic Carbine|Size=20} Kinetic Carbine T1 reduced from +0.75s Max Stop duration to +0.5s",
+        "- {AbilityIcon|Ability=Kinetic Carbine|Size=20} Kinetic Carbine T2 cd reduction increased from -8s to -10s",
+        "- {AbilityIcon|Ability=Time Wall|Size=20} Time Wall T3 silence duration reduced from 3.5s to 3s",
+        "- {AbilityIcon|Ability=Paradoxical Swap|Size=20} Paradoxical Swap projectile size reduced by 10%"
+    ],
+    "08-01-2024": [
+        "- Fixed {AbilityIcon|Ability=Paradox|Size=20} Paradox Swap sometimes putting players behind walls",
+        "- {AbilityIcon|Ability=Kinetic Carbine|Size=20} Kinetic Carbine Time Slowed targets that were moving before the time slow will now resume their momentum when time slow wears off",
+        "- Bullet (and {AbilityIcon|Ability=Kinetic Carbine|Size=20} Kinetic Carbine) projectile speed reduced by 10%",
+        "- Ammo count reduced from 54 to 45"
+    ],
+    "07-18-2024": [
+        "- {AbilityIcon|Ability=Time Wall|Size=20} Time Wall projectile stop duration reduced from 1.25s to 1s",
+        "- {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade amp duration increased from 6s to 8s",
+        "- {AbilityIcon|Ability=Paradoxical Swap|Size=20} Paradoxical Swap projectile size reduced by 10%"
+    ],
+    "07-11-2024": [
+        "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade, Warden's Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)",
+        "- Fixed {AbilityIcon|Ability=Time Wall|Size=20} Time Wall projectiles and bullets being stuck in the wall for its full duration instead of for the shorter time stop duration",
+        "- {AbilityIcon|Ability=Kinetic Carbine|Size=20} Kinetic Carbine collision radius reduced by 10%",
+        "- Fixed {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade not going where you had targeted if you moved quickly during the cast"
+    ],
+    "06-27-2024": [
+        "- Base movement speed reduced from 7 to 6.5",
+        "- {AbilityIcon|Ability=Kinetic Carbine|Size=20} Kinetic Carbine impact radius reduced by 15%",
+        "- {AbilityIcon|Ability=Kinetic Carbine|Size=20} Kinetic Carbine Max Stop Duration reduced from 0.75 to 0.5",
+        "- {AbilityIcon|Ability=Kinetic Carbine|Size=20} Kinetic Carbine buff duration reduced from 6 to 4",
+        "- {AbilityIcon|Ability=Kinetic Carbine|Size=20} Kinetic Carbine T1 increased from +0.5s Max Stop Duration to +0.75",
+        "- {AbilityIcon|Ability=Kinetic Carbine|Size=20} Kinetic Carbine T2 now also increases buff by +2s",
+        "- {AbilityIcon|Ability=Paradoxical Swap|Size=20} Paradoxical Swap range reduced from 35m to 30m"
+    ],
+    "06-20-2024": [
+        "- {AbilityIcon|Ability=Kinetic Carbine|Size=20} Kinetic Carbine cooldown increased from 22s to 24s",
+        "- {AbilityIcon|Ability=Paradoxical Swap|Size=20} Paradoxical Swap cooldown increased from 35s to 45s"
+    ],
+    "05-30-2024": [
+        "- Bullet base damage reduced from 8 to 7.2 (indirectly affects {AbilityIcon|Ability=Kinetic Carbine|Size=20} Kinetic Carbine)",
+        "- Bullet growth reduced from 0.48 to 0.42 (indirectly affects {AbilityIcon|Ability=Kinetic Carbine|Size=20} Kinetic Carbine)",
+        "- {AbilityIcon|Ability=Kinetic Carbine|Size=20} Kinetic Carbine damage reduced from +100% to +85%",
+        "- {AbilityIcon|Ability=Paradoxical Swap|Size=20} Paradoxical Swap range reduced from 40m to 35m",
+        "- Fixed {AbilityIcon|Ability=Paradoxical Swap|Size=20} Paradoxical Swap being able to grab multiple heroes if they were really close to each other"
+    ],
+    "05-23-2024": [
+        "- Fixed a bug that could cause all of Paradox {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade\u2019s pulses to go off at once",
+        "- Improved visibility of {AbilityIcon|Ability=Paradox|Size=20} Paradox\u2019s bullet and travel path",
+        "- Added custom tracer and muzzle flash for {AbilityIcon|Ability=Paradox|Size=20} Paradox\u2019s gun",
+        "- {AbilityIcon|Ability=Kinetic Carbine|Size=20} Kinetic Carbine Max Damage Amp reduced from 125% to 100%",
+        "- {AbilityIcon|Ability=Paradoxical Swap|Size=20} Paradoxical Swap range reduced from 45m to 40m"
+    ],
+    "05-16-2024": [
+        "- {AbilityIcon|Ability=Kinetic Carbine|Size=20} Kinetic Carbine T3 reduced from +75% to +50%"
+    ],
+    "05-10-2024": [
+        "- {AbilityIcon|Ability=Time Wall|Size=20} Time Wall bullet freeze duration no longer increases with Spirit or Duration Extender",
+        "- {AbilityIcon|Ability=Time Wall|Size=20} Time Wall bullet freeze base duration reduced from 1.5 to 1.25",
+        "- {AbilityIcon|Ability=Time Wall|Size=20} Time Wall no longer deals damage to Mid Boss",
+        "- {AbilityIcon|Ability=Kinetic Carbine|Size=20} Kinetic Carbine: Max Damage Amp reduced from 150% to 125%",
+        "- {AbilityIcon|Ability=Kinetic Carbine|Size=20} Kinetic Carbine T3 no longer provides +50% Min Damage Amp",
+        "- {AbilityIcon|Ability=Kinetic Carbine|Size=20} Kinetic Carbine T3 reduced from +125% Max Damage to +75%"
+    ]
+}

@@ -4,7 +4,7 @@ set -e
 
 . .env.local # Retrieve env
 
-cd src/parser
+cd src/parser/decompiler
 if [ "$SKIP_DECOMPILER" = false ]; then
     echo "Decompiling source files..."
     bash decompile.sh
@@ -12,7 +12,7 @@ else
     echo "! Skipping Decompiler !"
 fi
 
-cd ../..
+cd ../../..
 if [ "$SKIP_PARSER" = false ]; then
     echo ""
     echo "Parsing decompiled files..."

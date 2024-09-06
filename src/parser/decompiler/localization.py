@@ -26,5 +26,9 @@ if __name__ == '__main__':
 
                         out[left] = right
 
-                with open(os.path.join(output_folder, filename.replace('.txt','.json')), 'w', encoding='utf-8') as f:
+                with open(
+                    os.path.join(output_folder, filename.replace('.txt', '.json')),
+                    'w',
+                    encoding='utf-8',
+                ) as f:
                     json.dump(out, f, indent=4)
