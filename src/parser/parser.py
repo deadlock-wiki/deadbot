@@ -56,9 +56,6 @@ class Parser:
 
     def _parse_abilities(self):
         print('Parsing Abilities...')
-        ability_keys = self.data['scripts']['abilities'].keys()
-        filtered_keys = [key for key in ability_keys if not key.startswith('upgrade_')]
-        #print(filtered_keys)
         return abilities.AbilityParser(self.data['scripts']['abilities'], self.localizations).run()
 
     def _parse_items(self):
