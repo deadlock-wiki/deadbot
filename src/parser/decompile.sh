@@ -7,11 +7,22 @@ $DECOMPILER_PATH/Decompiler.exe -i "$DEADLOCK_PATH\game\citadel\pak01_dir.vpk" -
 
 mkdir -p "decompiled-data\txt\localizations"
 mkdir -p "decompiled-data\json\localizations"
-cp "$DEADLOCK_PATH\game\citadel\resource\localization\citadel_gc\citadel_gc_english.txt" "decompiled-data\txt\localizations\citadel_gc_english.txt"
-python3 parsers/localization.py "decompiled-data\txt\localizations\citadel_gc_english.txt" "decompiled-data\json\localizations\citadel_gc_english.json"
 
-cp "$DEADLOCK_PATH\game\citadel\resource\localization\citadel_mods\citadel_mods_english.txt" "decompiled-data\txt\localizations\citadel_mods_english.txt"
-python3 parsers/localization.py "decompiled-data\txt\localizations\citadel_mods_english.txt" "decompiled-data\json\localizations\citadel_mods_english.json"
+# Define an array of folders to parse
+#folders=("citadel_attributes" "citadel_dev" "citadel_gc" "citadel_generated_vo" "citadel_heroes" "citadel_main" "citadel_mods") # All folders
+folders=("citadel_attributes" "citadel_gc" "citadel_heroes" "citadel_main" "citadel_mods") # All folders but voice lines and dev for now
 
-cp "$DEADLOCK_PATH\game\citadel\resource\localization\citadel_heroes\citadel_heroes_english.txt" "decompiled-data\txt\localizations\citadel_heroes_english.txt"
-python3 parsers/localization.py "decompiled-data\txt\localizations\citadel_heroes_english.txt" "decompiled-data\json\localizations\citadel_heroes_english.json"
+# Loop through each folder in the array
+for folder in "${folders[@]}"; do
+  # Construct the source path using DEADLOCK_PATH and folder name
+  src_path="$DEADLOCK_PATH/game/citadel/resource/localization/$folder"
+  
+  # Construct the destination path by replacing "citadel_" prefix with ""
+  dest_folder_name="${folder#citadel_}"
+  dest_path="decompiled-data/txt/localizations/$dest_folder_name"
+  mkdir -p $dest_path
+
+  # Run the Python script to parse the folder
+  python3 parsers/localization.py "$src_path" "$dest_path"
+  echo "Parsed $src_path to $dest_path"
+done

@@ -28,6 +28,7 @@ def kv3_to_json(kv3_obj, output_file):
 
 class Parser:
     def __init__(self, language='english'):
+    def __init__(self, language='english'):
         # constants
         self.DATA_VDATA_DIR = './decompiled-data/vdata/'
         self.DATA_JSON_DIR = './decompiled-data/json/'
@@ -66,9 +67,9 @@ class Parser:
 
     def _load_localizations(self):
 <<<<<<< Updated upstream
-        names = json_utils.read('decompiled-data/localizations/citadel_gc_english.json')
-        descriptions = json_utils.read('decompiled-data/localizations/citadel_mods_english.json')
-        heroes = json_utils.read('decompiled-data/localizations/citadel_heroes_english.json')
+        names = json_utils.read('decompiled-data/localizations/gc/citadel_gc_'+self.language+'.json')
+        descriptions = json_utils.read('decompiled-data/localizations/mods/citadel_mods_'+self.language+'.json')
+        heroes = json_utils.read('decompiled-data/localizations/heroes/citadel_heroes_'+self.language+'.json')
 =======
         localizations_path = 'decompiled-data/json/localizations'
         names = json_utils.read(localizations_path+'/gc/citadel_gc_'+self.language+'.json')
