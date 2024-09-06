@@ -4,6 +4,8 @@
 $DECOMPILER_PATH/Decompiler.exe -i "$DEADLOCK_PATH\game\citadel\pak01_dir.vpk" --output "decompiled-data/vdata" --vpk_filepath "scripts/heroes.vdata_c" -d
 $DECOMPILER_PATH/Decompiler.exe -i "$DEADLOCK_PATH\game\citadel\pak01_dir.vpk" --output "decompiled-data/vdata" --vpk_filepath "scripts/abilities.vdata_c" -d
 $DECOMPILER_PATH/Decompiler.exe -i "$DEADLOCK_PATH\game\citadel\pak01_dir.vpk" --output "decompiled-data/vdata" --vpk_filepath "scripts/generic_data.vdata_c" -d
+$DECOMPILER_PATH/Decompiler.exe -i "$DEADLOCK_PATH\game\citadel\pak01_dir.vpk" --output "decompiled-data/vdata" --vpk_filepath "scripts/misc.vdata_c" -d
+
 
 python3 remove-subclass.py "decompiled-data\vdata\scripts\abilities.vdata"
 

@@ -42,6 +42,18 @@ def kv3_to_json(kv3_obj, output_file):
     
     return json_utils.write(output_file, kv3_to_dict(kv3_obj))
 
+# Default method to load vdata files
+def _load_vdata_default(vdata_path):
+    print('Starting vdata_path:', vdata_path)
+    data = kv3.read(vdata_path+'.vdata')
+    out_path = vdata_path.replace('/vdata','')+'.json'
+    kv3_to_json(data, out_path)
+    print('Finished out_path:', out_path)
+
+    return data
+
+
+
 class Parser:
     def __init__(self, language='english'):
         # constants
@@ -54,18 +66,20 @@ class Parser:
 
     def _load_vdata(self):
         # Convert .vdata_c to .vdata and .json
-        # Generic
         scripts_path = 'scripts'
-        generic_subpath = os.path.join(scripts_path, 'generic_data')
-        generic_data_path = os.path.join(self.DATA_VDATA_DIR, generic_subpath+'.vdata')
-        self.generic_data = kv3.read(generic_data_path)
-        kv3_to_json(self.generic_data, os.path.join(self.DATA_DIR, generic_subpath+'.json'))
+
+        #non_standard_loads = ['abilities']
+
+        path_to_load = self.DATA_VDATA_DIR+scripts_path
+        for file in os.listdir(path_to_load):
+            if file.endswith('.vdata_c'):
+                os.rename(file, file[:-2])
+
+        # Generic
+        _load_vdata_default(self.DATA_VDATA_DIR+scripts_path+'/generic_data')
 
         # Hero
-        hero_subpath = os.path.join(scripts_path, 'heroes')
-        hero_data_path = os.path.join(self.DATA_VDATA_DIR, hero_subpath+'.vdata')
-        self.hero_data = kv3.read(hero_data_path)
-        kv3_to_json(self.hero_data, os.path.join(self.DATA_DIR, hero_subpath+'.json'))
+        self.hero_data = _load_vdata_default(self.DATA_VDATA_DIR+scripts_path+'/heroes')
 
         # Abilities
         abilities_subpath = os.path.join(scripts_path, 'abilities')
@@ -80,6 +94,9 @@ class Parser:
                 tf.write(content)
                 self.abilities_data = kv3.read(tf.name)
                 kv3_to_json(self.abilities_data, os.path.join(self.DATA_DIR, abilities_subpath+'.json'))
+
+        # Misc
+        #_load_vdata_default(self.DATA_VDATA_DIR+scripts_path+'/misc')
 
     def _load_localizations(self):
         names = json_utils.read(self.DATA_DIR+'localizations/gc/citadel_gc_'+self.language+'.json')
