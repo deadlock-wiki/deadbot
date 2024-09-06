@@ -84,7 +84,13 @@ class ItemParser:
 
             if 'm_vecComponentItems' in item_value:
                 parsed_item_data['Components'] = item_value['m_vecComponentItems']
-                self._add_children_to_tree(parsed_item_data['Name'], parsed_item_data['Components'])
+                parent_name = parsed_item_data['Name']
+                if (
+                    parent_name is None
+                ):  # upgrade_headhunter doesnt yet (as of writing) have a localized name, making it
+                    # otherwise not appear in item-component-tree.txt
+                    parent_name = key
+                self._add_children_to_tree(parent_name, parsed_item_data['Components'])
 
             all_items[key] = parsed_item_data
 

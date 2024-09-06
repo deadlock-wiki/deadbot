@@ -10,9 +10,10 @@ from utils import json_utils
 
 
 class Parser:
-    def __init__(self):
+    def __init__(self, language='english'):
         # constants
         self.DATA_DIR = './decompiled-data/'
+        self.language = language
 
         self._load_vdata()
         self._load_localizations()
@@ -62,5 +63,5 @@ class Parser:
 
 
 if __name__ == '__main__':
-    parser = Parser()
+    parser = Parser(language='english')
     parser.run()
