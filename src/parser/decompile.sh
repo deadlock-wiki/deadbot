@@ -5,7 +5,6 @@ $DECOMPILER_PATH/Decompiler.exe -i "$DEADLOCK_PATH\game\citadel\pak01_dir.vpk" -
 $DECOMPILER_PATH/Decompiler.exe -i "$DEADLOCK_PATH\game\citadel\pak01_dir.vpk" --output "decompiled-data/vdata" --vpk_filepath "scripts/abilities.vdata_c" -d
 $DECOMPILER_PATH/Decompiler.exe -i "$DEADLOCK_PATH\game\citadel\pak01_dir.vpk" --output "decompiled-data/vdata" --vpk_filepath "scripts/generic_data.vdata_c" -d
 
-mkdir -p "decompiled-data\txt\localizations"
 mkdir -p "decompiled-data\json\localizations"
 
 # Define an array of folders to parse
@@ -19,7 +18,7 @@ for folder in "${folders[@]}"; do
   
   # Construct the destination path by replacing "citadel_" prefix with ""
   dest_folder_name="${folder#citadel_}"
-  dest_path="decompiled-data/txt/localizations/$dest_folder_name"
+  dest_path="decompiled-data/json/localizations/$dest_folder_name"
   mkdir -p $dest_path
 
   # Run the Python script to parse the folder

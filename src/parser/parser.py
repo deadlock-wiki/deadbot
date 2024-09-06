@@ -28,7 +28,6 @@ def kv3_to_json(kv3_obj, output_file):
 
 class Parser:
     def __init__(self, language='english'):
-    def __init__(self, language='english'):
         # constants
         self.DATA_VDATA_DIR = './decompiled-data/vdata/'
         self.DATA_JSON_DIR = './decompiled-data/json/'
@@ -66,16 +65,9 @@ class Parser:
                 kv3_to_json(self.abilities_data, os.path.join(self.DATA_JSON_DIR, abilities_subpath+'.json'))
 
     def _load_localizations(self):
-<<<<<<< Updated upstream
-        names = json_utils.read('decompiled-data/localizations/gc/citadel_gc_'+self.language+'.json')
-        descriptions = json_utils.read('decompiled-data/localizations/mods/citadel_mods_'+self.language+'.json')
-        heroes = json_utils.read('decompiled-data/localizations/heroes/citadel_heroes_'+self.language+'.json')
-=======
-        localizations_path = 'decompiled-data/json/localizations'
-        names = json_utils.read(localizations_path+'/gc/citadel_gc_'+self.language+'.json')
-        descriptions = json_utils.read(localizations_path+'/mods/citadel_mods_'+self.language+'.json')
-        heroes = json_utils.read(localizations_path+'/heroes/citadel_heroes_'+self.language+'.json')
->>>>>>> Stashed changes
+        names = json_utils.read('decompiled-data/json/localizations/gc/citadel_gc_'+self.language+'.json')
+        descriptions = json_utils.read('decompiled-data/json/localizations/mods/citadel_mods_'+self.language+'.json')
+        heroes = json_utils.read('decompiled-data/json/localizations/heroes/citadel_heroes_'+self.language+'.json')
 
         self.localizations = {'names': names, 'descriptions': descriptions, 'heroes': heroes}
 
