@@ -18,9 +18,8 @@ def kv3_to_dict(kv3_obj):
         return None
 
     for key, value in items:
-        if not json_utils.is_json_serializable(
-            value
-        ):  # Only include values that are json serializable
+        # Only include values that are json serializable
+        if not json_utils.is_json_serializable(value):  
             try:
                 value = kv3_to_dict(value)
                 if value is None:
