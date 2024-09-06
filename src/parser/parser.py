@@ -59,7 +59,7 @@ class Parser:
         generic_subpath = os.path.join(scripts_path, 'generic_data')
         generic_data_path = os.path.join(self.DATA_VDATA_DIR, generic_subpath+'.vdata')
         self.generic_data = kv3.read(generic_data_path)
-        kv3_to_json(self.generic_data, os.path.join(self.DATA_JSON_DIR, scripts_path, generic_subpath+'.json'))
+        kv3_to_json(self.generic_data, os.path.join(self.DATA_JSON_DIR, generic_subpath+'.json'))
 
         # Hero
         hero_subpath = os.path.join(scripts_path, 'heroes')
