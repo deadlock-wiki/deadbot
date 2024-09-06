@@ -39,9 +39,15 @@ class Parser:
                 self.abilities_data = kv3.read(tf.name)
 
     def _load_localizations(self):
-        names = json_utils.read('decompiled-data/localizations/gc/citadel_gc_'+self.language+'.json')
-        descriptions = json_utils.read('decompiled-data/localizations/mods/citadel_mods_'+self.language+'.json')
-        heroes = json_utils.read('decompiled-data/localizations/heroes/citadel_heroes_'+self.language+'.json')
+        names = json_utils.read(
+            'decompiled-data/localizations/gc/citadel_gc_' + self.language + '.json'
+        )
+        descriptions = json_utils.read(
+            'decompiled-data/localizations/mods/citadel_mods_' + self.language + '.json'
+        )
+        heroes = json_utils.read(
+            'decompiled-data/localizations/heroes/citadel_heroes_' + self.language + '.json'
+        )
 
         self.localizations = {'names': names, 'descriptions': descriptions, 'heroes': heroes}
 
@@ -68,6 +74,5 @@ class Parser:
 
 
 if __name__ == '__main__':
-    parser = Parser(language='spanish')
-    #parser = Parser(language='english')
+    parser = Parser(language='english')
     parser.run()
