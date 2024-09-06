@@ -41,16 +41,19 @@ def kv3_to_json(kv3_obj, output_file):
 
     return json_utils.write(output_file, kv3_to_dict(kv3_obj))
 
-
-if __name__ == '__main__':
-    with open(sys.argv[1], 'r') as f:
+def remove_subclass(path):
+    with open(path, 'r') as f:
         content = f.read()
         # subclass features in kv3 don't seem to be supported in the keyvalues3 python library
         content = content.replace('subclass:', '')
 
-    with open(sys.argv[1], 'w') as f:
+    with open(path, 'w') as f:
         f.write(content)
 
+
+if __name__ == '__main__':
+    remove_subclass(sys.argv[1])
+    
     data = kv3.read(sys.argv[1])
     out_path = sys.argv[1].replace('/vdata', '').replace('.vdata', '.json')
     kv3_to_json(data, out_path)
