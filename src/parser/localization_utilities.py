@@ -27,9 +27,8 @@ def get_localized_text(unlocalized_text, language, localization_group):
         #TODO use attribute-localization-data.json
 
         #Localize the text if possible, else return the original text
-        localized_text = localization_data.get(unlocalized_text, 'English'+unlocalized_text) 
-
-        return localized_text
+        return localization_data.get('StatDesc_'+unlocalized_text, None) 
+        
 
 
 # Convert language to the language code/abbreviation that will eventually be used in the wiki link

@@ -5,7 +5,9 @@ from localization_utilities import get_localized_text
 
 # Insert a space before each capital letter except the first one
 # "RoundsPerSecond" -> "Rounds Per Second"
+# "Rounds Per Second" -> "Rounds Per Second"
 def insert_space_before_capital(string):
+    string = string.replace(' ','')
     return ''.join([' ' + i if i.isupper() else i for i in string]).strip()
 
 
@@ -139,11 +141,14 @@ def infobox_hero(hero_data):
 
     # Add infobox data to template
     for key, value in infobox_data.items():
-        key = get_localized_text(key, 'spanish', 'attributes')
-        formatted_key = pascal_to_snake_case(key)
+        localized_key = get_localized_text(key, 'english', 'attributes')
+        if localized_key is None:
+            localized_key = 'Unlocalized'+key
+            
+        localized_key = pascal_to_snake_case(localized_key)
 
         # Align the key with spaces to the max length
-        infobox_template += get_infobox_line(formatted_key, value, max_key_length)
+        infobox_template += get_infobox_line(localized_key, value, max_key_length)
 
     infobox_template += '}}\n'
 
