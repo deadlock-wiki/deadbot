@@ -29,7 +29,6 @@ class Parser:
             if file_name.endswith('.json'):
                 # path/to/scripts/abilities.json -> abilities
                 key = file_name.split('.')[0].split('/')[-1]  
-                #print(file_name)
                 self.data['scripts'][key] = json_utils.read(
                     os.path.join(self.DATA_DIR, scripts_path, file_name)
                 )
