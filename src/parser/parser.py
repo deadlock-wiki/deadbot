@@ -3,7 +3,7 @@ import os
 import sys
 import tempfile
 
-from parsers import abilities, items, heroes, changelogs
+from parsers import abilities, items, heroes, changelogs, attribute_localizations
 
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -52,6 +52,7 @@ class Parser:
         self._parse_heroes(parsed_abilities)
         self._parse_items()
         self._parse_changelogs()
+        self._parse_localizations()
         print('Done parsing')
 
     def _parse_heroes(self, parsed_abilities):
@@ -78,6 +79,11 @@ class Parser:
     def _parse_changelogs(self):
         print('Parsing Changelogs...')
         changelogs.ChangelogParser().run_all()
+
+    def _parse_localizations(self):
+        print('Parsing Localizations...')
+        attribute_localizations.AttributeLocalizationParser(self.data['scripts']['abilities'], self.localizations).run()
+
 
 
 if __name__ == '__main__':

@@ -1,5 +1,9 @@
 import os
 import json
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from utils import json_utils
+
 
 LOCALIZATION_PATH = 'src/parser/decompiler/decompiled-data/localizations'
 LOCALIZATION_GROUPS = ['attributes', 'gc', 'heroes', 'main', 'mods']
@@ -12,30 +16,18 @@ def get_localized_text(unlocalized_text, language, localization_group):
     path = os.path.join(
         LOCALIZATION_PATH, localization_group, f'citadel_{localization_group}_{language}.json'
     )  # i.e src/parser/decompiled-data/localizations/citadel_attributes_english.json
+    
+    # Retrieve abilities data
+    abilities_data = json_utils.read('src/parser/decompiler/decompiled-data/scripts/abilities.json')
 
     with open(path, 'r', encoding='utf-8') as f:
         localization_data = json.load(f)
 
-        # Adjust data, unfortunately its not 1 to 1 oddly enough
-        data = {}
-        for key, value in localization_data.items():
-            # Remove Bonus if its a prefix from all keys
-            if key.startswith('Bonus'):
-                key = key[len('Bonus') :]
 
-            # Remove Total_label if its a suffix from all keys
-            if key.endswith('Total_label'):
-                key = key[: -len('Total_label')] + '_label'
+        #TODO use attribute-localization-data.json
 
-            data[key] = value
-
-        if unlocalized_text + '_label' in data:
-            localized_text = data.get(unlocalized_text + '_label')
-        elif 'StatDesc_' + unlocalized_text in data:
-            localized_text = data.get('StatDesc_' + unlocalized_text)
-        else:
-            localized_text = language + unlocalized_text
-            print(f'Could not find localized text for {unlocalized_text} in {path}')
+        #Localize the text if possible, else return the original text
+        localized_text = localization_data.get(unlocalized_text, 'English'+unlocalized_text) 
 
         return localized_text
 
