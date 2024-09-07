@@ -1,11 +1,27 @@
 
 . ../../../.env.local #Retrieve config paths
+# Define paths
+OUTPUT_DIR="decompiled-data/vdata"
 
-$DECOMPILER_PATH/Decompiler.exe -i "$DEADLOCK_PATH\game\citadel\pak01_dir.vpk" --output "decompiled-data" --vpk_filepath "scripts/heroes.vdata_c" -d
-$DECOMPILER_PATH/Decompiler.exe -i "$DEADLOCK_PATH\game\citadel\pak01_dir.vpk" --output "decompiled-data" --vpk_filepath "scripts/abilities.vdata_c" -d
-$DECOMPILER_PATH/Decompiler.exe -i "$DEADLOCK_PATH\game\citadel\pak01_dir.vpk" --output "decompiled-data" --vpk_filepath "scripts/generic_data.vdata_c" -d
+# Define files to be decompiled and processed
+FILES=("scripts/heroes" "scripts/abilities" "scripts/generic_data" "scripts/misc")
 
-python3 remove-subclass.py "decompiled-data\scripts\abilities.vdata"
+# Loop through files and run Decompiler.exe for each
+for FILE in "${FILES[@]}"; do
+  INPUT_PATH="$DEADLOCK_PATH/game/citadel/pak01_dir.vpk"
+  VPK_FILEPATH="${FILE}.vdata_c"
+  
+  # Run the decompiler
+  "$DECOMPILER_PATH/Decompiler.exe" -i "$INPUT_PATH" --output "$OUTPUT_DIR" --vpk_filepath "$VPK_FILEPATH" -d
+
+  # Remove subclass and convert to json
+  VDATA_FILE="$OUTPUT_DIR/${FILE}.vdata"
+  python3 kv3_to_json.py "$VDATA_FILE"
+done
+
+# Remove the vdata directory
+rm -rf "$OUTPUT_DIR"
+
 
 mkdir -p "decompiled-data\localizations"
 
