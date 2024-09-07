@@ -18,6 +18,7 @@ def sort_dict(dict):
     keys.sort()
     return {key: dict[key] for key in keys}
 
+
 def is_json_serializable(obj):
     try:
         json.dumps(obj)
