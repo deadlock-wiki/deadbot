@@ -3,7 +3,7 @@ import os
 import sys
 import tempfile
 
-from parsers import abilities, items, heroes, changelogs, attribute_localizations
+from parsers import abilities, items, heroes, changelogs
 
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -15,6 +15,7 @@ class Parser:
         # constants
         self.DATA_DIR = './decompiler/decompiled-data/'
         self.language = language
+        self.localization_groups = []
         self.data = {'scripts': {}}
 
         self._load_vdata()
@@ -34,17 +35,17 @@ class Parser:
                 )
 
     def _load_localizations(self):
-        names = json_utils.read(
-            self.DATA_DIR + 'localizations/gc/citadel_gc_' + self.language + '.json'
-        )
-        descriptions = json_utils.read(
-            self.DATA_DIR + 'localizations/mods/citadel_mods_' + self.language + '.json'
-        )
-        heroes = json_utils.read(
-            self.DATA_DIR + 'localizations/heroes/citadel_heroes_' + self.language + '.json'
-        )
+        # Get the name of all folders inside the localizations folder
+        self.localization_groups = os.listdir(os.path.join(self.DATA_DIR, 'localizations'))
 
-        self.localizations = {'names': names, 'descriptions': descriptions, 'heroes': heroes}
+        # Load all localizations data to memory
+        self.localizations = {}
+        for localization_group in self.localization_groups:
+            localization_group_data = json_utils.read(self.DATA_DIR + 'localizations/' + localization_group + '/citadel_' + localization_group + '_' + self.language + '.json')
+            self.localizations[localization_group] = localization_group_data
+        
+
+        #self.localizations = {'names': names, 'descriptions': descriptions, 'heroes': heroes}
 
     def run(self):
         print('Parsing...')
@@ -52,7 +53,6 @@ class Parser:
         self._parse_heroes(parsed_abilities)
         self._parse_items()
         self._parse_changelogs()
-        self._parse_localizations()
         print('Done parsing')
 
     def _parse_heroes(self, parsed_abilities):
@@ -79,10 +79,6 @@ class Parser:
     def _parse_changelogs(self):
         print('Parsing Changelogs...')
         changelogs.ChangelogParser().run_all()
-
-    def _parse_localizations(self):
-        print('Parsing Localizations...')
-        attribute_localizations.AttributeLocalizationParser(self.data['scripts']['abilities'], self.localizations).run()
 
 
 

@@ -6,15 +6,33 @@ from localization_utilities import get_localized_text
 # Insert a space before each capital letter except the first one
 # "RoundsPerSecond" -> "Rounds Per Second"
 # "Rounds Per Second" -> "Rounds Per Second"
+# "DPS" -> "dps"
+# "Rounds_Per_Second" -> "Rounds Per Second"
 def insert_space_before_capital(string):
-    string = string.replace(' ','')
-    return ''.join([' ' + i if i.isupper() else i for i in string]).strip()
+    str = string.replace(' ','')
+    if str == str.upper():
+        return str.lower()
+    
+    new_word = ''
+    last_letter = ''
+    for letter in str:
+        # Is not first letter
+        # Isnt after an underscore
+        # Letter is uppercase
+        if last_letter != '' and last_letter != '_' and letter.isupper():
+            new_word += ' '
+        new_word += letter
+
+        last_letter = letter
+
+    return new_word
 
 
-# TODO: Better name
 # RoundsPerSecond -> rounds_per_second
+# Rounds Per Second -> rounds_per_second
+# Rounds per second -> rounds_per_second
 def pascal_to_snake_case(key):
-    return insert_space_before_capital(key).replace(' ', '_').lower()
+    return insert_space_before_capital(key.replace(' ','_')).replace(' ', '_').lower()
 
 
 def get_infobox_line(key, value, max_key_length):
@@ -42,33 +60,45 @@ def infobox_item():
         'iscomponentof1_name',
     ]
 
+# Localize, replace unlocalized with placeholder, then turn to snake
+def clean_text(text, language='english', localization_groups='attributes'):
+    cleaned_text = get_localized_text(text, language, localization_groups)
+    if cleaned_text is None:
+        cleaned_text = 'Unlocalized'+text
+    return pascal_to_snake_case(cleaned_text)
+
+
 
 # Converts hero json data to infobox hero template call
 def infobox_hero(hero_data):
-    # Order the parameters are provided to the Infobox template
-    parameter_order = [
+    # Hero stats that are parameters of the infobox
+    hero_stat_parameters = [
         'name',
         'dps',
         'bullet_damage',
         'clip_size',
         'rounds_per_second',
-        'reload_duration',
+        'reload_time',
         'light_melee_damage',
         'heavy_melee_damage',
         'max_health',
-        'health_regen',
+        'base_health_regen',
         'bullet_resist',
         'spirit_resist',
         'max_move_speed',
         'sprint_speed',
         'stamina',
+        'stamina_regen_per_second',
+        'move_acceleration',
+        'crouch_speed', #not anywhere in localization
+        'crit_damage_received_scale',
     ]
 
     # Ensure all the hero data is in the parameter_order, used for catching changes to template calls or new hero data not yet handled
     for key, value in hero_data.items():
-        excepted_keys = ['key']  # keys that don't need to be in the parameter_order
-        if key not in parameter_order and key not in excepted_keys:
-            pass  # print(f"{hero_data["Name"]}'s hero data {key} is not in the list of parameters")
+        excepted_keys = ['key']  # keys that don't need to be in the hero_stat_parameters
+        if pascal_to_snake_case(key) not in hero_stat_parameters and key not in excepted_keys:
+            print(f"{hero_data["Name"]}'s hero data {key} is not in the list of parameters")
             # return None
 
     # Pre-determine if scalars are present
@@ -78,7 +108,7 @@ def infobox_hero(hero_data):
     # Sort hero_data's dict keys by the parameters in the parameter_order list
     # Tried for too long to get something that worked in less than O(a*b), maybe im missing something obvious
     infobox_data = {}
-    for parameter in parameter_order:
+    for parameter in hero_stat_parameters:
         for key, value in hero_data.items():
             # Append the spirit scaling value to the base value inside {{ss|}} template call
             if (
@@ -91,12 +121,15 @@ def infobox_hero(hero_data):
                     if key.endswith(scalingStat):
                         if hero_data['SpiritScaling'][scalingStat] == 0.0:
                             break
+
+                        scalar = hero_data['SpiritScaling'][scalingStat]
                         value = (
                             str(value)
                             + ' {{ss|'
-                            + str(hero_data['SpiritScaling'][scalingStat])
+                            + str(scalar)
                             + '}}'
                         )
+
                         break
 
             # Append the level scaling value to the base value inside {{ls|}} template call
@@ -109,17 +142,26 @@ def infobox_hero(hero_data):
                     if key.endswith(scalingStat):
                         if hero_data['LevelScaling'][scalingStat] == 0.0:
                             break
+
+                        scalar = hero_data['LevelScaling'][scalingStat]
+
+                        # Seems to increase HeavyMeleeDamage by much more than LightMeleeDamage, being extremely close to double, though ideally perform more concrete testing to confirm this
+                        if key == 'HeavyMeleeDamage':
+                            scalar*=(hero_data['HeavyMeleeDamage']/hero_data['LightMeleeDamage'])
+
                         value = (
                             str(value)
                             + ' {{ls|'
-                            + str(hero_data['LevelScaling'][scalingStat])
+                            + str(round(scalar,2))
                             + '}}'
                         )
+
+                        
                         break
 
-            if parameter.endswith(
-                pascal_to_snake_case(key)
-            ):  # i.e. melee_damage affects light_melee_damage and heavy_melee_damage
+            if parameter.endswith(pascal_to_snake_case(key)):  
+                # i.e. melee_damage affects light_melee_damage and heavy_melee_damage
+
                 infobox_data[key] = value
 
             # Grey Talon has rounds per second scaling and fire rate scaling listed; though only base rounds per second is in data.
@@ -133,19 +175,22 @@ def infobox_hero(hero_data):
                 value = '0% {{ss|' + str(hero_data['SpiritScaling'][firerate]) + '}}'
                 infobox_data[firerate] = value
 
+    # Will be correctly parameterized later, likely via another module
+    localization_groups = 'attributes'
+    language = 'english'
+
     # Calculate the maximum length of keys to align the values
-    max_key_length = max(len(pascal_to_snake_case(key)) for key in infobox_data.keys())
+    max_key_length = 0
+    for key in infobox_data.keys():
+        cleaned = clean_text(key, language, localization_groups)
+        max_key_length = max(max_key_length, len(cleaned))
 
     # Create the Infobox template
     infobox_template = '{{Infobox hero\n'
 
     # Add infobox data to template
     for key, value in infobox_data.items():
-        localized_key = get_localized_text(key, 'english', 'attributes')
-        if localized_key is None:
-            localized_key = 'Unlocalized'+key
-            
-        localized_key = pascal_to_snake_case(localized_key)
+        localized_key = clean_text(key, language, localization_groups)
 
         # Align the key with spaces to the max length
         infobox_template += get_infobox_line(localized_key, value, max_key_length)
