@@ -2,7 +2,7 @@
 # exit on error
 set -e 
 
-. .env.local # Retrieve env
+. .env # Retrieve env
 
 cd src/parser/decompiler
 if [ "$SKIP_DECOMPILER" = false ]; then
