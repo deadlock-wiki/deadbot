@@ -6,6 +6,8 @@ OUTPUT_DIR="decompiled-data/vdata"
 # Define files to be decompiled and processed
 FILES=("scripts/heroes" "scripts/abilities" "scripts/generic_data" "scripts/misc")
 
+cp "$DEADLOCK_PATH/game/citadel/steam.inf" "decompiled-data/version.txt"
+
 # Loop through files and run Decompiler.exe for each
 for FILE in "${FILES[@]}"; do
   INPUT_PATH="$DEADLOCK_PATH/game/citadel/pak01_dir.vpk"
@@ -36,7 +38,7 @@ for folder in "${folders[@]}"; do
     
     # Construct the destination path by replacing "citadel_" prefix with ""
     dest_folder_name="${folder#citadel_}"
-    dest_path="./decompiled-data/localizations/$dest_folder_name"
+    dest_path="decompiled-data/localizations/$dest_folder_name"
     mkdir -p $dest_path
 
     # Run the Python script to parse the folder
