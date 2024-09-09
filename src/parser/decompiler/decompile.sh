@@ -1,5 +1,5 @@
 
-. ../../../.env.local #Retrieve config paths
+. ../../../.env #Retrieve config paths
 # Define paths
 OUTPUT_DIR="decompiled-data/vdata"
 
