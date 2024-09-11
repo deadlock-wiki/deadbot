@@ -59,11 +59,3 @@ class AbilityParser:
         json_utils.write(OUTPUT_DIR + 'json/ability-data.json', json_utils.sort_dict(all_abilities))
 
         return all_abilities
-
-def _get_upgrade_data(abilities_data):
-    # Get upgrade data from localization data
-    upgrade_data = {}
-    for upgrade_key, upgrade_value in abilities_data.items():
-        if upgrade_key.startswith('upgrade_'):
-            upgrade_data[upgrade_key] = upgrade_value
-    return upgrade_data
