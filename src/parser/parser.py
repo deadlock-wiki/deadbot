@@ -3,7 +3,7 @@ import os
 import sys
 import tempfile
 
-from parsers import abilities, items, heroes, changelogs
+from parsers import abilities, items, heroes, changelogs, localizations
 
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -47,15 +47,15 @@ class Parser:
     def _load_localizations(self):
         # Load all localizations data to memory
 
+        # Merge all 5 localization groups (i.e. attributes, mods, etc.) to the same level
         # Level 1: language
-        # Level 2: localization_group (i.e. attributes, gc, heroes, main, mods)
-        # Level 3: localization key
-        # Level 4: localized text
+        # Level 2: unlocalized text
+        # Level 3: localized text
         self.localizations = {}
         for language in self.languages:
             self.localizations[language] = {}
             for localization_group in self.localization_groups:
-                localization_group_data = json_utils.read(
+                localization_data = json_utils.read(
                     self.DATA_DIR
                     + 'localizations/'
                     + localization_group
@@ -65,7 +65,20 @@ class Parser:
                     + language
                     + '.json'
                 )
-                self.localizations[language][localization_group] = localization_group_data
+
+                # Merge all localization data to the same level
+                for key, value in localization_data.items():
+                    # Skip language key, and potentially others down the line that are not needed but shared across groups
+                    if key in ['Language']:
+                        continue
+
+                    if key not in self.localizations[language]:
+                        self.localizations[language][key] = value
+                    else:
+                        current_value = self.localizations[language][key]
+                        raise Exception(
+                            f'Key {key} with value {value} already exists in {language} localization data with value {current_value}.'
+                        )
 
     def run(self):
         print('Parsing...')
@@ -78,11 +91,11 @@ class Parser:
 
     def _parse_localizations(self):
         print('Parsing Localizations...')
+        
         # TODO
-        # return localization.LocalizationsParser(
-        #     self.data['scripts']['localizations'],
-        #     self.localizations,
-        # ).run()
+        return localizations.LocalizationParser(
+            self.localizations
+        ).run()
 
     def _parse_heroes(self, parsed_abilities):
         print('Parsing Heroes...')

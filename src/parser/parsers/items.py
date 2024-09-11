@@ -58,7 +58,7 @@ class ItemParser:
                 cost = self.generic_data['m_nItemPricePerTier'][int(tier)]
 
             parsed_item_data = {
-                'Name': self.localizations['gc'].get(key),
+                'Name': self.localizations.get(key),
                 'Description': '',
                 'Cost': str(cost),
                 'Tier': tier,
@@ -77,7 +77,7 @@ class ItemParser:
                 )
                 parsed_item_data[new_key] = item_ability_attrs[attr_key]['m_strValue']
 
-            description = self.localizations['mods'].get(key + '_desc')
+            description = self.localizations.get(key + '_desc')
             parsed_item_data['Description'] = string_utils.format_description(
                 description, parsed_item_data
             )
@@ -105,7 +105,7 @@ class ItemParser:
     def _add_children_to_tree(self, parent_key, child_keys):
         for child_key in child_keys:
             self.links.append(
-                Link(Node(self.localizations['gc'].get(child_key)), Node(parent_key))
+                Link(Node(self.localizations.get(child_key)), Node(parent_key))
             )
 
     # Formats pipe separated string and maps the value
