@@ -3,21 +3,16 @@ import os
 
 from dotenv import load_dotenv
 
-env_path = '.env.local'
-
-if os.path.exists(env_path):
-    load_dotenv(env_path)
-else:
-    raise FileNotFoundError(f'File {env_path} not found')
+load_dotenv()
 
 
-# Retrieve a configuration key's associated value from .env.local
+# Retrieve a configuration key's associated value from .env
 def get_config_value(key):
     # Return the path to the config file
 
     value = os.getenv(key)
     if value is None:
-        raise ValueError(f'Key {key} not found in .env.local')
+        raise ValueError(f'Key {key} not found in .env')
     return value
 
 
