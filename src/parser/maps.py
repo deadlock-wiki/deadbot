@@ -62,7 +62,11 @@ def get_ability_activation(value):
 
 
 def get_hero_attr(value):
-    return value.replace('E', '')  # Remove the 'E' prefix
+    # Remove the 'E' prefix if its prefixed
+    if value.startswith('E'):
+        value = value[1:]
+
+    return value  
 
 
 LEVEL_MOD_MAP = {
