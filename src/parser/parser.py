@@ -11,10 +11,10 @@ from utils import json_utils
 
 
 class Parser:
-    def __init__(self):
+    def __init__(self, language='english'):
         # constants
         self.DATA_DIR = './decompiler/decompiled-data/'
-        self.default_language = 'english'
+        self.language = language
         self.data = {'scripts': {}}
 
         self.localization_groups = os.listdir(os.path.join(self.DATA_DIR, 'localizations'))
@@ -90,13 +90,13 @@ class Parser:
             self.data['scripts']['heroes'],
             self.data['scripts']['abilities'],
             parsed_abilities,
-            self.localizations[self.default_language],
+            self.localizations[self.language],
         ).run()
 
     def _parse_abilities(self):
         print('Parsing Abilities...')
         return abilities.AbilityParser(
-            self.data['scripts']['abilities'], self.localizations[self.default_language]
+            self.data['scripts']['abilities'], self.localizations[self.language]
         ).run()
 
     def _parse_items(self):
@@ -104,7 +104,7 @@ class Parser:
         items.ItemParser(
             self.data['scripts']['abilities'],
             self.data['scripts']['generic_data'],
-            self.localizations[self.default_language],
+            self.localizations[self.language],
         ).run()
 
     def _parse_changelogs(self):
