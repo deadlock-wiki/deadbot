@@ -11,12 +11,16 @@ from utils import json_utils
 
 
 class Parser:
-    def __init__(self, language='english'):
+    def __init__(self):
         # constants
         self.DATA_DIR = './decompiler/decompiled-data/'
-        self.language = language
-        self.localization_groups = []
+        self.default_language = 'english'
         self.data = {'scripts': {}}
+
+        self.localization_groups = os.listdir(os.path.join(self.DATA_DIR, 'localizations'))
+        # Get all languages from localization_file i.e. citadel_attributes_english.json -> english
+        self.languages = [localization_file.split('citadel_'+self.localization_groups[0]+'_')[1].split('.json')[0] 
+                     for localization_file in os.listdir(os.path.join(self.DATA_DIR, 'localizations/'+self.localization_groups[0]))]
 
         self._load_vdata()
         self._load_localizations()
@@ -35,25 +39,35 @@ class Parser:
                 )
 
     def _load_localizations(self):
-        # Get the name of all folders inside the localizations folder
-        self.localization_groups = os.listdir(os.path.join(self.DATA_DIR, 'localizations'))
-
         # Load all localizations data to memory
-        self.localizations = {}
-        for localization_group in self.localization_groups:
-            localization_group_data = json_utils.read(self.DATA_DIR + 'localizations/' + localization_group + '/citadel_' + localization_group + '_' + self.language + '.json')
-            self.localizations[localization_group] = localization_group_data
         
-
-        #self.localizations = {'names': names, 'descriptions': descriptions, 'heroes': heroes}
+        # Level 1: language
+        # Level 2: localization_group (i.e. attributes, gc, heroes, main, mods)
+        # Level 3: localization key
+        # Level 4: localized text
+        self.localizations = {}
+        for language in self.languages:
+            self.localizations[language] = {}
+            for localization_group in self.localization_groups:
+                localization_group_data = json_utils.read(self.DATA_DIR + 'localizations/' + localization_group + '/citadel_' + localization_group + '_' + language + '.json')
+                self.localizations[language][localization_group] = localization_group_data
 
     def run(self):
         print('Parsing...')
+        parsed_localizations = self._parse_localizations()
         parsed_abilities = self._parse_abilities()
         self._parse_heroes(parsed_abilities)
         self._parse_items()
         self._parse_changelogs()
         print('Done parsing')
+
+    def _parse_localizations(self):
+        print('Parsing Localizations...')
+        # TODO
+        # return localization.LocalizationsParser(
+        #     self.data['scripts']['localizations'],
+        #     self.localizations,
+        # ).run()
 
     def _parse_heroes(self, parsed_abilities):
         print('Parsing Heroes...')
@@ -61,19 +75,19 @@ class Parser:
             self.data['scripts']['heroes'],
             self.data['scripts']['abilities'],
             parsed_abilities,
-            self.localizations,
+            self.localizations[self.default_language],
         ).run()
 
     def _parse_abilities(self):
         print('Parsing Abilities...')
-        return abilities.AbilityParser(self.data['scripts']['abilities'], self.localizations).run()
+        return abilities.AbilityParser(self.data['scripts']['abilities'], self.localizations[self.default_language]).run()
 
     def _parse_items(self):
         print('Parsing Items...')
         items.ItemParser(
             self.data['scripts']['abilities'],
             self.data['scripts']['generic_data'],
-            self.localizations,
+            self.localizations[self.default_language],
         ).run()
 
     def _parse_changelogs(self):
@@ -83,5 +97,5 @@ class Parser:
 
 
 if __name__ == '__main__':
-    parser = Parser(language='english')
+    parser = Parser()
     parser.run()
