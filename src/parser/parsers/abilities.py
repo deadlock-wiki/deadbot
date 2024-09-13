@@ -45,6 +45,14 @@ class AbilityParser:
 
                 ability_data[key] = value
 
+            if 'm_vecAbilityUpgrades' not in ability:
+                # print(ability.get('Name'), 'missing upgrades')
+                continue
+            else:
+                ability_data['Upgrades'] = self.parse_upgrades(
+                    ability_key, ability['m_vecAbilityUpgrades']
+                )
+
             description = (self.localizations['heroes'].get(ability_key + '_desc'),)
             ability_data['Description'] = string_utils.format_description(description, ability_data)
 
@@ -59,3 +67,22 @@ class AbilityParser:
         json_utils.write(OUTPUT_DIR + 'json/ability-data.json', json_utils.sort_dict(all_abilities))
 
         return all_abilities
+
+    def parse_upgrades(self, ability_key, upgrade_sets):
+        parsed_upgrade_sets = []
+        for index, upgrade_set in enumerate(upgrade_sets):
+            parsed_upgrade_set = {'Description': None}
+            # add and format the description of the ability upgrade
+            desc_key = f'{ability_key}_t{index}_desc'
+            print(desc_key)
+            if desc_key in self.localizations:
+                parsed_upgrade_set['Description'] = self.localizations[desc_key]
+
+            for upgrade in upgrade_set['m_vecPropertyUpgrades']:
+                parsed_upgrade_set[upgrade['m_strPropertyName']] = string_utils.string_to_number(
+                    upgrade['m_strBonus']
+                )
+
+            parsed_upgrade_sets.append(parsed_upgrade_set)
+
+        return parsed_upgrade_sets
