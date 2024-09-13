@@ -5,7 +5,7 @@
         "BaseHealthRegen": 2.0,
         "BoundAbilities": {
             "1": {
-                "AbilityCastDelay": 0.125,
+                "AbilityCastDelay": 0.12,
                 "AbilityCharges": 2,
                 "AbilityCooldown": 32,
                 "AbilityCooldownBetweenCharge": 5,
@@ -401,7 +401,7 @@
                 "EndOfHookCommandRestrictLinger": 0.25,
                 "EndOfHookMoveSpeedBonus": "0m",
                 "FriendlyHookIgnoreRange": "8m",
-                "HookingSlowSpeedLimit": 0.001,
+                "HookingSlowSpeedLimit": 0.0,
                 "Name": "Hook",
                 "ReturnDelay": 0.5,
                 "ReturnPositionForwardOffset": 100,
@@ -830,7 +830,7 @@
                 "TimeWallDepthVisualScale": 0.16,
                 "TimeWallFormationTime": 0.5,
                 "TimeWallHeight": "3.5m",
-                "TimeWallTimeScale": 0.0001,
+                "TimeWallTimeScale": 0.0,
                 "TimeWallWidth": "7m",
                 "Upgrades": [
                     {
@@ -1200,7 +1200,7 @@
                 "SegmentEmitTime": 0.1,
                 "SlowDuration": 2.5,
                 "SlowPercent": 25,
-                "TimeBetweenSegments": 0.035,
+                "TimeBetweenSegments": 0.04,
                 "TimeToMaxDistance": 2,
                 "Upgrades": [
                     {
@@ -2860,7 +2860,7 @@
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
                 "Description": "Pull yourself through the air toward a target. Using Grapple also resets your limit of air jumps and dashes.",
-                "JumpSlowResistance": 0.667,
+                "JumpSlowResistance": 0.67,
                 "JumpVelocity": "20m",
                 "LashFriendlies": 1,
                 "MinDistance": "0m",
@@ -3782,7 +3782,7 @@
                 "RagePerHeavyMelee": 3.5,
                 "RagePerLightMelee": 1.5,
                 "RagePerSpiritDamage": 0.02,
-                "RagePerWeaponDamage": 0.015,
+                "RagePerWeaponDamage": 0.01,
                 "SlashRange": 80,
                 "Upgrades": [
                     {
@@ -4678,7 +4678,7 @@
                 "ChannelMoveSpeed": 50,
                 "Description": "Bring your core to the brink of criticality, blinding and damaging any that look in your direction. Damage increases when enemies look directly at you.",
                 "EvasionChance": 20,
-                "LookDotMin": 0.866,
+                "LookDotMin": 0.87,
                 "LookRadiusScale": "1m",
                 "MaxDPS": 16,
                 "Name": "Blinding Radiance",
@@ -4768,7 +4768,7 @@
         "BaseHealthRegen": 2.0,
         "BoundAbilities": {
             "1": {
-                "AbilityCastDelay": 0.001,
+                "AbilityCastDelay": 0.0,
                 "AbilityCooldown": 21,
                 "AbilityPostCastDuration": 0.5,
                 "AbilityUnitTargetLimit": 1,

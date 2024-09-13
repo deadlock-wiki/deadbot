@@ -24,13 +24,10 @@ def _replace_variables(desc, data):
     return formatted_desc
 
 
-def string_to_number(string, decimal_places=None):
+def string_to_number(string):
     """
     Convert string to a number, if possible.
     Otherwise return original string
-    Args:
-        string (str): string to be converted
-        decimal_places (int): decimal places to be rounded to if string is a float
     """
     number = None
     try:
@@ -38,8 +35,6 @@ def string_to_number(string, decimal_places=None):
     except (TypeError, ValueError):
         try:
             number = float(string)
-            if decimal_places is not None:
-                number = round(number, decimal_places)
         except (TypeError, ValueError):
             number = string
 
