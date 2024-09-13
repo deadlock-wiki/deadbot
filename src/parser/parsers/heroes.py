@@ -50,7 +50,7 @@ class HeroParser:
                 # Analysis - if more analyses of these similar nature are made, they can be moved to another file; for now it runs when parsed
                 # Confirm the following stats are all 1
                 # If any are not 1, the wiki should likely get this information added either to the hero infobox template or elsewhere, and the stat removed from the list below
-                multipliers = ['TechRange', 'ReloadSpeed', 'TechDuration', 'ProcBuildUpRateScale']
+                multipliers = ['TechRange', 'TechPower', 'ReloadSpeed', 'TechDuration', 'ProcBuildUpRateScale']
                 for mult_str in multipliers:
                     mult_value = hero_stats.get(mult_str, 1)
                     if mult_value != 1:
