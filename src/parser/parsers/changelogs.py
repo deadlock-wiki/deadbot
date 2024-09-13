@@ -17,8 +17,6 @@ class ChangelogParser:
         self.resources = self._get_resources()
 
     def run_all(self):
-        print('Parsing changelogs...')
-
         changelogs_by_date = {}
         files = [f for f in listdir(self.CHANGELOGS_DIR) if isfile(join(self.CHANGELOGS_DIR, f))]
         for file in files:
