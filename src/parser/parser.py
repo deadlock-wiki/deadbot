@@ -1,7 +1,5 @@
-import keyvalues3 as kv3
 import os
 import sys
-import tempfile
 
 from parsers import abilities, items, heroes, changelogs
 
@@ -28,7 +26,7 @@ class Parser:
         for file_name in os.listdir(self.DATA_DIR + scripts_path):
             if file_name.endswith('.json'):
                 # path/to/scripts/abilities.json -> abilities
-                key = file_name.split('.')[0].split('/')[-1]  
+                key = file_name.split('.')[0].split('/')[-1]
                 self.data['scripts'][key] = json_utils.read(
                     os.path.join(self.DATA_DIR, scripts_path, file_name)
                 )

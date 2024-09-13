@@ -18,7 +18,7 @@ def format_description(description, data):
 def _replace_variables(desc, data):
     def replace_match(match):
         key = match.group(1)
-        return data.get(key, '')
+        return str(data.get(key, ''))
 
     formatted_desc = re.sub(r'\{s:(.*?)\}', replace_match, desc)
     return formatted_desc
