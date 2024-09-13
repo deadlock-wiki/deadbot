@@ -32,7 +32,7 @@ class HeroParser:
                 hero_stats.update(
                     self._map_attr_names(hero_value['m_mapStartingStats'], maps.get_hero_attr)
                 )
-
+                hero_stats["StatsUI"] = self._parse_stats_ui(hero_value)
                 hero_stats['SpiritScaling'] = self._parse_spirit_scaling(hero_value)
                 weapon_stats = self._parse_hero_weapon(hero_value)
                 hero_stats.update(weapon_stats)
@@ -56,7 +56,11 @@ class HeroParser:
                     if mult_value != 1:
                         raise Exception(f'Hero {hero_key} has {mult_str} of {mult_value} instead of 1')
 
-        json_utils.write(OUTPUT_DIR + 'json/hero-data.json', json_utils.sort_dict(all_hero_stats))
+        # Include removed keys in the data sent to consecutive parsers, but not to the output file
+        hero_stats_to_remove = multipliers + ['StatsUI']
+        hero_stats_removed = json_utils.remove_keys(all_hero_stats, keys_to_remove=hero_stats_to_remove, depths_to_search=2)
+        json_utils.write(OUTPUT_DIR + 'json/hero-data.json', json_utils.sort_dict(hero_stats_removed))
+        return all_hero_stats
 
     def _parse_hero_abilities(self, hero_value):
         bound_abilities = hero_value['m_mapBoundAbilities']
@@ -87,6 +91,35 @@ class HeroParser:
 
         weapon_stats['DPS'] = weapon_stats['BulletDamage'] * weapon_stats['RoundsPerSecond']
         return weapon_stats
+
+    # Parse the stats that are listed in the UI in game
+    def _parse_stats_ui(self, hero_value):
+        if "m_heroStatsUI" not in hero_value or 'm_vecDisplayStats' not in hero_value['m_heroStatsUI']:
+            return None
+        
+        parsed_stats_ui = {}
+
+        """
+            Transform each value within m_vecDisplayStats array
+            
+            {
+                "m_eStatType": "EMaxHealth",
+                "m_eStatCategory": "ECitadelStat_Vitality"
+            }
+
+            to a dict entry
+            "MaxHealth": "Vitality"
+        """
+
+        stats_ui = hero_value['m_heroStatsUI']['m_vecDisplayStats']
+        for stat in stats_ui:
+            parsed_stat_name = maps.get_hero_attr(stat['m_eStatType'])
+            parsed_stat_category = maps.get_attr_group(stat['m_eStatCategory'])
+            parsed_stats_ui[parsed_stat_name] = parsed_stat_category
+
+        return parsed_stats_ui
+        
+
 
     def _parse_spirit_scaling(self, hero_value):
         if 'm_mapScalingStats' not in hero_value:
