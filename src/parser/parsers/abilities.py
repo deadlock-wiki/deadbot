@@ -28,7 +28,7 @@ class AbilityParser:
                 continue
 
             ability_data = {
-                'Name': self.localizations['heroes'].get(ability_key, None),
+                'Name': self.localizations.get(ability_key, None),
             }
 
             stats = ability['m_mapAbilityProperties']
@@ -53,7 +53,7 @@ class AbilityParser:
                     ability_key, ability['m_vecAbilityUpgrades']
                 )
 
-            description = (self.localizations['heroes'].get(ability_key + '_desc'),)
+            description = (self.localizations.get(ability_key + '_desc'),)
             ability_data['Description'] = string_utils.format_description(description, ability_data)
 
             formatted_ability_data = {}
