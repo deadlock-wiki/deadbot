@@ -39,3 +39,10 @@ def string_to_number(string):
             number = string
 
     return number
+
+
+def pascal_to_words(text):
+    """Convert pascal text to be spaced.
+    Eg. NeverGonnaGiveYouUp -> Never Gonna Give You Up
+    """
+    return re.sub(r'(?<!^)(?=[A-Z])', ' ', text)

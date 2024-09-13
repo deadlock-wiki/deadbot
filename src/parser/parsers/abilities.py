@@ -71,7 +71,7 @@ class AbilityParser:
     def parse_upgrades(self, ability_key, upgrade_sets):
         parsed_upgrade_sets = []
         for index, upgrade_set in enumerate(upgrade_sets):
-            parsed_upgrade_set = {'Description': None}
+            parsed_upgrade_set = {}
 
             for upgrade in upgrade_set['m_vecPropertyUpgrades']:
                 value = string_utils.string_to_number(upgrade['m_strBonus'])
@@ -84,6 +84,16 @@ class AbilityParser:
                 desc = self.localizations[desc_key]
                 formatted_desc = string_utils.format_description(desc, parsed_upgrade_set)
                 parsed_upgrade_set['Description'] = formatted_desc
+            # create our own description if none exists
+            else:
+                desc = ''
+                for attr, value in parsed_upgrade_set.items():
+                    str_value = str(value)
+                    if isinstance(value, str) or not value < 0:
+                        str_value = f'+{str_value}'
+
+                    desc += f'{string_utils.pascal_to_words(attr)}: {str_value} '
+                parsed_upgrade_set['Description'] = desc
 
             parsed_upgrade_sets.append(parsed_upgrade_set)
 
