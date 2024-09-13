@@ -17,7 +17,9 @@ class AttributeParser:
         all_attributes = {}
         all_attributes = self._parse_stats_ui(self.heroes_data)
 
-        json_utils.write(OUTPUT_DIR + 'json/attribute-data.json', json_utils.sort_dict(all_attributes))
+        json_utils.write(
+            OUTPUT_DIR + 'json/attribute-data.json', json_utils.sort_dict(all_attributes)
+        )
 
     # Move StatsUI data to attributes data
     def _parse_stats_ui(self, heroes_data):
@@ -31,7 +33,7 @@ class AttributeParser:
             for stat_key, ui_category in stats_ui.items():
                 if stat_key not in all_attributes:
                     all_attributes[stat_key] = {}
-                    
+
                 else:
                     # Nest under UICategory for future proofing; likely more data will be added for attributes other than localization
                     if ui_category != all_attributes[stat_key]['UICategory']:

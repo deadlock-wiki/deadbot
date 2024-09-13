@@ -32,7 +32,7 @@ class HeroParser:
                 hero_stats.update(
                     self._map_attr_names(hero_value['m_mapStartingStats'], maps.get_hero_attr)
                 )
-                hero_stats["StatsUI"] = self._parse_stats_ui(hero_value)
+                hero_stats['StatsUI'] = self._parse_stats_ui(hero_value)
                 hero_stats['SpiritScaling'] = self._parse_spirit_scaling(hero_value)
                 weapon_stats = self._parse_hero_weapon(hero_value)
                 hero_stats.update(weapon_stats)
@@ -50,16 +50,28 @@ class HeroParser:
                 # Analysis - if more analyses of these similar nature are made, they can be moved to another file; for now it runs when parsed
                 # Confirm the following stats are all 1
                 # If any are not 1, the wiki should likely get this information added either to the hero infobox template or elsewhere, and the stat removed from the list below
-                multipliers = ['TechRange', 'TechPower', 'ReloadSpeed', 'TechDuration', 'ProcBuildUpRateScale']
+                multipliers = [
+                    'TechRange',
+                    'TechPower',
+                    'ReloadSpeed',
+                    'TechDuration',
+                    'ProcBuildUpRateScale',
+                ]
                 for mult_str in multipliers:
                     mult_value = hero_stats.get(mult_str, 1)
                     if mult_value != 1:
-                        raise Exception(f'Hero {hero_key} has {mult_str} of {mult_value} instead of 1')
+                        raise Exception(
+                            f'Hero {hero_key} has {mult_str} of {mult_value} instead of 1'
+                        )
 
         # Include removed keys in the data sent to consecutive parsers, but not to the output file
         hero_stats_to_remove = multipliers + ['StatsUI']
-        hero_stats_removed = json_utils.remove_keys(all_hero_stats, keys_to_remove=hero_stats_to_remove, depths_to_search=2)
-        json_utils.write(OUTPUT_DIR + 'json/hero-data.json', json_utils.sort_dict(hero_stats_removed))
+        hero_stats_removed = json_utils.remove_keys(
+            all_hero_stats, keys_to_remove=hero_stats_to_remove, depths_to_search=2
+        )
+        json_utils.write(
+            OUTPUT_DIR + 'json/hero-data.json', json_utils.sort_dict(hero_stats_removed)
+        )
         return all_hero_stats
 
     def _parse_hero_abilities(self, hero_value):
@@ -94,9 +106,12 @@ class HeroParser:
 
     # Parse the stats that are listed in the UI in game
     def _parse_stats_ui(self, hero_value):
-        if "m_heroStatsUI" not in hero_value or 'm_vecDisplayStats' not in hero_value['m_heroStatsUI']:
+        if (
+            'm_heroStatsUI' not in hero_value
+            or 'm_vecDisplayStats' not in hero_value['m_heroStatsUI']
+        ):
             return None
-        
+
         parsed_stats_ui = {}
 
         """
@@ -118,8 +133,6 @@ class HeroParser:
             parsed_stats_ui[parsed_stat_name] = parsed_stat_category
 
         return parsed_stats_ui
-        
-
 
     def _parse_spirit_scaling(self, hero_value):
         if 'm_mapScalingStats' not in hero_value:

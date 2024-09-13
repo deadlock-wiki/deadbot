@@ -60,16 +60,18 @@ def get_ability_activation(value):
         raise Exception(f'{value} is not a valid ability activation type')
     return ABILITY_ACTIVATION_MAP.get(value)
 
+
 # i.e. ECitadelStat_Vitality -> Vitality
 def get_attr_group(value):
     return value.split('ECitadelStat_')[1]
+
 
 def get_hero_attr(value):
     # Remove the 'E' prefix if its prefixed
     if value.startswith('E'):
         value = value[1:]
 
-    return value  
+    return value
 
 
 LEVEL_MOD_MAP = {
