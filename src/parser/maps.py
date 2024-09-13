@@ -1,3 +1,5 @@
+import re
+
 TARGET_TYPE_MAP = {
     'CITADEL_UNIT_TARGET_ALL_ENEMY': 'AllEnemy',
     'CITADEL_UNIT_TARGET_ALL_FRIENDLY': 'AllFriendly',
@@ -66,7 +68,7 @@ def get_hero_attr(value):
     if value.startswith('E'):
         value = value[1:]
 
-    return value  
+    return value
 
 
 LEVEL_MOD_MAP = {
@@ -92,3 +94,36 @@ def get_bound_abilities(value):
     if len(parts) == 4:
         return parts[2] + parts[3]
     return parts[2]
+
+
+def get_uom(attr):
+    """get unit of measurement based on attribute"""
+    if 'Cooldown' in attr:
+        return 's'
+
+    if 'Duration' in attr:
+        return 's'
+
+    return ''
+
+
+def get_ability_display_name(attr):
+    # strip out redundant "Ability"
+    if attr.startswith('Ability'):
+        attr = attr[7:]
+    return pascal_to_words(attr)
+
+
+def pascal_to_words(text):
+    """Convert pascal text to be spaced.
+    Eg. NeverGonnaGiveYouUp -> Never Gonna Give You Up
+    """
+
+    # ensure DPS is preserved as caps
+    if 'DPS' in text:
+        text.replace('DPS', 'Dps')
+
+    pascal_case = re.sub(r'(?<!^)(?=[A-Z])', ' ', text)
+
+    # return DPS back
+    return pascal_case.replace('Dps', 'DPS')

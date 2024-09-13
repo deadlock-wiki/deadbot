@@ -4,6 +4,7 @@ import os
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 from .constants import OUTPUT_DIR
+import maps as maps
 import utils.json_utils as json_utils
 import utils.string_utils as string_utils
 
@@ -74,8 +75,9 @@ class AbilityParser:
             parsed_upgrade_set = {}
 
             for upgrade in upgrade_set['m_vecPropertyUpgrades']:
+                key = upgrade['m_strPropertyName']
                 value = string_utils.string_to_number(upgrade['m_strBonus'])
-                parsed_upgrade_set[upgrade['m_strPropertyName']] = value
+                parsed_upgrade_set[key] = value
 
             # add and format the description of the ability upgrade
             # descriptions include t1, t2, and t3 denoting the tier
@@ -84,15 +86,22 @@ class AbilityParser:
                 desc = self.localizations[desc_key]
                 formatted_desc = string_utils.format_description(desc, parsed_upgrade_set)
                 parsed_upgrade_set['Description'] = formatted_desc
+
             # create our own description if none exists
             else:
                 desc = ''
                 for attr, value in parsed_upgrade_set.items():
                     str_value = str(value)
+                    unit = maps.get_uom(attr)
+
+                    # attach + or -
                     if isinstance(value, str) or not value < 0:
                         str_value = f'+{str_value}'
 
-                    desc += f'{string_utils.pascal_to_words(attr)}: {str_value} '
+                    desc += f'{str_value}{unit} {maps.get_ability_display_name(attr)} and '
+
+                # strip off extra "and" from description
+                desc = desc[:-5]
                 parsed_upgrade_set['Description'] = desc
 
             parsed_upgrade_sets.append(parsed_upgrade_set)
