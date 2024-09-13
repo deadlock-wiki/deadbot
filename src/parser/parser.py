@@ -1,7 +1,5 @@
-import keyvalues3 as kv3
 import os
 import sys
-import tempfile
 
 from parsers import abilities, items, heroes, changelogs, localizations, attributes
 
@@ -92,9 +90,11 @@ class Parser:
 
     def _parse_localizations(self):
         print('Parsing Localizations...')
-
+        
         # TODO
-        return localizations.LocalizationParser(self.localizations).run()
+        return localizations.LocalizationParser(
+            self.localizations
+        ).run()
 
     def _parse_heroes(self, parsed_abilities):
         print('Parsing Heroes...')

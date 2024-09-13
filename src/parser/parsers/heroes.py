@@ -47,7 +47,12 @@ class HeroParser:
 
                 all_hero_stats[hero_key] = json_utils.sort_dict(hero_stats)
 
-                # Analysis - if more analyses of these similar nature are made, they can be moved to another file; for now it runs when parsed
+                # HERO CHECKS
+                # These stats are not currently in the hero infobox because all heroes share this value and only as the base multiplier of 1x
+                # Since this is not any worthy information, it is not displayed in the infobox, we could even remove it from the hero data entirely
+                # If more checks such as this are added, they should be moved to a separate file "checks.py" for organization sake
+                # For now, the checks are processed when the data is parsed to eliminate the need to re-load the data to memory
+                
                 # Confirm the following stats are all 1
                 # If any are not 1, the wiki should likely get this information added either to the hero infobox template or elsewhere, and the stat removed from the list below
                 multipliers = [
