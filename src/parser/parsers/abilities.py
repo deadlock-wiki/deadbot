@@ -72,16 +72,18 @@ class AbilityParser:
         parsed_upgrade_sets = []
         for index, upgrade_set in enumerate(upgrade_sets):
             parsed_upgrade_set = {'Description': None}
-            # add and format the description of the ability upgrade
-            desc_key = f'{ability_key}_t{index}_desc'
-            print(desc_key)
-            if desc_key in self.localizations:
-                parsed_upgrade_set['Description'] = self.localizations[desc_key]
 
             for upgrade in upgrade_set['m_vecPropertyUpgrades']:
-                parsed_upgrade_set[upgrade['m_strPropertyName']] = string_utils.string_to_number(
-                    upgrade['m_strBonus']
-                )
+                value = string_utils.string_to_number(upgrade['m_strBonus'])
+                parsed_upgrade_set[upgrade['m_strPropertyName']] = value
+
+            # add and format the description of the ability upgrade
+            # descriptions include t1, t2, and t3 denoting the tier
+            desc_key = f'{ability_key}_t{index+1}_desc'
+            if desc_key in self.localizations:
+                desc = self.localizations[desc_key]
+                formatted_desc = string_utils.format_description(desc, parsed_upgrade_set)
+                parsed_upgrade_set['Description'] = formatted_desc
 
             parsed_upgrade_sets.append(parsed_upgrade_set)
 
