@@ -22,6 +22,10 @@ class S3:
 
     def write(self):
         version = self._get_current_version()
+        if version in self.versions():
+            print(f'Version {version} already exists on s3')
+            return
+
         print(f'Uploading data for patch version {version}...')
 
         # get all files in data directory
@@ -45,7 +49,8 @@ class S3:
         versions = []
         for prefix in result.search('CommonPrefixes'):
             version = prefix.get('Prefix')
-            versions.append(version)
+            # remove "/" suffix
+            versions.append(version.replace('/', ''))
 
         return versions
 

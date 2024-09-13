@@ -1,7 +1,5 @@
-import keyvalues3 as kv3
 import os
 import sys
-import tempfile
 
 from parsers import abilities, items, heroes, changelogs, localizations
 
