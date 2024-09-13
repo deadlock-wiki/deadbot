@@ -106,7 +106,9 @@ class Parser:
     def _parse_abilities(self):
         print('Parsing Abilities...')
         return abilities.AbilityParser(
-            self.data['scripts']['abilities'], self.localizations[self.language]
+            self.data['scripts']['abilities'],
+            self.data['scripts']['heroes'],
+            self.localizations[self.language],
         ).run()
 
     def _parse_items(self):

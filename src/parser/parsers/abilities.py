@@ -10,8 +10,9 @@ import utils.string_utils as string_utils
 
 
 class AbilityParser:
-    def __init__(self, abilities_data, localizations):
+    def __init__(self, abilities_data, heroes_data, localizations):
         self.abilities_data = abilities_data
+        self.heroes_data = heroes_data
         self.localizations = localizations
 
     def run(self):
@@ -29,6 +30,7 @@ class AbilityParser:
                 continue
 
             ability_data = {
+                'Key': ability_key,
                 'Name': self.localizations.get(ability_key, None),
             }
 
@@ -50,11 +52,12 @@ class AbilityParser:
                 # print(ability.get('Name'), 'missing upgrades')
                 continue
             else:
-                ability_data['Upgrades'] = self.parse_upgrades(
+                ability_data['Upgrades'] = self._parse_upgrades(
                     ability_key, ability['m_vecAbilityUpgrades']
                 )
 
             description = (self.localizations.get(ability_key + '_desc'),)
+
             ability_data['Description'] = string_utils.format_description(description, ability_data)
 
             formatted_ability_data = {}
@@ -69,7 +72,7 @@ class AbilityParser:
 
         return all_abilities
 
-    def parse_upgrades(self, ability_key, upgrade_sets):
+    def _parse_upgrades(self, ability_key, upgrade_sets):
         parsed_upgrade_sets = []
         for index, upgrade_set in enumerate(upgrade_sets):
             parsed_upgrade_set = {}
@@ -84,6 +87,7 @@ class AbilityParser:
             desc_key = f'{ability_key}_t{index+1}_desc'
             if desc_key in self.localizations:
                 desc = self.localizations[desc_key]
+
                 formatted_desc = string_utils.format_description(desc, parsed_upgrade_set)
                 parsed_upgrade_set['Description'] = formatted_desc
 
@@ -97,7 +101,6 @@ class AbilityParser:
                     # attach + or -
                     if isinstance(value, str) or not value < 0:
                         str_value = f'+{str_value}'
-
                     desc += f'{str_value}{unit} {maps.get_ability_display_name(attr)} and '
 
                 # strip off extra "and" from description
@@ -107,3 +110,17 @@ class AbilityParser:
             parsed_upgrade_sets.append(parsed_upgrade_set)
 
         return parsed_upgrade_sets
+
+    def _find_hero_name(self, ability_key):
+        for hero_key, hero in self.heroes_data.items():
+            # ignore non-dicts that live in the hero data
+            if not isinstance(hero, dict):
+                continue
+
+            abilities = hero['m_mapBoundAbilities']
+            for i in range(1, 5):
+                key = f'ESlot_Signature_{str(i)}'
+                if key in abilities and abilities[key] == ability_key:
+                    return self.localizations[hero_key]
+
+        # raise Exception(f'Could not find hero for ability {ability_key}')

@@ -18,7 +18,16 @@ def format_description(description, data):
 def _replace_variables(desc, data):
     def replace_match(match):
         key = match.group(1)
-        return str(data.get(key, ''))
+
+        if key in data:
+            value = str(data[key])
+            # strip out "m" (metres), as it we just want the formatted
+            # description should contain any units
+            if value.endswith('m'):
+                return value[:-1]
+
+            return value
+        print(f'Missing attribute "{key}" for var replacement')
 
     formatted_desc = re.sub(r'\{s:(.*?)\}', replace_match, desc)
     return formatted_desc
