@@ -1,44 +1,43 @@
 {
-    "BaseHealthRegen": {
-        "UICategory": "Vitality"
-    },
-    "BulletArmorDamageReduction": {
-        "UICategory": "Vitality"
-    },
-    "BulletDamage": {
-        "UICategory": "Weapon"
-    },
-    "ClipSize": {
-        "UICategory": "Weapon"
-    },
-    "HeavyMeleeDamage": {
-        "UICategory": "Weapon"
-    },
-    "LightMeleeDamage": {
-        "UICategory": "Weapon"
-    },
-    "MaxHealth": {
-        "UICategory": "Vitality"
-    },
-    "MaxMoveSpeed": {
-        "UICategory": "Vitality"
-    },
-    "RoundsPerSecond": {
-        "UICategory": "Weapon"
-    },
-    "SprintSpeed": {
-        "UICategory": "Vitality"
-    },
-    "Stamina": {
-        "UICategory": "Vitality"
-    },
-    "TechArmorDamageReduction": {
-        "UICategory": "Vitality"
-    },
-    "TechPower": {
-        "UICategory": "Spirit"
-    },
-    "WeaponDPS": {
-        "UICategory": "Weapon"
-    }
+    "Spirit": [
+        "TechPower",
+        "TechCooldown",
+        "TechDuration",
+        "TechRange",
+        "TechLifesteal",
+        "MaxChargesIncrease",
+        "TechCooldownBetweenChargeUses"
+    ],
+    "Vitality": [
+        "MaxHealth",
+        "BaseHealthRegen",
+        "BulletArmorDamageReduction",
+        "TechArmorDamageReduction",
+        "MaxMoveSpeed",
+        "SprintSpeed",
+        "Stamina",
+        "BulletShieldHealth",
+        "TechShieldHealth",
+        "HealingOutput",
+        "DebuffResist",
+        "CritDamageReceivedScale",
+        "StaminaCooldown",
+        "StaminaRegenIncrease"
+    ],
+    "Weapon": [
+        "WeaponDPS",
+        "BulletDamage",
+        "ClipSize",
+        "RoundsPerSecond",
+        "LightMeleeDamage",
+        "HeavyMeleeDamage",
+        "BaseWeaponDamageIncrease",
+        "FireRate",
+        "ClipSizeIncrease",
+        "ReloadTime",
+        "ReloadSpeed",
+        "BulletSpeed",
+        "BulletSpeedIncrease",
+        "BulletLifesteal"
+    ]
 }
