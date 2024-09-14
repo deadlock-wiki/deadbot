@@ -124,7 +124,7 @@
     "armor_upgrade_t4": {
         "Name": null,
         "Description": null,
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Armor",
@@ -244,7 +244,7 @@
     "tech_upgrade_t4": {
         "Name": null,
         "Description": null,
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Tech",
@@ -268,7 +268,7 @@
     "upgrade_ability_power_shard": {
         "Name": "Echo Shard",
         "Description": null,
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "InstantCast",
         "Slot": "Tech",
@@ -278,7 +278,7 @@
             "Movement",
             "MagicDamage"
         ],
-        "Cooldown": 21.0,
+        "Cooldown": "20",
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -289,7 +289,7 @@
         "CooldownBetweenCharge": "0",
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
-        "TechPower": "12",
+        "TechPower": "8",
         "WeaponPower": "0",
         "BonusMoveSpeed": "1m",
         "BulletResist": "16"
@@ -297,14 +297,14 @@
     "upgrade_ability_refresher": {
         "Name": "Refresher",
         "Description": "Reset the cooldown of all your abilities and restore all your charges.",
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "InstantCast",
         "Slot": "Tech",
         "Components": null,
         "TargetTypes": null,
         "ShopFilters": null,
-        "Cooldown": 212.0,
+        "Cooldown": "200",
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -323,14 +323,14 @@
     "upgrade_ablative_coat": {
         "Name": "Ablative Coat",
         "Description": "Provides Bullet Resist but you lose some each time you take Weapon Damage. Loss can only happen once every 1s. Bullet Resist is restored when out of combat.",
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Armor",
         "Components": null,
         "TargetTypes": [],
         "ShopFilters": null,
-        "Cooldown": 21.0,
+        "Cooldown": "20",
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -364,8 +364,8 @@
             "MagicDamage",
             "Melee"
         ],
-        "Cooldown": 8.5,
-        "Duration": "11",
+        "Cooldown": "8",
+        "Duration": "13",
         "CastRange": "0",
         "UnitTargetLimit": "1",
         "CastDelay": "0",
@@ -379,14 +379,14 @@
         "WeaponPower": "0",
         "SpiritDamage": "50",
         "TechArmorDamageReduction": "-12",
-        "TechShieldMaxHealth": "80",
-        "BonusHealthRegen": "0.8",
-        "BonusMeleeDamagePercent": "12"
+        "TechShieldMaxHealth": "100",
+        "BonusHealthRegen": "1",
+        "BonusMeleeDamagePercent": "15"
     },
     "upgrade_active_bullet_shield": {
         "Name": "Shield Rush",
         "Description": "Give temporary bullet shield for you and nearby allied Heros and their minions.",
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "InstantCast",
         "Slot": "Armor",
@@ -396,7 +396,7 @@
             "MinionFriendly"
         ],
         "ShopFilters": null,
-        "Cooldown": 64.0,
+        "Cooldown": "60",
         "Duration": "15",
         "CastRange": "25m",
         "UnitTargetLimit": "1",
@@ -426,7 +426,7 @@
         "ShopFilters": [
             "WeaponDamage"
         ],
-        "Cooldown": 18.0,
+        "Cooldown": "17",
         "Duration": "7",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -441,13 +441,13 @@
         "WeaponPower": "0",
         "BaseAttackDamagePercent": "10",
         "ReloadSpeedMultipler": "-20",
-        "BulletLifestealPercent": "20",
+        "BulletLifestealPercent": "22",
         "BonusFireRate": "20"
     },
     "upgrade_aerial_assault": {
         "Name": "Aerial Assault",
         "Description": null,
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "InstantCast",
         "Slot": "Armor",
@@ -456,7 +456,7 @@
             "AllEnemy"
         ],
         "ShopFilters": null,
-        "Cooldown": 26.0,
+        "Cooldown": "25",
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -492,7 +492,7 @@
             "ClipSize"
         ],
         "Cooldown": "0",
-        "Duration": "40",
+        "Duration": "35",
         "CastRange": "0",
         "UnitTargetLimit": "1",
         "CastDelay": "0",
@@ -513,7 +513,7 @@
     "upgrade_aoe_root": {
         "Name": "Vacuum Web",
         "Description": null,
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "ActivationPress",
         "Slot": "Tech",
@@ -522,7 +522,7 @@
             "AllEnemy"
         ],
         "ShopFilters": null,
-        "Cooldown": 42.0,
+        "Cooldown": "40",
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -556,7 +556,7 @@
             "MagicDamage",
             "Disruption"
         ],
-        "Cooldown": 32.0,
+        "Cooldown": "30",
         "Duration": "0.25",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -587,7 +587,7 @@
             "HeroFriendly"
         ],
         "ShopFilters": null,
-        "Cooldown": 64.0,
+        "Cooldown": "60",
         "Duration": "25",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -622,7 +622,7 @@
             "AllFriendly"
         ],
         "ShopFilters": null,
-        "Cooldown": 32.0,
+        "Cooldown": "30",
         "Duration": "16",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -813,7 +813,7 @@
     "upgrade_banshee_slugs": {
         "Name": "Crippling Headshot",
         "Description": null,
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Weapon",
@@ -841,7 +841,7 @@
         "LifestealPercentHero": "10",
         "BulletResistReduction": "24",
         "MagicResistReduction": "24",
-        "DebuffDuration": "4"
+        "DebuffDuration": "5"
     },
     "upgrade_base": {
         "Name": null,
@@ -870,7 +870,7 @@
     "upgrade_belt_fed_magazine": {
         "Name": "Belt-Fed Magazine",
         "Description": "Your weapon gains a much larger magazine that requires spin-up time, starting with a slower initial fire rate and becoming faster over the spin-up time.",
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Weapon",
@@ -932,7 +932,7 @@
         "WeaponPowerPerStack": "5",
         "MaxStacks": 10,
         "BonusClipSize": "4",
-        "BulletResist": "7"
+        "BulletResist": "8"
     },
     "upgrade_blitz_bullets": {
         "Name": "Swift Striker",
@@ -1006,7 +1006,7 @@
             "Melee",
             "Healing"
         ],
-        "Cooldown": 5.25,
+        "Cooldown": "5",
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -1021,7 +1021,7 @@
         "WeaponPower": "0",
         "SlowPercent": "60",
         "SlowDuration": "2.5",
-        "BonusMeleeDamagePercent": "35",
+        "BonusMeleeDamagePercent": "40",
         "LifestealHeal": "110",
         "LifestealHealPercent": "55",
         "BonusHealth": "125",
@@ -1115,7 +1115,7 @@
         "WeaponPower": "0",
         "BonusHealth": "150",
         "Radius": "15m",
-        "BulletArmorReduction": "-9",
+        "BulletArmorReduction": "-10",
         "FireRateSlow": "10",
         "SingleTargetPlayerMultiplier": "3"
     },
@@ -1195,7 +1195,7 @@
         "ShopFilters": [
             "FireRate"
         ],
-        "Cooldown": 8.5,
+        "Cooldown": "8",
         "Duration": "4.0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -1211,8 +1211,7 @@
         "BonusFireRate": "12",
         "ActivatedFireRate": "30",
         "SlideScale": "50",
-        "BonusMoveSpeed": "2m",
-        "BonusHealth": "70"
+        "BonusMoveSpeed": "2m"
     },
     "upgrade_burst_fire_actuator": {
         "Name": "Burst Fire Actuator",
@@ -1259,7 +1258,7 @@
         "Components": null,
         "TargetTypes": null,
         "ShopFilters": null,
-        "Cooldown": 10.5,
+        "Cooldown": "10",
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -1331,7 +1330,7 @@
             "MagicDamage",
             "FireRate"
         ],
-        "Cooldown": 0.65,
+        "Cooldown": "0.4",
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -1356,7 +1355,7 @@
     "upgrade_charge_mastery": {
         "Name": "Charge Mastery",
         "Description": null,
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Tech",
@@ -1393,7 +1392,7 @@
             "HeroEnemy"
         ],
         "ShopFilters": null,
-        "Cooldown": 26.0,
+        "Cooldown": "25",
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -1412,7 +1411,7 @@
     "upgrade_cheat_death": {
         "Name": "Cheat Death",
         "Description": null,
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Armor",
@@ -1421,7 +1420,7 @@
             "AllEnemy"
         ],
         "ShopFilters": null,
-        "Cooldown": 159.0,
+        "Cooldown": "150",
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -1616,7 +1615,7 @@
         "Components": null,
         "TargetTypes": null,
         "ShopFilters": null,
-        "Cooldown": 10.5,
+        "Cooldown": "10",
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -1641,7 +1640,7 @@
     "upgrade_cloaking_device_active": {
         "Name": "Shadow Weave",
         "Description": "Become Stealthed. Whenever you take damage while Stealthed you get briefly revealed.",
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "InstantCast",
         "Slot": "Armor",
@@ -1652,7 +1651,7 @@
             "FireRate",
             "Movement"
         ],
-        "Cooldown": 48.0,
+        "Cooldown": "45",
         "Duration": "25",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -1764,7 +1763,7 @@
             "Disruption",
             "Durability"
         ],
-        "Cooldown": 34.0,
+        "Cooldown": "32",
         "Duration": "3.0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -1787,7 +1786,7 @@
     "upgrade_colossus": {
         "Name": "Colossus",
         "Description": "Gain Bullet and Spirit Resist, and slow the movement and dash speed of enemies nearby. Your model size grows by 20%.",
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "InstantCast",
         "Slot": "Armor",
@@ -1796,7 +1795,7 @@
         "ShopFilters": [
             "Durability"
         ],
-        "Cooldown": 37.0,
+        "Cooldown": "45",
         "Duration": "7",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -1816,13 +1815,13 @@
         "TechResist": "40",
         "SlowPercent": "35",
         "GroundDashReductionPercent": "-25",
-        "Radius": "12m",
+        "Radius": "10m",
         "ModelScaleGrowth": "1.2"
     },
     "upgrade_combo_breaker": {
         "Name": "Combo Breaker",
         "Description": "Remove all debuffs and heal yourself. <br>Can be used while stunned.",
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "InstantCast",
         "Slot": "Armor",
@@ -1831,7 +1830,7 @@
             "AllFriendly"
         ],
         "ShopFilters": null,
-        "Cooldown": 23.0,
+        "Cooldown": "22",
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -1865,7 +1864,7 @@
             "Disruption",
             "MagicDamage"
         ],
-        "Cooldown": 26.0,
+        "Cooldown": "25",
         "Duration": "3.0",
         "CastRange": "25m",
         "UnitTargetLimit": "1",
@@ -1929,7 +1928,7 @@
             "WeaponDamage",
             "MagicDamage"
         ],
-        "Cooldown": 5.25,
+        "Cooldown": "6",
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -1952,7 +1951,7 @@
     "upgrade_critshot": {
         "Name": "Lucky Shot",
         "Description": "Your bullets have a chance to be empowered, causing them to deal bonus damage and Slow on hit.",
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Weapon",
@@ -1981,13 +1980,13 @@
         "ProcChance": "35",
         "SlowPercent": "30",
         "SlowDuration": "1.5",
-        "CritDamagePercent": "90",
+        "CritDamagePercent": "80",
         "BonusClipSizePercent": "30"
     },
     "upgrade_damage_recycler": {
         "Name": "Leech",
         "Description": "Reduces the effect of enemy applied healing reduction.",
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Armor",
@@ -2059,7 +2058,7 @@
             "MagicDamage",
             "Disruption"
         ],
-        "Cooldown": 26.0,
+        "Cooldown": "25",
         "Duration": "6",
         "CastRange": "17m",
         "UnitTargetLimit": "1",
@@ -2080,7 +2079,7 @@
     "upgrade_discord": {
         "Name": "Discord",
         "Description": "Apply an aura around enemy or friendly target that damages enemies in the radius and suppresses their healing by -80%. If cast on a friendly, it also heals them.",
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "ActivationPress",
         "Slot": "Tech",
@@ -2089,7 +2088,7 @@
             "Hero"
         ],
         "ShopFilters": null,
-        "Cooldown": 32.0,
+        "Cooldown": "30",
         "Duration": "10",
         "CastRange": "25m",
         "UnitTargetLimit": "1",
@@ -2111,7 +2110,7 @@
     "upgrade_diviners_kevlar": {
         "Name": "Diviner's Kevlar",
         "Description": "Upon casting an ultimate ability gain temporary Bullet Shield, Spirit Shield, and Spirit Power.",
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Tech",
@@ -2122,7 +2121,7 @@
             "Durability",
             "Healing"
         ],
-        "Cooldown": 64.0,
+        "Cooldown": "60",
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -2151,7 +2150,7 @@
         "Components": null,
         "TargetTypes": null,
         "ShopFilters": null,
-        "Cooldown": 8.5,
+        "Cooldown": "8",
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -2166,7 +2165,7 @@
         "WeaponPower": "0",
         "AirJumps": "1",
         "AirJumpVerticalSpeedPercent": "75",
-        "InteruptCooldown": 4.25
+        "InteruptCooldown": "4"
     },
     "upgrade_dps_aura": {
         "Name": "Heroic Aura",
@@ -2184,7 +2183,7 @@
             "Healing",
             "Movement"
         ],
-        "Cooldown": 32.0,
+        "Cooldown": "30",
         "Duration": "6",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -2202,7 +2201,7 @@
         "BonusFireRatePlayerUnit": "40",
         "Radius": "20m",
         "ActiveRadius": "30m",
-        "ActiveBonusMoveSpeed": "2m",
+        "ActiveBonusMoveSpeed": "3m",
         "BonusHealth": "150",
         "BonusMoveSpeed": "1m"
     },
@@ -2292,7 +2291,7 @@
     "upgrade_escalating_exposure": {
         "Name": "Escalating Exposure",
         "Description": "Dealing Spirit Damage applies a stacking Spirit Amp that increases your Spirit Damage to the target.",
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Tech",
@@ -2358,7 +2357,7 @@
     "upgrade_fervor": {
         "Name": "Frenzy",
         "Description": null,
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Weapon",
@@ -2390,7 +2389,7 @@
         "FervorMovespeed": "4m",
         "FervorFireRate": "40",
         "FervorTechResist": "45",
-        "LingerDuration": "6"
+        "LingerDuration": "4"
     },
     "upgrade_fire_rate_aura": {
         "Name": "Fire Rate Aura",
@@ -2434,7 +2433,7 @@
             "ClipSize",
             "Movement"
         ],
-        "Cooldown": 19.0,
+        "Cooldown": "22",
         "Duration": "4",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -2449,16 +2448,16 @@
         "WeaponPower": "0",
         "MoveWhileShootingSpeedPenaltyReductionPercent": "100",
         "MoveWhileZoomedSpeedPenaltyReductionPercent": "100",
-        "ActiveBonusMoveSpeed": "3m",
+        "ActiveBonusMoveSpeed": "4m",
         "BonusClipSizePercent": "30",
         "BonusClipDuration": "10",
-        "BonusHealth": "90",
+        "BonusHealth": "75",
         "SlideScale": "25"
     },
     "upgrade_frenzy": {
         "Name": null,
         "Description": null,
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Armor",
@@ -2489,7 +2488,7 @@
     "upgrade_full_spectrum": {
         "Name": "Full Spectrum",
         "Description": null,
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Tech",
@@ -2520,7 +2519,7 @@
     "upgrade_galvanic_storm": {
         "Name": "Galvanic Storm",
         "Description": null,
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Weapon",
@@ -2558,8 +2557,8 @@
     },
     "upgrade_glass_cannon": {
         "Name": "Glass Cannon",
-        "Description": "Each hero kill grants permanent Weapon Damage (up to a max of 7 times).  Death results in the loss of 1 stack.",
-        "Cost": "6200",
+        "Description": "Each hero kill grants permanent Weapon Damage (up to a max of 5 times).  Death results in the loss of 1 stack.",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Weapon",
@@ -2590,12 +2589,12 @@
         "BonusFireRate": "10",
         "BonusMoveSpeed": "1m",
         "WeaponPowerPerKill": "10",
-        "MaxStacks": "7"
+        "MaxStacks": "5"
     },
     "upgrade_glitch": {
         "Name": "Curse",
         "Description": "Curses an enemy - interrupting, Silencing, Disarming, and preventing item usage.",
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "ActivationPress",
         "Slot": "Tech",
@@ -2607,7 +2606,7 @@
             "Disruption",
             "WeaponDamage"
         ],
-        "Cooldown": 53.0,
+        "Cooldown": "50",
         "Duration": "3.25",
         "CastRange": "20m",
         "UnitTargetLimit": "1",
@@ -2673,7 +2672,7 @@
             "Durability",
             "FireRate"
         ],
-        "Cooldown": 7.5,
+        "Cooldown": "7",
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -2688,7 +2687,7 @@
         "WeaponPower": "0",
         "BonusFireRate": "5",
         "BulletShieldMaxHealth": "40",
-        "HeadShotBonusDamage": "40"
+        "HeadShotBonusDamage": "45"
     },
     "upgrade_healbane": {
         "Name": "Healbane",
@@ -2791,16 +2790,14 @@
         "Tier": "2",
         "Activation": "InstantCast",
         "Slot": "Armor",
-        "Components": [
-            "upgrade_health_stimpak"
-        ],
+        "Components": null,
         "TargetTypes": [
             "AllFriendly"
         ],
         "ShopFilters": [
             "Healing"
         ],
-        "Cooldown": 64.0,
+        "Cooldown": "60",
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -2811,12 +2808,12 @@
         "CooldownBetweenCharge": "0",
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
-        "TechPower": "4",
+        "TechPower": "0",
         "WeaponPower": "0",
         "TotalHealthRegen": "260",
         "HeroTargetBonus": "20",
         "RegenDuration": "2",
-        "AuraRadius": "15m",
+        "AuraRadius": "18m",
         "BaseAttackDamagePercent": "10",
         "BonusHealth": "100"
     },
@@ -2919,7 +2916,7 @@
         "ShopFilters": [
             "Healing"
         ],
-        "Cooldown": 64.0,
+        "Cooldown": "60",
         "Duration": "0",
         "CastRange": "30m",
         "UnitTargetLimit": "1",
@@ -2930,7 +2927,7 @@
         "CooldownBetweenCharge": "0",
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
-        "TechPower": "3",
+        "TechPower": "0",
         "WeaponPower": "0",
         "TotalHealthRegen": "370",
         "RegenDuration": "17",
@@ -3014,7 +3011,7 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "BonusBulletSpeedPercent": "30",
-        "BaseAttackDamagePercent": "12",
+        "BaseAttackDamagePercent": "14",
         "BulletShieldMaxHealth": "50"
     },
     "upgrade_hollow_point_rounds": {
@@ -3046,13 +3043,13 @@
         "TechPower": "4",
         "WeaponPower": "0",
         "LifeThreshold": "60",
-        "BaseAttackDamagePercent": "22",
+        "BaseAttackDamagePercent": "20",
         "TechShieldMaxHealth": "85"
     },
     "upgrade_imbued_ability": {
         "Name": "Imbued Ability",
         "Description": null,
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Tech",
@@ -3168,7 +3165,7 @@
         "CooldownBetweenCharge": "0",
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
-        "TechPower": "9",
+        "TechPower": "8",
         "WeaponPower": "0",
         "BonusHealthRegen": "1",
         "BonusHealth": "35"
@@ -3215,7 +3212,7 @@
         "ShopFilters": [
             "MagicDamage"
         ],
-        "Cooldown": 37.0,
+        "Cooldown": "35",
         "Duration": "6",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -3236,7 +3233,7 @@
     "upgrade_inhibitor": {
         "Name": "Inhibitor",
         "Description": "Your bullets apply Movement Slow and reduce the target's outgoing damage on hit.",
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Armor",
@@ -3266,7 +3263,8 @@
         "BaseAttackDamagePercent": "25",
         "SlowPercent": "25",
         "DebuffDuration": "2.5",
-        "OutgoingDamagePenaltyPercent": "-35"
+        "OutgoingAbilityDamagePenaltyPercent": "-35",
+        "OutgoingBulletDamagePenaltyPercent": "-40"
     },
     "upgrade_intensifying_clip": {
         "Name": "Intensifying Magazine",
@@ -3314,7 +3312,7 @@
             "Movement",
             "Durability"
         ],
-        "Cooldown": 10.5,
+        "Cooldown": "10",
         "Duration": "8",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -3348,7 +3346,7 @@
             "Melee",
             "Healing"
         ],
-        "Cooldown": 7.5,
+        "Cooldown": "7",
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -3361,7 +3359,7 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BonusMeleeDamagePercent": "13",
+        "BonusMeleeDamagePercent": "15",
         "LifestrikeHeal": "90",
         "LifestrikeHealPercent": "20",
         "BonusHealth": "75",
@@ -3396,7 +3394,7 @@
         "LongRangeBonusWeaponPower": "40",
         "LongRangeBonusWeaponPowerMinRange": "15m",
         "BonusClipSizePercent": "20",
-        "BulletShieldMaxHealth": "140"
+        "BulletShieldMaxHealth": "90"
     },
     "upgrade_long_range_slowing_tech": {
         "Name": "Omni Spirit",
@@ -3444,7 +3442,7 @@
             "MagicDamage",
             "Healing"
         ],
-        "Cooldown": 6.25,
+        "Cooldown": "6",
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -3465,7 +3463,7 @@
     "upgrade_magic_carpet": {
         "Name": "Magic Carpet",
         "Description": "Summon a Magic Carpet that will fly you away and gain Bullet and Spirit shields.  Cannot use abilities while the carpet is being summoned.  While flying you are immune to slows and doing any action will dismiss the carpet.",
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "InstantCast",
         "Slot": "Tech",
@@ -3474,7 +3472,7 @@
         "ShopFilters": [
             "Movement"
         ],
-        "Cooldown": 32.0,
+        "Cooldown": "30",
         "Duration": "7",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -3505,7 +3503,7 @@
         "Components": null,
         "TargetTypes": null,
         "ShopFilters": null,
-        "Cooldown": 16.0,
+        "Cooldown": "15",
         "Duration": "8",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -3547,9 +3545,9 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "TechRangeMultiplier": "16",
-        "TechRadiusMultiplier": "16",
-        "TechResist": "6"
+        "TechRangeMultiplier": "15",
+        "TechRadiusMultiplier": "15",
+        "TechResist": "5"
     },
     "upgrade_magic_shield": {
         "Name": "Enchanter's Barrier",
@@ -3613,7 +3611,7 @@
         "WeaponPower": "0",
         "MinimumDamage": "125",
         "ReProcLockoutTime": "5",
-        "MaxHealthDamage": "9",
+        "MaxHealthDamage": "10",
         "TechShieldMaxHealth": "100",
         "BaseAttackDamagePercent": "8"
     },
@@ -3664,7 +3662,7 @@
             "MagicDamage",
             "Movement"
         ],
-        "Cooldown": 10.5,
+        "Cooldown": "10",
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -3678,7 +3676,6 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "ImbuedTechPower": "34",
-        "FireRateBonus": "10",
         "BonusMoveSpeed": "3m",
         "MovementSpeedBonusDuration": "6",
         "BonusHealth": "75"
@@ -3757,7 +3754,7 @@
             "WeaponDamage",
             "Healing"
         ],
-        "Cooldown": 6.25,
+        "Cooldown": "6",
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -3773,14 +3770,14 @@
         "Radius": "1m",
         "ProcChance": "100",
         "BaseAttackDamagePercent": "8",
-        "HealFromHero": "40",
-        "HealFromNPC": "15",
+        "HealFromHero": "35",
+        "HealFromNPC": "10",
         "BulletResist": "7"
     },
     "upgrade_mega_spirit": {
         "Name": "Boundless Spirit",
         "Description": null,
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Tech",
@@ -3813,7 +3810,7 @@
     },
     "upgrade_melee_charge": {
         "Name": "Melee Charge",
-        "Description": "Your next Heavy Melee attack against an enemy deals increased damage and reloads your weapon instantly.",
+        "Description": "Increases your Heavy Melee charge distance. When you perform a Heavy Melee attack against an enemy, your weapon reloads instantly.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -3828,7 +3825,7 @@
         "ShopFilters": [
             "Melee"
         ],
-        "Cooldown": 8.5,
+        "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -3844,8 +3841,7 @@
         "BaseAttackDamagePercent": "15",
         "BonusHealth": "100",
         "MeleeDistanceScale": "40",
-        "BonusHealthRegen": "1",
-        "BonusHeavyMeleeDamage": "20"
+        "BonusHealthRegen": "1"
     },
     "upgrade_metal_skin": {
         "Name": "Metal Skin",
@@ -3860,7 +3856,7 @@
             "Durability",
             "FireRate"
         ],
-        "Cooldown": 21.0,
+        "Cooldown": "22",
         "Duration": "3.5",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -3879,7 +3875,7 @@
     "upgrade_mod_disruptor": {
         "Name": "Soul Disruptor",
         "Description": "Throw a grenade that explodes on contact and applies silence and increasing amounts of damage to each enemy.",
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "ActivationPress",
         "Slot": "Tech",
@@ -3888,7 +3884,7 @@
             "AllEnemy"
         ],
         "ShopFilters": null,
-        "Cooldown": 32.0,
+        "Cooldown": "30",
         "Duration": "5",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -3987,7 +3983,7 @@
         "Components": null,
         "TargetTypes": null,
         "ShopFilters": null,
-        "Cooldown": 509.0,
+        "Cooldown": "480",
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -4006,7 +4002,7 @@
     "upgrade_phantom_strike": {
         "Name": "Phantom Strike",
         "Description": "Teleport to an enemy target, applying Disarm, Slow, and dealing damage.",
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "ActivationPress",
         "Slot": "Armor",
@@ -4020,7 +4016,7 @@
             "Movement",
             "Disruption"
         ],
-        "Cooldown": 26.0,
+        "Cooldown": "25",
         "Duration": "0",
         "CastRange": "25m",
         "UnitTargetLimit": "1",
@@ -4037,7 +4033,7 @@
         "BaseAttackDamagePercent": "30",
         "SlowPercent": "50",
         "SlowDuration": "3",
-        "ImpactDamage": "75"
+        "ImpactDamage": "150"
     },
     "upgrade_predator_precision": {
         "Name": "Predator Precision",
@@ -4202,7 +4198,7 @@
             "HeroEnemy"
         ],
         "ShopFilters": null,
-        "Cooldown": 42.0,
+        "Cooldown": "40",
         "Duration": "4.5",
         "CastRange": "30m",
         "UnitTargetLimit": "1",
@@ -4247,7 +4243,7 @@
         "ProcCooldown": "12",
         "FireRateBonus": "15",
         "FireRateDuration": "12",
-        "Damage": "65"
+        "Damage": "50"
     },
     "upgrade_rapid_recharge": {
         "Name": "Rapid Recharge",
@@ -4276,8 +4272,7 @@
         "WeaponPower": "0",
         "CooldownBetweenChargeReduction": "55",
         "BonusAbilityCharges": "2",
-        "CooldownReductionOnChargedAbilities": "25",
-        "BaseAttackDamagePercent": "12"
+        "CooldownReductionOnChargedAbilities": "25"
     },
     "upgrade_rapid_rounds": {
         "Name": "Rapid Rounds",
@@ -4305,20 +4300,21 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BonusFireRate": "9",
-        "BonusSprintSpeed": "1m"
+        "BonusFireRate": "12",
+        "BonusSprintSpeed": "1m",
+        "MaxHealth": "-50"
     },
     "upgrade_rebirth": {
         "Name": "Soul Rebirth",
         "Description": null,
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Armor",
         "Components": null,
         "TargetTypes": null,
         "ShopFilters": null,
-        "Cooldown": 212.0,
+        "Cooldown": "200",
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -4333,7 +4329,8 @@
         "WeaponPower": "0",
         "RespawnDelay": "4",
         "RespawnHealthPercent": "50",
-        "CooldownReduction": "15"
+        "CooldownReduction": "18",
+        "BaseAttackDamagePercent": "20"
     },
     "upgrade_reduce_debuff_duration": {
         "Name": "Debuff Remover",
@@ -4349,7 +4346,7 @@
         "ShopFilters": [
             "WeaponDamage"
         ],
-        "Cooldown": 48.0,
+        "Cooldown": "45",
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -4488,7 +4485,9 @@
         "Tier": "3",
         "Activation": "ActivationPress",
         "Slot": "Armor",
-        "Components": null,
+        "Components": [
+            "upgrade_health_stimpak"
+        ],
         "TargetTypes": [
             "HeroFriendly"
         ],
@@ -4498,9 +4497,9 @@
             "Healing",
             "Movement"
         ],
-        "Cooldown": 26.0,
+        "Cooldown": "25",
         "Duration": "0",
-        "CastRange": "36m",
+        "CastRange": "45m",
         "UnitTargetLimit": "1",
         "CastDelay": "0",
         "ChannelTime": "2.5",
@@ -4511,7 +4510,7 @@
         "ResourceCost": "0",
         "TechPower": "9",
         "WeaponPower": "0",
-        "HealPercentAmount": "26",
+        "HealPercentAmount": "30",
         "HealInterval": "0.2",
         "BonusMoveSpeed": "0m",
         "BonusHealth": "125",
@@ -4545,7 +4544,7 @@
         "TechPower": "4",
         "WeaponPower": "0",
         "BonusHealth": "75",
-        "LifestealPercentHero": "10"
+        "LifestealPercentHero": "8"
     },
     "upgrade_restorative_locket": {
         "Name": "Restorative Locket",
@@ -4562,7 +4561,7 @@
             "Healing",
             "Durability"
         ],
-        "Cooldown": 30.0,
+        "Cooldown": "28",
         "Duration": "0",
         "CastRange": "30m",
         "UnitTargetLimit": "1",
@@ -4594,7 +4593,7 @@
             "MagicDamage",
             "FireRate"
         ],
-        "Cooldown": 25.0,
+        "Cooldown": "24",
         "Duration": "7",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -4615,7 +4614,7 @@
     "upgrade_ricochet": {
         "Name": "Ricochet",
         "Description": "Your bullets will ricochet on enemies near your target, applying any bullet procs and dealing a percentage of the original damage.",
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Weapon",
@@ -4664,7 +4663,7 @@
         "ShopFilters": [
             "Movement"
         ],
-        "Cooldown": 23.0,
+        "Cooldown": "24",
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -4693,7 +4692,7 @@
     },
     "upgrade_rocket_boots": {
         "Name": "Majestic Leap - Disabled",
-        "Description": "Launch yourself high into the air. Cannot be used for 4.25s if damaged by enemy Hero.",
+        "Description": "Launch yourself high into the air. Cannot be used for 4s if damaged by enemy Hero.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "InstantCast",
@@ -4704,7 +4703,7 @@
             "MagicDamage",
             "Movement"
         ],
-        "Cooldown": 16.0,
+        "Cooldown": "15",
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -4718,7 +4717,7 @@
         "TechPower": "8",
         "WeaponPower": "0",
         "JumpVelocityHidden": "22.5m",
-        "InteruptCooldown": 4.25,
+        "InteruptCooldown": "4",
         "AirControlPercent": "100",
         "BonusHealth": "75"
     },
@@ -4737,7 +4736,7 @@
             "MagicDamage",
             "Disruption"
         ],
-        "Cooldown": 32.0,
+        "Cooldown": "30",
         "Duration": "10",
         "CastRange": "15m",
         "UnitTargetLimit": "1",
@@ -4770,7 +4769,7 @@
             "Durability",
             "Movement"
         ],
-        "Cooldown": 30.0,
+        "Cooldown": "28",
         "Duration": "0",
         "CastRange": "35m",
         "UnitTargetLimit": "1",
@@ -4784,8 +4783,8 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "BuffDuration": "5",
-        "SaviorBulletShieldHealth": "260",
-        "SaviorMagicShieldHealth": "260",
+        "SaviorBulletShieldHealth": "300",
+        "SaviorMagicShieldHealth": "300",
         "TechRangeMultiplier": "8",
         "TechRadiusMultiplier": "8",
         "BonusMoveSpeed": "2m",
@@ -4794,7 +4793,7 @@
     },
     "upgrade_self_bubble": {
         "Name": "Ethereal Shift",
-        "Description": "You enter a void state and become untargetable and invincible for a short duration, during which you cannot move or perform any actions. Afterwards you instantly reload and gain bonus Spirit Power.<br>Can be cancelled early.",
+        "Description": "You enter a void state and become untargetable and invincible for a short duration, during which you cannot move or perform any actions. Afterwards you instantly reload and gain bonus Spirit Power.<br>Press [] to cancel early.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "InstantCast",
@@ -4804,7 +4803,7 @@
         "ShopFilters": [
             "FireRate"
         ],
-        "Cooldown": 32.0,
+        "Cooldown": "30",
         "Duration": "3.5",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -4856,12 +4855,12 @@
         "BonusAttackRangePercent": "15",
         "BonusZoomPercent": "35",
         "BonusClipSizePercent": "20",
-        "BulletShieldMaxHealth": "200"
+        "BulletShieldMaxHealth": "175"
     },
     "upgrade_silencer": {
         "Name": "Silencer",
         "Description": null,
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "InstantCast",
         "Slot": "Weapon",
@@ -4875,7 +4874,7 @@
             "WeaponDamage",
             "Disruption"
         ],
-        "Cooldown": 36.0,
+        "Cooldown": "34",
         "Duration": "4",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -4889,14 +4888,14 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "EMPDuration": "2",
-        "BaseAttackDamagePercent": "20",
+        "BaseAttackDamagePercent": "15",
         "SlowPercent": "25",
         "SlowDuration": "1.3"
     },
     "upgrade_siphon_bullets": {
         "Name": "Siphon Bullets",
         "Description": null,
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Weapon",
@@ -4940,7 +4939,7 @@
         "Components": null,
         "TargetTypes": null,
         "ShopFilters": null,
-        "Cooldown": 32.0,
+        "Cooldown": "30",
         "Duration": "6",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -5142,7 +5141,7 @@
             "AllEnemy"
         ],
         "ShopFilters": null,
-        "Cooldown": 64.0,
+        "Cooldown": "60",
         "Duration": "20",
         "CastRange": "15m",
         "UnitTargetLimit": "1",
@@ -5171,14 +5170,14 @@
     "upgrade_stasis_bomb": {
         "Name": "Stasis Bomb",
         "Description": null,
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "InstantCast",
         "Slot": "Armor",
         "Components": null,
         "TargetTypes": null,
         "ShopFilters": null,
-        "Cooldown": 37.0,
+        "Cooldown": "35",
         "Duration": "6",
         "CastRange": "20m",
         "UnitTargetLimit": "1",
@@ -5275,7 +5274,7 @@
     "upgrade_surging_power": {
         "Name": "Vampiric Burst",
         "Description": null,
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "InstantCast",
         "Slot": "Weapon",
@@ -5289,7 +5288,7 @@
             "Movement",
             "Healing"
         ],
-        "Cooldown": 37.0,
+        "Cooldown": "35",
         "Duration": "4.5",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -5324,7 +5323,7 @@
             "MagicDamage",
             "Disruption"
         ],
-        "Cooldown": 48.0,
+        "Cooldown": "45",
         "Duration": "0",
         "CastRange": "45m",
         "UnitTargetLimit": "1",
@@ -5359,7 +5358,7 @@
             "WeaponDamage",
             "Disruption"
         ],
-        "Cooldown": 32.0,
+        "Cooldown": "30",
         "Duration": "3.0",
         "CastRange": "25m",
         "UnitTargetLimit": "1",
@@ -5373,7 +5372,7 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "Damage": "100",
-        "TechShieldMaxHealth": "150",
+        "TechShieldMaxHealth": "200",
         "BonusSprintSpeed": "1m"
     },
     "upgrade_tech_armor": {
@@ -5407,7 +5406,7 @@
     "upgrade_tech_bleed": {
         "Name": "Mystic Reverb",
         "Description": "Imbue an ability to apply slow in a radius around the target and deal an additional percentage of the damage dealt to enemies around the target after a short delay.",
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Tech",
@@ -5419,7 +5418,7 @@
             "MagicDamage",
             "Healing"
         ],
-        "Cooldown": 6.25,
+        "Cooldown": "6",
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -5484,7 +5483,7 @@
             "MagicDamage",
             "Durability"
         ],
-        "Cooldown": 1.75,
+        "Cooldown": "1.5",
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -5497,21 +5496,21 @@
         "ResourceCost": "0",
         "TechPower": "6",
         "WeaponPower": "0",
-        "BonusHealth": "140",
+        "BonusHealth": "125",
         "DamagePulseAmount": "40",
         "DamagePulseRadius": "9m"
     },
     "upgrade_tech_defender": {
         "Name": "Tech Defender",
         "Description": null,
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "InstantCast",
         "Slot": "Armor",
         "Components": null,
         "TargetTypes": null,
         "ShopFilters": null,
-        "Cooldown": 95.0,
+        "Cooldown": "90",
         "Duration": "6",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -5555,7 +5554,7 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BaseAttackDamagePercent": "7",
+        "BaseAttackDamagePercent": "6",
         "ShreddersTechAmp": "10",
         "DebuffDuration": "6",
         "LifestealPercentHero": "20"
@@ -5563,7 +5562,7 @@
     "upgrade_tech_overflow": {
         "Name": "Spiritual Overflow",
         "Description": "Gain bonus Spirit Power by charging up with your bullets on enemy heroes.",
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Weapon",
@@ -5650,7 +5649,7 @@
         "CooldownBetweenCharge": "0",
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
-        "TechPower": "8",
+        "TechPower": "6",
         "WeaponPower": "0",
         "NonImbuedTechRangeMultiplier": "25",
         "NonImbuedTechRadiusMultiplier": "25",
@@ -5673,7 +5672,7 @@
             "WeaponDamage",
             "MagicDamage"
         ],
-        "Cooldown": 28.0,
+        "Cooldown": "26",
         "Duration": "5",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -5684,7 +5683,7 @@
         "CooldownBetweenCharge": "0",
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
-        "TechPower": "11",
+        "TechPower": "7",
         "WeaponPower": "0",
         "DPS": "45",
         "DPSIncrease": "8",
@@ -5727,7 +5726,7 @@
         "WeaponPower": "0",
         "BonusClipSizePercent": "100",
         "BaseAttackDamagePercent": "18",
-        "BulletResist": "18"
+        "BulletResist": "15"
     },
     "upgrade_toughness_3": {
         "Name": "Toughness",
@@ -5798,7 +5797,7 @@
     "upgrade_unstoppable": {
         "Name": "Unstoppable",
         "Description": "Suppress negative status effects and become Immune to Stun, Silence, Sleep, Root, and Disarm.",
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "InstantCast",
         "Slot": "Armor",
@@ -5808,7 +5807,7 @@
             "Durability",
             "Movement"
         ],
-        "Cooldown": 64.0,
+        "Cooldown": "60",
         "Duration": "6",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -5868,7 +5867,7 @@
             "Durability",
             "ClipSize"
         ],
-        "Cooldown": 18.0,
+        "Cooldown": "17",
         "Duration": "16",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -5911,7 +5910,7 @@
             "ClipSize",
             "Healing"
         ],
-        "Cooldown": 32.0,
+        "Cooldown": "30",
         "Duration": "10",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -5944,9 +5943,9 @@
             "WeaponDamage",
             "Movement"
         ],
-        "Cooldown": 16.0,
+        "Cooldown": "15",
         "Duration": "0",
-        "CastRange": "11m",
+        "CastRange": "13m",
         "UnitTargetLimit": "1",
         "CastDelay": "0.0",
         "ChannelTime": "0",
@@ -5964,7 +5963,7 @@
     "upgrade_weapon_detention_ammo": {
         "Name": "Detention Rounds",
         "Description": "Your bullets build up on enemies, causing them to be tethered to their position.",
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Weapon",
@@ -6035,7 +6034,7 @@
         "Components": null,
         "TargetTypes": null,
         "ShopFilters": null,
-        "Cooldown": 21.0,
+        "Cooldown": "20",
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -6060,7 +6059,7 @@
         "Components": null,
         "TargetTypes": null,
         "ShopFilters": null,
-        "Cooldown": 53.0,
+        "Cooldown": "50",
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -6088,7 +6087,7 @@
         "Components": null,
         "TargetTypes": null,
         "ShopFilters": null,
-        "Cooldown": 11.5,
+        "Cooldown": "11",
         "Duration": "4",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -6120,7 +6119,7 @@
             "Disruption",
             "MagicDamage"
         ],
-        "Cooldown": 26.0,
+        "Cooldown": "25",
         "Duration": "4.5",
         "CastRange": "24m",
         "UnitTargetLimit": "1",
@@ -6133,7 +6132,7 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "FireRateSlow": "40",
+        "FireRateSlow": "30",
         "BulletArmorReduction": "-14",
         "BonusFireRate": "8",
         "SpiritPower": "4",
@@ -6266,7 +6265,7 @@
     "weapon_upgrade_t4": {
         "Name": null,
         "Description": null,
-        "Cost": "6200",
+        "Cost": "6300",
         "Tier": "4",
         "Activation": "Passive",
         "Slot": "Weapon",
