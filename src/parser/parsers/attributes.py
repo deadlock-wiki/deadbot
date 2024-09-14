@@ -30,16 +30,13 @@ class AttributeParser:
                 continue
 
             stats_ui = hero_value['StatsUI']
-            for stat_key, ui_category in stats_ui.items():
-                if stat_key not in all_attributes:
-                    all_attributes[stat_key] = {}
+            for ui_category, stats in stats_ui.items():
+                if ui_category not in all_attributes:
+                    all_attributes[ui_category] = []
 
-                else:
-                    # Nest under UICategory for future proofing; likely more data will be added for attributes other than localization
-                    if ui_category != all_attributes[stat_key]['UICategory']:
-                        raise ValueError(
-                            f'Inconsistent value for {stat_key} for hero {hero_key}: {ui_category} != {all_attributes[stat_key]['UICategory']}'
-                        )
-                all_attributes[stat_key]['UICategory'] = ui_category
+                for stat_name in stats:
+                
+                    if stat_name not in all_attributes[ui_category]:    
+                        all_attributes[ui_category].append(stat_name)
 
         return all_attributes

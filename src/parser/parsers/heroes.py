@@ -70,7 +70,7 @@ class HeroParser:
                         )
 
         # Include removed keys in the data sent to consecutive parsers, but not to the output file
-        hero_stats_to_remove = multipliers + ['StatsUI']
+        hero_stats_to_remove = multipliers + ['']
         hero_stats_removed = json_utils.remove_keys(
             all_hero_stats, keys_to_remove=hero_stats_to_remove, depths_to_search=2
         )
@@ -111,15 +111,10 @@ class HeroParser:
 
     # Parse the stats that are listed in the UI in game
     def _parse_stats_ui(self, hero_value):
-        if (
-            'm_heroStatsUI' not in hero_value
-            or 'm_vecDisplayStats' not in hero_value['m_heroStatsUI']
-        ):
-            return None
-
         parsed_stats_ui = {}
 
         """
+            Within m_heroStatsUI
             Transform each value within m_vecDisplayStats array
             
             {
@@ -129,13 +124,90 @@ class HeroParser:
 
             to a dict entry
             "MaxHealth": "Vitality"
+
+            
+
+            Within m_ShopStatDisplay
+            Transform
+            "m_eWeaponStatsDisplay": {
+                "m_vecDisplayStats": [
+                    "EBulletDamage",
+                    "EBaseWeaponDamageIncrease",
+                    "ERoundsPerSecond",
+                    "EFireRate",
+                    "EClipSize",
+                    "EClipSizeIncrease",
+                    "EReloadTime",
+                    "EReloadSpeed",
+                    "EBulletSpeed",
+                    "EBulletSpeedIncrease",
+                    "EBulletLifesteal"
+                ],
+                "m_vecOtherDisplayStats": [
+                    "ELightMeleeDamage",
+                    "EHeavyMeleeDamage"
+                ],
+                "m_eWeaponAttributes": "EWeaponAttribute_RapidFire | EWeaponAttribute_MediumRange"
+            },
+
+            to
+
+            "BulletDamage": "Weapon",
+            "BaseWeaponDamageIncrease": "Weapon",
+            "RoundsPerSecond": "Weapon",
+            "FireRate": "Weapon",
+            "ClipSize": "Weapon",
+            "ClipSizeIncrease": "Weapon",
+            "ReloadTime": "Weapon",
+            "ReloadSpeed": "Weapon",
+            "BulletSpeed": "Weapon",
+            "BulletSpeedIncrease": "Weapon",
+            "BulletLifesteal": "Weapon",
+            "LightMeleeDamage": "Weapon",
+            "HeavyMeleeDamage": "Weapon"
+            "WeaponAttribute_RapidFire": "Weapon"
+            "WeaponAttribute_MediumRange": "Weapon"
+            
         """
 
         stats_ui = hero_value['m_heroStatsUI']['m_vecDisplayStats']
         for stat in stats_ui:
             parsed_stat_name = maps.get_hero_attr(stat['m_eStatType'])
             parsed_stat_category = maps.get_attr_group(stat['m_eStatCategory'])
-            parsed_stats_ui[parsed_stat_name] = parsed_stat_category
+
+            # Start forming a list
+            if parsed_stat_category not in parsed_stats_ui:
+                parsed_stats_ui[parsed_stat_category] = []
+
+            # Add to parsed stats
+            parsed_stats_ui[parsed_stat_category].append(parsed_stat_name)
+
+
+        shop_stats_ui = hero_value['m_ShopStatDisplay']
+        for category, category_stats in shop_stats_ui.items():
+            category_name = maps.get_shop_attr_group(category)
+
+            # Start forming a list
+            if category_name not in parsed_stats_ui:
+                parsed_stats_ui[category_name] = []
+            
+            # Process all stats in the category
+            for _, stats in category_stats.items():
+                if type(stats) is str:
+                    # Contains weapon type and weapon range
+                    # May be parsed in the future, left out of this data for now
+                    #stats = stats.split(' | ')
+                    continue
+                elif type(stats) is list:
+                    pass
+                else:
+                    raise Exception(f'Expected string or list, got {type(stats)}')
+                
+                # Add to parsed stats
+                for stat in stats:
+                    parsed_stats_ui[category_name].append(maps.get_hero_attr(stat))
+            
+            
 
         return parsed_stats_ui
 
