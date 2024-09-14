@@ -52,7 +52,7 @@ class HeroParser:
                 # Since this is not any worthy information, it is not displayed in the infobox, we could even remove it from the hero data entirely
                 # If more checks such as this are added, they should be moved to a separate file "checks.py" for organization sake
                 # For now, the checks are processed when the data is parsed to eliminate the need to re-load the data to memory
-                
+
                 # Confirm the following stats are all 1
                 # If any are not 1, the wiki should likely get this information added either to the hero infobox template or elsewhere, and the stat removed from the list below
                 multipliers = [

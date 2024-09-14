@@ -21,7 +21,7 @@ class AttributeParser:
                 # Add attributes this hero contains to the master attr dict
                 all_attributes.update(self._parse_stats_ui(hero_value))
                 all_attributes.update(self._parse_shop_stat_display(hero_value))
-        # Write to 
+        # Write to
 
         json_utils.write(
             OUTPUT_DIR + 'json/attribute-data.json', json_utils.sort_dict(all_attributes)
@@ -59,7 +59,7 @@ class AttributeParser:
                 category_attributes[parsed_stat_category].append(parsed_stat_name)
 
         return category_attributes
-    
+
     def _parse_shop_stat_display(self, hero_value):
         """Parses m_ShopStatDisplay for each hero"""
 
@@ -95,19 +95,19 @@ class AttributeParser:
             # Ensure category exists
             if category_name not in category_attributes:
                 category_attributes[category_name] = []
-            
+
             # Process all stats in the category
             for _, stats in category_stats.items():
                 if type(stats) is str:
                     # Contains weapon type and weapon range
                     # May be parsed in the future, left out of this data for now
-                    #stats = stats.split(' | ')
+                    # stats = stats.split(' | ')
                     continue
                 elif type(stats) is list:
                     pass
                 else:
                     raise Exception(f'Expected string or list, got {type(stats)}')
-                
+
                 # Add to parsed stats
                 for stat in stats:
                     stat_mapped = maps.get_hero_attr(stat)
