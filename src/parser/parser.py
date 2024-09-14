@@ -84,7 +84,7 @@ class Parser:
         parsed_abilities = self._parse_abilities()
         parsed_heroes = self._parse_heroes(parsed_abilities)
         self._parse_items()
-        self._parse_attributes(parsed_heroes)
+        self._parse_attributes()
         self._parse_changelogs()
         print('Done parsing')
 
@@ -119,9 +119,12 @@ class Parser:
             self.localizations[self.language],
         ).run()
 
-    def _parse_attributes(self, parsed_heroes):
+    def _parse_attributes(self):
         print('Parsing Attributes...')
-        attributes.AttributeParser(parsed_heroes, self.localizations[self.language]).run()
+        attributes.AttributeParser(
+            self.data['scripts']['heroes'], 
+            self.localizations[self.language]
+        ).run()
 
     def _parse_changelogs(self):
         print('Parsing Changelogs...')

@@ -32,7 +32,6 @@ class HeroParser:
                 hero_stats.update(
                     self._map_attr_names(hero_value['m_mapStartingStats'], maps.get_hero_attr)
                 )
-                hero_stats['StatsUI'] = self._parse_stats_ui(hero_value)
                 hero_stats['SpiritScaling'] = self._parse_spirit_scaling(hero_value)
                 weapon_stats = self._parse_hero_weapon(hero_value)
                 hero_stats.update(weapon_stats)
@@ -48,6 +47,7 @@ class HeroParser:
                 all_hero_stats[hero_key] = json_utils.sort_dict(hero_stats)
 
                 # HERO CHECKS
+                # * These will definitely be moved very soon as the StatBox will want these stats even if they constants *
                 # These stats are not currently in the hero infobox because all heroes share this value and only as the base multiplier of 1x
                 # Since this is not any worthy information, it is not displayed in the infobox, we could even remove it from the hero data entirely
                 # If more checks such as this are added, they should be moved to a separate file "checks.py" for organization sake
@@ -70,7 +70,7 @@ class HeroParser:
                         )
 
         # Include removed keys in the data sent to consecutive parsers, but not to the output file
-        hero_stats_to_remove = multipliers + ['']
+        hero_stats_to_remove = multipliers
         hero_stats_removed = json_utils.remove_keys(
             all_hero_stats, keys_to_remove=hero_stats_to_remove, depths_to_search=2
         )
@@ -108,108 +108,6 @@ class HeroParser:
 
         weapon_stats['DPS'] = weapon_stats['BulletDamage'] * weapon_stats['RoundsPerSecond']
         return weapon_stats
-
-    # Parse the stats that are listed in the UI in game
-    def _parse_stats_ui(self, hero_value):
-        parsed_stats_ui = {}
-
-        """
-            Within m_heroStatsUI
-            Transform each value within m_vecDisplayStats array
-            
-            {
-                "m_eStatType": "EMaxHealth",
-                "m_eStatCategory": "ECitadelStat_Vitality"
-            }
-
-            to a dict entry
-            "MaxHealth": "Vitality"
-
-            
-
-            Within m_ShopStatDisplay
-            Transform
-            "m_eWeaponStatsDisplay": {
-                "m_vecDisplayStats": [
-                    "EBulletDamage",
-                    "EBaseWeaponDamageIncrease",
-                    "ERoundsPerSecond",
-                    "EFireRate",
-                    "EClipSize",
-                    "EClipSizeIncrease",
-                    "EReloadTime",
-                    "EReloadSpeed",
-                    "EBulletSpeed",
-                    "EBulletSpeedIncrease",
-                    "EBulletLifesteal"
-                ],
-                "m_vecOtherDisplayStats": [
-                    "ELightMeleeDamage",
-                    "EHeavyMeleeDamage"
-                ],
-                "m_eWeaponAttributes": "EWeaponAttribute_RapidFire | EWeaponAttribute_MediumRange"
-            },
-
-            to
-
-            "BulletDamage": "Weapon",
-            "BaseWeaponDamageIncrease": "Weapon",
-            "RoundsPerSecond": "Weapon",
-            "FireRate": "Weapon",
-            "ClipSize": "Weapon",
-            "ClipSizeIncrease": "Weapon",
-            "ReloadTime": "Weapon",
-            "ReloadSpeed": "Weapon",
-            "BulletSpeed": "Weapon",
-            "BulletSpeedIncrease": "Weapon",
-            "BulletLifesteal": "Weapon",
-            "LightMeleeDamage": "Weapon",
-            "HeavyMeleeDamage": "Weapon"
-            "WeaponAttribute_RapidFire": "Weapon"
-            "WeaponAttribute_MediumRange": "Weapon"
-            
-        """
-
-        stats_ui = hero_value['m_heroStatsUI']['m_vecDisplayStats']
-        for stat in stats_ui:
-            parsed_stat_name = maps.get_hero_attr(stat['m_eStatType'])
-            parsed_stat_category = maps.get_attr_group(stat['m_eStatCategory'])
-
-            # Start forming a list
-            if parsed_stat_category not in parsed_stats_ui:
-                parsed_stats_ui[parsed_stat_category] = []
-
-            # Add to parsed stats
-            parsed_stats_ui[parsed_stat_category].append(parsed_stat_name)
-
-
-        shop_stats_ui = hero_value['m_ShopStatDisplay']
-        for category, category_stats in shop_stats_ui.items():
-            category_name = maps.get_shop_attr_group(category)
-
-            # Start forming a list
-            if category_name not in parsed_stats_ui:
-                parsed_stats_ui[category_name] = []
-            
-            # Process all stats in the category
-            for _, stats in category_stats.items():
-                if type(stats) is str:
-                    # Contains weapon type and weapon range
-                    # May be parsed in the future, left out of this data for now
-                    #stats = stats.split(' | ')
-                    continue
-                elif type(stats) is list:
-                    pass
-                else:
-                    raise Exception(f'Expected string or list, got {type(stats)}')
-                
-                # Add to parsed stats
-                for stat in stats:
-                    parsed_stats_ui[category_name].append(maps.get_hero_attr(stat))
-            
-            
-
-        return parsed_stats_ui
 
     def _parse_spirit_scaling(self, hero_value):
         if 'm_mapScalingStats' not in hero_value:
