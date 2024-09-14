@@ -104,10 +104,56 @@ class HeroParser:
             'RoundsPerSecond': 1 / weapon_prim['m_flCycleTime'],
             'ClipSize': weapon_prim['m_iClipSize'],
             'ReloadTime': weapon_prim['m_reloadDuration'],
+            'BulletSpeed': self.calc_bullet_velocity(weapon_prim['m_BulletSpeedCurve']['m_spline']),
         }
 
         weapon_stats['DPS'] = weapon_stats['BulletDamage'] * weapon_stats['RoundsPerSecond']
         return weapon_stats
+    
+    def calc_bullet_velocity(self, spline):
+        """Calculates bullet velocity of a spline, ensuring its linear"""
+        """
+        Transforms
+        [
+            {
+                "x": 0.0,
+                "y": 23999.998047,
+                "m_flSlopeIncoming": 0.0,
+                "m_flSlopeOutgoing": 0.0
+            },
+            {
+                "x": 100.0,
+                "y": 23999.998047,
+                "m_flSlopeIncoming": 0.0,
+                "m_flSlopeOutgoing": 0.0
+            }
+        ]
+
+        to
+
+        23999.998047
+        """
+
+        # Confirm its linear
+        for point in spline:
+            if point['m_flSlopeIncoming'] != 0 or point['m_flSlopeOutgoing'] != 0:
+                raise Exception('Bullet speed curve is not linear')
+            
+        # Confirm its constant
+        last_y = spline[0]['y']
+        for point in spline:
+            if point['y'] != last_y:
+                raise Exception('Bullet speed curve is not constant')
+            
+        # If constant, return the y
+        # Lower and upper bound from 3 samples checked in game manually due to rounding
+        # I.e., 610 velocity in game could actually be anywhere from 609-611 without knowing the rounding
+        # These represent the engine units per in game meter
+        lower_bound = 39.33
+        upper_bound = 39.4
+        average = (lower_bound + upper_bound) / 2
+        return last_y/average
+        
 
     def _parse_spirit_scaling(self, hero_value):
         if 'm_mapScalingStats' not in hero_value:
