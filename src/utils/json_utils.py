@@ -34,7 +34,13 @@ def remove_keys(data, keys_to_remove, depths_to_search=1):
 
 def clean_dict(dict):
     """Applies a series of cleaning operations to a dictionary"""
-    return sort_dict(round_dict(dict))
+    cleaners = [
+        sort_dict,
+        round_dict
+    ]
+    for cleaner in cleaners:
+        dict = cleaner(dict)
+    return dict
 
 def sort_dict(dict):
     """Sorts a dictionary by its keys"""
