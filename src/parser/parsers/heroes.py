@@ -5,7 +5,7 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 import maps as maps
 import utils.json_utils as json_utils
-from .constants import OUTPUT_DIR
+from .constants import OUTPUT_DIR, ENGINE_UNITS_PER_METER
 
 
 class HeroParser:
@@ -146,13 +146,7 @@ class HeroParser:
                 raise Exception('Bullet speed curve is not constant')
 
         # If constant, return the y
-        # Lower and upper bound from 3 samples checked in game manually due to rounding
-        # I.e., 610 velocity in game could actually be anywhere from 609-611 without knowing the rounding
-        # These represent the engine units per in game meter
-        lower_bound = 39.33
-        upper_bound = 39.4
-        average = (lower_bound + upper_bound) / 2
-        return last_y / average
+        return last_y / ENGINE_UNITS_PER_METER
 
     def _parse_spirit_scaling(self, hero_value):
         if 'm_mapScalingStats' not in hero_value:
