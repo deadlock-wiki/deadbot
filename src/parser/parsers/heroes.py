@@ -107,7 +107,7 @@ class HeroParser:
             'ReloadMovespeed': int(weapon_prim['m_flReloadMoveSpeed']) / 10000,
             'ReloadDelay': weapon_prim['m_flReloadSingleBulletsInitialDelay'] if 'm_flReloadSingleBulletsInitialDelay' in weapon_prim else 0,
             'ReloadSingle': weapon_prim['m_bReloadSingleBullets'] if 'm_bReloadSingleBullets' in weapon_prim else False,
-            'BulletSpeed': self.calc_bullet_velocity(weapon_prim['m_BulletSpeedCurve']['m_spline']),
+            'BulletSpeed': calc_bullet_velocity(weapon_prim['m_BulletSpeedCurve']['m_spline']),
             'FalloffStartRange': round(weapon_prim['m_flDamageFalloffStartRange'] / ENGINE_UNITS_PER_METER,0),
             'FalloffEndRange': round(weapon_prim['m_flDamageFalloffEndRange'] / ENGINE_UNITS_PER_METER,0),
             'FalloffStartScale': weapon_prim['m_flDamageFalloffStartScale'],
@@ -119,44 +119,6 @@ class HeroParser:
 
         weapon_stats['DPS'] = weapon_stats['BulletDamage'] * weapon_stats['RoundsPerSecond']
         return weapon_stats
-
-    def calc_bullet_velocity(self, spline):
-        """Calculates bullet velocity of a spline, ensuring its linear"""
-        """
-        Transforms
-        [
-            {
-                "x": 0.0,
-                "y": 23999.998047,
-                "m_flSlopeIncoming": 0.0,
-                "m_flSlopeOutgoing": 0.0
-            },
-            {
-                "x": 100.0,
-                "y": 23999.998047,
-                "m_flSlopeIncoming": 0.0,
-                "m_flSlopeOutgoing": 0.0
-            }
-        ]
-
-        to
-
-        23999.998047
-        """
-
-        # Confirm its linear
-        for point in spline:
-            if point['m_flSlopeIncoming'] != 0 or point['m_flSlopeOutgoing'] != 0:
-                raise Exception('Bullet speed curve is not linear')
-
-        # Confirm its constant
-        last_y = spline[0]['y']
-        for point in spline:
-            if point['y'] != last_y:
-                raise Exception('Bullet speed curve is not constant')
-
-        # If constant, return the y
-        return round(last_y / ENGINE_UNITS_PER_METER,0)
 
     def _parse_spirit_scaling(self, hero_value):
         if 'm_mapScalingStats' not in hero_value:
@@ -202,3 +164,41 @@ class HeroParser:
             output_data[mapped_key] = data[key]
 
         return output_data
+    
+def calc_bullet_velocity(spline):
+    """Calculates bullet velocity of a spline, ensuring its linear"""
+    """
+    Transforms
+    [
+        {
+            "x": 0.0,
+            "y": 23999.998047,
+            "m_flSlopeIncoming": 0.0,
+            "m_flSlopeOutgoing": 0.0
+        },
+        {
+            "x": 100.0,
+            "y": 23999.998047,
+            "m_flSlopeIncoming": 0.0,
+            "m_flSlopeOutgoing": 0.0
+        }
+    ]
+
+    to
+
+    23999.998047
+    """
+
+    # Confirm its linear
+    for point in spline:
+        if point['m_flSlopeIncoming'] != 0 or point['m_flSlopeOutgoing'] != 0:
+            raise Exception('Bullet speed curve is not linear')
+
+    # Confirm its constant
+    last_y = spline[0]['y']
+    for point in spline:
+        if point['y'] != last_y:
+            raise Exception('Bullet speed curve is not constant')
+
+    # If constant, return the y
+    return round(last_y / ENGINE_UNITS_PER_METER,0)
