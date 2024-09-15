@@ -44,7 +44,7 @@ class HeroParser:
                     for key in level_scalings:
                         hero_stats['LevelScaling'][maps.get_level_mod(key)] = level_scalings[key]
 
-                all_hero_stats[hero_key] = json_utils.sort_dict(hero_stats)
+                all_hero_stats[hero_key] = json_utils.clean_dict(hero_stats)
 
                 # HERO CHECKS
                 # * These will definitely be moved very soon as the StatBox will want these stats even if they constants *
@@ -75,7 +75,7 @@ class HeroParser:
             all_hero_stats, keys_to_remove=hero_stats_to_remove, depths_to_search=2
         )
         json_utils.write(
-            OUTPUT_DIR + 'json/hero-data.json', json_utils.sort_dict(hero_stats_removed)
+            OUTPUT_DIR + 'json/hero-data.json', json_utils.clean_dict(hero_stats_removed)
         )
         return all_hero_stats
 

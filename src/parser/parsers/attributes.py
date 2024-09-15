@@ -24,7 +24,7 @@ class AttributeParser:
         # Write to
 
         json_utils.write(
-            OUTPUT_DIR + 'json/attribute-data.json', json_utils.sort_dict(all_attributes)
+            OUTPUT_DIR + 'json/attribute-data.json', json_utils.clean_dict(all_attributes)
         )
 
     # Parse the stats that are listed in the UI in game
