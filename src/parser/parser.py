@@ -1,7 +1,7 @@
 import os
 import sys
 
-from parsers import abilities, items, heroes, changelogs, localizations
+from parsers import abilities, items, heroes, changelogs, localizations, attributes
 
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -82,22 +82,21 @@ class Parser:
         print('Parsing...')
         parsed_localizations = self._parse_localizations()
         parsed_abilities = self._parse_abilities()
-        self._parse_heroes(parsed_abilities)
+        parsed_heroes = self._parse_heroes(parsed_abilities)
         self._parse_items()
+        self._parse_attributes()
         self._parse_changelogs()
         print('Done parsing')
 
     def _parse_localizations(self):
         print('Parsing Localizations...')
-        
+
         # TODO
-        return localizations.LocalizationParser(
-            self.localizations
-        ).run()
+        return localizations.LocalizationParser(self.localizations).run()
 
     def _parse_heroes(self, parsed_abilities):
         print('Parsing Heroes...')
-        heroes.HeroParser(
+        return heroes.HeroParser(
             self.data['scripts']['heroes'],
             self.data['scripts']['abilities'],
             parsed_abilities,
@@ -116,6 +115,12 @@ class Parser:
             self.data['scripts']['abilities'],
             self.data['scripts']['generic_data'],
             self.localizations[self.language],
+        ).run()
+
+    def _parse_attributes(self):
+        print('Parsing Attributes...')
+        attributes.AttributeParser(
+            self.data['scripts']['heroes'], self.localizations[self.language]
         ).run()
 
     def _parse_changelogs(self):

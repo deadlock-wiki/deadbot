@@ -14,4 +14,7 @@ class LocalizationParser:
 
     def run(self):
         for language, language_data in self.localizations_data.items():
-            json_utils.write(OUTPUT_DIR + 'localizations/' + language + '.json', json_utils.sort_dict(language_data))
+            json_utils.write(
+                OUTPUT_DIR + 'localizations/' + language + '.json',
+                json_utils.sort_dict(language_data),
+            )
