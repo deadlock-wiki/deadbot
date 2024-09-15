@@ -104,9 +104,7 @@ class ItemParser:
     # Add items to mermaid tree
     def _add_children_to_tree(self, parent_key, child_keys):
         for child_key in child_keys:
-            self.links.append(
-                Link(Node(self.localizations.get(child_key)), Node(parent_key))
-            )
+            self.links.append(Link(Node(self.localizations.get(child_key)), Node(parent_key)))
 
     # Formats pipe separated string and maps the value
     # eg. "A | B | C" to [map(A), map(B), map(C)]

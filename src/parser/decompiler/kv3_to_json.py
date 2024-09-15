@@ -19,7 +19,7 @@ def kv3_to_dict(kv3_obj):
 
     for key, value in items:
         # Only include values that are json serializable
-        if not json_utils.is_json_serializable(value):  
+        if not json_utils.is_json_serializable(value):
             try:
                 value = kv3_to_dict(value)
                 if value is None:
@@ -40,6 +40,7 @@ def kv3_to_json(kv3_obj, output_file):
 
     return json_utils.write(output_file, kv3_to_dict(kv3_obj))
 
+
 # Removes subclass features from kv3 file and writes to json
 def remove_subclass(path):
     with open(path, 'r') as f:
@@ -53,7 +54,7 @@ def remove_subclass(path):
 
 if __name__ == '__main__':
     remove_subclass(sys.argv[1])
-    
+
     data = kv3.read(sys.argv[1])
     out_path = sys.argv[1].replace('/vdata', '').replace('.vdata', '.json')
     kv3_to_json(data, out_path)

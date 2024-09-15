@@ -63,6 +63,18 @@ def get_ability_activation(value):
     return ABILITY_ACTIVATION_MAP.get(value)
 
 
+# i.e. ECitadelStat_Vitality -> Vitality
+def get_attr_group(value):
+    return value.split('ECitadelStat_')[1]
+
+
+# i.e. m_eWeaponStatsDisplay -> Weapon
+def get_shop_attr_group(value):
+    if not value.startswith('m_e') or not value.endswith('StatsDisplay'):
+        raise Exception(f'{value} is not a valid shop attribute group')
+    return value.split('m_e')[1].split('StatsDisplay')[0]
+
+
 def get_hero_attr(value):
     # Remove the 'E' prefix if its prefixed
     if value.startswith('E'):

@@ -1,7 +1,7 @@
 import os
 import sys
 
-from parsers import abilities, items, heroes, changelogs, localizations
+from parsers import abilities, items, heroes, changelogs, localizations, attributes
 
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -64,20 +64,24 @@ class Parser:
                     + '.json'
                 )
 
-                # Merge all localization data to the same level
-                for key, value in localization_data.items():
-                    # Skip language key, and potentially others down the line that
-                    # are not needed but shared across groups
-                    if key in ['Language']:
-                        continue
+                self._merge_localizations(language, localization_data)
 
-                    if key not in self.localizations[language]:
-                        self.localizations[language][key] = value
-                    else:
-                        current_value = self.localizations[language][key]
-                        raise Exception(
-                            f'Key {key} with value {value} already exists in {language} localization data with value {current_value}.'  # noqa: E501
-                        )
+    def _merge_localizations(self, language, data):
+        """Merge all localization data to the same level"""
+        for key, value in data.items():
+            # Skip language key, and potentially others down the line
+            # that are not needed but shared across groups
+            if key in ['Language']:
+                continue
+
+            if key not in self.localizations[language]:
+                self.localizations[language][key] = value
+            else:
+                current_value = self.localizations[language][key]
+                raise Exception(
+                    f'Key {key} with value {value} already exists in {language} localization '
+                    + f'data with value {current_value}.'
+                )
 
     def run(self):
         print('Parsing...')
@@ -85,6 +89,7 @@ class Parser:
         parsed_abilities = self._parse_abilities()
         self._parse_heroes(parsed_abilities)
         self._parse_items()
+        self._parse_attributes()
         self._parse_changelogs()
         print('Done parsing')
 
@@ -96,7 +101,7 @@ class Parser:
 
     def _parse_heroes(self, parsed_abilities):
         print('Parsing Heroes...')
-        heroes.HeroParser(
+        return heroes.HeroParser(
             self.data['scripts']['heroes'],
             self.data['scripts']['abilities'],
             parsed_abilities,
@@ -117,6 +122,12 @@ class Parser:
             self.data['scripts']['abilities'],
             self.data['scripts']['generic_data'],
             self.localizations[self.language],
+        ).run()
+
+    def _parse_attributes(self):
+        print('Parsing Attributes...')
+        attributes.AttributeParser(
+            self.data['scripts']['heroes'], self.localizations[self.language]
         ).run()
 
     def _parse_changelogs(self):

@@ -1819,31 +1819,31 @@
     "citadel_ability_bebop_laser_beam": {
         "AbilityCastDelay": 1.0,
         "AbilityChannelTime": 8,
-        "AbilityCooldown": 117,
+        "AbilityCooldown": 130,
         "AbilityUnitTargetLimit": 1,
         "AirSpeedMax": 70,
         "BeamCloseDamagePercent": 75,
         "BeamCloseRadius": "5.0m",
-        "BeamEndRadius": "5.0m",
+        "BeamEndRadius": "4.0m",
         "BeamLength": "70m",
         "BeamWidth": "2.9m",
         "BossDamagePercent": 20,
         "CameraDistance": "7m",
         "ChannelMoveSpeed": 70,
-        "DPS": 220,
+        "DPS": 205,
         "Description": "Charge up your laser to unleash a powerful torrent of energy that deals damage and slows enemies' movement and dashes. You have slow movement and turn rate for the duration. If activated in the air, you will hover while unleashing the beam.",
         "FallSpeedMax": 1,
         "GroundDashReductionPercent": -40,
         "Interval": 0.1,
         "Key": "citadel_ability_bebop_laser_beam",
         "Name": "Hyper Beam",
-        "SlowPercent": 40,
+        "SlowPercent": 30,
         "SlowTargetDuration": 0.5,
         "TrackingSpeed": 55,
         "Upgrades": [
             {
-                "AbilityCooldown": -38,
-                "Description": "-38s Cooldown"
+                "AbilityCooldown": -30,
+                "Description": "-30s Cooldown"
             },
             {
                 "DPS": 100,
