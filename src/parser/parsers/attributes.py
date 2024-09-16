@@ -66,8 +66,9 @@ class AttributeParser:
                 if attribute in manual_map:
                     for affix_type in affix_patterns.keys():
                         if affix_type in manual_map[attribute]:
-                            all_attributes[category][attribute][affix_type] = manual_map[attribute][affix_type]
-                
+                            manual_map_entry = manual_map[attribute][affix_type]
+                            all_attributes[category][attribute][affix_type] = manual_map_entry
+
                 else:
                     # Ensure the label is set for all attributes; though the postfix can be blank
                     if 'label' not in all_attributes[category][attribute]:
