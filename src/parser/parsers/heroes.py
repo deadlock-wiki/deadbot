@@ -165,40 +165,40 @@ class HeroParser:
 
         return output_data
     
-def calc_bullet_velocity(spline):
-    """Calculates bullet velocity of a spline, ensuring its linear"""
-    """
-    Transforms
-    [
-        {
-            "x": 0.0,
-            "y": 23999.998047,
-            "m_flSlopeIncoming": 0.0,
-            "m_flSlopeOutgoing": 0.0
-        },
-        {
-            "x": 100.0,
-            "y": 23999.998047,
-            "m_flSlopeIncoming": 0.0,
-            "m_flSlopeOutgoing": 0.0
-        }
-    ]
+    def _calc_bullet_velocity(spline):
+        """Calculates bullet velocity of a spline, ensuring its linear"""
+        """
+        Transforms
+        [
+            {
+                "x": 0.0,
+                "y": 23999.998047,
+                "m_flSlopeIncoming": 0.0,
+                "m_flSlopeOutgoing": 0.0
+            },
+            {
+                "x": 100.0,
+                "y": 23999.998047,
+                "m_flSlopeIncoming": 0.0,
+                "m_flSlopeOutgoing": 0.0
+            }
+        ]
 
-    to
+        to
 
-    23999.998047
-    """
+        23999.998047
+        """
 
-    # Confirm its linear
-    for point in spline:
-        if point['m_flSlopeIncoming'] != 0 or point['m_flSlopeOutgoing'] != 0:
-            raise Exception('Bullet speed curve is not linear')
+        # Confirm its linear
+        for point in spline:
+            if point['m_flSlopeIncoming'] != 0 or point['m_flSlopeOutgoing'] != 0:
+                raise Exception('Bullet speed curve is not linear')
 
-    # Confirm its constant
-    last_y = spline[0]['y']
-    for point in spline:
-        if point['y'] != last_y:
-            raise Exception('Bullet speed curve is not constant')
+        # Confirm its constant
+        last_y = spline[0]['y']
+        for point in spline:
+            if point['y'] != last_y:
+                raise Exception('Bullet speed curve is not constant')
 
-    # If constant, return the y
-    return round(last_y / ENGINE_UNITS_PER_METER,0)
+        # If constant, return the y
+        return round(last_y / ENGINE_UNITS_PER_METER,0)
