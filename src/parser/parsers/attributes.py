@@ -16,16 +16,81 @@ class AttributeParser:
     def run(self):
         all_attributes = {}
 
+        # Extract the attributes names and group them by what category they belong to
         for hero_key, hero_value in self.heroes_data.items():
             if hero_key.startswith('hero') and hero_key != 'hero_base':
                 # Add attributes this hero contains to the master attr dict
                 all_attributes.update(self._parse_stats_ui(hero_value))
                 all_attributes.update(self._parse_shop_stat_display(hero_value))
-        # Write to
+        
+        # Determine the unlocalized name of each attribute that they should map to
+        all_attributes.update(self._map_to_unlocalized(all_attributes))
 
+        # Write the attributes to a json file
         json_utils.write(
             OUTPUT_DIR + 'json/attribute-data.json', json_utils.clean_dict(all_attributes)
         )
+
+    def _map_to_unlocalized(self, all_attributes):
+        """Maps the attributes to their unlocalized names"""
+        """
+        Maps attributes as they appear in shop UI data, such as "BulletDamage" to their unlocalized names "StatDesc_BulletDamage"
+        The unlocalized name will then be localized on the front end
+        """
+
+        manual_map = {
+            "ClipSize": {
+                "label": "StatDesc_ClipSizeBonus",
+                "postfix": "StatDesc_ClipSizeBonus_postfix"
+            },
+            "TechCooldownBetweenChargeUses": {
+                "label": "StatDesc_TechCooldownBetweenCharges",
+                "postfix": "StatDesc_TechCooldownBetweenCharges_postfix"
+            },
+            "MaxMoveSpeed": {
+                "label": "MoveSpeedMax_label",
+                "postfix": "MoveSpeedMax_postfix"
+            },
+            "BaseWeaponDamageIncrease": {
+                "label": "WeaponPower_label",
+                "postfix": "WeaponPower_postfix"
+            }
+        }
+
+        for category, attributes in all_attributes.items():
+            for attribute in attributes.keys():
+                # Check if any of the following affix_patterns exist in localization
+                # Affix stands for {prefix, label, postfix} - better name pending
+                affix_patterns = {
+                    "label": [
+                        attribute, 'StatDesc_' + attribute, 
+                        attribute + '_label'
+                    ],
+                    "postfix": [
+                        'StatDesc_' + attribute + '_postfix', 
+                        attribute + '_postfix'
+                    ]
+                }
+                for affix_type, patterns in affix_patterns.items():
+                    for pattern in patterns:
+                        if pattern in self.localizations:
+                            all_attributes[category][attribute][affix_type] = pattern
+                            break
+
+                # Manually map the remaining attributes
+                if attribute in manual_map:
+                    for affix_type in affix_patterns.keys():
+                        all_attributes[category][attribute][affix_type] = manual_map[attribute][affix_type]
+                
+                else:
+                    # Ensure the label is set for all attributes; though the postfix can be blank
+                    if "label" not in all_attributes[category][attribute]:
+                        raise Exception(f'Unlocalized name not found for {attribute}, find the label and postfix in localization data and add them to the manual_map')
+
+
+        
+
+        return all_attributes
 
     # Parse the stats that are listed in the UI in game
     def _parse_stats_ui(self, hero_value):
@@ -52,11 +117,11 @@ class AttributeParser:
 
             # Ensure category exists
             if parsed_stat_category not in category_attributes:
-                category_attributes[parsed_stat_category] = []
+                category_attributes[parsed_stat_category] = {}
 
             # Add stat to category if not already present
             if parsed_stat_name not in category_attributes[parsed_stat_category]:
-                category_attributes[parsed_stat_category].append(parsed_stat_name)
+                category_attributes[parsed_stat_category][parsed_stat_name] = {}
 
         return category_attributes
 
@@ -94,7 +159,7 @@ class AttributeParser:
 
             # Ensure category exists
             if category_name not in category_attributes:
-                category_attributes[category_name] = []
+                category_attributes[category_name] = {}
 
             # Process all stats in the category
             for _, stats in category_stats.items():
@@ -114,6 +179,6 @@ class AttributeParser:
 
                     # Add stat to category if not already present
                     if stat_mapped not in category_attributes[category_name]:
-                        category_attributes[category_name].append(stat_mapped)
+                        category_attributes[category_name][stat_mapped] = {}
 
         return category_attributes

@@ -1,41 +1,130 @@
 {
-    "Spirit": [
-        "TechCooldown",
-        "TechDuration",
-        "TechRange",
-        "TechLifesteal",
-        "MaxChargesIncrease",
-        "TechCooldownBetweenChargeUses"
-    ],
-    "Vitality": [
-        "MaxHealth",
-        "BaseHealthRegen",
-        "BulletArmorDamageReduction",
-        "TechArmorDamageReduction",
-        "BulletShieldHealth",
-        "TechShieldHealth",
-        "HealingOutput",
-        "DebuffResist",
-        "CritDamageReceivedScale",
-        "MaxMoveSpeed",
-        "SprintSpeed",
-        "StaminaCooldown",
-        "StaminaRegenIncrease",
-        "Stamina"
-    ],
-    "Weapon": [
-        "BulletDamage",
-        "BaseWeaponDamageIncrease",
-        "RoundsPerSecond",
-        "FireRate",
-        "ClipSize",
-        "ClipSizeIncrease",
-        "ReloadTime",
-        "ReloadSpeed",
-        "BulletSpeed",
-        "BulletSpeedIncrease",
-        "BulletLifesteal",
-        "LightMeleeDamage",
-        "HeavyMeleeDamage"
-    ]
+    "Spirit": {
+        "TechCooldown": {
+            "label": "StatDesc_TechCooldown",
+            "postfix": "StatDesc_TechCooldown_postfix"
+        },
+        "TechDuration": {
+            "label": "StatDesc_TechDuration",
+            "postfix": "StatDesc_TechDuration_postfix"
+        },
+        "TechRange": {
+            "label": "StatDesc_TechRange",
+            "postfix": "StatDesc_TechRange_postfix"
+        },
+        "TechLifesteal": {
+            "label": "StatDesc_TechLifesteal",
+            "postfix": "StatDesc_TechLifesteal_postfix"
+        },
+        "MaxChargesIncrease": {
+            "label": "StatDesc_MaxChargesIncrease"
+        },
+        "TechCooldownBetweenChargeUses": {
+            "label": "StatDesc_TechCooldownBetweenCharges",
+            "postfix": "StatDesc_TechCooldownBetweenCharges_postfix"
+        }
+    },
+    "Vitality": {
+        "MaxHealth": {
+            "label": "StatDesc_MaxHealth"
+        },
+        "BaseHealthRegen": {
+            "label": "StatDesc_BaseHealthRegen"
+        },
+        "BulletArmorDamageReduction": {
+            "label": "StatDesc_BulletArmorDamageReduction",
+            "postfix": "StatDesc_BulletArmorDamageReduction_postfix"
+        },
+        "TechArmorDamageReduction": {
+            "label": "StatDesc_TechArmorDamageReduction",
+            "postfix": "StatDesc_TechArmorDamageReduction_postfix"
+        },
+        "BulletShieldHealth": {
+            "label": "StatDesc_BulletShieldHealth"
+        },
+        "TechShieldHealth": {
+            "label": "StatDesc_TechShieldHealth"
+        },
+        "HealingOutput": {
+            "label": "StatDesc_HealingOutput",
+            "postfix": "StatDesc_HealingOutput_postfix"
+        },
+        "DebuffResist": {
+            "label": "StatDesc_DebuffResist",
+            "postfix": "StatDesc_DebuffResist_postfix"
+        },
+        "CritDamageReceivedScale": {
+            "label": "StatDesc_CritDamageReceivedScale",
+            "postfix": "StatDesc_CritDamageReceivedScale_postfix"
+        },
+        "MaxMoveSpeed": {
+            "label": "MoveSpeedMax_label",
+            "postfix": "MoveSpeedMax_postfix"
+        },
+        "SprintSpeed": {
+            "label": "StatDesc_SprintSpeed",
+            "postfix": "StatDesc_SprintSpeed_postfix"
+        },
+        "StaminaCooldown": {
+            "label": "StatDesc_StaminaCooldown",
+            "postfix": "StatDesc_StaminaCooldown_postfix"
+        },
+        "StaminaRegenIncrease": {
+            "label": "StatDesc_StaminaRegenIncrease",
+            "postfix": "StatDesc_StaminaRegenIncrease_postfix"
+        },
+        "Stamina": {
+            "label": "StatDesc_Stamina"
+        }
+    },
+    "Weapon": {
+        "BulletDamage": {
+            "label": "StatDesc_BulletDamage"
+        },
+        "BaseWeaponDamageIncrease": {
+            "label": "WeaponPower_label",
+            "postfix": "WeaponPower_postfix"
+        },
+        "RoundsPerSecond": {
+            "label": "StatDesc_RoundsPerSecond"
+        },
+        "FireRate": {
+            "label": "StatDesc_FireRate",
+            "postfix": "StatDesc_FireRate_postfix"
+        },
+        "ClipSize": {
+            "label": "StatDesc_ClipSizeBonus",
+            "postfix": "StatDesc_ClipSizeBonus_postfix"
+        },
+        "ClipSizeIncrease": {
+            "label": "StatDesc_ClipSizeIncrease",
+            "postfix": "StatDesc_ClipSizeIncrease_postfix"
+        },
+        "ReloadTime": {
+            "label": "StatDesc_ReloadTime",
+            "postfix": "StatDesc_ReloadTime_postfix"
+        },
+        "ReloadSpeed": {
+            "label": "StatDesc_ReloadSpeed",
+            "postfix": "StatDesc_ReloadSpeed_postfix"
+        },
+        "BulletSpeed": {
+            "label": "StatDesc_BulletSpeed",
+            "postfix": "StatDesc_BulletSpeed_postfix"
+        },
+        "BulletSpeedIncrease": {
+            "label": "StatDesc_BulletSpeedIncrease",
+            "postfix": "StatDesc_BulletSpeedIncrease_postfix"
+        },
+        "BulletLifesteal": {
+            "label": "StatDesc_BulletLifesteal",
+            "postfix": "StatDesc_BulletLifesteal_postfix"
+        },
+        "LightMeleeDamage": {
+            "label": "StatDesc_LightMeleeDamage"
+        },
+        "HeavyMeleeDamage": {
+            "label": "StatDesc_HeavyMeleeDamage"
+        }
+    }
 }
