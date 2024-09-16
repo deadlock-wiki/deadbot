@@ -165,7 +165,7 @@ class HeroParser:
 
         return output_data
     
-    def _calc_bullet_velocity(spline):
+    def _calc_bullet_velocity(self, spline):
         """Calculates bullet velocity of a spline, ensuring its linear"""
         """
         Transforms
