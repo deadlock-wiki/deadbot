@@ -1,7 +1,16 @@
+import sys
+import os
 import re
 
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+import maps
 
-def format_description(description, data):
+
+def format_description(description, *data_sets):
+    data = {}
+    for data_set in data_sets:
+        data.update(data_set)
+
     if isinstance(description, tuple):
         description = description[0]
 
@@ -18,7 +27,7 @@ def format_description(description, data):
 def _replace_variables(desc, data):
     def replace_match(match):
         key = match.group(1)
-
+        key = maps.override_localization(key)
         if key in data:
             value = str(data[key])
             # strip out "m" (metres), as it we just want the formatted
@@ -28,6 +37,7 @@ def _replace_variables(desc, data):
 
             return value
         print(f'Missing attribute "{key}" for var replacement')
+        return f'UNKNOWN[{key}]'
 
     formatted_desc = re.sub(r'\{s:(.*?)\}', replace_match, desc)
     return formatted_desc

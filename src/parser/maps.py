@@ -141,22 +141,44 @@ def pascal_to_words(text):
     return pascal_case.replace('Dps', 'DPS')
 
 
-KEYBIND_TO_ICON_MAP = {
-    'iv_attack': 'Mouse1_icon',
-    'iv_attack2': 'Mouse2_icon',
-    'key_alt_cast': 'Mouse3_icon',
-    'key_reload': 'R_icon',
-    'key_innate_1': 'Shift_icon',
-    'in_mantle': 'Space_icon',
-    'key_duck': 'Ctrl_icon',
-    'in_ability1': '1_icon',
-    'in_ability2': '2_icon',
-    'in_ability3': '3_icon',
-    'in_ability4': '4_icon',
+KEYBIND_MAP = {
+    'iv_attack': 'M1',
+    'iv_attack2': 'M2',
+    'key_alt_cast': 'M3',
+    'key_reload': 'R',
+    'key_innate_1': 'Shift',
+    'in_mantle': 'Space',
+    'key_duck': 'Ctrl',
+    'in_ability1': '1',
+    'in_ability2': '2',
+    'in_ability3': '3',
+    'in_ability4': '4',
+}
+
+LOCALIZATION_OVERRIDE_MAP = {
+    'HealthSwapBuffDuration': 'SelfBuffDuration',
+    'PounceDebuffRadius': 'ExplodeRadius',
+    'DamageMissingPercentHealth': 'DamagePercentHealth',
+    'AirDropExplodeRadius': 'OnLandDamageRadius',
+    'AirDropBulletArmorReduction': 'BulletArmorReduction',
+    'AirDropDebuff02Duration': 'BulletArmorReductionDuration',
+    'AirDropSilenceDuration': 'SilenceDuration',
+    'NormalDPS_scale': 'NormalDPS',
+    'HotDPS_scale': 'HotDPS',
+    'Damage_scale': 'Damage',
+    'MaxChargeDuration': 'SpeedBoostDuration',
 }
 
 
-def keybind_to_icon(keybind):
-    if keybind not in KEYBIND_TO_ICON_MAP:
-        raise Exception(f'Missing icon for keybind {keybind}')
-    return KEYBIND_TO_ICON_MAP[keybind]
+def override_localization(attr):
+    """
+    Get override key based on the variable names that are embedded in localization strings.
+    If none exists in the map, return the original.
+
+    This is designed to override the original keys for cases where the data key does not match
+    the key in the localized string
+    """
+    if attr in LOCALIZATION_OVERRIDE_MAP:
+        return LOCALIZATION_OVERRIDE_MAP[attr]
+    else:
+        return attr

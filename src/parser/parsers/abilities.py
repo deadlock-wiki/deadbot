@@ -53,12 +53,14 @@ class AbilityParser:
                 continue
             else:
                 ability_data['Upgrades'] = self._parse_upgrades(
-                    ability_key, ability['m_vecAbilityUpgrades']
+                    ability_data, ability['m_vecAbilityUpgrades']
                 )
 
             description = (self.localizations.get(ability_key + '_desc'),)
 
-            ability_data['Description'] = string_utils.format_description(description, ability_data)
+            ability_data['Description'] = string_utils.format_description(
+                description, ability_data, maps.KEYBIND_MAP, {'hero_name': ability_data['Key']}
+            )
 
             formatted_ability_data = {}
             for attr_key, attr_value in ability_data.items():
@@ -72,7 +74,7 @@ class AbilityParser:
 
         return all_abilities
 
-    def _parse_upgrades(self, ability_key, upgrade_sets):
+    def _parse_upgrades(self, ability_data, upgrade_sets):
         parsed_upgrade_sets = []
         for index, upgrade_set in enumerate(upgrade_sets):
             parsed_upgrade_set = {}
@@ -84,11 +86,18 @@ class AbilityParser:
 
             # add and format the description of the ability upgrade
             # descriptions include t1, t2, and t3 denoting the tier
-            desc_key = f'{ability_key}_t{index+1}_desc'
+            desc_key = f'{ability_data["Key"]}_t{index+1}_desc'
             if desc_key in self.localizations:
                 desc = self.localizations[desc_key]
 
-                formatted_desc = string_utils.format_description(desc, parsed_upgrade_set)
+                # "ability_key" is used to reference the number of the current ability
+                formatted_desc = string_utils.format_description(
+                    desc,
+                    parsed_upgrade_set,
+                    maps.KEYBIND_MAP,
+                    {'ability_key': index},
+                    {'hero_name': ability_data['Key']},
+                )
                 parsed_upgrade_set['Description'] = formatted_desc
 
             # create our own description if none exists
