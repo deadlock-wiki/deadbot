@@ -107,14 +107,14 @@ class HeroParser:
             'ReloadMovespeed': int(weapon_prim['m_flReloadMoveSpeed']) / 10000,
             'ReloadDelay': weapon_prim['m_flReloadSingleBulletsInitialDelay'] if 'm_flReloadSingleBulletsInitialDelay' in weapon_prim else 0,
             'ReloadSingle': weapon_prim['m_bReloadSingleBullets'] if 'm_bReloadSingleBullets' in weapon_prim else False,
-            'BulletSpeed': calc_bullet_velocity(weapon_prim['m_BulletSpeedCurve']['m_spline']),
+            'BulletSpeed': self._calc_bullet_velocity(weapon_prim['m_BulletSpeedCurve']['m_spline']),
             'FalloffStartRange': round(weapon_prim['m_flDamageFalloffStartRange'] / ENGINE_UNITS_PER_METER,0),
             'FalloffEndRange': round(weapon_prim['m_flDamageFalloffEndRange'] / ENGINE_UNITS_PER_METER,0),
             'FalloffStartScale': weapon_prim['m_flDamageFalloffStartScale'],
             'FalloffEndScale': weapon_prim['m_flDamageFalloffEndScale'],
             'FalloffBias': weapon_prim['m_flDamageFalloffBias'],
             'BulletGravityScale': weapon_prim['m_flBulletGravityScale'],
-            'BulletRadius': round(weapon_prim['m_flBulletRadius'] / ENGINE_UNITS_PER_METER,0),
+            #'BulletRadius': round(weapon_prim['m_flBulletRadius'] / ENGINE_UNITS_PER_METER,3), Need to do more confirmation of this in game
         }
 
         weapon_stats['DPS'] = weapon_stats['BulletDamage'] * weapon_stats['RoundsPerSecond']
