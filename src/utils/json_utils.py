@@ -32,21 +32,21 @@ def remove_keys(data, keys_to_remove, depths_to_search=1):
             data[key] = remove_keys(data[key], keys_to_remove, depths_to_search - 1)
     return data
 
+
 def clean_dict(dict):
     """Applies a series of cleaning operations to a dictionary"""
-    cleaners = [
-        sort_dict,
-        round_dict
-    ]
+    cleaners = [sort_dict, round_dict]
     for cleaner in cleaners:
         dict = cleaner(dict)
     return dict
+
 
 def sort_dict(dict):
     """Sorts a dictionary by its keys"""
     keys = list(dict.keys())
     keys.sort()
     return {key: dict[key] for key in keys}
+
 
 def round_dict(dict):
     """Round all numerical values in a dictionary to varying precision"""
@@ -69,7 +69,6 @@ def round_dict(dict):
         if type(value) is dict:
             dict[key] = round_dict(value)
         elif type(value) is float:
-
             # Round
             abs_value = abs(value)
             for threshold, precision in rounding_map.items():
@@ -83,8 +82,6 @@ def round_dict(dict):
                 dict[key] = int(value)
 
     return dict
-
-
 
 
 def is_json_serializable(obj):

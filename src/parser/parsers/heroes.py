@@ -53,10 +53,7 @@ class HeroParser:
 
                 all_hero_stats[hero_key] = json_utils.clean_dict(hero_stats)
 
-                
-        json_utils.write(
-            OUTPUT_DIR + 'json/hero-data.json', json_utils.clean_dict(all_hero_stats)
-        )
+        json_utils.write(OUTPUT_DIR + 'json/hero-data.json', json_utils.clean_dict(all_hero_stats))
         return all_hero_stats
 
     def _parse_hero_abilities(self, hero_value):
@@ -144,7 +141,7 @@ class HeroParser:
             output_data[mapped_key] = data[key]
 
         return output_data
-    
+
     def _calc_bullet_velocity(self, spline):
         """Calculates bullet velocity of a spline, ensuring its linear"""
         """
@@ -181,4 +178,4 @@ class HeroParser:
                 raise Exception('Bullet speed curve is not constant')
 
         # If constant, return the y
-        return int(round(last_y / ENGINE_UNITS_PER_METER,0))
+        return int(round(last_y / ENGINE_UNITS_PER_METER, 0))

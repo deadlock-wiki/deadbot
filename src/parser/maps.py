@@ -80,6 +80,7 @@ def get_hero_attr(value):
 
     return value
 
+
 # Maps label/postfixes for attributes that need to be manually mapped because they are not in the localization files as the same text
 ATTRIBUTE_MANUAL_MAP = {
     "ClipSize": {
@@ -98,6 +99,7 @@ ATTRIBUTE_MANUAL_MAP = {
         "postfix": "WeaponPower_postfix"
     }
 }
+
 
 def get_attr_manual_map():
     return ATTRIBUTE_MANUAL_MAP

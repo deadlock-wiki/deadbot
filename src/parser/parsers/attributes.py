@@ -22,7 +22,7 @@ class AttributeParser:
                 # Add attributes this hero contains to the master attr dict
                 all_attributes.update(self._parse_stats_ui(hero_value))
                 all_attributes.update(self._parse_shop_stat_display(hero_value))
-        
+
         # Determine the unlocalized name of each attribute that they should map to
         all_attributes.update(self._map_to_unlocalized(all_attributes))
 
@@ -30,12 +30,14 @@ class AttributeParser:
 
         # Reorder 1st level to be in the following order
         category_order = ['Weapon', 'Vitality', 'Spirit']
-        all_attributes = {category: all_attributes[category] for category in category_order if category in all_attributes}
+        all_attributes = {
+            category: all_attributes[category]
+            for category in category_order
+            if category in all_attributes
+        }
 
         # Write the attributes to a json file
-        json_utils.write(
-            OUTPUT_DIR + 'json/attribute-data.json', all_attributes
-        )
+        json_utils.write(OUTPUT_DIR + 'json/attribute-data.json', all_attributes)
 
     def _map_to_unlocalized(self, all_attributes):
         """Maps the attributes to their unlocalized names"""
@@ -51,14 +53,8 @@ class AttributeParser:
                 # Check if any of the following affix_patterns exist in localization
                 # Affix stands for {prefix, label, postfix} - better name pending
                 affix_patterns = {
-                    "label": [
-                        attribute, 'StatDesc_' + attribute, 
-                        attribute + '_label'
-                    ],
-                    "postfix": [
-                        'StatDesc_' + attribute + '_postfix', 
-                        attribute + '_postfix'
-                    ]
+                    'label': [attribute, 'StatDesc_' + attribute, attribute + '_label'],
+                    'postfix': ['StatDesc_' + attribute + '_postfix', attribute + '_postfix'],
                 }
                 for affix_type, patterns in affix_patterns.items():
                     for pattern in patterns:
@@ -74,12 +70,16 @@ class AttributeParser:
                 
                 else:
                     # Ensure the label is set for all attributes; though the postfix can be blank
-                    if "label" not in all_attributes[category][attribute]:
-                        raise Exception(f'Unlocalized name not found for {attribute}, find the label and postfix in localization data and add them to the manual_map')
+                    if 'label' not in all_attributes[category][attribute]:
+                        raise Exception(
+                            f'Unlocalized name not found for {attribute}, find the label and postfix in localization data and add them to the manual_map'
+                        )
 
                 # Add the alternate name which currently is whats used in the hero data, therefore used to link to hero data
                 # Refraining from labeling this something like "hero_stat_name" as it's likely not restricted to hero
-                all_attributes[category][attribute]['alternate_name'] = unlocalized_to_base_name(all_attributes[category][attribute]['label'])
+                all_attributes[category][attribute]['alternate_name'] = unlocalized_to_base_name(
+                    all_attributes[category][attribute]['label']
+                )
 
         return all_attributes
 
@@ -173,7 +173,8 @@ class AttributeParser:
                         category_attributes[category_name][stat_mapped] = {}
 
         return category_attributes
-    
+
+
 def unlocalized_to_base_name(unlocalized_name):
     """Returns the base name of an unlocalized name"""
     # i.e. StatDesc_Vitality_label -> Vitality
