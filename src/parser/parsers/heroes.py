@@ -32,6 +32,13 @@ class HeroParser:
                 hero_stats.update(
                     self._map_attr_names(hero_value['m_mapStartingStats'], maps.get_hero_attr)
                 )
+
+                # Change formatting on some numbers to match whats shown in game
+                hero_stats['StaminaCooldown'] = 1 / hero_stats['StaminaRegenPerSecond']
+                hero_stats['CritDamageReceivedScale'] = hero_stats['CritDamageReceivedScale'] - 1
+                hero_stats['TechRange'] = hero_stats['TechRange'] - 1
+                hero_stats['TechDuration'] = hero_stats['TechDuration'] - 1
+
                 hero_stats['SpiritScaling'] = self._parse_spirit_scaling(hero_value)
                 weapon_stats = self._parse_hero_weapon(hero_value)
                 hero_stats.update(weapon_stats)
