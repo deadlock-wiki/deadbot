@@ -51,9 +51,9 @@ class HeroParser:
                     for key in level_scalings:
                         hero_stats['LevelScaling'][maps.get_level_mod(key)] = level_scalings[key]
 
-                all_hero_stats[hero_key] = json_utils.clean_dict(hero_stats)
+                all_hero_stats[hero_key] = json_utils.sort_dict(hero_stats)
 
-        json_utils.write(OUTPUT_DIR + 'json/hero-data.json', json_utils.clean_dict(all_hero_stats))
+        json_utils.write(OUTPUT_DIR + 'json/hero-data.json', json_utils.sort_dict(all_hero_stats))
         return all_hero_stats
 
     def _parse_hero_abilities(self, hero_value):

@@ -26,8 +26,6 @@ class AttributeParser:
         # Determine the unlocalized name of each attribute that they should map to
         all_attributes.update(self._map_to_unlocalized(all_attributes))
 
-        all_attributes = json_utils.round_dict(all_attributes)
-
         # Reorder 1st level to be in the following order
         category_order = ['Weapon', 'Vitality', 'Spirit']
         all_attributes = {

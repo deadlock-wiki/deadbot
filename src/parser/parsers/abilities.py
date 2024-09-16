@@ -54,8 +54,8 @@ class AbilityParser:
                 if attr_value != '0':
                     formatted_ability_data[attr_key] = string_utils.string_to_number(attr_value)
 
-            all_abilities[ability_key] = json_utils.clean_dict(formatted_ability_data)
+            all_abilities[ability_key] = json_utils.sort_dict(formatted_ability_data)
 
-        json_utils.write(OUTPUT_DIR + 'json/ability-data.json', json_utils.clean_dict(all_abilities))
+        json_utils.write(OUTPUT_DIR + 'json/ability-data.json', json_utils.sort_dict(all_abilities))
 
         return all_abilities
