@@ -139,3 +139,24 @@ def pascal_to_words(text):
 
     # return DPS back
     return pascal_case.replace('Dps', 'DPS')
+
+
+KEYBIND_TO_ICON_MAP = {
+    'iv_attack': 'Mouse1_icon',
+    'iv_attack2': 'Mouse2_icon',
+    'key_alt_cast': 'Mouse3_icon',
+    'key_reload': 'R_icon',
+    'key_innate_1': 'Shift_icon',
+    'in_mantle': 'Space_icon',
+    'key_duck': 'Ctrl_icon',
+    'in_ability1': '1_icon',
+    'in_ability2': '2_icon',
+    'in_ability3': '3_icon',
+    'in_ability4': '4_icon',
+}
+
+
+def keybind_to_icon(keybind):
+    if keybind not in KEYBIND_TO_ICON_MAP:
+        raise Exception(f'Missing icon for keybind {keybind}')
+    return KEYBIND_TO_ICON_MAP[keybind]
