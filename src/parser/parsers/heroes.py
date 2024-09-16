@@ -108,8 +108,8 @@ class HeroParser:
             'ReloadDelay': weapon_prim['m_flReloadSingleBulletsInitialDelay'] if 'm_flReloadSingleBulletsInitialDelay' in weapon_prim else 0,
             'ReloadSingle': weapon_prim['m_bReloadSingleBullets'] if 'm_bReloadSingleBullets' in weapon_prim else False,
             'BulletSpeed': self._calc_bullet_velocity(weapon_prim['m_BulletSpeedCurve']['m_spline']),
-            'FalloffStartRange': round(weapon_prim['m_flDamageFalloffStartRange'] / ENGINE_UNITS_PER_METER,0),
-            'FalloffEndRange': round(weapon_prim['m_flDamageFalloffEndRange'] / ENGINE_UNITS_PER_METER,0),
+            'FalloffStartRange': int(round(weapon_prim['m_flDamageFalloffStartRange'] / ENGINE_UNITS_PER_METER,0)),
+            'FalloffEndRange': int(round(weapon_prim['m_flDamageFalloffEndRange'] / ENGINE_UNITS_PER_METER,0)),
             'FalloffStartScale': weapon_prim['m_flDamageFalloffStartScale'],
             'FalloffEndScale': weapon_prim['m_flDamageFalloffEndScale'],
             'FalloffBias': weapon_prim['m_flDamageFalloffBias'],
@@ -201,4 +201,4 @@ class HeroParser:
                 raise Exception('Bullet speed curve is not constant')
 
         # If constant, return the y
-        return round(last_y / ENGINE_UNITS_PER_METER,0)
+        return int(round(last_y / ENGINE_UNITS_PER_METER,0))
