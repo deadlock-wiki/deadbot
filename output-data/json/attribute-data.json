@@ -1,33 +1,64 @@
 {
-    "Spirit": {
-        "TechCooldown": {
-            "label": "StatDesc_TechCooldown",
-            "postfix": "StatDesc_TechCooldown_postfix",
-            "alternate_name": "TechCooldown"
+    "Weapon": {
+        "BulletDamage": {
+            "label": "StatDesc_BulletDamage",
+            "alternate_name": "BulletDamage"
         },
-        "TechDuration": {
-            "label": "StatDesc_TechDuration",
-            "postfix": "StatDesc_TechDuration_postfix",
-            "alternate_name": "TechDuration"
+        "BaseWeaponDamageIncrease": {
+            "label": "WeaponPower_label",
+            "postfix": "WeaponPower_postfix",
+            "alternate_name": "WeaponPower"
         },
-        "TechRange": {
-            "label": "StatDesc_TechRange",
-            "postfix": "StatDesc_TechRange_postfix",
-            "alternate_name": "TechRange"
+        "RoundsPerSecond": {
+            "label": "StatDesc_RoundsPerSecond",
+            "alternate_name": "RoundsPerSecond"
         },
-        "TechLifesteal": {
-            "label": "StatDesc_TechLifesteal",
-            "postfix": "StatDesc_TechLifesteal_postfix",
-            "alternate_name": "TechLifesteal"
+        "FireRate": {
+            "label": "StatDesc_FireRate",
+            "postfix": "StatDesc_FireRate_postfix",
+            "alternate_name": "FireRate"
         },
-        "MaxChargesIncrease": {
-            "label": "StatDesc_MaxChargesIncrease",
-            "alternate_name": "MaxChargesIncrease"
+        "ClipSize": {
+            "label": "StatDesc_ClipSizeBonus",
+            "alternate_name": "ClipSizeBonus"
         },
-        "TechCooldownBetweenChargeUses": {
-            "label": "StatDesc_TechCooldownBetweenCharges",
-            "postfix": "StatDesc_TechCooldownBetweenCharges_postfix",
-            "alternate_name": "TechCooldownBetweenCharges"
+        "ClipSizeIncrease": {
+            "label": "StatDesc_ClipSizeIncrease",
+            "postfix": "StatDesc_ClipSizeIncrease_postfix",
+            "alternate_name": "ClipSizeIncrease"
+        },
+        "ReloadTime": {
+            "label": "StatDesc_ReloadTime",
+            "postfix": "StatDesc_ReloadTime_postfix",
+            "alternate_name": "ReloadTime"
+        },
+        "ReloadSpeed": {
+            "label": "StatDesc_ReloadSpeed",
+            "postfix": "StatDesc_ReloadSpeed_postfix",
+            "alternate_name": "ReloadSpeed"
+        },
+        "BulletSpeed": {
+            "label": "StatDesc_BulletSpeed",
+            "postfix": "StatDesc_BulletSpeed_postfix",
+            "alternate_name": "BulletSpeed"
+        },
+        "BulletSpeedIncrease": {
+            "label": "StatDesc_BulletSpeedIncrease",
+            "postfix": "StatDesc_BulletSpeedIncrease_postfix",
+            "alternate_name": "BulletSpeedIncrease"
+        },
+        "BulletLifesteal": {
+            "label": "StatDesc_BulletLifesteal",
+            "postfix": "StatDesc_BulletLifesteal_postfix",
+            "alternate_name": "BulletLifesteal"
+        },
+        "LightMeleeDamage": {
+            "label": "StatDesc_LightMeleeDamage",
+            "alternate_name": "LightMeleeDamage"
+        },
+        "HeavyMeleeDamage": {
+            "label": "StatDesc_HeavyMeleeDamage",
+            "alternate_name": "HeavyMeleeDamage"
         }
     },
     "Vitality": {
@@ -97,66 +128,35 @@
             "alternate_name": "Stamina"
         }
     },
-    "Weapon": {
-        "BulletDamage": {
-            "label": "StatDesc_BulletDamage",
-            "alternate_name": "BulletDamage"
+    "Spirit": {
+        "TechCooldown": {
+            "label": "StatDesc_TechCooldown",
+            "postfix": "StatDesc_TechCooldown_postfix",
+            "alternate_name": "TechCooldown"
         },
-        "BaseWeaponDamageIncrease": {
-            "label": "WeaponPower_label",
-            "postfix": "WeaponPower_postfix",
-            "alternate_name": "WeaponPower"
+        "TechDuration": {
+            "label": "StatDesc_TechDuration",
+            "postfix": "StatDesc_TechDuration_postfix",
+            "alternate_name": "TechDuration"
         },
-        "RoundsPerSecond": {
-            "label": "StatDesc_RoundsPerSecond",
-            "alternate_name": "RoundsPerSecond"
+        "TechRange": {
+            "label": "StatDesc_TechRange",
+            "postfix": "StatDesc_TechRange_postfix",
+            "alternate_name": "TechRange"
         },
-        "FireRate": {
-            "label": "StatDesc_FireRate",
-            "postfix": "StatDesc_FireRate_postfix",
-            "alternate_name": "FireRate"
+        "TechLifesteal": {
+            "label": "StatDesc_TechLifesteal",
+            "postfix": "StatDesc_TechLifesteal_postfix",
+            "alternate_name": "TechLifesteal"
         },
-        "ClipSize": {
-            "label": "StatDesc_ClipSizeBonus",
-            "alternate_name": "ClipSizeBonus"
+        "MaxChargesIncrease": {
+            "label": "StatDesc_MaxChargesIncrease",
+            "alternate_name": "MaxChargesIncrease"
         },
-        "ClipSizeIncrease": {
-            "label": "StatDesc_ClipSizeIncrease",
-            "postfix": "StatDesc_ClipSizeIncrease_postfix",
-            "alternate_name": "ClipSizeIncrease"
-        },
-        "ReloadTime": {
-            "label": "StatDesc_ReloadTime",
-            "postfix": "StatDesc_ReloadTime_postfix",
-            "alternate_name": "ReloadTime"
-        },
-        "ReloadSpeed": {
-            "label": "StatDesc_ReloadSpeed",
-            "postfix": "StatDesc_ReloadSpeed_postfix",
-            "alternate_name": "ReloadSpeed"
-        },
-        "BulletSpeed": {
-            "label": "StatDesc_BulletSpeed",
-            "postfix": "StatDesc_BulletSpeed_postfix",
-            "alternate_name": "BulletSpeed"
-        },
-        "BulletSpeedIncrease": {
-            "label": "StatDesc_BulletSpeedIncrease",
-            "postfix": "StatDesc_BulletSpeedIncrease_postfix",
-            "alternate_name": "BulletSpeedIncrease"
-        },
-        "BulletLifesteal": {
-            "label": "StatDesc_BulletLifesteal",
-            "postfix": "StatDesc_BulletLifesteal_postfix",
-            "alternate_name": "BulletLifesteal"
-        },
-        "LightMeleeDamage": {
-            "label": "StatDesc_LightMeleeDamage",
-            "alternate_name": "LightMeleeDamage"
-        },
-        "HeavyMeleeDamage": {
-            "label": "StatDesc_HeavyMeleeDamage",
-            "alternate_name": "HeavyMeleeDamage"
+        "TechCooldownBetweenChargeUses": {
+            "label": "StatDesc_TechCooldownBetweenCharges",
+            "postfix": "StatDesc_TechCooldownBetweenCharges_postfix",
+            "alternate_name": "TechCooldownBetweenCharges"
         }
     }
 }

@@ -26,9 +26,15 @@ class AttributeParser:
         # Determine the unlocalized name of each attribute that they should map to
         all_attributes.update(self._map_to_unlocalized(all_attributes))
 
+        all_attributes = json_utils.round_dict(all_attributes)
+
+        # Reorder 1st level to be in the following order
+        category_order = ['Weapon', 'Vitality', 'Spirit']
+        all_attributes = {category: all_attributes[category] for category in category_order if category in all_attributes}
+
         # Write the attributes to a json file
         json_utils.write(
-            OUTPUT_DIR + 'json/attribute-data.json', json_utils.clean_dict(all_attributes)
+            OUTPUT_DIR + 'json/attribute-data.json', all_attributes
         )
 
     def _map_to_unlocalized(self, all_attributes):
@@ -74,8 +80,6 @@ class AttributeParser:
                 # Add the alternate name which currently is whats used in the hero data, therefore used to link to hero data
                 # Refraining from labeling this something like "hero_stat_name" as it's likely not restricted to hero
                 all_attributes[category][attribute]['alternate_name'] = unlocalized_to_base_name(all_attributes[category][attribute]['label'])
-
-        
 
         return all_attributes
 
