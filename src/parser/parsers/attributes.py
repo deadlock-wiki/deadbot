@@ -38,24 +38,7 @@ class AttributeParser:
         The unlocalized name will then be localized on the front end
         """
 
-        manual_map = {
-            "ClipSize": {
-                "label": "StatDesc_ClipSizeBonus",
-                "postfix": "StatDesc_ClipSizeBonus_postfix"
-            },
-            "TechCooldownBetweenChargeUses": {
-                "label": "StatDesc_TechCooldownBetweenCharges",
-                "postfix": "StatDesc_TechCooldownBetweenCharges_postfix"
-            },
-            "MaxMoveSpeed": {
-                "label": "MoveSpeedMax_label",
-                "postfix": "MoveSpeedMax_postfix"
-            },
-            "BaseWeaponDamageIncrease": {
-                "label": "WeaponPower_label",
-                "postfix": "WeaponPower_postfix"
-            }
-        }
+        manual_map = maps.get_attr_manual_map()
 
         for category, attributes in all_attributes.items():
             for attribute in attributes.keys():
@@ -80,13 +63,17 @@ class AttributeParser:
                 # Manually map the remaining attributes
                 if attribute in manual_map:
                     for affix_type in affix_patterns.keys():
-                        all_attributes[category][attribute][affix_type] = manual_map[attribute][affix_type]
+                        if affix_type in manual_map[attribute]:
+                            all_attributes[category][attribute][affix_type] = manual_map[attribute][affix_type]
                 
                 else:
                     # Ensure the label is set for all attributes; though the postfix can be blank
                     if "label" not in all_attributes[category][attribute]:
                         raise Exception(f'Unlocalized name not found for {attribute}, find the label and postfix in localization data and add them to the manual_map')
 
+                # Add the alternate name which currently is whats used in the hero data, therefore used to link to hero data
+                # Refraining from labeling this something like "hero_stat_name" as it's likely not restricted to hero
+                all_attributes[category][attribute]['alternate_name'] = unlocalized_to_base_name(all_attributes[category][attribute]['label'])
 
         
 
@@ -182,3 +169,11 @@ class AttributeParser:
                         category_attributes[category_name][stat_mapped] = {}
 
         return category_attributes
+    
+def unlocalized_to_base_name(unlocalized_name):
+    """Returns the base name of an unlocalized name"""
+    # i.e. StatDesc_Vitality_label -> Vitality
+    # base name represents the name that is either used in the shop UI, or the hero data
+    if unlocalized_name.startswith('StatDesc_'):
+        unlocalized_name = unlocalized_name.split('StatDesc_')[1]
+    return unlocalized_name.split('_label')[0].split('_postfix')[0]
