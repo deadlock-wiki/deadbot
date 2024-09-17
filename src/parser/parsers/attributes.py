@@ -44,9 +44,8 @@ class AttributeParser:
         json_utils.write(OUTPUT_DIR + 'json/attribute-data.json', all_attributes)
 
     def _map_to_unlocalized(self, all_attributes):
-        """Maps the attributes to their unlocalized names"""
         """
-        Maps attributes as they appear in shop UI data, such as "BulletDamage" to their unlocalized names "StatDesc_BulletDamage"
+        Maps the attributes to their unlocalized names, such as "BulletDamage" to their unlocalized names "StatDesc_BulletDamage"
         The unlocalized name will then be localized on the front end
         """
 
