@@ -36,7 +36,6 @@ def _replace_variables(desc, data):
                 return value[:-1]
 
             return value
-        print(f'Missing attribute "{key}" for var replacement')
         return f'UNKNOWN[{key}]'
 
     formatted_desc = re.sub(r'\{s:(.*?)\}', replace_match, desc)
