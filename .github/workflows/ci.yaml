@@ -1,5 +1,5 @@
 name: CI
-on: pull-request
+on: pull_request
 jobs:
   lint:
     runs-on: ubuntu-latest
