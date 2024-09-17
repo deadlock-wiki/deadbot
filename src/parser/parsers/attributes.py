@@ -26,13 +26,19 @@ class AttributeParser:
         # Determine the unlocalized name of each attribute that they should map to
         all_attributes.update(self._map_to_unlocalized(all_attributes))
 
-        # Reorder 1st level to be in the following order
+        # Reorder 1st level to be in the order they are displayed in game and which happens to be the best for UX reasons
         category_order = ['Weapon', 'Vitality', 'Spirit']
         all_attributes = {
             category: all_attributes[category]
             for category in category_order
             if category in all_attributes
         }
+
+        # Specify order for lua as it isn't capable of iterating jsons in the order it appears
+        for category, attributes in all_attributes.items():
+            attributes_order = list(attributes)
+            all_attributes[category]["_attribute_order"] = attributes_order
+        all_attributes['_category_order'] = category_order
 
         # Write the attributes to a json file
         json_utils.write(OUTPUT_DIR + 'json/attribute-data.json', all_attributes)
