@@ -133,7 +133,7 @@ def pascal_to_words(text):
 
     # ensure DPS is preserved as caps
     if 'DPS' in text:
-        text.replace('DPS', 'Dps')
+        text = text.replace('DPS', 'Dps')
 
     pascal_case = re.sub(r'(?<!^)(?=[A-Z])', ' ', text)
 
