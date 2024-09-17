@@ -5,7 +5,7 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 import maps as maps
 import utils.json_utils as json_utils
-from .constants import OUTPUT_DIR
+from .constants import OUTPUT_DIR, ENGINE_UNITS_PER_METER
 
 
 class HeroParser:
@@ -100,6 +100,26 @@ class HeroParser:
             'RoundsPerSecond': 1 / weapon_prim['m_flCycleTime'],
             'ClipSize': weapon_prim['m_iClipSize'],
             'ReloadTime': weapon_prim['m_reloadDuration'],
+            'ReloadMovespeed': int(weapon_prim['m_flReloadMoveSpeed']) / 10000,
+            'ReloadDelay': weapon_prim['m_flReloadSingleBulletsInitialDelay']
+            if 'm_flReloadSingleBulletsInitialDelay' in weapon_prim
+            else 0,
+            'ReloadSingle': weapon_prim['m_bReloadSingleBullets']
+            if 'm_bReloadSingleBullets' in weapon_prim
+            else False,
+            'BulletSpeed': self._calc_bullet_velocity(weapon_prim['m_BulletSpeedCurve']['m_spline']),
+            'FalloffStartRange': int(
+                round(weapon_prim['m_flDamageFalloffStartRange'] / ENGINE_UNITS_PER_METER, 0)
+            ),
+            'FalloffEndRange': int(
+                round(weapon_prim['m_flDamageFalloffEndRange'] / ENGINE_UNITS_PER_METER, 0)
+            ),
+            'FalloffStartScale': weapon_prim['m_flDamageFalloffStartScale'],
+            'FalloffEndScale': weapon_prim['m_flDamageFalloffEndScale'],
+            'FalloffBias': weapon_prim['m_flDamageFalloffBias'],
+            'BulletGravityScale': weapon_prim['m_flBulletGravityScale'],
+            # Need to do more confirmation of this in game
+            #'BulletRadius': round(weapon_prim['m_flBulletRadius'] / ENGINE_UNITS_PER_METER,3),
         }
 
         weapon_stats['DPS'] = weapon_stats['BulletDamage'] * weapon_stats['RoundsPerSecond']
@@ -149,3 +169,41 @@ class HeroParser:
             output_data[mapped_key] = data[key]
 
         return output_data
+
+    def _calc_bullet_velocity(self, spline):
+        """Calculates bullet velocity of a spline, ensuring its linear"""
+        """
+        Transforms
+        [
+            {
+                "x": 0.0,
+                "y": 23999.998047,
+                "m_flSlopeIncoming": 0.0,
+                "m_flSlopeOutgoing": 0.0
+            },
+            {
+                "x": 100.0,
+                "y": 23999.998047,
+                "m_flSlopeIncoming": 0.0,
+                "m_flSlopeOutgoing": 0.0
+            }
+        ]
+
+        to
+
+        23999.998047
+        """
+
+        # Confirm its linear
+        for point in spline:
+            if point['m_flSlopeIncoming'] != 0 or point['m_flSlopeOutgoing'] != 0:
+                raise Exception('Bullet speed curve is not linear')
+
+        # Confirm its constant
+        last_y = spline[0]['y']
+        for point in spline:
+            if point['y'] != last_y:
+                raise Exception('Bullet speed curve is not constant')
+
+        # If constant, return the y
+        return int(round(last_y / ENGINE_UNITS_PER_METER, 0))

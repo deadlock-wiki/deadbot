@@ -127,7 +127,7 @@ def get_ability_display_name(attr):
 
 
 def pascal_to_words(text):
-    """Convert pascal text to be spaced.
+    """Convert pascal text to be spaczed.
     Eg. NeverGonnaGiveYouUp -> Never Gonna Give You Up
     """
 
