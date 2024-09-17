@@ -38,6 +38,7 @@ class HeroParser:
                 hero_stats['CritDamageReceivedScale'] = hero_stats['CritDamageReceivedScale'] - 1
                 hero_stats['TechRange'] = hero_stats['TechRange'] - 1
                 hero_stats['TechDuration'] = hero_stats['TechDuration'] - 1
+                hero_stats['ReloadSpeed'] = hero_stats['ReloadSpeed'] - 1
 
                 hero_stats['SpiritScaling'] = self._parse_spirit_scaling(hero_value)
                 weapon_stats = self._parse_hero_weapon(hero_value)
