@@ -76,8 +76,8 @@ class Parser:
                     else:
                         current_value = self.localizations[language][key]
                         raise Exception(
-                            f'Key {key} with value {value} already exists in {language} 
-                            localization data with value {current_value}.'
+                            f'Key {key} with value {value} already exists in {language} '+
+                            f'localization data with value {current_value}.'
                         )
 
     def run(self):
