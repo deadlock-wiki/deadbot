@@ -7,7 +7,10 @@ from .constants import OUTPUT_DIR
 import utils.json_utils as json_utils
 import maps as maps
 
-"""Output-data is used by https://deadlocked.wiki/Template:StatBoxes to display a hero's attributes on their hero page"""
+"""
+Output-data is used by https://deadlocked.wiki/Template:StatBoxes
+to display a hero's attributes on their hero page
+"""
 class AttributeParser:
     def __init__(self, heroes_data, localizations):
         self.heroes_data = heroes_data
@@ -26,7 +29,8 @@ class AttributeParser:
         # Determine the unlocalized name of each attribute that they should map to
         all_attributes.update(self._map_to_unlocalized(all_attributes))
 
-        # Reorder 1st level to be in the order they are displayed in game and which happens to be the best for UX reasons
+        # Reorder 1st level to be in the order they are displayed in game
+        # and which happens to be the best for UX reasons
         category_order = ['Weapon', 'Vitality', 'Spirit']
         all_attributes = {
             category: all_attributes[category]
@@ -45,7 +49,8 @@ class AttributeParser:
 
     def _map_to_unlocalized(self, all_attributes):
         """
-        Maps the attributes to their unlocalized names, such as "BulletDamage" to their unlocalized names "StatDesc_BulletDamage"
+        Maps the attributes to their unlocalized names, 
+        such as "BulletDamage" to their unlocalized names "StatDesc_BulletDamage"
         The unlocalized name will then be localized on the front end
         """
 
@@ -76,11 +81,14 @@ class AttributeParser:
                     # Ensure the label is set for all attributes; though the postfix can be blank
                     if 'label' not in all_attributes[category][attribute]:
                         raise Exception(
-                            f'Unlocalized name not found for {attribute}, find the label and postfix in localization data and add them to the manual_map'
+                            f'Unlocalized name not found for {attribute}, find the label and postfix
+                              in localization data and add them to the manual_map'
                         )
 
-                # Add the alternate name which currently is whats used in the hero data, therefore used to link to hero data
-                # Refraining from labeling this something like "hero_stat_name" as it's likely not restricted to hero
+                # Add the alternate name which currently is whats used in the hero data, 
+                # therefore used to link to hero data
+                # Refraining from labeling this something like "hero_stat_name" 
+                # as it's likely not restricted to hero
                 all_attributes[category][attribute]['alternate_name'] = unlocalized_to_base_name(
                     all_attributes[category][attribute]['label']
                 )

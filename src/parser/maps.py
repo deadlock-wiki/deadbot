@@ -81,7 +81,8 @@ def get_hero_attr(value):
     return value
 
 
-# Maps label/postfixes for attributes that need to be manually mapped because they are not in the localization files as the same text
+# Maps label/postfixes for attributes that need to be manually mapped
+# because they are not in the localization files as the same text
 ATTRIBUTE_MANUAL_MAP = {
     "ClipSize": {
         "label": "StatDesc_ClipSizeBonus"
