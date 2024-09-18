@@ -46,10 +46,6 @@
                 "Description": "Applies a 15% slow on hit. Lasts 1s per stack"
             },
             {
-                "DamageAmplificationPerStack": 5,
-                "Description": "+5 Damage Amplification Per Stack"
-            },
-            {
                 "Damage": 0,
                 "Description": "+0 Damage with improved scaling"
             }
@@ -71,14 +67,6 @@
                 "CloseRangeBonusWeaponPower": 20,
                 "CloseRangeBonusDamageRange": "7m",
                 "Description": "+20 Close Range Weapon Power"
-            },
-            {
-                "ClipSizeOverride": 2,
-                "Description": "+2 Clip Size Override"
-            },
-            {
-                "BulletDamageIncrease": 50,
-                "Description": "+50 Bullet Damage Increase"
             }
         ]
     },
@@ -395,10 +383,6 @@
             {
                 "CooldownReductionOnKill": 1,
                 "Description": "Reduce one of your Cooldowns by 1s when a marked enemy dies"
-            },
-            {
-                "DeathTaxHeal": 30,
-                "Description": "+30 Death Tax Heal"
             },
             {
                 "TechPowerAmpBonus": 10,
@@ -1366,14 +1350,6 @@
         "TargetPracticeDuration": 10,
         "Upgrades": [
             {
-                "AbilityCooldown": -19,
-                "Description": "-19s Cooldown"
-            },
-            {
-                "DamageOnBuildup": 50,
-                "Description": "+50 Damage On Buildup"
-            },
-            {
                 "BulletArmorReduction": -30,
                 "DebuffDuration": 6,
                 "Description": "Your bullets reduce your target's Bullet Resist by -30% for 6s"
@@ -1628,14 +1604,6 @@
         "TrackingSpeed": 70,
         "Upgrades": [
             {
-                "BeamLength": "10m",
-                "Description": "+10m Beam Length"
-            },
-            {
-                "AbilityCooldown": -38,
-                "Description": "-38s Cooldown"
-            },
-            {
                 "Invulnerable": 1,
                 "Description": "Wrecker is Invulnerable during use"
             }
@@ -1744,20 +1712,7 @@
         "Radius": "12m",
         "StageDuration": 12,
         "StageRadius": "15m",
-        "Upgrades": [
-            {
-                "AbilityCooldown": -19,
-                "Description": "-19s Cooldown"
-            },
-            {
-                "ExplosiveDamage": 120,
-                "Description": "+120 Explosive Damage"
-            },
-            {
-                "FireRateBonus": 20,
-                "Description": "+20 Fire Rate Bonus"
-            }
-        ]
+        "Upgrades": []
     },
     "cadence_ability_lullaby": {
         "AbilityCastDelay": 0.25,
@@ -1997,14 +1952,6 @@
         "Key": "citadel_ability_chain_lightning",
         "Name": "Chain Lightning",
         "Upgrades": [
-            {
-                "ConeRadius": "4m",
-                "Description": "+4m Cone Radius"
-            },
-            {
-                "Damage": 24,
-                "Description": "+24 Damage"
-            },
             {
                 "MultiChain": 1,
                 "Description": "Chain lightning can hit any enemies around the target."
@@ -2386,16 +2333,8 @@
         "Name": "Vindicta's Mark",
         "Upgrades": [
             {
-                "AbilityCastRange": 2500,
-                "Description": "+2500 Cast Range"
-            },
-            {
                 "ChargeForKill": 1,
                 "Description": "When a marked enemy is killed, Vindicta immediately gains 1 Charge for Assassinate"
-            },
-            {
-                "AbilityCooldown": -33,
-                "Description": "-33s Cooldown"
             }
         ]
     },
@@ -2866,14 +2805,6 @@
         "SpawnDuration": 0.6,
         "Upgrades": [
             {
-                "DamagePerDagger": 16,
-                "Description": "+16 Damage Per Dagger"
-            },
-            {
-                "AbilityCooldown": -19,
-                "Description": "-19s Cooldown"
-            },
-            {
                 "ShouldBounce": 1,
                 "Description": "Each card bounces once onto another enemy in range"
             }
@@ -2916,20 +2847,7 @@
         "Key": "citadel_ability_psychic_pulse",
         "Name": "Psychic Pulse",
         "SenseRange": "30m",
-        "Upgrades": [
-            {
-                "AbilityCooldown": -6,
-                "Description": "-6s Cooldown"
-            },
-            {
-                "SenseRange": "10m",
-                "Description": "+10m Sense Range"
-            },
-            {
-                "AbilityDuration": 3,
-                "Description": "+3s Duration"
-            }
-        ]
+        "Upgrades": []
     },
     "citadel_ability_rocket_barrage": {
         "AbilityCastRange": "50m",
@@ -2987,10 +2905,6 @@
             {
                 "HealOnCloneDamage": 100,
                 "Description": "Astro is healed 100% of the damage taken by the decoy"
-            },
-            {
-                "AbilityDuration": 6,
-                "Description": "+6s Duration"
             }
         ]
     },
@@ -3548,20 +3462,7 @@
         "Name": "Wing Blast",
         "PushVelocity": 110,
         "Radius": "5m",
-        "Upgrades": [
-            {
-                "DPS": 30,
-                "Description": "+30 DPS"
-            },
-            {
-                "Radius": "2.5m",
-                "Description": "+2.5m Radius"
-            },
-            {
-                "AbilityDuration": 3,
-                "Description": "+3s Duration"
-            }
-        ]
+        "Upgrades": []
     },
     "citadel_ability_wraith_rapidfire": {
         "AbilityCooldown": 48,
@@ -3793,20 +3694,7 @@
         "MaxTargets": 3,
         "Name": "Djinn's Chains",
         "Radius": "20m",
-        "Upgrades": [
-            {
-                "AbilityCooldown": -19,
-                "Description": "-19s Cooldown"
-            },
-            {
-                "DamageSharePercent": 20,
-                "Description": "+20 Damage Share Percent"
-            },
-            {
-                "BulletResistReduction": -15,
-                "Description": "-15 Bullet Resist Reduction"
-            }
-        ]
+        "Upgrades": []
     },
     "mirage_fire_beetles": {
         "AbilityCastDelay": 0.05,
@@ -4152,20 +4040,7 @@
         "TorrentDuration": 2.0,
         "TorrentHeight": 120,
         "TorrentRadius": "3m",
-        "Upgrades": [
-            {
-                "AbilityCooldown": -38,
-                "Description": "-38s Cooldown"
-            },
-            {
-                "AbilityDuration": 3,
-                "Description": "+3s Duration"
-            },
-            {
-                "BulletArmorReduction": -60,
-                "Description": "-60 Bullet Armor Reduction"
-            }
-        ]
+        "Upgrades": []
     },
     "slork_riptide": {
         "AbilityCastDelay": 0.2,
@@ -4222,10 +4097,6 @@
                 "NumSegments": 4,
                 "SpreadDegrees": 16,
                 "Description": "Spray in a wide arc"
-            },
-            {
-                "AbilityCooldown": -4,
-                "Description": "-4s Cooldown"
             },
             {
                 "DPS": 16,
@@ -4320,10 +4191,6 @@
                 "Description": "Each Blitz shot amplifies your spirit damage against the target by 7% for 15s"
             },
             {
-                "AbilityCooldown": -24,
-                "Description": "-24s Cooldown"
-            },
-            {
                 "FastFireBullets": 4,
                 "MaxStacks": 4,
                 "Description": "+4 Fast Fire Shots and +4 Max Stacks"
@@ -4346,14 +4213,6 @@
         "SlowPercent": 30,
         "TetherLength": "7m",
         "Upgrades": [
-            {
-                "AbilityDuration": 1,
-                "Description": "+1s Duration"
-            },
-            {
-                "BulletShieldPerHero": 150,
-                "Description": "+150 Bullet Shield Per Hero"
-            },
             {
                 "LifestealPerSecond": 4,
                 "LifestealHealthMult": 100,
@@ -4751,10 +4610,6 @@
                 "Description": "+30% melee attack speed"
             },
             {
-                "WeaponDamagePerHeat": 1.0,
-                "Description": "+1.0 Weapon Damage Per Heat"
-            },
-            {
                 "BaseHeatPower": 20.0,
                 "MaxHeatPower": 40.0,
                 "Description": "+20.0 Base Heat Power, +40.0 Max Heat Power"
@@ -4916,14 +4771,6 @@
         "Name": "Goo Form",
         "ThinkInterval": 0.25,
         "Upgrades": [
-            {
-                "DamageRadius": "2.5m",
-                "Description": "+2.5m Damage Radius"
-            },
-            {
-                "AbilityCooldown": -28,
-                "Description": "-28s Cooldown"
-            },
             {
                 "AbilityChannelTime": 0,
                 "Description": "[Not Yet Implemented]"

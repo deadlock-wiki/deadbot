@@ -104,6 +104,19 @@ class AbilityParser:
 
             # create our own description if none exists
             else:
+                # Determine hero that uses the ability, if any
+                hero_key = self._find_hero_name(ability_data['Key'], return_key_or_localized='key')
+                hero_name = self._find_hero_name(
+                    ability_data['Key'], return_key_or_localized='localized'
+                )
+                if hero_key is None:
+                    continue
+
+                # If they are not in development
+                hero_data = self.heroes_data[hero_key]
+                hero_in_development = hero_data['m_bInDevelopment']
+                hero_disabled = hero_data['m_bDisabled']
+
                 desc = ''
                 for attr, value in parsed_upgrade_set.items():
                     str_value = str(value)
@@ -118,11 +131,17 @@ class AbilityParser:
                 desc = desc[: -len(' and ')]
                 parsed_upgrade_set['Description'] = desc
 
+                if not hero_in_development and not hero_disabled:
+                    print(
+                        f'Released hero {hero_name} has no description found for '
+                        + f'{ability_data["Key"]} upgrade {index+1}, created desc is "{desc}"'
+                    )
+
             parsed_upgrade_sets.append(parsed_upgrade_set)
 
         return parsed_upgrade_sets
 
-    def _find_hero_name(self, ability_key):
+    def _find_hero_name(self, ability_key, return_key_or_localized='localized'):
         for hero_key, hero in self.heroes_data.items():
             # ignore non-dicts that live in the hero data
             if not isinstance(hero, dict):
@@ -132,6 +151,13 @@ class AbilityParser:
             for i in range(1, 5):
                 key = f'ESlot_Signature_{str(i)}'
                 if key in abilities and abilities[key] == ability_key:
-                    return self.localizations[hero_key]
+                    if return_key_or_localized == 'key':
+                        return hero_key
+                    elif return_key_or_localized == 'localized':
+                        return self.localizations[hero_key]
+                    else:
+                        raise Exception(f'Unknown key_or_localized value {return_key_or_localized}')
+
+        return None
 
         # raise Exception(f'Could not find hero for ability {ability_key}')
