@@ -58,9 +58,10 @@ class AbilityParser:
 
             description = (self.localizations.get(ability_key + '_desc'),)
 
-            ability_data['Description'] = string_utils.format_description(
-                description, ability_data, maps.KEYBIND_MAP, {'hero_name': ability_data['Key']}
-            )
+            # required variables to insert into the description
+            format_vars = (ability_data, maps.KEYBIND_MAP, {'hero_name': ability_data['Key']})
+
+            ability_data['Description'] = string_utils.format_description(description, *format_vars)
 
             formatted_ability_data = {}
             for attr_key, attr_value in ability_data.items():
@@ -90,14 +91,15 @@ class AbilityParser:
             if desc_key in self.localizations:
                 desc = self.localizations[desc_key]
 
-                # "ability_key" is used to reference the number of the current ability
-                formatted_desc = string_utils.format_description(
-                    desc,
+                # required variables to insert into the description
+                format_vars = (
                     parsed_upgrade_set,
                     maps.KEYBIND_MAP,
                     {'ability_key': index},
                     {'hero_name': ability_data['Key']},
                 )
+
+                formatted_desc = string_utils.format_description(desc, format_vars)
                 parsed_upgrade_set['Description'] = formatted_desc
 
             # create our own description if none exists
@@ -113,7 +115,7 @@ class AbilityParser:
                     desc += f'{str_value}{unit} {maps.get_ability_display_name(attr)} and '
 
                 # strip off extra "and" from description
-                desc = desc[:-5]
+                desc = desc[: -len(' and ')]
                 parsed_upgrade_set['Description'] = desc
 
             parsed_upgrade_sets.append(parsed_upgrade_set)

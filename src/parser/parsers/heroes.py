@@ -101,12 +101,8 @@ class HeroParser:
             'ClipSize': weapon_prim['m_iClipSize'],
             'ReloadTime': weapon_prim['m_reloadDuration'],
             'ReloadMovespeed': int(weapon_prim['m_flReloadMoveSpeed']) / 10000,
-            'ReloadDelay': weapon_prim['m_flReloadSingleBulletsInitialDelay']
-            if 'm_flReloadSingleBulletsInitialDelay' in weapon_prim
-            else 0,
-            'ReloadSingle': weapon_prim['m_bReloadSingleBullets']
-            if 'm_bReloadSingleBullets' in weapon_prim
-            else False,
+            'ReloadDelay': weapon_prim.get('m_flReloadSingleBulletsInitialDelay', 0),
+            'ReloadSingle': weapon_prim.get('m_bReloadSingleBullets', False),
             'BulletSpeed': self._calc_bullet_velocity(weapon_prim['m_BulletSpeedCurve']['m_spline']),
             'FalloffStartRange': int(
                 round(weapon_prim['m_flDamageFalloffStartRange'] / ENGINE_UNITS_PER_METER, 0)

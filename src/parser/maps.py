@@ -122,12 +122,12 @@ def get_uom(attr):
 def get_ability_display_name(attr):
     # strip out redundant "Ability"
     if attr.startswith('Ability'):
-        attr = attr[7:]
+        attr = attr[len('Ability') :]
     return pascal_to_words(attr)
 
 
 def pascal_to_words(text):
-    """Convert pascal text to be spaczed.
+    """Convert pascal text to be spaced.
     Eg. NeverGonnaGiveYouUp -> Never Gonna Give You Up
     """
 

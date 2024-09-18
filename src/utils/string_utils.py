@@ -7,6 +7,19 @@ import maps
 
 
 def format_description(description, *data_sets):
+    """
+        Find and replace any variables inside of the game's description, in addition
+        to removing html tags.
+        Variables come in the form of "{s:<var_name>}"
+
+    Args:
+        description (str): the localized string containing variables
+        *data_sets: any number of objects to provide a source to replace the variables
+
+    Example:
+        "<span class=\"highlight\">+{s:AbilityCastRange}m</span> Cast Range and gain <span class=\"highlight\">+{s:WeaponDamageBonus}</span> Weapon Damage for {s:WeaponDamageBonusDuration}s"
+    ->  "+7 Weapon Damage for 10s after teleporting with Flying Cloak"
+    """  # noqa: E501
     data = {}
     for data_set in data_sets:
         data.update(data_set)
@@ -33,7 +46,7 @@ def _replace_variables(desc, data):
             # strip out "m" (metres), as it we just want the formatted
             # description should contain any units
             if value.endswith('m'):
-                return value[:-1]
+                return value[: -len('m')]
 
             return value
         return f'UNKNOWN[{key}]'

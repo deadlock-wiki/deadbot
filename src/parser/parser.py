@@ -43,12 +43,11 @@ class Parser:
                 )
 
     def _load_localizations(self):
-        # Load all localizations data to memory
+        """
+        Merge all 5 localization groups - attributes, gc, heroes, main, and mods -
+        into a single object per language
+        """
 
-        # Merge all 5 localization groups (i.e. attributes, mods, etc.) to the same level
-        # Level 1: language
-        # Level 2: unlocalized text
-        # Level 3: localized text
         self.localizations = {}
         for language in self.languages:
             self.localizations[language] = {}
@@ -67,7 +66,14 @@ class Parser:
                 self._merge_localizations(language, localization_data)
 
     def _merge_localizations(self, language, data):
-        """Merge all localization data to the same level"""
+        """
+        Assigns a set of localization data to self.localizations for use across the parser
+
+        Args:
+            language (str): language for the provided data
+            data (dict): contents of a group of localization data for the given language
+                Eg. contents of citadels_heroes_danish.json
+        """
         for key, value in data.items():
             # Skip language key, and potentially others down the line
             # that are not needed but shared across groups
