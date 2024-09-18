@@ -99,7 +99,7 @@ class AbilityParser:
                     {'hero_name': ability_data['Key']},
                 )
 
-                formatted_desc = string_utils.format_description(desc, format_vars)
+                formatted_desc = string_utils.format_description(desc, *format_vars)
                 parsed_upgrade_set['Description'] = formatted_desc
 
             # create our own description if none exists

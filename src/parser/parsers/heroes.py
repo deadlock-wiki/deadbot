@@ -104,18 +104,14 @@ class HeroParser:
             'ReloadDelay': weapon_prim.get('m_flReloadSingleBulletsInitialDelay', 0),
             'ReloadSingle': weapon_prim.get('m_bReloadSingleBullets', False),
             'BulletSpeed': self._calc_bullet_velocity(weapon_prim['m_BulletSpeedCurve']['m_spline']),
-            'FalloffStartRange': int(
-                round(weapon_prim['m_flDamageFalloffStartRange'] / ENGINE_UNITS_PER_METER, 0)
-            ),
-            'FalloffEndRange': int(
-                round(weapon_prim['m_flDamageFalloffEndRange'] / ENGINE_UNITS_PER_METER, 0)
-            ),
+            'FalloffStartRange': weapon_prim['m_flDamageFalloffStartRange'] / ENGINE_UNITS_PER_METER,
+            'FalloffEndRange': weapon_prim['m_flDamageFalloffEndRange'] / ENGINE_UNITS_PER_METER,
             'FalloffStartScale': weapon_prim['m_flDamageFalloffStartScale'],
             'FalloffEndScale': weapon_prim['m_flDamageFalloffEndScale'],
             'FalloffBias': weapon_prim['m_flDamageFalloffBias'],
             'BulletGravityScale': weapon_prim['m_flBulletGravityScale'],
             # Need to do more confirmation of this in game
-            #'BulletRadius': round(weapon_prim['m_flBulletRadius'] / ENGINE_UNITS_PER_METER,3),
+            #'BulletRadius': weapon_prim['m_flBulletRadius'] / ENGINE_UNITS_PER_METER,
         }
 
         weapon_stats['DPS'] = weapon_stats['BulletDamage'] * weapon_stats['RoundsPerSecond']
@@ -202,4 +198,4 @@ class HeroParser:
                 raise Exception('Bullet speed curve is not constant')
 
         # If constant, return the y
-        return int(round(last_y / ENGINE_UNITS_PER_METER, 0))
+        return last_y / ENGINE_UNITS_PER_METER
