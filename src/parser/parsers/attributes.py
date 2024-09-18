@@ -81,7 +81,8 @@ class AttributeParser:
                     # Ensure the label is set for all attributes; though the postfix can be blank
                     if 'label' not in all_attributes[category][attribute]:
                         raise Exception(
-                            f'Unlocalized name not found for {attribute}, find the label and postfix'+
+                            f'Unlocalized name not found for {attribute}, '+
+                            'find the label and postfix'+
                             ' in localization data and add them to the manual_map'
                         )
 
