@@ -502,7 +502,7 @@
     },
     "ability_medic_trooper_heal": {
         "AbilityCastRange": "15m",
-        "AbilityCooldown": 6.25,
+        "AbilityCooldown": 6.0,
         "AbilityUnitTargetLimit": 1.0,
         "ChannelMoveSpeed": 50.0,
         "Description": null,
@@ -983,7 +983,7 @@
         "AbilityCastRange": "500m",
         "AbilityCharges": 1.0,
         "AbilityChargesConditionally": 1.0,
-        "AbilityCooldown": 0.75,
+        "AbilityCooldown": 0.5,
         "AbilityPostCastDuration": 0.2,
         "AbilityUnitTargetLimit": 1.0,
         "BonusAbilityResource": 100.0,
@@ -1002,7 +1002,7 @@
         "ResourcePerCard": 100.0
     },
     "citadel_ability_chain_lightning": {
-        "AbilityCooldown": 0.75,
+        "AbilityCooldown": 0.5,
         "AbilityUnitTargetLimit": 1.0,
         "ChannelMoveSpeed": 50.0,
         "ConeAngle": 45.0,
@@ -1774,7 +1774,7 @@
     },
     "citadel_ability_tier2boss_laser_beam": {
         "AbilityCastRange": 1800.0,
-        "AbilityCooldown": 1.25,
+        "AbilityCooldown": 1.0,
         "AbilityUnitTargetLimit": 1.0,
         "ChannelMoveSpeed": 50.0,
         "CreepDPS": 190.0,
@@ -1789,7 +1789,7 @@
     "citadel_ability_tier2boss_rocket_barrage": {
         "AbilityCastRange": 4000.0,
         "AbilityChannelTime": 3.5,
-        "AbilityCooldown": 10.5,
+        "AbilityCooldown": 10.0,
         "AbilityUnitTargetLimit": 100.0,
         "ChannelMoveSpeed": 50.0,
         "Damage": 200.0,
@@ -1807,7 +1807,7 @@
     },
     "citadel_ability_tier2boss_stomp": {
         "AbilityCastRange": 500.0,
-        "AbilityCooldown": 6.25,
+        "AbilityCooldown": 6.0,
         "AbilityUnitTargetLimit": 100.0,
         "ActivationDistance": 600.0,
         "ChannelMoveSpeed": 50.0,
@@ -2263,7 +2263,7 @@
         "TickRate": 1.0
     },
     "super_neutral_charge": {
-        "AbilityCooldown": 10.5,
+        "AbilityCooldown": 10.0,
         "AbilityUnitTargetLimit": 1.0,
         "CameraDistance": 120.0,
         "ChannelMoveSpeed": 50.0,
@@ -2278,7 +2278,7 @@
         "TackleSpeed": 1000.0
     },
     "super_neutral_shield": {
-        "AbilityCooldown": 1.25,
+        "AbilityCooldown": 1.0,
         "AbilityDuration": -1.0,
         "AbilityUnitTargetLimit": 1.0,
         "ChannelMoveSpeed": 50.0,
@@ -2589,7 +2589,7 @@
     "trooper_grenade": {
         "AbilityCastDelay": 0.2,
         "AbilityCastRange": 1600.0,
-        "AbilityCooldown": 4.25,
+        "AbilityCooldown": 4.0,
         "AbilityUnitTargetLimit": 1.0,
         "ArmingDuration": 5.0,
         "BlastRadius": "4m",
@@ -2604,7 +2604,7 @@
     "trooper_neutral_grenade": {
         "AbilityCastDelay": 0.5,
         "AbilityCastRange": 2000.0,
-        "AbilityCooldown": 42.0,
+        "AbilityCooldown": 40.0,
         "AbilityUnitTargetLimit": 1.0,
         "BlastRadius": 300.0,
         "ChannelMoveSpeed": 50.0,
