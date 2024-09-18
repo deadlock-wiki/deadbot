@@ -106,16 +106,9 @@ class AbilityParser:
             else:
                 # Determine hero that uses the ability, if any
                 hero_key = self._find_hero_name(ability_data['Key'], return_key_or_localized='key')
-                hero_name = self._find_hero_name(
-                    ability_data['Key'], return_key_or_localized='localized'
-                )
+                self._find_hero_name(ability_data['Key'], return_key_or_localized='localized')
                 if hero_key is None:
                     continue
-
-                # If they are not in development
-                hero_data = self.heroes_data[hero_key]
-                hero_in_development = hero_data['m_bInDevelopment']
-                hero_disabled = hero_data['m_bDisabled']
 
                 desc = ''
                 for attr, value in parsed_upgrade_set.items():
@@ -125,17 +118,11 @@ class AbilityParser:
                     # attach + or -
                     if isinstance(value, str) or not value < 0:
                         str_value = f'+{str_value}'
-                    desc += f'{str_value}{unit} {maps.get_ability_display_name(attr)} and '
+                    desc += f'{str_value}{unit} {self._get_ability_display_name(attr)} and '
 
                 # strip off extra "and" from description
                 desc = desc[: -len(' and ')]
                 parsed_upgrade_set['Description'] = desc
-
-                if not hero_in_development and not hero_disabled:
-                    print(
-                        f'Released hero {hero_name} has no description found for '
-                        + f'{ability_data["Key"]} upgrade {index+1}, created desc is "{desc}"'
-                    )
 
             parsed_upgrade_sets.append(parsed_upgrade_set)
 
@@ -160,4 +147,24 @@ class AbilityParser:
 
         return None
 
-        # raise Exception(f'Could not find hero for ability {ability_key}')
+    def _get_ability_display_name(self, attr):
+        OVERRIDES = {
+            'BonusHealthRegen': 'HealthRegen_label',
+            'BarbedWireRadius': 'Radius_label',
+            'BarbedWireDamagePerMeter': 'DamagePerMeter_label',
+            # capital "L" for some reason...
+            'TechArmorDamageReduction': 'TechArmorDamageReduction_Label',
+            'DamageAbsorb': 'DamageAbsorb_Label',
+            'InvisRegen': 'InvisRegen_Label',
+            'EvasionChance': 'EvasionChance_Label',
+            'DelayBetweenShots': 'DelayBetweenShots_Label',
+        }
+
+        if attr in OVERRIDES:
+            return self.localizations[OVERRIDES[attr]]
+
+        localized_key = f'{attr}_label'
+        if localized_key not in self.localizations:
+            print(f'Missing label for key {localized_key}')
+            return
+        return self.localizations[localized_key]

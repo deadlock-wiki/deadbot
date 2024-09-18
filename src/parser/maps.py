@@ -1,5 +1,3 @@
-import re
-
 TARGET_TYPE_MAP = {
     'CITADEL_UNIT_TARGET_ALL_ENEMY': 'AllEnemy',
     'CITADEL_UNIT_TARGET_ALL_FRIENDLY': 'AllFriendly',
@@ -117,28 +115,6 @@ def get_uom(attr):
         return 's'
 
     return ''
-
-
-def get_ability_display_name(attr):
-    # strip out redundant "Ability"
-    if attr.startswith('Ability'):
-        attr = attr[len('Ability') :]
-    return pascal_to_words(attr)
-
-
-def pascal_to_words(text):
-    """Convert pascal text to be spaced.
-    Eg. NeverGonnaGiveYouUp -> Never Gonna Give You Up
-    """
-
-    # ensure DPS is preserved as caps
-    if 'DPS' in text:
-        text = text.replace('DPS', 'Dps')
-
-    pascal_case = re.sub(r'(?<!^)(?=[A-Z])', ' ', text)
-
-    # return DPS back
-    return pascal_case.replace('Dps', 'DPS')
 
 
 KEYBIND_MAP = {

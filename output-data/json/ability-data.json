@@ -257,7 +257,7 @@
         "Upgrades": [
             {
                 "WeaponDamageBonus": 7,
-                "Description": "+7 Weapon Damage Bonus"
+                "Description": "+7 Weapon Damage"
             },
             {
                 "AbilityCooldown": -38,
@@ -265,7 +265,7 @@
             },
             {
                 "TargetsPerTick": 1,
-                "Description": "+1 Targets Per Tick"
+                "Description": "+1 Targets Hit Per Shot"
             }
         ],
         "WeaponDamageBonus": 2
@@ -424,7 +424,7 @@
             },
             {
                 "BarrelDamage": 140,
-                "Description": "+140 Barrel Damage"
+                "Description": "+140 Explosion Damage"
             },
             {
                 "AbilityCooldown": -9,
@@ -491,7 +491,7 @@
             },
             {
                 "FlameAuraDPS": 45,
-                "Description": "+45 Flame Aura DPS"
+                "Description": "+45 DPS"
             },
             {
                 "AbilityCooldown": -19,
@@ -584,7 +584,7 @@
             },
             {
                 "SlowPercent": 30,
-                "Description": "+30 Slow Percent"
+                "Description": "+30 Movement Slow"
             }
         ]
     },
@@ -611,7 +611,7 @@
             },
             {
                 "EnemyMinHealthPct": -10,
-                "Description": "-10 Enemy Min Health Pct"
+                "Description": "-10 Enemy Min Health"
             },
             {
                 "SelfBuffDuration": 8,
@@ -743,7 +743,7 @@
         "Upgrades": [
             {
                 "SprintSpeedBonus": "4m",
-                "Description": "+4m Sprint Speed Bonus"
+                "Description": "+4m Sprint Speed"
             },
             {
                 "AbilityCooldown": -15,
@@ -885,7 +885,7 @@
         "Upgrades": [
             {
                 "SlowPercent": 30,
-                "Description": "+30 Slow Percent"
+                "Description": "+30 Movement Slow"
             },
             {
                 "FireRateSlow": 40,
@@ -981,7 +981,7 @@
         "Upgrades": [
             {
                 "LifeDrainPerSecond": 20,
-                "Description": "+20 Life Drain Per Second"
+                "Description": "+20 Damage Per Second"
             },
             {
                 "AbilityDuration": 2.0,
@@ -1097,7 +1097,7 @@
         "Upgrades": [
             {
                 "StaminaCooldownReduction": 30,
-                "Description": "+30s Stamina Cooldown Reduction"
+                "Description": "+30s Stamina Recovery"
             },
             {
                 "PurgeOnActivate": 1,
@@ -1232,11 +1232,11 @@
             },
             {
                 "ScrapDamage": 55,
-                "Description": "+55 Scrap Damage"
+                "Description": "+55 Damage"
             },
             {
                 "EnemyMoveSlow": 20,
-                "Description": "+20 Enemy Move Slow"
+                "Description": "+20 Enemy Slow per hit"
             }
         ]
     },
@@ -1331,7 +1331,7 @@
             },
             {
                 "DamageBonusFixedPerStack": 0.2,
-                "Description": "+0.2 Damage Bonus Fixed Per Stack"
+                "Description": "+0.2 Weapon Damage"
             }
         ]
     },
@@ -1454,7 +1454,7 @@
         "Upgrades": [
             {
                 "MoveSpeedBonusPct": 20,
-                "Description": "+20 Move Speed Bonus Pct"
+                "Description": "+20 Move speed bonus"
             },
             {
                 "AbilityCooldown": -19,
@@ -1518,7 +1518,7 @@
             },
             {
                 "PulseDPS": 70,
-                "Description": "+70 Pulse DPS"
+                "Description": "+70 DPS"
             },
             {
                 "AbilityCooldown": -56,
@@ -1550,7 +1550,7 @@
             },
             {
                 "FireRateBuffDuration": 80,
-                "Description": "+80s Fire Rate Buff Duration"
+                "Description": "+80s Bonus Duration"
             }
         ]
     },
@@ -1569,7 +1569,7 @@
         "Upgrades": [
             {
                 "AbilityChannelTime": 8,
-                "Description": "+8 Channel Time"
+                "Description": "+8 Channel Duration"
             },
             {
                 "AbilityCooldown": -47,
@@ -1577,7 +1577,7 @@
             },
             {
                 "DamagePerSecondFlown": 16,
-                "Description": "+16 Damage Per Second Flown"
+                "Description": "+16 Damage per second flown"
             }
         ]
     },
@@ -1630,11 +1630,11 @@
             },
             {
                 "WreckingBallDamage": 80,
-                "Description": "+80 Wrecking Ball Damage"
+                "Description": "+80 Damage"
             },
             {
                 "MoveSpeedLimit": "4m",
-                "Description": "+4m Move Speed Limit"
+                "Description": "+4m Move Speed"
             }
         ],
         "WreckingBallDamage": 80,
@@ -1656,7 +1656,7 @@
         "Upgrades": [
             {
                 "ExtraLargeClip": 75,
-                "Description": "+75 Extra Large Clip"
+                "Description": "+75 Clip Bonus"
             },
             {
                 "Radius": "4m",
@@ -1731,7 +1731,7 @@
         "Upgrades": [
             {
                 "ExternalBonusHealthRegen": 15,
-                "Description": "+15 External Bonus Health Regen"
+                "Description": "+15 Health Regen"
             },
             {
                 "Radius": "2m",
@@ -1759,7 +1759,7 @@
         "Upgrades": [
             {
                 "SlowPercent": 40,
-                "Description": "+40 Slow Percent"
+                "Description": "+40 Movement Slow"
             },
             {
                 "DashDistance": "4m",
@@ -1872,7 +1872,7 @@
             },
             {
                 "LifeDrainPerSecond": 40,
-                "Description": "+40 Life Drain Per Second"
+                "Description": "+40 Damage Per Second"
             }
         ]
     },
@@ -1937,7 +1937,7 @@
             },
             {
                 "CardResourceGenPctScale": 50,
-                "Description": "+50 Card Resource Gen Pct Scale"
+                "Description": "+50 Card Summon Rate"
             }
         ]
     },
@@ -2090,7 +2090,7 @@
             },
             {
                 "SwapTotalDamage": 100,
-                "Description": "+100 Swap Total Damage"
+                "Description": "+100 Swap Damage"
             },
             {
                 "AbilityCooldown": -14,
@@ -2190,7 +2190,7 @@
         "Upgrades": [
             {
                 "SlowPercent": 25,
-                "Description": "+25 Slow Percent"
+                "Description": "+25 Movement Slow"
             },
             {
                 "AbilityCastRange": "20m",
@@ -2223,7 +2223,7 @@
             },
             {
                 "HealMaxHealth": 10,
-                "Description": "+10 Heal Max Health"
+                "Description": "+10 Heal on hero hit"
             },
             {
                 "AbilityCooldown": -5,
@@ -2280,7 +2280,7 @@
         "Upgrades": [
             {
                 "ChainDuration": 0.5,
-                "Description": "+0.5s Chain Duration"
+                "Description": "+0.5s Tether Duration"
             },
             {
                 "AbilityCooldown": -19,
@@ -2317,7 +2317,7 @@
             },
             {
                 "MagicDamagePerBullet": 12.0,
-                "Description": "+12.0 Magic Damage Per Bullet"
+                "Description": "+12.0 Spirit Damage Per Bullet"
             }
         ],
         "WeaponRecoilReduction": 40
@@ -2365,7 +2365,7 @@
             },
             {
                 "LowHealthEnemyDamageBonus": 140,
-                "Description": "+140 Low Health Enemy Damage Bonus"
+                "Description": "+140 Bonus Damage"
             },
             {
                 "BonusGoldOnKill": 600,
@@ -2430,7 +2430,7 @@
             },
             {
                 "BonusMoveSpeed": "4m",
-                "Description": "+4m Bonus Move Speed"
+                "Description": "+4m Move Speed"
             },
             {
                 "AbilityDuration": 1.5,
@@ -2459,7 +2459,7 @@
             },
             {
                 "BonusFireRate": 40,
-                "Description": "+40 Bonus Fire Rate"
+                "Description": "+40 Fire Rate"
             }
         ]
     },
@@ -2597,11 +2597,11 @@
         "Upgrades": [
             {
                 "ThrowDistance": "8m",
-                "Description": "+8m Throw Distance"
+                "Description": "+8m Max Throw Distance"
             },
             {
                 "ImpactDamage": 100,
-                "Description": "+100 Impact Damage"
+                "Description": "+100 Damage"
             },
             {
                 "AbilityCooldown": -56,
@@ -2633,7 +2633,7 @@
             },
             {
                 "SlowPercent": 40,
-                "Description": "+40 Slow Percent"
+                "Description": "+40 Movement Slow"
             },
             {
                 "DPS": 70,
@@ -2711,15 +2711,15 @@
         "Upgrades": [
             {
                 "BonusHealthRegen": 1.5,
-                "Description": "+1.5 Bonus Health Regen"
+                "Description": "+1.5 Health Regen"
             },
             {
                 "BonusMaxHealth": 150,
-                "Description": "+150 Bonus Max Health"
+                "Description": "+150 Health"
             },
             {
                 "RegenIncomingDamagePercent": 9,
-                "Description": "+9 Regen Incoming Damage Percent"
+                "Description": "+9 Damage regenerated"
             }
         ]
     },
@@ -2925,11 +2925,11 @@
         "Upgrades": [
             {
                 "VacuumRadius": "2m",
-                "Description": "+2m Vacuum Radius"
+                "Description": "+2m Singularity Radius"
             },
             {
                 "AbilityChannelTime": 0.75,
-                "Description": "+0.75 Channel Time"
+                "Description": "+0.75 Channel Duration"
             },
             {
                 "DamagePercentHealth": 3.8,
@@ -3044,7 +3044,7 @@
             },
             {
                 "ImpactDamage": 85,
-                "Description": "+85 Impact Damage"
+                "Description": "+85 Damage"
             },
             {
                 "CooldownReductionOnHit": 2,
@@ -3077,7 +3077,7 @@
             },
             {
                 "DeferClearPct": 25,
-                "Description": "+25 Defer Clear Pct"
+                "Description": "+25 Deferred Damage Cleared"
             }
         ]
     },
@@ -3144,7 +3144,7 @@
             },
             {
                 "ShockRadius": "8m",
-                "Description": "+8m Shock Radius"
+                "Description": "+8m Radius"
             },
             {
                 "StunDuration": 1.1,
@@ -3269,7 +3269,7 @@
         "Upgrades": [
             {
                 "BonusFireRate": 10,
-                "Description": "+10 Bonus Fire Rate"
+                "Description": "+10 Fire Rate"
             },
             {
                 "MoveSpeedBonus": "2.0m",
@@ -3277,7 +3277,7 @@
             },
             {
                 "TotalTetherTargets": 1,
-                "Description": "+1 Total Tether Targets"
+                "Description": "+1 Tether Count"
             }
         ]
     },
@@ -3350,7 +3350,7 @@
             },
             {
                 "MaxHealthRegen": 20,
-                "Description": "+20 Max Health Regen"
+                "Description": "+20 Max Health Heal"
             }
         ]
     },
@@ -3483,11 +3483,11 @@
             },
             {
                 "MagicDamagePerBullet": 5,
-                "Description": "+5 Magic Damage Per Bullet"
+                "Description": "+5 Spirit Damage Per Bullet"
             },
             {
                 "BulletLifestealPercent": 35,
-                "Description": "+35 Bullet Lifesteal Percent"
+                "Description": "+35 Bullet Lifesteal"
             }
         ]
     },
@@ -3665,7 +3665,7 @@
             },
             {
                 "BombBonusDamagePerHero": 40,
-                "Description": "+40 Bomb Bonus Damage Per Hero"
+                "Description": "+40 Bonus Damage Per Hero"
             },
             {
                 "Damage": 150,
@@ -3747,11 +3747,11 @@
         "Upgrades": [
             {
                 "WhirlwindEvasionChance": 30,
-                "Description": "+30 Whirlwind Evasion Chance"
+                "Description": "+30 Bullet Evasion Chance"
             },
             {
                 "ProcBonusMagicDamageEscalation": 10,
-                "Description": "+10 Proc Bonus Magic Damage Escalation"
+                "Description": "+10 Escalating Spirit Damage"
             },
             {
                 "AbilityCooldown": -19,
@@ -3790,7 +3790,7 @@
         "Upgrades": [
             {
                 "HoldInPlaceDuration": 0.75,
-                "Description": "+0.75s Hold In Place Duration"
+                "Description": "+0.75s Lift Duration"
             },
             {
                 "AbilityCooldown": -14,
@@ -3798,7 +3798,7 @@
             },
             {
                 "TechArmorDamageReduction": -15,
-                "Description": "-15 Tech Armor Damage Reduction"
+                "Description": "-15 Spirit Resist"
             }
         ]
     },
@@ -3886,7 +3886,7 @@
             },
             {
                 "DamageMax": 200,
-                "Description": "+200 Damage Max"
+                "Description": "+200 Maximum Damage"
             }
         ]
     },
@@ -3951,7 +3951,7 @@
         "Upgrades": [
             {
                 "InvisMoveSpeedMod": "+2m",
-                "Description": "++2m Invis Move Speed Mod"
+                "Description": "++2m Invis Sprint Speed"
             },
             {
                 "InvisFadeToDuration": -6,
@@ -3959,7 +3959,7 @@
             },
             {
                 "InvisRegen": 3,
-                "Description": "+3 Invis Regen"
+                "Description": "+3 Invis Max Health Regen"
             }
         ]
     },
@@ -4014,7 +4014,7 @@
             },
             {
                 "DamageAbsorb": 120,
-                "Description": "+120 Damage Absorb"
+                "Description": "+120 Damage Absorbed"
             },
             {
                 "BurstDamage": 120,
@@ -4164,7 +4164,7 @@
             },
             {
                 "AmpPercentPerStack": 5,
-                "Description": "+5 Amp Percent Per Stack"
+                "Description": "+5 Amp Per Stack"
             }
         ]
     },
@@ -4400,7 +4400,7 @@
             {
                 "AbilityCooldownBetweenCharge": -3,
                 "AbilityCooldown": -3,
-                "Description": "-3s Cooldown Between Charge and -3s Cooldown"
+                "Description": "-3s Charge Delay and -3s Cooldown"
             }
         ]
     },
@@ -4430,11 +4430,11 @@
             },
             {
                 "BarbedWireRadius": "3m",
-                "Description": "+3m Barbed Wire Radius"
+                "Description": "+3m Radius"
             },
             {
                 "BarbedWireDamagePerMeter": 30,
-                "Description": "+30 Barbed Wire Damage Per Meter"
+                "Description": "+30 Damage per meter"
             }
         ],
         "VerticalDifferenceTolerance": "2.5m"
@@ -4642,7 +4642,7 @@
             },
             {
                 "AbilityChannelTime": 0.5,
-                "Description": "+0.5 Channel Time"
+                "Description": "+0.5 Channel Duration"
             },
             {
                 "NormalDPS": 16,
@@ -4674,7 +4674,7 @@
             },
             {
                 "EvasionChance": 20,
-                "Description": "+20 Evasion Chance"
+                "Description": "+20 Bullet Evasion Chance"
             },
             {
                 "MaxDPS": 24,
@@ -4812,7 +4812,7 @@
             },
             {
                 "BonusHealthRegen": 60,
-                "Description": "+60 Bonus Health Regen"
+                "Description": "+60 Health Regen"
             }
         ]
     },
@@ -4868,15 +4868,15 @@
         "Upgrades": [
             {
                 "SummonCasterHealthPct": 20,
-                "Description": "+20 Summon Caster Health Pct"
+                "Description": "+20 to Gangster Health"
             },
             {
                 "SummonDPS": 45,
-                "Description": "+45 Summon DPS"
+                "Description": "+45 Gangster DPS"
             },
             {
                 "SummonCount": 1,
-                "Description": "+1 Summon Count"
+                "Description": "+1 Gangsters Summoned"
             }
         ]
     },
@@ -4900,7 +4900,7 @@
             },
             {
                 "BonusCritDamagePercent": 40,
-                "Description": "+40 Bonus Crit Damage Percent"
+                "Description": "+40 Bonus Crit Damage"
             },
             {
                 "BulletShieldHealth": 360,
@@ -4934,7 +4934,7 @@
             },
             {
                 "CenterDamage": 200,
-                "Description": "+200 Center Damage"
+                "Description": "+200 Damage at the center"
             }
         ]
     },
@@ -4954,7 +4954,7 @@
         "Upgrades": [
             {
                 "WeaponPowerDebuff": -30,
-                "Description": "-30 Weapon Power Debuff"
+                "Description": "-30 Weapon Damage"
             },
             {
                 "IgnoreChannelSlow": 1,
@@ -4962,7 +4962,7 @@
             },
             {
                 "ShareDamagePercent": 67,
-                "Description": "+67 Share Damage Percent"
+                "Description": "+67 Increased Damage Share"
             }
         ]
     }
