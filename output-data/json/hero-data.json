@@ -7,7 +7,7 @@
             "1": {
                 "AbilityCastDelay": 0.125,
                 "AbilityCharges": 2,
-                "AbilityCooldown": 32,
+                "AbilityCooldown": 32.0,
                 "AbilityCooldownBetweenCharge": 5,
                 "AbilityUnitTargetLimit": 1,
                 "ArmTime": 1,
@@ -39,17 +39,17 @@
                         "Description": "+140 Explosion Damage"
                     },
                     {
-                        "AbilityCooldown": -9,
+                        "AbilityCooldown": -9.5,
                         "MinTimeBeforeDestroy": -1,
                         "ArmTime": -1,
-                        "Description": "-9 Cooldown<br>No arm time"
+                        "Description": "-9.5 Cooldown<br>No arm time"
                     }
                 ]
             },
             "2": {
                 "AbilityCastDelay": 0.08,
                 "AbilityCharges": 1,
-                "AbilityCooldown": 37,
+                "AbilityCooldown": 37.0,
                 "AbilityCooldownBetweenCharge": 3.5,
                 "AbilityDuration": 22,
                 "AbilityUnitTargetLimit": 1,
@@ -77,8 +77,8 @@
                         "Description": "You and allies gain a +4m/s movement speed bonus for 4s on landing"
                     },
                     {
-                        "StompDamage": 1,
-                        "Description": "+1 Stomp Damage with improved scaling"
+                        "StompDamage": 1.04832,
+                        "Description": "+1.04832 Stomp Damage with improved scaling"
                     },
                     {
                         "StompStunDuration": 1.25,
@@ -89,7 +89,7 @@
             },
             "3": {
                 "AbilityCastDelay": 0.15,
-                "AbilityCooldown": 21,
+                "AbilityCooldown": 21.0,
                 "AbilityUnitTargetLimit": 1,
                 "Damage": 100,
                 "DebuffDuration": 5,
@@ -104,8 +104,8 @@
                         "Description": "+50 Damage"
                     },
                     {
-                        "AbilityCooldown": -9,
-                        "Description": "-9s Cooldown"
+                        "AbilityCooldown": -9.5,
+                        "Description": "-9.5s Cooldown"
                     },
                     {
                         "SlowPercent": 30,
@@ -115,7 +115,7 @@
             },
             "4": {
                 "AbilityCastRange": "10m",
-                "AbilityCooldown": 159,
+                "AbilityCooldown": 159.0,
                 "AbilityDuration": 2.5,
                 "AbilityUnitTargetLimit": 1,
                 "BouncePadExtendDuration": 2,
@@ -139,8 +139,8 @@
                         "Description": "+0.6s Duration"
                     },
                     {
-                        "AbilityCooldown": -56,
-                        "Description": "-56s Cooldown"
+                        "AbilityCooldown": -56.0,
+                        "Description": "-56.0s Cooldown"
                     },
                     {
                         "GrabExtraTargets": 1,
@@ -193,7 +193,7 @@
         "BaseHealthRegen": 1.0,
         "BoundAbilities": {
             "1": {
-                "AbilityCooldown": 42,
+                "AbilityCooldown": 42.0,
                 "AbilityDuration": 4,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
@@ -207,8 +207,8 @@
                 "TickRate": 0.25,
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -19,
-                        "Description": "-19s Cooldown"
+                        "AbilityCooldown": -19.0,
+                        "Description": "-19.0s Cooldown"
                     },
                     {
                         "AbilityDuration": 2,
@@ -221,7 +221,7 @@
                 ]
             },
             "2": {
-                "AbilityCooldown": 37,
+                "AbilityCooldown": 37.0,
                 "AbilityDuration": 1.2,
                 "AbilityUnitTargetLimit": 1,
                 "CameraDistance": 450,
@@ -241,8 +241,8 @@
                 "TurnRateMax": 140,
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -19,
-                        "Description": "-19s Cooldown"
+                        "AbilityCooldown": -19.0,
+                        "Description": "-19.0s Cooldown"
                     },
                     {
                         "AbilityDuration": 0.5,
@@ -281,7 +281,7 @@
                 ]
             },
             "4": {
-                "AbilityCooldown": 159,
+                "AbilityCooldown": 159.0,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
                 "Damage": 150,
@@ -293,8 +293,8 @@
                 "StunDuration": 1,
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -38,
-                        "Description": "-38s Cooldown"
+                        "AbilityCooldown": -38.0,
+                        "Description": "-38.0s Cooldown"
                     },
                     {
                         "BonusMaxHealthPerHero": 100,
@@ -352,7 +352,7 @@
         "BaseHealthRegen": 3.0,
         "BoundAbilities": {
             "1": {
-                "AbilityCooldown": 21,
+                "AbilityCooldown": 21.0,
                 "AbilityUnitTargetLimit": 1,
                 "BuffGunRangePercent": 100,
                 "ChannelMoveSpeed": 50,
@@ -369,8 +369,8 @@
                 "TossVelocity": "25m",
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -10,
-                        "Description": "-10s Cooldown"
+                        "AbilityCooldown": -10.5,
+                        "Description": "-10.5s Cooldown"
                     },
                     {
                         "UppercutBuffOnHit": 12,
@@ -387,7 +387,7 @@
             },
             "2": {
                 "AbilityCastRange": "6m",
-                "AbilityCooldown": 19,
+                "AbilityCooldown": 19.0,
                 "AbilityDuration": 3.0,
                 "AbilityUnitTargetLimit": 1,
                 "BonusDamagePctPerPlayerHit": 2.5,
@@ -400,8 +400,8 @@
                 "Radius": "12m",
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -7,
-                        "Description": "-7s Cooldown"
+                        "AbilityCooldown": -7.5,
+                        "Description": "-7.5s Cooldown"
                     },
                     {
                         "Damage": 80,
@@ -415,7 +415,7 @@
             },
             "3": {
                 "AbilityCastRange": "30m",
-                "AbilityCooldown": 23,
+                "AbilityCooldown": 23.0,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
                 "Damage": 40,
@@ -440,15 +440,15 @@
                         "Description": "+30m Cast Range"
                     },
                     {
-                        "AbilityCooldown": -11,
-                        "Description": "-11s Cooldown"
+                        "AbilityCooldown": -11.5,
+                        "Description": "-11.5s Cooldown"
                     }
                 ]
             },
             "4": {
                 "AbilityCastDelay": 1.0,
                 "AbilityChannelTime": 8,
-                "AbilityCooldown": 130,
+                "AbilityCooldown": 130.0,
                 "AbilityUnitTargetLimit": 1,
                 "AirSpeedMax": 70,
                 "BeamCloseDamagePercent": 75,
@@ -471,8 +471,8 @@
                 "TrackingSpeed": 55,
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -30,
-                        "Description": "-30s Cooldown"
+                        "AbilityCooldown": -30.0,
+                        "Description": "-30.0s Cooldown"
                     },
                     {
                         "DPS": 100,
@@ -534,7 +534,7 @@
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.2,
-                "AbilityCooldown": 10,
+                "AbilityCooldown": 10.5,
                 "AbilityUnitTargetLimit": 1,
                 "BlastJumpVelocity": "25m",
                 "BlastJumpVelocityCrouch": "30m",
@@ -562,7 +562,7 @@
                 ]
             },
             "2": {
-                "AbilityCooldown": 26,
+                "AbilityCooldown": 26.0,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
                 "Description": null,
@@ -584,7 +584,7 @@
                 ]
             },
             "3": {
-                "AbilityCooldown": 26,
+                "AbilityCooldown": 26.0,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
                 "Description": null,
@@ -606,7 +606,7 @@
                 ]
             },
             "4": {
-                "AbilityCooldown": 127,
+                "AbilityCooldown": 127.0,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
                 "Description": null,
@@ -672,7 +672,7 @@
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.75,
-                "AbilityCooldown": 37,
+                "AbilityCooldown": 37.0,
                 "AbilityDuration": 8,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
@@ -700,7 +700,7 @@
             },
             "2": {
                 "AbilityCastDelay": 0.25,
-                "AbilityCooldown": 42,
+                "AbilityCooldown": 42.0,
                 "AbilityDuration": 6,
                 "AbilityUnitTargetLimit": 1,
                 "BonusMoveSpeed": "0m",
@@ -728,7 +728,7 @@
             },
             "3": {
                 "AbilityCastDelay": 0.25,
-                "AbilityCooldown": 48,
+                "AbilityCooldown": 48.0,
                 "AbilityDuration": 6,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
@@ -758,7 +758,7 @@
             "4": {
                 "AbilityCastDelay": 0.5,
                 "AbilityChannelTime": 3,
-                "AbilityCooldown": 95,
+                "AbilityCooldown": 95.0,
                 "AbilityUnitTargetLimit": 1,
                 "BulletResist": -20,
                 "ChannelMoveSpeed": "0m",
@@ -828,7 +828,7 @@
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.2,
-                "AbilityCooldown": 28,
+                "AbilityCooldown": 28.0,
                 "AbilityDuration": 4,
                 "AbilityUnitTargetLimit": 1,
                 "BossDamagePercent": 50,
@@ -850,8 +850,8 @@
                         "Description": "+1 Pulses"
                     },
                     {
-                        "AbilityCooldown": -7,
-                        "Description": "-7s Cooldown"
+                        "AbilityCooldown": -7.5,
+                        "Description": "-7.5s Cooldown"
                     },
                     {
                         "PulseDamage": 45,
@@ -863,7 +863,7 @@
                 "AbilityCastDelay": 0.2,
                 "AbilityCastRange": 200,
                 "AbilityCharges": 1,
-                "AbilityCooldown": 37,
+                "AbilityCooldown": 37.0,
                 "AbilityCooldownBetweenCharge": 8,
                 "AbilityDuration": 7,
                 "AbilityUnitTargetLimit": 1,
@@ -901,7 +901,7 @@
                 ]
             },
             "3": {
-                "AbilityCooldown": 30,
+                "AbilityCooldown": 30.0,
                 "AbilityUnitTargetLimit": 1,
                 "BaseBulletDamage": 5,
                 "BonusBulletSpeed": 100,
@@ -929,7 +929,7 @@
                         "Description": "+UNKNOWN[MinSlowDuration]s/0.5s Min/Max Stop Duration"
                     },
                     {
-                        "AbilityCooldown": -9,
+                        "AbilityCooldown": -9.5,
                         "SpeedBoostDuration": 2,
                         "Description": "+2s Speed Duration, 2s Charge Time"
                     },
@@ -942,7 +942,7 @@
             "4": {
                 "AbilityCastDelay": 0.15,
                 "AbilityCastRange": "30m",
-                "AbilityCooldown": 48,
+                "AbilityCooldown": 48.0,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
                 "Description": "Fire a projectile that swaps your position with the target enemy hero. While the effect occurs, you gain spirit lifesteal and the enemy takes damage over time.",
@@ -967,8 +967,8 @@
                         "Description": "+100 Swap Damage"
                     },
                     {
-                        "AbilityCooldown": -14,
-                        "Description": "-14s Cooldown"
+                        "AbilityCooldown": -14.0,
+                        "Description": "-14.0s Cooldown"
                     }
                 ]
             }
@@ -1018,7 +1018,7 @@
             "1": {
                 "AbilityCastDelay": 0.42,
                 "AbilityCharges": 1,
-                "AbilityCooldown": 26,
+                "AbilityCooldown": 26.0,
                 "AbilityCooldownBetweenCharge": 5,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
@@ -1054,7 +1054,7 @@
             },
             "2": {
                 "AbilityCastRange": "9m",
-                "AbilityCooldown": 12,
+                "AbilityCooldown": 12.5,
                 "AbilityUnitTargetLimit": 1,
                 "AllyDistance": "9m",
                 "ChannelMoveSpeed": 50,
@@ -1082,7 +1082,7 @@
             },
             "3": {
                 "AbilityChannelTime": 5,
-                "AbilityCooldown": 48,
+                "AbilityCooldown": 48.0,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": "4.2m",
                 "Description": "While channelling, restore health over time to you and any allies nearby. Dashing does not break channel.",
@@ -1098,8 +1098,8 @@
                         "Description": "Gain +4m/s movespeed bonus for 8s if Aurora is fully channeled.  Gain instantly with 5AP Upgrade."
                     },
                     {
-                        "AbilityCooldown": -14,
-                        "Description": "-14s Cooldown"
+                        "AbilityCooldown": -14.0,
+                        "Description": "-14.0s Cooldown"
                     },
                     {
                         "NoChannel": 1,
@@ -1111,7 +1111,7 @@
             "4": {
                 "AbilityCastDelay": 0.2,
                 "AbilityChannelTime": 2.75,
-                "AbilityCooldown": 191,
+                "AbilityCooldown": 191.0,
                 "AbilityUnitTargetLimit": 1,
                 "CameraDistance": 400,
                 "DPS": 60,
@@ -1185,7 +1185,7 @@
                 "AbilityCastDelay": 0.2,
                 "AbilityCastRange": "15m",
                 "AbilityCharges": 1,
-                "AbilityCooldown": 30,
+                "AbilityCooldown": 30.0,
                 "AbilityCooldownBetweenCharge": 5,
                 "AbilityUnitTargetLimit": 1,
                 "AttackConeAngle": 10,
@@ -1231,7 +1231,7 @@
             "2": {
                 "AbilityCastDelay": 0.2,
                 "AbilityCastRange": "15m",
-                "AbilityCooldown": 48,
+                "AbilityCooldown": 48.0,
                 "AbilityDuration": 6,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
@@ -1248,8 +1248,8 @@
                         "Description": "+35% Fire Rate on units being healed by Medicinal Specter"
                     },
                     {
-                        "AbilityCooldown": -17,
-                        "Description": "-17s Cooldown"
+                        "AbilityCooldown": -17.0,
+                        "Description": "-17.0s Cooldown"
                     },
                     {
                         "MaxHealthRegenPct": 5,
@@ -1259,7 +1259,7 @@
             },
             "3": {
                 "AbilityCastRange": "50m",
-                "AbilityCooldown": 37,
+                "AbilityCooldown": 37.0,
                 "AbilityDuration": 5,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
@@ -1283,8 +1283,8 @@
                         "Description": "Removes 1 stamina and amplifies citadel_ability_fissure_wall's damage by 25% on hit enemies for 7s"
                     },
                     {
-                        "AbilityCooldown": -14,
-                        "Description": "-14s Cooldown"
+                        "AbilityCooldown": -14.0,
+                        "Description": "-14.0s Cooldown"
                     },
                     {
                         "WallStunDuration": 1,
@@ -1296,7 +1296,7 @@
             "4": {
                 "AbilityCastRange": "50m",
                 "AbilityChannelTime": 13,
-                "AbilityCooldown": 106,
+                "AbilityCooldown": 106.0,
                 "AbilityUnitTargetLimit": 100,
                 "BossDamagePercent": 50,
                 "ChannelMoveSpeed": -1,
@@ -1324,8 +1324,8 @@
                         "Description": "Applies 35% movement slow"
                     },
                     {
-                        "AbilityCooldown": -47,
-                        "Description": "-47s Cooldown"
+                        "AbilityCooldown": -47.0,
+                        "Description": "-47.0s Cooldown"
                     },
                     {
                         "DamagePerRocket": 30,
@@ -1379,7 +1379,7 @@
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 1,
-                "AbilityCooldown": 10,
+                "AbilityCooldown": 10.5,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
                 "Description": null,
@@ -1387,22 +1387,22 @@
                 "Name": null,
                 "Upgrades": [
                     {
-                        "AbilityCooldown": 0,
-                        "Description": "+0s Cooldown"
+                        "AbilityCooldown": -0.75,
+                        "Description": "-0.75s Cooldown"
                     },
                     {
-                        "AbilityCooldown": 0,
-                        "Description": "+0s Cooldown"
+                        "AbilityCooldown": -0.75,
+                        "Description": "-0.75s Cooldown"
                     },
                     {
-                        "AbilityCooldown": 0,
-                        "Description": "+0s Cooldown"
+                        "AbilityCooldown": -0.75,
+                        "Description": "-0.75s Cooldown"
                     }
                 ]
             },
             "2": {
                 "AbilityCastDelay": 1,
-                "AbilityCooldown": 10,
+                "AbilityCooldown": 10.5,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
                 "Description": null,
@@ -1410,22 +1410,22 @@
                 "Name": null,
                 "Upgrades": [
                     {
-                        "AbilityCooldown": 0,
-                        "Description": "+0s Cooldown"
+                        "AbilityCooldown": -0.75,
+                        "Description": "-0.75s Cooldown"
                     },
                     {
-                        "AbilityCooldown": 0,
-                        "Description": "+0s Cooldown"
+                        "AbilityCooldown": -0.75,
+                        "Description": "-0.75s Cooldown"
                     },
                     {
-                        "AbilityCooldown": 0,
-                        "Description": "+0s Cooldown"
+                        "AbilityCooldown": -0.75,
+                        "Description": "-0.75s Cooldown"
                     }
                 ]
             },
             "3": {
                 "AbilityCastDelay": 1,
-                "AbilityCooldown": 10,
+                "AbilityCooldown": 10.5,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
                 "Description": null,
@@ -1433,22 +1433,22 @@
                 "Name": null,
                 "Upgrades": [
                     {
-                        "AbilityCooldown": 0,
-                        "Description": "+0s Cooldown"
+                        "AbilityCooldown": -0.75,
+                        "Description": "-0.75s Cooldown"
                     },
                     {
-                        "AbilityCooldown": 0,
-                        "Description": "+0s Cooldown"
+                        "AbilityCooldown": -0.75,
+                        "Description": "-0.75s Cooldown"
                     },
                     {
-                        "AbilityCooldown": 0,
-                        "Description": "+0s Cooldown"
+                        "AbilityCooldown": -0.75,
+                        "Description": "-0.75s Cooldown"
                     }
                 ]
             },
             "4": {
                 "AbilityCastDelay": 1,
-                "AbilityCooldown": 10,
+                "AbilityCooldown": 10.5,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
                 "Description": null,
@@ -1456,16 +1456,16 @@
                 "Name": null,
                 "Upgrades": [
                     {
-                        "AbilityCooldown": 0,
-                        "Description": "+0s Cooldown"
+                        "AbilityCooldown": -0.75,
+                        "Description": "-0.75s Cooldown"
                     },
                     {
-                        "AbilityCooldown": 0,
-                        "Description": "+0s Cooldown"
+                        "AbilityCooldown": -0.75,
+                        "Description": "-0.75s Cooldown"
                     },
                     {
-                        "AbilityCooldown": 0,
-                        "Description": "+0s Cooldown"
+                        "AbilityCooldown": -0.75,
+                        "Description": "-0.75s Cooldown"
                     }
                 ]
             }
@@ -1513,7 +1513,7 @@
         "BaseHealthRegen": 1.0,
         "BoundAbilities": {
             "1": {
-                "AbilityCooldown": 10,
+                "AbilityCooldown": 10.5,
                 "AbilityUnitTargetLimit": 1,
                 "ArmingDuration": 0.5,
                 "BeepSoundBuildupCount": 4,
@@ -1546,7 +1546,7 @@
             "2": {
                 "AbilityCastDelay": 0.2,
                 "AbilityCastRange": "20m",
-                "AbilityCooldown": 42,
+                "AbilityCooldown": 42.0,
                 "AbilityDuration": 2,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
@@ -1575,7 +1575,7 @@
             },
             "3": {
                 "AbilityCastDelay": 0.12,
-                "AbilityCooldown": 6,
+                "AbilityCooldown": 6.25,
                 "AbilityPostCastDuration": 0.3,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": -1,
@@ -1591,8 +1591,8 @@
                 "SpreadAngleDegrees": 6,
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -2,
-                        "Description": "-2s Cooldown"
+                        "AbilityCooldown": -2.75,
+                        "Description": "-2.75s Cooldown"
                     },
                     {
                         "HealthToDamage": 40,
@@ -1609,7 +1609,7 @@
             "4": {
                 "AbilityCastDelay": 0.2,
                 "AbilityCastRange": "7m",
-                "AbilityCooldown": 170,
+                "AbilityCooldown": 170.0,
                 "AbilityDuration": 0.25,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": "2m",
@@ -1624,8 +1624,8 @@
                 "PostCastHoldTime": 0.7,
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -38,
-                        "Description": "-38s Cooldown"
+                        "AbilityCooldown": -38.0,
+                        "Description": "-38.0s Cooldown"
                     },
                     {
                         "EnemyMinHealthPct": -10,
@@ -1685,7 +1685,7 @@
             "1": {
                 "AbilityCastDelay": 0.2,
                 "AbilityCharges": 1,
-                "AbilityCooldown": 23,
+                "AbilityCooldown": 23.0,
                 "AbilityCooldownBetweenCharge": 8,
                 "AbilityUnitTargetLimit": 1,
                 "BossDamagePercent": 50,
@@ -1717,7 +1717,7 @@
             "2": {
                 "AbilityCastDelay": 0.2,
                 "AbilityCastRange": "16m",
-                "AbilityCooldown": 42,
+                "AbilityCooldown": 42.0,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
                 "Damage": 40,
@@ -1729,8 +1729,8 @@
                 "StunDuration": 1.1,
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -19,
-                        "Description": "-19s Cooldown"
+                        "AbilityCooldown": -19.0,
+                        "Description": "-19.0s Cooldown"
                     },
                     {
                         "ShockRadius": "8m",
@@ -1744,7 +1744,7 @@
             },
             "3": {
                 "AbilityCastDelay": 0.2,
-                "AbilityCooldown": 48,
+                "AbilityCooldown": 48.0,
                 "AbilityDuration": 10,
                 "AbilityUnitTargetLimit": 1,
                 "BonusPerChain": 10,
@@ -1764,20 +1764,20 @@
                         "Description": "Shock Damage applies -15% Spirit Resist for 8s"
                     },
                     {
-                        "AbilityCooldown": -15,
-                        "Description": "-15s Cooldown"
+                        "AbilityCooldown": -15.0,
+                        "Description": "-15.0s Cooldown"
                     },
                     {
-                        "DamagePerChain": 0,
-                        "BonusPerChain": 0,
+                        "DamagePerChain": 0.366912,
+                        "BonusPerChain": 0.366912,
                         "ChainCount": 3,
-                        "Description": "+0 Shock Damage, improved Spirit scaling, and +3 Max Jumps"
+                        "Description": "+0.366912 Shock Damage, improved Spirit scaling, and +3 Max Jumps"
                     }
                 ]
             },
             "4": {
                 "AbilityChannelTime": 7,
-                "AbilityCooldown": 148,
+                "AbilityCooldown": 148.0,
                 "AbilityUnitTargetLimit": 1,
                 "BossDamagePercent": 25,
                 "BulletResistOnActive": 20,
@@ -1857,7 +1857,7 @@
                 "AbilityCastDelay": 0.2,
                 "AbilityCastRange": "15m",
                 "AbilityChannelTime": 1.5,
-                "AbilityCooldown": 10,
+                "AbilityCooldown": 10.5,
                 "AbilityUnitTargetLimit": 1,
                 "BulletAccuracy": 200,
                 "BulletSpeedPercent": 100,
@@ -1875,7 +1875,7 @@
             },
             "2": {
                 "AbilityCharges": 1,
-                "AbilityCooldown": 10,
+                "AbilityCooldown": 10.5,
                 "AbilityCooldownBetweenCharge": 0.8,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
@@ -1901,7 +1901,7 @@
                 "Upgrades": []
             },
             "4": {
-                "AbilityCooldown": 95,
+                "AbilityCooldown": 95.0,
                 "AbilityDuration": "",
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
@@ -1960,7 +1960,7 @@
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.2,
-                "AbilityCooldown": 26,
+                "AbilityCooldown": 26.0,
                 "AbilityUnitTargetLimit": 1,
                 "AoESleep": "0m",
                 "BombFallHeight": "1.5m",
@@ -1983,8 +1983,8 @@
                         "Description": "Removes 1 stamina"
                     },
                     {
-                        "AbilityCooldown": -12,
-                        "Description": "-12s Cooldown"
+                        "AbilityCooldown": -12.0,
+                        "Description": "-12.0s Cooldown"
                     },
                     {
                         "BulletResistReduction": -12,
@@ -1994,7 +1994,7 @@
                 ]
             },
             "2": {
-                "AbilityCooldown": 37,
+                "AbilityCooldown": 37.0,
                 "AbilityDuration": 8,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
@@ -2010,8 +2010,8 @@
                 "SpottedRadius": "18m",
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -14,
-                        "Description": "-14s Ability Cooldown"
+                        "AbilityCooldown": -14.0,
+                        "Description": "-14.0s Ability Cooldown"
                     },
                     {
                         "InvisMoveSpeedMod": "6m",
@@ -2036,11 +2036,11 @@
                 "Name": "Fixation",
                 "Upgrades": [
                     {
-                        "ProcDamage": 0,
+                        "ProcDamage": 0.39312,
                         "ProcDamageStackCount": 20,
                         "SlowPercent": 15,
                         "SlowDuration": 2,
-                        "Description": "0 Spirit damage and 15% slow for 2s to target every 20 stacks"
+                        "Description": "0.39312 Spirit damage and 15% slow for 2s to target every 20 stacks"
                     },
                     {
                         "AbilityDuration": 5,
@@ -2056,7 +2056,7 @@
             "4": {
                 "AbilityCastDelay": 0.4,
                 "AbilityChannelTime": 3.0,
-                "AbilityCooldown": 138,
+                "AbilityCooldown": 138.0,
                 "AbilityUnitTargetLimit": 1,
                 "BonusFireRate": 25,
                 "ChannelMoveSpeed": "4m",
@@ -2072,8 +2072,8 @@
                         "Description": "+7 Weapon Damage"
                     },
                     {
-                        "AbilityCooldown": -38,
-                        "Description": "-38s Cooldown"
+                        "AbilityCooldown": -38.0,
+                        "Description": "-38.0s Cooldown"
                     },
                     {
                         "TargetsPerTick": 1,
@@ -2129,7 +2129,7 @@
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.2,
-                "AbilityCooldown": 42,
+                "AbilityCooldown": 42.0,
                 "AbilityUnitTargetLimit": 1,
                 "CaptureRadius": "8m",
                 "ChainDuration": 2.0,
@@ -2147,8 +2147,8 @@
                         "Description": "+0.5s Tether Duration"
                     },
                     {
-                        "AbilityCooldown": -19,
-                        "Description": "-19s Cooldown"
+                        "AbilityCooldown": -19.0,
+                        "Description": "-19.0s Cooldown"
                     },
                     {
                         "HasDisarm": 1,
@@ -2158,7 +2158,7 @@
             },
             "2": {
                 "AbilityChannelTime": 0.2,
-                "AbilityCooldown": 42,
+                "AbilityCooldown": 42.0,
                 "AbilityDuration": 8,
                 "AbilityUnitTargetLimit": 1,
                 "AirSideMoveSpeedPercentage": -35,
@@ -2176,8 +2176,8 @@
                         "Description": "+50% base Ammo while flying"
                     },
                     {
-                        "AbilityCooldown": -14,
-                        "Description": "-14s Cooldown"
+                        "AbilityCooldown": -14.0,
+                        "Description": "-14.0s Cooldown"
                     },
                     {
                         "MagicDamagePerBullet": 12.0,
@@ -2188,7 +2188,7 @@
             },
             "3": {
                 "AbilityCastDelay": 0.2,
-                "AbilityCooldown": 26,
+                "AbilityCooldown": 26.0,
                 "AbilityUnitTargetLimit": 1,
                 "BulletResistReduction": -6,
                 "ChannelMoveSpeed": 50,
@@ -2207,8 +2207,8 @@
                         "Description": "Crow Ricochets up to 2 times towards other enemies within 15m"
                     },
                     {
-                        "AbilityCooldown": -16,
-                        "Description": "-16s Cooldown"
+                        "AbilityCooldown": -16.0,
+                        "Description": "-16.0s Cooldown"
                     },
                     {
                         "DotHealthPercent": 3,
@@ -2221,7 +2221,7 @@
             },
             "4": {
                 "AbilityCharges": 2,
-                "AbilityCooldown": 53,
+                "AbilityCooldown": 53.0,
                 "AbilityCooldownBetweenCharge": 1.6,
                 "AbilityUnitTargetLimit": 1,
                 "BonusGoldOnKill": 250,
@@ -2241,8 +2241,8 @@
                 "SnipeZoomDuration": 0.15,
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -19,
-                        "Description": "-19s Cooldown"
+                        "AbilityCooldown": -19.0,
+                        "Description": "-19.0s Cooldown"
                     },
                     {
                         "LowHealthEnemyDamageBonus": 140,
@@ -2304,7 +2304,7 @@
                 "AbilityCastDelay": 0.1,
                 "AbilityCastRange": "20m",
                 "AbilityCharges": 1,
-                "AbilityCooldown": 25,
+                "AbilityCooldown": 25.0,
                 "AbilityCooldownBetweenCharge": 6,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": "18m",
@@ -2340,7 +2340,7 @@
             },
             "2": {
                 "AbilityCastDelay": 0.2,
-                "AbilityCooldown": 40,
+                "AbilityCooldown": 40.0,
                 "AbilityUnitTargetLimit": 1,
                 "AuraLingerDuration": 1.0,
                 "ChannelMoveSpeed": "18m",
@@ -2370,8 +2370,8 @@
                         "Description": "+45 DPS"
                     },
                     {
-                        "AbilityCooldown": -19,
-                        "Description": "-19s Cooldown"
+                        "AbilityCooldown": -19.0,
+                        "Description": "-19.0s Cooldown"
                     }
                 ]
             },
@@ -2403,7 +2403,7 @@
                 ]
             },
             "4": {
-                "AbilityCooldown": 127,
+                "AbilityCooldown": 127.0,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
                 "Damage": 160,
@@ -2415,8 +2415,8 @@
                 "StunDuration": 1.25,
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -38,
-                        "Description": "-38s Cooldown"
+                        "AbilityCooldown": -38.0,
+                        "Description": "-38.0s Cooldown"
                     },
                     {
                         "StunDuration": 0.5,
@@ -2477,7 +2477,7 @@
                 "AbilityCastDelay": 0.25,
                 "AbilityCastRange": "50m",
                 "AbilityCharges": 2,
-                "AbilityCooldown": 30,
+                "AbilityCooldown": 30.0,
                 "AbilityCooldownBetweenCharge": 6,
                 "AbilityUnitTargetLimit": 1,
                 "BossDamagePercent": 50,
@@ -2502,8 +2502,8 @@
                         "Description": "30% slow for 4s on enemies hit"
                     },
                     {
-                        "Damage": 1,
-                        "Description": "+1 Damage and Occilioblade gains +100% more damage from spirit"
+                        "Damage": 1.3104,
+                        "Description": "+1.3104 Damage and Occilioblade gains +100% more damage from spirit"
                     },
                     {
                         "CooldownReductionOnHit": -7,
@@ -2512,7 +2512,7 @@
                 ]
             },
             "2": {
-                "AbilityCooldown": 21,
+                "AbilityCooldown": 21.0,
                 "AbilityDuration": 4,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
@@ -2538,7 +2538,7 @@
             },
             "3": {
                 "AbilityCastDelay": 0.2,
-                "AbilityCooldown": 25,
+                "AbilityCooldown": 25.0,
                 "AbilityDuration": 5,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
@@ -2571,15 +2571,15 @@
                     },
                     {
                         "AbilityDuration": 3,
-                        "AbilityCooldown": -9,
-                        "Description": "-9 Cooldown and +3s Duration"
+                        "AbilityCooldown": -9.5,
+                        "Description": "-9.5 Cooldown and +3s Duration"
                     }
                 ]
             },
             "4": {
                 "AbilityCastDelay": 0.2,
                 "AbilityCastRange": "25m",
-                "AbilityCooldown": 127,
+                "AbilityCooldown": 127.0,
                 "AbilityUnitTargetLimit": 1,
                 "BoloBounceCount": 6,
                 "BoloBounceSpeed": 800,
@@ -2602,8 +2602,8 @@
                         "Description": "Enemies hit by the bolo give 30% Lifesteal for 8s"
                     },
                     {
-                        "AbilityCooldown": -47,
-                        "Description": "-47s Cooldown"
+                        "AbilityCooldown": -47.0,
+                        "Description": "-47.0s Cooldown"
                     },
                     {
                         "StunsTargets": 1,
@@ -2657,7 +2657,7 @@
             "1": {
                 "AbilityCastDelay": 0.1,
                 "AbilityCharges": 1,
-                "AbilityCooldown": 22,
+                "AbilityCooldown": 22.0,
                 "AbilityCooldownBetweenCharge": 7,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
@@ -2674,8 +2674,8 @@
                         "Description": "+1 Charges"
                     },
                     {
-                        "HealAmount": 1,
-                        "Description": "Frost Grenade now heals 1 HP to friendly targets. Scales with Spirit."
+                        "HealAmount": 1.9656,
+                        "Description": "Frost Grenade now heals 1.9656 HP to friendly targets. Scales with Spirit."
                     },
                     {
                         "Damage": 175,
@@ -2685,7 +2685,7 @@
             },
             "2": {
                 "AbilityCastDelay": 0.2,
-                "AbilityCooldown": 38,
+                "AbilityCooldown": 38.0,
                 "AbilityDuration": 8,
                 "AbilityUnitTargetLimit": 1,
                 "CameraDistance": 250,
@@ -2712,8 +2712,8 @@
                         "Description": "+4m/s Sprint Speed"
                     },
                     {
-                        "AbilityCooldown": -15,
-                        "Description": "-15s Cooldown"
+                        "AbilityCooldown": -15.0,
+                        "Description": "-15.0s Cooldown"
                     },
                     {
                         "BonusSpiritMeter": 1,
@@ -2725,7 +2725,7 @@
             },
             "3": {
                 "AbilityChannelTime": 5.0,
-                "AbilityCooldown": 24,
+                "AbilityCooldown": 24.0,
                 "AbilityUnitTargetLimit": 1,
                 "BeamSplit": "0m",
                 "CameraDistance": 250,
@@ -2746,23 +2746,23 @@
                 "TickRate": 0.1,
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -7,
-                        "Description": "-7s Cooldown"
+                        "AbilityCooldown": -7.5,
+                        "Description": "-7.5s Cooldown"
                     },
                     {
                         "DPS": 40,
                         "Description": "+40 DPS"
                     },
                     {
-                        "BeamSplit": 1,
+                        "BeamSplit": 1.0,
                         "BeamSplitCount": 2,
-                        "Description": "Fires 2 additional Arctic Beams toward enemies within 1m of the last target hit"
+                        "Description": "Fires 2 additional Arctic Beams toward enemies within 1.0m of the last target hit"
                     }
                 ]
             },
             "4": {
                 "AbilityCastDelay": 0.2,
-                "AbilityCooldown": 127,
+                "AbilityCooldown": 127.0,
                 "AbilityDuration": 5.5,
                 "AbilityUnitTargetLimit": 1,
                 "BlockerScaleFactor": 115,
@@ -2781,12 +2781,12 @@
                         "Description": "+40% Fire Rate Slow"
                     },
                     {
-                        "AbilityCooldown": -38,
-                        "Description": "-38s Cooldown"
+                        "AbilityCooldown": -38.0,
+                        "Description": "-38.0s Cooldown"
                     },
                     {
-                        "BonusHealthRegen": 1,
-                        "Description": "+1 Health Regen and now scales with Spirit Power"
+                        "BonusHealthRegen": 1.638,
+                        "Description": "+1.638 Health Regen and now scales with Spirit Power"
                     }
                 ]
             }
@@ -2836,7 +2836,7 @@
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.2,
-                "AbilityCooldown": 12,
+                "AbilityCooldown": 12.5,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
                 "Damage": 60,
@@ -2849,8 +2849,8 @@
                 "TickRate": 0.1,
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -3,
-                        "Description": "-3s Cooldown"
+                        "AbilityCooldown": -3.75,
+                        "Description": "-3.75s Cooldown"
                     },
                     {
                         "Damage": 25,
@@ -2866,7 +2866,7 @@
             "2": {
                 "AbilityCastDelay": 1,
                 "AbilityChannelTime": 5,
-                "AbilityCooldown": 37,
+                "AbilityCooldown": 37.0,
                 "AbilityUnitTargetLimit": 1,
                 "BonusMoveSpeed": "3m",
                 "BulletResist": 80,
@@ -2895,16 +2895,16 @@
                         "Description": "+140 Spin DPS and +2 radius"
                     },
                     {
-                        "AbilityCooldown": -19,
+                        "AbilityCooldown": -19.0,
                         "BonusMoveSpeed": "3m",
-                        "Description": "-19 Cooldown and +3m/s Move Speed"
+                        "Description": "-19.0 Cooldown and +3m/s Move Speed"
                     }
                 ]
             },
             "3": {
                 "AbilityCastDelay": 0.15,
                 "AbilityCastRange": "30m",
-                "AbilityCooldown": 42,
+                "AbilityCooldown": 42.0,
                 "AbilityDuration": 3.5,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
@@ -2920,8 +2920,8 @@
                         "Description": "+1.5s Duration"
                     },
                     {
-                        "AbilityCooldown": -19,
-                        "Description": "-19s Cooldown"
+                        "AbilityCooldown": -19.0,
+                        "Description": "-19.0s Cooldown"
                     },
                     {
                         "SlowPercent": 50,
@@ -2932,7 +2932,7 @@
             "4": {
                 "AbilityCastRange": "5m",
                 "AbilityChannelTime": 2.75,
-                "AbilityCooldown": 95,
+                "AbilityCooldown": 95.0,
                 "AbilityUnitTargetLimit": 1,
                 "BonusHealthOnKill": 30,
                 "DPS": 60,
@@ -2941,8 +2941,8 @@
                 "Name": "Combo",
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -28,
-                        "Description": "-28s Cooldown"
+                        "AbilityCooldown": -28.0,
+                        "Description": "-28.0s Cooldown"
                     },
                     {
                         "AbilityChannelTime": 0.75,
@@ -3000,7 +3000,7 @@
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.15,
-                "AbilityCooldown": 19,
+                "AbilityCooldown": 19.0,
                 "AbilityPostCastDuration": 0.4,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
@@ -3017,8 +3017,8 @@
                 "StrikeVelocity": "50m",
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -9,
-                        "Description": "-9s Cooldown"
+                        "AbilityCooldown": -9.5,
+                        "Description": "-9.5s Cooldown"
                     },
                     {
                         "EnemySlowPct": 50,
@@ -3036,7 +3036,7 @@
             "2": {
                 "AbilityCastRange": "30m",
                 "AbilityCharges": 1,
-                "AbilityCooldown": 42,
+                "AbilityCooldown": 42.0,
                 "AbilityCooldownBetweenCharge": 2,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
@@ -3049,8 +3049,8 @@
                 "Name": "Grapple",
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -19,
-                        "Description": "-19s Cooldown"
+                        "AbilityCooldown": -19.0,
+                        "Description": "-19.0s Cooldown"
                     },
                     {
                         "AbilityCastRange": "20m",
@@ -3067,7 +3067,7 @@
             "3": {
                 "AbilityCastDelay": 0.15,
                 "AbilityCastRange": "25m",
-                "AbilityCooldown": 26,
+                "AbilityCooldown": 26.0,
                 "AbilityUnitTargetLimit": 30,
                 "ChannelMoveSpeed": 50,
                 "Damage": 65,
@@ -3084,8 +3084,8 @@
                         "Description": "Apply 35% Movement Slow for 3s"
                     },
                     {
-                        "AbilityCooldown": -14,
-                        "Description": "-14s Cooldown"
+                        "AbilityCooldown": -14.0,
+                        "Description": "-14.0s Cooldown"
                     },
                     {
                         "Damage": 105,
@@ -3098,7 +3098,7 @@
                 "AbilityCastDelay": 0.3,
                 "AbilityCastRange": "18m",
                 "AbilityChannelTime": 2,
-                "AbilityCooldown": 138,
+                "AbilityCooldown": 138.0,
                 "AbilityUnitTargetLimit": 6,
                 "BoostTime": 1.0,
                 "ChannelMoveSpeed": 50,
@@ -3131,8 +3131,8 @@
                         "Description": "+100 Damage"
                     },
                     {
-                        "AbilityCooldown": -56,
-                        "Description": "-56s Cooldown"
+                        "AbilityCooldown": -56.0,
+                        "Description": "-56.0s Cooldown"
                     }
                 ]
             }
@@ -3182,7 +3182,7 @@
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.3,
-                "AbilityCooldown": 32,
+                "AbilityCooldown": 32.0,
                 "AbilityDuration": 2.0,
                 "AbilityUnitTargetLimit": 1,
                 "BossDamagePercent": 50,
@@ -3211,8 +3211,8 @@
                         "Description": "+0.75s Lift Duration"
                     },
                     {
-                        "AbilityCooldown": -14,
-                        "Description": "-14s Cooldown"
+                        "AbilityCooldown": -14.0,
+                        "Description": "-14.0s Cooldown"
                     },
                     {
                         "TechArmorDamageReduction": -15,
@@ -3256,7 +3256,7 @@
             },
             "3": {
                 "AbilityCastDelay": 0.0,
-                "AbilityCooldown": 37,
+                "AbilityCooldown": 37.0,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 200,
                 "Description": "You become enveloped in a whirlwind that provides bullet evasion and movement speed.",
@@ -3278,8 +3278,8 @@
                         "Description": "+10 Escalating Spirit Damage"
                     },
                     {
-                        "AbilityCooldown": -19,
-                        "Description": "-19s Cooldown"
+                        "AbilityCooldown": -19.0,
+                        "Description": "-19.0s Cooldown"
                     }
                 ],
                 "VictimStackDuration": 8.0,
@@ -3288,7 +3288,7 @@
             },
             "4": {
                 "AbilityCastDelay": 0.5,
-                "AbilityCooldown": 74,
+                "AbilityCooldown": 74.0,
                 "AbilityUnitTargetLimit": 1,
                 "BombBonusDamagePerHero": 60,
                 "BossDamagePercent": 50,
@@ -3301,8 +3301,8 @@
                 "Radius": "11m",
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -28,
-                        "Description": "-28s Cooldown"
+                        "AbilityCooldown": -28.0,
+                        "Description": "-28.0s Cooldown"
                     },
                     {
                         "BombBonusDamagePerHero": 40,
@@ -3359,7 +3359,7 @@
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.2,
-                "AbilityCooldown": 26,
+                "AbilityCooldown": 26.0,
                 "AbilityUnitTargetLimit": 1,
                 "CatAboveGround": "0.1m",
                 "CatAccel": "15m",
@@ -3383,8 +3383,8 @@
                         "Description": "+4m Explosion Radius"
                     },
                     {
-                        "AbilityCooldown": -11,
-                        "Description": "-11s Cooldown"
+                        "AbilityCooldown": -11.5,
+                        "Description": "-11.5s Cooldown"
                     },
                     {
                         "ExplosionDamage": 100,
@@ -3396,7 +3396,7 @@
                 "AbilityCastDelay": 0.2,
                 "AbilityCastRange": "14m",
                 "AbilityCharges": 1,
-                "AbilityCooldown": 32,
+                "AbilityCooldown": 32.0,
                 "AbilityCooldownBetweenCharge": 10,
                 "AbilityPostCastDuration": 0.25,
                 "AbilityUnitTargetLimit": 1,
@@ -3406,7 +3406,7 @@
                 "Description": "Leap at a target to inflict Light Melee damage.  Targetting an enemy will cause slow on nearby enemies.  Targeting an ally will have reduced Cooldown and Recharge times.",
                 "ExplodeRadius": "4m",
                 "FriendlyRechargeTime": 3,
-                "FriendlyTargetCD": 16,
+                "FriendlyTargetCD": 16.0,
                 "JumpHeight": "3m",
                 "Key": "ability_nano_pounce",
                 "MinTimeToTarget": 0.5,
@@ -3434,7 +3434,7 @@
             },
             "3": {
                 "AbilityCastDelay": 0.2,
-                "AbilityCooldown": 64,
+                "AbilityCooldown": 64.0,
                 "AbilityUnitTargetLimit": 1,
                 "ActiveRadius": "20m",
                 "CatActivateDuration": 1.5,
@@ -3447,7 +3447,7 @@
                 "InactiveRadius": "20m",
                 "Key": "ability_nano_proximity_ritual",
                 "Name": "Perched Predator",
-                "RecallCooldown": 10,
+                "RecallCooldown": 10.5,
                 "RecallRange": "5m",
                 "SelfHealScale": 0.5,
                 "StatueArmTime": 1.0,
@@ -3476,7 +3476,7 @@
             },
             "4": {
                 "AbilityCastDelay": 0.2,
-                "AbilityCooldown": 95,
+                "AbilityCooldown": 95.0,
                 "AbilityDuration": 12,
                 "AbilityUnitTargetLimit": 1,
                 "BonusFireRate": 20,
@@ -3555,7 +3555,7 @@
                 "AbilityCastDelay": 0.5,
                 "AbilityChannelTime": 9999,
                 "AbilityCharges": 1,
-                "AbilityCooldown": 17,
+                "AbilityCooldown": 17.0,
                 "AbilityCooldownBetweenCharge": 4,
                 "AbilityUnitTargetLimit": 1,
                 "AirSpeedMax": 150,
@@ -3580,14 +3580,14 @@
                     },
                     {
                         "AbilityCooldownBetweenCharge": -3,
-                        "Damage": 0,
+                        "Damage": 0.91728,
                         "Description": "Improved damage scaling and -3s Charge Delay"
                     }
                 ]
             },
             "2": {
                 "AbilityCastDelay": 0.5,
-                "AbilityCooldown": 35,
+                "AbilityCooldown": 35.0,
                 "AbilityDuration": 7,
                 "AbilityUnitTargetLimit": 1,
                 "AirSpeedMax": 150,
@@ -3601,8 +3601,8 @@
                 "Name": "Rain of Arrows",
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -14,
-                        "Description": "-14s Cooldown"
+                        "AbilityCooldown": -14.0,
+                        "Description": "-14.0s Cooldown"
                     },
                     {
                         "WeaponDamageBonus": 5,
@@ -3619,7 +3619,7 @@
                 "WeaponDamageBonus": 4
             },
             "3": {
-                "AbilityCooldown": 37,
+                "AbilityCooldown": 37.0,
                 "AbilityUnitTargetLimit": 1,
                 "ArmTime": 2.0,
                 "ChannelMoveSpeed": 50,
@@ -3638,8 +3638,8 @@
                 "TripUpSpeed": 250,
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -19,
-                        "Description": "-19s Cooldown"
+                        "AbilityCooldown": -19.0,
+                        "Description": "-19.0s Cooldown"
                     },
                     {
                         "SlowDuration": 2.0,
@@ -3655,7 +3655,7 @@
             "4": {
                 "AbilityCastDelay": 1.5,
                 "AbilityChannelTime": 14,
-                "AbilityCooldown": 127,
+                "AbilityCooldown": 127.0,
                 "AbilityUnitTargetLimit": 1,
                 "BonusTechPowerPerKill": 5,
                 "Damage": 250,
@@ -3670,8 +3670,8 @@
                         "Description": "+100 Damage"
                     },
                     {
-                        "AbilityCooldown": -47,
-                        "Description": "-47s Cooldown"
+                        "AbilityCooldown": -47.0,
+                        "Description": "-47.0s Cooldown"
                     },
                     {
                         "LowHealthEnemyThresholdPct": 22,
@@ -3728,7 +3728,7 @@
         "BoundAbilities": {
             "1": {
                 "AbilityCharges": 1,
-                "AbilityCooldown": 17,
+                "AbilityCooldown": 17.0,
                 "AbilityCooldownBetweenCharge": 1,
                 "AbilityUnitTargetLimit": 1,
                 "AirSpeedMax": 150,
@@ -3759,14 +3759,14 @@
                         "Description": "+80 Damage"
                     },
                     {
-                        "AbilityCooldown": -7,
-                        "Description": "-7s Cooldown"
+                        "AbilityCooldown": -7.5,
+                        "Description": "-7.5s Cooldown"
                     }
                 ]
             },
             "2": {
                 "AbilityCastDelay": 0.1,
-                "AbilityCooldown": 42,
+                "AbilityCooldown": 42.0,
                 "AbilityDuration": 10,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
@@ -3784,8 +3784,8 @@
                 "SphereRadius": "5m",
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -14,
-                        "Description": "-14s Cooldown"
+                        "AbilityCooldown": -14.0,
+                        "Description": "-14.0s Cooldown"
                     },
                     {
                         "Damage": 70,
@@ -3799,7 +3799,7 @@
                 "VictimPushTime": 0.4
             },
             "3": {
-                "AbilityCooldown": 42,
+                "AbilityCooldown": 42.0,
                 "AbilityDuration": 4,
                 "AbilityUnitTargetLimit": 1,
                 "BonusHealthRegen": 2,
@@ -3823,7 +3823,7 @@
                 ]
             },
             "4": {
-                "AbilityCooldown": 127,
+                "AbilityCooldown": 127.0,
                 "AbilityDuration": 6,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
@@ -3843,8 +3843,8 @@
                         "Description": "+25% Movement Slow"
                     },
                     {
-                        "AbilityCooldown": -47,
-                        "Description": "-47s Cooldown"
+                        "AbilityCooldown": -47.0,
+                        "Description": "-47.0s Cooldown"
                     },
                     {
                         "DamageMax": 200,
@@ -3899,7 +3899,7 @@
                 "AOERadius": "10m",
                 "AbilityChannelTime": 0.2,
                 "AbilityCharges": 2,
-                "AbilityCooldown": 19,
+                "AbilityCooldown": 19.0,
                 "AbilityCooldownBetweenCharge": 2,
                 "AbilityPostCastDuration": 0.3,
                 "AbilityUnitTargetLimit": 1,
@@ -3931,7 +3931,7 @@
             },
             "2": {
                 "AbilityCastDelay": 0.25,
-                "AbilityCooldown": 16,
+                "AbilityCooldown": 16.0,
                 "AbilityPostCastDuration": 0.2,
                 "AbilityUnitTargetLimit": 1,
                 "CameraDistance": 250,
@@ -3949,8 +3949,8 @@
                 "TechCleaveExpireTime": 0.35,
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -3,
-                        "Description": "-3s Cooldown"
+                        "AbilityCooldown": -3.75,
+                        "Description": "-3.75s Cooldown"
                     },
                     {
                         "ImpactDamage": 85,
@@ -3966,7 +3966,7 @@
             },
             "3": {
                 "AbilityCastDelay": 0.25,
-                "AbilityCooldown": 21,
+                "AbilityCooldown": 21.0,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
                 "DamagePctDeferred": 30,
@@ -3982,8 +3982,8 @@
                         "Description": "+5s Deferred Damage Duration"
                     },
                     {
-                        "AbilityCooldown": -4,
-                        "Description": "-4s Cooldown"
+                        "AbilityCooldown": -4.75,
+                        "Description": "-4.75s Cooldown"
                     },
                     {
                         "DeferClearPct": 25,
@@ -3993,7 +3993,7 @@
             },
             "4": {
                 "AbilityCastRange": "20m",
-                "AbilityCooldown": 95,
+                "AbilityCooldown": 95.0,
                 "AbilityPostCastDuration": 0.25,
                 "AbilityUnitTargetLimit": 1,
                 "BonusAbilityResource": 10,
@@ -4079,7 +4079,7 @@
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.2,
-                "AbilityCooldown": 25,
+                "AbilityCooldown": 25.0,
                 "AbilityDuration": 3,
                 "AbilityUnitTargetLimit": 1,
                 "BurnDuration": 2,
@@ -4103,8 +4103,8 @@
                         "Description": "+1s Burn Duration"
                     },
                     {
-                        "AbilityCooldown": -7,
-                        "Description": "-7s Cooldown"
+                        "AbilityCooldown": -7.5,
+                        "Description": "-7.5s Cooldown"
                     },
                     {
                         "DPS": 24,
@@ -4115,12 +4115,12 @@
             },
             "2": {
                 "AbilityCastRange": "10m",
-                "AbilityCooldown": 35,
+                "AbilityCooldown": 35.0,
                 "AbilityDuration": 2.5,
                 "AbilityUnitTargetLimit": 1,
                 "BreakRange": "6m",
                 "ChannelMoveSpeed": 50,
-                "CooldownOnMiss": 5,
+                "CooldownOnMiss": 5.25,
                 "DPS": 24,
                 "DamagePercentHealth": 4,
                 "Description": "Dash forward and grab onto an enemy, biting them repeatedly. The enemy is slowed, disarmed, and silenced while grappled. When the target is below half health, deal an additional 4% of their max health in damage.",
@@ -4133,8 +4133,8 @@
                 "TickRate": 0.5,
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -10,
-                        "Description": "-10s Cooldown"
+                        "AbilityCooldown": -10.5,
+                        "Description": "-10.5s Cooldown"
                     },
                     {
                         "ChompHealPercent": 150,
@@ -4147,7 +4147,7 @@
                 ]
             },
             "3": {
-                "AbilityCooldown": 29,
+                "AbilityCooldown": 29.0,
                 "AbilityDuration": 8,
                 "AbilityUnitTargetLimit": 1,
                 "BlastRadius": "8m",
@@ -4159,8 +4159,8 @@
                 "Name": "Deep's Embrace",
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -8,
-                        "Description": "-8s Cooldown"
+                        "AbilityCooldown": -8.5,
+                        "Description": "-8.5s Cooldown"
                     },
                     {
                         "DamageAbsorb": 120,
@@ -4253,7 +4253,7 @@
             "1": {
                 "AbilityCastDelay": 0.3,
                 "AbilityChannelTime": 2,
-                "AbilityCooldown": 32,
+                "AbilityCooldown": 32.0,
                 "AbilityUnitTargetLimit": 1,
                 "AirDrag": 0.3,
                 "AirSpeedMax": 100,
@@ -4275,8 +4275,8 @@
                         "Description": "+15 Damage Per Projectile"
                     },
                     {
-                        "AbilityCooldown": -14,
-                        "Description": "-14s Cooldown"
+                        "AbilityCooldown": -14.0,
+                        "Description": "-14.0s Cooldown"
                     },
                     {
                         "AmpPercentPerStack": 5,
@@ -4286,7 +4286,7 @@
             },
             "2": {
                 "AbilityCastDelay": 0.2,
-                "AbilityCooldown": 32,
+                "AbilityCooldown": 32.0,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
                 "Damage": 90,
@@ -4298,8 +4298,8 @@
                 "TickRate": 0.1,
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -14,
-                        "Description": "-14s Cooldown"
+                        "AbilityCooldown": -14.0,
+                        "Description": "-14.0s Cooldown"
                     },
                     {
                         "Damage": 80,
@@ -4315,7 +4315,7 @@
             "3": {
                 "AbilityCastDelay": 0.15,
                 "AbilityChannelTime": 2.0,
-                "AbilityCooldown": 17,
+                "AbilityCooldown": 17.0,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
                 "Damage": 100,
@@ -4326,8 +4326,8 @@
                 "Radius": "12m",
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -4,
-                        "Description": "-4s Cooldown"
+                        "AbilityCooldown": -4.75,
+                        "Description": "-4.75s Cooldown"
                     },
                     {
                         "Damage": 80,
@@ -4342,7 +4342,7 @@
             },
             "4": {
                 "AbilityCastDelay": 0.6,
-                "AbilityCooldown": 127,
+                "AbilityCooldown": 127.0,
                 "AbilityUnitTargetLimit": 1,
                 "CanBePurged": 1,
                 "ChannelMoveSpeed": 50,
@@ -4355,8 +4355,8 @@
                 "Radius": "14m",
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -28,
-                        "Description": "-28s Cooldown"
+                        "AbilityCooldown": -28.0,
+                        "Description": "-28.0s Cooldown"
                     },
                     {
                         "HealAmpReceivePenaltyPercent": -60,
@@ -4415,7 +4415,7 @@
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 1,
-                "AbilityCooldown": 10,
+                "AbilityCooldown": 10.5,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
                 "Description": null,
@@ -4423,22 +4423,22 @@
                 "Name": null,
                 "Upgrades": [
                     {
-                        "AbilityCooldown": 0,
-                        "Description": "+0s Cooldown"
+                        "AbilityCooldown": -0.75,
+                        "Description": "-0.75s Cooldown"
                     },
                     {
-                        "AbilityCooldown": 0,
-                        "Description": "+0s Cooldown"
+                        "AbilityCooldown": -0.75,
+                        "Description": "-0.75s Cooldown"
                     },
                     {
-                        "AbilityCooldown": 0,
-                        "Description": "+0s Cooldown"
+                        "AbilityCooldown": -0.75,
+                        "Description": "-0.75s Cooldown"
                     }
                 ]
             },
             "2": {
                 "AbilityCastDelay": 1,
-                "AbilityCooldown": 10,
+                "AbilityCooldown": 10.5,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
                 "Description": null,
@@ -4446,22 +4446,22 @@
                 "Name": null,
                 "Upgrades": [
                     {
-                        "AbilityCooldown": 0,
-                        "Description": "+0s Cooldown"
+                        "AbilityCooldown": -0.75,
+                        "Description": "-0.75s Cooldown"
                     },
                     {
-                        "AbilityCooldown": 0,
-                        "Description": "+0s Cooldown"
+                        "AbilityCooldown": -0.75,
+                        "Description": "-0.75s Cooldown"
                     },
                     {
-                        "AbilityCooldown": 0,
-                        "Description": "+0s Cooldown"
+                        "AbilityCooldown": -0.75,
+                        "Description": "-0.75s Cooldown"
                     }
                 ]
             },
             "3": {
                 "AbilityCastDelay": 1,
-                "AbilityCooldown": 10,
+                "AbilityCooldown": 10.5,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
                 "Description": null,
@@ -4469,22 +4469,22 @@
                 "Name": null,
                 "Upgrades": [
                     {
-                        "AbilityCooldown": 0,
-                        "Description": "+0s Cooldown"
+                        "AbilityCooldown": -0.75,
+                        "Description": "-0.75s Cooldown"
                     },
                     {
-                        "AbilityCooldown": 0,
-                        "Description": "+0s Cooldown"
+                        "AbilityCooldown": -0.75,
+                        "Description": "-0.75s Cooldown"
                     },
                     {
-                        "AbilityCooldown": 0,
-                        "Description": "+0s Cooldown"
+                        "AbilityCooldown": -0.75,
+                        "Description": "-0.75s Cooldown"
                     }
                 ]
             },
             "4": {
                 "AbilityCastDelay": 1,
-                "AbilityCooldown": 10,
+                "AbilityCooldown": 10.5,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
                 "Description": null,
@@ -4492,16 +4492,16 @@
                 "Name": null,
                 "Upgrades": [
                     {
-                        "AbilityCooldown": 0,
-                        "Description": "+0s Cooldown"
+                        "AbilityCooldown": -0.75,
+                        "Description": "-0.75s Cooldown"
                     },
                     {
-                        "AbilityCooldown": 0,
-                        "Description": "+0s Cooldown"
+                        "AbilityCooldown": -0.75,
+                        "Description": "-0.75s Cooldown"
                     },
                     {
-                        "AbilityCooldown": 0,
-                        "Description": "+0s Cooldown"
+                        "AbilityCooldown": -0.75,
+                        "Description": "-0.75s Cooldown"
                     }
                 ]
             }
@@ -4551,7 +4551,7 @@
             "1": {
                 "AbilityCastDelay": 0.2,
                 "AbilityCharges": 1,
-                "AbilityCooldown": 32,
+                "AbilityCooldown": 32.0,
                 "AbilityCooldownBetweenCharge": 8,
                 "AbilityDuration": 4,
                 "AbilityUnitTargetLimit": 1,
@@ -4582,7 +4582,7 @@
             },
             "2": {
                 "AbilityCastRange": "16m",
-                "AbilityCooldown": 37,
+                "AbilityCooldown": 37.0,
                 "AbilityDuration": 12,
                 "AbilityUnitTargetLimit": 1,
                 "BonusFireRate": 10,
@@ -4613,7 +4613,7 @@
             },
             "3": {
                 "AbilityCastDelay": 0.25,
-                "AbilityCooldown": 42,
+                "AbilityCooldown": 42.0,
                 "AbilityDuration": 2,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
@@ -4631,8 +4631,8 @@
                 "StunDuration": 0.75,
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -19,
-                        "Description": "-19s Cooldown"
+                        "AbilityCooldown": -19.0,
+                        "Description": "-19.0s Cooldown"
                     },
                     {
                         "StunDuration": 0.5,
@@ -4648,7 +4648,7 @@
             "4": {
                 "AbilityCastDelay": 1.3,
                 "AbilityCastRange": "8m",
-                "AbilityCooldown": 85,
+                "AbilityCooldown": 85.0,
                 "AbilityDuration": 17.0,
                 "AbilityUnitTargetLimit": 1,
                 "AirDropBulletShield": 200,
@@ -4731,7 +4731,7 @@
                 "AbilityCastDelay": 0.1,
                 "AbilityCastRange": "40m",
                 "AbilityCharges": 1,
-                "AbilityCooldown": 17,
+                "AbilityCooldown": 17.0,
                 "AbilityCooldownBetweenCharge": 4,
                 "AbilityUnitTargetLimit": 1,
                 "BounceRadians": 0.5,
@@ -4757,14 +4757,14 @@
                     },
                     {
                         "AbilityCooldownBetweenCharge": -3,
-                        "AbilityCooldown": -3,
-                        "Description": "-3s Charge Delay and -3s Cooldown"
+                        "AbilityCooldown": -3.75,
+                        "Description": "-3s Charge Delay and -3.75s Cooldown"
                     }
                 ]
             },
             "2": {
                 "AbilityCastDelay": 0.42,
-                "AbilityCooldown": 26,
+                "AbilityCooldown": 26.0,
                 "AbilityDuration": 6,
                 "AbilityUnitTargetLimit": 1,
                 "BarbedWireDPS": 10,
@@ -4800,7 +4800,7 @@
             "3": {
                 "AbilityCastDelay": 0.2,
                 "AbilityCastRange": "30m",
-                "AbilityCooldown": 42,
+                "AbilityCooldown": 42.0,
                 "AbilityDuration": 8,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
@@ -4811,22 +4811,22 @@
                 "TickInterval": 0.5,
                 "Upgrades": [
                     {
-                        "AbilityCooldown": 0,
-                        "Description": "+0s Cooldown"
+                        "AbilityCooldown": -0.75,
+                        "Description": "-0.75s Cooldown"
                     },
                     {
-                        "AbilityCooldown": 0,
-                        "Description": "+0s Cooldown"
+                        "AbilityCooldown": -0.75,
+                        "Description": "-0.75s Cooldown"
                     },
                     {
-                        "AbilityCooldown": 0,
-                        "Description": "+0s Cooldown"
+                        "AbilityCooldown": -0.75,
+                        "Description": "-0.75s Cooldown"
                     }
                 ],
                 "VisibilityTime": 0.2
             },
             "4": {
-                "AbilityCooldown": 10,
+                "AbilityCooldown": 10.5,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
                 "ClimbHeight": "1m",
@@ -4843,16 +4843,16 @@
                 "TornadoSpeed": 350,
                 "Upgrades": [
                     {
-                        "AbilityCooldown": 0,
-                        "Description": "+0s Cooldown"
+                        "AbilityCooldown": -0.75,
+                        "Description": "-0.75s Cooldown"
                     },
                     {
-                        "AbilityCooldown": 0,
-                        "Description": "+0s Cooldown"
+                        "AbilityCooldown": -0.75,
+                        "Description": "-0.75s Cooldown"
                     },
                     {
-                        "AbilityCooldown": 0,
-                        "Description": "+0s Cooldown"
+                        "AbilityCooldown": -0.75,
+                        "Description": "-0.75s Cooldown"
                     }
                 ]
             }
@@ -4903,7 +4903,7 @@
                 "AbilityCastDelay": 0.2,
                 "AbilityChannelTime": 1.0,
                 "AbilityCharges": 2,
-                "AbilityCooldown": 32,
+                "AbilityCooldown": 32.0,
                 "AbilityCooldownBetweenCharge": 1,
                 "AbilityUnitTargetLimit": 1,
                 "BeamLength": "30m",
@@ -4936,7 +4936,7 @@
             "2": {
                 "AbilityCastDelay": 0.0,
                 "AbilityCastRange": "20m",
-                "AbilityCooldown": 25,
+                "AbilityCooldown": 25.0,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
                 "Damage": 80,
@@ -4952,8 +4952,8 @@
                         "Description": "+3m Explosion Radius"
                     },
                     {
-                        "AbilityCooldown": -7,
-                        "Description": "-7s Cooldown"
+                        "AbilityCooldown": -7.5,
+                        "Description": "-7.5s Cooldown"
                     },
                     {
                         "Damage": 80,
@@ -4963,7 +4963,7 @@
             },
             "3": {
                 "AbilityCastDelay": 0.25,
-                "AbilityCooldown": 48,
+                "AbilityCooldown": 48.0,
                 "AbilityDuration": 6,
                 "AbilityUnitTargetLimit": 1,
                 "BlindScale": 0.5,
@@ -4979,8 +4979,8 @@
                 "TickRate": 0.25,
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -14,
-                        "Description": "-14s Cooldown"
+                        "AbilityCooldown": -14.0,
+                        "Description": "-14.0s Cooldown"
                     },
                     {
                         "EvasionChance": 20,
@@ -4996,7 +4996,7 @@
                 "AbilityCastDelay": 2.0,
                 "AbilityCastRange": "100m",
                 "AbilityChannelTime": 3.6,
-                "AbilityCooldown": 127,
+                "AbilityCooldown": 127.0,
                 "AbilityUnitTargetLimit": 1,
                 "AimFOV": 60,
                 "AimZoomDuration": 0.15,
@@ -5015,12 +5015,12 @@
                         "Description": "-0.2 Delay Between Shots"
                     },
                     {
-                        "Damage": 1,
-                        "Description": "+1 Damage and +1 Damage Scale"
+                        "Damage": 1.57248,
+                        "Description": "+1.57248 Damage and +1.57248 Damage Scale"
                     },
                     {
-                        "AbilityCooldown": -47,
-                        "Description": "-47s Cooldown"
+                        "AbilityCooldown": -47.0,
+                        "Description": "-47.0s Cooldown"
                     }
                 ]
             }
@@ -5069,7 +5069,7 @@
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.001,
-                "AbilityCooldown": 21,
+                "AbilityCooldown": 21.0,
                 "AbilityPostCastDuration": 0.5,
                 "AbilityUnitTargetLimit": 1,
                 "BossDamagePercent": 50,
@@ -5086,8 +5086,8 @@
                 "ThirdHitDamagePercentage": 0.5,
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -5,
-                        "Description": "-5s Cooldown"
+                        "AbilityCooldown": -5.75,
+                        "Description": "-5.75s Cooldown"
                     },
                     {
                         "Damage": 70,
@@ -5103,7 +5103,7 @@
             "2": {
                 "AbilityCastDelay": 0.1,
                 "AbilityCastRange": "30m",
-                "AbilityCooldown": 48,
+                "AbilityCooldown": 48.0,
                 "AbilityDuration": 4,
                 "AbilityUnitTargetLimit": 1,
                 "BonusHealthRegen": 40,
@@ -5130,8 +5130,8 @@
                         "Description": "Increases Movement Speed and Stamina Recovery"
                     },
                     {
-                        "AbilityCooldown": -21,
-                        "Description": "-21s Cooldown"
+                        "AbilityCooldown": -21.0,
+                        "Description": "-21.0s Cooldown"
                     },
                     {
                         "BonusHealthRegen": 60,
@@ -5142,7 +5142,7 @@
             "3": {
                 "AbilityCastRange": "40m",
                 "AbilityCharges": 1,
-                "AbilityCooldown": 30,
+                "AbilityCooldown": 30.0,
                 "AbilityCooldownBetweenCharge": 1.5,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
@@ -5170,14 +5170,14 @@
                         "Description": "+35 Damage and +20% Movement Slow"
                     },
                     {
-                        "AbilityCooldown": -11,
-                        "Description": "-11s Cooldown"
+                        "AbilityCooldown": -11.5,
+                        "Description": "-11.5s Cooldown"
                     }
                 ]
             },
             "4": {
                 "AbilityCastDelay": 0.55,
-                "AbilityCooldown": 95,
+                "AbilityCooldown": 95.0,
                 "AbilityDuration": 10,
                 "AbilityUnitTargetLimit": 1,
                 "AccelerationPercentage": -60,
@@ -5262,7 +5262,7 @@
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.1,
-                "AbilityCooldown": 14,
+                "AbilityCooldown": 14.0,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
                 "Damage": 55,
@@ -5285,14 +5285,14 @@
                     },
                     {
                         "FireRateSlow": 35,
-                        "AbilityCooldown": -6,
-                        "Description": "-6s Cooldown and applies 35% Fire Rate Slow"
+                        "AbilityCooldown": -6.5,
+                        "Description": "-6.5s Cooldown and applies 35% Fire Rate Slow"
                     }
                 ],
                 "WeaponPowerDebuff": -30
             },
             "2": {
-                "AbilityCooldown": 42,
+                "AbilityCooldown": 42.0,
                 "AbilityDuration": 7,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
@@ -5307,19 +5307,19 @@
                         "Description": "+20% Move speed bonus"
                     },
                     {
-                        "AbilityCooldown": -19,
-                        "Description": "-19s Cooldown"
+                        "AbilityCooldown": -19.0,
+                        "Description": "-19.0s Cooldown"
                     },
                     {
-                        "TechShieldPoints": 3,
-                        "Description": "+3 Spirit Shield Health and now scales with Spirit Power"
+                        "TechShieldPoints": 3.9312,
+                        "Description": "+3.9312 Spirit Shield Health and now scales with Spirit Power"
                     }
                 ]
             },
             "3": {
                 "AbilityCastDelay": 0.15,
                 "AbilityCastRange": "20m",
-                "AbilityCooldown": 37,
+                "AbilityCooldown": 37.0,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
                 "Damage": 120,
@@ -5335,8 +5335,8 @@
                         "Description": "+1s Immobilize Duration"
                     },
                     {
-                        "AbilityCooldown": -19,
-                        "Description": "-19s Cooldown"
+                        "AbilityCooldown": -19.0,
+                        "Description": "-19.0s Cooldown"
                     },
                     {
                         "BulletArmorReduction": 20,
@@ -5347,7 +5347,7 @@
             },
             "4": {
                 "AbilityCastDelay": 2.25,
-                "AbilityCooldown": 138,
+                "AbilityCooldown": 138.0,
                 "AbilityDuration": 6,
                 "AbilityUnitTargetLimit": 1,
                 "BonusMoveSpeed": "0m",
@@ -5371,8 +5371,8 @@
                         "Description": "+70 DPS"
                     },
                     {
-                        "AbilityCooldown": -56,
-                        "Description": "-56s Cooldown"
+                        "AbilityCooldown": -56.0,
+                        "Description": "-56.0s Cooldown"
                     }
                 ]
             }
@@ -5426,11 +5426,11 @@
                 "AbilityCastRange": "500m",
                 "AbilityCharges": 1,
                 "AbilityChargesConditionally": 1,
-                "AbilityCooldown": 0,
+                "AbilityCooldown": 0.5,
                 "AbilityPostCastDuration": 0.2,
                 "AbilityUnitTargetLimit": 1,
                 "BonusAbilityResource": 100,
-                "CardResourceGenPctScale": 106,
+                "CardResourceGenPctScale": 106.0,
                 "CardResourcePerBulletCrit": 6,
                 "CardResourcePerBulletHit": 4,
                 "CardResourcePerHeavyMelee": 50,
@@ -5462,7 +5462,7 @@
             "2": {
                 "AbilityCastDelay": 0.75,
                 "AbilityCastRange": "25m",
-                "AbilityCooldown": 48,
+                "AbilityCooldown": 48.0,
                 "AbilityUnitTargetLimit": 1,
                 "CameraDistance": 250,
                 "ChannelMoveSpeed": 200,
@@ -5476,18 +5476,18 @@
                         "Description": "+15m Cast Range"
                     },
                     {
-                        "BulletShieldOnLand": 2,
+                        "BulletShieldOnLand": 2.6208,
                         "BulletShieldDuration": 8,
-                        "Description": "Provides a 2 bullet shield for 8s on teleport. Shield amount scales with Spirit Power."
+                        "Description": "Provides a 2.6208 bullet shield for 8s on teleport. Shield amount scales with Spirit Power."
                     },
                     {
-                        "AbilityCooldown": -28,
-                        "Description": "-28s Cooldown"
+                        "AbilityCooldown": -28.0,
+                        "Description": "-28.0s Cooldown"
                     }
                 ]
             },
             "3": {
-                "AbilityCooldown": 48,
+                "AbilityCooldown": 48.0,
                 "AbilityDuration": 5,
                 "AbilityUnitTargetLimit": 1,
                 "AlliedFireRatePercentage": 50,
@@ -5500,8 +5500,8 @@
                 "Radius": "25m",
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -14,
-                        "Description": "-14s Cooldown"
+                        "AbilityCooldown": -14.0,
+                        "Description": "-14.0s Cooldown"
                     },
                     {
                         "MagicDamagePerBullet": 5,
@@ -5516,7 +5516,7 @@
             "4": {
                 "AbilityCastDelay": 0.6,
                 "AbilityCastRange": "20m",
-                "AbilityCooldown": 95,
+                "AbilityCooldown": 95.0,
                 "AbilityDuration": 1.25,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
@@ -5528,8 +5528,8 @@
                 "Name": "Telekinesis",
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -28,
-                        "Description": "-28s Cooldown"
+                        "AbilityCooldown": -28.0,
+                        "Description": "-28.0s Cooldown"
                     },
                     {
                         "AbilityDuration": 0.5,
@@ -5589,7 +5589,7 @@
             "1": {
                 "AbilityCastDelay": 1.2,
                 "AbilityCastRange": "50m",
-                "AbilityCooldown": 21,
+                "AbilityCooldown": 21.0,
                 "AbilityDuration": 6,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
@@ -5602,8 +5602,8 @@
                 "TechCleaveExpireTime": 0.4,
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -7,
-                        "Description": "-7s Cooldown"
+                        "AbilityCooldown": -7.5,
+                        "Description": "-7.5s Cooldown"
                     },
                     {
                         "WreckingBallDamage": 80,
@@ -5619,7 +5619,7 @@
             },
             "2": {
                 "AbilityCastRange": "10m",
-                "AbilityCooldown": 12,
+                "AbilityCooldown": 12.5,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 40,
                 "DPS": 80,
@@ -5649,7 +5649,7 @@
                 "AbilityCastDelay": 0.25,
                 "AbilityCastRange": "15m",
                 "AbilityCharges": 2,
-                "AbilityCooldown": 64,
+                "AbilityCooldown": 64.0,
                 "AbilityCooldownBetweenCharge": 3,
                 "AbilityUnitTargetLimit": 1,
                 "BlastRadius": "5m",
@@ -5678,7 +5678,7 @@
             "4": {
                 "AbilityCastDelay": 1.5,
                 "AbilityChannelTime": 8,
-                "AbilityCooldown": 138,
+                "AbilityCooldown": 138.0,
                 "AbilityUnitTargetLimit": 1,
                 "DamagePerSecondFlown": 16,
                 "Description": "Launch a flying shadow copy of yourself that you control, teleporting your original body to wherever it lands. The teleport explosion slows enemies and deals damage based on how long you were flying.",
@@ -5693,8 +5693,8 @@
                         "Description": "+8s Channel Duration"
                     },
                     {
-                        "AbilityCooldown": -47,
-                        "Description": "-47s Cooldown"
+                        "AbilityCooldown": -47.0,
+                        "Description": "-47.0s Cooldown"
                     },
                     {
                         "DamagePerSecondFlown": 16,
@@ -5747,7 +5747,7 @@
         "BoundAbilities": {
             "1": {
                 "AbilityChannelTimeDisplay": 5,
-                "AbilityCooldown": 26,
+                "AbilityCooldown": 26.0,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
                 "DPS": 45,
@@ -5775,7 +5775,7 @@
             },
             "2": {
                 "AbilityCastRange": "30m",
-                "AbilityCooldown": 32,
+                "AbilityCooldown": 32.0,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
                 "Description": "Summons a subordinate gangster to follow a friendly unit and attack enemies closest to that target.  Double tap to self cast.",
@@ -5804,7 +5804,7 @@
             "3": {
                 "AbilityCastDelay": 0.25,
                 "AbilityCastRange": "30m",
-                "AbilityCooldown": 32,
+                "AbilityCooldown": 32.0,
                 "AbilityDuration": 12,
                 "AbilityUnitTargetLimit": 1,
                 "BonusCritDamagePercent": 20,
@@ -5830,7 +5830,7 @@
                 ]
             },
             "4": {
-                "AbilityCooldown": 74,
+                "AbilityCooldown": 74.0,
                 "AbilityUnitTargetLimit": 1,
                 "BossDamagePercent": 25,
                 "CenterDamage": 250,
@@ -5846,8 +5846,8 @@
                 "TargetingDuration": 1.0,
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -19,
-                        "Description": "-19s Cooldown"
+                        "AbilityCooldown": -19.0,
+                        "Description": "-19.0s Cooldown"
                     },
                     {
                         "Range": "175m",
@@ -5904,7 +5904,7 @@
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 1.4,
-                "AbilityCooldown": 8,
+                "AbilityCooldown": 8.5,
                 "AbilityPostCastDuration": 0.4,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
@@ -5937,7 +5937,7 @@
             },
             "2": {
                 "AbilityCastRange": "20m",
-                "AbilityCooldown": 21,
+                "AbilityCooldown": 21.0,
                 "AbilityPostCastDuration": 0.2,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
@@ -5965,7 +5965,7 @@
             },
             "3": {
                 "AbilityCastDelay": 0.3,
-                "AbilityCooldown": 11,
+                "AbilityCooldown": 11.5,
                 "AbilityPostCastDuration": 0.4,
                 "AbilityUnitTargetLimit": 1,
                 "Damage": 60,
@@ -5986,14 +5986,14 @@
                         "Description": "+10% of Max Health Heal on hero hit"
                     },
                     {
-                        "AbilityCooldown": -5,
-                        "Description": "-5s Cooldown"
+                        "AbilityCooldown": -5.75,
+                        "Description": "-5.75s Cooldown"
                     }
                 ]
             },
             "4": {
                 "AbilityChannelTime": 2,
-                "AbilityCooldown": 106,
+                "AbilityCooldown": 106.0,
                 "AbilityDuration": 5,
                 "AbilityPostCastDuration": 0.6,
                 "AbilitySpeedPct": 60,
@@ -6008,8 +6008,8 @@
                 "TechResist": 40,
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -28,
-                        "Description": "-28s Cooldown"
+                        "AbilityCooldown": -28.0,
+                        "Description": "-28.0s Cooldown"
                     },
                     {
                         "BonusMoveSpeed": "4m",

@@ -55,21 +55,30 @@ def _replace_variables(desc, data):
     return formatted_desc
 
 
-def string_to_number(string):
+def assert_number(value):
     """
-    Convert string to a number, if possible.
-    Otherwise return original string
-    """
-    number = None
-    try:
-        number = int(string)
-    except (TypeError, ValueError):
-        try:
-            number = float(string)
-        except (TypeError, ValueError):
-            number = string
+    Ensure any input numbers, or stringified numbers are converted
+    to their appropriate type
 
-    return number
+    Otherwise, return original value
+    """
+    if isinstance(value, float) | isinstance(value, int):
+        return value
+
+    if value is None:
+        return value
+
+    # stringified float will always have a decimal point
+    if '.' in value:
+        try:
+            return float(value)
+        except (TypeError, ValueError):
+            return value
+
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return value
 
 
 def remove_letters(input_string):
