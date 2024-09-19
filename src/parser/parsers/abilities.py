@@ -35,6 +35,9 @@ class AbilityParser:
                 'Name': self.localizations.get(ability_key, None),
             }
 
+            # hero name that uses this ability, relevant for formatting descriptions
+            hero_name = self._find_hero_name(ability_key)
+
             stats = ability['m_mapAbilityProperties']
             for key in stats:
                 stat = stats[key]
@@ -54,13 +57,13 @@ class AbilityParser:
                 continue
             else:
                 ability_data['Upgrades'] = self._parse_upgrades(
-                    ability_data, ability['m_vecAbilityUpgrades']
+                    ability_data, ability['m_vecAbilityUpgrades'], hero_name
                 )
 
             description = (self.localizations.get(ability_key + '_desc'),)
 
             # required variables to insert into the description
-            format_vars = (ability_data, maps.KEYBIND_MAP, {'hero_name': ability_data['Key']})
+            format_vars = (ability_data, maps.KEYBIND_MAP, {'hero_name': hero_name})
 
             ability_data['Description'] = string_utils.format_description(description, *format_vars)
 
@@ -76,8 +79,9 @@ class AbilityParser:
 
         return all_abilities
 
-    def _parse_upgrades(self, ability_data, upgrade_sets):
+    def _parse_upgrades(self, ability_data, upgrade_sets, hero_name):
         parsed_upgrade_sets = []
+
         for index, upgrade_set in enumerate(upgrade_sets):
             parsed_upgrade_set = {}
 
@@ -112,7 +116,7 @@ class AbilityParser:
                     parsed_upgrade_set,
                     maps.KEYBIND_MAP,
                     {'ability_key': index},
-                    {'hero_name': ability_data['Key']},
+                    {'hero_name': hero_name},
                 )
 
                 formatted_desc = string_utils.format_description(desc, *format_vars)
@@ -120,12 +124,6 @@ class AbilityParser:
 
             # create our own description if none exists
             else:
-                # Determine hero that uses the ability, if any
-                hero_key = self._find_hero_name(ability_data['Key'], return_key_or_localized='key')
-                self._find_hero_name(ability_data['Key'], return_key_or_localized='localized')
-                if hero_key is None:
-                    continue
-
                 desc = ''
                 for attr, value in parsed_upgrade_set.items():
                     str_value = str(value)

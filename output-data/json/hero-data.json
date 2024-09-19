@@ -236,7 +236,7 @@
                 "ChargeSpeedMax": 30,
                 "CollidePlayersStopTime": 0.3,
                 "Damage": 40,
-                "Description": "Charge forward, colliding with enemies and dragging them along.  Hitting a wall will Stun enemies caught by citadel_ability_bull_charge. Speed increased after colliding with enemy Heroes.",
+                "Description": "Charge forward, colliding with enemies and dragging them along.  Hitting a wall will Stun enemies caught by Abrams. Speed increased after colliding with enemy Heroes.",
                 "Key": "citadel_ability_bull_charge",
                 "Name": "Shoulder Charge",
                 "SideMoveSpeedReduction": -65,
@@ -491,7 +491,7 @@
                     {
                         "BeamLifesteal": 100,
                         "BeamLifestealNonHeroPercent": 33,
-                        "Description": "Hyper Beam heals citadel_ability_bebop_laser_bea for 100% of its damage on Heroes. 33% on non-hero"
+                        "Description": "Hyper Beam heals Bebop for 100% of its damage on Heroes. 33% on non-hero"
                     }
                 ],
                 "ZoomBias": 0.5,
@@ -860,7 +860,7 @@
                 "ChannelMoveSpeed": 50,
                 "DamageAmplificationPerStack": 5,
                 "DebuffDuration": 8.0,
-                "Description": "Throw a grenade that begins pulsing when it lands. Each pulse applies damage, movement slow, and stacking damage amplification for citadel_ability_chrono_pulse_grenade against the victim.",
+                "Description": "Throw a grenade that begins pulsing when it lands. Each pulse applies damage, movement slow, and stacking damage amplification for Paradox against the victim.",
                 "Key": "citadel_ability_chrono_pulse_grenade",
                 "MovementSlowDuration": 2.0,
                 "Name": "Pulse Grenade",
@@ -1074,7 +1074,7 @@
                     {
                         "BulletArmorReduction": 30,
                         "BulletArmorReductionDuration": 8,
-                        "Description": "citadel_ability_stomp deals 30% more Weapon Damage to hit enemies for 8s"
+                        "Description": "Dynamo deals 30% more Weapon Damage to hit enemies for 8s"
                     },
                     {
                         "Damage": 125,
@@ -1088,7 +1088,7 @@
                 "AbilityUnitTargetLimit": 1,
                 "AllyDistance": 9,
                 "ChannelMoveSpeed": 50,
-                "Description": "citadel_ability_void_sphere briefly disappears into the void and then reappears a short distance away. On reappearing, your weapon is reloaded and has a fire rate bonus for the next clip (Max 8s). Can be cast with [M3] to also bring nearby allies and give them half fire rate bonus.",
+                "Description": "Dynamo briefly disappears into the void and then reappears a short distance away. On reappearing, your weapon is reloaded and has a fire rate bonus for the next clip (Max 8s). Can be cast with [M3] to also bring nearby allies and give them half fire rate bonus.",
                 "FireRateBonus": 25,
                 "FireRateBonusDurationMax": 8,
                 "Key": "citadel_ability_void_sphere",
@@ -1227,7 +1227,7 @@
                 "AttackSpeedMult": 100,
                 "BossDamagePercentIncoming": 50,
                 "BossDamagePercentOutgoing": 40,
-                "Description": "Deploy a Mini Turret that automatically shoots enemies. The turret expires after a limited lifetime.<br>Turrets gain 30% of citadel_ability_shieldedsentry's max health and have 60% Spirit Resist. They deal reduced damage to troopers and objectives.",
+                "Description": "Deploy a Mini Turret that automatically shoots enemies. The turret expires after a limited lifetime.<br>Turrets gain 30% of McGinnis's max health and have 60% Spirit Resist. They deal reduced damage to troopers and objectives.",
                 "Key": "citadel_ability_shieldedsentry",
                 "ModelScale": 0.8,
                 "Name": "Mini Turret",
@@ -1315,7 +1315,7 @@
                         "StaminaReduction": 1,
                         "BonusDamagePercent": 25,
                         "DebuffDuration": 7,
-                        "Description": "Removes 1 stamina and amplifies citadel_ability_fissure_wall's damage by 25% on hit enemies for 7s"
+                        "Description": "Removes 1 stamina and amplifies McGinnis's damage by 25% on hit enemies for 7s"
                     },
                     {
                         "AbilityCooldown": -14.0,
@@ -1919,7 +1919,7 @@
                 "CastRangeWhenVertical": 30,
                 "CastRangeWhenVerticalBias": 0.3,
                 "ChannelMoveSpeed": 50,
-                "Description": "Rapidly fire your guns at a target with perfect accuracy and 50% increased damage for 1.5s.  Causes gunslinger_rapid_fire and the target to float if in the air.",
+                "Description": "Rapidly fire your guns at a target with perfect accuracy and 50% increased damage for 1.5s.  Causes Gunslinger and the target to float if in the air.",
                 "FireRateMultiplier": 100,
                 "JuggleAirSpeedMax": 50,
                 "JuggleFallSpeedMax": 20,
@@ -1935,7 +1935,7 @@
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
                 "Damage": 100,
-                "Description": "Equip a rocket launcher that fires explosive rockets.  Rocket blasts can launch enemies and gunslinger_rocket_launcher into the air.",
+                "Description": "Equip a rocket launcher that fires explosive rockets.  Rocket blasts can launch enemies and Gunslinger into the air.",
                 "ExplosionRadius": 3,
                 "Key": "gunslinger_rocket_launcher",
                 "LaunchMaxSpeed": 750,
@@ -1949,7 +1949,7 @@
                 "AbilityUnitTargetLimit": 1,
                 "BulletLifestealPercent": 15,
                 "ChannelMoveSpeed": 50,
-                "Description": "Gain 15% bullet life steal, increased by up to 100% based on gunslinger_tenacity's missing health.",
+                "Description": "Gain 15% bullet life steal, increased by up to 100% based on Gunslinger's missing health.",
                 "Key": "gunslinger_tenacity",
                 "LowHealthHealingScalePercent": 100,
                 "Name": "Tenacity",
@@ -2120,7 +2120,7 @@
                 "AbilityUnitTargetLimit": 1,
                 "BonusFireRate": 25,
                 "ChannelMoveSpeed": 4,
-                "Description": "Enter a flurry, firing your weapon at nearby enemies with perfect accuracy.  During the flurry, ability_bullet_flurry gains a fire rate bonus and will evade some of the bullets shot at her.",
+                "Description": "Enter a flurry, firing your weapon at nearby enemies with perfect accuracy.  During the flurry, Haze gains a fire rate bonus and will evade some of the bullets shot at her.",
                 "EvasionPercent": 50,
                 "Key": "ability_bullet_flurry",
                 "Name": "Bullet Dance",
@@ -2381,7 +2381,7 @@
                 "Damage": 50,
                 "DamageAmplification": 25,
                 "DebuffDuration": 8,
-                "Description": "Spew napalm that slows enemy movement and amplifies the damage ability_incendiary_projectile does to them.",
+                "Description": "Spew napalm that slows enemy movement and amplifies the damage Infernus does to them.",
                 "FlameHeightOffGround": 50,
                 "GrowthPerMeter": 0.5,
                 "InitialWidth": 1,
@@ -2398,7 +2398,7 @@
                     },
                     {
                         "LifestealPercentHero": 15,
-                        "Description": "ability_incendiary_projectile gains 15% Lifesteal against victims"
+                        "Description": "Infernus gains 15% Lifesteal against victims"
                     },
                     {
                         "DamageAmplification": 15,
@@ -2453,7 +2453,7 @@
                 "ChannelMoveSpeed": 50,
                 "CritBuildup": 16,
                 "DPS": 15,
-                "Description": "Your bullets build up to apply a burning effect on enemies. ability_afterburn's bullets and abilities will refresh the duration.",
+                "Description": "Your bullets build up to apply a burning effect on enemies. Infernus's bullets and abilities will refresh the duration.",
                 "Key": "ability_afterburn",
                 "Name": "Afterburn",
                 "TickRate": 0.5,
@@ -2770,7 +2770,7 @@
                 "AbilityUnitTargetLimit": 1,
                 "CameraDistance": 250,
                 "ChannelMoveSpeed": -1,
-                "Description": "ability_icepath creates a floating trail of ice and snow that gives movement bonuses to him and his allies. Kelvin gains 60% slow resistance for the duration. Enemies can also walk on the floating trail. <br>Press [Shift] / [Ctrl] to travel up or down while in Ice Path.",
+                "Description": "Kelvin creates a floating trail of ice and snow that gives movement bonuses to him and his allies. Kelvin gains 60% slow resistance for the duration. Enemies can also walk on the floating trail. <br>Press [Shift] / [Ctrl] to travel up or down while in Ice Path.",
                 "IcePathAuraDuration": 18,
                 "IcePathEdgeWidth": 0.7,
                 "IcePathInterval": 0.5,
@@ -2848,7 +2848,7 @@
                 "BlockerScaleFactor": 115,
                 "BonusHealthRegen": 120,
                 "ChannelMoveSpeed": 50,
-                "Description": "ability_ice_dome freezes the air around him, creating an impenetrable dome around himself. While in the dome, allies rapidly regenerate health and enemies are slowed.",
+                "Description": "Kelvin freezes the air around him, creating an impenetrable dome around himself. While in the dome, allies rapidly regenerate health and enemies are slowed.",
                 "EnemyDragSpeed": 1000,
                 "GrowTime": 0.2,
                 "Key": "ability_ice_dome",
@@ -2944,7 +2944,7 @@
                     {
                         "DamageBonus": 15,
                         "DebuffDuration": 16,
-                        "Description": "Adds a debuff to enemies that lets ability_intimidate deal +15% Damage to them. Stacks and lasts 16s."
+                        "Description": "Adds a debuff to enemies that lets Mo & Krill deal +15% Damage to them. Stacks and lasts 16s."
                     }
                 ]
             },
@@ -3539,7 +3539,7 @@
                 "ChannelMoveSpeed": 50,
                 "DPS": 30,
                 "DamageTick": 0.5,
-                "Description": "Send out Ava to attack a nearby enemy.  Targetted enemies have reduced healing and give health to Ava and ability_nano_proximity_ritual when damanged by them.  Ava is only active when ability_nano_proximity_ritual is nearby. <br>While nearby Press [3] to recall Ava, Ava regains health while recalled.",
+                "Description": "Send out Ava to attack a nearby enemy.  Targetted enemies have reduced healing and give health to Ava and Calico when damanged by them.  Ava is only active when Calico is nearby. <br>While nearby Press [3] to recall Ava, Ava regains health while recalled.",
                 "HealAmpReceivePenaltyPercent": -20,
                 "HealAmpRegenPenaltyPercent": -20,
                 "InactiveRadius": 20,
@@ -3749,7 +3749,7 @@
                     {
                         "BulletVulnerbility": 30,
                         "DebuffDuration": 10,
-                        "Description": "ability_immobilize_trap deals +30% more Bullet Damage to enemies hit by Immobilizing Trap for 10s"
+                        "Description": "Grey Talon deals +30% more Bullet Damage to enemies hit by Immobilizing Trap for 10s"
                     }
                 ]
             },
@@ -4788,7 +4788,7 @@
                 "BuffDuration": 12,
                 "ChannelMoveSpeed": 50,
                 "DebuffDuration": 4,
-                "Description": "Take flight with an ally or a bomb. Drop your ally or bomb to cause a large explosion that causes movement slow. citadel_ability_tengu_airlift and ally gain a bullet shield when flying ends. <br>While lifted, your ally gains bullet resist but cannot attack and deals -50% damage. Air Drop has faster cast time when targeting an ally. <br>[M1] to accelerate flying speed. <br>[M2] to drop ally/bomb.",
+                "Description": "Take flight with an ally or a bomb. Drop your ally or bomb to cause a large explosion that causes movement slow. Ivy and ally gain a bullet shield when flying ends. <br>While lifted, your ally gains bullet resist but cannot attack and deals -50% damage. Air Drop has faster cast time when targeting an ally. <br>[M1] to accelerate flying speed. <br>[M2] to drop ally/bomb.",
                 "ExplodeDamage": 150,
                 "FlyingBulletResist": 40,
                 "Key": "citadel_ability_tengu_airlift",
@@ -5492,7 +5492,7 @@
                     {
                         "BulletArmorReduction": 20,
                         "BulletArmorReductionDuration": 6,
-                        "Description": "ability_warden_lock_down deals +20% more Bullet Damage to trapped Heroes for 6s"
+                        "Description": "Warden deals +20% more Bullet Damage to trapped Heroes for 6s"
                     }
                 ]
             },
@@ -5693,7 +5693,7 @@
                     },
                     {
                         "AbilityUnitTargetLimit": 5,
-                        "Description": "Telekinesis will target enemies in an area around citadel_ability_psychic_lift"
+                        "Description": "Telekinesis will target enemies in an area around Wraith"
                     }
                 ]
             }
