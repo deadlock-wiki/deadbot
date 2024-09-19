@@ -84,21 +84,13 @@ def get_hero_attr(value):
 # Maps label/postfixes for attributes that need to be manually mapped
 # because they are not in the localization files as the same text
 ATTRIBUTE_MANUAL_MAP = {
-    "ClipSize": {
-        "label": "StatDesc_ClipSizeBonus"
+    'ClipSize': {'label': 'StatDesc_ClipSizeBonus'},
+    'TechCooldownBetweenChargeUses': {
+        'label': 'StatDesc_TechCooldownBetweenCharges',
+        'postfix': 'StatDesc_TechCooldownBetweenCharges_postfix',
     },
-    "TechCooldownBetweenChargeUses": {
-        "label": "StatDesc_TechCooldownBetweenCharges",
-        "postfix": "StatDesc_TechCooldownBetweenCharges_postfix"
-    },
-    "MaxMoveSpeed": {
-        "label": "MoveSpeedMax_label",
-        "postfix": "MoveSpeedMax_postfix"
-    },
-    "BaseWeaponDamageIncrease": {
-        "label": "WeaponPower_label",
-        "postfix": "WeaponPower_postfix"
-    }
+    'MaxMoveSpeed': {'label': 'MoveSpeedMax_label', 'postfix': 'MoveSpeedMax_postfix'},
+    'BaseWeaponDamageIncrease': {'label': 'WeaponPower_label', 'postfix': 'WeaponPower_postfix'},
 }
 
 
@@ -129,3 +121,46 @@ def get_bound_abilities(value):
     if len(parts) == 4:
         return parts[2] + parts[3]
     return parts[2]
+
+
+KEYBIND_MAP = {
+    'iv_attack': 'M1',
+    'iv_attack2': 'M2',
+    'key_alt_cast': 'M3',
+    'key_reload': 'R',
+    'key_innate_1': 'Shift',
+    'in_mantle': 'Space',
+    'key_duck': 'Ctrl',
+    'in_ability1': '1',
+    'in_ability2': '2',
+    'in_ability3': '3',
+    'in_ability4': '4',
+}
+
+LOCALIZATION_OVERRIDE_MAP = {
+    'HealthSwapBuffDuration': 'SelfBuffDuration',
+    'PounceDebuffRadius': 'ExplodeRadius',
+    'DamageMissingPercentHealth': 'DamagePercentHealth',
+    'AirDropExplodeRadius': 'OnLandDamageRadius',
+    'AirDropBulletArmorReduction': 'BulletArmorReduction',
+    'AirDropDebuff02Duration': 'BulletArmorReductionDuration',
+    'AirDropSilenceDuration': 'SilenceDuration',
+    'NormalDPS_scale': 'NormalDPS',
+    'HotDPS_scale': 'HotDPS',
+    'Damage_scale': 'Damage',
+    'MaxChargeDuration': 'SpeedBoostDuration',
+}
+
+
+def override_localization(attr):
+    """
+    Get override key based on the variable names that are embedded in localization strings.
+    If none exists in the map, return the original.
+
+    This is designed to override the original keys for cases where the data key does not match
+    the key in the localized string
+    """
+    if attr in LOCALIZATION_OVERRIDE_MAP:
+        return LOCALIZATION_OVERRIDE_MAP[attr]
+    else:
+        return attr

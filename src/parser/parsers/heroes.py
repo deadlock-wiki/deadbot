@@ -92,7 +92,7 @@ class HeroParser:
             'FalloffEndScale': weapon_prim['m_flDamageFalloffEndScale'],
             'FalloffBias': weapon_prim['m_flDamageFalloffBias'],
             'BulletGravityScale': weapon_prim['m_flBulletGravityScale'],
-            #'BulletRadius': weapon_prim['m_flBulletRadius'] / ENGINE_UNITS_PER_METER, 
+            #'BulletRadius': weapon_prim['m_flBulletRadius'] / ENGINE_UNITS_PER_METER,
         }
 
         weapon_stats['DPS'] = weapon_stats['BulletDamage'] * weapon_stats['RoundsPerSecond']
@@ -179,4 +179,4 @@ class HeroParser:
                 raise Exception('Bullet speed curve is not constant')
 
         # If constant, return the y
-        return int(round(last_y / ENGINE_UNITS_PER_METER, 0))
+        return last_y / ENGINE_UNITS_PER_METER
