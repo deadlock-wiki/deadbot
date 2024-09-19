@@ -32,6 +32,14 @@ class HeroParser:
                 hero_stats.update(
                     self._map_attr_names(hero_value['m_mapStartingStats'], maps.get_hero_attr)
                 )
+
+                # Change formatting on some numbers to match whats shown in game
+                hero_stats['StaminaCooldown'] = 1 / hero_stats['StaminaRegenPerSecond']
+                hero_stats['CritDamageReceivedScale'] = hero_stats['CritDamageReceivedScale'] - 1
+                hero_stats['TechRange'] = hero_stats['TechRange'] - 1
+                hero_stats['TechDuration'] = hero_stats['TechDuration'] - 1
+                hero_stats['ReloadSpeed'] = hero_stats['ReloadSpeed'] - 1
+
                 hero_stats['SpiritScaling'] = self._parse_spirit_scaling(hero_value)
                 weapon_stats = self._parse_hero_weapon(hero_value)
                 hero_stats.update(weapon_stats)
@@ -46,37 +54,7 @@ class HeroParser:
 
                 all_hero_stats[hero_key] = json_utils.sort_dict(hero_stats)
 
-                # HERO CHECKS
-                # * These will definitely be moved very soon as the StatBox will want these stats even if they constants *
-                # These stats are not currently in the hero infobox because all heroes share this value and only as the base multiplier of 1x
-                # Since this is not any worthy information, it is not displayed in the infobox, we could even remove it from the hero data entirely
-                # If more checks such as this are added, they should be moved to a separate file "checks.py" for organization sake
-                # For now, the checks are processed when the data is parsed to eliminate the need to re-load the data to memory
-
-                # Confirm the following stats are all 1
-                # If any are not 1, the wiki should likely get this information added either to the hero infobox template or elsewhere, and the stat removed from the list below
-                multipliers = [
-                    'TechRange',
-                    'TechPower',
-                    'ReloadSpeed',
-                    'TechDuration',
-                    'ProcBuildUpRateScale',
-                ]
-                for mult_str in multipliers:
-                    mult_value = hero_stats.get(mult_str, 1)
-                    if mult_value != 1:
-                        raise Exception(
-                            f'Hero {hero_key} has {mult_str} of {mult_value} instead of 1'
-                        )
-
-        # Include removed keys in the data sent to consecutive parsers, but not to the output file
-        hero_stats_to_remove = multipliers
-        hero_stats_removed = json_utils.remove_keys(
-            all_hero_stats, keys_to_remove=hero_stats_to_remove, depths_to_search=2
-        )
-        json_utils.write(
-            OUTPUT_DIR + 'json/hero-data.json', json_utils.sort_dict(hero_stats_removed)
-        )
+        json_utils.write(OUTPUT_DIR + 'json/hero-data.json', json_utils.sort_dict(all_hero_stats))
         return all_hero_stats
 
     def _parse_hero_abilities(self, hero_value):
@@ -105,8 +83,8 @@ class HeroParser:
             'ClipSize': weapon_prim['m_iClipSize'],
             'ReloadTime': weapon_prim['m_reloadDuration'],
             'ReloadMovespeed': int(weapon_prim['m_flReloadMoveSpeed']) / 10000,
-            'ReloadDelay': weapon_prim['m_flReloadSingleBulletsInitialDelay'] if 'm_flReloadSingleBulletsInitialDelay' in weapon_prim else 0,
-            'ReloadSingle': weapon_prim['m_bReloadSingleBullets'] if 'm_bReloadSingleBullets' in weapon_prim else False,
+            'ReloadDelay': weapon_prim.get('m_flReloadSingleBulletsInitialDelay', 0),
+            'ReloadSingle': weapon_prim.get('m_bReloadSingleBullets', False),
             'BulletSpeed': self._calc_bullet_velocity(weapon_prim['m_BulletSpeedCurve']['m_spline']),
             'FalloffStartRange': weapon_prim['m_flDamageFalloffStartRange'] / ENGINE_UNITS_PER_METER,
             'FalloffEndRange': weapon_prim['m_flDamageFalloffEndRange'] / ENGINE_UNITS_PER_METER,
@@ -114,7 +92,7 @@ class HeroParser:
             'FalloffEndScale': weapon_prim['m_flDamageFalloffEndScale'],
             'FalloffBias': weapon_prim['m_flDamageFalloffBias'],
             'BulletGravityScale': weapon_prim['m_flBulletGravityScale'],
-            #'BulletRadius': weapon_prim['m_flBulletRadius'] / ENGINE_UNITS_PER_METER, Need to do more confirmation of this in game
+            #'BulletRadius': weapon_prim['m_flBulletRadius'] / ENGINE_UNITS_PER_METER, 
         }
 
         weapon_stats['DPS'] = weapon_stats['BulletDamage'] * weapon_stats['RoundsPerSecond']
@@ -164,7 +142,7 @@ class HeroParser:
             output_data[mapped_key] = data[key]
 
         return output_data
-    
+
     def _calc_bullet_velocity(self, spline):
         """Calculates bullet velocity of a spline, ensuring its linear"""
         """
@@ -201,4 +179,4 @@ class HeroParser:
                 raise Exception('Bullet speed curve is not constant')
 
         # If constant, return the y
-        return last_y / ENGINE_UNITS_PER_METER
+        return int(round(last_y / ENGINE_UNITS_PER_METER, 0))

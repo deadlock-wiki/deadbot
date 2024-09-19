@@ -66,7 +66,8 @@ class Parser:
 
                 # Merge all localization data to the same level
                 for key, value in localization_data.items():
-                    # Skip language key, and potentially others down the line that are not needed but shared across groups
+                    # Skip language key, and potentially others down the line 
+                    # that are not needed but shared across groups
                     if key in ['Language']:
                         continue
 
@@ -75,14 +76,15 @@ class Parser:
                     else:
                         current_value = self.localizations[language][key]
                         raise Exception(
-                            f'Key {key} with value {value} already exists in {language} localization data with value {current_value}.'
+                            f'Key {key} with value {value} already exists in {language} '+
+                            f'localization data with value {current_value}.'
                         )
 
     def run(self):
         print('Parsing...')
-        parsed_localizations = self._parse_localizations()
+        self._parse_localizations()
         parsed_abilities = self._parse_abilities()
-        parsed_heroes = self._parse_heroes(parsed_abilities)
+        self._parse_heroes(parsed_abilities)
         self._parse_items()
         self._parse_attributes()
         self._parse_changelogs()
