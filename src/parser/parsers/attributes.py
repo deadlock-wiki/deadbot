@@ -7,10 +7,6 @@ from .constants import OUTPUT_DIR
 import utils.json_utils as json_utils
 import maps as maps
 
-"""
-Output-data is used by https://deadlocked.wiki/Template:StatBoxes
-to display a hero's attributes on their hero page
-"""
 class AttributeParser:
     def __init__(self, heroes_data, localizations):
         self.heroes_data = heroes_data
@@ -186,6 +182,10 @@ class AttributeParser:
                         category_attributes[category_name][stat_mapped] = {}
 
         return category_attributes
+"""
+Output-data is used by https://deadlocked.wiki/Template:StatBoxes
+to display a hero's attributes on their hero page
+"""
 
 
 def unlocalized_to_base_name(unlocalized_name):
