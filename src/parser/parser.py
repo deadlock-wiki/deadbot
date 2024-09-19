@@ -43,12 +43,11 @@ class Parser:
                 )
 
     def _load_localizations(self):
-        # Load all localizations data to memory
+        """
+        Merge all localization groups, including attributes, gc, heroes, main, and mods etc.
+        into a single object per language
+        """
 
-        # Merge all 5 localization groups (i.e. attributes, mods, etc.) to the same level
-        # Level 1: language
-        # Level 2: unlocalized text
-        # Level 3: localized text
         self.localizations = {}
         for language in self.languages:
             self.localizations[language] = {}
@@ -64,21 +63,31 @@ class Parser:
                     + '.json'
                 )
 
-                # Merge all localization data to the same level
-                for key, value in localization_data.items():
-                    # Skip language key, and potentially others down the line 
-                    # that are not needed but shared across groups
-                    if key in ['Language']:
-                        continue
+                self._merge_localizations(language, localization_data)
 
-                    if key not in self.localizations[language]:
-                        self.localizations[language][key] = value
-                    else:
-                        current_value = self.localizations[language][key]
-                        raise Exception(
-                            f'Key {key} with value {value} already exists in {language} '+
-                            f'localization data with value {current_value}.'
-                        )
+    def _merge_localizations(self, language, data):
+        """
+        Assigns a set of localization data to self.localizations for use across the parser
+
+        Args:
+            language (str): language for the provided data
+            data (dict): contents of a group of localization data for the given language
+                Eg. contents of citadels_heroes_danish.json
+        """
+        for key, value in data.items():
+            # Skip language key, and potentially others down the line
+            # that are not needed but shared across groups
+            if key in ['Language']:
+                continue
+
+            if key not in self.localizations[language]:
+                self.localizations[language][key] = value
+            else:
+                current_value = self.localizations[language][key]
+                raise Exception(
+                    f'Key {key} with value {value} already exists in {language} localization '
+                    + f'data with value {current_value}.'
+                )
 
     def run(self):
         print('Parsing...')
@@ -108,7 +117,9 @@ class Parser:
     def _parse_abilities(self):
         print('Parsing Abilities...')
         return abilities.AbilityParser(
-            self.data['scripts']['abilities'], self.localizations[self.language]
+            self.data['scripts']['abilities'],
+            self.data['scripts']['heroes'],
+            self.localizations[self.language],
         ).run()
 
     def _parse_items(self):
