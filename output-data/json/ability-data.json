@@ -56,9 +56,9 @@
         "AbilityUnitTargetLimit": 1,
         "BackwardsShotDelayTime": 0.15,
         "BulletScaleFactor": -0.75,
-        "ChannelMoveSpeed": "8m",
+        "ChannelMoveSpeed": 8,
         "ClipSizeOverride": 2,
-        "CloseRangeBonusDamageRange": "0m",
+        "CloseRangeBonusDamageRange": 0,
         "Description": "Use to toggle between your pistol and shotgun. The shotgun so powerful it forces ability_astro_shotgun_toggle to move the opposite direction of the shot while airborn. [M1] shoots forward and [M2] shoots behind you with a slight delay. The shotgun uses special bullets that does not benefit from ammo mods. <br><br>Lassoed units do not take damage when shooting backwards.",
         "Key": "ability_astro_shotgun_toggle",
         "Name": "Force of Nature",
@@ -83,11 +83,11 @@
         "Description": "Sacrifice some of your health to launch a bomb that deals damage after a brief arm time.<br>Self damage type is Spirit and can be mitigated.",
         "Key": "ability_blood_bomb",
         "Name": "Essence Bomb",
-        "Radius": "7m",
+        "Radius": 7,
         "SelfDamage": 30,
         "Upgrades": [
             {
-                "Radius": "2m",
+                "Radius": 2,
                 "Description": "+2m Radius"
             },
             {
@@ -218,9 +218,9 @@
         "MinAirTimeForStomp": 0.2,
         "Name": "Bounce Pad",
         "PlaceDistance": 100,
-        "Radius": "8m",
+        "Radius": 8,
         "Scale": 1,
-        "SpeedOnLand": "0m",
+        "SpeedOnLand": 0,
         "StompDamage": 120,
         "TossSpeed": 350,
         "UpFactor": 1.2,
@@ -247,12 +247,12 @@
         "AbilityCooldown": 138.0,
         "AbilityUnitTargetLimit": 1,
         "BonusFireRate": 25,
-        "ChannelMoveSpeed": "4m",
+        "ChannelMoveSpeed": 4,
         "Description": "Enter a flurry, firing your weapon at nearby enemies with perfect accuracy.  During the flurry, ability_bullet_flurry gains a fire rate bonus and will evade some of the bullets shot at her.",
         "EvasionPercent": 50,
         "Key": "ability_bullet_flurry",
         "Name": "Bullet Dance",
-        "Radius": "15m",
+        "Radius": 15,
         "TargetsPerTick": 1,
         "Upgrades": [
             {
@@ -275,7 +275,7 @@
         "AbilityChannelTime": 5,
         "AbilityCooldown": 37.0,
         "AbilityUnitTargetLimit": 1,
-        "BonusMoveSpeed": "3m",
+        "BonusMoveSpeed": 3,
         "BulletResist": 80,
         "ChannelMoveSpeed": -1,
         "DPS": 80,
@@ -283,7 +283,7 @@
         "EnemyDamageSpeedPenalty": 0.5,
         "Key": "ability_burrow",
         "Name": "Burrow",
-        "Radius": "5m",
+        "Radius": 5,
         "SpeedLostDuration": 1,
         "SpinDuration": 1.5,
         "SpinSlowDuration": 0.3,
@@ -312,16 +312,16 @@
         "AbilityCastDelay": 0.2,
         "AbilityCooldown": 10.5,
         "AbilityUnitTargetLimit": 1,
-        "BlastJumpVelocity": "25m",
-        "BlastJumpVelocityCrouch": "30m",
-        "BlastJumpVelocityGround": "20m",
+        "BlastJumpVelocity": 25,
+        "BlastJumpVelocityCrouch": 30,
+        "BlastJumpVelocityGround": 20,
         "ChannelMoveSpeed": 50,
         "Description": null,
         "Key": "ability_charged_bomb",
         "MaxChargeTime": 2.0,
         "MaxDamage": 100,
         "Name": null,
-        "Radius": "7m",
+        "Radius": 7,
         "Upgrades": [
             {
                 "AbilityCooldown": 0,
@@ -405,15 +405,15 @@
         "BarrelLightMeleeForceUp": 550,
         "BarrelPitchMax": 45,
         "BarrelPitchMin": 2,
-        "BarrelRollSpeedMoveAir": "10m",
-        "BarrelRollSpeedMoveMin": "15m",
+        "BarrelRollSpeedMoveAir": 10,
+        "BarrelRollSpeedMoveMin": 15,
         "BarrelScale": 1.3,
         "ChannelMoveSpeed": 50,
         "Description": "Place a barrel that explodes when shot, or on landing after launched via melee attack or bounce pad. Has a minimum arm time before it can explode.",
         "Key": "ability_explosive_barrel",
         "MinTimeBeforeDestroy": 1.0,
         "Name": "Powder Keg",
-        "Radius": "6m",
+        "Radius": 6,
         "TossSpeed": 400,
         "Upgrades": [
             {
@@ -441,7 +441,7 @@
         "ExplodeDelay": 3,
         "Key": "ability_fire_bomb",
         "Name": "Concussive Combustion",
-        "Radius": "12m",
+        "Radius": 12,
         "StunDuration": 1.25,
         "Upgrades": [
             {
@@ -465,21 +465,21 @@
         "AbilityCooldown": 40.0,
         "AbilityUnitTargetLimit": 1,
         "AuraLingerDuration": 1.0,
-        "ChannelMoveSpeed": "18m",
-        "DashAirSpeed": "8m",
-        "DashSpeed": "12m",
+        "ChannelMoveSpeed": 18,
+        "DashAirSpeed": 8,
+        "DashSpeed": 12,
         "DashTime": 3.0,
         "Description": "Move forward at high speed and leave a flame trail that burns enemies. Infernus gains 50% slow resistance for the duration.  <br>Hold [M1] to dash faster.",
         "FlameAuraDPS": 40,
-        "FlameAuraRadius": "4.5m",
+        "FlameAuraRadius": 4.5,
         "FlameDashJumpBonus": 50,
-        "GroundAuraSpacing": "1m",
+        "GroundAuraSpacing": 1,
         "GroundFlameDuration": 4,
         "Key": "ability_flame_dash",
         "Name": "Flame Dash",
         "SideMoveSpeedReduction": -65,
         "SlowResistancePercent": 50,
-        "SpeedBurstSpeed": "20m",
+        "SpeedBurstSpeed": 20,
         "TickRate": 0.5,
         "Upgrades": [
             {
@@ -498,7 +498,7 @@
         ]
     },
     "ability_gravity_lasso": {
-        "AbilityCastRange": "10m",
+        "AbilityCastRange": 10,
         "AbilityCooldown": 159.0,
         "AbilityDuration": 2.5,
         "AbilityUnitTargetLimit": 1,
@@ -541,7 +541,7 @@
         "BonusTechPowerPerKill": 5,
         "Damage": 250,
         "Description": "After 1.5s cast time, launch a spirit owl that you control and which explodes on impact, damaging and stunning enemies. Hold [M1] to accelerate the owl.<br>Press [Space] to release control. Gain permanent Spirit Power for each enemy hero killed with Guided Owl.",
-        "ExplosionRadius": "12m",
+        "ExplosionRadius": 12,
         "Key": "ability_guided_arrow",
         "Name": "Guided Owl",
         "StunDuration": 0.75,
@@ -567,7 +567,7 @@
         "Damage": 100,
         "DebuffDuration": 5,
         "Description": "Throws out her hat to strike enemies, slowing and revealing them through walls.",
-        "ExplosionRadius": "2m",
+        "ExplosionRadius": 2,
         "Key": "ability_hat_trick",
         "Name": "Hat Trick",
         "SlowPercent": 20,
@@ -588,11 +588,11 @@
     },
     "ability_health_swap": {
         "AbilityCastDelay": 0.2,
-        "AbilityCastRange": "7m",
+        "AbilityCastRange": 7,
         "AbilityCooldown": 170.0,
         "AbilityDuration": 0.25,
         "AbilityUnitTargetLimit": 1,
-        "ChannelMoveSpeed": "2m",
+        "ChannelMoveSpeed": 2,
         "Description": "Swaps health levels with an enemy target. There is a minimum health percentage that enemies can be brought down to and a minimum amount of health received based on victims current health.",
         "EnemyMinHealthPct": 30,
         "EnemySlowPct": 70,
@@ -632,7 +632,7 @@
         "GrowTime": 0.2,
         "Key": "ability_ice_dome",
         "Name": "Frozen Shelter",
-        "Radius": "10m",
+        "Radius": 10,
         "SlowPercent": 35,
         "Upgrades": [
             {
@@ -660,7 +660,7 @@
         "Description": "Throw a grenade that explodes in a cloud of freezing ice, damaging and slowing enemies.",
         "Key": "ability_ice_grenade",
         "Name": "Frost Grenade",
-        "Radius": "6.5m",
+        "Radius": 6.5,
         "SlowDuration": 4,
         "SlowPercent": 40,
         "Upgrades": [
@@ -682,7 +682,7 @@
         "AbilityChannelTime": 5.0,
         "AbilityCooldown": 24.0,
         "AbilityUnitTargetLimit": 1,
-        "BeamSplit": "0m",
+        "BeamSplit": 0,
         "CameraDistance": 250,
         "ChannelMoveSpeed": -1,
         "ChannelSlowPercent": 8,
@@ -695,8 +695,8 @@
         "MaxSlowTime": 2.0,
         "MinSlowPercent": 30,
         "Name": "Arctic Beam",
-        "PathLength": "25m",
-        "PathWidth": "1.1m",
+        "PathLength": 25,
+        "PathWidth": 1.1,
         "SlowDuration": 0.6,
         "TickRate": 0.1,
         "Upgrades": [
@@ -724,23 +724,23 @@
         "ChannelMoveSpeed": -1,
         "Description": "ability_icepath creates a floating trail of ice and snow that gives movement bonuses to him and his allies. Kelvin gains 60% slow resistance for the duration. Enemies can also walk on the floating trail. <br>Press [Shift] / [Ctrl] to travel up or down while in Ice Path.",
         "IcePathAuraDuration": 18,
-        "IcePathEdgeWidth": "0.7m",
+        "IcePathEdgeWidth": 0.7,
         "IcePathInterval": 0.5,
         "IcePathPullInStrength": 20,
-        "IcePathShardRadius": "1.2m",
+        "IcePathShardRadius": 1.2,
         "Key": "ability_icepath",
         "MinHeight": 20,
-        "ModifierRadius": "5m",
-        "MoveSpeedBonus": "2m",
+        "ModifierRadius": 5,
+        "MoveSpeedBonus": 2,
         "MoveWhileShootingSpeedPenaltyReductionPercent": 100,
         "MoveWhileZoomedSpeedPenaltyReductionPercent": 100,
         "Name": "Ice Path",
         "PopupForce": 30,
         "SlowResistancePercent": 60,
-        "SprintSpeedBonus": "2m",
+        "SprintSpeedBonus": 2,
         "Upgrades": [
             {
-                "SprintSpeedBonus": "4m",
+                "SprintSpeedBonus": 4,
                 "Description": "+4m/s Sprint Speed"
             },
             {
@@ -766,10 +766,10 @@
         "Key": "ability_immobilize_trap",
         "Lifetime": 20,
         "Name": "Immobilizing Trap",
-        "Radius": "6m",
+        "Radius": 6,
         "SlowDuration": 1,
         "SlowPercent": 50,
-        "TrapHeight": "2m",
+        "TrapHeight": 2,
         "TripGravity": 0.4,
         "TripTime": 0.5,
         "TripUpSpeed": 250,
@@ -791,19 +791,19 @@
     },
     "ability_incendiary_projectile": {
         "AbilityCastDelay": 0.1,
-        "AbilityCastRange": "20m",
+        "AbilityCastRange": 20,
         "AbilityCharges": 1,
         "AbilityCooldown": 25.0,
         "AbilityCooldownBetweenCharge": 6,
         "AbilityUnitTargetLimit": 1,
-        "ChannelMoveSpeed": "18m",
+        "ChannelMoveSpeed": 18,
         "Damage": 50,
         "DamageAmplification": 25,
         "DebuffDuration": 8,
         "Description": "Spew napalm that slows enemy movement and amplifies the damage ability_incendiary_projectile does to them.",
         "FlameHeightOffGround": 50,
-        "GrowthPerMeter": "0.5m",
-        "InitialWidth": "1m",
+        "GrowthPerMeter": 0.5,
+        "InitialWidth": 1,
         "Key": "ability_incendiary_projectile",
         "Name": "Catalyst",
         "ParticleRadiusMultiplier": 1.15,
@@ -838,7 +838,7 @@
         "Description": "Deal damage to nearby enemies and heal yourself based on the damage done. Heal is stronger against enemy heroes.",
         "Key": "ability_intimidate",
         "Name": "Scorn",
-        "Radius": "10m",
+        "Radius": 10,
         "TickRate": 0.1,
         "Upgrades": [
             {
@@ -862,24 +862,24 @@
         "AbilityDuration": 5,
         "AbilityUnitTargetLimit": 1,
         "ChannelMoveSpeed": 50,
-        "ClimbHeight": "1m",
+        "ClimbHeight": 1,
         "CloseRangeSpeed": 80,
         "DamagePerSecond": 50,
         "DebuffDuration": 3.0,
         "Description": "Send out a tornado that damages enemies it touches, as well as applying a lingering movement and fire rate slow.",
-        "DistanceAboveGround": "2m",
+        "DistanceAboveGround": 2,
         "DropDownRate": 2,
         "FireRateSlow": 20,
         "GroundDashReductionPercent": -30,
         "Key": "ability_kali_dust_storm",
         "Name": "Dust Storm",
-        "OpenHeight": "2m",
-        "Radius": "3.5m",
+        "OpenHeight": 2,
+        "Radius": 3.5,
         "SlowPercent": 20,
         "ThrownObjectRadius": 20,
         "TickRate": 0.25,
         "TornadoSpeed": 600,
-        "TrackingDistance": "15m",
+        "TrackingDistance": 15,
         "Upgrades": [
             {
                 "SlowPercent": 30,
@@ -898,15 +898,15 @@
     },
     "ability_kali_trappers_bolo": {
         "AbilityCastDelay": 0.2,
-        "AbilityCastRange": "25m",
+        "AbilityCastRange": 25,
         "AbilityCooldown": 127.0,
         "AbilityUnitTargetLimit": 1,
         "BoloBounceCount": 6,
         "BoloBounceSpeed": 800,
-        "BoloContractRadius": "5m",
+        "BoloContractRadius": 5,
         "BoloHitDamage": 25,
         "BoloProcDamage": 75,
-        "BoloRadius": "0.8m",
+        "BoloRadius": 0.8,
         "ChannelMoveSpeed": 50,
         "DebuffDelay": 2,
         "Description": "Throw a bolo that bounces between enemy heroes before returning to you. Victims will slow down over 2s and then become immobilized for 2.0s. Bounces once per hero.",
@@ -933,7 +933,7 @@
     },
     "ability_lash_flog": {
         "AbilityCastDelay": 0.15,
-        "AbilityCastRange": "25m",
+        "AbilityCastRange": 25,
         "AbilityCooldown": 26.0,
         "AbilityUnitTargetLimit": 30,
         "ChannelMoveSpeed": 50,
@@ -963,7 +963,7 @@
     },
     "ability_life_drain": {
         "AbilityCastDelay": 0.2,
-        "AbilityCastRange": "20m",
+        "AbilityCastRange": 20,
         "AbilityCooldown": 42.0,
         "AbilityDuration": 2,
         "AbilityUnitTargetLimit": 1,
@@ -972,7 +972,7 @@
         "Key": "ability_life_drain",
         "LifeDrainHealthMult": 100,
         "LifeDrainPerSecond": 35,
-        "MaxRange": "30m",
+        "MaxRange": 30,
         "MoveSpeedReduction": 25,
         "Name": "Life Drain",
         "TickRate": 0.1,
@@ -993,7 +993,7 @@
     },
     "ability_nano_pounce": {
         "AbilityCastDelay": 0.2,
-        "AbilityCastRange": "14m",
+        "AbilityCastRange": 14,
         "AbilityCharges": 1,
         "AbilityCooldown": 32.0,
         "AbilityCooldownBetweenCharge": 10,
@@ -1003,15 +1003,15 @@
         "ChannelMoveSpeed": 50,
         "Damage": 60,
         "Description": "Leap at a target to inflict Light Melee damage.  Targetting an enemy will cause slow on nearby enemies.  Targeting an ally will have reduced Cooldown and Recharge times.",
-        "ExplodeRadius": "4m",
+        "ExplodeRadius": 4,
         "FriendlyRechargeTime": 3,
         "FriendlyTargetCD": 16.0,
-        "JumpHeight": "3m",
+        "JumpHeight": 3,
         "Key": "ability_nano_pounce",
         "MinTimeToTarget": 0.5,
-        "MoveSpeedToTarget": "25m",
+        "MoveSpeedToTarget": 25,
         "Name": "Pounce",
-        "SlashRange": "3m",
+        "SlashRange": 3,
         "SlowDuration": 2.0,
         "SlowPercent": 30,
         "Upgrades": [
@@ -1035,7 +1035,7 @@
         "AbilityCastDelay": 0.2,
         "AbilityCooldown": 64.0,
         "AbilityUnitTargetLimit": 1,
-        "ActiveRadius": "20m",
+        "ActiveRadius": 20,
         "CatActivateDuration": 1.5,
         "ChannelMoveSpeed": 50,
         "DPS": 30,
@@ -1043,11 +1043,11 @@
         "Description": "Send out Ava to attack a nearby enemy.  Targetted enemies have reduced healing and give health to Ava and ability_nano_proximity_ritual when damanged by them.  Ava is only active when ability_nano_proximity_ritual is nearby. <br>While nearby Press [3] to recall Ava, Ava regains health while recalled.",
         "HealAmpReceivePenaltyPercent": -20,
         "HealAmpRegenPenaltyPercent": -20,
-        "InactiveRadius": "20m",
+        "InactiveRadius": 20,
         "Key": "ability_nano_proximity_ritual",
         "Name": "Perched Predator",
         "RecallCooldown": 10.5,
-        "RecallRange": "5m",
+        "RecallRange": 5,
         "SelfHealScale": 0.5,
         "StatueArmTime": 1.0,
         "StatueHealth": 200,
@@ -1085,13 +1085,13 @@
         "ChannelMoveSpeed": 50,
         "Description": "Cast yourself in shadow and go Invisible.  Attacks do not break invisibility but they will temporarily reveal you.  Hitting enemies with Melee damage will reduce their bullet resist (stacking)",
         "InvisAlertWhenFading": 1,
-        "InvisMoveSpeedMod": "1m",
+        "InvisMoveSpeedMod": 1,
         "Key": "ability_nano_ult_shadow",
         "MeleeAttackSpeedBonus": 40,
         "Name": "Queen of Shadows",
         "RevealOnDamageDuration": 0.25,
         "RevealOnSpottedDuration": 0.25,
-        "SpottedRadius": "15m",
+        "SpottedRadius": 15,
         "Upgrades": [
             {
                 "StaminaCooldownReduction": 30,
@@ -1111,25 +1111,25 @@
         "AbilityCastDelay": 0.2,
         "AbilityCooldown": 26.0,
         "AbilityUnitTargetLimit": 1,
-        "CatAboveGround": "0.1m",
-        "CatAccel": "15m",
-        "CatClimbHeight": "3m",
+        "CatAboveGround": 0.1,
+        "CatAccel": 15,
+        "CatClimbHeight": 3,
         "CatDropDownRate": 5,
         "CatLifetime": 2.5,
-        "CatMaxSpeed": "25m",
-        "CatStartSpeed": "5m",
+        "CatMaxSpeed": 25,
+        "CatStartSpeed": 5,
         "ChannelMoveSpeed": 50,
         "ChargeDragVerticalOffset": 30,
         "ChargeRadius": 75,
         "Description": "Send a Spirit Cat forward that grab's targets in its way.  Grabbing a Hero will cause an explosion soon after. <br>Press [1] to manually create the explosion.",
         "ExplosionDamage": 100,
-        "ExplosionRadius": "8m",
+        "ExplosionRadius": 8,
         "Key": "ability_perched_predator",
         "Name": "Sekhmet's Spirit",
         "TossSpeed": 400,
         "Upgrades": [
             {
-                "ExplosionRadius": "4m",
+                "ExplosionRadius": 4,
                 "Description": "+4m Explosion Radius"
             },
             {
@@ -1151,9 +1151,9 @@
         "BulletSplitShot": 5,
         "Description": "Launches you high in the air, allowing you to glide slowly. While airborne, you gain Weapon Damage and multishot on your weapon. Press [Space] to cancel the glide.",
         "FallSpeedMax": 30,
-        "FxRadius": "4m",
+        "FxRadius": 4,
         "JumpPitch": -60,
-        "JumpSpeed": "27.5m",
+        "JumpSpeed": 27.5,
         "Key": "ability_power_jump",
         "Name": "Rain of Arrows",
         "Upgrades": [
@@ -1183,7 +1183,7 @@
         "BonusPerChain": 10,
         "BossDamagePercent": 50,
         "ChainCount": 3,
-        "ChainRadius": "10m",
+        "ChainRadius": 10,
         "ChainTickRate": 0.2,
         "ChannelMoveSpeed": 50,
         "DamagePerChain": 10,
@@ -1210,12 +1210,12 @@
     },
     "ability_scrap_blast": {
         "AbilityCastDelay": 0.25,
-        "AbilityCastRange": "15m",
+        "AbilityCastRange": 15,
         "AbilityCharges": 2,
         "AbilityCooldown": 64.0,
         "AbilityCooldownBetweenCharge": 3,
         "AbilityUnitTargetLimit": 1,
-        "BlastRadius": "5m",
+        "BlastRadius": 5,
         "ChannelMoveSpeed": 50,
         "Description": "Shoots out a blast of consumed remains, damaging and slowing enemies. Multiple hits increase the slow.",
         "EnemyMoveSlow": 10,
@@ -1242,8 +1242,8 @@
         "AbilityCastDelay": 0.2,
         "AbilityCooldown": 26.0,
         "AbilityUnitTargetLimit": 1,
-        "AoESleep": "0m",
-        "BombFallHeight": "1.5m",
+        "AoESleep": 0,
+        "BombFallHeight": 1.5,
         "ChannelMoveSpeed": 50,
         "Damage": 70,
         "Description": "Throw a dagger that damages and sleeps the target. Sleeping targets wake up shortly after being damaged. Throwing a Dagger does not break your invisibility. Sleep Dagger does not interrupt enemies' channeling abilities.",
@@ -1253,7 +1253,7 @@
         "Key": "ability_sleep_dagger",
         "MinimumSleepTime": 0.2,
         "Name": "Sleep Dagger",
-        "RicochetRadius": "20m",
+        "RicochetRadius": 20,
         "SleepDuration": 3,
         "SleepWakeUpDelay": 0.1,
         "TickRate": 0.5,
@@ -1279,15 +1279,15 @@
         "AbilityUnitTargetLimit": 1,
         "ChannelMoveSpeed": 50,
         "Description": "Fade out of sight, becoming invisible and gaining sprint speed. Attacking removes invisibility. Close enemies can see through your invisibility.",
-        "FullInvisDistance": "50m",
+        "FullInvisDistance": 50,
         "InvisAlertWhenFading": 1,
         "InvisFadeToDuration": 1.5,
-        "InvisMoveSpeedMod": "2.0m",
+        "InvisMoveSpeedMod": 2.0,
         "Key": "ability_smoke_bomb",
         "Name": "Smoke Bomb",
         "RevealOnDamageDuration": 1.5,
         "RevealOnSpottedDuration": 0.5,
-        "SpottedRadius": "18m",
+        "SpottedRadius": 18,
         "Upgrades": [
             {
                 "AbilityCooldown": -14.0,
@@ -1356,15 +1356,15 @@
     },
     "ability_throw_sand": {
         "AbilityCastDelay": 0.15,
-        "AbilityCastRange": "30m",
+        "AbilityCastRange": 30,
         "AbilityCooldown": 42.0,
         "AbilityDuration": 3.5,
         "AbilityUnitTargetLimit": 1,
         "ChannelMoveSpeed": 50,
         "Damage": 40,
         "Description": "Spray sand that disarms enemies in front of you and deals damage.",
-        "GrowthPerMeter": "0.5m",
-        "InitialWidth": "5m",
+        "GrowthPerMeter": 0.5,
+        "InitialWidth": 5,
         "Key": "ability_throw_sand",
         "Name": "Sand Blast",
         "Upgrades": [
@@ -1383,7 +1383,7 @@
         ]
     },
     "ability_ult_combo": {
-        "AbilityCastRange": "5m",
+        "AbilityCastRange": 5,
         "AbilityChannelTime": 2.75,
         "AbilityCooldown": 95.0,
         "AbilityUnitTargetLimit": 1,
@@ -1421,7 +1421,7 @@
         "MoveSpeedSlowPct": 20,
         "Name": "Alchemical Flask",
         "ProjectileLifetime": 60,
-        "Radius": "6.5m",
+        "Radius": 6.5,
         "Upgrades": [
             {
                 "Damage": 40,
@@ -1466,13 +1466,13 @@
     },
     "ability_warden_lock_down": {
         "AbilityCastDelay": 0.15,
-        "AbilityCastRange": "20m",
+        "AbilityCastRange": 20,
         "AbilityCooldown": 37.0,
         "AbilityUnitTargetLimit": 1,
         "ChannelMoveSpeed": 50,
         "Damage": 120,
         "Description": "Curse an enemy hero. If they don't move away from their initial position within the escape time, they will be damaged and immobilized.",
-        "EscapeRange": "16m",
+        "EscapeRange": 16,
         "EscapeTime": 2.5,
         "ImmobilizeDuration": 1.75,
         "Key": "ability_warden_lock_down",
@@ -1498,7 +1498,7 @@
         "AbilityCooldown": 138.0,
         "AbilityDuration": 6,
         "AbilityUnitTargetLimit": 1,
-        "BonusMoveSpeed": "0m",
+        "BonusMoveSpeed": 0,
         "BulletResist": 50,
         "ConeAngle": 115,
         "Description": "After charging for 2.25s, release pulses that damage enemies and heal you based on the damage done. <br>While channeling Last Stand you have greatly increased bullet resist.",
@@ -1508,10 +1508,10 @@
         "Name": "Last Stand",
         "PulseDPS": 100,
         "PulseInterval": 0.5,
-        "Radius": "12m",
+        "Radius": 12,
         "Upgrades": [
             {
-                "Radius": "3m",
+                "Radius": 3,
                 "Description": "+3m Radius"
             },
             {
@@ -1525,7 +1525,7 @@
         ]
     },
     "ability_wrecker_salvage": {
-        "AbilityCastRange": "10m",
+        "AbilityCastRange": 10,
         "AbilityCooldown": 12.5,
         "AbilityUnitTargetLimit": 1,
         "ChannelMoveSpeed": 40,
@@ -1561,7 +1561,7 @@
         "Description": "Launch a flying shadow copy of yourself that you control, teleporting your original body to wherever it lands. The teleport explosion slows enemies and deals damage based on how long you were flying.",
         "EnemyMoveSlowDuration": 1,
         "EnemySlowPct": 60,
-        "ExplosionRadius": "8m",
+        "ExplosionRadius": 8,
         "Key": "ability_wrecker_teleport",
         "Name": "Astral Walk",
         "Upgrades": [
@@ -1585,12 +1585,12 @@
         "AbilityCooldown": 170.0,
         "AbilityUnitTargetLimit": 1,
         "AccelSpeed": 2400,
-        "BeamLength": "20m",
+        "BeamLength": 20,
         "BeamWidth": 40,
         "ChannelMoveSpeed": 200,
         "Description": "Grabs any enemy looked at by Wrecker, putting them in stasis and holding them overhead. Stuns, and damages all captured enemies when finished. Any grabbed NPCs are salvaged.",
-        "GrabRange": "5m",
-        "HoldDistance": "2m",
+        "GrabRange": 5,
+        "HoldDistance": 2,
         "HoldHeight": 120,
         "Key": "ability_wrecker_ultimate",
         "Name": "Magnetic Flux",
@@ -1609,7 +1609,7 @@
     },
     "ability_wrecking_ball": {
         "AbilityCastDelay": 1.2,
-        "AbilityCastRange": "50m",
+        "AbilityCastRange": 50,
         "AbilityCooldown": 21.0,
         "AbilityDuration": 6,
         "AbilityUnitTargetLimit": 1,
@@ -1617,7 +1617,7 @@
         "Description": "Create a large ball of scrap that can be thrown, damaging and stunning anything it hits. The ball takes time to create and you move slower while carrying it.",
         "Key": "ability_wrecking_ball",
         "MinSpeed": 80,
-        "MoveSpeedLimit": "6m",
+        "MoveSpeedLimit": 6,
         "Name": "Wrecking Ball",
         "StunDuration": 1,
         "TechCleaveExpireTime": 0.4,
@@ -1631,7 +1631,7 @@
                 "Description": "+80 Damage"
             },
             {
-                "MoveSpeedLimit": "4m",
+                "MoveSpeedLimit": 4,
                 "Description": "+4m/s Move Speed"
             }
         ],
@@ -1650,14 +1650,14 @@
         "LingerDuration": 0.5,
         "Name": "Anthem",
         "PeakFireRateBonus": 100,
-        "Radius": "12m",
+        "Radius": 12,
         "Upgrades": [
             {
                 "ExtraLargeClip": 75,
                 "Description": "+75% Clip Bonus"
             },
             {
-                "Radius": "4m",
+                "Radius": 4,
                 "Description": "+4m Radius"
             },
             {
@@ -1672,13 +1672,13 @@
         "AbilityCooldown": 95.0,
         "AbilityUnitTargetLimit": 1,
         "BulletResist": -20,
-        "ChannelMoveSpeed": "0m",
+        "ChannelMoveSpeed": 0,
         "Damage": 120,
         "DebuffDuration": 6,
         "Description": "Encase nearby enemies in glass in an increasing range over a short duration. Cadence then breaks the glass with her powerful voice, breaking any shields on the them, damaging them, and giving them massive bullet vulnerability for a duraiton after.",
         "Key": "cadence_ability_crescendo",
         "Name": "Crescendo",
-        "Radius": "12m",
+        "Radius": 12,
         "Upgrades": [
             {
                 "BulletResist": -10,
@@ -1707,9 +1707,9 @@
         "FireRateBonus": 30,
         "Key": "cadence_ability_grandfinale",
         "Name": "Grand Finale",
-        "Radius": "12m",
+        "Radius": 12,
         "StageDuration": 12,
-        "StageRadius": "15m",
+        "StageRadius": 15,
         "Upgrades": []
     },
     "cadence_ability_lullaby": {
@@ -1724,7 +1724,7 @@
         "LingerDuration": 0.25,
         "MinimumSleepTime": 2,
         "Name": "Lullaby",
-        "Radius": "12m",
+        "Radius": 12,
         "SleepWakeUpDelay": 0.25,
         "Upgrades": [
             {
@@ -1732,7 +1732,7 @@
                 "Description": "+15/sec Health Regen"
             },
             {
-                "Radius": "2m",
+                "Radius": 2,
                 "Description": "+2m Radius"
             },
             {
@@ -1746,9 +1746,9 @@
         "AbilityCooldown": 42.0,
         "AbilityDuration": 6,
         "AbilityUnitTargetLimit": 1,
-        "BonusMoveSpeed": "0m",
+        "BonusMoveSpeed": 0,
         "ChannelMoveSpeed": 50,
-        "DashDistance": "8m",
+        "DashDistance": 8,
         "DebuffDuration": 2,
         "Description": "Disarm yourself perform a long-range dash melee attack. For the duration of the song, you remain disarmed and your melee abilities apply a debuff that disarms and EMP's enemy targets.",
         "Key": "cadence_ability_silencecontraptions",
@@ -1760,7 +1760,7 @@
                 "Description": "+40% Movement Slow"
             },
             {
-                "DashDistance": "4m",
+                "DashDistance": 4,
                 "Description": "+4m Dash Distance"
             },
             {
@@ -1776,12 +1776,12 @@
         "AbilityUnitTargetLimit": 1,
         "AirSpeedMax": 70,
         "BeamCloseDamagePercent": 75,
-        "BeamCloseRadius": "5.0m",
-        "BeamEndRadius": "4.0m",
-        "BeamLength": "70m",
-        "BeamWidth": "2.9m",
+        "BeamCloseRadius": 5.0,
+        "BeamEndRadius": 4.0,
+        "BeamLength": 70,
+        "BeamWidth": 2.9,
         "BossDamagePercent": 20,
-        "CameraDistance": "7m",
+        "CameraDistance": 7,
         "ChannelMoveSpeed": 70,
         "DPS": 205,
         "Description": "Charge up your laser to unleash a powerful torrent of energy that deals damage and slows enemies' movement and dashes. You have slow movement and turn rate for the duration. If activated in the air, you will hover while unleashing the beam.",
@@ -1818,15 +1818,15 @@
         "CameraDistance": 450,
         "ChannelMoveSpeed": 50,
         "ChargeDragVerticalOffset": 30,
-        "ChargeRadius": "2.2m",
-        "ChargeSpeedMax": "30m",
+        "ChargeRadius": 2.2,
+        "ChargeSpeedMax": 30,
         "CollidePlayersStopTime": 0.3,
         "Damage": 40,
         "Description": "Charge forward, colliding with enemies and dragging them along.  Hitting a wall will Stun enemies caught by citadel_ability_bull_charge. Speed increased after colliding with enemy Heroes.",
         "Key": "citadel_ability_bull_charge",
         "Name": "Shoulder Charge",
         "SideMoveSpeedReduction": -65,
-        "SpeedInitial": "18.75m",
+        "SpeedInitial": 18.75,
         "StunDuration": 0.85,
         "TossUpMagnitude": 0.5,
         "TurnRateMax": 140,
@@ -1857,7 +1857,7 @@
         "LifeDrainPerSecond": 35,
         "Name": "Siphon Life",
         "NonHeroHealingFactor": 50,
-        "Radius": "10m",
+        "Radius": 10,
         "TickRate": 0.25,
         "Upgrades": [
             {
@@ -1880,8 +1880,8 @@
         "ChannelMoveSpeed": 50,
         "Damage": 150,
         "Description": "Leap high into the air and choose a ground location to crash into.  When you hit the ground, all enemies in the radius are damaged and stunned.<br>Press [M1] to crash down early.",
-        "ImpactHeight": "4m",
-        "ImpactRadius": "9m",
+        "ImpactHeight": 4,
+        "ImpactRadius": 9,
         "Key": "citadel_ability_bull_leap",
         "Name": "Seismic Impact",
         "StunDuration": 1,
@@ -1903,7 +1903,7 @@
         ]
     },
     "citadel_ability_card_toss": {
-        "AbilityCastRange": "500m",
+        "AbilityCastRange": 500,
         "AbilityCharges": 1,
         "AbilityChargesConditionally": 1,
         "AbilityCooldown": 0.5,
@@ -1922,7 +1922,7 @@
         "Name": "Card Trick",
         "NonPlayerCardResourceScale": 0.35,
         "ProjectileOriginHeightOffset": 50,
-        "Radius": "5m",
+        "Radius": 5,
         "ResourcePerCard": 100,
         "Upgrades": [
             {
@@ -1944,7 +1944,7 @@
         "AbilityUnitTargetLimit": 1,
         "ChannelMoveSpeed": 50,
         "ConeAngle": 45,
-        "ConeRadius": "6m",
+        "ConeRadius": 6,
         "Damage": 16,
         "Description": null,
         "Key": "citadel_ability_chain_lightning",
@@ -1961,17 +1961,17 @@
         "AbilityUnitTargetLimit": 1,
         "CameraDistance": 120,
         "ChannelMoveSpeed": 50,
-        "ChargeDistance": "20m",
+        "ChargeDistance": 20,
         "ChargeDragVerticalOffset": 40,
         "Damage": 64,
         "Description": "Build up power then enter a charge, dragging and damaging enemies in your path. Can be canceled early.",
-        "DragReleaseSpeed": "6m",
+        "DragReleaseSpeed": 6,
         "Key": "citadel_ability_charged_tackle",
         "Name": "Charged Tackle",
         "PrepareTime": 0.6,
-        "PullTargetSpeed": "25m",
-        "TackleRadius": "3m",
-        "TackleSpeed": "25m",
+        "PullTargetSpeed": 25,
+        "TackleRadius": 3,
+        "TackleSpeed": 25,
         "TechCleaveExpireTime": 0.2,
         "Upgrades": [
             {
@@ -2013,7 +2013,7 @@
         "SpeedBoostDuration": 3.5,
         "SpeedChange": 25,
         "TimeScaleDebuff": 90,
-        "TimeWarpRadius": "5m",
+        "TimeWarpRadius": 5,
         "Upgrades": [
             {
                 "MaxSlowDuration": 0.5,
@@ -2046,7 +2046,7 @@
         "PulseDamage": 45,
         "PulseInterval": 0.8,
         "Pulses": 4,
-        "Radius": "7m",
+        "Radius": 7,
         "SlowPercent": 30,
         "Upgrades": [
             {
@@ -2065,12 +2065,12 @@
     },
     "citadel_ability_chrono_swap": {
         "AbilityCastDelay": 0.15,
-        "AbilityCastRange": "30m",
+        "AbilityCastRange": 30,
         "AbilityCooldown": 48.0,
         "AbilityUnitTargetLimit": 1,
         "ChannelMoveSpeed": 50,
         "Description": "Fire a projectile that swaps your position with the target enemy hero. While the effect occurs, you gain spirit lifesteal and the enemy takes damage over time.",
-        "DistanceToMaxTime": "30m",
+        "DistanceToMaxTime": 30,
         "InitialFreezeTime": 0.25,
         "InitialHeight": 350,
         "Key": "citadel_ability_chrono_swap",
@@ -2083,7 +2083,7 @@
         "TickRate": 0.25,
         "Upgrades": [
             {
-                "AbilityCastRange": "15m",
+                "AbilityCastRange": 15,
                 "Description": "+15m Cast Range"
             },
             {
@@ -2115,12 +2115,12 @@
         "MovementSlowPct": 80,
         "Name": "Time Wall",
         "TimeScaleDuration": 1.0,
-        "TimeWallDepth": "0.5m",
+        "TimeWallDepth": 0.5,
         "TimeWallDepthVisualScale": 0.16,
         "TimeWallFormationTime": 0.5,
-        "TimeWallHeight": "3.5m",
+        "TimeWallHeight": 3.5,
         "TimeWallTimeScale": 0.0001,
-        "TimeWallWidth": "7m",
+        "TimeWallWidth": 7,
         "Upgrades": [
             {
                 "TimeWallWidth": "2m",
@@ -2138,7 +2138,7 @@
         ]
     },
     "citadel_ability_fissure_wall": {
-        "AbilityCastRange": "50m",
+        "AbilityCastRange": 50,
         "AbilityCooldown": 37.0,
         "AbilityDuration": 5,
         "AbilityUnitTargetLimit": 1,
@@ -2146,7 +2146,7 @@
         "Damage": 64,
         "Description": "Creates a wall that divides the terrain in half. On creation, the wall deals damage and applies slow to enemies nearby. <br>After casting, press [M1] or [3] to erupt the wall early.",
         "Key": "citadel_ability_fissure_wall",
-        "MinRange": "6m",
+        "MinRange": 6,
         "Name": "Spectral Wall",
         "NumWallSegments": 7,
         "PushForce": 175,
@@ -2171,10 +2171,10 @@
                 "Description": "Adds a 1s Stun to enemies hit by Spectral Wall"
             }
         ],
-        "WallImpactRange": "5m"
+        "WallImpactRange": 5
     },
     "citadel_ability_flying_strike": {
-        "AbilityCastRange": "20m",
+        "AbilityCastRange": 20,
         "AbilityCooldown": 21.0,
         "AbilityPostCastDuration": 0.2,
         "AbilityUnitTargetLimit": 1,
@@ -2191,7 +2191,7 @@
                 "Description": "+25% Movement Slow"
             },
             {
-                "AbilityCastRange": "20m",
+                "AbilityCastRange": 20,
                 "Description": "+20m Cast Range"
             },
             {
@@ -2213,7 +2213,7 @@
         "HealFixedHealth": 70,
         "Key": "citadel_ability_healing_slash",
         "Name": "Crimson Slash",
-        "Radius": "13m",
+        "Radius": 13,
         "Upgrades": [
             {
                 "FireRateSlow": 30,
@@ -2230,15 +2230,15 @@
         ]
     },
     "citadel_ability_hook": {
-        "AbilityCastRange": "30m",
+        "AbilityCastRange": 30,
         "AbilityCooldown": 23.0,
         "AbilityUnitTargetLimit": 1,
         "ChannelMoveSpeed": 50,
         "Damage": 40,
         "Description": "Launch out a hook that grabs and reels in the first hero it hits and deals damage to enemies. Target will be placed where you are facing.",
         "EndOfHookCommandRestrictLinger": 0.25,
-        "EndOfHookMoveSpeedBonus": "0m",
-        "FriendlyHookIgnoreRange": "8m",
+        "EndOfHookMoveSpeedBonus": 0,
+        "FriendlyHookIgnoreRange": 8,
         "HookingSlowSpeedLimit": 0.001,
         "Key": "citadel_ability_hook",
         "Name": "Hook",
@@ -2252,7 +2252,7 @@
                 "Description": "Bebop deals 30% more bullet damage against hooked enemies for 10s"
             },
             {
-                "AbilityCastRange": "30m",
+                "AbilityCastRange": 30,
                 "Description": "+30m Cast Range"
             },
             {
@@ -2265,9 +2265,9 @@
         "AbilityCastDelay": 0.2,
         "AbilityCooldown": 42.0,
         "AbilityUnitTargetLimit": 1,
-        "CaptureRadius": "8m",
+        "CaptureRadius": 8,
         "ChainDuration": 2.0,
-        "ChainLength": "6m",
+        "ChainLength": 6,
         "ChannelMoveSpeed": 50,
         "Damage": 60,
         "Description": "Throw a stake that tethers enemies to the location where the stake lands. Enemy movement is restricted to the length of the tether.",
@@ -2296,7 +2296,7 @@
         "AbilityDuration": 8,
         "AbilityUnitTargetLimit": 1,
         "AirSideMoveSpeedPercentage": -35,
-        "AirSpeedBonus": "0m",
+        "AirSpeedBonus": 0,
         "Description": "Leap into the air and fly. While in flight your weapon deals bonus spirit damage.",
         "JumpVelocity": 1000,
         "Key": "citadel_ability_hornet_leap",
@@ -2350,9 +2350,9 @@
         "LowHealthEnemyDamageBonus": 145,
         "LowHealthEnemyThresholdPct": 50,
         "MaxSoundDistance": 2000,
-        "MoveSpeed": "4m",
+        "MoveSpeed": 4,
         "Name": "Assassinate",
-        "Range": "1000m",
+        "Range": 1000,
         "ShotRadius": 3.0,
         "SnipeFOV": 18,
         "SnipeZoomDuration": 0.15,
@@ -2385,7 +2385,7 @@
         "ImpactDamage": 40,
         "Key": "citadel_ability_hornet_sting",
         "Name": "Crow Familiar",
-        "TargetBounceRange": "0m",
+        "TargetBounceRange": 0,
         "TickRate": 0.5,
         "Upgrades": [
             {
@@ -2404,7 +2404,7 @@
                 "Description": "+3% Bleed and suppresses healing by -40%"
             }
         ],
-        "VisualSplashRadius": "1m"
+        "VisualSplashRadius": 1
     },
     "citadel_ability_infinity_slash": {
         "AbilityChannelTime": 2,
@@ -2413,7 +2413,7 @@
         "AbilityPostCastDuration": 0.6,
         "AbilitySpeedPct": 60,
         "AbilityUnitTargetLimit": 1,
-        "BonusMoveSpeed": "0m",
+        "BonusMoveSpeed": 0,
         "BuffDuration": 20,
         "BulletResist": 40,
         "Description": "Become infused with Yamato's shadow soul. After an initial invincible transformation, your abilities are refreshed and are 60% faster, your weapon has infinite ammo, and you gain damage resists and immunity to negative status effects. You are unable to die in this mode.",
@@ -2427,7 +2427,7 @@
                 "Description": "-28.0s Cooldown"
             },
             {
-                "BonusMoveSpeed": "4m",
+                "BonusMoveSpeed": 4,
                 "Description": "+4m/s Move Speed"
             },
             {
@@ -2445,7 +2445,7 @@
         "Key": "citadel_ability_kali_disruptive_charge",
         "MoveSpeedBonusPercentStart": 120,
         "Name": "Pack Hunter",
-        "Radius": "10m",
+        "Radius": 10,
         "Upgrades": [
             {
                 "AbilityDuration": 2,
@@ -2463,7 +2463,7 @@
     },
     "citadel_ability_kali_spinning_blade": {
         "AbilityCastDelay": 0.25,
-        "AbilityCastRange": "50m",
+        "AbilityCastRange": 50,
         "AbilityCharges": 2,
         "AbilityCooldown": 30.0,
         "AbilityCooldownBetweenCharge": 6,
@@ -2500,7 +2500,7 @@
         ]
     },
     "citadel_ability_lash": {
-        "AbilityCastRange": "30m",
+        "AbilityCastRange": 30,
         "AbilityCharges": 1,
         "AbilityCooldown": 42.0,
         "AbilityCooldownBetweenCharge": 2,
@@ -2508,10 +2508,10 @@
         "ChannelMoveSpeed": 50,
         "Description": "Pull yourself through the air toward a target. Using Grapple also resets your limit of air jumps and dashes.",
         "JumpSlowResistance": 0.667,
-        "JumpVelocity": "20m",
+        "JumpVelocity": 20,
         "Key": "citadel_ability_lash",
         "LashFriendlies": 1,
-        "MinDistance": "0m",
+        "MinDistance": 0,
         "Name": "Grapple",
         "Upgrades": [
             {
@@ -2540,13 +2540,13 @@
         "Key": "citadel_ability_lash_down_strike",
         "MinAimAngle": 60,
         "Name": "Ground Strike",
-        "Radius": "11m",
+        "Radius": 11,
         "StompDamage": 90,
         "StompDamagePerMeterPrimary": 6.0,
         "StompDamagePerMeterSecondary": 4.5,
-        "StompDamagePrimaryRange": "25m",
+        "StompDamagePrimaryRange": 25,
         "StompVerticalThreshold": 130,
-        "StrikeVelocity": "50m",
+        "StrikeVelocity": 50,
         "Upgrades": [
             {
                 "AbilityCooldown": -9.5,
@@ -2565,7 +2565,7 @@
     },
     "citadel_ability_lash_ultimate": {
         "AbilityCastDelay": 0.3,
-        "AbilityCastRange": "18m",
+        "AbilityCastRange": 18,
         "AbilityChannelTime": 2,
         "AbilityCooldown": 138.0,
         "AbilityUnitTargetLimit": 6,
@@ -2574,9 +2574,9 @@
         "Description": "Focus on enemies to connect whips to them. After channeling, connected enemies are lifted and stunned then slammed into the ground. Your victims and any enemies in the landing zone will be damaged and slowed. <br>Press [M1] to throw connected enemies early. Enemies that are not in line of sight or go out of range during the latch time will not be grabbed.",
         "HangTime": 0.6,
         "ImpactDamage": 115,
-        "ImpactRadius": "5m",
+        "ImpactRadius": 5,
         "Key": "citadel_ability_lash_ultimate",
-        "LiftHeight": "6m",
+        "LiftHeight": 6,
         "LockonConeAngle": 40,
         "LosingLockGraceTime": 0.4,
         "MaxLockonStacks": 1,
@@ -2585,14 +2585,14 @@
         "SlamSpeed": 1600,
         "SlowDuration": 4,
         "SlowPercent": 50,
-        "ThrowDistance": "12m",
+        "ThrowDistance": 12,
         "ThrowStraightDuration": 1.5,
         "TimeToGainLockonStack": 0.6,
         "TimeToLoseLockonStack": 2,
         "UpBoostSpeed": 400,
         "Upgrades": [
             {
-                "ThrowDistance": "8m",
+                "ThrowDistance": 8,
                 "Description": "+8m Max Throw Distance"
             },
             {
@@ -2620,7 +2620,7 @@
         "MaxLifetime": 5,
         "MinShockDuration": 0.5,
         "Name": "Lightning Ball",
-        "ShockRadius": "4m",
+        "ShockRadius": 4,
         "TickRate": 0.1,
         "Upgrades": [
             {
@@ -2639,14 +2639,14 @@
     },
     "citadel_ability_mobile_resupply": {
         "AbilityCastDelay": 0.2,
-        "AbilityCastRange": "15m",
+        "AbilityCastRange": 15,
         "AbilityCooldown": 48.0,
         "AbilityDuration": 6,
         "AbilityUnitTargetLimit": 1,
         "ChannelMoveSpeed": 50,
         "Description": "Deploy a spirit that heals nearby units.",
         "ExternalBonusHealthRegen": 25,
-        "HealRadius": "5m",
+        "HealRadius": 5,
         "Key": "citadel_ability_mobile_resupply",
         "MaxHealthRegenPctInterval": 0.5,
         "Name": "Medicinal Specter",
@@ -2670,13 +2670,13 @@
         "AbilityChannelTime": 5,
         "AbilityCooldown": 48.0,
         "AbilityUnitTargetLimit": 1,
-        "ChannelMoveSpeed": "4.2m",
+        "ChannelMoveSpeed": 4.2,
         "Description": "While channelling, restore health over time to you and any allies nearby. Dashing does not break channel.",
         "HealingPerSecond": 32,
         "Key": "citadel_ability_nikuman",
-        "MovementSpeedBonus": "0m",
+        "MovementSpeedBonus": 0,
         "Name": "Rejuvenating Aurora",
-        "ShareWithFriendsRadius": "8m",
+        "ShareWithFriendsRadius": 8,
         "Upgrades": [
             {
                 "MovementSpeedBonus": "4m",
@@ -2734,7 +2734,7 @@
         "PowerUpStages": 3,
         "ShortChargeDamagePct": 40,
         "SlashCollisionRadius": 4,
-        "SlashLength": "25m",
+        "SlashLength": 25,
         "SlashRadius": 41,
         "Upgrades": [
             {
@@ -2754,7 +2754,7 @@
     },
     "citadel_ability_projectmind": {
         "AbilityCastDelay": 0.75,
-        "AbilityCastRange": "25m",
+        "AbilityCastRange": 25,
         "AbilityCooldown": 48.0,
         "AbilityUnitTargetLimit": 1,
         "CameraDistance": 250,
@@ -2765,7 +2765,7 @@
         "TrailInterval": 0.1,
         "Upgrades": [
             {
-                "AbilityCastRange": "15m",
+                "AbilityCastRange": 15,
                 "Description": "+15m Cast Range"
             },
             {
@@ -2796,7 +2796,7 @@
         "ProjectileHorizontalMinOffset": 5,
         "ProjectileOffset": 7,
         "ProjectileRowOffset": 5,
-        "Radius": "15m",
+        "Radius": 15,
         "ShootInterval": 0.6,
         "SpawnDuration": 0.6,
         "Upgrades": [
@@ -2808,7 +2808,7 @@
     },
     "citadel_ability_psychic_lift": {
         "AbilityCastDelay": 0.6,
-        "AbilityCastRange": "20m",
+        "AbilityCastRange": 20,
         "AbilityCooldown": 95.0,
         "AbilityDuration": 1.25,
         "AbilityUnitTargetLimit": 1,
@@ -2842,11 +2842,11 @@
         "Description": "Sense enemies in front of you, revealing their position through walls to your team.  Card Trick can target enemies seen through walls",
         "Key": "citadel_ability_psychic_pulse",
         "Name": "Psychic Pulse",
-        "SenseRange": "30m",
+        "SenseRange": 30,
         "Upgrades": []
     },
     "citadel_ability_rocket_barrage": {
-        "AbilityCastRange": "50m",
+        "AbilityCastRange": 50,
         "AbilityChannelTime": 13,
         "AbilityCooldown": 106.0,
         "AbilityUnitTargetLimit": 100,
@@ -2856,19 +2856,19 @@
         "Description": "Unleashes a volley of rockets that home in on a targeted location.",
         "DetonateTimer": 5,
         "ExplosionFalloffDisabled": 1,
-        "ExplosionRadius": "4.5m",
+        "ExplosionRadius": 4.5,
         "GrenadesPerSecond": 6,
         "IntervalRampUpStart": 0.35,
         "IntervalRampUpTime": 0.3,
         "Key": "citadel_ability_rocket_barrage",
         "MaxSpread": 5,
-        "MinDistance": "6m",
+        "MinDistance": 6,
         "Name": "Heavy Barrage",
         "ProjectileIgnoreCollisionTime": 0.2,
         "TrackSpeedFar": 100,
         "TrackSpeedNear": 150,
         "TrackingTime": 0.4,
-        "TrackingVariance": "0m",
+        "TrackingVariance": 0,
         "Upgrades": [
             {
                 "MoveSlowPercent": 35,
@@ -2920,7 +2920,7 @@
         "TossSpeed": 350,
         "Upgrades": [
             {
-                "VacuumRadius": "2m",
+                "VacuumRadius": 2,
                 "Description": "+2m Singularity Radius"
             },
             {
@@ -2932,11 +2932,11 @@
                 "Description": "Singularity takes 3.8% of the enemies' max health each second."
             }
         ],
-        "VacuumRadius": "8m"
+        "VacuumRadius": 8
     },
     "citadel_ability_shieldedsentry": {
         "AbilityCastDelay": 0.2,
-        "AbilityCastRange": "15m",
+        "AbilityCastRange": 15,
         "AbilityCharges": 1,
         "AbilityCooldown": 30.0,
         "AbilityCooldownBetweenCharge": 5,
@@ -2954,9 +2954,9 @@
         "TickRate": 0.5,
         "TrackingSpeed": 125,
         "TurretAttackDelay": 0.35,
-        "TurretAttackFalloffEnd": "35m",
-        "TurretAttackFalloffStart": "20m",
-        "TurretAttackRange": "25m",
+        "TurretAttackFalloffEnd": 35,
+        "TurretAttackFalloffStart": 20,
+        "TurretAttackRange": 25,
         "TurretBaseHealth": 75,
         "TurretDPS": 60,
         "TurretDecayDamagePerSecond": 20,
@@ -2982,7 +2982,7 @@
         ]
     },
     "citadel_ability_shiv_dagger": {
-        "AOERadius": "10m",
+        "AOERadius": 10,
         "AbilityChannelTime": 0.2,
         "AbilityCharges": 2,
         "AbilityCooldown": 19.0,
@@ -3023,8 +3023,8 @@
         "CameraDistance": 250,
         "ChannelMoveSpeed": 50,
         "DashAngleThreshold": 89,
-        "DashRadius": "2.5m",
-        "DashRange": "12m",
+        "DashRadius": 2.5,
+        "DashRange": 12,
         "DashSpeed": 2400,
         "Description": "Perform a dash forward, damaging enemies along the path.<br><br>Ultimate Unlock: While rage is full an echo of Shiv retraces the dash path after a short delay, damaging enemies again.",
         "ImpactDamage": 105,
@@ -3078,7 +3078,7 @@
         ]
     },
     "citadel_ability_shiv_killing_blow": {
-        "AbilityCastRange": "20m",
+        "AbilityCastRange": 20,
         "AbilityCooldown": 95.0,
         "AbilityPostCastDuration": 0.25,
         "AbilityUnitTargetLimit": 1,
@@ -3093,7 +3093,7 @@
         "JumpHeight": 80,
         "Key": "citadel_ability_shiv_killing_blow",
         "MinTimeToTarget": 0.5,
-        "MoveSpeedToTarget": "25m",
+        "MoveSpeedToTarget": 25,
         "Name": "Killing Blow",
         "NonPlayerRageScale": 0.2,
         "PauseOnTargetTime": 0.66,
@@ -3122,7 +3122,7 @@
     },
     "citadel_ability_static_charge": {
         "AbilityCastDelay": 0.2,
-        "AbilityCastRange": "16m",
+        "AbilityCastRange": 16,
         "AbilityCooldown": 42.0,
         "AbilityUnitTargetLimit": 1,
         "ChannelMoveSpeed": 50,
@@ -3131,7 +3131,7 @@
         "Key": "citadel_ability_static_charge",
         "Name": "Static Charge",
         "ShockDelay": 3.5,
-        "ShockRadius": "6m",
+        "ShockRadius": 6,
         "StunDuration": 1.1,
         "Upgrades": [
             {
@@ -3139,7 +3139,7 @@
                 "Description": "-19.0s Cooldown"
             },
             {
-                "ShockRadius": "8m",
+                "ShockRadius": 8,
                 "Description": "+8m Radius"
             },
             {
@@ -3149,7 +3149,7 @@
         ]
     },
     "citadel_ability_sticky_bomb": {
-        "AbilityCastRange": "6m",
+        "AbilityCastRange": 6,
         "AbilityCooldown": 19.0,
         "AbilityDuration": 3.0,
         "AbilityUnitTargetLimit": 1,
@@ -3160,7 +3160,7 @@
         "FuseTime": 3.0,
         "Key": "citadel_ability_sticky_bomb",
         "Name": "Sticky Bomb",
-        "Radius": "12m",
+        "Radius": 12,
         "Upgrades": [
             {
                 "AbilityCooldown": -7.5,
@@ -3183,16 +3183,16 @@
         "AbilityCooldownBetweenCharge": 5,
         "AbilityUnitTargetLimit": 1,
         "ChannelMoveSpeed": 50,
-        "ClimbHeight": "2.5m",
+        "ClimbHeight": 2.5,
         "Damage": 100,
         "Description": "Release an energy pulse that knocks enemies up into the air.",
-        "DistanceAboveGround": "0.5m",
+        "DistanceAboveGround": 0.5,
         "DropDownRate": 8,
         "ImpactInterval": 0.1,
         "Key": "citadel_ability_stomp",
         "Name": "Kinetic Pulse",
-        "StompRange": "15m",
-        "StompWidth": "5.0m",
+        "StompRange": 15,
+        "StompWidth": 5.0,
         "TechCleaveExpireTime": 0.2,
         "TossSpeed": 450,
         "Upgrades": [
@@ -3226,10 +3226,10 @@
         "Description": "Channel an expanding storm cloud around you that damages all enemies within its radius. Enemies do not take damage when they are out of line-of-sight. You have increased Bullet Resist during the channel.",
         "EndingSoonTime": 2,
         "ExpandTime": 3,
-        "InitialRadius": "12m",
+        "InitialRadius": 12,
         "Key": "citadel_ability_storm_cloud",
         "Name": "Storm Cloud",
-        "Radius": "25m",
+        "Radius": 25,
         "Upgrades": [
             {
                 "BulletResistOnActive": 35,
@@ -3247,7 +3247,7 @@
         ]
     },
     "citadel_ability_tangotether": {
-        "AbilityCastRange": "16m",
+        "AbilityCastRange": 16,
         "AbilityCooldown": 37.0,
         "AbilityDuration": 12,
         "AbilityUnitTargetLimit": 1,
@@ -3257,7 +3257,7 @@
         "Description": "Gain bonuses and automatically connect with a nearby ally to share them.  Healing is replicated among all those connected. Connection requires line of sight. Press [2] to Lock on to a target",
         "HealingPerGlub": 20,
         "Key": "citadel_ability_tangotether",
-        "MoveSpeedBonus": "0m",
+        "MoveSpeedBonus": 0,
         "Name": "Watcher's Covenant",
         "TetherSharedHealPct": 30,
         "TickRate": 0.1,
@@ -3279,7 +3279,7 @@
     },
     "citadel_ability_tengu_airlift": {
         "AbilityCastDelay": 1.3,
-        "AbilityCastRange": "8m",
+        "AbilityCastRange": 8,
         "AbilityCooldown": 85.0,
         "AbilityDuration": 17.0,
         "AbilityUnitTargetLimit": 1,
@@ -3294,9 +3294,9 @@
         "FlyingBulletResist": 40,
         "Key": "citadel_ability_tengu_airlift",
         "Name": "Air Drop",
-        "OnLandDamageRadius": "14m",
-        "OnLandDamageRadiusStart": "4m",
-        "SilenceBombSpeed": "12m",
+        "OnLandDamageRadius": 14,
+        "OnLandDamageRadiusStart": 4,
+        "SilenceBombSpeed": 12,
         "SlowPercent": 35,
         "TossSpeed": 400,
         "Upgrades": [
@@ -3329,9 +3329,9 @@
         "LiftHeight": 180,
         "LiftTime": 1.0,
         "MaxHealthRegen": 10,
-        "MoveSpeedMax": "8m",
+        "MoveSpeedMax": 8,
         "Name": "Stone Form",
-        "Radius": "6m",
+        "Radius": 6,
         "StatueScale": 1.0,
         "StunDuration": 0.75,
         "Upgrades": [
@@ -3361,10 +3361,10 @@
         "ChannelMoveSpeed": 50,
         "DPS": 60,
         "Description": "Summon a patch of choking vines that damages and slows enemies in its radius.",
-        "Height": "3m",
+        "Height": 3,
         "Key": "citadel_ability_tengu_urn",
         "Name": "Kudzu Bomb",
-        "Radius": "6m",
+        "Radius": 6,
         "SlowPercent": 35,
         "TickRate": 0.25,
         "Upgrades": [
@@ -3388,16 +3388,16 @@
         "BuffGunRangePercent": 100,
         "ChannelMoveSpeed": 50,
         "Description": "Deal Light Melee damage to nearby units and send them flying back, causing area damage where they land. Does not damage allies.",
-        "EnemyHeroTossVelocity": "20m",
+        "EnemyHeroTossVelocity": 20,
         "ForceReductionOnAngleDown": 0.75,
         "Key": "citadel_ability_uppercut",
         "LandingDamage": 80,
-        "MeleeAttackLength": "6m",
+        "MeleeAttackLength": 6,
         "MeleeHalfAngle": 60,
-        "MeleeRadius": "2.5m",
+        "MeleeRadius": 2.5,
         "Name": "Exploding Uppercut",
-        "OnLandDamageRadius": "14m",
-        "TossVelocity": "25m",
+        "OnLandDamageRadius": 14,
+        "TossVelocity": 25,
         "Upgrades": [
             {
                 "AbilityCooldown": -10.5,
@@ -3417,10 +3417,10 @@
         "UppercutDamage": 0.01
     },
     "citadel_ability_void_sphere": {
-        "AbilityCastRange": "9m",
+        "AbilityCastRange": 9,
         "AbilityCooldown": 12.5,
         "AbilityUnitTargetLimit": 1,
-        "AllyDistance": "9m",
+        "AllyDistance": 9,
         "ChannelMoveSpeed": 50,
         "Description": "citadel_ability_void_sphere briefly disappears into the void and then reappears a short distance away. On reappearing, your weapon is reloaded and has a fire rate bonus for the next clip (Max 8s). Can be cast with [M3] to also bring nearby allies and give them half fire rate bonus.",
         "FireRateBonus": 25,
@@ -3430,7 +3430,7 @@
         "TrailInterval": 0.01,
         "Upgrades": [
             {
-                "AbilityCastRange": "4m",
+                "AbilityCastRange": 4,
                 "Description": "+4m Cast Range"
             },
             {
@@ -3452,12 +3452,12 @@
         "ChannelMoveSpeed": 50,
         "DPS": 50,
         "Description": "Create a blast of air that pushes enemies away and damages them.",
-        "Distance": "20m",
+        "Distance": 20,
         "Key": "citadel_ability_wing_blast",
         "MaxPushVelocity": 800,
         "Name": "Wing Blast",
         "PushVelocity": 110,
-        "Radius": "5m",
+        "Radius": 5,
         "Upgrades": []
     },
     "citadel_ability_wraith_rapidfire": {
@@ -3471,7 +3471,7 @@
         "Key": "citadel_ability_wraith_rapidfire",
         "MagicDamagePerBullet": 0.0,
         "Name": "Full Auto",
-        "Radius": "25m",
+        "Radius": 25,
         "Upgrades": [
             {
                 "AbilityCooldown": -14.0,
@@ -3581,13 +3581,13 @@
     },
     "gunslinger_rapid_fire": {
         "AbilityCastDelay": 0.2,
-        "AbilityCastRange": "15m",
+        "AbilityCastRange": 15,
         "AbilityChannelTime": 1.5,
         "AbilityCooldown": 10.5,
         "AbilityUnitTargetLimit": 1,
         "BulletAccuracy": 200,
         "BulletSpeedPercent": 100,
-        "CastRangeWhenVertical": "30m",
+        "CastRangeWhenVertical": 30,
         "CastRangeWhenVerticalBias": 0.3,
         "ChannelMoveSpeed": 50,
         "Description": "Rapidly fire your guns at a target with perfect accuracy and 50% increased damage for 1.5s.  Causes gunslinger_rapid_fire and the target to float if in the air.",
@@ -3607,7 +3607,7 @@
         "ChannelMoveSpeed": 50,
         "Damage": 100,
         "Description": "Equip a rocket launcher that fires explosive rockets.  Rocket blasts can launch enemies and gunslinger_rocket_launcher into the air.",
-        "ExplosionRadius": "3m",
+        "ExplosionRadius": 3,
         "Key": "gunslinger_rocket_launcher",
         "LaunchMaxSpeed": 750,
         "LaunchMinSpeed": 700,
@@ -3623,12 +3623,12 @@
         "ChannelMoveSpeed": 50,
         "Damage": 50,
         "Description": "Throw out a sleep bomb that explodes on impact, creating an expanding cloud that sleeps enemies it touches.",
-        "EndRadius": "30m",
+        "EndRadius": 30,
         "Key": "gunslinger_sleep_bomb",
         "Name": "Sleep Bomb",
         "SleepDuration": 6,
         "SpreadDuration": 2,
-        "StartRadius": "5m",
+        "StartRadius": 5,
         "Upgrades": []
     },
     "gunslinger_tenacity": {
@@ -3653,7 +3653,7 @@
         "Key": "mirage_djinn_bomb",
         "MaxProjectileLifetime": 8,
         "Name": "Djinn Bomb",
-        "Radius": "11m",
+        "Radius": 11,
         "Upgrades": [
             {
                 "AbilityCooldown": -28.0,
@@ -3671,16 +3671,16 @@
     },
     "mirage_djinns_reach": {
         "AbilityCastDelay": 0.2,
-        "AbilityCastRange": "25m",
+        "AbilityCastRange": 25,
         "AbilityChannelTime": 9999,
         "AbilityCooldown": 64.0,
         "AbilityUnitTargetLimit": 1,
         "BossDamagePercent": 50,
         "BulletResistReduction": -25,
-        "ChainLength": "14m",
+        "ChainLength": 14,
         "ChainSlowDuration": 4,
         "ChainSlowPercent": 50,
-        "ChannelMoveSpeed": "20m",
+        "ChannelMoveSpeed": 20,
         "Damage": 70,
         "DamageSharePercent": 30,
         "DebuffDuration": 12,
@@ -3689,7 +3689,7 @@
         "Key": "mirage_djinns_reach",
         "MaxTargets": 3,
         "Name": "Djinn's Chains",
-        "Radius": "20m",
+        "Radius": 20,
         "Upgrades": []
     },
     "mirage_fire_beetles": {
@@ -3709,7 +3709,7 @@
         "LaunchWindowDuration": 20,
         "Name": "Fire Scarabs",
         "NonHeroHealingFactor": 15,
-        "Radius": "4m",
+        "Radius": 4,
         "Upgrades": [
             {
                 "AbilityCharges": 2,
@@ -3739,7 +3739,7 @@
         "ProcBonusMagicDamageEscalation": 15,
         "ProcChance": 100,
         "ProcCooldown": 2,
-        "Radius": "10m",
+        "Radius": 10,
         "Upgrades": [
             {
                 "WhirlwindEvasionChance": 30,
@@ -3764,22 +3764,22 @@
         "AbilityDuration": 2.0,
         "AbilityUnitTargetLimit": 1,
         "BossDamagePercent": 50,
-        "ChannelMoveSpeed": "20m",
-        "ClimbHeight": "1m",
+        "ChannelMoveSpeed": 20,
+        "ClimbHeight": 1,
         "Damage": 60,
         "DampingFactor": 0.3,
         "Description": "Send out a tornado that damages enemies and lifts them up in the air. While they're up in the air, targets will fully evade all bullets.",
-        "DistanceAboveGround": "2m",
+        "DistanceAboveGround": 2,
         "DropDownRate": 10,
         "EnemyLiftDuration": 0.6,
         "ForwardOffset": 125,
         "HoldInPlaceDuration": 1.25,
         "Key": "mirage_tornado",
-        "LiftHeight": "3m",
-        "MaxDeltaMovementControl": "2m",
+        "LiftHeight": 3,
+        "MaxDeltaMovementControl": 2,
         "Name": "Tornado",
-        "OpenHeight": "8m",
-        "Radius": "3.5m",
+        "OpenHeight": 8,
+        "Radius": 3.5,
         "TargetBulletEvasionChance": 100,
         "TickRate": 0.25,
         "TornadoSpeed": 1200,
@@ -3838,8 +3838,8 @@
         "Name": "Force Field",
         "SlowDuration": 0.3,
         "SlowPercent": 60,
-        "SpherePushExtraDistance": "1.5m",
-        "SphereRadius": "5m",
+        "SpherePushExtraDistance": 1.5,
+        "SphereRadius": 5,
         "Upgrades": [
             {
                 "AbilityCooldown": -14.0,
@@ -3862,15 +3862,15 @@
         "AbilityUnitTargetLimit": 1,
         "ChannelMoveSpeed": 50,
         "DamageMax": 350,
-        "DamageMax_DistanceFuzz": "2m",
+        "DamageMax_DistanceFuzz": 2,
         "DamageMin": 50,
         "Description": "Release a fast pulse in a large area that damages, slows, and prevents enemies from using abilities.<br>The damage dealt is based on how close the enemy is to the center of the pulse.",
-        "EndRadius": "30m",
+        "EndRadius": 30,
         "Key": "rutger_pulse",
         "MovementSlow": 25,
         "Name": "Pulse",
         "SpreadDuration": 0.6,
-        "StartRadius": "1m",
+        "StartRadius": 1,
         "Upgrades": [
             {
                 "MovementSlow": 25,
@@ -3899,7 +3899,7 @@
         "Damage": 120,
         "Description": "Launch a rocket that deals damage in an area and applies knockback.<br>Rutger receives 50% damage and 175% knockback from his own rocket if he's in its impact radius.",
         "FallSpeedMax": 60,
-        "ImpactRadius": "5m",
+        "ImpactRadius": 5,
         "Key": "rutger_rocket",
         "LaunchMaxSpeed": 600,
         "LaunchMinSpeed": 525,
@@ -3925,7 +3925,7 @@
         ]
     },
     "slork_ability_invis": {
-        "AbilityCastRange": "20m",
+        "AbilityCastRange": 20,
         "AbilityCharges": 1,
         "AbilityChargesConditionally": 1,
         "AbilityUnitTargetLimit": 100,
@@ -3934,19 +3934,19 @@
         "CantHideTime": 5,
         "ChannelMoveSpeed": 50,
         "Description": "Fade from view when not shooting or using abilities. When fully invisible, can be cast to deal 80 damage and +2 stamina damage to enemies in front of Slork.",
-        "FullInvisDistance": "50m",
+        "FullInvisDistance": 50,
         "InvisFadeToDuration": 10,
-        "InvisMoveSpeedMod": "2.0m",
+        "InvisMoveSpeedMod": 2.0,
         "Key": "slork_ability_invis",
         "Name": "Ambush Predator",
         "PreventHealingTime": 7,
         "RevealOnDamageDuration": 5,
         "RevealOnSpottedDuration": 5,
-        "SpottedRadius": "16m",
+        "SpottedRadius": 16,
         "StaminaDamage": 2,
         "Upgrades": [
             {
-                "InvisMoveSpeedMod": "+2m",
+                "InvisMoveSpeedMod": 2,
                 "Description": "+2m/s Invis Sprint Speed"
             },
             {
@@ -3960,11 +3960,11 @@
         ]
     },
     "slork_chomp": {
-        "AbilityCastRange": "10m",
+        "AbilityCastRange": 10,
         "AbilityCooldown": 35.0,
         "AbilityDuration": 2.5,
         "AbilityUnitTargetLimit": 1,
-        "BreakRange": "6m",
+        "BreakRange": 6,
         "ChannelMoveSpeed": 50,
         "CooldownOnMiss": 5.25,
         "DPS": 24,
@@ -3996,7 +3996,7 @@
         "AbilityCooldown": 29.0,
         "AbilityDuration": 8,
         "AbilityUnitTargetLimit": 1,
-        "BlastRadius": "8m",
+        "BlastRadius": 8,
         "BurstDamage": 80,
         "ChannelMoveSpeed": 50,
         "DamageAbsorb": 120,
@@ -4022,20 +4022,20 @@
         "AbilityCooldown": 127.0,
         "AbilityDuration": 6,
         "AbilityUnitTargetLimit": 1,
-        "BonusMoveSpeed": "0m",
+        "BonusMoveSpeed": 0,
         "BulletArmorReduction": -30,
         "ChannelMoveSpeed": 50,
         "DamagePerSecond": 80,
         "Description": "Call water from deep underground, saturating an area. Every 0.5s a torrent will well up, tossing enemies into the air after a 0.75s delay. Enemies will be stunned and their bullet armor reduced.",
         "Key": "slork_raging_current",
         "Name": "Torrent Storm",
-        "Radius": "15m",
+        "Radius": 15,
         "TargetAcquireTime": 0.5,
         "TickRate": 0.5,
         "TorrentDelay": 0.75,
         "TorrentDuration": 2.0,
         "TorrentHeight": 120,
-        "TorrentRadius": "3m",
+        "TorrentRadius": 3,
         "Upgrades": []
     },
     "slork_riptide": {
@@ -4045,16 +4045,16 @@
         "AbilityUnitTargetLimit": 1,
         "BurnDuration": 2,
         "ChannelMoveSpeed": 50,
-        "ClimbHeight": "1m",
+        "ClimbHeight": 1,
         "DPS": 24,
         "Description": "Summon a churning vortex of superheated water that burns enemies and lauches them towards Slork.",
-        "DistanceAboveGround": "0.25m",
+        "DistanceAboveGround": 0.25,
         "DropDownRate": 2,
         "ImpactDamage": 32,
         "Key": "slork_riptide",
         "Name": "Riptide",
-        "OpenHeight": "2m",
-        "Radius": "3.5m",
+        "OpenHeight": 2,
+        "Radius": 3.5,
         "Speed": 600,
         "TickRate": 0.5,
         "TossSpeed": 650,
@@ -4113,7 +4113,7 @@
         "Description": "Apply damage over time to all enemies nearby.<br>Affliction's damage is non-lethal and does not apply item procs.",
         "Key": "synth_affliction",
         "Name": "Affliction",
-        "Radius": "14m",
+        "Radius": 14,
         "Upgrades": [
             {
                 "AbilityCooldown": -28.0,
@@ -4147,7 +4147,7 @@
         "MoveSlowPercent": 30,
         "Name": "Barrage",
         "ProjectileAmount": 4,
-        "Radius": "6.5m",
+        "Radius": 6.5,
         "SlowDuration": 1.5,
         "Upgrades": [
             {
@@ -4179,7 +4179,7 @@
         "Key": "synth_blitz",
         "MaxStacks": 5,
         "Name": "Blitz",
-        "TechAmpLinger": "0s",
+        "TechAmpLinger": 0,
         "Upgrades": [
             {
                 "TechAmpPerBullet": 7,
@@ -4195,7 +4195,7 @@
     },
     "synth_grasp": {
         "AbilityCastDelay": 0.15,
-        "AbilityCastRange": "8m",
+        "AbilityCastRange": 8,
         "AbilityCooldown": 16.0,
         "AbilityDuration": 3,
         "AbilityUnitTargetLimit": 1,
@@ -4207,7 +4207,7 @@
         "Key": "synth_grasp",
         "Name": "Grasp",
         "SlowPercent": 30,
-        "TetherLength": "7m",
+        "TetherLength": 7,
         "Upgrades": [
             {
                 "LifestealPerSecond": 4,
@@ -4227,7 +4227,7 @@
         "Key": "synth_plasma_flux",
         "MaxLifetime": 3.2,
         "Name": "Flying Cloak",
-        "Radius": "5m",
+        "Radius": 5,
         "TickRate": 0.1,
         "Upgrades": [
             {
@@ -4256,7 +4256,7 @@
         "FallSpeedMax": 1,
         "Key": "synth_pulse",
         "Name": "Enchanter's Satchel",
-        "Radius": "12m",
+        "Radius": 12,
         "Upgrades": [
             {
                 "AbilityCooldown": -4.75,
@@ -4367,18 +4367,18 @@
     },
     "thumper_ability_1": {
         "AbilityCastDelay": 0.1,
-        "AbilityCastRange": "40m",
+        "AbilityCastRange": 40,
         "AbilityCharges": 1,
         "AbilityCooldown": 17.0,
         "AbilityCooldownBetweenCharge": 4,
         "AbilityUnitTargetLimit": 1,
         "BounceRadians": 0.5,
-        "BounceRange": "20m",
+        "BounceRange": 20,
         "ChannelMoveSpeed": 50,
         "Damage": 120,
         "Description": "Thumper focuses a high power acoustic wave to reflect off of a hard surface. Blasting shards of material off in the reflected wave.",
         "Key": "thumper_ability_1",
-        "MaxPlaneDistance": "1m",
+        "MaxPlaneDistance": 1,
         "Name": "Shatter Cannon",
         "PlaneSpread": 30,
         "PushSpeedMax": 1000,
@@ -4395,8 +4395,8 @@
             },
             {
                 "AbilityCooldownBetweenCharge": -3,
-                "AbilityCooldown": -3.75,
-                "Description": "-3s Charge Delay and -3.75s Cooldown"
+                "AbilityCooldown": -3,
+                "Description": "-3s Charge Delay and -3s Cooldown"
             }
         ]
     },
@@ -4407,8 +4407,8 @@
         "AbilityUnitTargetLimit": 1,
         "BarbedWireDPS": 10,
         "BarbedWireDamagePerMeter": 30,
-        "BarbedWireHeightOffGround": "1m",
-        "BarbedWireRadius": "4m",
+        "BarbedWireHeightOffGround": 1,
+        "BarbedWireRadius": 4,
         "BarbedWireSlow": 50,
         "BarbedWireTickRate": 0.5,
         "ChannelMoveSpeed": 50,
@@ -4417,7 +4417,7 @@
         "ImpactInterval": 0.1,
         "Key": "thumper_ability_2",
         "Name": "Spike Strip",
-        "StompRange": "25m",
+        "StompRange": 25,
         "TechCleaveExpireTime": 0.2,
         "Upgrades": [
             {
@@ -4425,7 +4425,7 @@
                 "Description": "+2s Duration"
             },
             {
-                "BarbedWireRadius": "3m",
+                "BarbedWireRadius": 3,
                 "Description": "+3m Radius"
             },
             {
@@ -4433,11 +4433,11 @@
                 "Description": "+30 Damage per meter"
             }
         ],
-        "VerticalDifferenceTolerance": "2.5m"
+        "VerticalDifferenceTolerance": 2.5
     },
     "thumper_ability_3": {
         "AbilityCastDelay": 0.2,
-        "AbilityCastRange": "30m",
+        "AbilityCastRange": 30,
         "AbilityCooldown": 42.0,
         "AbilityDuration": 8,
         "AbilityUnitTargetLimit": 1,
@@ -4467,9 +4467,9 @@
         "AbilityCooldown": 10.5,
         "AbilityUnitTargetLimit": 1,
         "ChannelMoveSpeed": 50,
-        "ClimbHeight": "1m",
+        "ClimbHeight": 1,
         "Description": "Blow enemies away with a high powered blast of air.",
-        "DistanceAboveGround": "2m",
+        "DistanceAboveGround": 2,
         "DropDownRate": 2,
         "Duration": 4,
         "InitialForce": 300,
@@ -4477,7 +4477,7 @@
         "Name": "Vortex",
         "PushAccel": 1000,
         "PushNPCSpeed": 800,
-        "Radius": "15m",
+        "Radius": 15,
         "TornadoSpeed": 350,
         "Upgrades": [
             {
@@ -4500,16 +4500,16 @@
         "AbilityUnitTargetLimit": 1,
         "ChannelMoveSpeed": 50,
         "Description": "Explosively decompress a cloud of coolant. Allies inside the cloud are invisible.",
-        "FullInvisDistance": "5m",
+        "FullInvisDistance": 5,
         "InvisAlertWhenFading": 1,
         "InvisFadeToDuration": 1.0,
         "Key": "tokamak_breach",
         "Name": "Breach",
-        "Radius": "12m",
+        "Radius": 12,
         "RevealOnDamageDuration": 1.0,
         "RevealOnSpottedDuration": 1.0,
         "SmokeDuration": 8,
-        "SpottedRadius": "2.5m",
+        "SpottedRadius": 2.5,
         "TechResist": 20,
         "Upgrades": [
             {
@@ -4528,7 +4528,7 @@
     },
     "tokamak_crimson_cannon": {
         "AbilityCastDelay": 2.0,
-        "AbilityCastRange": "100m",
+        "AbilityCastRange": 100,
         "AbilityChannelTime": 3.6,
         "AbilityCooldown": 127.0,
         "AbilityUnitTargetLimit": 1,
@@ -4542,7 +4542,7 @@
         "FallSpeedMax": 1,
         "Key": "tokamak_crimson_cannon",
         "Name": "Pulse Cannon",
-        "TargetingWidth": "0.8m",
+        "TargetingWidth": 0.8,
         "Upgrades": [
             {
                 "DelayBetweenShots": -0.2,
@@ -4560,20 +4560,20 @@
     },
     "tokamak_dying_star": {
         "AbilityCastDelay": 0.0,
-        "AbilityCastRange": "20m",
+        "AbilityCastRange": 20,
         "AbilityCooldown": 25.0,
         "AbilityUnitTargetLimit": 1,
         "ChannelMoveSpeed": 50,
         "Damage": 80,
         "Description": "Launch forward damaging all enemies near where you land, knocking them into the air.",
-        "ExplosionRadius": "6m",
+        "ExplosionRadius": 6,
         "GravityScale": 1.4,
         "Key": "tokamak_dying_star",
         "Name": "Dying Star",
         "TossSpeed": 350,
         "Upgrades": [
             {
-                "ExplosionRadius": "3m",
+                "ExplosionRadius": 3,
                 "Description": "+3m Explosion Radius"
             },
             {
@@ -4620,11 +4620,11 @@
         "AbilityCooldown": 32.0,
         "AbilityCooldownBetweenCharge": 1,
         "AbilityUnitTargetLimit": 1,
-        "BeamLength": "30m",
-        "BeamWidth": "4.0m",
+        "BeamLength": 30,
+        "BeamWidth": 4.0,
         "ChannelMoveSpeed": 70,
         "Description": "Blast your enemies with a jet of superheated plasma. Deals additional damage when the heat guage is in the red. Triples heat dissipation while active.",
-        "HeatPowerLength": "0m",
+        "HeatPowerLength": 0,
         "HotDPS": 90,
         "Key": "tokamak_hot_shot",
         "Name": "Hot Shot",
@@ -4658,10 +4658,10 @@
         "EvasionChance": 20,
         "Key": "tokamak_radiance",
         "LookDotMin": 0.866,
-        "LookRadiusScale": "1m",
+        "LookRadiusScale": 1,
         "MaxDPS": 16,
         "Name": "Blinding Radiance",
-        "Radius": "40m",
+        "Radius": 40,
         "TickRate": 0.25,
         "Upgrades": [
             {
@@ -4698,7 +4698,7 @@
         "JumpForce": 500,
         "Key": "viscous_goo_bowling_ball",
         "KnockForce": 400,
-        "MoveSpeedMax": "7m",
+        "MoveSpeedMax": 7,
         "Name": "Goo Ball",
         "ParticleRadiusMultiplier": 1.2,
         "Radius": null,
@@ -4733,7 +4733,7 @@
         "Key": "viscous_goo_grenade",
         "Name": "Splatter",
         "PuddleDuration": 10,
-        "Radius": "5m",
+        "Radius": 5,
         "SecondHitDamagePercentage": 0.7,
         "SlowPercent": 35,
         "ThirdHitDamagePercentage": 0.5,
@@ -4759,9 +4759,9 @@
         "AbilityUnitTargetLimit": 1,
         "AllowMovement": 1,
         "ChannelMoveSpeed": 300,
-        "DamageHeight": "1m",
+        "DamageHeight": 1,
         "DamagePerSecond": 75,
-        "DamageRadius": "7.5m",
+        "DamageRadius": 7.5,
         "Description": "Turn yourself into a puddle of goo, becoming immune to harm and dealing damage to nearby enemies.",
         "Key": "viscous_goo_puddle",
         "Name": "Goo Form",
@@ -4775,12 +4775,12 @@
     },
     "viscous_restorative_goo": {
         "AbilityCastDelay": 0.1,
-        "AbilityCastRange": "30m",
+        "AbilityCastRange": 30,
         "AbilityCooldown": 48.0,
         "AbilityDuration": 4,
         "AbilityUnitTargetLimit": 1,
         "BonusHealthRegen": 40,
-        "BonusMoveSpeed": "0m",
+        "BonusMoveSpeed": 0,
         "BreakoutTime": 1,
         "BulletForce": 600,
         "ChannelMoveSpeed": 50,
@@ -4813,7 +4813,7 @@
         ]
     },
     "viscous_telepunch": {
-        "AbilityCastRange": "40m",
+        "AbilityCastRange": 40,
         "AbilityCharges": 1,
         "AbilityCooldown": 30.0,
         "AbilityCooldownBetweenCharge": 1.5,
@@ -4823,10 +4823,10 @@
         "ImpactDuration": 4,
         "Key": "viscous_telepunch",
         "Name": "Puddle Punch",
-        "PunchHalfHeight": "5.5m",
+        "PunchHalfHeight": 5.5,
         "PunchRollSlow": -40,
         "PunchRollSlowDuration": 1,
-        "Radius": "4m",
+        "Radius": 4,
         "SlowPercent": 20,
         "TossGroundSideRatio": 0.7,
         "TossSpeed": 625,
@@ -4849,7 +4849,7 @@
         ]
     },
     "yakuza_kobun": {
-        "AbilityCastRange": "30m",
+        "AbilityCastRange": 30,
         "AbilityCooldown": 32.0,
         "AbilityUnitTargetLimit": 1,
         "ChannelMoveSpeed": 50,
@@ -4878,7 +4878,7 @@
     },
     "yakuza_protection_racket": {
         "AbilityCastDelay": 0.25,
-        "AbilityCastRange": "30m",
+        "AbilityCastRange": 30,
         "AbilityCooldown": 32.0,
         "AbilityDuration": 12,
         "AbilityUnitTargetLimit": 1,
@@ -4909,14 +4909,14 @@
         "AbilityUnitTargetLimit": 1,
         "BossDamagePercent": 25,
         "CenterDamage": 250,
-        "CenterRadius": "5m",
+        "CenterRadius": 5,
         "ChannelMoveSpeed": 50,
         "Description": "Call down a precision Gamma Ray blast from orbit, hitting all units in the radius at every height regardless of cover. Units near the center of the beam take more damage.",
         "Key": "yakuza_setting_sun",
         "Name": "Setting Sun",
         "OuterDamage": 100,
-        "Radius": "10m",
-        "Range": "25m",
+        "Radius": 10,
+        "Range": 25,
         "ShootDuration": 1.5,
         "TargetingDuration": 1.0,
         "Upgrades": [
@@ -4925,7 +4925,7 @@
                 "Description": "-19.0s Cooldown"
             },
             {
-                "Range": "175m",
+                "Range": 175,
                 "Description": "+175m Range"
             },
             {
@@ -4943,7 +4943,7 @@
         "Description": "Send a drone to lock an area down, rooting and damaging enemies in the area. The link between your drones shares a portion of the damage you take with a random rooted enemy.",
         "Key": "yakuza_shakedown_target",
         "Name": "Shakedown",
-        "Radius": "6m",
+        "Radius": 6,
         "ShareDamagePercent": 33,
         "ShareDamageThreshold": 20,
         "TickTime": 0.5,

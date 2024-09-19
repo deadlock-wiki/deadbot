@@ -7,6 +7,7 @@ from .constants import OUTPUT_DIR
 import maps as maps
 import utils.json_utils as json_utils
 import utils.string_utils as string_utils
+import utils.num_utils as num_utils
 
 
 class AbilityParser:
@@ -67,7 +68,7 @@ class AbilityParser:
             for attr_key, attr_value in ability_data.items():
                 # strip attrs with value of 0, as that just means it is irrelevant
                 if attr_value != '0':
-                    formatted_ability_data[attr_key] = string_utils.assert_number(attr_value)
+                    formatted_ability_data[attr_key] = num_utils.remove_uom(attr_value)
 
             all_abilities[ability_key] = json_utils.sort_dict(formatted_ability_data)
 
@@ -91,7 +92,7 @@ class AbilityParser:
                             prop = upgrade[key]
 
                         case 'm_strBonus':
-                            value = string_utils.assert_number(upgrade[key])
+                            value = num_utils.assert_number(upgrade[key])
 
                         case 'm_eUpgradeType':
                             upgrade_type = upgrade[key]
@@ -129,19 +130,18 @@ class AbilityParser:
                 for attr, value in parsed_upgrade_set.items():
                     str_value = str(value)
 
-                    postfix = self._get_uom(attr, str_value)
+                    uom = self._get_uom(attr, str_value)
 
-                    # cleanse value of any unit of measure at the end
-                    str_value = string_utils.remove_letters(str_value)
+                    # update data value to have no unit of measurement
+                    num_value = num_utils.remove_uom(str_value)
+                    parsed_upgrade_set[prop] = num_value
 
                     prefix = ''
                     # attach "+" if the value is positive
                     if isinstance(value, str) or not value < 0:
                         prefix = '+'
 
-                    desc += (
-                        f'{prefix}{str_value}{postfix} {self._get_ability_display_name(attr)} and '
-                    )
+                    desc += f'{prefix}{num_value}{uom} {self._get_ability_display_name(attr)} and '
 
                 # strip off extra "and" from description
                 desc = desc[: -len(' and ')]
@@ -202,5 +202,8 @@ class AbilityParser:
         unit = ''
         if value.endswith('m'):
             unit = 'm'
+
+        if value.endswith('s'):
+            unit = 's'
 
         return unit
