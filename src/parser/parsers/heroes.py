@@ -44,6 +44,9 @@ class HeroParser:
                 weapon_stats = self._parse_hero_weapon(hero_value)
                 hero_stats.update(weapon_stats)
 
+                # Determine hero's ratio of heavy to light melee damage
+                heavy_light_ratio = hero_stats['HeavyMeleeDamage'] / hero_stats['LightMeleeDamage']
+
                 # Parse Level scaling
                 if 'm_mapStandardLevelUpUpgrades' in hero_value:
                     level_scalings = hero_value['m_mapStandardLevelUpUpgrades']
@@ -51,6 +54,16 @@ class HeroParser:
                     hero_stats['LevelScaling'] = {}
                     for key in level_scalings:
                         hero_stats['LevelScaling'][maps.get_level_mod(key)] = level_scalings[key]
+
+                    # Spread the MeleeDamage level scaling into Light and Heavy, using H/L ratio
+                    if 'MeleeDamage' in hero_stats['LevelScaling']:
+                        hero_stats['LevelScaling']['LightMeleeDamage'] = hero_stats['LevelScaling']['MeleeDamage']
+                        hero_stats['LevelScaling']['HeavyMeleeDamage'] = hero_stats['LevelScaling']['MeleeDamage'] * heavy_light_ratio
+                        del hero_stats['LevelScaling']['MeleeDamage']
+
+                    # Remove scalings if they are 0.0
+                    hero_stats['LevelScaling'] = {k: v for k, v in hero_stats['LevelScaling'].items() if v != 0.0}
+                    
 
                 all_hero_stats[hero_key] = json_utils.sort_dict(hero_stats)
 
