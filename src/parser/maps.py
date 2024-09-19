@@ -81,6 +81,23 @@ def get_hero_attr(value):
     return value
 
 
+# Maps label/postfixes for attributes that need to be manually mapped
+# because they are not in the localization files as the same text
+ATTRIBUTE_MANUAL_MAP = {
+    'ClipSize': {'label': 'StatDesc_ClipSizeBonus'},
+    'TechCooldownBetweenChargeUses': {
+        'label': 'StatDesc_TechCooldownBetweenCharges',
+        'postfix': 'StatDesc_TechCooldownBetweenCharges_postfix',
+    },
+    'MaxMoveSpeed': {'label': 'MoveSpeedMax_label', 'postfix': 'MoveSpeedMax_postfix'},
+    'BaseWeaponDamageIncrease': {'label': 'WeaponPower_label', 'postfix': 'WeaponPower_postfix'},
+}
+
+
+def get_attr_manual_map():
+    return ATTRIBUTE_MANUAL_MAP
+
+
 LEVEL_MOD_MAP = {
     'MODIFIER_VALUE_BASE_BULLET_DAMAGE_FROM_LEVEL': 'BulletDamage',
     'MODIFIER_VALUE_BASE_MELEE_DAMAGE_FROM_LEVEL': 'MeleeDamage',

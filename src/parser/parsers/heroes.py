@@ -32,6 +32,14 @@ class HeroParser:
                 hero_stats.update(
                     self._map_attr_names(hero_value['m_mapStartingStats'], maps.get_hero_attr)
                 )
+
+                # Change formatting on some numbers to match whats shown in game
+                hero_stats['StaminaCooldown'] = 1 / hero_stats['StaminaRegenPerSecond']
+                hero_stats['CritDamageReceivedScale'] = hero_stats['CritDamageReceivedScale'] - 1
+                hero_stats['TechRange'] = hero_stats['TechRange'] - 1
+                hero_stats['TechDuration'] = hero_stats['TechDuration'] - 1
+                hero_stats['ReloadSpeed'] = hero_stats['ReloadSpeed'] - 1
+
                 hero_stats['SpiritScaling'] = self._parse_spirit_scaling(hero_value)
                 weapon_stats = self._parse_hero_weapon(hero_value)
                 hero_stats.update(weapon_stats)
@@ -46,33 +54,7 @@ class HeroParser:
 
                 all_hero_stats[hero_key] = json_utils.sort_dict(hero_stats)
 
-                # These stats are not currently in the hero infobox because
-                # they are multipliers of 1x and are redundant for now.
-                multipliers = [
-                    'TechRange',
-                    'TechPower',
-                    'ReloadSpeed',
-                    'TechDuration',
-                    'ProcBuildUpRateScale',
-                ]
-
-                # Confirm the following stats are all 1 in case they change and need
-                # to be added to the output data
-                for mult_str in multipliers:
-                    mult_value = hero_stats.get(mult_str, 1)
-                    if mult_value != 1:
-                        raise Exception(
-                            f'Hero {hero_key} has {mult_str} of {mult_value} instead of 1'
-                        )
-
-        # Include removed keys in the data sent to consecutive parsers, but not to the output file
-        hero_stats_to_remove = multipliers
-        hero_stats_removed = json_utils.remove_keys(
-            all_hero_stats, keys_to_remove=hero_stats_to_remove, depths_to_search=2
-        )
-        json_utils.write(
-            OUTPUT_DIR + 'json/hero-data.json', json_utils.sort_dict(hero_stats_removed)
-        )
+        json_utils.write(OUTPUT_DIR + 'json/hero-data.json', json_utils.sort_dict(all_hero_stats))
         return all_hero_stats
 
     def _parse_hero_abilities(self, hero_value):
@@ -110,7 +92,6 @@ class HeroParser:
             'FalloffEndScale': weapon_prim['m_flDamageFalloffEndScale'],
             'FalloffBias': weapon_prim['m_flDamageFalloffBias'],
             'BulletGravityScale': weapon_prim['m_flBulletGravityScale'],
-            # Need to do more confirmation of this in game
             #'BulletRadius': weapon_prim['m_flBulletRadius'] / ENGINE_UNITS_PER_METER,
         }
 
