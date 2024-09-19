@@ -67,7 +67,7 @@ class AbilityParser:
             for attr_key, attr_value in ability_data.items():
                 # strip attrs with value of 0, as that just means it is irrelevant
                 if attr_value != '0':
-                    formatted_ability_data[attr_key] = string_utils.string_to_number(attr_value)
+                    formatted_ability_data[attr_key] = string_utils.assert_number(attr_value)
 
             all_abilities[ability_key] = json_utils.sort_dict(formatted_ability_data)
 
@@ -81,9 +81,24 @@ class AbilityParser:
             parsed_upgrade_set = {}
 
             for upgrade in upgrade_set['m_vecPropertyUpgrades']:
-                key = upgrade['m_strPropertyName']
-                value = string_utils.string_to_number(upgrade['m_strBonus'])
-                parsed_upgrade_set[key] = value
+                prop = None
+                value = None
+                upgrade_type = None
+
+                for key in upgrade:
+                    match key:
+                        case 'm_strPropertyName':
+                            prop = upgrade[key]
+
+                        case 'm_strBonus':
+                            value = string_utils.assert_number(upgrade[key])
+
+                        case 'm_eUpgradeType':
+                            upgrade_type = upgrade[key]
+
+                # TODO - handle different types of upgrades
+                if upgrade_type is None:
+                    parsed_upgrade_set[prop] = value
 
             # add and format the description of the ability upgrade
             # descriptions include t1, t2, and t3 denoting the tier

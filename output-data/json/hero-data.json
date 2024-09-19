@@ -77,8 +77,8 @@
                         "Description": "You and allies gain a +4m/s movement speed bonus for 4s on landing"
                     },
                     {
-                        "StompDamage": 1.04832,
-                        "Description": "+1.04832 Stomp Damage with improved scaling"
+                        "StompDamage": 100,
+                        "Description": "+100 Stomp Damage with improved scaling"
                     },
                     {
                         "StompStunDuration": 1.25,
@@ -1768,10 +1768,10 @@
                         "Description": "-15.0s Cooldown"
                     },
                     {
-                        "DamagePerChain": 0.366912,
-                        "BonusPerChain": 0.366912,
+                        "DamagePerChain": 12,
+                        "BonusPerChain": 12,
                         "ChainCount": 3,
-                        "Description": "+0.366912 Shock Damage, improved Spirit scaling, and +3 Max Jumps"
+                        "Description": "+12 Shock Damage, improved Spirit scaling, and +3 Max Jumps"
                     }
                 ]
             },
@@ -2036,11 +2036,11 @@
                 "Name": "Fixation",
                 "Upgrades": [
                     {
-                        "ProcDamage": 0.39312,
+                        "ProcDamage": 60,
                         "ProcDamageStackCount": 20,
                         "SlowPercent": 15,
                         "SlowDuration": 2,
-                        "Description": "0.39312 Spirit damage and 15% slow for 2s to target every 20 stacks"
+                        "Description": "60 Spirit damage and 15% slow for 2s to target every 20 stacks"
                     },
                     {
                         "AbilityDuration": 5,
@@ -2502,8 +2502,8 @@
                         "Description": "30% slow for 4s on enemies hit"
                     },
                     {
-                        "Damage": 1.3104,
-                        "Description": "+1.3104 Damage and Occilioblade gains +100% more damage from spirit"
+                        "Damage": 40,
+                        "Description": "+40 Damage and Occilioblade gains +100% more damage from spirit"
                     },
                     {
                         "CooldownReductionOnHit": -7,
@@ -2674,8 +2674,8 @@
                         "Description": "+1 Charges"
                     },
                     {
-                        "HealAmount": 1.9656,
-                        "Description": "Frost Grenade now heals 1.9656 HP to friendly targets. Scales with Spirit."
+                        "HealAmount": 145,
+                        "Description": "Frost Grenade now heals 145 HP to friendly targets. Scales with Spirit."
                     },
                     {
                         "Damage": 175,
@@ -2754,9 +2754,9 @@
                         "Description": "+40 DPS"
                     },
                     {
-                        "BeamSplit": 1.0,
+                        "BeamSplit": "13m",
                         "BeamSplitCount": 2,
-                        "Description": "Fires 2 additional Arctic Beams toward enemies within 1.0m of the last target hit"
+                        "Description": "Fires 2 additional Arctic Beams toward enemies within 13m of the last target hit"
                     }
                 ]
             },
@@ -2785,8 +2785,8 @@
                         "Description": "-38.0s Cooldown"
                     },
                     {
-                        "BonusHealthRegen": 1.638,
-                        "Description": "+1.638 Health Regen and now scales with Spirit Power"
+                        "BonusHealthRegen": 70,
+                        "Description": "+70 Health Regen and now scales with Spirit Power"
                     }
                 ]
             }
@@ -3027,8 +3027,6 @@
                         "Description": "Struck enemies are popped into the air and slowed by 50% for 3s"
                     },
                     {
-                        "StompDamagePerMeterPrimary": 113,
-                        "StompDamagePerMeterSecondary": 113,
                         "Description": "Damage Per Meter +110% and improved scaling"
                     }
                 ]
@@ -3575,12 +3573,10 @@
                         "Description": "+1 Charges"
                     },
                     {
-                        "Damage": 65,
-                        "Description": "+65 Damage"
+                        "Description": "+UNKNOWN[Damage] Damage"
                     },
                     {
                         "AbilityCooldownBetweenCharge": -3,
-                        "Damage": 0.91728,
                         "Description": "Improved damage scaling and -3s Charge Delay"
                     }
                 ]
@@ -5015,8 +5011,8 @@
                         "Description": "-0.2 Delay Between Shots"
                     },
                     {
-                        "Damage": 1.57248,
-                        "Description": "+1.57248 Damage and +1.57248 Damage Scale"
+                        "Damage": 50,
+                        "Description": "+50 Damage and +50 Damage Scale"
                     },
                     {
                         "AbilityCooldown": -47.0,
@@ -5311,8 +5307,8 @@
                         "Description": "-19.0s Cooldown"
                     },
                     {
-                        "TechShieldPoints": 3.9312,
-                        "Description": "+3.9312 Spirit Shield Health and now scales with Spirit Power"
+                        "TechShieldPoints": 200,
+                        "Description": "+200 Spirit Shield Health and now scales with Spirit Power"
                     }
                 ]
             },
@@ -5476,9 +5472,9 @@
                         "Description": "+15m Cast Range"
                     },
                     {
-                        "BulletShieldOnLand": 2.6208,
+                        "BulletShieldOnLand": 300,
                         "BulletShieldDuration": 8,
-                        "Description": "Provides a 2.6208 bullet shield for 8s on teleport. Shield amount scales with Spirit Power."
+                        "Description": "Provides a 300 bullet shield for 8s on teleport. Shield amount scales with Spirit Power."
                     },
                     {
                         "AbilityCooldown": -28.0,
