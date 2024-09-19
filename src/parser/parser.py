@@ -44,7 +44,7 @@ class Parser:
 
     def _load_localizations(self):
         """
-        Merge all 5 localization groups - attributes, gc, heroes, main, and mods -
+        Merge all localization groups, including attributes, gc, heroes, main, and mods etc.
         into a single object per language
         """
 
