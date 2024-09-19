@@ -70,3 +70,8 @@ def string_to_number(string):
             number = string
 
     return number
+
+
+def remove_letters(input_string):
+    """Remove letters from a string. Eg. -4.5m -> -4.5"""
+    return re.sub(r'[^0-9.\-]', '', input_string)

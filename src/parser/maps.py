@@ -106,17 +106,6 @@ def get_bound_abilities(value):
     return parts[2]
 
 
-def get_uom(attr):
-    """get unit of measurement based on attribute"""
-    if 'Cooldown' in attr:
-        return 's'
-
-    if 'Duration' in attr:
-        return 's'
-
-    return ''
-
-
 KEYBIND_MAP = {
     'iv_attack': 'M1',
     'iv_attack2': 'M2',

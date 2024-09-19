@@ -113,12 +113,20 @@ class AbilityParser:
                 desc = ''
                 for attr, value in parsed_upgrade_set.items():
                     str_value = str(value)
-                    unit = maps.get_uom(attr)
 
-                    # attach + or -
+                    postfix = self._get_uom(attr, str_value)
+
+                    # cleanse value of any unit of measure at the end
+                    str_value = string_utils.remove_letters(str_value)
+
+                    prefix = ''
+                    # attach "+" if the value is positive
                     if isinstance(value, str) or not value < 0:
-                        str_value = f'+{str_value}'
-                    desc += f'{str_value}{unit} {self._get_ability_display_name(attr)} and '
+                        prefix = '+'
+
+                    desc += (
+                        f'{prefix}{str_value}{postfix} {self._get_ability_display_name(attr)} and '
+                    )
 
                 # strip off extra "and" from description
                 desc = desc[: -len(' and ')]
@@ -168,3 +176,16 @@ class AbilityParser:
             print(f'Missing label for key {localized_key}')
             return
         return self.localizations[localized_key]
+
+    def _get_uom(self, attr, value):
+        localized_key = f'{attr}_postfix'
+
+        if localized_key in self.localizations:
+            return self.localizations[localized_key]
+
+        # Sometimes the uom is attached to the end of the value
+        unit = ''
+        if value.endswith('m'):
+            unit = 'm'
+
+        return unit
