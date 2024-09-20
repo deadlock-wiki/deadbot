@@ -7,6 +7,7 @@ class AbilityUiParser:
     def run(self):
         output = {}
         for hero_key, hero in self.parsed_heroes.items():
+            hero_abilities = {}
             for index, ability in hero['BoundAbilities'].items():
                 # skip "generic_person"
                 ability_key = ability['Key']
@@ -16,10 +17,12 @@ class AbilityUiParser:
                 try:
                     parsed_ui = self._parse_ability_ui(ability)
                     if parsed_ui is not None:
-                        output[hero_key] = parsed_ui
+                        hero_abilities[index] = parsed_ui
                 except Exception as e:
                     print(f'[ERROR] Failed to parse ui for ability {ability_key}', e)
                     continue
+
+            output[hero_key] = hero_abilities
 
         return output
 
@@ -37,6 +40,10 @@ class AbilityUiParser:
         #     raise Exception(f'Found {len(info_sections)} sections, but only 2 are supported')
 
         for index, info_section in enumerate(info_sections):
+            # skip any UI that requires an upgraded ability to display it
+            if 'm_strAbilityPropertyUpgradeRequired' in info_section:
+                continue
+
             # Each info section consists of some combination of
             # title, description, main properties, and alternate properties
             parsed_info_section = {
@@ -49,67 +56,23 @@ class AbilityUiParser:
             title_key = info_section.get('m_strPropertiesTitleLocString')
             if title_key is not None:
                 # localization keys are prefixed with a "#"
-                parsed_info_section['Title'] = self.localizations[title_key.replace('#', '')]
+                title_key = title_key.replace('#', '')
+                if title_key not in self.localizations:
+                    raise Exception(f'Missing title for key {title_key}')
+                parsed_info_section['Title'] = self.localizations[title_key]
 
             desc_key = info_section.get('m_strLocString')
             if desc_key is not None:
                 # localization keys are prefixed with a "#"
-                parsed_info_section['Description'] = self.localizations[desc_key.replace('#', '')]
-
-            # skip any UI that requires an upgraded ability to display it
-            if 'm_strAbilityPropertyUpgradeRequired' in info_section:
-                continue
+                desc_key = desc_key.replace('#', '')
+                if desc_key not in self.localizations:
+                    raise Exception(f'Missing description for key {desc_key}')
+                parsed_info_section['Description'] = self.localizations[desc_key]
 
             # some blocks might just be a description
-            if 'm_vecAbilityPropertiesBlock' not in info_section:
-                continue
-
-            ability_prop_block = info_section['m_vecAbilityPropertiesBlock']
-            if len(ability_prop_block) > 1:
-                raise Exception(
-                    f'Expected only one ability property block, but found {len(ability_prop_block)}'
-                )
-
-            main_props = ability_prop_block[0]['m_vecAbilityProperties']
-
-            for prop in main_props:
-                attr_key = None
-                prop_requires_upgrade = False
-
-                for prop_attr, prop_value in prop.items():
-                    match prop_attr:
-                        case 'm_strStatusEffectValue':
-                            attr_key = prop_value
-
-                        case 'm_strImportantProperty':
-                            # This is only used in case m_strStatusEffectValue is not found
-                            if attr_key is None:
-                                attr_key = prop_value
-
-                        case 'm_bRequiresAbilityUpgrade':
-                            prop_requires_upgrade = True
-
-                        case 'm_bShowPropertyValue':
-                            # this has no use at the moment, as we want to always show the prop value
-                            continue
-
-                        case _:
-                            print('[ERROR] Unhandled property', prop_attr)
-
-                # skip property that requires ability to be upgraded
-                if prop_requires_upgrade:
-                    continue
-
-                if attr_key is None:
-                    raise Exception(f"Missing value for ability {parsed_ability['Name']}")
-
-                if attr_key not in parsed_ability:
-                    print(
-                        f'[WARN] - {attr_key} is probably an upgrade attr that is not tagged as such'
-                    )
-                    continue
-
-                parsed_info_section['Main'].append({prop_value: parsed_ability[attr_key]})
+            if 'm_vecAbilityPropertiesBlock' in info_section:
+                main_block = self._parse_main_block(info_section, parsed_ability)
+                parsed_info_section['Main'] = main_block
 
                 # if attr not in parsed_ability:
                 #     print(f'Missing base stat {attr}')
@@ -121,3 +84,54 @@ class AbilityUiParser:
 
         # remaining properties are placed into "Other"
         return parsed_ui
+
+    def _parse_main_block(self, info_section, parsed_ability):
+        properties_block = []
+
+        ability_prop_block = info_section['m_vecAbilityPropertiesBlock']
+        if len(ability_prop_block) > 1:
+            raise Exception(
+                f'Expected only one ability property block, but found {len(ability_prop_block)}'
+            )
+
+        main_props = ability_prop_block[0]['m_vecAbilityProperties']
+
+        for prop in main_props:
+            attr_key = None
+            prop_requires_upgrade = False
+
+            for prop_attr, prop_value in prop.items():
+                match prop_attr:
+                    case 'm_strStatusEffectValue':
+                        attr_key = prop_value
+
+                    case 'm_strImportantProperty':
+                        # This is only used in case m_strStatusEffectValue is not found
+                        if attr_key is None:
+                            attr_key = prop_value
+
+                    case 'm_bRequiresAbilityUpgrade':
+                        prop_requires_upgrade = True
+
+                    case 'm_bShowPropertyValue':
+                        # this has no use at the moment, as we want to always show the prop value
+                        continue
+
+                    case _:
+                        print('[ERROR] Unhandled property', prop_attr)
+
+            # skip property that requires ability to be upgraded
+            if prop_requires_upgrade:
+                continue
+
+            if attr_key is None:
+                raise Exception(f"Missing value for ability {parsed_ability['Name']}")
+
+            if attr_key not in parsed_ability:
+                print(f'[WARN] - {attr_key} is probably an upgrade attr that is not tagged as such')
+                continue
+
+            properties_block.append(
+                {'Name': self.localizations[attr_key + '_label'], 'Base': parsed_ability[attr_key]}
+            )
+        return properties_block

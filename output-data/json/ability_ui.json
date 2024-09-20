@@ -1,387 +1,1792 @@
 {
     "hero_inferno": {
-        "Info1": {
-            "Title": null,
-            "Description": "Turns you into a living bomb that explodes after a short delay, <span class=\"highlight\">stunning all enemies</span> in its radius.",
-            "Main": [
-                {
-                    "true": 1.25
-                },
-                {
-                    "Damage": 160
-                },
-                {
-                    "ExplodeDelay": 3
-                }
-            ],
-            "Alt": []
+        "1": {
+            "Info1": {
+                "Title": null,
+                "Description": "Spew napalm that <span class=\"highlight\">slows enemy movement</span> and <span class=\"highlight\">amplifies the damage</span> {s:hero_name} does to them.",
+                "Main": [
+                    {
+                        "Name": "Damage Amplification",
+                        "Base": 25
+                    },
+                    {
+                        "Name": "Damage",
+                        "Base": 50
+                    },
+                    {
+                        "Name": "Movement Slow",
+                        "Base": 40
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "2": {
+            "Info1": {
+                "Title": null,
+                "Description": "Move forward at <span class=\"highlight\">high speed</span> and leave a flame trail that <span class=\"highlight\">burns enemies</span>. Infernus gains {s:SlowResistancePercent}% slow resistance for the duration.  <br>Hold [{s:iv_attack}] to dash faster.",
+                "Main": [
+                    {
+                        "Name": "Max Dash Speed",
+                        "Base": 20
+                    },
+                    {
+                        "Name": "DPS",
+                        "Base": 40
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "3": {
+            "Info1": {
+                "Title": null,
+                "Description": "Your bullets build up to <span class=\"highlight\">apply a burning effect on enemies</span>. {s:hero_name}'s bullets and abilities will <span class=\"highlight\">refresh</span> the duration.",
+                "Main": [
+                    {
+                        "Name": "DPS",
+                        "Base": 15
+                    },
+                    {
+                        "Name": "Burn Duration",
+                        "Base": 3
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "4": {
+            "Info1": {
+                "Title": null,
+                "Description": "Turns you into a living bomb that explodes after a short delay, <span class=\"highlight\">stunning all enemies</span> in its radius.",
+                "Main": [
+                    {
+                        "Name": "Stun Duration",
+                        "Base": 1.25
+                    },
+                    {
+                        "Name": "Damage",
+                        "Base": 160
+                    },
+                    {
+                        "Name": "Explosion Delay",
+                        "Base": 3
+                    }
+                ],
+                "Alt": []
+            }
         }
     },
     "hero_gigawatt": {
-        "Info1": {
-            "Title": null,
-            "Description": "Channel an expanding storm cloud around you that <span class=\"highlight\">damages all enemies</span> within its radius. Enemies do not take damage when they are out of line-of-sight. You have increased <span class=\"highlight\">Bullet Resist</span> during the channel.",
-            "Main": [
-                {
-                    "DPS": 110
-                }
-            ],
-            "Alt": []
+        "1": {
+            "Info1": {
+                "Title": null,
+                "Description": "Shoot a ball of lightning that travels in a straight line. Does <span class=\"highlight\">damage to all targets in its radius</span>. Slows down when damaging enemies and stops if it hits the world.",
+                "Main": [
+                    {
+                        "Name": "DPS",
+                        "Base": 80
+                    },
+                    {
+                        "Name": "Radius",
+                        "Base": 4
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "2": {
+            "Info1": {
+                "Title": null,
+                "Description": "Apply a charge to a target enemy hero. After a short duration, the static charge <span class=\"highlight\">stuns and damages</span> enemies within the radius.",
+                "Main": [
+                    {
+                        "Name": "Stun Duration",
+                        "Base": 1.1
+                    },
+                    {
+                        "Name": "Delay Before Stun",
+                        "Base": 3.5
+                    },
+                    {
+                        "Name": "Damage",
+                        "Base": 40
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "3": {
+            "Info1": {
+                "Title": null,
+                "Description": "Power up your weapon with a shock effect, making <span class=\"highlight\">your bullets proc shock damage on your target</span>. This shock damage <span class=\"highlight\">bounces to enemies</span> near your target. Occurs once per burst shot.",
+                "Main": [
+                    {
+                        "Name": "Shock Damage",
+                        "Base": 10
+                    },
+                    {
+                        "Name": "Max Jumps",
+                        "Base": 3
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "4": {
+            "Info1": {
+                "Title": null,
+                "Description": "Channel an expanding storm cloud around you that <span class=\"highlight\">damages all enemies</span> within its radius. Enemies do not take damage when they are out of line-of-sight. You have increased <span class=\"highlight\">Bullet Resist</span> during the channel.",
+                "Main": [
+                    {
+                        "Name": "DPS",
+                        "Base": 110
+                    }
+                ],
+                "Alt": []
+            }
         }
     },
     "hero_hornet": {
-        "Info1": {
-            "Title": null,
-            "Description": "Use your scoped rifle to fire a powerful shot over long distances. Deal only partial damage until fully charged after 1s of being scoped. Does <span class=\"highlight\">bonus damage</span> to enemies with <span class=\"highlight\">less than {s:LowHealthEnemyThresholdPct}% health</span> remaining. Landing a killing blow on a player with Assassinate <span class=\"highlight\">grants you bonus souls</span>.",
-            "Main": [
-                {
-                    "Damage": 160
-                },
-                {
-                    "LowHealthEnemyDamageBonus": 145
-                },
-                {
-                    "BonusGoldOnKill": 250
-                }
-            ],
-            "Alt": []
+        "1": {
+            "Info1": {
+                "Title": null,
+                "Description": "Throw a stake that <span class=\"highlight\">tethers enemies</span> to the location where the stake lands. Enemy movement is restricted to the length of the tether.",
+                "Main": [
+                    {
+                        "Name": "Tether Duration",
+                        "Base": 2.0
+                    },
+                    {
+                        "Name": "Damage",
+                        "Base": 60
+                    },
+                    {
+                        "Name": "Capture Radius",
+                        "Base": 8
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "2": {
+            "Info1": {
+                "Title": null,
+                "Description": "Leap into the air and <span class=\"highlight\">fly</span>. While in flight your weapon deals <span class=\"highlight\">bonus spirit damage</span>.",
+                "Main": [
+                    {
+                        "Name": "Spirit Damage Per Bullet",
+                        "Base": 10.0
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "3": {
+            "Info1": {
+                "Title": null,
+                "Description": "Your crow familiar deals <span class=\"highlight\">impact damage</span>, reduces their bullet resist and applies a <span class=\"highlight\">bleed</span> that deals damage based on the <span class=\"highlight\">target's current health</span>.",
+                "Main": [
+                    {
+                        "Name": "Damage",
+                        "Base": 40
+                    },
+                    {
+                        "Name": "Bleed Damage",
+                        "Base": 3.0
+                    },
+                    {
+                        "Name": "Bullet Resist Reduction",
+                        "Base": -6
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "4": {
+            "Info1": {
+                "Title": null,
+                "Description": "Use your scoped rifle to fire a powerful shot over long distances. Deal only partial damage until fully charged after 1s of being scoped. Does <span class=\"highlight\">bonus damage</span> to enemies with <span class=\"highlight\">less than {s:LowHealthEnemyThresholdPct}% health</span> remaining. Landing a killing blow on a player with Assassinate <span class=\"highlight\">grants you bonus souls</span>.",
+                "Main": [
+                    {
+                        "Name": "Damage",
+                        "Base": 160
+                    },
+                    {
+                        "Name": "Bonus Damage",
+                        "Base": 145
+                    },
+                    {
+                        "Name": "Bonus Souls Per Assassination",
+                        "Base": 250
+                    }
+                ],
+                "Alt": []
+            }
         }
     },
     "hero_ghost": {
-        "Info1": {
-            "Title": null,
-            "Description": "<span class=\"highlight\">Swaps health levels</span> with an enemy target. There is a minimum health percentage that enemies can be brought down to and a minimum amount of health received based on victims current health.",
-            "Main": [
-                {
-                    "EnemyMinHealthPct": 30
-                },
-                {
-                    "MinHealthTakenPct": 30
-                }
-            ],
-            "Alt": []
+        "1": {
+            "Info1": {
+                "Title": null,
+                "Description": "<span class=\"highlight\">Sacrifice some of your health</span> to launch a bomb that <span class=\"highlight\">deals damage</span> after a brief arm time.<br>Self damage type is Spirit and can be mitigated.",
+                "Main": [
+                    {
+                        "Name": "Damage",
+                        "Base": 100
+                    },
+                    {
+                        "Name": "Self Damage",
+                        "Base": 30
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "2": {
+            "Info1": {
+                "Title": null,
+                "Description": "Create a tether that <span class=\"highlight\">drains enemy health over time</span> and <span class=\"highlight\">heals you</span>. Target must be in line of sight and within max range to drain. You can shoot and use other abilities during the drain, but your movement speed is reduced by half. Press [{s:in_ability2}] to cancel.",
+                "Main": [
+                    {
+                        "Name": "Damage Per Second",
+                        "Base": 35
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "3": {
+            "Info1": {
+                "Title": null,
+                "Description": "<span class=\"highlight\">Sacrifice some of your health</span> to launch blood shards that apply a stack of Malice. Each stack <span class=\"highlight\">slows</span> the victim and <span class=\"highlight\">increases the damage</span> they take from you. The slow effect decreases over time.",
+                "Main": [
+                    {
+                        "Name": "Health To Damage",
+                        "Base": 32
+                    }
+                ],
+                "Alt": []
+            },
+            "Info2": {
+                "Title": null,
+                "Description": null,
+                "Main": [
+                    {
+                        "Name": "Damage Amplification",
+                        "Base": 15
+                    },
+                    {
+                        "Name": "Move Slow",
+                        "Base": 20
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "4": {
+            "Info1": {
+                "Title": null,
+                "Description": "<span class=\"highlight\">Swaps health levels</span> with an enemy target. There is a minimum health percentage that enemies can be brought down to and a minimum amount of health received based on victims current health.",
+                "Main": [
+                    {
+                        "Name": "Enemy Min Health",
+                        "Base": 30
+                    },
+                    {
+                        "Name": "Min Health Received",
+                        "Base": 30
+                    }
+                ],
+                "Alt": []
+            }
         }
     },
     "hero_atlas": {
-        "Info1": {
-            "Title": null,
-            "Description": "<span class=\"highlight\">Leap high into the air</span> and choose a ground location to crash into.  When you hit the ground, <span class=\"highlight\">all enemies in the radius are damaged and stunned</span>.<br>Press [{s:iv_attack}] to crash down early.",
-            "Main": [
-                {
-                    "Damage": 150
-                },
-                {
-                    "StunDuration": 1
-                }
-            ],
-            "Alt": []
+        "1": {
+            "Info1": {
+                "Title": null,
+                "Description": "Drain health from enemies in front of you while they are in the radius.",
+                "Main": [
+                    {
+                        "Name": "Damage Per Second",
+                        "Base": 35
+                    },
+                    {
+                        "Name": "Heal vs Heroes",
+                        "Base": 100
+                    },
+                    {
+                        "Name": "Heal vs Non-Heroes",
+                        "Base": 50
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "2": {
+            "Info1": {
+                "Title": null,
+                "Description": "<span class=\"highlight\">Charge forward</span>, colliding with enemies and dragging them along.  Hitting a <span class=\"highlight\">wall</span> will <span class=\"highlight\">Stun</span> enemies caught by {s:hero_name}. Speed increased after colliding with enemy Heroes.",
+                "Main": [
+                    {
+                        "Name": "Damage",
+                        "Base": 40
+                    },
+                    {
+                        "Name": "Stun Duration",
+                        "Base": 0.85
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "3": {
+            "Info1": {
+                "Title": null,
+                "Description": "<span class=\"highlight\">Regenerate</span> a portion of incoming damage over time.",
+                "Main": [
+                    {
+                        "Name": "Damage regenerated",
+                        "Base": 16
+                    },
+                    {
+                        "Name": "Regeneration Time",
+                        "Base": 18
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "4": {
+            "Info1": {
+                "Title": null,
+                "Description": "<span class=\"highlight\">Leap high into the air</span> and choose a ground location to crash into.  When you hit the ground, <span class=\"highlight\">all enemies in the radius are damaged and stunned</span>.<br>Press [{s:iv_attack}] to crash down early.",
+                "Main": [
+                    {
+                        "Name": "Damage",
+                        "Base": 150
+                    },
+                    {
+                        "Name": "Stun Duration",
+                        "Base": 1
+                    }
+                ],
+                "Alt": []
+            }
         }
     },
     "hero_wraith": {
-        "Info1": {
-            "Title": null,
-            "Description": "Lift an enemy hero into the air, <span class=\"highlight\">stunning</span> them for a short time. When the lift ends, the target receives Telekinesis damage.",
-            "Main": [
-                {
-                    "Damage": 200
-                }
-            ],
-            "Alt": []
+        "1": {
+            "Info1": {
+                "Title": null,
+                "Description": "Deal weapon damage to summon cards.  Activate to throw a card that flies towards the enemy or point under your crosshair.",
+                "Main": [
+                    {
+                        "Name": "Damage",
+                        "Base": 80
+                    },
+                    {
+                        "Name": "Charges",
+                        "Base": 1
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "2": {
+            "Info1": {
+                "Title": null,
+                "Description": "<span class=\"highlight\">Teleport</span> to the targeted location.",
+                "Main": [],
+                "Alt": []
+            }
+        },
+        "3": {
+            "Info1": {
+                "Title": null,
+                "Description": "Temporarily boosts your <span class=\"highlight\">fire rate</span>. Nearby allies receive half the fire rate bonus.",
+                "Main": [
+                    {
+                        "Name": "Fire Rate",
+                        "Base": 20
+                    },
+                    {
+                        "Name": "Spirit Damage Per Bullet",
+                        "Base": 0.0
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "4": {
+            "Info1": {
+                "Title": null,
+                "Description": "Lift an enemy hero into the air, <span class=\"highlight\">stunning</span> them for a short time. When the lift ends, the target receives Telekinesis damage.",
+                "Main": [
+                    {
+                        "Name": "Damage",
+                        "Base": 200
+                    }
+                ],
+                "Alt": []
+            }
         }
     },
     "hero_forge": {
-        "Info1": {
-            "Title": null,
-            "Description": "Unleashes a volley of rockets that home in on a targeted location.",
-            "Main": [
-                {
-                    "DamagePerRocket": 30
-                },
-                {
-                    "GrenadesPerSecond": 6
-                },
-                {
-                    "ExplosionRadius": 4.5
-                }
-            ],
-            "Alt": []
+        "1": {},
+        "2": {
+            "Info1": {
+                "Title": null,
+                "Description": "Deploy a spirit that <span class=\"highlight\">heals nearby units</span>.",
+                "Main": [
+                    {
+                        "Name": "Health Regen",
+                        "Base": 25
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "3": {
+            "Info1": {
+                "Title": null,
+                "Description": "Creates a wall that <span class=\"highlight\">divides the terrain</span> in half. On creation, the wall <span class=\"highlight\">deals damage</span> and <span class=\"highlight\">applies slow</span> to enemies nearby. <br>After casting, press [{s:iv_attack}] or [{s:in_ability3}] to erupt the wall early.",
+                "Main": [
+                    {
+                        "Name": "Damage",
+                        "Base": 64
+                    },
+                    {
+                        "Name": "Movement Slow",
+                        "Base": 25
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "4": {
+            "Info1": {
+                "Title": null,
+                "Description": "Unleashes a volley of rockets that home in on a targeted location.",
+                "Main": [
+                    {
+                        "Name": "Damage Per Rocket",
+                        "Base": 30
+                    },
+                    {
+                        "Name": "Rockets per second",
+                        "Base": 6
+                    },
+                    {
+                        "Name": "Explosion Radius",
+                        "Base": 4.5
+                    }
+                ],
+                "Alt": []
+            }
         }
     },
     "hero_chrono": {
-        "Info1": {
-            "Title": null,
-            "Description": "Fire a projectile that <span class=\"highlight\">swaps your position with the target enemy hero.</span> While the effect occurs, you gain <span class=\"highlight\">spirit lifesteal</span> and the enemy <span class=\"highlight\">takes damage over time</span>.",
-            "Main": [
-                {
-                    "SwapTotalDamage": 125
-                },
-                {
-                    "SpellLifesteal": 100
-                }
-            ],
-            "Alt": []
+        "1": {
+            "Info1": {
+                "Title": null,
+                "Description": "Throw a grenade that begins pulsing when it lands. Each pulse applies <span class=\"highlight\">damage, movement slow, and stacking damage amplification</span> for {s:hero_name} against the victim.",
+                "Main": [
+                    {
+                        "Name": "Pulse Damage",
+                        "Base": 45
+                    },
+                    {
+                        "Name": "Pulses",
+                        "Base": 4
+                    },
+                    {
+                        "Name": "Bonus Damage per Stack",
+                        "Base": 5
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "2": {
+            "Info1": {
+                "Title": null,
+                "Description": "Create a time warping wall that <span class=\"highlight\">stops time</span> for all <span class=\"highlight\">enemy projectiles and bullets</span> that touch it.  Enemies that touch the wall will take <span class=\"highlight\">damage as a percentage of their max health</span> and be briefly slowed.",
+                "Main": [
+                    {
+                        "Name": "Time Stop Duration",
+                        "Base": 1.0
+                    },
+                    {
+                        "Name": "Max Health Damage",
+                        "Base": 10
+                    },
+                    {
+                        "Name": "Movement Slow",
+                        "Base": 80
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "3": {
+            "Info1": {
+                "Title": null,
+                "Description": "Start charging your weapon and gain <span class=\"highlight\">increased movement speed</span> once it's fully charged. Your next shot will release the energy, dealing <span class=\"highlight\">spirit damage</span> and applying a <span class=\"highlight\">time stop</span> to the enemy hit. The damage dealt is an amplification of your current weapon damage. <br><br>You can slow time on yourself by pressing [{s:iv_attack2}] while an empowered shot is available.",
+                "Main": [
+                    {
+                        "Name": "Max Damage Amp",
+                        "Base": 85
+                    },
+                    {
+                        "Name": "Max Stop Duration",
+                        "Base": 0.5
+                    },
+                    {
+                        "Name": "Bonus Speed",
+                        "Base": 25
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "4": {
+            "Info1": {
+                "Title": null,
+                "Description": "Fire a projectile that <span class=\"highlight\">swaps your position with the target enemy hero.</span> While the effect occurs, you gain <span class=\"highlight\">spirit lifesteal</span> and the enemy <span class=\"highlight\">takes damage over time</span>.",
+                "Main": [
+                    {
+                        "Name": "Swap Damage",
+                        "Base": 125
+                    },
+                    {
+                        "Name": "Spell Lifesteal",
+                        "Base": 100
+                    }
+                ],
+                "Alt": []
+            }
         }
     },
     "hero_dynamo": {
-        "Info1": {
-            "Title": null,
-            "Description": "Create a singularity in your hands that <span class=\"highlight\">pulls in nearby enemies and damages them</span>. Once it's finished, enemies get knocked into the air.",
-            "Main": [
-                {
-                    "AbilityChannelTime": 2.75
-                },
-                {
-                    "DPS": 60
-                }
-            ],
-            "Alt": []
+        "1": {
+            "Info1": {
+                "Title": null,
+                "Description": "Release an energy pulse that knocks enemies up into the air.",
+                "Main": [
+                    {
+                        "Name": "Damage",
+                        "Base": 100
+                    },
+                    {
+                        "Name": "Stomp Range",
+                        "Base": 15
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "2": {
+            "Info1": {
+                "Title": null,
+                "Description": "{s:hero_name} briefly <span class=\"highlight\">disappears into the void</span> and then reappears a short distance away. On reappearing, your weapon is <span class=\"highlight\">reloaded</span> and has a <span class=\"highlight\">fire rate bonus</span> for the next clip (Max {s:FireRateBonusDurationMax}s). Can be cast with [{s:key_alt_cast}] to also bring nearby allies and give them half fire rate bonus.",
+                "Main": [
+                    {
+                        "Name": "Void Time",
+                        "Base": 1.4
+                    },
+                    {
+                        "Name": "Ally Distance",
+                        "Base": 9
+                    },
+                    {
+                        "Name": "Fire Rate Bonus",
+                        "Base": 25
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "3": {
+            "Info1": {
+                "Title": null,
+                "Description": "While channelling, <span class=\"highlight\">restore health over time</span> to you and any allies nearby. Dashing does not break channel.",
+                "Main": [
+                    {
+                        "Name": "Health Restored",
+                        "Base": 32
+                    },
+                    {
+                        "Name": "Channel Duration",
+                        "Base": 5
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "4": {
+            "Info1": {
+                "Title": null,
+                "Description": "Create a singularity in your hands that <span class=\"highlight\">pulls in nearby enemies and damages them</span>. Once it's finished, enemies get knocked into the air.",
+                "Main": [
+                    {
+                        "Name": "Channel Duration",
+                        "Base": 2.75
+                    },
+                    {
+                        "Name": "DPS",
+                        "Base": 60
+                    }
+                ],
+                "Alt": []
+            }
         }
     },
     "hero_kelvin": {
-        "Info1": {
-            "Title": null,
-            "Description": "{s:hero_name} freezes the air around him, creating an <span class=\"highlight\">impenetrable dome</span> around himself. While in the dome, allies rapidly <span class=\"highlight\">regenerate health</span> and enemies are <span class=\"highlight\">slowed</span>.",
-            "Main": [
-                {
-                    "BonusHealthRegen": 120
-                },
-                {
-                    "SlowPercent": 35
-                }
-            ],
-            "Alt": []
+        "1": {
+            "Info1": {
+                "Title": null,
+                "Description": "Throw a grenade that explodes in a cloud of freezing ice, <span class=\"highlight\">damaging</span> and <span class=\"highlight\">slowing</span> enemies.",
+                "Main": [
+                    {
+                        "Name": "Damage",
+                        "Base": 80
+                    },
+                    {
+                        "Name": "Movement Slow",
+                        "Base": 40
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "2": {
+            "Info1": {
+                "Title": null,
+                "Description": "{s:hero_name} creates a <span class=\"highlight\">floating trail</span> of ice and snow that gives movement bonuses to him and his allies. Kelvin gains {s:SlowResistancePercent}% slow resistance for the duration. Enemies can also walk on the floating trail. <br>Press [{s:key_innate_1}] / [{s:key_duck}] to travel up or down while in Ice Path.",
+                "Main": [
+                    {
+                        "Name": "Move Speed",
+                        "Base": 2
+                    },
+                    {
+                        "Name": "Sprint Speed",
+                        "Base": 2
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "3": {
+            "Info1": {
+                "Title": null,
+                "Description": "Shoot freezing cold energy out in front of you, <span class=\"highlight\">damaging targets</span> and <span class=\"highlight\">building up movement and fire rate slow</span> against them the longer you sustain the beam on them. You have reduced movement speed while using Arctic Beam. The beam may also claim Souls.",
+                "Main": [
+                    {
+                        "Name": "DPS",
+                        "Base": 60
+                    },
+                    {
+                        "Name": "Max Slow",
+                        "Base": 70
+                    },
+                    {
+                        "Name": "Max Fire Rate Slow",
+                        "Base": 40
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "4": {
+            "Info1": {
+                "Title": null,
+                "Description": "{s:hero_name} freezes the air around him, creating an <span class=\"highlight\">impenetrable dome</span> around himself. While in the dome, allies rapidly <span class=\"highlight\">regenerate health</span> and enemies are <span class=\"highlight\">slowed</span>.",
+                "Main": [
+                    {
+                        "Name": "Health Regen",
+                        "Base": 120
+                    },
+                    {
+                        "Name": "Movement Slow",
+                        "Base": 35
+                    }
+                ],
+                "Alt": []
+            }
         }
     },
     "hero_haze": {
-        "Info1": {
-            "Title": null,
-            "Description": "Enter a flurry, <span class=\"highlight\">firing your weapon</span> at nearby enemies with <span class=\"highlight\">perfect accuracy</span>.  During the flurry, {s:hero_name} gains a fire rate bonus and will evade some of the bullets shot at her.",
-            "Main": [
-                {
-                    "BonusFireRate": 25
-                },
-                {
-                    "TargetsPerTick": 1
-                }
-            ],
-            "Alt": []
+        "1": {
+            "Info1": {
+                "Title": null,
+                "Description": "Throw a dagger that <span class=\"highlight\">damages</span> and <span class=\"highlight\">sleeps</span> the target. Sleeping targets wake up shortly after being damaged. Throwing a Dagger does not break your invisibility. Sleep Dagger does not interrupt enemies' channeling abilities.",
+                "Main": [
+                    {
+                        "Name": "Damage",
+                        "Base": 70
+                    },
+                    {
+                        "Name": "Wake Up Time",
+                        "Base": 0.1
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "2": {
+            "Info1": {
+                "Title": null,
+                "Description": "Fade out of sight, becoming <span class=\"highlight\">invisible</span> and gaining <span class=\"highlight\">sprint speed</span>. Attacking removes invisibility. Close enemies can see through your invisibility.",
+                "Main": [
+                    {
+                        "Name": "Fade Time",
+                        "Base": 1.5
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "3": {
+            "Info1": {
+                "Title": null,
+                "Description": "Shooting a target <span class=\"highlight\">increases your bullet damage on that target</span>. Gain one <span class=\"highlight\">stack</span> per bullet hit, two if the hit is a headshot.",
+                "Main": [
+                    {
+                        "Name": "Weapon Damage",
+                        "Base": 0.2
+                    },
+                    {
+                        "Name": "Max Stacks",
+                        "Base": 30
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "4": {
+            "Info1": {
+                "Title": null,
+                "Description": "Enter a flurry, <span class=\"highlight\">firing your weapon</span> at nearby enemies with <span class=\"highlight\">perfect accuracy</span>.  During the flurry, {s:hero_name} gains a fire rate bonus and will evade some of the bullets shot at her.",
+                "Main": [
+                    {
+                        "Name": "Fire Rate",
+                        "Base": 25
+                    },
+                    {
+                        "Name": "Targets Hit Per Shot",
+                        "Base": 1
+                    }
+                ],
+                "Alt": []
+            }
         }
     },
     "hero_astro": {
-        "Info1": {
-            "Title": null,
-            "Description": "<span class=\"highlight\">Grab an enemy</span> with your lasso and drag them along behind you. The <span class=\"highlight\">enemy is stunned</span> and Astro is slowed slightly during the lasso.<br><br> Lasso duration is paused for {s:BouncePadExtendDuration}s during the first usage of a bounce pad.",
-            "Main": [
-                {
-                    "ExtraTargetConeAngle": 40
-                }
-            ],
-            "Alt": []
+        "1": {
+            "Info1": {
+                "Title": null,
+                "Description": "Place a barrel that explodes when <span class=\"highlight\">shot</span>, or on landing after launched via <span class=\"highlight\">melee attack</span> or <span class=\"highlight\">bounce pad</span>. Has a minimum arm time before it can explode.",
+                "Main": [
+                    {
+                        "Name": "Explosion Damage",
+                        "Base": 100
+                    },
+                    {
+                        "Name": "Arm Time",
+                        "Base": 1
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "2": {
+            "Info1": {
+                "Title": null,
+                "Description": "Drop a bounce pad in the world that <span class=\"highlight\">sends you and other heroes flying</span>. You will stomp down on landing, <span class=\"highlight\">dealing damage</span> to any nearby enemies.",
+                "Main": [
+                    {
+                        "Name": "Stomp Damage",
+                        "Base": 120
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "3": {
+            "Info1": {
+                "Title": null,
+                "Description": "Throws out her <span class=\"highlight\">hat</span> to strike enemies, <span class=\"highlight\">slowing</span> and <span class=\"highlight\">revealing</span> them through walls.",
+                "Main": [
+                    {
+                        "Name": "Damage",
+                        "Base": 100
+                    },
+                    {
+                        "Name": "Movement Slow",
+                        "Base": 20
+                    },
+                    {
+                        "Name": "Debuff Duration",
+                        "Base": 5
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "4": {
+            "Info1": {
+                "Title": null,
+                "Description": "<span class=\"highlight\">Grab an enemy</span> with your lasso and drag them along behind you. The <span class=\"highlight\">enemy is stunned</span> and Astro is slowed slightly during the lasso.<br><br> Lasso duration is paused for {s:BouncePadExtendDuration}s during the first usage of a bounce pad.",
+                "Main": [
+                    {
+                        "Name": "Targetting Cone Angle",
+                        "Base": 40
+                    }
+                ],
+                "Alt": []
+            }
         }
     },
     "hero_bebop": {
-        "Info1": {
-            "Title": null,
-            "Description": "Attach a Sticky Bomb to a nearby target that deals <span class=\"highlight\">explosive damage</span> after a short fuse time. <br>Gain <span class=\"highlight\">+{s:BonusDamagePctPerPlayerHit}% bomb damage</span> for every enemy hero hit.  <br>Hold [{s:key_alt_cast}] to cast a Sticky Bomb on yourself.",
-            "Main": [
-                {
-                    "Damage": 120
-                },
-                {
-                    "FuseTime": 3.0
-                }
-            ],
-            "Alt": []
+        "1": {
+            "Info1": {
+                "Title": null,
+                "Description": "Deal <span class=\"highlight\">Light Melee</span> damage to nearby units and send them <span class=\"highlight\">flying back</span>, causing <span class=\"highlight\">area damage</span> where they land. Does not damage allies.",
+                "Main": [
+                    {
+                        "Name": "Uppercut Damage",
+                        "Base": 0.01
+                    },
+                    {
+                        "Name": "Area Damage",
+                        "Base": 80
+                    },
+                    {
+                        "Name": "Landing Radius",
+                        "Base": 14
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "2": {
+            "Info1": {
+                "Title": null,
+                "Description": "Attach a Sticky Bomb to a nearby target that deals <span class=\"highlight\">explosive damage</span> after a short fuse time. <br>Gain <span class=\"highlight\">+{s:BonusDamagePctPerPlayerHit}% bomb damage</span> for every enemy hero hit.  <br>Hold [{s:key_alt_cast}] to cast a Sticky Bomb on yourself.",
+                "Main": [
+                    {
+                        "Name": "Damage",
+                        "Base": 120
+                    },
+                    {
+                        "Name": "Fuse Time",
+                        "Base": 3.0
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "3": {
+            "Info1": {
+                "Title": null,
+                "Description": "Launch out a hook that <span class=\"highlight\">grabs and reels in</span> the first hero it hits and deals damage to enemies. Target will be placed where you are facing.",
+                "Main": [
+                    {
+                        "Name": "Damage",
+                        "Base": 40
+                    }
+                ],
+                "Alt": []
+            }
         }
     },
     "hero_nano": {
-        "Info1": {
-            "Title": null,
-            "Description": "Cast yourself in shadow and go <span class=\"highlight\">Invisible</span>.  Attacks do not break invisibility but they will temporarily reveal you.  Hitting enemies with <span class=\"highlight\">Melee damage</span> will reduce their bullet resist (stacking)",
-            "Main": [
-                {
-                    "InvisMoveSpeedMod": 1
-                }
-            ],
-            "Alt": []
+        "1": {
+            "Info1": {
+                "Title": null,
+                "Description": "Send a Spirit Cat forward that grab's targets in its way.  Grabbing a Hero will cause an explosion soon after. <br>Press [{s:in_ability1}] to manually create the explosion.",
+                "Main": [
+                    {
+                        "Name": "Explosion Damage",
+                        "Base": 100
+                    },
+                    {
+                        "Name": "Explosion Radius",
+                        "Base": 8
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "2": {
+            "Info1": {
+                "Title": null,
+                "Description": "<span class=\"highlight\">Leap</span> at a target to inflict <span class=\"highlight\">Light Melee damage.</span>  Targetting an enemy will cause <span class=\"highlight\">slow</span> on nearby enemies.  Targeting an ally will have reduced Cooldown and Recharge times.",
+                "Main": [
+                    {
+                        "Name": "Damage",
+                        "Base": 60
+                    },
+                    {
+                        "Name": "Explosion Radius",
+                        "Base": 4
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "3": {
+            "Info1": {
+                "Title": null,
+                "Description": "Send out <span class=\"highlight\">Ava</span> to <span class=\"highlight\">attack</span> a nearby enemy.  Targetted enemies have reduced healing and give health to Ava and {s:hero_name} when damanged by them.  Ava is only active when {s:hero_name} is nearby. <br>While nearby Press [3] to recall Ava, Ava regains health while recalled.",
+                "Main": [
+                    {
+                        "Name": "DPS",
+                        "Base": 30
+                    },
+                    {
+                        "Name": "Ava (Normalized)",
+                        "Base": 200
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "4": {
+            "Info1": {
+                "Title": null,
+                "Description": "Cast yourself in shadow and go <span class=\"highlight\">Invisible</span>.  Attacks do not break invisibility but they will temporarily reveal you.  Hitting enemies with <span class=\"highlight\">Melee damage</span> will reduce their bullet resist (stacking)",
+                "Main": [
+                    {
+                        "Name": "Invis Sprint Speed",
+                        "Base": 1
+                    }
+                ],
+                "Alt": []
+            }
         }
     },
     "hero_orion": {
-        "Info1": {
-            "Title": null,
-            "Description": "After {s:AbilityCastDelay}s cast time, <span class=\"highlight\">launch a spirit owl that you control</span> and which explodes on impact, <span class=\"highlight\">damaging and stunning</span> enemies. Hold [{s:iv_attack}] to accelerate the owl.<br>Press [{s:in_mantle}] to release control. Gain <span class=\"highlight\">permanent Spirit Power</span> for each enemy hero killed with Guided Owl.",
-            "Main": [
-                {
-                    "Damage": 250
-                },
-                {
-                    "ExplosionRadius": 12
-                }
-            ],
-            "Alt": []
+        "1": {
+            "Info1": {
+                "Title": null,
+                "Description": "<span class=\"highlight\">Charge up a powerful shot</span> that pierces through enemies. Hold [{s:ability_key}] or [{s:iv_attack}] to hold the shot.",
+                "Main": [
+                    {
+                        "Name": "Damage",
+                        "Base": 100
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "2": {
+            "Info1": {
+                "Title": null,
+                "Description": "Launches you high in the air, allowing you to glide slowly. While airborne, you gain <span class=\"highlight\">Weapon Damage</span> and <span class=\"highlight\">multishot on your weapon</span>. Press [{s:in_mantle}] to cancel the glide.",
+                "Main": [
+                    {
+                        "Name": "Weapon Multishot",
+                        "Base": 5
+                    },
+                    {
+                        "Name": "Weapon Damage",
+                        "Base": 4
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "3": {
+            "Info1": {
+                "Title": null,
+                "Description": "<span class=\"highlight\">Throw out a trap</span> that begins to arm itself. Once armed, the trap will trigger when an enemy enters its radius, <span class=\"highlight\">immobilizing</span> and then <span class=\"highlight\">slowing</span> them.",
+                "Main": [
+                    {
+                        "Name": "Immobilize Duration",
+                        "Base": 1.25
+                    },
+                    {
+                        "Name": "Damage",
+                        "Base": 30
+                    },
+                    {
+                        "Name": "Lifetime",
+                        "Base": 20
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "4": {
+            "Info1": {
+                "Title": null,
+                "Description": "After {s:AbilityCastDelay}s cast time, <span class=\"highlight\">launch a spirit owl that you control</span> and which explodes on impact, <span class=\"highlight\">damaging and stunning</span> enemies. Hold [{s:iv_attack}] to accelerate the owl.<br>Press [{s:in_mantle}] to release control. Gain <span class=\"highlight\">permanent Spirit Power</span> for each enemy hero killed with Guided Owl.",
+                "Main": [
+                    {
+                        "Name": "Damage",
+                        "Base": 250
+                    },
+                    {
+                        "Name": "Explosion Radius",
+                        "Base": 12
+                    }
+                ],
+                "Alt": []
+            }
         }
     },
     "hero_krill": {
-        "Info1": {
-            "Title": null,
-            "Description": "Hold the target in place, <span class=\"highlight\">stunning them and dealing damage</span> during the channel. If they die during Combo, you permanently gain max health.",
-            "Main": [
-                {
-                    "DPS": 60
-                },
-                {
-                    "BonusHealthOnKill": 30
-                }
-            ],
-            "Alt": []
+        "1": {
+            "Info1": {
+                "Title": null,
+                "Description": "Deal <span class=\"highlight\">damage</span> to nearby enemies and <span class=\"highlight\">heal yourself</span> based on the damage done. Heal is stronger against enemy heroes.",
+                "Main": [
+                    {
+                        "Name": "Damage",
+                        "Base": 60
+                    },
+                    {
+                        "Name": "Hero Damage to Heal",
+                        "Base": 2.0
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "2": {
+            "Info1": {
+                "Title": null,
+                "Description": "Burrow underground, <span class=\"highlight\">moving faster,</span> and gaining <span class=\"highlight\">spirit and bullet armor</span>. Damage from enemy heroes will reduce the speed bonus. When you jump out, knock enemies into the air and perform a spin attack that <span class=\"highlight\">damages and slows</span>. Cooldown starts when Burrow ends.",
+                "Main": [
+                    {
+                        "Name": "Move Speed",
+                        "Base": 3
+                    },
+                    {
+                        "Name": "DPS",
+                        "Base": 80
+                    },
+                    {
+                        "Name": "Spin Duration",
+                        "Base": 1.5
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "3": {
+            "Info1": {
+                "Title": null,
+                "Description": "Spray sand that <span class=\"highlight\">disarms</span> enemies in front of you and deals <span class=\"highlight\">damage</span>.",
+                "Main": [
+                    {
+                        "Name": "Damage",
+                        "Base": 40
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "4": {
+            "Info1": {
+                "Title": null,
+                "Description": "Hold the target in place, <span class=\"highlight\">stunning them and dealing damage</span> during the channel. If they die during Combo, you permanently gain max health.",
+                "Main": [
+                    {
+                        "Name": "DPS",
+                        "Base": 60
+                    },
+                    {
+                        "Name": "Bonus Max Health Per Kill",
+                        "Base": 30
+                    }
+                ],
+                "Alt": []
+            }
         }
     },
     "hero_shiv": {
-        "Info1": {
-            "Title": null,
-            "Description": "Activate to leap towards an enemy hero and <span class=\"highlight\">instantly kill</span> them if their health is <span class=\"highlight\">below the kill threshold</span>, otherwise deal {s:Damage} damage to them.",
-            "Main": [
-                {
-                    "EnemyHealthPercent": 20
-                }
-            ],
-            "Alt": []
+        "1": {
+            "Info1": {
+                "Title": null,
+                "Description": "Throw a knife that <span class=\"highlight\">damages and bleeds</span> an enemy.  Each additional hit adds a <span class=\"highlight\">stack</span> and refreshes the bleed duration, causing the bleed to increase per stack.",
+                "Main": [
+                    {
+                        "Name": "Damage",
+                        "Base": 35
+                    },
+                    {
+                        "Name": "Bleed DPS Per Knife",
+                        "Base": 5
+                    },
+                    {
+                        "Name": "Bleed Duration",
+                        "Base": 5
+                    }
+                ],
+                "Alt": []
+            },
+            "Info2": {
+                "Title": null,
+                "Description": "Ultimate Unlock: <span class=\"highlight\"> While rage is full</span> knives will ricochet to another enemy and apply a slow to enemies they bleed.",
+                "Main": [
+                    {
+                        "Name": "Movement Slow",
+                        "Base": 35
+                    }
+                ],
+                "Alt": []
+            }
         },
-        "Info2": {
-            "Title": null,
-            "Description": "Passive: Damaging enemies fills you with rage.  While at full rage, Shiv gains increased damage and <span class=\"highlight\">special properties</span> on his other abilities.",
-            "Main": [
-                {
-                    "BuffDamage": 20
-                }
-            ],
-            "Alt": []
+        "2": {
+            "Info1": {
+                "Title": null,
+                "Description": "Perform a <span class=\"highlight\">dash forward, damaging enemies along the path</span>.<br><br>Ultimate Unlock: <span class=\"highlight\">While rage is full</span> an echo of Shiv retraces the dash path after a short delay, damaging enemies again.",
+                "Main": [
+                    {
+                        "Name": "Damage",
+                        "Base": 105
+                    },
+                    {
+                        "Name": "Dash Range",
+                        "Base": 12
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "4": {
+            "Info1": {
+                "Title": null,
+                "Description": "Activate to leap towards an enemy hero and <span class=\"highlight\">instantly kill</span> them if their health is <span class=\"highlight\">below the kill threshold</span>, otherwise deal {s:Damage} damage to them.",
+                "Main": [
+                    {
+                        "Name": "Enemy health threshold",
+                        "Base": 20
+                    }
+                ],
+                "Alt": []
+            },
+            "Info2": {
+                "Title": null,
+                "Description": "Passive: Damaging enemies fills you with rage.  While at full rage, Shiv gains increased damage and <span class=\"highlight\">special properties</span> on his other abilities.",
+                "Main": [
+                    {
+                        "Name": "Full Rage Damage Bonus",
+                        "Base": 20
+                    }
+                ],
+                "Alt": []
+            }
         }
     },
     "hero_tengu": {
-        "Info1": {
-            "Title": null,
-            "Description": "Take flight with an ally or a bomb. Drop your ally or bomb to cause a <span class=\"highlight\">large explosion</span> that causes <span class=\"highlight\">movement slow</span>. {s:hero_name} and ally gain a bullet shield when flying ends. <br>While lifted, your ally gains bullet resist but cannot attack and deals {s:AllyOutgoingDamagePercent}% damage. Air Drop has faster cast time when targeting an ally. <br>[{s:iv_attack}] to accelerate flying speed. <br>[{s:iv_attack2}] to drop ally/bomb.",
-            "Main": [
-                {
-                    "ExplodeDamage": 150
-                },
-                {
-                    "AirDropBulletShield": 200
-                },
-                {
-                    "DebuffDuration": 4
-                }
-            ],
-            "Alt": []
+        "1": {
+            "Info1": {
+                "Title": null,
+                "Description": "Summon a patch of choking vines that <span class=\"highlight\">damages</span> and <span class=\"highlight\">slows</span> enemies in its radius.",
+                "Main": [
+                    {
+                        "Name": "DPS",
+                        "Base": 60
+                    },
+                    {
+                        "Name": "Movement Slow",
+                        "Base": 35
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "2": {
+            "Info1": {
+                "Title": null,
+                "Description": "Gain bonuses and automatically connect with a nearby ally to share them.  <span class=\"highlight\">Healing is replicated</span> among all those connected. Connection requires line of sight. Press [{s:in_ability2}] to Lock on to a target",
+                "Main": [
+                    {
+                        "Name": "Fire Rate",
+                        "Base": 10
+                    },
+                    {
+                        "Name": "Bullet Lifesteal",
+                        "Base": 15
+                    },
+                    {
+                        "Name": "Replicated Healing",
+                        "Base": 30
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "3": {
+            "Info1": {
+                "Title": null,
+                "Description": "Turn yourself into <span class=\"highlight\">impervious stone</span> and smash into the ground, <span class=\"highlight\">stunning and damaging</span> enemies nearby. Heals you for a percentage of your max health. You have some air control before falling.",
+                "Main": [
+                    {
+                        "Name": "Damage",
+                        "Base": 80
+                    },
+                    {
+                        "Name": "Stun Duration",
+                        "Base": 0.75
+                    },
+                    {
+                        "Name": "Max Health Heal",
+                        "Base": 10
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "4": {
+            "Info1": {
+                "Title": null,
+                "Description": "Take flight with an ally or a bomb. Drop your ally or bomb to cause a <span class=\"highlight\">large explosion</span> that causes <span class=\"highlight\">movement slow</span>. {s:hero_name} and ally gain a bullet shield when flying ends. <br>While lifted, your ally gains bullet resist but cannot attack and deals {s:AllyOutgoingDamagePercent}% damage. Air Drop has faster cast time when targeting an ally. <br>[{s:iv_attack}] to accelerate flying speed. <br>[{s:iv_attack2}] to drop ally/bomb.",
+                "Main": [
+                    {
+                        "Name": "Explode Damage",
+                        "Base": 150
+                    },
+                    {
+                        "Name": "Bullet Shield",
+                        "Base": 200
+                    },
+                    {
+                        "Name": "Debuff Duration",
+                        "Base": 4
+                    }
+                ],
+                "Alt": []
+            }
         }
     },
+    "hero_kali": {},
     "hero_warden": {
-        "Info1": {
-            "Title": null,
-            "Description": "After charging for {s:AbilityCastDelay}s, <span class=\"highlight\">release pulses that damage enemies and heal you</span> based on the damage done. <br>While channeling Last Stand you have greatly increased <span class=\"highlight\">bullet resist</span>.",
-            "Main": [
-                {
-                    "PulseDPS": 100
-                },
-                {
-                    "HealthStealPctHero": 100
-                },
-                {
-                    "BonusMoveSpeed": 0
-                }
-            ],
-            "Alt": []
+        "1": {
+            "Info1": {
+                "Title": null,
+                "Description": "Throw a flask that <span class=\"highlight\">damages, slows,</span> and reduces the <span class=\"highlight\">weapon damage</span> and <span class=\"highlight\">stamina</span> of enemies it hits.",
+                "Main": [
+                    {
+                        "Name": "Damage",
+                        "Base": 55
+                    },
+                    {
+                        "Name": "Move Speed Slow",
+                        "Base": 20
+                    },
+                    {
+                        "Name": "Weapon Damage",
+                        "Base": -30
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "2": {
+            "Info1": {
+                "Title": null,
+                "Description": "Gain a <span class=\"highlight\">spirit shield</span> and <span class=\"highlight\">bonus movement speed</span>.",
+                "Main": [
+                    {
+                        "Name": "Spirit Shield Health",
+                        "Base": 150
+                    },
+                    {
+                        "Name": "Move speed bonus",
+                        "Base": 15
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "3": {
+            "Info1": {
+                "Title": null,
+                "Description": "Curse an enemy hero. If they don't move away from their initial position within the <span class=\"highlight\">escape time</span>, they will be <span class=\"highlight\">damaged</span> and <span class=\"highlight\">immobilized</span>.",
+                "Main": [
+                    {
+                        "Name": "Damage",
+                        "Base": 120
+                    },
+                    {
+                        "Name": "Immobilize Duration",
+                        "Base": 1.75
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "4": {
+            "Info1": {
+                "Title": null,
+                "Description": "After charging for {s:AbilityCastDelay}s, <span class=\"highlight\">release pulses that damage enemies and heal you</span> based on the damage done. <br>While channeling Last Stand you have greatly increased <span class=\"highlight\">bullet resist</span>.",
+                "Main": [
+                    {
+                        "Name": "DPS",
+                        "Base": 100
+                    },
+                    {
+                        "Name": "Hero Lifesteal",
+                        "Base": 100
+                    },
+                    {
+                        "Name": "Move Speed",
+                        "Base": 0
+                    }
+                ],
+                "Alt": []
+            }
         }
     },
     "hero_yamato": {
-        "Info1": {
-            "Title": null,
-            "Description": "Become infused with Yamato's shadow soul. After an initial <span class=\"highlight\">invincible</span> transformation, your <span class=\"highlight\">abilities are refreshed and are 60% faster</span>, your weapon has <span class=\"highlight\">infinite ammo</span>, and you gain <span class=\"highlight\">damage resists</span> and <span class=\"highlight\">immunity to negative status effects</span>. You are unable to die in this mode.",
-            "Main": [
-                {
-                    "AbilityDuration": 5
-                },
-                {
-                    "AbilitySpeedPct": 60
-                }
-            ],
-            "Alt": []
+        "1": {
+            "Info1": {
+                "Title": null,
+                "Description": "Channel to increase damage over {s:AbilityCastDelay} seconds, then release a <span class=\"highlight\">fully-charged sword strike</span>.<br>Press [{s:in_ability1}] or [{s:iv_attack}] to trigger the strike early, dealing partial damage.",
+                "Main": [
+                    {
+                        "Name": "Full Charge Damage",
+                        "Base": 160
+                    },
+                    {
+                        "Name": "Slash Length",
+                        "Base": 25
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "2": {
+            "Info1": {
+                "Title": null,
+                "Description": "Throw a grappling hook to <span class=\"highlight\">reel yourself towards an enemy, damaging and slowing the target</span> when you arrive.",
+                "Main": [
+                    {
+                        "Name": "Damage",
+                        "Base": 70
+                    },
+                    {
+                        "Name": "Movement Slow",
+                        "Base": 30
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "3": {
+            "Info1": {
+                "Title": null,
+                "Description": "Slash enemies in front of you, <span class=\"highlight\">damaging them and slowing their fire rate</span>. If any enemy heroes are hit, you <span class=\"highlight\">heal</span>.",
+                "Main": [
+                    {
+                        "Name": "Damage",
+                        "Base": 60
+                    },
+                    {
+                        "Name": "Heal on hero hit",
+                        "Base": 70
+                    },
+                    {
+                        "Name": "Fire Rate Slow",
+                        "Base": 30
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "4": {
+            "Info1": {
+                "Title": null,
+                "Description": "Become infused with Yamato's shadow soul. After an initial <span class=\"highlight\">invincible</span> transformation, your <span class=\"highlight\">abilities are refreshed and are 60% faster</span>, your weapon has <span class=\"highlight\">infinite ammo</span>, and you gain <span class=\"highlight\">damage resists</span> and <span class=\"highlight\">immunity to negative status effects</span>. You are unable to die in this mode.",
+                "Main": [
+                    {
+                        "Name": "Duration",
+                        "Base": 5
+                    },
+                    {
+                        "Name": "Ability Speed",
+                        "Base": 60
+                    }
+                ],
+                "Alt": []
+            }
         }
     },
     "hero_lash": {
-        "Info1": {
-            "Title": null,
-            "Description": "Focus on enemies to connect whips to them. After channeling, connected enemies are <span class=\"highlight\">lifted and stunned</span> then slammed into the ground. Your victims and any enemies in the landing zone will be <span class=\"highlight\">damaged and slowed</span>. <br>Press [{s:iv_attack}] to throw connected enemies early. Enemies that are not in line of sight or go out of range during the latch time will not be grabbed.",
-            "Main": [
-                {
-                    "ImpactDamage": 115
-                },
-                {
-                    "ThrowDistance": 12
-                }
-            ],
-            "Alt": []
+        "1": {
+            "Info1": {
+                "Title": null,
+                "Description": "Stomp the ground beneath you, <span class=\"highlight\">damaging enemies</span> in front of you. If you perform Ground Strike while airborne, you quickly dive towards the ground. Damage grows slower after 25m.",
+                "Main": [
+                    {
+                        "Name": "Stomp Damage",
+                        "Base": 90
+                    },
+                    {
+                        "Name": "Damage Per Meter",
+                        "Base": 6.0
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "2": {
+            "Info1": {
+                "Title": null,
+                "Description": "<span class=\"highlight\">Pull yourself through the air</span> toward a target. Using Grapple also resets your limit of <span class=\"highlight\">air jumps and dashes</span>.",
+                "Main": [
+                    {
+                        "Name": "Jump Velocity",
+                        "Base": 20
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "3": {
+            "Info1": {
+                "Title": null,
+                "Description": "Strike enemies with your whip, <span class=\"highlight\">stealing life</span> from them.",
+                "Main": [
+                    {
+                        "Name": "Damage",
+                        "Base": 65
+                    },
+                    {
+                        "Name": "Heal vs heroes",
+                        "Base": 80
+                    },
+                    {
+                        "Name": "Attack Angle",
+                        "Base": 30
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "4": {
+            "Info1": {
+                "Title": null,
+                "Description": "Focus on enemies to connect whips to them. After channeling, connected enemies are <span class=\"highlight\">lifted and stunned</span> then slammed into the ground. Your victims and any enemies in the landing zone will be <span class=\"highlight\">damaged and slowed</span>. <br>Press [{s:iv_attack}] to throw connected enemies early. Enemies that are not in line of sight or go out of range during the latch time will not be grabbed.",
+                "Main": [
+                    {
+                        "Name": "Damage",
+                        "Base": 115
+                    },
+                    {
+                        "Name": "Max Throw Distance",
+                        "Base": 12
+                    }
+                ],
+                "Alt": []
+            }
         }
     },
     "hero_viscous": {
-        "Info1": {
-            "Title": null,
-            "Description": "Morph into a large goo ball that <span class=\"highlight\">deals damage</span> and <span class=\"highlight\">stuns</span> enemies on impact. The ball grants large amounts of <span class=\"highlight\">Bullet</span> and <span class=\"highlight\">Spirit</span> resist, bounces off walls and can <span class=\"highlight\">double jump</span>.",
-            "Main": [
-                {
-                    "Damage": 140
-                },
-                {
-                    "StunDuration": 1
-                }
-            ],
-            "Alt": []
+        "1": {
+            "Info1": {
+                "Title": null,
+                "Description": "Throw a ball of goo that <span class=\"highlight\">deals damage</span> and leaves puddles of goo behind that apply <span class=\"highlight\">movement slow</span> to enemies in the radius.",
+                "Main": [
+                    {
+                        "Name": "Damage",
+                        "Base": 100
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "2": {
+            "Info1": {
+                "Title": null,
+                "Description": "Encase the target in a cube of restorative goo that <span class=\"highlight\">purges debuffs, protects from damage, and increases health regen</span>. Target is <span class=\"highlight\">unable to take any new actions</span> while cubed. Can be used on self. Press <span class=\"highlight\">[{s:in_mantle}]</span> to escape early.",
+                "Main": [
+                    {
+                        "Name": "Health Regen",
+                        "Base": 40
+                    },
+                    {
+                        "Name": "Duration",
+                        "Base": 4
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "3": {
+            "Info1": {
+                "Title": null,
+                "Description": "Materialize a fist in the world that <span class=\"highlight\">punches</span> units in the area and send them flying. Enemies will be <span class=\"highlight\">dealt damage</span>, have their dash distance reduced for a brief moment, and have their <span class=\"highlight\">movement slowed</span>. This is considered a <span class=\"highlight\">Light Melee</span> attack.",
+                "Main": [
+                    {
+                        "Name": "Movement Slow",
+                        "Base": 20
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "4": {
+            "Info1": {
+                "Title": null,
+                "Description": "Morph into a large goo ball that <span class=\"highlight\">deals damage</span> and <span class=\"highlight\">stuns</span> enemies on impact. The ball grants large amounts of <span class=\"highlight\">Bullet</span> and <span class=\"highlight\">Spirit</span> resist, bounces off walls and can <span class=\"highlight\">double jump</span>.",
+                "Main": [
+                    {
+                        "Name": "Damage",
+                        "Base": 140
+                    },
+                    {
+                        "Name": "Stun Duration",
+                        "Base": 1
+                    }
+                ],
+                "Alt": []
+            }
         }
     },
+    "hero_gunslinger": {},
+    "hero_yakuza": {},
+    "hero_genericperson": {},
+    "hero_tokamak": {},
     "hero_wrecker": {
-        "Info1": {
-            "Title": null,
-            "Description": "Launch a <span class=\"highlight\">flying shadow copy of yourself that you control</span>, <span class=\"highlight\">teleporting</span> your original body to wherever it lands. The teleport explosion <span class=\"highlight\">slows enemies and deals damage</span> based on how long you were flying.",
-            "Main": [
-                {
-                    "DamagePerSecondFlown": 16
-                },
-                {
-                    "ExplosionRadius": 8
-                }
-            ],
-            "Alt": []
+        "1": {
+            "Info1": {
+                "Title": null,
+                "Description": "Create a large ball of scrap that can be thrown, <span class=\"highlight\">damaging and stunning</span> anything it hits. The ball takes time to create and you move slower while carrying it.",
+                "Main": [
+                    {
+                        "Name": "Damage",
+                        "Base": 80
+                    },
+                    {
+                        "Name": "Stun Duration",
+                        "Base": 1
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "2": {
+            "Info1": {
+                "Title": null,
+                "Description": "<span class=\"highlight\">Stuns</span> an enemy trooper or NPC, <span class=\"highlight\">damaging</span> them while held. A successful kill provides a <span class=\"highlight\">fire rate</span> bonus, and restores a <span class=\"highlight\">Bio Blast</span> charge.  This bonus stacks independently",
+                "Main": [
+                    {
+                        "Name": "DPS",
+                        "Base": 80
+                    },
+                    {
+                        "Name": "Fire Rate per bonus",
+                        "Base": 25
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "3": {
+            "Info1": {
+                "Title": null,
+                "Description": "Shoots out a blast of consumed remains, <span class=\"highlight\">damaging</span> and <span class=\"highlight\">slowing</span> enemies. Multiple hits increase the slow.",
+                "Main": [
+                    {
+                        "Name": "Damage",
+                        "Base": 75
+                    },
+                    {
+                        "Name": "Enemy Slow per hit",
+                        "Base": 10
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "4": {
+            "Info1": {
+                "Title": null,
+                "Description": "Launch a <span class=\"highlight\">flying shadow copy of yourself that you control</span>, <span class=\"highlight\">teleporting</span> your original body to wherever it lands. The teleport explosion <span class=\"highlight\">slows enemies and deals damage</span> based on how long you were flying.",
+                "Main": [
+                    {
+                        "Name": "Damage per second flown",
+                        "Base": 16
+                    },
+                    {
+                        "Name": "Explosion Radius",
+                        "Base": 8
+                    }
+                ],
+                "Alt": []
+            }
         }
     },
+    "hero_rutger": {},
     "hero_synth": {
-        "Info1": {
-            "Title": null,
-            "Description": "Apply <span class=\"highlight\">damage over time</span> to all enemies nearby.<br>Affliction's damage is non-lethal and does not apply item procs.",
-            "Main": [
-                {
-                    "DPS": 23
-                },
-                {
-                    "DebuffDuration": 18
-                }
-            ],
-            "Alt": []
+        "1": {
+            "Info1": {
+                "Title": null,
+                "Description": "Channel to start launching projectiles that <span class=\"highlight\">deal damage</span> and <span class=\"highlight\">apply movement slow</span> around their impact point. Each projectile landed on a hero grants you a <span class=\"highlight\">stacking buff that amplifies all of your damage</span>.<br>If you cast it while in the air, you'll <span class=\"highlight\">float</span> and maintain any horizontal momentum you started with.",
+                "Main": [
+                    {
+                        "Name": "Amp Per Stack",
+                        "Base": 6
+                    },
+                    {
+                        "Name": "Damage Per Projectile",
+                        "Base": 35
+                    },
+                    {
+                        "Name": "Movement Slow",
+                        "Base": 30
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "2": {
+            "Info1": {
+                "Title": null,
+                "Description": "Launch a sentient cloak that <span class=\"highlight\">travels forward</span> and <span class=\"highlight\">damages enemies</span>. You can press <span class=\"highlight\">[{s:in_ability2}]</span> to <span class=\"highlight\">teleport</span> to its location.",
+                "Main": [
+                    {
+                        "Name": "Damage",
+                        "Base": 90
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "3": {
+            "Info1": {
+                "Title": null,
+                "Description": "<span class=\"highlight\">Escape</span> into your suitcase. When the duration ends, <span class=\"highlight\">deal damage</span> to nearby enemies. Duration can be ended early by performing any action.",
+                "Main": [
+                    {
+                        "Name": "Channel Duration",
+                        "Base": 2.0
+                    },
+                    {
+                        "Name": "Damage",
+                        "Base": 100
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "4": {
+            "Info1": {
+                "Title": null,
+                "Description": "Apply <span class=\"highlight\">damage over time</span> to all enemies nearby.<br>Affliction's damage is non-lethal and does not apply item procs.",
+                "Main": [
+                    {
+                        "Name": "DPS",
+                        "Base": 23
+                    },
+                    {
+                        "Name": "Debuff Duration",
+                        "Base": 18
+                    }
+                ],
+                "Alt": []
+            }
         }
     },
+    "hero_thumper": {},
     "hero_mirage": {
-        "Info1": {
-            "Title": null,
-            "Description": "Launch a slow projectile that you can activate anywhere along its path to detonate it, dealing damage to enemies caught in its radius. Deals bonus damage for each additional hero hit.",
-            "Main": [
-                {
-                    "Damage": 225
-                },
-                {
-                    "BombBonusDamagePerHero": 60
-                }
-            ],
-            "Alt": []
+        "1": {
+            "Info1": {
+                "Title": null,
+                "Description": "Send out a tornado that <span class=\"highlight\">damages enemies</span> and <span class=\"highlight\">lifts them up in the air</span>. While they're up in the air, targets <span class=\"highlight\">will fully evade all bullets</span>.",
+                "Main": [
+                    {
+                        "Name": "Damage",
+                        "Base": 60
+                    },
+                    {
+                        "Name": "Lift Duration",
+                        "Base": 1.25
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "2": {
+            "Info1": {
+                "Title": null,
+                "Description": "Start launching fire scarabs. Each scarab can be <span class=\"highlight\">launched separately</span>, applying a <span class=\"highlight\">lifesteal over time</span> to enemies they hit. Once the launch window ends, this ability goes on cooldown.",
+                "Main": [
+                    {
+                        "Name": "DPS",
+                        "Base": 20
+                    },
+                    {
+                        "Name": "Heal vs Heroes",
+                        "Base": 40
+                    },
+                    {
+                        "Name": "Debuff Duration",
+                        "Base": 4
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "3": {
+            "Info1": {
+                "Title": null,
+                "Description": "Passive: Your next shot is amplified with <span class=\"highlight\">Spirit Damage</span>. Each amplified shot that hits the same target increases the Spirit Damage dealt.",
+                "Main": [
+                    {
+                        "Name": "Spirit Damage",
+                        "Base": 20
+                    },
+                    {
+                        "Name": "Escalating Spirit Damage",
+                        "Base": 15
+                    }
+                ],
+                "Alt": []
+            },
+            "Info2": {
+                "Title": null,
+                "Description": "You become enveloped in a whirlwind that provides <span class=\"highlight\">bullet evasion</span> and <span class=\"highlight\">movement speed</span>.",
+                "Main": [
+                    {
+                        "Name": "Bullet Evasion Chance",
+                        "Base": 50
+                    },
+                    {
+                        "Name": "Duration",
+                        "Base": 3.5
+                    }
+                ],
+                "Alt": []
+            }
+        },
+        "4": {
+            "Info1": {
+                "Title": null,
+                "Description": "Launch a slow projectile that you can activate anywhere along its path to detonate it, dealing damage to enemies caught in its radius. Deals bonus damage for each additional hero hit.",
+                "Main": [
+                    {
+                        "Name": "Damage",
+                        "Base": 225
+                    },
+                    {
+                        "Name": "Bonus Damage Per Hero",
+                        "Base": 60
+                    }
+                ],
+                "Alt": []
+            }
         }
-    }
+    },
+    "hero_slork": {},
+    "hero_cadence": {},
+    "hero_targetdummy": {},
+    "hero_bomber": {}
 }
