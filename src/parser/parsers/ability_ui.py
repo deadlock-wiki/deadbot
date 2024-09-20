@@ -121,7 +121,7 @@ class AbilityUiParser:
 
             parsed_ui[f'Info{index+1}'] = parsed_info_section
 
-        parsed_ui['Other'] = self._parse_other_block(info_section, parsed_ability)
+        parsed_ui.update(self._parse_rest_of_data(info_section, parsed_ability))
 
         # remaining properties are placed into "Other"
         return parsed_ui
@@ -213,6 +213,7 @@ class AbilityUiParser:
         for prop in info_section['m_vecBasicProperties']:
             alt_block.append(
                 {
+                    'Key': prop,
                     'Name': self._get_ability_display_name(prop),
                     'Value': parsed_ability.get(prop),
                     'Type': self._get_raw_ability_attr(parsed_ability['Key'], prop).get(
@@ -225,22 +226,75 @@ class AbilityUiParser:
 
         return alt_block
 
-    def _parse_other_block(self, info_section, parsed_ability):
-        other_block = []
+    def _parse_rest_of_data(self, info_section, parsed_ability):
+        rest_of_data = {
+            'Cooldown': [],
+            'Duration': [],
+            'Range': [],
+            'Cast': [],
+            'Move': [],
+            'Damage': [],
+            'Health': [],
+            'Buff': [],
+            'Debuff': [],
+            'Other': [],
+        }
+
         for prop in parsed_ability:
             # skip any attributes that are already placed in other categories
             if prop in self.used_attributes:
                 continue
 
             raw_ability = self._get_raw_ability_attr(parsed_ability['Key'], prop)
-            other_block.append(
-                {
-                    'Name': self._get_ability_display_name(prop),
-                    'Value': parsed_ability.get(prop),
-                    'Type': raw_ability.get('m_strCSSClass'),
-                }
-            )
-        return other_block
+            attr_type = raw_ability.get('m_strCSSClass')
+
+            data = {
+                'Key': prop,
+                'Name': self._get_ability_display_name(prop),
+                'Value': parsed_ability.get(prop),
+                'Type': attr_type,
+            }
+
+            match attr_type:
+                case 'cooldown' | 'charge_cooldown':
+                    rest_of_data['Cooldown'].append(data)
+
+                case 'duration':
+                    rest_of_data['Duration'].append(data)
+
+                case 'range' | 'distance':
+                    rest_of_data['Range'].append(data)
+
+                case 'damage' | 'bullet_damage' | 'tech_damage':
+                    rest_of_data['Damage'].append(data)
+
+                case 'healing' | 'health':
+                    rest_of_data['Health'].append(data)
+
+                case 'bullet_armor_up':
+                    rest_of_data['Buff'].append(data)
+
+                case 'slow':
+                    rest_of_data['Debuff'].append(data)
+
+                case 'cast':
+                    rest_of_data['Cast'].append(data)
+
+                case 'move_speed':
+                    rest_of_data['Move'].append(data)
+
+                case None | '':
+                    rest_of_data['Other'].append(data)
+                case _:
+                    raise Exception(f'Unhandled ability attr type {attr_type}')
+
+        # Clear out any empty arrays
+        cleared_data = {}
+        for key, value in rest_of_data.items():
+            if len(value) != 0:
+                cleared_data[key] = value
+
+        return cleared_data
 
     def _parse_upgrades(self, parsed_ability):
         parsed_upgrades = []

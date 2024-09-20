@@ -167,7 +167,7 @@ def override_localization(attr):
 
 
 # 'EMultiplyScale' is only used for "kali", a hero not yet released
-SCALE_TYPE_MAP = {'ETechPower': 'Spirit', 'ELightMeleeDamage': 'Melee', 'ETechRange': 'Range'}
+SCALE_TYPE_MAP = {'ETechPower': 'spirit', 'ELightMeleeDamage': 'melee', 'ETechRange': 'range'}
 
 
 def get_scale_type(scale):
