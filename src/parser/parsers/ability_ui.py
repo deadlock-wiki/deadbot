@@ -60,8 +60,6 @@ class AbilityUiParser:
             return None
 
         info_sections = raw_ability['m_AbilityTooltipDetails']['m_vecAbilityInfoSections']
-        # if len(info_sections) > 2:
-        #     raise Exception(f'Found {len(info_sections)} sections, but only 2 are supported')
 
         handled_keys = [
             'm_strAbilityPropertyUpgradeRequired',
@@ -70,11 +68,9 @@ class AbilityUiParser:
             'm_vecBasicProperties',
         ]
 
-        # track used attributes to see what should be put in the "Other" category
+        # track used attributes to avoid duplicate values in other categories
         self.used_attributes = ['Key', 'Name', 'Upgrades']
         for index, info_section in enumerate(info_sections):
-            if parsed_ability['Key'] == 'viscous_goo_grenade':
-                print(index)
             # skip any UI that requires an upgraded ability to display it
             if 'm_strAbilityPropertyUpgradeRequired' in info_section:
                 continue
@@ -112,10 +108,6 @@ class AbilityUiParser:
             if 'm_vecAbilityPropertiesBlock' in info_section:
                 parsed_info_section['Main'] = self._parse_main_block(info_section, parsed_ability)
 
-                # if attr not in parsed_ability:
-                #     print(f'Missing base stat {attr}')
-                #     continue
-
             if 'm_vecBasicProperties' in info_section:
                 parsed_info_section['Alt'] = self._parse_alt_block(info_section, parsed_ability)
 
@@ -129,84 +121,96 @@ class AbilityUiParser:
     def _parse_main_block(self, info_section, parsed_ability):
         main_block = {'Props': []}
 
-        ability_prop_block = info_section['m_vecAbilityPropertiesBlock']
-        # if len(ability_prop_block) > 1:
-        # raise Exception(
-        #     f'Expected only one ability property block, but found {len(ability_prop_block)} for
-        # ability {parsed_ability["Key"]}'
-        # )
+        props_block = info_section['m_vecAbilityPropertiesBlock']
+        for props in props_block:
+            title = None
+            title_key = props.get('m_strPropertiesTitleLocString')
+            if title_key is not None:
+                # localization keys are prefixed with a "#"
+                title_key = title_key.replace('#', '')
+                if title_key != '':
+                    if title_key not in self.localizations:
+                        raise Exception(f'Missing title for key {title_key}')
 
-        main_props = ability_prop_block[0]['m_vecAbilityProperties']
+                    title = self.localizations[title_key]
 
-        title_key = ability_prop_block[0].get('m_strPropertiesTitleLocString')
-        if title_key is not None:
-            # localization keys are prefixed with a "#"
-            title_key = title_key.replace('#', '')
-            if title_key != '':
-                if title_key not in self.localizations:
-                    raise Exception(f'Missing title for key {title_key}')
+            ability_props = props['m_vecAbilityProperties']
 
-                main_block['Title'] = self.localizations[title_key]
+            for ability_prop in ability_props:
+                if title is None:
+                    prop_object = {}
+                else:
+                    prop_object = {'Title': title}
 
-        for prop in main_props:
-            attr_key = None
-            prop_requires_upgrade = False
+                parsed_prop = self._parse_ability_prop(ability_prop)
 
-            for prop_attr, prop_value in prop.items():
-                match prop_attr:
-                    case 'm_strStatusEffectValue':
-                        attr_key = prop_value
+                # skip property that requires ability to be upgraded
+                if parsed_prop['requires_upgrade']:
+                    continue
 
-                    case 'm_strImportantProperty':
-                        # This is only used in case m_strStatusEffectValue is not found
-                        if attr_key is None:
-                            attr_key = prop_value
+                attr_key = parsed_prop['key']
+                if attr_key is None:
+                    raise Exception(f"Missing value for ability {parsed_ability['Name']}")
 
-                    case 'm_bRequiresAbilityUpgrade':
-                        prop_requires_upgrade = True
+                if attr_key not in parsed_ability:
+                    print(
+                        f'[WARN] - {attr_key} is probably an upgrade attr that is not tagged as such'
+                    )
+                    continue
 
-                    case 'm_bShowPropertyValue':
-                        # this has no use at the moment, as we want to always show the prop value
-                        continue
+                raw_ability = self._get_raw_ability_attr(parsed_ability['Key'], attr_key)
 
-                    case _:
-                        print('[ERROR] Unhandled property', prop_attr)
-
-            # skip property that requires ability to be upgraded
-            if prop_requires_upgrade:
-                continue
-
-            if attr_key is None:
-                raise Exception(f"Missing value for ability {parsed_ability['Name']}")
-
-            if attr_key not in parsed_ability:
-                print(f'[WARN] - {attr_key} is probably an upgrade attr that is not tagged as such')
-                continue
-
-            raw_ability = self._get_raw_ability_attr(parsed_ability['Key'], attr_key)
-
-            prop = {
-                'Name': self.localizations[attr_key + '_label'],
-                'Value': parsed_ability[attr_key],
-                'Type': raw_ability.get('m_strCSSClass'),
-            }
-
-            if 'm_subclassScaleFunction' in raw_ability:
-                raw_scale = raw_ability['m_subclassScaleFunction']
-                # Only include scale with a value, as not sure what
-                # any others mean so far.
-                if 'm_flStatScale' in raw_scale:
-                    prop['Scale'] = {
-                        'Value': raw_scale['m_flStatScale'],
-                        'Type': maps.get_scale_type(
-                            raw_scale.get('m_eSpecificStatScaleType', 'ETechPower')
-                        ),
+                prop_object.update(
+                    {
+                        'Name': self.localizations[attr_key + '_label'],
+                        'Value': parsed_ability[attr_key],
+                        'Type': raw_ability.get('m_strCSSClass'),
                     }
+                )
+                if parsed_ability['Key'] == 'citadel_ability_bebop_laser_beam':
+                    print('----', prop_object)
 
-            main_block['Props'].append(prop)
+                if 'm_subclassScaleFunction' in raw_ability:
+                    raw_scale = raw_ability['m_subclassScaleFunction']
+                    # Only include scale with a value, as not sure what
+                    # any others mean so far.
+                    if 'm_flStatScale' in raw_scale:
+                        prop_object['Scale'] = {
+                            'Value': raw_scale['m_flStatScale'],
+                            'Type': maps.get_scale_type(
+                                raw_scale.get('m_eSpecificStatScaleType', 'ETechPower')
+                            ),
+                        }
+                self.used_attributes.append(attr_key)
 
-            self.used_attributes.append(attr_key)
+                main_block['Props'].append(prop_object)
+
         return main_block
+
+    def _parse_ability_prop(self, ability):
+        attribute = {'key': None, 'requires_upgrade': False}
+
+        for attr, value in ability.items():
+            match attr:
+                case 'm_strStatusEffectValue':
+                    attribute['key'] = value
+
+                case 'm_strImportantProperty':
+                    # This is only used in case m_strStatusEffectValue is not found
+                    if attribute['key'] is None:
+                        attribute['key'] = value
+
+                case 'm_bRequiresAbilityUpgrade':
+                    attribute['requires_upgrade'] = True
+
+                case 'm_bShowPropertyValue':
+                    # this has no use at the moment, as we want to always show the prop value
+                    continue
+
+                case _:
+                    print('[ERROR] Unhandled property', attr)
+
+        return attribute
 
     def _parse_alt_block(self, info_section, parsed_ability):
         alt_block = []
@@ -379,7 +383,7 @@ class AbilityUiParser:
 
         localized_key = f'{attr}_label'
         if localized_key not in self.localizations:
-            print(f'Missing label for key {localized_key}')
+            # print(f'Missing label for key {localized_key}')
             return attr
         return self.localizations[localized_key]
 

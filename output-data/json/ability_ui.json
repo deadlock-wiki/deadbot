@@ -1634,17 +1634,18 @@
                 "Main": {
                     "Props": [
                         {
+                            "Title": "Effect Per Stack:",
                             "Name": "Damage Amplification",
                             "Value": 15,
                             "Type": null
                         },
                         {
+                            "Title": "Effect Per Stack:",
                             "Name": "Move Slow",
                             "Value": 20,
                             "Type": "slow"
                         }
-                    ],
-                    "Title": "Effect Per Stack:"
+                    ]
                 },
                 "Alt": [
                     {
@@ -6014,6 +6015,12 @@
                             "Name": "Beam Width",
                             "Value": 2.9,
                             "Type": null
+                        },
+                        {
+                            "Title": "On Hit:",
+                            "Name": "Movement Slow",
+                            "Value": 30,
+                            "Type": "slow"
                         }
                     ]
                 },
@@ -6063,14 +6070,6 @@
                     "Name": "Channel Move Speed",
                     "Value": 70,
                     "Type": "move_speed"
-                }
-            ],
-            "Debuff": [
-                {
-                    "Key": "SlowPercent",
-                    "Name": "Movement Slow",
-                    "Value": 30,
-                    "Type": "slow"
                 }
             ],
             "Other": [
@@ -7948,12 +7947,12 @@
                 "Main": {
                     "Props": [
                         {
+                            "Title": "On Activate",
                             "Name": "Deferred Damage Cleared",
                             "Value": 40,
                             "Type": "healing"
                         }
-                    ],
-                    "Title": "On Activate"
+                    ]
                 },
                 "Alt": []
             },
