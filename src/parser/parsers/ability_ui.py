@@ -41,6 +41,7 @@ class AbilityUiParser:
         }
 
         description = (self.localizations.get(parsed_ability['Key'] + '_desc'),)
+
         # required variables to insert into the description
         format_vars = (parsed_ability, maps.KEYBIND_MAP, {'hero_name': self.localizations[hero_key]})
         parsed_ui['Description'] = string_utils.format_description(description, *format_vars)
@@ -84,7 +85,17 @@ class AbilityUiParser:
                 desc_key = desc_key.replace('#', '')
                 if desc_key not in self.localizations:
                     raise Exception(f'Missing description for key {desc_key}')
-                parsed_info_section['Description'] = self.localizations[desc_key]
+
+                description = self.localizations[desc_key]
+                # required variables to insert into the description
+                format_vars = (
+                    parsed_ability,
+                    maps.KEYBIND_MAP,
+                    {'hero_name': self.localizations[hero_key]},
+                )
+                parsed_info_section['Description'] = string_utils.format_description(
+                    description, *format_vars
+                )
 
             # some blocks might just be a description
             if 'm_vecAbilityPropertiesBlock' in info_section:
