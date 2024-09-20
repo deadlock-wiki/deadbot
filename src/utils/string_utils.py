@@ -55,32 +55,6 @@ def _replace_variables(desc, data):
     return formatted_desc
 
 
-def assert_number(value):
-    """
-    Ensure any input numbers, or stringified numbers are converted
-    to their appropriate type
-
-    Otherwise, return original value
-    """
-    if isinstance(value, float) | isinstance(value, int):
-        return value
-
-    if value is None:
-        return value
-
-    # stringified float will always have a decimal point
-    if '.' in value:
-        try:
-            return float(value)
-        except (TypeError, ValueError):
-            return value
-
-    try:
-        return int(value)
-    except (TypeError, ValueError):
-        return value
-
-
 def remove_letters(input_string):
     """Remove letters from a string. Eg. -4.5m -> -4.5"""
     return re.sub(r'[^0-9.\-]', '', input_string)
