@@ -3,6 +3,22 @@
         "1": {
             "Name": "Catalyst",
             "Description": "Spew napalm that slows enemy movement and amplifies the damage Infernus does to them.",
+            "Upgrades": [
+                {
+                    "AbilityCharges": 1,
+                    "Description": null
+                },
+                {
+                    "LifestealPercentHero": 15,
+                    "Description": "Infernus gains 15% Lifesteal against victims"
+                },
+                {
+                    "DamageAmplification": 15,
+                    "HealAmpReceivePenaltyPercent": -40,
+                    "HealAmpRegenPenaltyPercent": -40,
+                    "Description": "+15% Damage Amplification and -40% Heal/Regen"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -27,6 +43,21 @@
         "2": {
             "Name": "Flame Dash",
             "Description": "Move forward at high speed and leave a flame trail that burns enemies. Infernus gains 50% slow resistance for the duration.  <br>Hold [M1] to dash faster.",
+            "Upgrades": [
+                {
+                    "FireRateSlow": 30,
+                    "FlameDashDebuffDuration": 6,
+                    "Description": "+30% Fire Rate Slow for 6s"
+                },
+                {
+                    "FlameAuraDPS": 45,
+                    "Description": null
+                },
+                {
+                    "AbilityCooldown": -19.0,
+                    "Description": null
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -47,6 +78,20 @@
         "3": {
             "Name": "Afterburn",
             "Description": "Your bullets build up to apply a burning effect on enemies. Infernus's bullets and abilities will refresh the duration.",
+            "Upgrades": [
+                {
+                    "AfterburnSpiritDamageReduction": -30,
+                    "Description": "Victims deal -30% Spirit Damage."
+                },
+                {
+                    "BurnDuration": 1,
+                    "Description": null
+                },
+                {
+                    "DPS": 30,
+                    "Description": null
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -67,6 +112,22 @@
         "4": {
             "Name": "Concussive Combustion",
             "Description": "Turns you into a living bomb that explodes after a short delay, stunning all enemies in its radius.",
+            "Upgrades": [
+                {
+                    "AbilityCooldown": -38.0,
+                    "Description": null
+                },
+                {
+                    "StunDuration": 0.5,
+                    "Radius": "4m",
+                    "Description": "+0.5s Stun Duration and +4m Radius"
+                },
+                {
+                    "Damage": 115,
+                    "LifeStealPercentOnHit": 100,
+                    "Description": "+115 Damage and 100% lifesteal from enemy heroes hit"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -93,6 +154,20 @@
         "1": {
             "Name": "Lightning Ball",
             "Description": "Shoot a ball of lightning that travels in a straight line. Does damage to all targets in its radius. Slows down when damaging enemies and stops if it hits the world.",
+            "Upgrades": [
+                {
+                    "AbilityCharges": 1,
+                    "Description": null
+                },
+                {
+                    "SlowPercent": 40,
+                    "Description": null
+                },
+                {
+                    "DPS": 70,
+                    "Description": "+70 DPS"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -113,6 +188,20 @@
         "2": {
             "Name": "Static Charge",
             "Description": "Apply a charge to a target enemy hero. After a short duration, the static charge stuns and damages enemies within the radius.",
+            "Upgrades": [
+                {
+                    "AbilityCooldown": -19.0,
+                    "Description": null
+                },
+                {
+                    "ShockRadius": "8m",
+                    "Description": null
+                },
+                {
+                    "StunDuration": 1.1,
+                    "Description": null
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -137,6 +226,23 @@
         "3": {
             "Name": "Power Surge",
             "Description": "Power up your weapon with a shock effect, making your bullets proc shock damage on your target. This shock damage bounces to enemies near your target. Occurs once per burst shot.",
+            "Upgrades": [
+                {
+                    "TechResistDebuff": -15,
+                    "DebuffDuration": 8,
+                    "Description": "Shock Damage applies -15% Spirit Resist for 8s"
+                },
+                {
+                    "AbilityCooldown": -15.0,
+                    "Description": null
+                },
+                {
+                    "DamagePerChain": 12,
+                    "BonusPerChain": 12,
+                    "ChainCount": 3,
+                    "Description": "+12 Shock Damage, improved Spirit scaling, and +3 Max Jumps"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -157,6 +263,21 @@
         "4": {
             "Name": "Storm Cloud",
             "Description": "Channel an expanding storm cloud around you that damages all enemies within its radius. Enemies do not take damage when they are out of line-of-sight. You have increased Bullet Resist during the channel.",
+            "Upgrades": [
+                {
+                    "BulletResistOnActive": 35,
+                    "Description": "+35% Bullet Resist while channeling Storm Cloud"
+                },
+                {
+                    "Radius": "10m",
+                    "AbilityChannelTime": 7,
+                    "Description": "+7s Channel Time and +10m Radius"
+                },
+                {
+                    "DPS": 75,
+                    "Description": "+75 DPS"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -175,6 +296,20 @@
         "1": {
             "Name": "Stake",
             "Description": "Throw a stake that tethers enemies to the location where the stake lands. Enemy movement is restricted to the length of the tether.",
+            "Upgrades": [
+                {
+                    "ChainDuration": 0.5,
+                    "Description": null
+                },
+                {
+                    "AbilityCooldown": -19.0,
+                    "Description": null
+                },
+                {
+                    "HasDisarm": 1,
+                    "Description": "Tethered enemies are also disarmed<%s3>"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -199,6 +334,20 @@
         "2": {
             "Name": "Flight",
             "Description": "Leap into the air and fly. While in flight your weapon deals bonus spirit damage.",
+            "Upgrades": [
+                {
+                    "BonusClipSizePercent": 50,
+                    "Description": "+50% base Ammo while flying"
+                },
+                {
+                    "AbilityCooldown": -14.0,
+                    "Description": null
+                },
+                {
+                    "MagicDamagePerBullet": 12.0,
+                    "Description": null
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -215,6 +364,23 @@
         "3": {
             "Name": "Crow Familiar",
             "Description": "Your crow familiar deals impact damage, reduces their bullet resist and applies a bleed that deals damage based on the target's current health.",
+            "Upgrades": [
+                {
+                    "TargetBounceRange": "15m",
+                    "TargetBounceCount": 3,
+                    "Description": "Crow Ricochets up to 2 times towards other enemies within 15m"
+                },
+                {
+                    "AbilityCooldown": -16.0,
+                    "Description": null
+                },
+                {
+                    "DotHealthPercent": 3,
+                    "HealAmpReceivePenaltyPercent": -40,
+                    "HealAmpRegenPenaltyPercent": -40,
+                    "Description": "+3% Bleed and suppresses healing by -40%"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -239,6 +405,20 @@
         "4": {
             "Name": "Assassinate",
             "Description": "Use your scoped rifle to fire a powerful shot over long distances. Deal only partial damage until fully charged after 1s of being scoped. Does bonus damage to enemies with less than 50% health remaining. Landing a killing blow on a player with Assassinate grants you bonus souls.",
+            "Upgrades": [
+                {
+                    "AbilityCooldown": -19.0,
+                    "Description": null
+                },
+                {
+                    "LowHealthEnemyDamageBonus": 140,
+                    "Description": null
+                },
+                {
+                    "BonusGoldOnKill": 600,
+                    "Description": "Assassinate kills grant +600 souls"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -265,6 +445,21 @@
         "1": {
             "Name": "Essence Bomb",
             "Description": "Sacrifice some of your health to launch a bomb that deals damage after a brief arm time.<br>Self damage type is Spirit and can be mitigated.",
+            "Upgrades": [
+                {
+                    "Radius": "2m",
+                    "Description": null
+                },
+                {
+                    "Damage": 60,
+                    "Description": null
+                },
+                {
+                    "BloodSpillDPSPercent": 26,
+                    "BloodSpillDuration": 6,
+                    "Description": "Bombs leave a toxic mess on the ground, dealing 26% of the original damage per second, for 6s."
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -282,9 +477,54 @@
                 "Description": "Sacrifice some of your health to launch a bomb that deals damage after a brief arm time.<br>Self damage type is Spirit and can be mitigated."
             }
         },
+        "2": {
+            "Name": "Life Drain",
+            "Description": "Create a tether that drains enemy health over time and heals you. Target must be in line of sight and within max range to drain. You can shoot and use other abilities during the drain, but your movement speed is reduced by half. Press [2] to cancel.",
+            "Upgrades": [
+                {
+                    "LifeDrainPerSecond": 20,
+                    "Description": null
+                },
+                {
+                    "AbilityDuration": 2.0,
+                    "Description": null
+                },
+                {
+                    "SilenceOnDrain": 1,
+                    "Description": "Enemy is Silenced while being Life Drained (requires line of sight)"
+                }
+            ],
+            "Info1": {
+                "Main": {
+                    "Props": [
+                        {
+                            "Name": "Damage Per Second",
+                            "Base": 35
+                        }
+                    ]
+                },
+                "Alt": [],
+                "Description": "Create a tether that drains enemy health over time and heals you. Target must be in line of sight and within max range to drain. You can shoot and use other abilities during the drain, but your movement speed is reduced by half. Press [2] to cancel."
+            }
+        },
         "3": {
             "Name": "Malice",
             "Description": "Sacrifice some of your health to launch blood shards that apply a stack of Malice. Each stack slows the victim and increases the damage they take from you. The slow effect decreases over time.",
+            "Upgrades": [
+                {
+                    "AbilityCooldown": -2.75,
+                    "Description": null
+                },
+                {
+                    "HealthToDamage": 40,
+                    "Description": "+40 Health To Damage"
+                },
+                {
+                    "NumBloodShards": 6,
+                    "SpreadAngleDegrees": 22,
+                    "Description": "+6 Blood Shards"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -317,6 +557,22 @@
         "4": {
             "Name": "Soul Exchange",
             "Description": "Swaps health levels with an enemy target. There is a minimum health percentage that enemies can be brought down to and a minimum amount of health received based on victims current health.",
+            "Upgrades": [
+                {
+                    "AbilityCooldown": -38.0,
+                    "Description": null
+                },
+                {
+                    "EnemyMinHealthPct": -10,
+                    "Description": null
+                },
+                {
+                    "SelfBuffDuration": 8,
+                    "TechResist": 40,
+                    "BonusFireRate": 40,
+                    "Description": "On cast, +40% Fire Rate and +40% Spirit Resist for 8s."
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -339,6 +595,20 @@
         "1": {
             "Name": "Siphon Life",
             "Description": "Drain health from enemies in front of you while they are in the radius.",
+            "Upgrades": [
+                {
+                    "AbilityCooldown": -19.0,
+                    "Description": null
+                },
+                {
+                    "AbilityDuration": 2,
+                    "Description": null
+                },
+                {
+                    "LifeDrainPerSecond": 40,
+                    "Description": null
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -363,6 +633,21 @@
         "2": {
             "Name": "Shoulder Charge",
             "Description": "Charge forward, colliding with enemies and dragging them along.  Hitting a wall will Stun enemies caught by Abrams. Speed increased after colliding with enemy Heroes.",
+            "Upgrades": [
+                {
+                    "AbilityCooldown": -19.0,
+                    "Description": null
+                },
+                {
+                    "AbilityDuration": 0.5,
+                    "Description": null
+                },
+                {
+                    "WeaponDamageBonus": 5.5,
+                    "WeaponPowerIncreaseDuration": 8,
+                    "Description": "+5.5 Weapon Damage for 8s after colliding with an enemy"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -383,6 +668,20 @@
         "3": {
             "Name": "Infernal Resilience",
             "Description": "Regenerate a portion of incoming damage over time.",
+            "Upgrades": [
+                {
+                    "BonusHealthRegen": 1.5,
+                    "Description": null
+                },
+                {
+                    "BonusMaxHealth": 150,
+                    "Description": null
+                },
+                {
+                    "RegenIncomingDamagePercent": 9,
+                    "Description": null
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -403,6 +702,22 @@
         "4": {
             "Name": "Seismic Impact",
             "Description": "Leap high into the air and choose a ground location to crash into.  When you hit the ground, all enemies in the radius are damaged and stunned.<br>Press [M1] to crash down early.",
+            "Upgrades": [
+                {
+                    "AbilityCooldown": -38.0,
+                    "Description": null
+                },
+                {
+                    "BonusMaxHealthPerHero": 100,
+                    "BonusFireRatePerHero": 15,
+                    "LandingBonusesDuration": 25,
+                    "Description": "Gain 100 Max HP and 15% Fire Rate per hero hit. Lasts 25s."
+                },
+                {
+                    "ImmunityDuration": 3,
+                    "Description": "On cast, become Immune to Stun, Silence, Sleep, Root, and Disarm. Expires 3s after landing."
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -425,6 +740,20 @@
         "1": {
             "Name": "Card Trick",
             "Description": "Deal weapon damage to summon cards.  Activate to throw a card that flies towards the enemy or point under your crosshair.",
+            "Upgrades": [
+                {
+                    "AbilityCharges": 1,
+                    "Description": null
+                },
+                {
+                    "Damage": 50,
+                    "Description": null
+                },
+                {
+                    "CardResourceGenPctScale": 50,
+                    "Description": null
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -445,6 +774,21 @@
         "2": {
             "Name": "Project Mind",
             "Description": "Teleport to the targeted location.",
+            "Upgrades": [
+                {
+                    "AbilityCastRange": "15m",
+                    "Description": null
+                },
+                {
+                    "BulletShieldOnLand": 300,
+                    "BulletShieldDuration": 8,
+                    "Description": "Provides a 300 bullet shield for 8s on teleport. Shield amount scales with Spirit Power."
+                },
+                {
+                    "AbilityCooldown": -28.0,
+                    "Description": null
+                }
+            ],
             "Info1": {
                 "Main": [],
                 "Alt": [],
@@ -454,6 +798,20 @@
         "3": {
             "Name": "Full Auto",
             "Description": "Temporarily boosts your fire rate. Nearby allies receive half the fire rate bonus.",
+            "Upgrades": [
+                {
+                    "AbilityCooldown": -14.0,
+                    "Description": null
+                },
+                {
+                    "MagicDamagePerBullet": 5,
+                    "Description": null
+                },
+                {
+                    "BulletLifestealPercent": 35,
+                    "Description": null
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -474,6 +832,20 @@
         "4": {
             "Name": "Telekinesis",
             "Description": "Lift an enemy hero into the air, stunning them for a short time. When the lift ends, the target receives Telekinesis damage.",
+            "Upgrades": [
+                {
+                    "AbilityCooldown": -28.0,
+                    "Description": null
+                },
+                {
+                    "AbilityDuration": 0.5,
+                    "Description": null
+                },
+                {
+                    "AbilityUnitTargetLimit": 5,
+                    "Description": "Telekinesis will target enemies in an area around Wraith"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -491,11 +863,42 @@
     "hero_forge": {
         "1": {
             "Name": "Mini Turret",
-            "Description": "Deploy a Mini Turret that automatically shoots enemies. The turret expires after a limited lifetime.<br>Turrets gain 30% of McGinnis's max health and have 60% Spirit Resist. They deal reduced damage to troopers and objectives."
+            "Description": "Deploy a Mini Turret that automatically shoots enemies. The turret expires after a limited lifetime.<br>Turrets gain 30% of McGinnis's max health and have 60% Spirit Resist. They deal reduced damage to troopers and objectives.",
+            "Upgrades": [
+                {
+                    "AbilityCharges": 1,
+                    "MoveSlowPercent": 25,
+                    "SlowDuration": 1.3,
+                    "Description": "+1 Ability Charge and turrets apply +25% Movement Slow"
+                },
+                {
+                    "TurretAttackRange": "10m",
+                    "AttackSpeedMult": 10,
+                    "Description": "+10m Attack Range and +10% turret fire rate"
+                },
+                {
+                    "TurretDPS": 45,
+                    "Description": null
+                }
+            ]
         },
         "2": {
             "Name": "Medicinal Specter",
             "Description": "Deploy a spirit that heals nearby units.",
+            "Upgrades": [
+                {
+                    "AuraFireRateBonus": 35,
+                    "Description": "+35% Fire Rate on units being healed by Medicinal Specter"
+                },
+                {
+                    "AbilityCooldown": -17.0,
+                    "Description": null
+                },
+                {
+                    "MaxHealthRegenPct": 5,
+                    "Description": "+5% Max Health regen per second"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -509,9 +912,60 @@
                 "Description": "Deploy a spirit that heals nearby units."
             }
         },
+        "3": {
+            "Name": "Spectral Wall",
+            "Description": "Creates a wall that divides the terrain in half. On creation, the wall deals damage and applies slow to enemies nearby. <br>After casting, press [M1] or [3] to erupt the wall early.",
+            "Upgrades": [
+                {
+                    "StaminaReduction": 1,
+                    "BonusDamagePercent": 25,
+                    "DebuffDuration": 7,
+                    "Description": "Removes 1 stamina and amplifies McGinnis's damage by 25% on hit enemies for 7s"
+                },
+                {
+                    "AbilityCooldown": -14.0,
+                    "Description": null
+                },
+                {
+                    "WallStunDuration": 1,
+                    "Description": "Adds a 1s Stun to enemies hit by Spectral Wall"
+                }
+            ],
+            "Info1": {
+                "Main": {
+                    "Props": [
+                        {
+                            "Name": "Damage",
+                            "Base": 64
+                        },
+                        {
+                            "Name": "Movement Slow",
+                            "Base": 25
+                        }
+                    ]
+                },
+                "Alt": [],
+                "Description": "Creates a wall that divides the terrain in half. On creation, the wall deals damage and applies slow to enemies nearby. <br>After casting, press [M1] or [3] to erupt the wall early."
+            }
+        },
         "4": {
             "Name": "Heavy Barrage",
             "Description": "Unleashes a volley of rockets that home in on a targeted location.",
+            "Upgrades": [
+                {
+                    "MoveSlowPercent": 35,
+                    "MoveSlowDuration": 2.0,
+                    "Description": "Applies 35% movement slow"
+                },
+                {
+                    "AbilityCooldown": -47.0,
+                    "Description": null
+                },
+                {
+                    "DamagePerRocket": 30,
+                    "Description": "+30 Damage per Rocket "
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -538,6 +992,20 @@
         "1": {
             "Name": "Pulse Grenade",
             "Description": "Throw a grenade that begins pulsing when it lands. Each pulse applies damage, movement slow, and stacking damage amplification for Paradox against the victim.",
+            "Upgrades": [
+                {
+                    "Pulses": 1,
+                    "Description": null
+                },
+                {
+                    "AbilityCooldown": -7.5,
+                    "Description": null
+                },
+                {
+                    "PulseDamage": 45,
+                    "Description": null
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -562,6 +1030,21 @@
         "2": {
             "Name": "Time Wall",
             "Description": "Create a time warping wall that stops time for all enemy projectiles and bullets that touch it.  Enemies that touch the wall will take damage as a percentage of their max health and be briefly slowed.",
+            "Upgrades": [
+                {
+                    "TimeWallWidth": "2m",
+                    "TimeWallHeight": "1m",
+                    "Description": "+2m Width, +1m Height"
+                },
+                {
+                    "AbilityCharges": 1,
+                    "Description": null
+                },
+                {
+                    "DebuffDuration": 3.0,
+                    "Description": "Enemies that touch Time Wall will be Silenced for 3.0s"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -586,6 +1069,21 @@
         "3": {
             "Name": "Kinetic Carbine",
             "Description": "Start charging your weapon and gain increased movement speed once it's fully charged. Your next shot will release the energy, dealing spirit damage and applying a time stop to the enemy hit. The damage dealt is an amplification of your current weapon damage. <br><br>You can slow time on yourself by pressing [M2] while an empowered shot is available.",
+            "Upgrades": [
+                {
+                    "MaxSlowDuration": 0.5,
+                    "Description": "+UNKNOWN[MinSlowDuration]s/0.5s Min/Max Stop Duration"
+                },
+                {
+                    "AbilityCooldown": -9.5,
+                    "SpeedBoostDuration": 2,
+                    "Description": "+2s Speed Duration, 2s Charge Time"
+                },
+                {
+                    "MaxBonusBulletDamage": 50,
+                    "Description": "+50% Max Damage Amp"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -610,6 +1108,20 @@
         "4": {
             "Name": "Paradoxical Swap",
             "Description": "Fire a projectile that swaps your position with the target enemy hero. While the effect occurs, you gain spirit lifesteal and the enemy takes damage over time.",
+            "Upgrades": [
+                {
+                    "AbilityCastRange": "15m",
+                    "Description": null
+                },
+                {
+                    "SwapTotalDamage": 100,
+                    "Description": null
+                },
+                {
+                    "AbilityCooldown": -14.0,
+                    "Description": null
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -632,6 +1144,23 @@
         "1": {
             "Name": "Kinetic Pulse",
             "Description": "Release an energy pulse that knocks enemies up into the air.",
+            "Upgrades": [
+                {
+                    "FireRateSlow": 25,
+                    "SlowPercent": 35,
+                    "SlowDuration": 4,
+                    "Description": "Hit enemies are fire rate and movement slowed by 35% for 4s."
+                },
+                {
+                    "BulletArmorReduction": 30,
+                    "BulletArmorReductionDuration": 8,
+                    "Description": "Dynamo deals 30% more Weapon Damage to hit enemies for 8s"
+                },
+                {
+                    "Damage": 125,
+                    "Description": null
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -652,6 +1181,20 @@
         "2": {
             "Name": "Quantum Entanglement",
             "Description": "Dynamo briefly disappears into the void and then reappears a short distance away. On reappearing, your weapon is reloaded and has a fire rate bonus for the next clip (Max 8s). Can be cast with [M3] to also bring nearby allies and give them half fire rate bonus.",
+            "Upgrades": [
+                {
+                    "AbilityCastRange": "4m",
+                    "Description": null
+                },
+                {
+                    "FireRateBonus": 25,
+                    "Description": null
+                },
+                {
+                    "BonusClipSizePercent": 120,
+                    "Description": "On reappearing, +120% base ammo"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -676,6 +1219,22 @@
         "3": {
             "Name": "Rejuvenating Aurora",
             "Description": "While channelling, restore health over time to you and any allies nearby. Dashing does not break channel.",
+            "Upgrades": [
+                {
+                    "MovementSpeedBonus": "4m",
+                    "MovementSpeedBonusDuration": 8,
+                    "Description": "Gain +4m/s movespeed bonus for 8s if Aurora is fully channeled.  Gain instantly with 5AP Upgrade."
+                },
+                {
+                    "AbilityCooldown": -14.0,
+                    "Description": null
+                },
+                {
+                    "NoChannel": 1,
+                    "HealMaxHealthPercent": 3.8,
+                    "Description": "Full move and ability use and additionaly heals +3.8% of Max Health per second"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -696,6 +1255,20 @@
         "4": {
             "Name": "Singularity",
             "Description": "Create a singularity in your hands that pulls in nearby enemies and damages them. Once it's finished, enemies get knocked into the air.",
+            "Upgrades": [
+                {
+                    "VacuumRadius": "2m",
+                    "Description": null
+                },
+                {
+                    "AbilityChannelTime": 0.75,
+                    "Description": null
+                },
+                {
+                    "DamagePercentHealth": 3.8,
+                    "Description": "Singularity takes 3.8% of the enemies' max health each second."
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -718,6 +1291,20 @@
         "1": {
             "Name": "Frost Grenade",
             "Description": "Throw a grenade that explodes in a cloud of freezing ice, damaging and slowing enemies.",
+            "Upgrades": [
+                {
+                    "AbilityCharges": 1,
+                    "Description": null
+                },
+                {
+                    "HealAmount": 145,
+                    "Description": "Frost Grenade now heals 145 HP to friendly targets. Scales with Spirit."
+                },
+                {
+                    "Damage": 175,
+                    "Description": null
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -738,6 +1325,22 @@
         "2": {
             "Name": "Ice Path",
             "Description": "Kelvin creates a floating trail of ice and snow that gives movement bonuses to him and his allies. Kelvin gains 60% slow resistance for the duration. Enemies can also walk on the floating trail. <br>Press [Shift] / [Ctrl] to travel up or down while in Ice Path.",
+            "Upgrades": [
+                {
+                    "SprintSpeedBonus": "4m",
+                    "Description": null
+                },
+                {
+                    "AbilityCooldown": -15.0,
+                    "Description": null
+                },
+                {
+                    "BonusSpiritMeter": 1,
+                    "BonusSpiritMax": 55,
+                    "BonusSpiritLingerDuration": 6,
+                    "Description": "While active, gain +1 Spirit Power per meter of Ice Path trail created.  Max of 55 Spirit Power"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -758,6 +1361,21 @@
         "3": {
             "Name": "Arctic Beam",
             "Description": "Shoot freezing cold energy out in front of you, damaging targets and building up movement and fire rate slow against them the longer you sustain the beam on them. You have reduced movement speed while using Arctic Beam. The beam may also claim Souls.",
+            "Upgrades": [
+                {
+                    "AbilityCooldown": -7.5,
+                    "Description": null
+                },
+                {
+                    "DPS": 40,
+                    "Description": null
+                },
+                {
+                    "BeamSplit": "13m",
+                    "BeamSplitCount": 2,
+                    "Description": "Fires 2 additional Arctic Beams toward enemies within 13m of the last target hit"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -782,6 +1400,20 @@
         "4": {
             "Name": "Frozen Shelter",
             "Description": "Kelvin freezes the air around him, creating an impenetrable dome around himself. While in the dome, allies rapidly regenerate health and enemies are slowed.",
+            "Upgrades": [
+                {
+                    "FireRateSlow": 40,
+                    "Description": "+40% Fire Rate Slow"
+                },
+                {
+                    "AbilityCooldown": -38.0,
+                    "Description": null
+                },
+                {
+                    "BonusHealthRegen": 70,
+                    "Description": "+70 Health Regen and now scales with Spirit Power"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -804,6 +1436,21 @@
         "1": {
             "Name": "Sleep Dagger",
             "Description": "Throw a dagger that damages and sleeps the target. Sleeping targets wake up shortly after being damaged. Throwing a Dagger does not break your invisibility. Sleep Dagger does not interrupt enemies' channeling abilities.",
+            "Upgrades": [
+                {
+                    "StaminaReduction": 1,
+                    "Description": "Removes 1 stamina"
+                },
+                {
+                    "AbilityCooldown": -12.0,
+                    "Description": null
+                },
+                {
+                    "BulletResistReduction": -12,
+                    "BulletResistReductionDuration": 6,
+                    "Description": "Applies -12% Bullet Resist for 6s on wake-up."
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -824,6 +1471,21 @@
         "2": {
             "Name": "Smoke Bomb",
             "Description": "Fade out of sight, becoming invisible and gaining sprint speed. Attacking removes invisibility. Close enemies can see through your invisibility.",
+            "Upgrades": [
+                {
+                    "AbilityCooldown": -14.0,
+                    "Description": "-14.0s Ability Cooldown"
+                },
+                {
+                    "InvisMoveSpeedMod": "6m",
+                    "Description": "+6m/s Invis Sprint Speed"
+                },
+                {
+                    "BulletLifesteal": 30,
+                    "PostInvisBuffDuration": 8,
+                    "Description": "After invis, gain +30% Bullet Lifesteal for 8s"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -840,6 +1502,24 @@
         "3": {
             "Name": "Fixation",
             "Description": "Shooting a target increases your bullet damage on that target. Gain one stack per bullet hit, two if the hit is a headshot.",
+            "Upgrades": [
+                {
+                    "ProcDamage": 60,
+                    "ProcDamageStackCount": 20,
+                    "SlowPercent": 15,
+                    "SlowDuration": 2,
+                    "Description": "60 Spirit damage and 15% slow for 2s to target every 20 stacks"
+                },
+                {
+                    "AbilityDuration": 5,
+                    "MaxStacks": 40,
+                    "Description": "+40 Max Stacks and +5s Duration"
+                },
+                {
+                    "DamageBonusFixedPerStack": 0.2,
+                    "Description": null
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -860,6 +1540,20 @@
         "4": {
             "Name": "Bullet Dance",
             "Description": "Enter a flurry, firing your weapon at nearby enemies with perfect accuracy.  During the flurry, Haze gains a fire rate bonus and will evade some of the bullets shot at her.",
+            "Upgrades": [
+                {
+                    "WeaponDamageBonus": 7,
+                    "Description": null
+                },
+                {
+                    "AbilityCooldown": -38.0,
+                    "Description": null
+                },
+                {
+                    "TargetsPerTick": 1,
+                    "Description": null
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -882,6 +1576,22 @@
         "1": {
             "Name": "Powder Keg",
             "Description": "Place a barrel that explodes when shot, or on landing after launched via melee attack or bounce pad. Has a minimum arm time before it can explode.",
+            "Upgrades": [
+                {
+                    "AbilityCharges": 1,
+                    "Description": null
+                },
+                {
+                    "BarrelDamage": 140,
+                    "Description": null
+                },
+                {
+                    "AbilityCooldown": -9.5,
+                    "MinTimeBeforeDestroy": -1,
+                    "ArmTime": -1,
+                    "Description": "-9.5 Cooldown<br>No arm time"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -902,6 +1612,21 @@
         "2": {
             "Name": "Bounce Pad",
             "Description": "Drop a bounce pad in the world that sends you and other heroes flying. You will stomp down on landing, dealing damage to any nearby enemies.",
+            "Upgrades": [
+                {
+                    "SpeedOnLand": "4m",
+                    "SpeedOnLandDuration": 4,
+                    "Description": "You and allies gain a +4m/s movement speed bonus for 4s on landing"
+                },
+                {
+                    "StompDamage": 100,
+                    "Description": "+100 Stomp Damage with improved scaling"
+                },
+                {
+                    "StompStunDuration": 1.25,
+                    "Description": "+1.25s Stun on Stomp"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -918,6 +1643,20 @@
         "3": {
             "Name": "Hat Trick",
             "Description": "Throws out her hat to strike enemies, slowing and revealing them through walls.",
+            "Upgrades": [
+                {
+                    "Damage": 50,
+                    "Description": null
+                },
+                {
+                    "AbilityCooldown": -9.5,
+                    "Description": null
+                },
+                {
+                    "SlowPercent": 30,
+                    "Description": null
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -942,6 +1681,21 @@
         "4": {
             "Name": "Spirit Lasso",
             "Description": "Grab an enemy with your lasso and drag them along behind you. The enemy is stunned and Astro is slowed slightly during the lasso.<br><br> Lasso duration is paused for 2s during the first usage of a bounce pad.",
+            "Upgrades": [
+                {
+                    "AbilityDuration": 0.6,
+                    "Description": null
+                },
+                {
+                    "AbilityCooldown": -56.0,
+                    "Description": null
+                },
+                {
+                    "GrabExtraTargets": 1,
+                    "ExtraTargetConeAngle": 60,
+                    "Description": "Can lasso another enemy inside targetting area"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -960,6 +1714,22 @@
         "1": {
             "Name": "Exploding Uppercut",
             "Description": "Deal Light Melee damage to nearby units and send them flying back, causing area damage where they land. Does not damage allies.",
+            "Upgrades": [
+                {
+                    "AbilityCooldown": -10.5,
+                    "Description": null
+                },
+                {
+                    "UppercutBuffOnHit": 12,
+                    "BuffBaseWeaponPct": 60,
+                    "Description": "On Uppercut enemy Hero, gain fast spin-up time, 2x range, and +60% weapon damage for 12s"
+                },
+                {
+                    "RestoreHookCooldown": 1,
+                    "ClipSizeBonus": 100,
+                    "Description": "On Uppercut enemy Hero, set Hook cooldown to 0 and instantly +100% bullets to your current clip"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -981,9 +1751,58 @@
                 "Description": "Deal Light Melee damage to nearby units and send them flying back, causing area damage where they land. Does not damage allies."
             }
         },
+        "2": {
+            "Name": "Sticky Bomb",
+            "Description": "Attach a Sticky Bomb to a nearby target that deals explosive damage after a short fuse time. <br>Gain +2.5% bomb damage for every enemy hero hit.  <br>Hold [M3] to cast a Sticky Bomb on yourself.",
+            "Upgrades": [
+                {
+                    "AbilityCooldown": -7.5,
+                    "Description": null
+                },
+                {
+                    "Damage": 80,
+                    "Description": null
+                },
+                {
+                    "DebuffDuration": 3.5,
+                    "Description": "On Attach, disarms the target for 3.5s"
+                }
+            ],
+            "Info1": {
+                "Main": {
+                    "Props": [
+                        {
+                            "Name": "Damage",
+                            "Base": 120
+                        },
+                        {
+                            "Name": "Fuse Time",
+                            "Base": 3.0
+                        }
+                    ]
+                },
+                "Alt": [],
+                "Description": "Attach a Sticky Bomb to a nearby target that deals explosive damage after a short fuse time. <br>Gain +2.5% bomb damage for every enemy hero hit.  <br>Hold [M3] to cast a Sticky Bomb on yourself."
+            }
+        },
         "3": {
             "Name": "Hook",
             "Description": "Launch out a hook that grabs and reels in the first hero it hits and deals damage to enemies. Target will be placed where you are facing.",
+            "Upgrades": [
+                {
+                    "BulletAmp": 30,
+                    "BulletAmpDuration": 10,
+                    "Description": "Bebop deals 30% more bullet damage against hooked enemies for 10s"
+                },
+                {
+                    "AbilityCastRange": "30m",
+                    "Description": null
+                },
+                {
+                    "AbilityCooldown": -11.5,
+                    "Description": null
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -996,12 +1815,61 @@
                 "Alt": [],
                 "Description": "Launch out a hook that grabs and reels in the first hero it hits and deals damage to enemies. Target will be placed where you are facing."
             }
+        },
+        "4": {
+            "Name": "Hyper Beam",
+            "Description": "Charge up your laser to unleash a powerful torrent of energy that deals damage and slows enemies' movement and dashes. You have slow movement and turn rate for the duration. If activated in the air, you will hover while unleashing the beam.",
+            "Upgrades": [
+                {
+                    "AbilityCooldown": -30.0,
+                    "Description": null
+                },
+                {
+                    "DPS": 100,
+                    "Description": null
+                },
+                {
+                    "BeamLifesteal": 100,
+                    "BeamLifestealNonHeroPercent": 33,
+                    "Description": "Hyper Beam heals Bebop for 100% of its damage on Heroes. 33% on non-hero"
+                }
+            ],
+            "Info1": {
+                "Main": {
+                    "Props": [
+                        {
+                            "Name": "DPS",
+                            "Base": 205
+                        },
+                        {
+                            "Name": "Beam Width",
+                            "Base": 2.9
+                        }
+                    ]
+                },
+                "Alt": [],
+                "Description": "Charge up your laser to unleash a powerful torrent of energy that deals damage and slows enemies' movement and dashes. You have slow movement and turn rate for the duration. If activated in the air, you will hover while unleashing the beam."
+            }
         }
     },
     "hero_nano": {
         "1": {
             "Name": "Sekhmet's Spirit",
             "Description": "Send a Spirit Cat forward that grab's targets in its way.  Grabbing a Hero will cause an explosion soon after. <br>Press [1] to manually create the explosion.",
+            "Upgrades": [
+                {
+                    "ExplosionRadius": "4m",
+                    "Description": null
+                },
+                {
+                    "AbilityCooldown": -11.5,
+                    "Description": null
+                },
+                {
+                    "ExplosionDamage": 100,
+                    "Description": null
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1022,6 +1890,22 @@
         "2": {
             "Name": "Pounce",
             "Description": "Leap at a target to inflict Light Melee damage.  Targetting an enemy will cause slow on nearby enemies.  Targeting an ally will have reduced Cooldown and Recharge times.",
+            "Upgrades": [
+                {
+                    "SlowDuration": 1,
+                    "Description": "+1s Slow Duration"
+                },
+                {
+                    "FireRateSlow": 30,
+                    "ExplodeRadius": "6m",
+                    "Description": "+30% Fire Rate Slow and +6m Slow Radius"
+                },
+                {
+                    "AbilityCharges": 1,
+                    "ActiveReloadPercent": 25,
+                    "Description": "+1 Ability Charge and reloads up to 25% of your ammo"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1042,6 +1926,22 @@
         "3": {
             "Name": "Perched Predator",
             "Description": "Send out Ava to attack a nearby enemy.  Targetted enemies have reduced healing and give health to Ava and Calico when damanged by them.  Ava is only active when Calico is nearby. <br>While nearby Press [3] to recall Ava, Ava regains health while recalled.",
+            "Upgrades": [
+                {
+                    "StatueHealth": 200,
+                    "Description": "+200<\"span> Health for Ava"
+                },
+                {
+                    "DPS": 30,
+                    "Description": "Victims receive UNKNOWN[FireRateSlow]% Fire Rate Slow and +UNKNOWN[ActiveRadius]m Active Radius"
+                },
+                {
+                    "DamageAmplification": 35,
+                    "HealAmpReceivePenaltyPercent": -30,
+                    "HealAmpRegenPenaltyPercent": -30,
+                    "Description": "+35% Damage Amplification and -30% Heal Reduction on Victims."
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1062,6 +1962,20 @@
         "4": {
             "Name": "Queen of Shadows",
             "Description": "Cast yourself in shadow and go Invisible.  Attacks do not break invisibility but they will temporarily reveal you.  Hitting enemies with Melee damage will reduce their bullet resist (stacking)",
+            "Upgrades": [
+                {
+                    "StaminaCooldownReduction": 30,
+                    "Description": null
+                },
+                {
+                    "PurgeOnActivate": 1,
+                    "Description": "On Cast, Remove all Debuffs"
+                },
+                {
+                    "SilenceOnHeavyDuration": 3,
+                    "Description": "Heavy Melee attacks cause Silence for 3s"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1080,6 +1994,19 @@
         "1": {
             "Name": "Charged Shot",
             "Description": "Charge up a powerful shot that pierces through enemies. Hold [UNKNOWN[ability_key]] or [M1] to hold the shot.",
+            "Upgrades": [
+                {
+                    "AbilityCharges": 1,
+                    "Description": null
+                },
+                {
+                    "Description": "+UNKNOWN[Damage] Damage"
+                },
+                {
+                    "AbilityCooldownBetweenCharge": -3,
+                    "Description": "Improved damage scaling and -3s Charge Delay"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1096,6 +2023,23 @@
         "2": {
             "Name": "Rain of Arrows",
             "Description": "Launches you high in the air, allowing you to glide slowly. While airborne, you gain Weapon Damage and multishot on your weapon. Press [Space] to cancel the glide.",
+            "Upgrades": [
+                {
+                    "AbilityCooldown": -14.0,
+                    "Description": null
+                },
+                {
+                    "WeaponDamageBonus": 5,
+                    "SlowPercent": 40,
+                    "SlowDuration": 1.5,
+                    "Description": "While airborne, +5 Weapon Damage and weapon damage applies 40% movement slow for 1.5s"
+                },
+                {
+                    "BulletLifestealPercent": 50,
+                    "TechLifestealPercent": 50,
+                    "Description": "While airborne, +50% Bullet Lifesteal and +50% Spirit Lifesteal"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1116,6 +2060,21 @@
         "3": {
             "Name": "Immobilizing Trap",
             "Description": "Throw out a trap that begins to arm itself. Once armed, the trap will trigger when an enemy enters its radius, immobilizing and then slowing them.",
+            "Upgrades": [
+                {
+                    "AbilityCooldown": -19.0,
+                    "Description": null
+                },
+                {
+                    "SlowDuration": 2.0,
+                    "Description": null
+                },
+                {
+                    "BulletVulnerbility": 30,
+                    "DebuffDuration": 10,
+                    "Description": "Grey Talon deals +30% more Bullet Damage to enemies hit by Immobilizing Trap for 10s"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1140,6 +2099,20 @@
         "4": {
             "Name": "Guided Owl",
             "Description": "After 1.5s cast time, launch a spirit owl that you control and which explodes on impact, damaging and stunning enemies. Hold [M1] to accelerate the owl.<br>Press [Space] to release control. Gain permanent Spirit Power for each enemy hero killed with Guided Owl.",
+            "Upgrades": [
+                {
+                    "Damage": 100,
+                    "Description": null
+                },
+                {
+                    "AbilityCooldown": -47.0,
+                    "Description": null
+                },
+                {
+                    "LowHealthEnemyThresholdPct": 22,
+                    "Description": "After hit, kills enemies that are below 22% Health"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1162,6 +2135,21 @@
         "1": {
             "Name": "Scorn",
             "Description": "Deal damage to nearby enemies and heal yourself based on the damage done. Heal is stronger against enemy heroes.",
+            "Upgrades": [
+                {
+                    "AbilityCooldown": -3.75,
+                    "Description": null
+                },
+                {
+                    "Damage": 25,
+                    "Description": null
+                },
+                {
+                    "DamageBonus": 15,
+                    "DebuffDuration": 16,
+                    "Description": "Adds a debuff to enemies that lets Mo & Krill deal +15% Damage to them. Stacks and lasts 16s."
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1182,6 +2170,22 @@
         "2": {
             "Name": "Burrow",
             "Description": "Burrow underground, moving faster, and gaining spirit and bullet armor. Damage from enemy heroes will reduce the speed bonus. When you jump out, knock enemies into the air and perform a spin attack that damages and slows. Cooldown starts when Burrow ends.",
+            "Upgrades": [
+                {
+                    "AbilityChannelTime": 3,
+                    "Description": "Burrow time +3s"
+                },
+                {
+                    "DPS": 140,
+                    "Radius": "2m",
+                    "Description": "+140 Spin DPS and +2 radius"
+                },
+                {
+                    "AbilityCooldown": -19.0,
+                    "BonusMoveSpeed": "3m",
+                    "Description": "-19.0 Cooldown and +3m/s Move Speed"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1206,6 +2210,20 @@
         "3": {
             "Name": "Sand Blast",
             "Description": "Spray sand that disarms enemies in front of you and deals damage.",
+            "Upgrades": [
+                {
+                    "AbilityDuration": 1.5,
+                    "Description": null
+                },
+                {
+                    "AbilityCooldown": -19.0,
+                    "Description": null
+                },
+                {
+                    "SlowPercent": 50,
+                    "Description": "Slow targets by -50%"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1222,6 +2240,21 @@
         "4": {
             "Name": "Combo",
             "Description": "Hold the target in place, stunning them and dealing damage during the channel. If they die during Combo, you permanently gain max health.",
+            "Upgrades": [
+                {
+                    "AbilityCooldown": -28.0,
+                    "Description": null
+                },
+                {
+                    "AbilityChannelTime": 0.75,
+                    "Description": "Combo Duration +0.75s"
+                },
+                {
+                    "DPS": 40,
+                    "LifeStealPercentOnHit": 100,
+                    "Description": "+40 Damage Per Second and 100% lifesteal"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1241,9 +2274,76 @@
         }
     },
     "hero_shiv": {
+        "1": {
+            "Name": "Serrated Knives",
+            "Description": "Throw a knife that damages and bleeds an enemy.  Each additional hit adds a stack and refreshes the bleed duration, causing the bleed to increase per stack.",
+            "Upgrades": [
+                {
+                    "AbilityCharges": 1,
+                    "Description": null
+                },
+                {
+                    "BleedDuration": 2,
+                    "Description": null
+                },
+                {
+                    "ImpactDamage": 40,
+                    "BleedDPSPerStack": 5,
+                    "Description": "+40 Damage and +5 Bleed DPS"
+                }
+            ],
+            "Info1": {
+                "Main": {
+                    "Props": [
+                        {
+                            "Name": "Damage",
+                            "Base": 35
+                        },
+                        {
+                            "Name": "Bleed DPS Per Knife",
+                            "Base": 5
+                        },
+                        {
+                            "Name": "Bleed Duration",
+                            "Base": 5
+                        }
+                    ]
+                },
+                "Alt": [],
+                "Description": "Throw a knife that damages and bleeds an enemy.  Each additional hit adds a stack and refreshes the bleed duration, causing the bleed to increase per stack."
+            },
+            "Info2": {
+                "Main": {
+                    "Props": [
+                        {
+                            "Name": "Movement Slow",
+                            "Base": 35
+                        }
+                    ]
+                },
+                "Alt": [],
+                "Description": "Ultimate Unlock:  While rage is full knives will ricochet to another enemy and apply a slow to enemies they bleed."
+            }
+        },
         "2": {
             "Name": "Slice and Dice",
             "Description": "Perform a dash forward, damaging enemies along the path.<br><br>Ultimate Unlock: While rage is full an echo of Shiv retraces the dash path after a short delay, damaging enemies again.",
+            "Upgrades": [
+                {
+                    "AbilityCooldown": -3.75,
+                    "Description": null
+                },
+                {
+                    "ImpactDamage": 85,
+                    "Description": null
+                },
+                {
+                    "CooldownReductionOnHit": 2,
+                    "CooldownReductionOnHitNonHero": 1,
+                    "MaxCooldownReductionsFromHits": 6,
+                    "Description": "Reduce cooldown by 2s per enemy hero hit (1s for Non-Hero). Max -6s per Dash."
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1260,12 +2360,127 @@
                 "Alt": [],
                 "Description": "Perform a dash forward, damaging enemies along the path.<br><br>Ultimate Unlock: While rage is full an echo of Shiv retraces the dash path after a short delay, damaging enemies again."
             }
+        },
+        "3": {
+            "Name": "Bloodletting",
+            "Description": "Take only a portion of incoming damage immediately and defer the rest to be taken over time.  Activate to clear a portion of the deferred damage.",
+            "Upgrades": [
+                {
+                    "DeferredDamageDuration": 5,
+                    "Description": null
+                },
+                {
+                    "AbilityCooldown": -4.75,
+                    "Description": null
+                },
+                {
+                    "DeferClearPct": 25,
+                    "Description": null
+                }
+            ],
+            "Info1": {
+                "Main": {
+                    "Props": [
+                        {
+                            "Name": "Incoming Damage Deferred",
+                            "Base": 30
+                        },
+                        {
+                            "Name": "Deferred Damage Duration",
+                            "Base": 10
+                        }
+                    ]
+                },
+                "Alt": [],
+                "Description": "Take only a portion of incoming damage immediately and defer the rest to be taken over time.  Activate to clear a portion of the deferred damage."
+            },
+            "Info2": {
+                "Main": {
+                    "Props": [
+                        {
+                            "Name": "Deferred Damage Cleared",
+                            "Base": 40
+                        }
+                    ],
+                    "Title": "On Activate"
+                },
+                "Alt": []
+            },
+            "Info3": {
+                "Main": {
+                    "Props": [
+                        {
+                            "Name": "Incoming Damage Deferred",
+                            "Base": 15
+                        }
+                    ]
+                },
+                "Alt": [],
+                "Description": "Ultimate Unlock: While rage is full the amount of damage deferred is increased."
+            }
+        },
+        "4": {
+            "Name": "Killing Blow",
+            "Description": null,
+            "Upgrades": [
+                {
+                    "BonusMoveSpeed": "2m",
+                    "Description": "Gain +2 m/s move speed while at full rage."
+                },
+                {
+                    "EnemyHealthPercent": 8,
+                    "BuffDamage": 5,
+                    "Description": "+8% Enemy Health Threshold and +5% Full Rage Bonus Damage"
+                },
+                {
+                    "ShortCooldown": 0.5,
+                    "Description": "Finishing off an enemy with Killing Blow resets its cooldown."
+                }
+            ],
+            "Info1": {
+                "Main": {
+                    "Props": [
+                        {
+                            "Name": "Enemy health threshold",
+                            "Base": 20
+                        }
+                    ]
+                },
+                "Alt": [],
+                "Description": "Activate to leap towards an enemy hero and instantly kill them if their health is below the kill threshold, otherwise deal 200 damage to them."
+            },
+            "Info2": {
+                "Main": {
+                    "Props": [
+                        {
+                            "Name": "Full Rage Damage Bonus",
+                            "Base": 20
+                        }
+                    ]
+                },
+                "Alt": [],
+                "Description": "Passive: Damaging enemies fills you with rage.  While at full rage, Shiv gains increased damage and special properties on his other abilities."
+            }
         }
     },
     "hero_tengu": {
         "1": {
             "Name": "Kudzu Bomb",
             "Description": "Summon a patch of choking vines that damages and slows enemies in its radius.",
+            "Upgrades": [
+                {
+                    "AbilityCharges": 1,
+                    "Description": null
+                },
+                {
+                    "AbilityDuration": 2,
+                    "Description": null
+                },
+                {
+                    "DPS": 60,
+                    "Description": "+60 DPS"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1286,6 +2501,20 @@
         "2": {
             "Name": "Watcher's Covenant",
             "Description": "Gain bonuses and automatically connect with a nearby ally to share them.  Healing is replicated among all those connected. Connection requires line of sight. Press [2] to Lock on to a target",
+            "Upgrades": [
+                {
+                    "BonusFireRate": 10,
+                    "Description": null
+                },
+                {
+                    "MoveSpeedBonus": "2.0m",
+                    "Description": "+2.0m/s movement bonus"
+                },
+                {
+                    "TotalTetherTargets": 1,
+                    "Description": null
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1310,6 +2539,21 @@
         "3": {
             "Name": "Stone Form",
             "Description": "Turn yourself into impervious stone and smash into the ground, stunning and damaging enemies nearby. Heals you for a percentage of your max health. You have some air control before falling.",
+            "Upgrades": [
+                {
+                    "AbilityCooldown": -19.0,
+                    "Description": null
+                },
+                {
+                    "StunDuration": 0.5,
+                    "Damage": 80,
+                    "Description": "+80 Damage and stuns for 0.5s."
+                },
+                {
+                    "MaxHealthRegen": 20,
+                    "Description": null
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1334,6 +2578,22 @@
         "4": {
             "Name": "Air Drop",
             "Description": "Take flight with an ally or a bomb. Drop your ally or bomb to cause a large explosion that causes movement slow. Ivy and ally gain a bullet shield when flying ends. <br>While lifted, your ally gains bullet resist but cannot attack and deals -50% damage. Air Drop has faster cast time when targeting an ally. <br>[M1] to accelerate flying speed. <br>[M2] to drop ally/bomb.",
+            "Upgrades": [
+                {
+                    "BulletArmorReduction": -20,
+                    "BulletArmorReductionDuration": 12,
+                    "Description": "-20% Bullet Resist on enemies hit for 12s"
+                },
+                {
+                    "AirDropBulletShield": 300,
+                    "OnLandDamageRadius": "5m",
+                    "Description": "+300 Bullet Shield and +5m Explode Radius"
+                },
+                {
+                    "SilenceDuration": 4.5,
+                    "Description": "Applies Silence on enemies hit for +4.5s"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1361,6 +2621,21 @@
         "1": {
             "Name": "Alchemical Flask",
             "Description": "Throw a flask that damages, slows, and reduces the weapon damage and stamina of enemies it hits.",
+            "Upgrades": [
+                {
+                    "Damage": 40,
+                    "Description": null
+                },
+                {
+                    "StaminaReduction": 1,
+                    "Description": null
+                },
+                {
+                    "FireRateSlow": 35,
+                    "AbilityCooldown": -6.5,
+                    "Description": "-6.5s Cooldown and applies 35% Fire Rate Slow"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1385,6 +2660,20 @@
         "2": {
             "Name": "Willpower",
             "Description": "Gain a spirit shield and bonus movement speed.",
+            "Upgrades": [
+                {
+                    "MoveSpeedBonusPct": 20,
+                    "Description": null
+                },
+                {
+                    "AbilityCooldown": -19.0,
+                    "Description": null
+                },
+                {
+                    "TechShieldPoints": 200,
+                    "Description": "+200 Spirit Shield Health and now scales with Spirit Power"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1405,6 +2694,21 @@
         "3": {
             "Name": "Binding Word",
             "Description": "Curse an enemy hero. If they don't move away from their initial position within the escape time, they will be damaged and immobilized.",
+            "Upgrades": [
+                {
+                    "ImmobilizeDuration": 1,
+                    "Description": null
+                },
+                {
+                    "AbilityCooldown": -19.0,
+                    "Description": null
+                },
+                {
+                    "BulletArmorReduction": 20,
+                    "BulletArmorReductionDuration": 6,
+                    "Description": "Warden deals +20% more Bullet Damage to trapped Heroes for 6s"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1425,6 +2729,20 @@
         "4": {
             "Name": "Last Stand",
             "Description": "After charging for 2.25s, release pulses that damage enemies and heal you based on the damage done. <br>While channeling Last Stand you have greatly increased bullet resist.",
+            "Upgrades": [
+                {
+                    "Radius": "3m",
+                    "Description": null
+                },
+                {
+                    "PulseDPS": 70,
+                    "Description": null
+                },
+                {
+                    "AbilityCooldown": -56.0,
+                    "Description": null
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1451,6 +2769,21 @@
         "1": {
             "Name": "Power Slash",
             "Description": "Channel to increase damage over 1.4 seconds, then release a fully-charged sword strike.<br>Press [1] or [M1] to trigger the strike early, dealing partial damage.",
+            "Upgrades": [
+                {
+                    "BulletResist": 60,
+                    "Description": "Gain +60 Bullet Resist while channeling"
+                },
+                {
+                    "SlowDuration": 3,
+                    "SlowPercent": 40,
+                    "Description": "Apply 40% movement slow for 3s"
+                },
+                {
+                    "FullChargeDamage": 200,
+                    "Description": null
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1471,6 +2804,21 @@
         "2": {
             "Name": "Flying Strike",
             "Description": "Throw a grappling hook to reel yourself towards an enemy, damaging and slowing the target when you arrive.",
+            "Upgrades": [
+                {
+                    "SlowPercent": 25,
+                    "Description": null
+                },
+                {
+                    "AbilityCastRange": "20m",
+                    "Description": null
+                },
+                {
+                    "WeaponDamageBonus": 6,
+                    "WeaponPowerIncreaseDuration": 10,
+                    "Description": "+6 Weapon Damage for 10s after striking the target"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1491,6 +2839,20 @@
         "3": {
             "Name": "Crimson Slash",
             "Description": "Slash enemies in front of you, damaging them and slowing their fire rate. If any enemy heroes are hit, you heal.",
+            "Upgrades": [
+                {
+                    "FireRateSlow": 30,
+                    "Description": null
+                },
+                {
+                    "HealMaxHealth": 10,
+                    "Description": null
+                },
+                {
+                    "AbilityCooldown": -5.75,
+                    "Description": null
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1515,6 +2877,20 @@
         "4": {
             "Name": "Shadow Transformation",
             "Description": "Become infused with Yamato's shadow soul. After an initial invincible transformation, your abilities are refreshed and are 60% faster, your weapon has infinite ammo, and you gain damage resists and immunity to negative status effects. You are unable to die in this mode.",
+            "Upgrades": [
+                {
+                    "AbilityCooldown": -28.0,
+                    "Description": null
+                },
+                {
+                    "BonusMoveSpeed": "4m",
+                    "Description": null
+                },
+                {
+                    "AbilityDuration": 1.5,
+                    "Description": null
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1537,6 +2913,21 @@
         "1": {
             "Name": "Ground Strike",
             "Description": "Stomp the ground beneath you, damaging enemies in front of you. If you perform Ground Strike while airborne, you quickly dive towards the ground. Damage grows slower after 25m.",
+            "Upgrades": [
+                {
+                    "AbilityCooldown": -9.5,
+                    "Description": null
+                },
+                {
+                    "EnemySlowPct": 50,
+                    "SlowDuration": 3,
+                    "StompBounceHeight": 400,
+                    "Description": "Struck enemies are popped into the air and slowed by 50% for 3s"
+                },
+                {
+                    "Description": "Damage Per Meter +110% and improved scaling"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1557,6 +2948,22 @@
         "2": {
             "Name": "Grapple",
             "Description": "Pull yourself through the air toward a target. Using Grapple also resets your limit of air jumps and dashes.",
+            "Upgrades": [
+                {
+                    "AbilityCooldown": -19.0,
+                    "Description": null
+                },
+                {
+                    "AbilityCastRange": "20m",
+                    "WeaponDamageBonus": 6,
+                    "WeaponDamageBonusDuration": 10,
+                    "Description": "+20m Cast Range and gain +6 Weapon Damage for 10s"
+                },
+                {
+                    "WeaponFireRateBonus": 20,
+                    "Description": "+20% Fire Rate to Weapon Bonus Buff"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1573,6 +2980,22 @@
         "3": {
             "Name": "Flog",
             "Description": "Strike enemies with your whip, stealing life from them.",
+            "Upgrades": [
+                {
+                    "EnemySlowDuration": 3,
+                    "EnemySlowPct": 35,
+                    "Description": "Apply 35% Movement Slow for 3s"
+                },
+                {
+                    "AbilityCooldown": -14.0,
+                    "Description": null
+                },
+                {
+                    "Damage": 105,
+                    "FireRateSlow": 35,
+                    "Description": "+105 Damage and applies 35% Fire Rate Slow"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1597,6 +3020,20 @@
         "4": {
             "Name": "Death Slam",
             "Description": "Focus on enemies to connect whips to them. After channeling, connected enemies are lifted and stunned then slammed into the ground. Your victims and any enemies in the landing zone will be damaged and slowed. <br>Press [M1] to throw connected enemies early. Enemies that are not in line of sight or go out of range during the latch time will not be grabbed.",
+            "Upgrades": [
+                {
+                    "ThrowDistance": "8m",
+                    "Description": null
+                },
+                {
+                    "ImpactDamage": 100,
+                    "Description": null
+                },
+                {
+                    "AbilityCooldown": -56.0,
+                    "Description": null
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1619,6 +3056,21 @@
         "1": {
             "Name": "Splatter",
             "Description": "Throw a ball of goo that deals damage and leaves puddles of goo behind that apply movement slow to enemies in the radius.",
+            "Upgrades": [
+                {
+                    "AbilityCooldown": -5.75,
+                    "Description": null
+                },
+                {
+                    "Damage": 70,
+                    "Radius": "1m",
+                    "Description": "+70 Damage and +1m Radius"
+                },
+                {
+                    "MaxBounces": 2,
+                    "Description": "Bounces 2 times"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1635,6 +3087,22 @@
         "2": {
             "Name": "The Cube",
             "Description": "Encase the target in a cube of restorative goo that purges debuffs, protects from damage, and increases health regen. Target is unable to take any new actions while cubed. Can be used on self. Press [Space] to escape early.",
+            "Upgrades": [
+                {
+                    "BonusMoveSpeed": "2.5m",
+                    "StaminaCooldownReduction": 30,
+                    "PostCubeBuff": 1,
+                    "Description": "Increases Movement Speed and Stamina Recovery"
+                },
+                {
+                    "AbilityCooldown": -21.0,
+                    "Description": null
+                },
+                {
+                    "BonusHealthRegen": 60,
+                    "Description": null
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1655,6 +3123,21 @@
         "3": {
             "Name": "Puddle Punch",
             "Description": "Materialize a fist in the world that punches units in the area and send them flying. Enemies will be dealt damage, have their dash distance reduced for a brief moment, and have their movement slowed. This is considered a Light Melee attack.",
+            "Upgrades": [
+                {
+                    "AbilityCharges": 1,
+                    "Description": null
+                },
+                {
+                    "Damage": 35,
+                    "SlowPercent": 20,
+                    "Description": "+35 Damage and +20% Movement Slow"
+                },
+                {
+                    "AbilityCooldown": -11.5,
+                    "Description": null
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1671,6 +3154,20 @@
         "4": {
             "Name": "Goo Ball",
             "Description": "Morph into a large goo ball that deals damage and stuns enemies on impact. The ball grants large amounts of Bullet and Spirit resist, bounces off walls and can double jump.",
+            "Upgrades": [
+                {
+                    "AbilityDuration": 5,
+                    "Description": null
+                },
+                {
+                    "Damage": 120,
+                    "Description": null
+                },
+                {
+                    "CastWhileRolling": 1,
+                    "Description": "Can cast abilities and use items while rolling"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1697,6 +3194,20 @@
         "1": {
             "Name": "Wrecking Ball",
             "Description": "Create a large ball of scrap that can be thrown, damaging and stunning anything it hits. The ball takes time to create and you move slower while carrying it.",
+            "Upgrades": [
+                {
+                    "AbilityCooldown": -7.5,
+                    "Description": null
+                },
+                {
+                    "WreckingBallDamage": 80,
+                    "Description": null
+                },
+                {
+                    "MoveSpeedLimit": "4m",
+                    "Description": null
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1717,6 +3228,20 @@
         "2": {
             "Name": "Consume",
             "Description": "Stuns an enemy trooper or NPC, damaging them while held. A successful kill provides a fire rate bonus, and restores a Bio Blast charge.  This bonus stacks independently",
+            "Upgrades": [
+                {
+                    "SalvageBonus_Health": 150,
+                    "Description": "150 health restored per kill."
+                },
+                {
+                    "DPS": 80,
+                    "Description": null
+                },
+                {
+                    "FireRateBuffDuration": 80,
+                    "Description": null
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1737,6 +3262,20 @@
         "3": {
             "Name": "Bio Blast",
             "Description": "Shoots out a blast of consumed remains, damaging and slowing enemies. Multiple hits increase the slow.",
+            "Upgrades": [
+                {
+                    "AbilityCharges": 2,
+                    "Description": null
+                },
+                {
+                    "ScrapDamage": 55,
+                    "Description": null
+                },
+                {
+                    "EnemyMoveSlow": 20,
+                    "Description": null
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1757,6 +3296,20 @@
         "4": {
             "Name": "Astral Walk",
             "Description": "Launch a flying shadow copy of yourself that you control, teleporting your original body to wherever it lands. The teleport explosion slows enemies and deals damage based on how long you were flying.",
+            "Upgrades": [
+                {
+                    "AbilityChannelTime": 8,
+                    "Description": null
+                },
+                {
+                    "AbilityCooldown": -47.0,
+                    "Description": null
+                },
+                {
+                    "DamagePerSecondFlown": 16,
+                    "Description": null
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1780,6 +3333,20 @@
         "1": {
             "Name": "Barrage",
             "Description": "Channel to start launching projectiles that deal damage and apply movement slow around their impact point. Each projectile landed on a hero grants you a stacking buff that amplifies all of your damage.<br>If you cast it while in the air, you'll float and maintain any horizontal momentum you started with.",
+            "Upgrades": [
+                {
+                    "DamagePerProjectile": 15,
+                    "Description": null
+                },
+                {
+                    "AbilityCooldown": -14.0,
+                    "Description": null
+                },
+                {
+                    "AmpPercentPerStack": 5,
+                    "Description": null
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1801,9 +3368,55 @@
                 "Description": "Channel to start launching projectiles that deal damage and apply movement slow around their impact point. Each projectile landed on a hero grants you a stacking buff that amplifies all of your damage.<br>If you cast it while in the air, you'll float and maintain any horizontal momentum you started with."
             }
         },
+        "2": {
+            "Name": "Flying Cloak",
+            "Description": "Launch a sentient cloak that travels forward and damages enemies. You can press [2] to teleport to its location.",
+            "Upgrades": [
+                {
+                    "AbilityCooldown": -14.0,
+                    "Description": null
+                },
+                {
+                    "Damage": 80,
+                    "Description": null
+                },
+                {
+                    "WeaponDamageBonus": 7,
+                    "WeaponDamageBonusDuration": 10,
+                    "Description": "+7 Weapon Damage for 10s after teleporting with Flying Cloak."
+                }
+            ],
+            "Info1": {
+                "Main": {
+                    "Props": [
+                        {
+                            "Name": "Damage",
+                            "Base": 90
+                        }
+                    ]
+                },
+                "Alt": [],
+                "Description": "Launch a sentient cloak that travels forward and damages enemies. You can press [2] to teleport to its location."
+            }
+        },
         "3": {
             "Name": "Enchanter's Satchel",
             "Description": "Escape into your suitcase. When the duration ends, deal damage to nearby enemies. Duration can be ended early by performing any action.",
+            "Upgrades": [
+                {
+                    "AbilityCooldown": -4.75,
+                    "Description": null
+                },
+                {
+                    "Damage": 80,
+                    "Description": null
+                },
+                {
+                    "FireRateSlow": 40,
+                    "DebuffDuration": 4.0,
+                    "Description": "Applies 40% Fire Rate Slow for 4.0s"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1824,6 +3437,21 @@
         "4": {
             "Name": "Affliction",
             "Description": "Apply damage over time to all enemies nearby.<br>Affliction's damage is non-lethal and does not apply item procs.",
+            "Upgrades": [
+                {
+                    "AbilityCooldown": -28.0,
+                    "Description": null
+                },
+                {
+                    "HealAmpReceivePenaltyPercent": -60,
+                    "HealAmpRegenPenaltyPercent": -60,
+                    "Description": "Suppress targets' healing by -60%"
+                },
+                {
+                    "DPS": 27,
+                    "Description": "+27 DPS"
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1844,9 +3472,58 @@
     },
     "hero_thumper": {},
     "hero_mirage": {
+        "1": {
+            "Name": "Tornado",
+            "Description": "Send out a tornado that damages enemies and lifts them up in the air. While they're up in the air, targets will fully evade all bullets.",
+            "Upgrades": [
+                {
+                    "HoldInPlaceDuration": 0.75,
+                    "Description": null
+                },
+                {
+                    "AbilityCooldown": -14.0,
+                    "Description": null
+                },
+                {
+                    "TechArmorDamageReduction": -15,
+                    "Description": null
+                }
+            ],
+            "Info1": {
+                "Main": {
+                    "Props": [
+                        {
+                            "Name": "Damage",
+                            "Base": 60
+                        },
+                        {
+                            "Name": "Lift Duration",
+                            "Base": 1.25
+                        }
+                    ]
+                },
+                "Alt": [],
+                "Description": "Send out a tornado that damages enemies and lifts them up in the air. While they're up in the air, targets will fully evade all bullets."
+            }
+        },
         "2": {
             "Name": "Fire Scarabs",
             "Description": "Start launching fire scarabs. Each scarab can be launched separately, applying a lifesteal over time to enemies they hit. Once the launch window ends, this ability goes on cooldown.",
+            "Upgrades": [
+                {
+                    "AbilityCharges": 2,
+                    "Description": null
+                },
+                {
+                    "HealingFactor": 40,
+                    "NonHeroHealingFactor": 15,
+                    "Description": "+40% Heal vs Heroes"
+                },
+                {
+                    "DPS": 40,
+                    "Description": null
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1871,6 +3548,20 @@
         "3": {
             "Name": "Tempest Ward",
             "Description": "You become enveloped in a whirlwind that provides bullet evasion and movement speed.",
+            "Upgrades": [
+                {
+                    "WhirlwindEvasionChance": 30,
+                    "Description": null
+                },
+                {
+                    "ProcBonusMagicDamageEscalation": 10,
+                    "Description": null
+                },
+                {
+                    "AbilityCooldown": -19.0,
+                    "Description": null
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1907,6 +3598,20 @@
         "4": {
             "Name": "Djinn Bomb",
             "Description": "Launch a slow projectile that you can activate anywhere along its path to detonate it, dealing damage to enemies caught in its radius. Deals bonus damage for each additional hero hit.",
+            "Upgrades": [
+                {
+                    "AbilityCooldown": -28.0,
+                    "Description": null
+                },
+                {
+                    "BombBonusDamagePerHero": 40,
+                    "Description": null
+                },
+                {
+                    "Damage": 150,
+                    "Description": null
+                }
+            ],
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1928,5 +3633,107 @@
     "hero_slork": {},
     "hero_cadence": {},
     "hero_targetdummy": {},
-    "hero_bomber": {}
+    "hero_bomber": {
+        "1": {
+            "Name": null,
+            "Description": null,
+            "Upgrades": [
+                {
+                    "AbilityCooldown": 0,
+                    "Description": null
+                },
+                {
+                    "AbilityCooldown": 0,
+                    "Description": null
+                },
+                {
+                    "AbilityCooldown": 0,
+                    "Description": null
+                }
+            ],
+            "Info1": {
+                "Main": {
+                    "Props": []
+                },
+                "Alt": []
+            }
+        },
+        "2": {
+            "Name": null,
+            "Description": null,
+            "Upgrades": [
+                {
+                    "AbilityCooldown": 0,
+                    "Description": null
+                },
+                {
+                    "AbilityCooldown": 0,
+                    "Description": null
+                },
+                {
+                    "AbilityCooldown": 0,
+                    "Description": null
+                }
+            ],
+            "Info1": {
+                "Main": {
+                    "Props": []
+                },
+                "Alt": []
+            }
+        },
+        "3": {
+            "Name": null,
+            "Description": null,
+            "Upgrades": [
+                {
+                    "AbilityCooldown": 0,
+                    "Description": null
+                },
+                {
+                    "AbilityCooldown": 0,
+                    "Description": null
+                },
+                {
+                    "AbilityCooldown": 0,
+                    "Description": null
+                }
+            ],
+            "Info1": {
+                "Main": {
+                    "Props": []
+                },
+                "Alt": []
+            }
+        },
+        "4": {
+            "Name": null,
+            "Description": null,
+            "Upgrades": [
+                {
+                    "AbilityCooldown": 0,
+                    "Description": null
+                },
+                {
+                    "AbilityCooldown": 0,
+                    "Description": null
+                },
+                {
+                    "AbilityCooldown": 0,
+                    "Description": null
+                }
+            ],
+            "Info1": {
+                "Main": {
+                    "Props": [
+                        {
+                            "Name": "Cooldown",
+                            "Base": 127.0
+                        }
+                    ]
+                },
+                "Alt": []
+            }
+        }
+    }
 }

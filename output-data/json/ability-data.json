@@ -13,15 +13,13 @@
         "Upgrades": [
             {
                 "AfterburnSpiritDamageReduction": -30,
-                "Description": "Victims deal -30% Spirit Damage."
+                "DescKey": "ability_afterburn_t1_desc"
             },
             {
-                "BurnDuration": 1,
-                "Description": "+1s Burn Duration"
+                "BurnDuration": 1
             },
             {
-                "DPS": 30,
-                "Description": "+30 DPS"
+                "DPS": 30
             }
         ]
     },
@@ -41,15 +39,14 @@
             {
                 "SlowPercent": 15,
                 "SlowDurationPerStack": 1,
-                "Description": "Applies a 15% slow on hit. Lasts 1s per stack"
+                "DescKey": "ability_astro_rifle_t1_desc"
             },
             {
-                "DamageAmplificationPerStack": 5,
-                "Description": "+5% Bonus Damage per Stack"
+                "DamageAmplificationPerStack": 5
             },
             {
                 "Damage": 48,
-                "Description": "+48 Damage with improved scaling"
+                "DescKey": "ability_astro_rifle_t3_desc"
             }
         ]
     },
@@ -67,15 +64,13 @@
             {
                 "CloseRangeBonusWeaponPower": 20,
                 "CloseRangeBonusDamageRange": "7m",
-                "Description": "+20 Close Range Weapon Power"
+                "DescKey": "ability_astro_shotgun_toggle_t1_desc"
             },
             {
-                "ClipSizeOverride": 2,
-                "Description": "+2 Ammo"
+                "ClipSizeOverride": 2
             },
             {
-                "BulletDamageIncrease": 50,
-                "Description": "+50% Bullet damage increase"
+                "BulletDamageIncrease": 50
             }
         ]
     },
@@ -95,17 +90,15 @@
         "SelfDamage": 30,
         "Upgrades": [
             {
-                "Radius": 2,
-                "Description": "+2m Radius"
+                "Radius": "2m"
             },
             {
-                "Damage": 60,
-                "Description": "+60 Damage"
+                "Damage": 60
             },
             {
                 "BloodSpillDPSPercent": 26,
                 "BloodSpillDuration": 6,
-                "Description": "Bombs leave a toxic mess on the ground, dealing 26% of the original damage per second, for 6s."
+                "DescKey": "ability_blood_bomb_t3_desc"
             }
         ]
     },
@@ -126,17 +119,16 @@
         "SpreadAngleDegrees": 6,
         "Upgrades": [
             {
-                "AbilityCooldown": -2.75,
-                "Description": "-2.75s Cooldown"
+                "AbilityCooldown": -2.75
             },
             {
                 "HealthToDamage": 40,
-                "Description": "+40 Health To Damage"
+                "DescKey": "ability_blood_shards_t2_desc"
             },
             {
                 "NumBloodShards": 6,
                 "SpreadAngleDegrees": 22,
-                "Description": "+6 Blood Shards"
+                "DescKey": "ability_blood_shards_t3_desc"
             }
         ],
         "VulnerabilityPerStack": 15
@@ -149,16 +141,13 @@
         "Name": null,
         "Upgrades": [
             {
-                "AbilityCooldown": 0,
-                "Description": "+0s Cooldown"
+                "AbilityCooldown": 0
             },
             {
-                "AbilityCooldown": 0,
-                "Description": "+0s Cooldown"
+                "AbilityCooldown": 0
             },
             {
-                "AbilityCooldown": 0,
-                "Description": "+0s Cooldown"
+                "AbilityCooldown": 0
             }
         ]
     },
@@ -170,16 +159,13 @@
         "Name": null,
         "Upgrades": [
             {
-                "AbilityCooldown": 0,
-                "Description": "+0s Cooldown"
+                "AbilityCooldown": 0
             },
             {
-                "AbilityCooldown": 0,
-                "Description": "+0s Cooldown"
+                "AbilityCooldown": 0
             },
             {
-                "AbilityCooldown": 0,
-                "Description": "+0s Cooldown"
+                "AbilityCooldown": 0
             }
         ]
     },
@@ -191,16 +177,13 @@
         "Name": null,
         "Upgrades": [
             {
-                "AbilityCooldown": 0,
-                "Description": "+0s Cooldown"
+                "AbilityCooldown": 0
             },
             {
-                "AbilityCooldown": 0,
-                "Description": "+0s Cooldown"
+                "AbilityCooldown": 0
             },
             {
-                "AbilityCooldown": 0,
-                "Description": "+0s Cooldown"
+                "AbilityCooldown": 0
             }
         ]
     },
@@ -231,15 +214,15 @@
             {
                 "SpeedOnLand": "4m",
                 "SpeedOnLandDuration": 4,
-                "Description": "You and allies gain a +4m/s movement speed bonus for 4s on landing"
+                "DescKey": "ability_bounce_pad_t1_desc"
             },
             {
                 "StompDamage": 100,
-                "Description": "+100 Stomp Damage with improved scaling"
+                "DescKey": "ability_bounce_pad_t2_desc"
             },
             {
                 "StompStunDuration": 1.25,
-                "Description": "+1.25s Stun on Stomp"
+                "DescKey": "ability_bounce_pad_t3_desc"
             }
         ],
         "VerticalDifferenceTolerance": 60
@@ -258,16 +241,13 @@
         "TargetsPerTick": 1,
         "Upgrades": [
             {
-                "WeaponDamageBonus": 7,
-                "Description": "+7 Weapon Damage"
+                "WeaponDamageBonus": 7
             },
             {
-                "AbilityCooldown": -38.0,
-                "Description": "-38.0s Cooldown"
+                "AbilityCooldown": -38.0
             },
             {
-                "TargetsPerTick": 1,
-                "Description": "+1 Targets Hit Per Shot"
+                "TargetsPerTick": 1
             }
         ],
         "WeaponDamageBonus": 2
@@ -295,17 +275,17 @@
         "Upgrades": [
             {
                 "AbilityChannelTime": 3,
-                "Description": "Burrow time +3s"
+                "DescKey": "ability_burrow_t1_desc"
             },
             {
                 "DPS": 140,
                 "Radius": "2m",
-                "Description": "+140 Spin DPS and +2 radius"
+                "DescKey": "ability_burrow_t2_desc"
             },
             {
                 "AbilityCooldown": -19.0,
                 "BonusMoveSpeed": "3m",
-                "Description": "-19.0 Cooldown and +3m/s Move Speed"
+                "DescKey": "ability_burrow_t3_desc"
             }
         ]
     },
@@ -324,16 +304,13 @@
         "Radius": 7,
         "Upgrades": [
             {
-                "AbilityCooldown": 0,
-                "Description": "+0s Cooldown"
+                "AbilityCooldown": 0
             },
             {
-                "AbilityCooldown": 0,
-                "Description": "+0s Cooldown"
+                "AbilityCooldown": 0
             },
             {
-                "AbilityCooldown": 0,
-                "Description": "+0s Cooldown"
+                "AbilityCooldown": 0
             }
         ]
     },
@@ -356,15 +333,14 @@
         "TechCleaveExpireTime": 0.2,
         "Upgrades": [
             {
-                "AbilityCharges": 1,
-                "Description": "+1 Charges"
+                "AbilityCharges": 1
             },
             {
-                "Description": "+UNKNOWN[Damage] Damage"
+                "DescKey": "ability_charged_shot_t2_desc"
             },
             {
                 "AbilityCooldownBetweenCharge": -3,
-                "Description": "Improved damage scaling and -3s Charge Delay"
+                "DescKey": "ability_charged_shot_t3_desc"
             }
         ]
     },
@@ -378,17 +354,16 @@
         "Upgrades": [
             {
                 "CooldownReductionOnKill": 1,
-                "Description": "Reduce one of your Cooldowns by 1s when a marked enemy dies"
+                "DescKey": "ability_death_tax_t1_desc"
             },
             {
-                "DeathTaxHeal": 30,
-                "Description": "+30 Health Per Kill"
+                "DeathTaxHeal": 30
             },
             {
                 "TechPowerAmpBonus": 10,
                 "TechPowerAmpBonusDuration": 10,
                 "TechPowerAmpBonusMaxStacks": 10,
-                "Description": "Increase Spirit Power by 10 for 10s when a marked enemy dies.  Stacks up to 10 times."
+                "DescKey": "ability_death_tax_t3_desc"
             }
         ]
     },
@@ -418,18 +393,16 @@
         "TossSpeed": 400,
         "Upgrades": [
             {
-                "AbilityCharges": 1,
-                "Description": "+1 Charges"
+                "AbilityCharges": 1
             },
             {
-                "BarrelDamage": 140,
-                "Description": "+140 Explosion Damage"
+                "BarrelDamage": 140
             },
             {
                 "AbilityCooldown": -9.5,
                 "MinTimeBeforeDestroy": -1,
                 "ArmTime": -1,
-                "Description": "-9.5 Cooldown<br>No arm time"
+                "DescKey": "ability_explosive_barrel_t3_desc"
             }
         ]
     },
@@ -445,18 +418,17 @@
         "StunDuration": 1.25,
         "Upgrades": [
             {
-                "AbilityCooldown": -38.0,
-                "Description": "-38.0s Cooldown"
+                "AbilityCooldown": -38.0
             },
             {
                 "StunDuration": 0.5,
                 "Radius": "4m",
-                "Description": "+0.5s Stun Duration and +4m Radius"
+                "DescKey": "ability_fire_bomb_t2_desc"
             },
             {
                 "Damage": 115,
                 "LifeStealPercentOnHit": 100,
-                "Description": "+115 Damage and 100% lifesteal from enemy heroes hit"
+                "DescKey": "ability_fire_bomb_t3_desc"
             }
         ]
     },
@@ -484,15 +456,13 @@
             {
                 "FireRateSlow": 30,
                 "FlameDashDebuffDuration": 6,
-                "Description": "+30% Fire Rate Slow for 6s"
+                "DescKey": "ability_flame_dash_t1_desc"
             },
             {
-                "FlameAuraDPS": 45,
-                "Description": "+45 DPS"
+                "FlameAuraDPS": 45
             },
             {
-                "AbilityCooldown": -19.0,
-                "Description": "-19.0s Cooldown"
+                "AbilityCooldown": -19.0
             }
         ]
     },
@@ -517,17 +487,15 @@
         "Name": "Spirit Lasso",
         "Upgrades": [
             {
-                "AbilityDuration": 0.6,
-                "Description": "+0.6s Duration"
+                "AbilityDuration": 0.6
             },
             {
-                "AbilityCooldown": -56.0,
-                "Description": "-56.0s Cooldown"
+                "AbilityCooldown": -56.0
             },
             {
                 "GrabExtraTargets": 1,
                 "ExtraTargetConeAngle": 60,
-                "Description": "Can lasso another enemy inside targetting area"
+                "DescKey": "ability_gravity_lasso_t3_desc"
             }
         ]
     },
@@ -544,16 +512,14 @@
         "StunDuration": 0.75,
         "Upgrades": [
             {
-                "Damage": 100,
-                "Description": "+100 Damage"
+                "Damage": 100
             },
             {
-                "AbilityCooldown": -47.0,
-                "Description": "-47.0s Cooldown"
+                "AbilityCooldown": -47.0
             },
             {
                 "LowHealthEnemyThresholdPct": 22,
-                "Description": "After hit, kills enemies that are below 22% Health"
+                "DescKey": "ability_guided_arrow_t3_desc"
             }
         ]
     },
@@ -569,16 +535,13 @@
         "SlowPercent": 20,
         "Upgrades": [
             {
-                "Damage": 50,
-                "Description": "+50 Damage"
+                "Damage": 50
             },
             {
-                "AbilityCooldown": -9.5,
-                "Description": "-9.5s Cooldown"
+                "AbilityCooldown": -9.5
             },
             {
-                "SlowPercent": 30,
-                "Description": "+30% Movement Slow"
+                "SlowPercent": 30
             }
         ]
     },
@@ -599,18 +562,16 @@
         "PostCastHoldTime": 0.7,
         "Upgrades": [
             {
-                "AbilityCooldown": -38.0,
-                "Description": "-38.0s Cooldown"
+                "AbilityCooldown": -38.0
             },
             {
-                "EnemyMinHealthPct": -10,
-                "Description": "-10% Enemy Min Health"
+                "EnemyMinHealthPct": -10
             },
             {
                 "SelfBuffDuration": 8,
                 "TechResist": 40,
                 "BonusFireRate": 40,
-                "Description": "On cast, +40% Fire Rate and +40% Spirit Resist for 8s."
+                "DescKey": "ability_health_swap_t3_desc"
             }
         ]
     },
@@ -631,15 +592,14 @@
         "Upgrades": [
             {
                 "FireRateSlow": 40,
-                "Description": "+40% Fire Rate Slow"
+                "DescKey": "ability_ice_dome_t1_desc"
             },
             {
-                "AbilityCooldown": -38.0,
-                "Description": "-38.0s Cooldown"
+                "AbilityCooldown": -38.0
             },
             {
                 "BonusHealthRegen": 70,
-                "Description": "+70 Health Regen and now scales with Spirit Power"
+                "DescKey": "ability_ice_dome_t3_desc"
             }
         ]
     },
@@ -658,16 +618,14 @@
         "SlowPercent": 40,
         "Upgrades": [
             {
-                "AbilityCharges": 1,
-                "Description": "+1 Charges"
+                "AbilityCharges": 1
             },
             {
                 "HealAmount": 145,
-                "Description": "Frost Grenade now heals 145 HP to friendly targets. Scales with Spirit."
+                "DescKey": "ability_ice_grenade_t2_desc"
             },
             {
-                "Damage": 175,
-                "Description": "+175 Damage"
+                "Damage": 175
             }
         ]
     },
@@ -693,17 +651,15 @@
         "TickRate": 0.1,
         "Upgrades": [
             {
-                "AbilityCooldown": -7.5,
-                "Description": "-7.5s Cooldown"
+                "AbilityCooldown": -7.5
             },
             {
-                "DPS": 40,
-                "Description": "+40 DPS"
+                "DPS": 40
             },
             {
                 "BeamSplit": "13m",
                 "BeamSplitCount": 2,
-                "Description": "Fires 2 additional Arctic Beams toward enemies within 13m of the last target hit"
+                "DescKey": "ability_icebeam_t3_desc"
             }
         ]
     },
@@ -731,18 +687,16 @@
         "SprintSpeedBonus": 2,
         "Upgrades": [
             {
-                "SprintSpeedBonus": 4,
-                "Description": "+4m/s Sprint Speed"
+                "SprintSpeedBonus": "4m"
             },
             {
-                "AbilityCooldown": -15.0,
-                "Description": "-15.0s Cooldown"
+                "AbilityCooldown": -15.0
             },
             {
                 "BonusSpiritMeter": 1,
                 "BonusSpiritMax": 55,
                 "BonusSpiritLingerDuration": 6,
-                "Description": "While active, gain +1 Spirit Power per meter of Ice Path trail created.  Max of 55 Spirit Power"
+                "DescKey": "ability_icepath_t3_desc"
             }
         ]
     },
@@ -765,17 +719,15 @@
         "TripUpSpeed": 250,
         "Upgrades": [
             {
-                "AbilityCooldown": -19.0,
-                "Description": "-19.0s Cooldown"
+                "AbilityCooldown": -19.0
             },
             {
-                "SlowDuration": 2.0,
-                "Description": "+2.0s Slow Duration"
+                "SlowDuration": 2.0
             },
             {
                 "BulletVulnerbility": 30,
                 "DebuffDuration": 10,
-                "Description": "Grey Talon deals +30% more Bullet Damage to enemies hit by Immobilizing Trap for 10s"
+                "DescKey": "ability_immobilize_trap_t3_desc"
             }
         ]
     },
@@ -801,18 +753,17 @@
         "TickRate": 0.5,
         "Upgrades": [
             {
-                "AbilityCharges": 1,
-                "Description": "+1 Charges"
+                "AbilityCharges": 1
             },
             {
                 "LifestealPercentHero": 15,
-                "Description": "Infernus gains 15% Lifesteal against victims"
+                "DescKey": "ability_incendiary_projectile_t2_desc"
             },
             {
                 "DamageAmplification": 15,
                 "HealAmpReceivePenaltyPercent": -40,
                 "HealAmpRegenPenaltyPercent": -40,
-                "Description": "+15% Damage Amplification and -40% Heal/Regen"
+                "DescKey": "ability_incendiary_projectile_t3_desc"
             }
         ]
     },
@@ -830,17 +781,15 @@
         "TickRate": 0.1,
         "Upgrades": [
             {
-                "AbilityCooldown": -3.75,
-                "Description": "-3.75s Cooldown"
+                "AbilityCooldown": -3.75
             },
             {
-                "Damage": 25,
-                "Description": "+25 Damage"
+                "Damage": 25
             },
             {
                 "DamageBonus": 15,
                 "DebuffDuration": 16,
-                "Description": "Adds a debuff to enemies that lets Mo & Krill deal +15% Damage to them. Stacks and lasts 16s."
+                "DescKey": "ability_intimidate_t3_desc"
             }
         ]
     },
@@ -869,17 +818,15 @@
         "TrackingDistance": 15,
         "Upgrades": [
             {
-                "SlowPercent": 30,
-                "Description": "+30% Movement Slow"
+                "SlowPercent": 30
             },
             {
-                "FireRateSlow": 40,
-                "Description": "+40% Fire Rate Slow"
+                "FireRateSlow": 40
             },
             {
                 "AbilityDuration": 3,
                 "AbilityCooldown": -9.5,
-                "Description": "-9.5 Cooldown and +3s Duration"
+                "DescKey": "ability_kali_dust_storm_t3_desc"
             }
         ]
     },
@@ -905,15 +852,14 @@
             {
                 "ReverseLifeLeech": 30,
                 "ReverseLifeLeechDuration": 8,
-                "Description": "Enemies hit by the bolo give 30% Lifesteal for 8s"
+                "DescKey": "ability_kali_trappers_bolo_t1_desc"
             },
             {
-                "AbilityCooldown": -47.0,
-                "Description": "-47.0s Cooldown"
+                "AbilityCooldown": -47.0
             },
             {
                 "StunsTargets": 1,
-                "Description": "Stun enemies that are immobilized"
+                "DescKey": "ability_kali_trappers_bolo_t3_desc"
             }
         ]
     },
@@ -933,16 +879,15 @@
             {
                 "EnemySlowDuration": 3,
                 "EnemySlowPct": 35,
-                "Description": "Apply 35% Movement Slow for 3s"
+                "DescKey": "ability_lash_flog_t1_desc"
             },
             {
-                "AbilityCooldown": -14.0,
-                "Description": "-14.0s Cooldown"
+                "AbilityCooldown": -14.0
             },
             {
                 "Damage": 105,
                 "FireRateSlow": 35,
-                "Description": "+105 Damage and applies 35% Fire Rate Slow"
+                "DescKey": "ability_lash_flog_t3_desc"
             }
         ]
     },
@@ -962,16 +907,14 @@
         "TickRate": 0.1,
         "Upgrades": [
             {
-                "LifeDrainPerSecond": 20,
-                "Description": "+20 Damage Per Second"
+                "LifeDrainPerSecond": 20
             },
             {
-                "AbilityDuration": 2.0,
-                "Description": "+2.0s Duration"
+                "AbilityDuration": 2.0
             },
             {
                 "SilenceOnDrain": 1,
-                "Description": "Enemy is Silenced while being Life Drained (requires line of sight)"
+                "DescKey": "ability_life_drain_t3_desc"
             }
         ]
     },
@@ -1000,17 +943,17 @@
         "Upgrades": [
             {
                 "SlowDuration": 1,
-                "Description": "+1s Slow Duration"
+                "DescKey": "ability_nano_pounce_t1_desc"
             },
             {
                 "FireRateSlow": 30,
                 "ExplodeRadius": "6m",
-                "Description": "+30% Fire Rate Slow and +6m Slow Radius"
+                "DescKey": "ability_nano_pounce_t2_desc"
             },
             {
                 "AbilityCharges": 1,
                 "ActiveReloadPercent": 25,
-                "Description": "+1 Ability Charge and reloads up to 25% of your ammo"
+                "DescKey": "ability_nano_pounce_t3_desc"
             }
         ]
     },
@@ -1041,17 +984,17 @@
         "Upgrades": [
             {
                 "StatueHealth": 200,
-                "Description": "+200<\"span> Health for Ava"
+                "DescKey": "ability_nano_proximity_ritual_t1_desc"
             },
             {
                 "DPS": 30,
-                "Description": "Victims receive UNKNOWN[FireRateSlow]% Fire Rate Slow and +UNKNOWN[ActiveRadius]m Active Radius"
+                "DescKey": "ability_nano_proximity_ritual_t2_desc"
             },
             {
                 "DamageAmplification": 35,
                 "HealAmpReceivePenaltyPercent": -30,
                 "HealAmpRegenPenaltyPercent": -30,
-                "Description": "+35% Damage Amplification and -30% Heal Reduction on Victims."
+                "DescKey": "ability_nano_proximity_ritual_t3_desc"
             }
         ]
     },
@@ -1075,16 +1018,15 @@
         "SpottedRadius": 15,
         "Upgrades": [
             {
-                "StaminaCooldownReduction": 30,
-                "Description": "+30% Stamina Recovery"
+                "StaminaCooldownReduction": 30
             },
             {
                 "PurgeOnActivate": 1,
-                "Description": "On Cast, Remove all Debuffs"
+                "DescKey": "ability_nano_ult_shadow_t2_desc"
             },
             {
                 "SilenceOnHeavyDuration": 3,
-                "Description": "Heavy Melee attacks cause Silence for 3s"
+                "DescKey": "ability_nano_ult_shadow_t3_desc"
             }
         ]
     },
@@ -1109,16 +1051,13 @@
         "TossSpeed": 400,
         "Upgrades": [
             {
-                "ExplosionRadius": 4,
-                "Description": "+4m Explosion Radius"
+                "ExplosionRadius": "4m"
             },
             {
-                "AbilityCooldown": -11.5,
-                "Description": "-11.5s Cooldown"
+                "AbilityCooldown": -11.5
             },
             {
-                "ExplosionDamage": 100,
-                "Description": "+100 Explosion Damage"
+                "ExplosionDamage": 100
             }
         ]
     },
@@ -1137,19 +1076,18 @@
         "Name": "Rain of Arrows",
         "Upgrades": [
             {
-                "AbilityCooldown": -14.0,
-                "Description": "-14.0s Cooldown"
+                "AbilityCooldown": -14.0
             },
             {
                 "WeaponDamageBonus": 5,
                 "SlowPercent": 40,
                 "SlowDuration": 1.5,
-                "Description": "While airborne, +5 Weapon Damage and weapon damage applies 40% movement slow for 1.5s"
+                "DescKey": "ability_power_jump_t2_desc"
             },
             {
                 "BulletLifestealPercent": 50,
                 "TechLifestealPercent": 50,
-                "Description": "While airborne, +50% Bullet Lifesteal and +50% Spirit Lifesteal"
+                "DescKey": "ability_power_jump_t3_desc"
             }
         ],
         "WeaponDamageBonus": 4
@@ -1172,17 +1110,16 @@
             {
                 "TechResistDebuff": -15,
                 "DebuffDuration": 8,
-                "Description": "Shock Damage applies -15% Spirit Resist for 8s"
+                "DescKey": "ability_power_surge_t1_desc"
             },
             {
-                "AbilityCooldown": -15.0,
-                "Description": "-15.0s Cooldown"
+                "AbilityCooldown": -15.0
             },
             {
                 "DamagePerChain": 12,
                 "BonusPerChain": 12,
                 "ChainCount": 3,
-                "Description": "+12 Shock Damage, improved Spirit scaling, and +3 Max Jumps"
+                "DescKey": "ability_power_surge_t3_desc"
             }
         ]
     },
@@ -1202,16 +1139,13 @@
         "ScrapDamage": 75,
         "Upgrades": [
             {
-                "AbilityCharges": 2,
-                "Description": "+2 Charges"
+                "AbilityCharges": 2
             },
             {
-                "ScrapDamage": 55,
-                "Description": "+55 Damage"
+                "ScrapDamage": 55
             },
             {
-                "EnemyMoveSlow": 20,
-                "Description": "+20% Enemy Slow per hit"
+                "EnemyMoveSlow": 20
             }
         ]
     },
@@ -1236,16 +1170,15 @@
         "Upgrades": [
             {
                 "StaminaReduction": 1,
-                "Description": "Removes 1 stamina"
+                "DescKey": "ability_sleep_dagger_t1_desc"
             },
             {
-                "AbilityCooldown": -12.0,
-                "Description": "-12.0s Cooldown"
+                "AbilityCooldown": -12.0
             },
             {
                 "BulletResistReduction": -12,
                 "BulletResistReductionDuration": 6,
-                "Description": "Applies -12% Bullet Resist for 6s on wake-up."
+                "DescKey": "ability_sleep_dagger_t3_desc"
             }
         ]
     },
@@ -1266,16 +1199,16 @@
         "Upgrades": [
             {
                 "AbilityCooldown": -14.0,
-                "Description": "-14.0s Ability Cooldown"
+                "DescKey": "ability_smoke_bomb_t1_desc"
             },
             {
                 "InvisMoveSpeedMod": "6m",
-                "Description": "+6m/s Invis Sprint Speed"
+                "DescKey": "ability_smoke_bomb_t2_desc"
             },
             {
                 "BulletLifesteal": 30,
                 "PostInvisBuffDuration": 8,
-                "Description": "After invis, gain +30% Bullet Lifesteal for 8s"
+                "DescKey": "ability_smoke_bomb_t3_desc"
             }
         ]
     },
@@ -1294,16 +1227,15 @@
                 "ProcDamageStackCount": 20,
                 "SlowPercent": 15,
                 "SlowDuration": 2,
-                "Description": "60 Spirit damage and 15% slow for 2s to target every 20 stacks"
+                "DescKey": "ability_stacking_damage_t1_desc"
             },
             {
                 "AbilityDuration": 5,
                 "MaxStacks": 40,
-                "Description": "+40 Max Stacks and +5s Duration"
+                "DescKey": "ability_stacking_damage_t2_desc"
             },
             {
-                "DamageBonusFixedPerStack": 0.2,
-                "Description": "+0.2per stack Weapon Damage"
+                "DamageBonusFixedPerStack": 0.2
             }
         ]
     },
@@ -1321,17 +1253,15 @@
         "TargetPracticeDuration": 10,
         "Upgrades": [
             {
-                "AbilityCooldown": -19.0,
-                "Description": "-19.0s Cooldown"
+                "AbilityCooldown": -19.0
             },
             {
-                "DamageOnBuildup": 50,
-                "Description": "+50 Damage on build up"
+                "DamageOnBuildup": 50
             },
             {
                 "BulletArmorReduction": -30,
                 "DebuffDuration": 6,
-                "Description": "Your bullets reduce your target's Bullet Resist by -30% for 6s"
+                "DescKey": "ability_target_practice_t3_desc"
             }
         ]
     },
@@ -1349,16 +1279,14 @@
         "Name": "Sand Blast",
         "Upgrades": [
             {
-                "AbilityDuration": 1.5,
-                "Description": "+1.5s Duration"
+                "AbilityDuration": 1.5
             },
             {
-                "AbilityCooldown": -19.0,
-                "Description": "-19.0s Cooldown"
+                "AbilityCooldown": -19.0
             },
             {
                 "SlowPercent": 50,
-                "Description": "Slow targets by -50%"
+                "DescKey": "ability_throw_sand_t3_desc"
             }
         ]
     },
@@ -1373,17 +1301,16 @@
         "Name": "Combo",
         "Upgrades": [
             {
-                "AbilityCooldown": -28.0,
-                "Description": "-28.0s Cooldown"
+                "AbilityCooldown": -28.0
             },
             {
                 "AbilityChannelTime": 0.75,
-                "Description": "Combo Duration +0.75s"
+                "DescKey": "ability_ult_combo_t2_desc"
             },
             {
                 "DPS": 40,
                 "LifeStealPercentOnHit": 100,
-                "Description": "+40 Damage Per Second and 100% lifesteal"
+                "DescKey": "ability_ult_combo_t3_desc"
             }
         ]
     },
@@ -1402,17 +1329,15 @@
         "Radius": 6.5,
         "Upgrades": [
             {
-                "Damage": 40,
-                "Description": "+40 Damage"
+                "Damage": 40
             },
             {
-                "StaminaReduction": 1,
-                "Description": "+1 Stamina Reduction"
+                "StaminaReduction": 1
             },
             {
                 "FireRateSlow": 35,
                 "AbilityCooldown": -6.5,
-                "Description": "-6.5s Cooldown and applies 35% Fire Rate Slow"
+                "DescKey": "ability_warden_crowd_control_t3_desc"
             }
         ],
         "WeaponPowerDebuff": -30
@@ -1428,16 +1353,14 @@
         "TechShieldPoints": 150,
         "Upgrades": [
             {
-                "MoveSpeedBonusPct": 20,
-                "Description": "+20% Move speed bonus"
+                "MoveSpeedBonusPct": 20
             },
             {
-                "AbilityCooldown": -19.0,
-                "Description": "-19.0s Cooldown"
+                "AbilityCooldown": -19.0
             },
             {
                 "TechShieldPoints": 200,
-                "Description": "+200 Spirit Shield Health and now scales with Spirit Power"
+                "DescKey": "ability_warden_high_alert_t3_desc"
             }
         ]
     },
@@ -1455,17 +1378,15 @@
         "Name": "Binding Word",
         "Upgrades": [
             {
-                "ImmobilizeDuration": 1,
-                "Description": "+1s Immobilize Duration"
+                "ImmobilizeDuration": 1
             },
             {
-                "AbilityCooldown": -19.0,
-                "Description": "-19.0s Cooldown"
+                "AbilityCooldown": -19.0
             },
             {
                 "BulletArmorReduction": 20,
                 "BulletArmorReductionDuration": 6,
-                "Description": "Warden deals +20% more Bullet Damage to trapped Heroes for 6s"
+                "DescKey": "ability_warden_lock_down_t3_desc"
             }
         ]
     },
@@ -1486,16 +1407,13 @@
         "Radius": 12,
         "Upgrades": [
             {
-                "Radius": 3,
-                "Description": "+3m Radius"
+                "Radius": "3m"
             },
             {
-                "PulseDPS": 70,
-                "Description": "+70 DPS"
+                "PulseDPS": 70
             },
             {
-                "AbilityCooldown": -56.0,
-                "Description": "-56.0s Cooldown"
+                "AbilityCooldown": -56.0
             }
         ]
     },
@@ -1514,15 +1432,13 @@
         "Upgrades": [
             {
                 "SalvageBonus_Health": 150,
-                "Description": "150 health restored per kill."
+                "DescKey": "ability_wrecker_salvage_t1_desc"
             },
             {
-                "DPS": 80,
-                "Description": "+80 DPS"
+                "DPS": 80
             },
             {
-                "FireRateBuffDuration": 80,
-                "Description": "+80s Bonus Duration"
+                "FireRateBuffDuration": 80
             }
         ]
     },
@@ -1539,16 +1455,13 @@
         "Name": "Astral Walk",
         "Upgrades": [
             {
-                "AbilityChannelTime": 8,
-                "Description": "+8s Channel Duration"
+                "AbilityChannelTime": 8
             },
             {
-                "AbilityCooldown": -47.0,
-                "Description": "-47.0s Cooldown"
+                "AbilityCooldown": -47.0
             },
             {
-                "DamagePerSecondFlown": 16,
-                "Description": "+16 Damage per second flown"
+                "DamagePerSecondFlown": 16
             }
         ]
     },
@@ -1574,16 +1487,14 @@
         "TrackingSpeed": 70,
         "Upgrades": [
             {
-                "BeamLength": 10,
-                "Description": "+10m Beam Length"
+                "BeamLength": "10m"
             },
             {
-                "AbilityCooldown": -38.0,
-                "Description": "-38.0s Cooldown"
+                "AbilityCooldown": -38.0
             },
             {
                 "Invulnerable": 1,
-                "Description": "Wrecker is Invulnerable during use"
+                "DescKey": "ability_wrecker_ultimate_t3_desc"
             }
         ]
     },
@@ -1602,16 +1513,13 @@
         "TechCleaveExpireTime": 0.4,
         "Upgrades": [
             {
-                "AbilityCooldown": -7.5,
-                "Description": "-7.5s Cooldown"
+                "AbilityCooldown": -7.5
             },
             {
-                "WreckingBallDamage": 80,
-                "Description": "+80 Damage"
+                "WreckingBallDamage": 80
             },
             {
-                "MoveSpeedLimit": 4,
-                "Description": "+4m/s Move Speed"
+                "MoveSpeedLimit": "4m"
             }
         ],
         "WreckingBallDamage": 80,
@@ -1631,16 +1539,13 @@
         "Radius": 12,
         "Upgrades": [
             {
-                "ExtraLargeClip": 75,
-                "Description": "+75% Clip Bonus"
+                "ExtraLargeClip": 75
             },
             {
-                "Radius": 4,
-                "Description": "+4m Radius"
+                "Radius": "4m"
             },
             {
-                "PeakFireRateBonus": 100,
-                "Description": "+100% Peak Fire Rate Bonus"
+                "PeakFireRateBonus": 100
             }
         ]
     },
@@ -1658,16 +1563,13 @@
         "Radius": 12,
         "Upgrades": [
             {
-                "BulletResist": -10,
-                "Description": "-10% Bullet Resist"
+                "BulletResist": -10
             },
             {
-                "DebuffDuration": 4,
-                "Description": "+4s Debuff Duration"
+                "DebuffDuration": 4
             },
             {
-                "Damage": 120,
-                "Description": "+120 Damage"
+                "Damage": 120
             }
         ]
     },
@@ -1688,16 +1590,13 @@
         "StageRadius": 15,
         "Upgrades": [
             {
-                "AbilityCooldown": -19.0,
-                "Description": "-19.0s Cooldown"
+                "AbilityCooldown": -19.0
             },
             {
-                "ExplosiveDamage": 120,
-                "Description": "+120 Explosive Damage"
+                "ExplosiveDamage": 120
             },
             {
-                "FireRateBonus": 20,
-                "Description": "+20% Fire Rate Bonus"
+                "FireRateBonus": 20
             }
         ]
     },
@@ -1716,16 +1615,13 @@
         "SleepWakeUpDelay": 0.25,
         "Upgrades": [
             {
-                "ExternalBonusHealthRegen": 15,
-                "Description": "+15/sec Health Regen"
+                "ExternalBonusHealthRegen": 15
             },
             {
-                "Radius": 2,
-                "Description": "+2m Radius"
+                "Radius": "2m"
             },
             {
-                "LingerDuration": 0.75,
-                "Description": "+0.75s Linger Duration"
+                "LingerDuration": 0.75
             }
         ]
     },
@@ -1743,16 +1639,13 @@
         "Name": "Silence Contraptions",
         "Upgrades": [
             {
-                "SlowPercent": 40,
-                "Description": "+40% Movement Slow"
+                "SlowPercent": 40
             },
             {
-                "DashDistance": 4,
-                "Description": "+4m Dash Distance"
+                "DashDistance": "4m"
             },
             {
-                "DebuffDuration": 1.5,
-                "Description": "+1.5s Debuff Duration"
+                "DebuffDuration": 1.5
             }
         ]
     },
@@ -1781,17 +1674,15 @@
         "TrackingSpeed": 55,
         "Upgrades": [
             {
-                "AbilityCooldown": -30.0,
-                "Description": "-30.0s Cooldown"
+                "AbilityCooldown": -30.0
             },
             {
-                "DPS": 100,
-                "Description": "+100 DPS"
+                "DPS": 100
             },
             {
                 "BeamLifesteal": 100,
                 "BeamLifestealNonHeroPercent": 33,
-                "Description": "Hyper Beam heals Bebop for 100% of its damage on Heroes. 33% on non-hero"
+                "DescKey": "citadel_ability_bebop_laser_beam_t3_desc"
             }
         ],
         "ZoomBias": 0.5,
@@ -1817,17 +1708,15 @@
         "TurnRateMax": 140,
         "Upgrades": [
             {
-                "AbilityCooldown": -19.0,
-                "Description": "-19.0s Cooldown"
+                "AbilityCooldown": -19.0
             },
             {
-                "AbilityDuration": 0.5,
-                "Description": "+0.5s Duration"
+                "AbilityDuration": 0.5
             },
             {
                 "WeaponDamageBonus": 5.5,
                 "WeaponPowerIncreaseDuration": 8,
-                "Description": "+5.5 Weapon Damage for 8s after colliding with an enemy"
+                "DescKey": "citadel_ability_bull_charge_t3_desc"
             }
         ]
     },
@@ -1845,16 +1734,13 @@
         "TickRate": 0.25,
         "Upgrades": [
             {
-                "AbilityCooldown": -19.0,
-                "Description": "-19.0s Cooldown"
+                "AbilityCooldown": -19.0
             },
             {
-                "AbilityDuration": 2,
-                "Description": "+2s Duration"
+                "AbilityDuration": 2
             },
             {
-                "LifeDrainPerSecond": 40,
-                "Description": "+40 Damage Per Second"
+                "LifeDrainPerSecond": 40
             }
         ]
     },
@@ -1870,18 +1756,17 @@
         "StunDuration": 1,
         "Upgrades": [
             {
-                "AbilityCooldown": -38.0,
-                "Description": "-38.0s Cooldown"
+                "AbilityCooldown": -38.0
             },
             {
                 "BonusMaxHealthPerHero": 100,
                 "BonusFireRatePerHero": 15,
                 "LandingBonusesDuration": 25,
-                "Description": "Gain 100 Max HP and 15% Fire Rate per hero hit. Lasts 25s."
+                "DescKey": "citadel_ability_bull_leap_t2_desc"
             },
             {
                 "ImmunityDuration": 3,
-                "Description": "On cast, become Immune to Stun, Silence, Sleep, Root, and Disarm. Expires 3s after landing."
+                "DescKey": "citadel_ability_bull_leap_t3_desc"
             }
         ]
     },
@@ -1908,16 +1793,13 @@
         "ResourcePerCard": 100,
         "Upgrades": [
             {
-                "AbilityCharges": 1,
-                "Description": "+1 Charges"
+                "AbilityCharges": 1
             },
             {
-                "Damage": 50,
-                "Description": "+50 Damage"
+                "Damage": 50
             },
             {
-                "CardResourceGenPctScale": 50,
-                "Description": "+50% Card Summon Rate"
+                "CardResourceGenPctScale": 50
             }
         ]
     },
@@ -1932,16 +1814,14 @@
         "Name": "Chain Lightning",
         "Upgrades": [
             {
-                "ConeRadius": 4,
-                "Description": "+4m Lightning Distance"
+                "ConeRadius": "4m"
             },
             {
-                "Damage": 24,
-                "Description": "+24 Damage"
+                "Damage": 24
             },
             {
                 "MultiChain": 1,
-                "Description": "Chain lightning can hit any enemies around the target."
+                "DescKey": "citadel_ability_chain_lightning_t3_desc"
             }
         ]
     },
@@ -1965,17 +1845,17 @@
             {
                 "Damage": 80,
                 "ChargeDistance": "10m",
-                "Description": "+80 Damage and +10m Charge Distance."
+                "DescKey": "citadel_ability_charged_tackle_t1_desc"
             },
             {
                 "TechShield": 400,
                 "TechShieldDuration": 20,
-                "Description": "Gain a 400HP Spirit Shield for 20s when Charged Tackle ends."
+                "DescKey": "citadel_ability_charged_tackle_t2_desc"
             },
             {
                 "AbilityCooldown": -9.5,
                 "PrepareTime": -0.6,
-                "Description": "Remove Prepare Time and -9.5s Ability Cooldown"
+                "DescKey": "citadel_ability_charged_tackle_t3_desc"
             }
         ]
     },
@@ -2004,16 +1884,16 @@
         "Upgrades": [
             {
                 "MaxSlowDuration": 0.5,
-                "Description": "+UNKNOWN[MinSlowDuration]s/0.5s Min/Max Stop Duration"
+                "DescKey": "citadel_ability_chrono_kinetic_carbine_t1_desc"
             },
             {
                 "AbilityCooldown": -9.5,
                 "SpeedBoostDuration": 2,
-                "Description": "+2s Speed Duration, 2s Charge Time"
+                "DescKey": "citadel_ability_chrono_kinetic_carbine_t2_desc"
             },
             {
                 "MaxBonusBulletDamage": 50,
-                "Description": "+50% Max Damage Amp"
+                "DescKey": "citadel_ability_chrono_kinetic_carbine_t3_desc"
             }
         ]
     },
@@ -2036,16 +1916,13 @@
         "SlowPercent": 30,
         "Upgrades": [
             {
-                "Pulses": 1,
-                "Description": "+1 Pulses"
+                "Pulses": 1
             },
             {
-                "AbilityCooldown": -7.5,
-                "Description": "-7.5s Cooldown"
+                "AbilityCooldown": -7.5
             },
             {
-                "PulseDamage": 45,
-                "Description": "+45 Pulse Damage"
+                "PulseDamage": 45
             }
         ]
     },
@@ -2068,16 +1945,13 @@
         "TickRate": 0.25,
         "Upgrades": [
             {
-                "AbilityCastRange": 15,
-                "Description": "+15m Cast Range"
+                "AbilityCastRange": "15m"
             },
             {
-                "SwapTotalDamage": 100,
-                "Description": "+100 Swap Damage"
+                "SwapTotalDamage": 100
             },
             {
-                "AbilityCooldown": -14.0,
-                "Description": "-14.0s Cooldown"
+                "AbilityCooldown": -14.0
             }
         ]
     },
@@ -2109,15 +1983,14 @@
             {
                 "TimeWallWidth": "2m",
                 "TimeWallHeight": "1m",
-                "Description": "+2m Width, +1m Height"
+                "DescKey": "citadel_ability_chrono_time_wall_t1_desc"
             },
             {
-                "AbilityCharges": 1,
-                "Description": "+1 Charges"
+                "AbilityCharges": 1
             },
             {
                 "DebuffDuration": 3.0,
-                "Description": "Enemies that touch Time Wall will be Silenced for 3.0s"
+                "DescKey": "citadel_ability_chrono_time_wall_t3_desc"
             }
         ]
     },
@@ -2143,15 +2016,14 @@
                 "StaminaReduction": 1,
                 "BonusDamagePercent": 25,
                 "DebuffDuration": 7,
-                "Description": "Removes 1 stamina and amplifies McGinnis's damage by 25% on hit enemies for 7s"
+                "DescKey": "citadel_ability_fissure_wall_t1_desc"
             },
             {
-                "AbilityCooldown": -14.0,
-                "Description": "-14.0s Cooldown"
+                "AbilityCooldown": -14.0
             },
             {
                 "WallStunDuration": 1,
-                "Description": "Adds a 1s Stun to enemies hit by Spectral Wall"
+                "DescKey": "citadel_ability_fissure_wall_t3_desc"
             }
         ],
         "WallImpactRange": 5
@@ -2169,17 +2041,15 @@
         "SlowPercent": 30,
         "Upgrades": [
             {
-                "SlowPercent": 25,
-                "Description": "+25% Movement Slow"
+                "SlowPercent": 25
             },
             {
-                "AbilityCastRange": 20,
-                "Description": "+20m Cast Range"
+                "AbilityCastRange": "20m"
             },
             {
                 "WeaponDamageBonus": 6,
                 "WeaponPowerIncreaseDuration": 10,
-                "Description": "+6 Weapon Damage for 10s after striking the target"
+                "DescKey": "citadel_ability_flying_strike_t3_desc"
             }
         ]
     },
@@ -2197,16 +2067,13 @@
         "Radius": 13,
         "Upgrades": [
             {
-                "FireRateSlow": 30,
-                "Description": "+30% Fire Rate Slow"
+                "FireRateSlow": 30
             },
             {
-                "HealMaxHealth": 10,
-                "Description": "+10% of Max Health Heal on hero hit"
+                "HealMaxHealth": 10
             },
             {
-                "AbilityCooldown": -5.75,
-                "Description": "-5.75s Cooldown"
+                "AbilityCooldown": -5.75
             }
         ]
     },
@@ -2229,15 +2096,13 @@
             {
                 "BulletAmp": 30,
                 "BulletAmpDuration": 10,
-                "Description": "Bebop deals 30% more bullet damage against hooked enemies for 10s"
+                "DescKey": "citadel_ability_hook_t1_desc"
             },
             {
-                "AbilityCastRange": 30,
-                "Description": "+30m Cast Range"
+                "AbilityCastRange": "30m"
             },
             {
-                "AbilityCooldown": -11.5,
-                "Description": "-11.5s Cooldown"
+                "AbilityCooldown": -11.5
             }
         ]
     },
@@ -2256,16 +2121,14 @@
         "SlowPercent": 30,
         "Upgrades": [
             {
-                "ChainDuration": 0.5,
-                "Description": "+0.5s Tether Duration"
+                "ChainDuration": 0.5
             },
             {
-                "AbilityCooldown": -19.0,
-                "Description": "-19.0s Cooldown"
+                "AbilityCooldown": -19.0
             },
             {
                 "HasDisarm": 1,
-                "Description": "Tethered enemies are also disarmed<%s3>"
+                "DescKey": "citadel_ability_hornet_chain_t3_desc"
             }
         ]
     },
@@ -2285,15 +2148,13 @@
         "Upgrades": [
             {
                 "BonusClipSizePercent": 50,
-                "Description": "+50% base Ammo while flying"
+                "DescKey": "citadel_ability_hornet_leap_t1_desc"
             },
             {
-                "AbilityCooldown": -14.0,
-                "Description": "-14.0s Cooldown"
+                "AbilityCooldown": -14.0
             },
             {
-                "MagicDamagePerBullet": 12.0,
-                "Description": "+12.0 Spirit Damage Per Bullet"
+                "MagicDamagePerBullet": 12.0
             }
         ],
         "WeaponRecoilReduction": 40
@@ -2308,16 +2169,14 @@
         "Name": "Vindicta's Mark",
         "Upgrades": [
             {
-                "AbilityCastRange": 2500,
-                "Description": "+2500m Cast Range"
+                "AbilityCastRange": 2500
             },
             {
                 "ChargeForKill": 1,
-                "Description": "When a marked enemy is killed, Vindicta immediately gains 1 Charge for Assassinate"
+                "DescKey": "citadel_ability_hornet_mark_t2_desc"
             },
             {
-                "AbilityCooldown": -33.0,
-                "Description": "-33.0s Cooldown"
+                "AbilityCooldown": -33.0
             }
         ]
     },
@@ -2342,16 +2201,14 @@
         "SnipeZoomDuration": 0.15,
         "Upgrades": [
             {
-                "AbilityCooldown": -19.0,
-                "Description": "-19.0s Cooldown"
+                "AbilityCooldown": -19.0
             },
             {
-                "LowHealthEnemyDamageBonus": 140,
-                "Description": "+140 Bonus Damage"
+                "LowHealthEnemyDamageBonus": 140
             },
             {
                 "BonusGoldOnKill": 600,
-                "Description": "Assassinate kills grant +600 souls"
+                "DescKey": "citadel_ability_hornet_snipe_t3_desc"
             }
         ],
         "ViewPunch": 2.5,
@@ -2374,17 +2231,16 @@
             {
                 "TargetBounceRange": "15m",
                 "TargetBounceCount": 3,
-                "Description": "Crow Ricochets up to 2 times towards other enemies within 15m"
+                "DescKey": "citadel_ability_hornet_sting_t1_desc"
             },
             {
-                "AbilityCooldown": -16.0,
-                "Description": "-16.0s Cooldown"
+                "AbilityCooldown": -16.0
             },
             {
                 "DotHealthPercent": 3,
                 "HealAmpReceivePenaltyPercent": -40,
                 "HealAmpRegenPenaltyPercent": -40,
-                "Description": "+3% Bleed and suppresses healing by -40%"
+                "DescKey": "citadel_ability_hornet_sting_t3_desc"
             }
         ],
         "VisualSplashRadius": 1
@@ -2405,16 +2261,13 @@
         "TechResist": 40,
         "Upgrades": [
             {
-                "AbilityCooldown": -28.0,
-                "Description": "-28.0s Cooldown"
+                "AbilityCooldown": -28.0
             },
             {
-                "BonusMoveSpeed": 4,
-                "Description": "+4m/s Move Speed"
+                "BonusMoveSpeed": "4m"
             },
             {
-                "AbilityDuration": 1.5,
-                "Description": "+1.5s Duration"
+                "AbilityDuration": 1.5
             }
         ]
     },
@@ -2429,16 +2282,14 @@
         "Radius": 10,
         "Upgrades": [
             {
-                "AbilityDuration": 2,
-                "Description": "+2s Duration"
+                "AbilityDuration": 2
             },
             {
                 "LifestealPercent": 30,
-                "Description": "30% Damage Lifesteal for the duration of Pack Hunter"
+                "DescKey": "citadel_ability_kali_disruptive_charge_t2_desc"
             },
             {
-                "BonusFireRate": 40,
-                "Description": "+40% Fire Rate"
+                "BonusFireRate": 40
             }
         ]
     },
@@ -2467,15 +2318,15 @@
             {
                 "SlowPercent": 30,
                 "SlowDuration": 4,
-                "Description": "30% slow for 4s on enemies hit"
+                "DescKey": "citadel_ability_kali_spinning_blade_t1_desc"
             },
             {
                 "Damage": 40,
-                "Description": "+40 Damage and Occilioblade gains +100% more damage from spirit"
+                "DescKey": "citadel_ability_kali_spinning_blade_t2_desc"
             },
             {
                 "CooldownReductionOnHit": -7,
-                "Description": "-7s Cooldown for each enemy hit by Occilioblade"
+                "DescKey": "citadel_ability_kali_spinning_blade_t3_desc"
             }
         ]
     },
@@ -2494,18 +2345,17 @@
         "Name": "Grapple",
         "Upgrades": [
             {
-                "AbilityCooldown": -19.0,
-                "Description": "-19.0s Cooldown"
+                "AbilityCooldown": -19.0
             },
             {
                 "AbilityCastRange": "20m",
                 "WeaponDamageBonus": 6,
                 "WeaponDamageBonusDuration": 10,
-                "Description": "+20m Cast Range and gain +6 Weapon Damage for 10s"
+                "DescKey": "citadel_ability_lash_t2_desc"
             },
             {
                 "WeaponFireRateBonus": 20,
-                "Description": "+20% Fire Rate to Weapon Bonus Buff"
+                "DescKey": "citadel_ability_lash_t3_desc"
             }
         ]
     },
@@ -2527,17 +2377,16 @@
         "StrikeVelocity": 50,
         "Upgrades": [
             {
-                "AbilityCooldown": -9.5,
-                "Description": "-9.5s Cooldown"
+                "AbilityCooldown": -9.5
             },
             {
                 "EnemySlowPct": 50,
                 "SlowDuration": 3,
                 "StompBounceHeight": 400,
-                "Description": "Struck enemies are popped into the air and slowed by 50% for 3s"
+                "DescKey": "citadel_ability_lash_down_strike_t2_desc"
             },
             {
-                "Description": "Damage Per Meter +110% and improved scaling"
+                "DescKey": "citadel_ability_lash_down_strike_t3_desc"
             }
         ]
     },
@@ -2569,16 +2418,13 @@
         "UpBoostSpeed": 400,
         "Upgrades": [
             {
-                "ThrowDistance": 8,
-                "Description": "+8m Max Throw Distance"
+                "ThrowDistance": "8m"
             },
             {
-                "ImpactDamage": 100,
-                "Description": "+100 Damage"
+                "ImpactDamage": 100
             },
             {
-                "AbilityCooldown": -56.0,
-                "Description": "-56.0s Cooldown"
+                "AbilityCooldown": -56.0
             }
         ]
     },
@@ -2600,16 +2446,14 @@
         "TickRate": 0.1,
         "Upgrades": [
             {
-                "AbilityCharges": 1,
-                "Description": "+1 Charges"
+                "AbilityCharges": 1
             },
             {
-                "SlowPercent": 40,
-                "Description": "+40% Movement Slow"
+                "SlowPercent": 40
             },
             {
                 "DPS": 70,
-                "Description": "+70 DPS"
+                "DescKey": "citadel_ability_lightning_ball_t3_desc"
             }
         ]
     },
@@ -2629,15 +2473,14 @@
         "Upgrades": [
             {
                 "AuraFireRateBonus": 35,
-                "Description": "+35% Fire Rate on units being healed by Medicinal Specter"
+                "DescKey": "citadel_ability_mobile_resupply_t1_desc"
             },
             {
-                "AbilityCooldown": -17.0,
-                "Description": "-17.0s Cooldown"
+                "AbilityCooldown": -17.0
             },
             {
                 "MaxHealthRegenPct": 5,
-                "Description": "+5% Max Health regen per second"
+                "DescKey": "citadel_ability_mobile_resupply_t3_desc"
             }
         ]
     },
@@ -2655,16 +2498,15 @@
             {
                 "MovementSpeedBonus": "4m",
                 "MovementSpeedBonusDuration": 8,
-                "Description": "Gain +4m/s movespeed bonus for 8s if Aurora is fully channeled.  Gain instantly with 5AP Upgrade."
+                "DescKey": "citadel_ability_nikuman_t1_desc"
             },
             {
-                "AbilityCooldown": -14.0,
-                "Description": "-14.0s Cooldown"
+                "AbilityCooldown": -14.0
             },
             {
                 "NoChannel": 1,
                 "HealMaxHealthPercent": 3.8,
-                "Description": "Full move and ability use and additionaly heals +3.8% of Max Health per second"
+                "DescKey": "citadel_ability_nikuman_t3_desc"
             }
         ]
     },
@@ -2679,16 +2521,13 @@
         "RegenIncomingDamagePercent": 16,
         "Upgrades": [
             {
-                "BonusHealthRegen": 1.5,
-                "Description": "+1.5 Health Regen"
+                "BonusHealthRegen": 1.5
             },
             {
-                "BonusMaxHealth": 150,
-                "Description": "+150 Health"
+                "BonusMaxHealth": 150
             },
             {
-                "RegenIncomingDamagePercent": 9,
-                "Description": "+9% Damage regenerated"
+                "RegenIncomingDamagePercent": 9
             }
         ]
     },
@@ -2711,16 +2550,15 @@
         "Upgrades": [
             {
                 "BulletResist": 60,
-                "Description": "Gain +60 Bullet Resist while channeling"
+                "DescKey": "citadel_ability_power_slash_t1_desc"
             },
             {
                 "SlowDuration": 3,
                 "SlowPercent": 40,
-                "Description": "Apply 40% movement slow for 3s"
+                "DescKey": "citadel_ability_power_slash_t2_desc"
             },
             {
-                "FullChargeDamage": 200,
-                "Description": "+200 Full Charge Damage"
+                "FullChargeDamage": 200
             }
         ]
     },
@@ -2736,17 +2574,15 @@
         "TrailInterval": 0.1,
         "Upgrades": [
             {
-                "AbilityCastRange": 15,
-                "Description": "+15m Cast Range"
+                "AbilityCastRange": "15m"
             },
             {
                 "BulletShieldOnLand": 300,
                 "BulletShieldDuration": 8,
-                "Description": "Provides a 300 bullet shield for 8s on teleport. Shield amount scales with Spirit Power."
+                "DescKey": "citadel_ability_projectmind_t2_desc"
             },
             {
-                "AbilityCooldown": -28.0,
-                "Description": "-28.0s Cooldown"
+                "AbilityCooldown": -28.0
             }
         ]
     },
@@ -2771,16 +2607,14 @@
         "SpawnDuration": 0.6,
         "Upgrades": [
             {
-                "DamagePerDagger": 16,
-                "Description": "+16 Damage per card"
+                "DamagePerDagger": 16
             },
             {
-                "AbilityCooldown": -19.0,
-                "Description": "-19.0s Cooldown"
+                "AbilityCooldown": -19.0
             },
             {
                 "ShouldBounce": 1,
-                "Description": "Each card bounces once onto another enemy in range"
+                "DescKey": "citadel_ability_psychic_daggers_t3_desc"
             }
         ]
     },
@@ -2798,16 +2632,14 @@
         "Name": "Telekinesis",
         "Upgrades": [
             {
-                "AbilityCooldown": -28.0,
-                "Description": "-28.0s Cooldown"
+                "AbilityCooldown": -28.0
             },
             {
-                "AbilityDuration": 0.5,
-                "Description": "+0.5s Duration"
+                "AbilityDuration": 0.5
             },
             {
                 "AbilityUnitTargetLimit": 5,
-                "Description": "Telekinesis will target enemies in an area around Wraith"
+                "DescKey": "citadel_ability_psychic_lift_t3_desc"
             }
         ]
     },
@@ -2821,16 +2653,13 @@
         "SenseRange": 30,
         "Upgrades": [
             {
-                "AbilityCooldown": -6.5,
-                "Description": "-6.5s Cooldown"
+                "AbilityCooldown": -6.5
             },
             {
-                "SenseRange": 10,
-                "Description": "+10m Sense Range"
+                "SenseRange": "10m"
             },
             {
-                "AbilityDuration": 3,
-                "Description": "+3s Duration"
+                "AbilityDuration": 3
             }
         ]
     },
@@ -2861,15 +2690,14 @@
             {
                 "MoveSlowPercent": 35,
                 "MoveSlowDuration": 2.0,
-                "Description": "Applies 35% movement slow"
+                "DescKey": "citadel_ability_rocket_barrage_t1_desc"
             },
             {
-                "AbilityCooldown": -47.0,
-                "Description": "-47.0s Cooldown"
+                "AbilityCooldown": -47.0
             },
             {
                 "DamagePerRocket": 30,
-                "Description": "+30 Damage per Rocket "
+                "DescKey": "citadel_ability_rocket_barrage_t3_desc"
             }
         ]
     },
@@ -2883,15 +2711,14 @@
         "Upgrades": [
             {
                 "MoveSpeedMod": "2m",
-                "Description": "Move speed +2 m/s while decoy is active"
+                "DescKey": "citadel_ability_running_decoy_t1_desc"
             },
             {
                 "HealOnCloneDamage": 100,
-                "Description": "Astro is healed 100% of the damage taken by the decoy"
+                "DescKey": "citadel_ability_running_decoy_t2_desc"
             },
             {
-                "AbilityDuration": 6,
-                "Description": "+6s Duration"
+                "AbilityDuration": 6
             }
         ]
     },
@@ -2910,16 +2737,14 @@
         "TossSpeed": 350,
         "Upgrades": [
             {
-                "VacuumRadius": 2,
-                "Description": "+2m Singularity Radius"
+                "VacuumRadius": "2m"
             },
             {
-                "AbilityChannelTime": 0.75,
-                "Description": "+0.75s Channel Duration"
+                "AbilityChannelTime": 0.75
             },
             {
                 "DamagePercentHealth": 3.8,
-                "Description": "Singularity takes 3.8% of the enemies' max health each second."
+                "DescKey": "citadel_ability_self_vacuum_t3_desc"
             }
         ],
         "VacuumRadius": 8
@@ -2957,16 +2782,15 @@
                 "AbilityCharges": 1,
                 "MoveSlowPercent": 25,
                 "SlowDuration": 1.3,
-                "Description": "+1 Ability Charge and turrets apply +25% Movement Slow"
+                "DescKey": "citadel_ability_shieldedsentry_t1_desc"
             },
             {
                 "TurretAttackRange": "10m",
                 "AttackSpeedMult": 10,
-                "Description": "+10m Attack Range and +10% turret fire rate"
+                "DescKey": "citadel_ability_shieldedsentry_t2_desc"
             },
             {
-                "TurretDPS": 45,
-                "Description": "+45 Turret DPS"
+                "TurretDPS": 45
             }
         ]
     },
@@ -2989,17 +2813,15 @@
         "RicochetCount": 1,
         "Upgrades": [
             {
-                "AbilityCharges": 1,
-                "Description": "+1 Charges"
+                "AbilityCharges": 1
             },
             {
-                "BleedDuration": 2,
-                "Description": "+2s Bleed Duration"
+                "BleedDuration": 2
             },
             {
                 "ImpactDamage": 40,
                 "BleedDPSPerStack": 5,
-                "Description": "+40 Damage and +5 Bleed DPS"
+                "DescKey": "citadel_ability_shiv_dagger_t3_desc"
             }
         ]
     },
@@ -3022,18 +2844,16 @@
         "TechCleaveExpireTime": 0.35,
         "Upgrades": [
             {
-                "AbilityCooldown": -3.75,
-                "Description": "-3.75s Cooldown"
+                "AbilityCooldown": -3.75
             },
             {
-                "ImpactDamage": 85,
-                "Description": "+85 Damage"
+                "ImpactDamage": 85
             },
             {
                 "CooldownReductionOnHit": 2,
                 "CooldownReductionOnHitNonHero": 1,
                 "MaxCooldownReductionsFromHits": 6,
-                "Description": "Reduce cooldown by 2s per enemy hero hit (1s for Non-Hero). Max -6s per Dash."
+                "DescKey": "citadel_ability_shiv_dash_t3_desc"
             }
         ]
     },
@@ -3050,16 +2870,13 @@
         "Name": "Bloodletting",
         "Upgrades": [
             {
-                "DeferredDamageDuration": 5,
-                "Description": "+5s Deferred Damage Duration"
+                "DeferredDamageDuration": 5
             },
             {
-                "AbilityCooldown": -4.75,
-                "Description": "-4.75s Cooldown"
+                "AbilityCooldown": -4.75
             },
             {
-                "DeferClearPct": 25,
-                "Description": "+25% Deferred Damage Cleared"
+                "DeferClearPct": 25
             }
         ]
     },
@@ -3092,16 +2909,16 @@
         "Upgrades": [
             {
                 "BonusMoveSpeed": "2m",
-                "Description": "Gain +2 m/s move speed while at full rage."
+                "DescKey": "citadel_ability_shiv_killing_blow_t1_desc"
             },
             {
                 "EnemyHealthPercent": 8,
                 "BuffDamage": 5,
-                "Description": "+8% Enemy Health Threshold and +5% Full Rage Bonus Damage"
+                "DescKey": "citadel_ability_shiv_killing_blow_t2_desc"
             },
             {
                 "ShortCooldown": 0.5,
-                "Description": "Finishing off an enemy with Killing Blow resets its cooldown."
+                "DescKey": "citadel_ability_shiv_killing_blow_t3_desc"
             }
         ]
     },
@@ -3119,16 +2936,13 @@
         "StunDuration": 1.1,
         "Upgrades": [
             {
-                "AbilityCooldown": -19.0,
-                "Description": "-19.0s Cooldown"
+                "AbilityCooldown": -19.0
             },
             {
-                "ShockRadius": 8,
-                "Description": "+8m Radius"
+                "ShockRadius": "8m"
             },
             {
-                "StunDuration": 1.1,
-                "Description": "+1.1s Stun Duration"
+                "StunDuration": 1.1
             }
         ]
     },
@@ -3146,16 +2960,14 @@
         "Radius": 12,
         "Upgrades": [
             {
-                "AbilityCooldown": -7.5,
-                "Description": "-7.5s Cooldown"
+                "AbilityCooldown": -7.5
             },
             {
-                "Damage": 80,
-                "Description": "+80 Damage"
+                "Damage": 80
             },
             {
                 "DebuffDuration": 3.5,
-                "Description": "On Attach, disarms the target for 3.5s"
+                "DescKey": "citadel_ability_sticky_bomb_t3_desc"
             }
         ]
     },
@@ -3182,16 +2994,15 @@
                 "FireRateSlow": 25,
                 "SlowPercent": 35,
                 "SlowDuration": 4,
-                "Description": "Hit enemies are fire rate and movement slowed by 35% for 4s."
+                "DescKey": "citadel_ability_stomp_t1_desc"
             },
             {
                 "BulletArmorReduction": 30,
                 "BulletArmorReductionDuration": 8,
-                "Description": "Dynamo deals 30% more Weapon Damage to hit enemies for 8s"
+                "DescKey": "citadel_ability_stomp_t2_desc"
             },
             {
-                "Damage": 125,
-                "Description": "+125 Damage"
+                "Damage": 125
             }
         ]
     },
@@ -3214,16 +3025,16 @@
         "Upgrades": [
             {
                 "BulletResistOnActive": 35,
-                "Description": "+35% Bullet Resist while channeling Storm Cloud"
+                "DescKey": "citadel_ability_storm_cloud_t1_desc"
             },
             {
                 "Radius": "10m",
                 "AbilityChannelTime": 7,
-                "Description": "+7s Channel Time and +10m Radius"
+                "DescKey": "citadel_ability_storm_cloud_t2_desc"
             },
             {
                 "DPS": 75,
-                "Description": "+75 DPS"
+                "DescKey": "citadel_ability_storm_cloud_t3_desc"
             }
         ]
     },
@@ -3244,16 +3055,14 @@
         "TotalTetherTargets": 1,
         "Upgrades": [
             {
-                "BonusFireRate": 10,
-                "Description": "+10% Fire Rate"
+                "BonusFireRate": 10
             },
             {
                 "MoveSpeedBonus": "2.0m",
-                "Description": "+2.0m/s movement bonus"
+                "DescKey": "citadel_ability_tangotether_t2_desc"
             },
             {
-                "TotalTetherTargets": 1,
-                "Description": "+1 Tether Count"
+                "TotalTetherTargets": 1
             }
         ]
     },
@@ -3282,16 +3091,16 @@
             {
                 "BulletArmorReduction": -20,
                 "BulletArmorReductionDuration": 12,
-                "Description": "-20% Bullet Resist on enemies hit for 12s"
+                "DescKey": "citadel_ability_tengu_airlift_t1_desc"
             },
             {
                 "AirDropBulletShield": 300,
                 "OnLandDamageRadius": "5m",
-                "Description": "+300 Bullet Shield and +5m Explode Radius"
+                "DescKey": "citadel_ability_tengu_airlift_t2_desc"
             },
             {
                 "SilenceDuration": 4.5,
-                "Description": "Applies Silence on enemies hit for +4.5s"
+                "DescKey": "citadel_ability_tengu_airlift_t3_desc"
             }
         ]
     },
@@ -3314,17 +3123,15 @@
         "StunDuration": 0.75,
         "Upgrades": [
             {
-                "AbilityCooldown": -19.0,
-                "Description": "-19.0s Cooldown"
+                "AbilityCooldown": -19.0
             },
             {
                 "StunDuration": 0.5,
                 "Damage": 80,
-                "Description": "+80 Damage and stuns for 0.5s."
+                "DescKey": "citadel_ability_tengu_stone_form_t2_desc"
             },
             {
-                "MaxHealthRegen": 20,
-                "Description": "+20% Max Health Heal"
+                "MaxHealthRegen": 20
             }
         ]
     },
@@ -3346,16 +3153,14 @@
         "TickRate": 0.25,
         "Upgrades": [
             {
-                "AbilityCharges": 1,
-                "Description": "+1 Charges"
+                "AbilityCharges": 1
             },
             {
-                "AbilityDuration": 2,
-                "Description": "+2s Duration"
+                "AbilityDuration": 2
             },
             {
                 "DPS": 60,
-                "Description": "+60 DPS"
+                "DescKey": "citadel_ability_tengu_urn_t3_desc"
             }
         ]
     },
@@ -3376,18 +3181,17 @@
         "TossVelocity": 25,
         "Upgrades": [
             {
-                "AbilityCooldown": -10.5,
-                "Description": "-10.5s Cooldown"
+                "AbilityCooldown": -10.5
             },
             {
                 "UppercutBuffOnHit": 12,
                 "BuffBaseWeaponPct": 60,
-                "Description": "On Uppercut enemy Hero, gain fast spin-up time, 2x range, and +60% weapon damage for 12s"
+                "DescKey": "citadel_ability_uppercut_t2_desc"
             },
             {
                 "RestoreHookCooldown": 1,
                 "ClipSizeBonus": 100,
-                "Description": "On Uppercut enemy Hero, set Hook cooldown to 0 and instantly +100% bullets to your current clip"
+                "DescKey": "citadel_ability_uppercut_t3_desc"
             }
         ],
         "UppercutDamage": 0.01
@@ -3405,16 +3209,14 @@
         "TrailInterval": 0.01,
         "Upgrades": [
             {
-                "AbilityCastRange": 4,
-                "Description": "+4m Cast Range"
+                "AbilityCastRange": "4m"
             },
             {
-                "FireRateBonus": 25,
-                "Description": "+25% Fire Rate Bonus"
+                "FireRateBonus": 25
             },
             {
                 "BonusClipSizePercent": 120,
-                "Description": "On reappearing, +120% base ammo"
+                "DescKey": "citadel_ability_void_sphere_t3_desc"
             }
         ],
         "VoidTime": 1.4
@@ -3434,16 +3236,13 @@
         "Radius": 5,
         "Upgrades": [
             {
-                "DPS": 30,
-                "Description": "+30 DPS"
+                "DPS": 30
             },
             {
-                "Radius": 2.5,
-                "Description": "+2.5m Radius"
+                "Radius": "2.5m"
             },
             {
-                "AbilityDuration": 3,
-                "Description": "+3s Duration"
+                "AbilityDuration": 3
             }
         ]
     },
@@ -3460,16 +3259,13 @@
         "Radius": 25,
         "Upgrades": [
             {
-                "AbilityCooldown": -14.0,
-                "Description": "-14.0s Cooldown"
+                "AbilityCooldown": -14.0
             },
             {
-                "MagicDamagePerBullet": 5,
-                "Description": "+5 Spirit Damage Per Bullet"
+                "MagicDamagePerBullet": 5
             },
             {
-                "BulletLifestealPercent": 35,
-                "Description": "+35% Bullet Lifesteal"
+                "BulletLifestealPercent": 35
             }
         ]
     },
@@ -3482,16 +3278,13 @@
         "Name": null,
         "Upgrades": [
             {
-                "AbilityCooldown": -0.75,
-                "Description": "-0.75s Cooldown"
+                "AbilityCooldown": -0.75
             },
             {
-                "AbilityCooldown": -0.75,
-                "Description": "-0.75s Cooldown"
+                "AbilityCooldown": -0.75
             },
             {
-                "AbilityCooldown": -0.75,
-                "Description": "-0.75s Cooldown"
+                "AbilityCooldown": -0.75
             }
         ]
     },
@@ -3504,16 +3297,13 @@
         "Name": null,
         "Upgrades": [
             {
-                "AbilityCooldown": -0.75,
-                "Description": "-0.75s Cooldown"
+                "AbilityCooldown": -0.75
             },
             {
-                "AbilityCooldown": -0.75,
-                "Description": "-0.75s Cooldown"
+                "AbilityCooldown": -0.75
             },
             {
-                "AbilityCooldown": -0.75,
-                "Description": "-0.75s Cooldown"
+                "AbilityCooldown": -0.75
             }
         ]
     },
@@ -3526,16 +3316,13 @@
         "Name": null,
         "Upgrades": [
             {
-                "AbilityCooldown": -0.75,
-                "Description": "-0.75s Cooldown"
+                "AbilityCooldown": -0.75
             },
             {
-                "AbilityCooldown": -0.75,
-                "Description": "-0.75s Cooldown"
+                "AbilityCooldown": -0.75
             },
             {
-                "AbilityCooldown": -0.75,
-                "Description": "-0.75s Cooldown"
+                "AbilityCooldown": -0.75
             }
         ]
     },
@@ -3548,16 +3335,13 @@
         "Name": null,
         "Upgrades": [
             {
-                "AbilityCooldown": -0.75,
-                "Description": "-0.75s Cooldown"
+                "AbilityCooldown": -0.75
             },
             {
-                "AbilityCooldown": -0.75,
-                "Description": "-0.75s Cooldown"
+                "AbilityCooldown": -0.75
             },
             {
-                "AbilityCooldown": -0.75,
-                "Description": "-0.75s Cooldown"
+                "AbilityCooldown": -0.75
             }
         ]
     },
@@ -3633,16 +3417,13 @@
         "Radius": 11,
         "Upgrades": [
             {
-                "AbilityCooldown": -28.0,
-                "Description": "-28.0s Cooldown"
+                "AbilityCooldown": -28.0
             },
             {
-                "BombBonusDamagePerHero": 40,
-                "Description": "+40 Bonus Damage Per Hero"
+                "BombBonusDamagePerHero": 40
             },
             {
-                "Damage": 150,
-                "Description": "+150 Damage"
+                "Damage": 150
             }
         ]
     },
@@ -3668,16 +3449,13 @@
         "Radius": 20,
         "Upgrades": [
             {
-                "AbilityCooldown": -19.0,
-                "Description": "-19.0s Cooldown"
+                "AbilityCooldown": -19.0
             },
             {
-                "DamageSharePercent": 20,
-                "Description": "+20% Damage Shared"
+                "DamageSharePercent": 20
             },
             {
-                "BulletResistReduction": -15,
-                "Description": "-15% Bullet Resist Reduction"
+                "BulletResistReduction": -15
             }
         ]
     },
@@ -3700,17 +3478,15 @@
         "Radius": 4,
         "Upgrades": [
             {
-                "AbilityCharges": 2,
-                "Description": "+2 Charges"
+                "AbilityCharges": 2
             },
             {
                 "HealingFactor": 40,
                 "NonHeroHealingFactor": 15,
-                "Description": "+40% Heal vs Heroes"
+                "DescKey": "mirage_fire_beetles_t2_desc"
             },
             {
-                "DPS": 40,
-                "Description": "+40 DPS"
+                "DPS": 40
             }
         ]
     },
@@ -3729,16 +3505,13 @@
         "Radius": 10,
         "Upgrades": [
             {
-                "WhirlwindEvasionChance": 30,
-                "Description": "+30% Bullet Evasion Chance"
+                "WhirlwindEvasionChance": 30
             },
             {
-                "ProcBonusMagicDamageEscalation": 10,
-                "Description": "+10 Escalating Spirit Damage"
+                "ProcBonusMagicDamageEscalation": 10
             },
             {
-                "AbilityCooldown": -19.0,
-                "Description": "-19.0s Cooldown"
+                "AbilityCooldown": -19.0
             }
         ],
         "VictimStackDuration": 8.0,
@@ -3771,16 +3544,13 @@
         "TornadoSpeed": 1200,
         "Upgrades": [
             {
-                "HoldInPlaceDuration": 0.75,
-                "Description": "+0.75s Lift Duration"
+                "HoldInPlaceDuration": 0.75
             },
             {
-                "AbilityCooldown": -14.0,
-                "Description": "-14.0s Cooldown"
+                "AbilityCooldown": -14.0
             },
             {
-                "TechArmorDamageReduction": -15,
-                "Description": "-15% Spirit Resist"
+                "TechArmorDamageReduction": -15
             }
         ]
     },
@@ -3794,16 +3564,15 @@
         "Name": "Cheat Death",
         "Upgrades": [
             {
-                "AbilityDuration": 2,
-                "Description": "+2s Duration"
+                "AbilityDuration": 2
             },
             {
                 "BonusMoveSpeed": 50,
-                "Description": "+50% Bonus Movement speed when Cheat Death activates."
+                "DescKey": "rutger_cheat_death_t2_desc"
             },
             {
                 "BulletLifestealPercent": 100,
-                "Description": "+100% Bullet Lifesteal when Cheat Death activates."
+                "DescKey": "rutger_cheat_death_t3_desc"
             }
         ]
     },
@@ -3826,16 +3595,13 @@
         "SphereRadius": 5,
         "Upgrades": [
             {
-                "AbilityCooldown": -14.0,
-                "Description": "-14.0s Cooldown"
+                "AbilityCooldown": -14.0
             },
             {
-                "Damage": 70,
-                "Description": "+70 Damage"
+                "Damage": 70
             },
             {
-                "AbilityDuration": 3,
-                "Description": "+3s Duration"
+                "AbilityDuration": 3
             }
         ],
         "VictimPushTime": 0.4
@@ -3856,16 +3622,13 @@
         "StartRadius": 1,
         "Upgrades": [
             {
-                "MovementSlow": 25,
-                "Description": "+25% Movement Slow"
+                "MovementSlow": 25
             },
             {
-                "AbilityCooldown": -47.0,
-                "Description": "-47.0s Cooldown"
+                "AbilityCooldown": -47.0
             },
             {
-                "DamageMax": 200,
-                "Description": "+200 Maximum Damage"
+                "DamageMax": 200
             }
         ]
     },
@@ -3893,16 +3656,13 @@
         "TechCleaveExpireTime": 0.2,
         "Upgrades": [
             {
-                "AbilityCharges": 1,
-                "Description": "+1 Charges"
+                "AbilityCharges": 1
             },
             {
-                "Damage": 80,
-                "Description": "+80 Damage"
+                "Damage": 80
             },
             {
-                "AbilityCooldown": -7.5,
-                "Description": "-7.5s Cooldown"
+                "AbilityCooldown": -7.5
             }
         ]
     },
@@ -3927,16 +3687,14 @@
         "StaminaDamage": 2,
         "Upgrades": [
             {
-                "InvisMoveSpeedMod": 2,
-                "Description": "+2m/s Invis Sprint Speed"
+                "InvisMoveSpeedMod": "+2m"
             },
             {
                 "InvisFadeToDuration": -6,
-                "Description": "-UNKNOWN[InvisReapplyDelay]s Delay before fading"
+                "DescKey": "slork_ability_invis_t2_desc"
             },
             {
-                "InvisRegen": 3,
-                "Description": "+3% Invis Max Health Regen"
+                "InvisRegen": 3
             }
         ]
     },
@@ -3959,16 +3717,15 @@
         "TickRate": 0.5,
         "Upgrades": [
             {
-                "AbilityCooldown": -10.5,
-                "Description": "-10.5s Cooldown"
+                "AbilityCooldown": -10.5
             },
             {
                 "ChompHealPercent": 150,
-                "Description": "+150% Lifesteal from Chomp damage"
+                "DescKey": "slork_chomp_t2_desc"
             },
             {
                 "DamagePercentHealth": 6,
-                "Description": "Chomp deals 6% of the enemies missing health each second."
+                "DescKey": "slork_chomp_t3_desc"
             }
         ]
     },
@@ -3984,16 +3741,13 @@
         "Name": "Deep's Embrace",
         "Upgrades": [
             {
-                "AbilityCooldown": -8.5,
-                "Description": "-8.5s Cooldown"
+                "AbilityCooldown": -8.5
             },
             {
-                "DamageAbsorb": 120,
-                "Description": "+120 Damage Absorbed"
+                "DamageAbsorb": 120
             },
             {
-                "BurstDamage": 120,
-                "Description": "+120 Burst Damage"
+                "BurstDamage": 120
             }
         ]
     },
@@ -4016,16 +3770,13 @@
         "TorrentRadius": 3,
         "Upgrades": [
             {
-                "AbilityCooldown": -38.0,
-                "Description": "-38.0s Cooldown"
+                "AbilityCooldown": -38.0
             },
             {
-                "AbilityDuration": 3,
-                "Description": "+3s Duration"
+                "AbilityDuration": 3
             },
             {
-                "BulletArmorReduction": -60,
-                "Description": "-60% Bullet Resist"
+                "BulletArmorReduction": -60
             }
         ]
     },
@@ -4050,17 +3801,15 @@
         "TossSpeed": 650,
         "Upgrades": [
             {
-                "BurnDuration": 1,
-                "Description": "+1s Burn Duration"
+                "BurnDuration": 1
             },
             {
-                "AbilityCooldown": -7.5,
-                "Description": "-7.5s Cooldown"
+                "AbilityCooldown": -7.5
             },
             {
                 "DPS": 24,
                 "ImpactDamage": 32,
-                "Description": "+24 DPS and +32 Impact damage"
+                "DescKey": "slork_riptide_t3_desc"
             }
         ]
     },
@@ -4081,16 +3830,15 @@
             {
                 "NumSegments": 4,
                 "SpreadDegrees": 16,
-                "Description": "Spray in a wide arc"
+                "DescKey": "slork_scald_t1_desc"
             },
             {
-                "AbilityCooldown": -4.75,
-                "Description": "-4.75s Cooldown"
+                "AbilityCooldown": -4.75
             },
             {
                 "DPS": 16,
                 "ImpactDamage": 32,
-                "Description": "+16 DPS and +32 Impact damage"
+                "DescKey": "slork_scald_t3_desc"
             }
         ]
     },
@@ -4108,17 +3856,16 @@
         "Radius": 14,
         "Upgrades": [
             {
-                "AbilityCooldown": -28.0,
-                "Description": "-28.0s Cooldown"
+                "AbilityCooldown": -28.0
             },
             {
                 "HealAmpReceivePenaltyPercent": -60,
                 "HealAmpRegenPenaltyPercent": -60,
-                "Description": "Suppress targets' healing by -60%"
+                "DescKey": "synth_affliction_t2_desc"
             },
             {
                 "DPS": 27,
-                "Description": "+27 DPS"
+                "DescKey": "synth_affliction_t3_desc"
             }
         ]
     },
@@ -4142,16 +3889,13 @@
         "SlowDuration": 1.5,
         "Upgrades": [
             {
-                "DamagePerProjectile": 15,
-                "Description": "+15 Damage Per Projectile"
+                "DamagePerProjectile": 15
             },
             {
-                "AbilityCooldown": -14.0,
-                "Description": "-14.0s Cooldown"
+                "AbilityCooldown": -14.0
             },
             {
-                "AmpPercentPerStack": 5,
-                "Description": "+5% Amp Per Stack"
+                "AmpPercentPerStack": 5
             }
         ]
     },
@@ -4174,16 +3918,15 @@
             {
                 "TechAmpPerBullet": 7,
                 "TechAmpLinger": 15,
-                "Description": "Each Blitz shot amplifies your spirit damage against the target by 7% for 15s"
+                "DescKey": "synth_blitz_t1_desc"
             },
             {
-                "AbilityCooldown": -24.0,
-                "Description": "-24.0s Cooldown"
+                "AbilityCooldown": -24.0
             },
             {
                 "FastFireBullets": 4,
                 "MaxStacks": 4,
-                "Description": "+4 Fast Fire Shots and +4 Max Stacks"
+                "DescKey": "synth_blitz_t3_desc"
             }
         ]
     },
@@ -4203,18 +3946,16 @@
         "TetherLength": 7,
         "Upgrades": [
             {
-                "AbilityDuration": 1,
-                "Description": "+1s Duration"
+                "AbilityDuration": 1
             },
             {
-                "BulletShieldPerHero": 150,
-                "Description": "+150 Bullet Shield Per Hero"
+                "BulletShieldPerHero": 150
             },
             {
                 "LifestealPerSecond": 4,
                 "LifestealHealthMult": 100,
                 "LifestealTickRate": 0.25,
-                "Description": "Damages and lifesteals 4% of targets' max health per second"
+                "DescKey": "synth_grasp_t3_desc"
             }
         ]
     },
@@ -4231,17 +3972,15 @@
         "TickRate": 0.1,
         "Upgrades": [
             {
-                "AbilityCooldown": -14.0,
-                "Description": "-14.0s Cooldown"
+                "AbilityCooldown": -14.0
             },
             {
-                "Damage": 80,
-                "Description": "+80 Damage"
+                "Damage": 80
             },
             {
                 "WeaponDamageBonus": 7,
                 "WeaponDamageBonusDuration": 10,
-                "Description": "+7 Weapon Damage for 10s after teleporting with Flying Cloak."
+                "DescKey": "synth_plasma_flux_t3_desc"
             }
         ]
     },
@@ -4258,17 +3997,15 @@
         "Radius": 12,
         "Upgrades": [
             {
-                "AbilityCooldown": -4.75,
-                "Description": "-4.75s Cooldown"
+                "AbilityCooldown": -4.75
             },
             {
-                "Damage": 80,
-                "Description": "+80 Damage"
+                "Damage": 80
             },
             {
                 "FireRateSlow": 40,
                 "DebuffDuration": 4.0,
-                "Description": "Applies 40% Fire Rate Slow for 4.0s"
+                "DescKey": "synth_pulse_t3_desc"
             }
         ]
     },
@@ -4281,16 +4018,13 @@
         "Name": null,
         "Upgrades": [
             {
-                "AbilityCooldown": -0.75,
-                "Description": "-0.75s Cooldown"
+                "AbilityCooldown": -0.75
             },
             {
-                "AbilityCooldown": -0.75,
-                "Description": "-0.75s Cooldown"
+                "AbilityCooldown": -0.75
             },
             {
-                "AbilityCooldown": -0.75,
-                "Description": "-0.75s Cooldown"
+                "AbilityCooldown": -0.75
             }
         ]
     },
@@ -4303,16 +4037,13 @@
         "Name": null,
         "Upgrades": [
             {
-                "AbilityCooldown": -0.75,
-                "Description": "-0.75s Cooldown"
+                "AbilityCooldown": -0.75
             },
             {
-                "AbilityCooldown": -0.75,
-                "Description": "-0.75s Cooldown"
+                "AbilityCooldown": -0.75
             },
             {
-                "AbilityCooldown": -0.75,
-                "Description": "-0.75s Cooldown"
+                "AbilityCooldown": -0.75
             }
         ]
     },
@@ -4325,16 +4056,13 @@
         "Name": null,
         "Upgrades": [
             {
-                "AbilityCooldown": -0.75,
-                "Description": "-0.75s Cooldown"
+                "AbilityCooldown": -0.75
             },
             {
-                "AbilityCooldown": -0.75,
-                "Description": "-0.75s Cooldown"
+                "AbilityCooldown": -0.75
             },
             {
-                "AbilityCooldown": -0.75,
-                "Description": "-0.75s Cooldown"
+                "AbilityCooldown": -0.75
             }
         ]
     },
@@ -4347,16 +4075,13 @@
         "Name": null,
         "Upgrades": [
             {
-                "AbilityCooldown": -0.75,
-                "Description": "-0.75s Cooldown"
+                "AbilityCooldown": -0.75
             },
             {
-                "AbilityCooldown": -0.75,
-                "Description": "-0.75s Cooldown"
+                "AbilityCooldown": -0.75
             },
             {
-                "AbilityCooldown": -0.75,
-                "Description": "-0.75s Cooldown"
+                "AbilityCooldown": -0.75
             }
         ]
     },
@@ -4380,17 +4105,14 @@
         "PushSpeedMin": 100,
         "Upgrades": [
             {
-                "AbilityCharges": 1,
-                "Description": "+1 Charges"
+                "AbilityCharges": 1
             },
             {
-                "Damage": 60,
-                "Description": "+60 Damage"
+                "Damage": 60
             },
             {
                 "AbilityCooldownBetweenCharge": -3,
-                "AbilityCooldown": -3,
-                "Description": "-3s Charge Delay and -3s Cooldown"
+                "AbilityCooldown": -3.75
             }
         ]
     },
@@ -4414,16 +4136,13 @@
         "TechCleaveExpireTime": 0.2,
         "Upgrades": [
             {
-                "AbilityDuration": 2,
-                "Description": "+2s Duration"
+                "AbilityDuration": 2
             },
             {
-                "BarbedWireRadius": 3,
-                "Description": "+3m Radius"
+                "BarbedWireRadius": "3m"
             },
             {
-                "BarbedWireDamagePerMeter": 30,
-                "Description": "+30 Damage per meter"
+                "BarbedWireDamagePerMeter": 30
             }
         ],
         "VerticalDifferenceTolerance": 2.5
@@ -4441,16 +4160,13 @@
         "TickInterval": 0.5,
         "Upgrades": [
             {
-                "AbilityCooldown": -0.75,
-                "Description": "-0.75s Cooldown"
+                "AbilityCooldown": -0.75
             },
             {
-                "AbilityCooldown": -0.75,
-                "Description": "-0.75s Cooldown"
+                "AbilityCooldown": -0.75
             },
             {
-                "AbilityCooldown": -0.75,
-                "Description": "-0.75s Cooldown"
+                "AbilityCooldown": -0.75
             }
         ],
         "VisibilityTime": 0.2
@@ -4472,16 +4188,13 @@
         "TornadoSpeed": 350,
         "Upgrades": [
             {
-                "AbilityCooldown": -0.75,
-                "Description": "-0.75s Cooldown"
+                "AbilityCooldown": -0.75
             },
             {
-                "AbilityCooldown": -0.75,
-                "Description": "-0.75s Cooldown"
+                "AbilityCooldown": -0.75
             },
             {
-                "AbilityCooldown": -0.75,
-                "Description": "-0.75s Cooldown"
+                "AbilityCooldown": -0.75
             }
         ]
     },
@@ -4504,15 +4217,15 @@
         "Upgrades": [
             {
                 "AbilityCooldown": -14.0,
-                "Description": "+UNKNOWN[SlowPercent]% Movement Slow and -UNKNOWN[BulletArmorReduction] Bullet Resist to enemies in smoke."
+                "DescKey": "tokamak_breach_t1_desc"
             },
             {
                 "PurgeDebuffs": 1,
-                "Description": "Purge Debuffs on Tokamak when cast."
+                "DescKey": "tokamak_breach_t2_desc"
             },
             {
                 "EMPEnemies": 1,
-                "Description": "Effects linger for UNKNOWN[LingerAfterLeavingSmokeDurationPerHeat]s after leaving smoke."
+                "DescKey": "tokamak_breach_t3_desc"
             }
         ]
     },
@@ -4534,16 +4247,14 @@
         "TargetingWidth": 0.8,
         "Upgrades": [
             {
-                "DelayBetweenShots": -0.2,
-                "Description": "-0.2 Delay Between Shots"
+                "DelayBetweenShots": -0.2
             },
             {
                 "Damage": 50,
-                "Description": "+50 Damage and +50 Damage Scale"
+                "DescKey": "tokamak_crimson_cannon_t2_desc"
             },
             {
-                "AbilityCooldown": -47.0,
-                "Description": "-47.0s Cooldown"
+                "AbilityCooldown": -47.0
             }
         ]
     },
@@ -4561,16 +4272,14 @@
         "TossSpeed": 350,
         "Upgrades": [
             {
-                "ExplosionRadius": 3,
-                "Description": "+3m Explosion Radius"
+                "ExplosionRadius": "3m"
             },
             {
-                "AbilityCooldown": -7.5,
-                "Description": "-7.5s Cooldown"
+                "AbilityCooldown": -7.5
             },
             {
                 "Damage": 80,
-                "Description": "+80 Damage and +80 Damage Scale"
+                "DescKey": "tokamak_dying_star_t3_desc"
             }
         ]
     },
@@ -4590,16 +4299,15 @@
         "Upgrades": [
             {
                 "MeleeSpeedBonusPercentage": 30,
-                "Description": "+30% melee attack speed"
+                "DescKey": "tokamak_heat_sinks_t1_desc"
             },
             {
-                "WeaponDamagePerHeat": 1.0,
-                "Description": "+1.0 None"
+                "WeaponDamagePerHeat": 1.0
             },
             {
                 "BaseHeatPower": 20.0,
                 "MaxHeatPower": 40.0,
-                "Description": "+20.0 Base Heat Power, +40.0 Max Heat Power"
+                "DescKey": "tokamak_heat_sinks_t3_desc"
             }
         ],
         "WeaponDamagePerHeat": 1.0
@@ -4623,17 +4331,15 @@
         "TrackingSpeed": 180,
         "Upgrades": [
             {
-                "AbilityCharges": 1,
-                "Description": "+1 Charges"
+                "AbilityCharges": 1
             },
             {
-                "AbilityChannelTime": 0.5,
-                "Description": "+0.5s Channel Duration"
+                "AbilityChannelTime": 0.5
             },
             {
                 "NormalDPS": 16,
                 "HotDPS": 48,
-                "Description": "+16 Normal DPS and +16 Normal DPS Scale<br>+48 Hot DPS and +48 Hot DPS Scale"
+                "DescKey": "tokamak_hot_shot_t3_desc"
             }
         ]
     },
@@ -4654,16 +4360,13 @@
         "TickRate": 0.25,
         "Upgrades": [
             {
-                "AbilityCooldown": -14.0,
-                "Description": "-14.0s Cooldown"
+                "AbilityCooldown": -14.0
             },
             {
-                "EvasionChance": 20,
-                "Description": "+20 Bullet Evasion Chance"
+                "EvasionChance": 20
             },
             {
-                "MaxDPS": 24,
-                "Description": "+24 Max DPS"
+                "MaxDPS": 24
             }
         ]
     },
@@ -4695,16 +4398,14 @@
         "TickRate": 0.25,
         "Upgrades": [
             {
-                "AbilityDuration": 5,
-                "Description": "+5s Duration"
+                "AbilityDuration": 5
             },
             {
-                "Damage": 120,
-                "Description": "+120 Damage"
+                "Damage": 120
             },
             {
                 "CastWhileRolling": 1,
-                "Description": "Can cast abilities and use items while rolling"
+                "DescKey": "viscous_goo_bowling_ball_t3_desc"
             }
         ]
     },
@@ -4726,17 +4427,16 @@
         "ThirdHitDamagePercentage": 0.5,
         "Upgrades": [
             {
-                "AbilityCooldown": -5.75,
-                "Description": "-5.75s Cooldown"
+                "AbilityCooldown": -5.75
             },
             {
                 "Damage": 70,
                 "Radius": "1m",
-                "Description": "+70 Damage and +1m Radius"
+                "DescKey": "viscous_goo_grenade_t2_desc"
             },
             {
                 "MaxBounces": 2,
-                "Description": "Bounces 2 times"
+                "DescKey": "viscous_goo_grenade_t3_desc"
             }
         ]
     },
@@ -4754,16 +4454,14 @@
         "ThinkInterval": 0.25,
         "Upgrades": [
             {
-                "DamageRadius": 2.5,
-                "Description": "+2.5m Damage Radius"
+                "DamageRadius": "2.5m"
             },
             {
-                "AbilityCooldown": -28.0,
-                "Description": "-28.0s Cooldown"
+                "AbilityCooldown": -28.0
             },
             {
                 "AbilityChannelTime": 0,
-                "Description": "[Not Yet Implemented]"
+                "DescKey": "viscous_goo_puddle_t3_desc"
             }
         ]
     },
@@ -4793,15 +4491,13 @@
                 "BonusMoveSpeed": "2.5m",
                 "StaminaCooldownReduction": 30,
                 "PostCubeBuff": 1,
-                "Description": "Increases Movement Speed and Stamina Recovery"
+                "DescKey": "viscous_restorative_goo_t1_desc"
             },
             {
-                "AbilityCooldown": -21.0,
-                "Description": "-21.0s Cooldown"
+                "AbilityCooldown": -21.0
             },
             {
-                "BonusHealthRegen": 60,
-                "Description": "+60 Health Regen"
+                "BonusHealthRegen": 60
             }
         ]
     },
@@ -4826,17 +4522,15 @@
         "TossSpeedWall": 750,
         "Upgrades": [
             {
-                "AbilityCharges": 1,
-                "Description": "+1 Charges"
+                "AbilityCharges": 1
             },
             {
                 "Damage": 35,
                 "SlowPercent": 20,
-                "Description": "+35 Damage and +20% Movement Slow"
+                "DescKey": "viscous_telepunch_t2_desc"
             },
             {
-                "AbilityCooldown": -11.5,
-                "Description": "-11.5s Cooldown"
+                "AbilityCooldown": -11.5
             }
         ]
     },
@@ -4854,16 +4548,13 @@
         "SummonMoveSpeed": 200,
         "Upgrades": [
             {
-                "SummonCasterHealthPct": 20,
-                "Description": "+20% of The Boss' health to Gangster Health"
+                "SummonCasterHealthPct": 20
             },
             {
-                "SummonDPS": 45,
-                "Description": "+45 Gangster DPS"
+                "SummonDPS": 45
             },
             {
-                "SummonCount": 1,
-                "Description": "+1 Gangsters Summoned"
+                "SummonCount": 1
             }
         ]
     },
@@ -4882,15 +4573,13 @@
             {
                 "WeaponRecoilReduction": 60,
                 "MoveWhileShootingSpeedPenaltyReductionPercent": 60,
-                "Description": "-60% Weapon Recoil, -60% move speed reduction when shooting."
+                "DescKey": "yakuza_protection_racket_t1_desc"
             },
             {
-                "BonusCritDamagePercent": 40,
-                "Description": "+40% Bonus Crit Damage"
+                "BonusCritDamagePercent": 40
             },
             {
-                "BulletShieldHealth": 360,
-                "Description": "+360 Bullet Shield Health"
+                "BulletShieldHealth": 360
             }
         ]
     },
@@ -4910,16 +4599,13 @@
         "TargetingDuration": 1.0,
         "Upgrades": [
             {
-                "AbilityCooldown": -19.0,
-                "Description": "-19.0s Cooldown"
+                "AbilityCooldown": -19.0
             },
             {
-                "Range": 175,
-                "Description": "+175m Range"
+                "Range": "175m"
             },
             {
-                "CenterDamage": 200,
-                "Description": "+200 Damage at the center"
+                "CenterDamage": 200
             }
         ]
     },
@@ -4937,16 +4623,14 @@
         "TickTime": 0.5,
         "Upgrades": [
             {
-                "WeaponPowerDebuff": -30,
-                "Description": "-30% Weapon Damage"
+                "WeaponPowerDebuff": -30
             },
             {
                 "IgnoreChannelSlow": 1,
-                "Description": "Ignore Channel Slowdown"
+                "DescKey": "yakuza_shakedown_target_t2_desc"
             },
             {
-                "ShareDamagePercent": 67,
-                "Description": "+67% Increased Damage Share"
+                "ShareDamagePercent": 67
             }
         ]
     }

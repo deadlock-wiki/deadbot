@@ -5,6 +5,7 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 import maps as maps
 import utils.string_utils as string_utils
+import utils.num_utils as num_utils
 
 
 class AbilityUiParser:
@@ -15,36 +16,46 @@ class AbilityUiParser:
 
     def run(self):
         output = {}
-        for hero_key, hero in self.parsed_heroes.items():
+        for self.hero_key, hero in self.parsed_heroes.items():
             hero_abilities = {}
-            for index, ability in hero['BoundAbilities'].items():
+            for self.ability_index, ability in hero['BoundAbilities'].items():
                 # skip "generic_person"
                 ability_key = ability['Key']
-                if ability_key.startswith('genericperson'):
+                if ability_key.startswith('genericperson') or ability_key.startswith('targetdummy'):
                     continue
 
                 try:
-                    parsed_ui = self._parse_ability_ui(hero_key, ability)
+                    parsed_ui = self._parse_ability_ui(ability)
                     if parsed_ui is not None:
-                        hero_abilities[index] = parsed_ui
+                        hero_abilities[self.ability_index] = parsed_ui
                 except Exception as e:
-                    print(f'[ERROR] Failed to parse ui for ability {ability_key}', e)
-                    continue
+                    raise Exception(f'[ERROR] Failed to parse ui for ability {ability_key}', e)
 
-            output[hero_key] = hero_abilities
+            output[self.hero_key] = hero_abilities
 
         return output
 
-    def _parse_ability_ui(self, hero_key, parsed_ability):
+    def _parse_ability_ui(self, parsed_ability):
         parsed_ui = {
-            'Name': self.localizations[parsed_ability['Key']],
+            'Name': self.localizations.get(parsed_ability['Key']),
+            'Description': None,
+            'Upgrades': [],
         }
 
-        description = (self.localizations.get(parsed_ability['Key'] + '_desc'),)
+        ability_desc_key = parsed_ability['Key'] + '_desc'
+        # some description keys are not found as they have a specific description per info section
+        if ability_desc_key in self.localizations:
+            ability_desc = self.localizations[parsed_ability['Key'] + '_desc']
+            # required variables to insert into the description
+            format_vars = (
+                parsed_ability,
+                maps.KEYBIND_MAP,
+                {'hero_name': self.localizations[self.hero_key]},
+            )
+            ability_desc = string_utils.format_description(ability_desc, *format_vars)
+            parsed_ui['Description'] = ability_desc
 
-        # required variables to insert into the description
-        format_vars = (parsed_ability, maps.KEYBIND_MAP, {'hero_name': self.localizations[hero_key]})
-        parsed_ui['Description'] = string_utils.format_description(description, *format_vars)
+        parsed_ui['Upgrades'] = self._parse_upgrades(parsed_ability)
 
         raw_ability = self.abilities[parsed_ability['Key']]
 
@@ -80,22 +91,22 @@ class AbilityUiParser:
             }
 
             desc_key = info_section.get('m_strLocString')
-            if desc_key is not None:
+            if desc_key is not None and desc_key != '':
                 # localization keys are prefixed with a "#"
                 desc_key = desc_key.replace('#', '')
-                if desc_key not in self.localizations:
-                    raise Exception(f'Missing description for key {desc_key}')
+                if desc_key in self.localizations:
+                    # raise Exception(f'Missing description for key {desc_key}')
 
-                description = self.localizations[desc_key]
-                # required variables to insert into the description
-                format_vars = (
-                    parsed_ability,
-                    maps.KEYBIND_MAP,
-                    {'hero_name': self.localizations[hero_key]},
-                )
-                parsed_info_section['Description'] = string_utils.format_description(
-                    description, *format_vars
-                )
+                    description = self.localizations[desc_key]
+                    # required variables to insert into the description
+                    format_vars = (
+                        parsed_ability,
+                        maps.KEYBIND_MAP,
+                        {'hero_name': self.localizations[self.hero_key]},
+                    )
+                    parsed_info_section['Description'] = string_utils.format_description(
+                        description, *format_vars
+                    )
 
             # some blocks might just be a description
             if 'm_vecAbilityPropertiesBlock' in info_section:
@@ -117,10 +128,11 @@ class AbilityUiParser:
         main_block = {'Props': []}
 
         ability_prop_block = info_section['m_vecAbilityPropertiesBlock']
-        if len(ability_prop_block) > 1:
-            raise Exception(
-                f'Expected only one ability property block, but found {len(ability_prop_block)}'
-            )
+        # if len(ability_prop_block) > 1:
+        # raise Exception(
+        #     f'Expected only one ability property block, but found {len(ability_prop_block)} for
+        # ability {parsed_ability["Key"]}'
+        # )
 
         main_props = ability_prop_block[0]['m_vecAbilityProperties']
 
@@ -128,9 +140,11 @@ class AbilityUiParser:
         if title_key is not None:
             # localization keys are prefixed with a "#"
             title_key = title_key.replace('#', '')
-            if title_key not in self.localizations:
-                raise Exception(f'Missing title for key {title_key}')
-            main_block['Title'] = self.localizations[title_key]
+            if title_key != '':
+                if title_key not in self.localizations:
+                    raise Exception(f'Missing title for key {title_key}')
+
+                main_block['Title'] = self.localizations[title_key]
 
         for prop in main_props:
             attr_key = None
@@ -171,3 +185,86 @@ class AbilityUiParser:
                 {'Name': self.localizations[attr_key + '_label'], 'Base': parsed_ability[attr_key]}
             )
         return main_block
+
+    def _parse_upgrades(self, parsed_ability):
+        parsed_upgrades = []
+        for upgrade in parsed_ability['Upgrades']:
+            if 'DescKey' not in upgrade:
+                description = self._create_description(upgrade)
+            else:
+                upgrade_desc = self.localizations[upgrade['DescKey']]
+                # required variables to insert into the description
+                format_vars = (
+                    upgrade,
+                    maps.KEYBIND_MAP,
+                    {'ability_key': self.ability_index},
+                    {'hero_name': self.localizations[self.hero_key]},
+                )
+
+                upgrade_desc = string_utils.format_description(upgrade_desc, *format_vars)
+                description = upgrade_desc
+                del upgrade['DescKey']
+
+            upgrade['Description'] = description
+            parsed_upgrades.append(upgrade)
+
+        return parsed_upgrades
+
+    def _create_description(self, upgrade):
+        desc = ''
+        for attr, value in upgrade.items():
+            str_value = str(value)
+
+            uom = self._get_uom(attr, str_value)
+
+            # update data value to have no unit of measurement
+            num_value = num_utils.remove_uom(str_value)
+
+            prefix = ''
+            # attach "+" if the value is positive
+            if isinstance(value, str) or not value < 0:
+                prefix = '+'
+
+            desc += f'{prefix}{num_value}{uom} {self._get_ability_display_name(attr)} and '
+
+        # strip off extra "and" from description
+        desc = desc[: -len(' and ')]
+        upgrade['Description'] = desc
+
+    def _get_uom(self, attr, value):
+        localized_key = f'{attr}_postfix'
+
+        if localized_key in self.localizations:
+            return self.localizations[localized_key]
+
+        # Sometimes the uom is attached to the end of the value
+        unit = ''
+        if value.endswith('m'):
+            unit = 'm'
+
+        if value.endswith('s'):
+            unit = 's'
+
+        return unit
+
+    def _get_ability_display_name(self, attr):
+        OVERRIDES = {
+            'BonusHealthRegen': 'HealthRegen_label',
+            'BarbedWireRadius': 'Radius_label',
+            'BarbedWireDamagePerMeter': 'DamagePerMeter_label',
+            # capital "L" for some reason...
+            'TechArmorDamageReduction': 'TechArmorDamageReduction_Label',
+            'DamageAbsorb': 'DamageAbsorb_Label',
+            'InvisRegen': 'InvisRegen_Label',
+            'EvasionChance': 'EvasionChance_Label',
+            'DelayBetweenShots': 'DelayBetweenShots_Label',
+        }
+
+        if attr in OVERRIDES:
+            return self.localizations[OVERRIDES[attr]]
+
+        localized_key = f'{attr}_label'
+        if localized_key not in self.localizations:
+            print(f'Missing label for key {localized_key}')
+            return
+        return self.localizations[localized_key]

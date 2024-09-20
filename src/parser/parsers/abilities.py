@@ -6,7 +6,6 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')
 from .constants import OUTPUT_DIR
 import maps as maps
 import utils.json_utils as json_utils
-import utils.string_utils as string_utils
 import utils.num_utils as num_utils
 
 
@@ -35,9 +34,6 @@ class AbilityParser:
                 'Name': self.localizations.get(ability_key, None),
             }
 
-            # hero name that uses this ability, relevant for formatting descriptions
-            hero_name = self._find_hero_name(ability_key)
-
             stats = ability['m_mapAbilityProperties']
             for key in stats:
                 stat = stats[key]
@@ -57,7 +53,7 @@ class AbilityParser:
                 continue
             else:
                 ability_data['Upgrades'] = self._parse_upgrades(
-                    ability_data, ability['m_vecAbilityUpgrades'], hero_name
+                    ability_data, ability['m_vecAbilityUpgrades']
                 )
 
             formatted_ability_data = {}
@@ -72,7 +68,7 @@ class AbilityParser:
 
         return all_abilities
 
-    def _parse_upgrades(self, ability_data, upgrade_sets, hero_name):
+    def _parse_upgrades(self, ability_data, upgrade_sets):
         parsed_upgrade_sets = []
 
         for index, upgrade_set in enumerate(upgrade_sets):
@@ -98,103 +94,12 @@ class AbilityParser:
                 if upgrade_type is None:
                     parsed_upgrade_set[prop] = value
 
-            # add and format the description of the ability upgrade
-            # descriptions include t1, t2, and t3 denoting the tier
+            # Add description key to be formatted in AbilityUiParser.
+            # Descriptions include t1, t2, and t3 denoting the tier
             desc_key = f'{ability_data["Key"]}_t{index+1}_desc'
             if desc_key in self.localizations:
-                desc = self.localizations[desc_key]
-
-                # required variables to insert into the description
-                format_vars = (
-                    parsed_upgrade_set,
-                    maps.KEYBIND_MAP,
-                    {'ability_key': index},
-                    {'hero_name': hero_name},
-                )
-
-                formatted_desc = string_utils.format_description(desc, *format_vars)
-                parsed_upgrade_set['Description'] = formatted_desc
-
-            # create our own description if none exists
-            else:
-                desc = ''
-                for attr, value in parsed_upgrade_set.items():
-                    str_value = str(value)
-
-                    uom = self._get_uom(attr, str_value)
-
-                    # update data value to have no unit of measurement
-                    num_value = num_utils.remove_uom(str_value)
-                    parsed_upgrade_set[prop] = num_value
-
-                    prefix = ''
-                    # attach "+" if the value is positive
-                    if isinstance(value, str) or not value < 0:
-                        prefix = '+'
-
-                    desc += f'{prefix}{num_value}{uom} {self._get_ability_display_name(attr)} and '
-
-                # strip off extra "and" from description
-                desc = desc[: -len(' and ')]
-                parsed_upgrade_set['Description'] = desc
+                parsed_upgrade_set['DescKey'] = desc_key
 
             parsed_upgrade_sets.append(parsed_upgrade_set)
 
         return parsed_upgrade_sets
-
-    def _find_hero_name(self, ability_key, return_key_or_localized='localized'):
-        for hero_key, hero in self.heroes_data.items():
-            # ignore non-dicts that live in the hero data
-            if not isinstance(hero, dict):
-                continue
-
-            abilities = hero['m_mapBoundAbilities']
-            for i in range(1, 5):
-                key = f'ESlot_Signature_{str(i)}'
-                if key in abilities and abilities[key] == ability_key:
-                    if return_key_or_localized == 'key':
-                        return hero_key
-                    elif return_key_or_localized == 'localized':
-                        return self.localizations[hero_key]
-                    else:
-                        raise Exception(f'Unknown key_or_localized value {return_key_or_localized}')
-
-        return None
-
-    def _get_ability_display_name(self, attr):
-        OVERRIDES = {
-            'BonusHealthRegen': 'HealthRegen_label',
-            'BarbedWireRadius': 'Radius_label',
-            'BarbedWireDamagePerMeter': 'DamagePerMeter_label',
-            # capital "L" for some reason...
-            'TechArmorDamageReduction': 'TechArmorDamageReduction_Label',
-            'DamageAbsorb': 'DamageAbsorb_Label',
-            'InvisRegen': 'InvisRegen_Label',
-            'EvasionChance': 'EvasionChance_Label',
-            'DelayBetweenShots': 'DelayBetweenShots_Label',
-        }
-
-        if attr in OVERRIDES:
-            return self.localizations[OVERRIDES[attr]]
-
-        localized_key = f'{attr}_label'
-        if localized_key not in self.localizations:
-            print(f'Missing label for key {localized_key}')
-            return
-        return self.localizations[localized_key]
-
-    def _get_uom(self, attr, value):
-        localized_key = f'{attr}_postfix'
-
-        if localized_key in self.localizations:
-            return self.localizations[localized_key]
-
-        # Sometimes the uom is attached to the end of the value
-        unit = ''
-        if value.endswith('m'):
-            unit = 'm'
-
-        if value.endswith('s'):
-            unit = 's'
-
-        return unit
