@@ -7,6 +7,7 @@ from .constants import OUTPUT_DIR
 import maps as maps
 import utils.json_utils as json_utils
 import utils.string_utils as string_utils
+import utils.num_utils as num_utils
 
 
 class AbilityParser:
@@ -34,6 +35,9 @@ class AbilityParser:
                 'Name': self.localizations.get(ability_key, None),
             }
 
+            # hero name that uses this ability, relevant for formatting descriptions
+            hero_name = self._find_hero_name(ability_key)
+
             stats = ability['m_mapAbilityProperties']
             for key in stats:
                 stat = stats[key]
@@ -53,13 +57,13 @@ class AbilityParser:
                 continue
             else:
                 ability_data['Upgrades'] = self._parse_upgrades(
-                    ability_data, ability['m_vecAbilityUpgrades']
+                    ability_data, ability['m_vecAbilityUpgrades'], hero_name
                 )
 
             description = (self.localizations.get(ability_key + '_desc'),)
 
             # required variables to insert into the description
-            format_vars = (ability_data, maps.KEYBIND_MAP, {'hero_name': ability_data['Key']})
+            format_vars = (ability_data, maps.KEYBIND_MAP, {'hero_name': hero_name})
 
             ability_data['Description'] = string_utils.format_description(description, *format_vars)
 
@@ -67,7 +71,7 @@ class AbilityParser:
             for attr_key, attr_value in ability_data.items():
                 # strip attrs with value of 0, as that just means it is irrelevant
                 if attr_value != '0':
-                    formatted_ability_data[attr_key] = string_utils.assert_number(attr_value)
+                    formatted_ability_data[attr_key] = num_utils.remove_uom(attr_value)
 
             all_abilities[ability_key] = json_utils.sort_dict(formatted_ability_data)
 
@@ -75,8 +79,9 @@ class AbilityParser:
 
         return all_abilities
 
-    def _parse_upgrades(self, ability_data, upgrade_sets):
+    def _parse_upgrades(self, ability_data, upgrade_sets, hero_name):
         parsed_upgrade_sets = []
+
         for index, upgrade_set in enumerate(upgrade_sets):
             parsed_upgrade_set = {}
 
@@ -91,7 +96,7 @@ class AbilityParser:
                             prop = upgrade[key]
 
                         case 'm_strBonus':
-                            value = string_utils.assert_number(upgrade[key])
+                            value = num_utils.assert_number(upgrade[key])
 
                         case 'm_eUpgradeType':
                             upgrade_type = upgrade[key]
@@ -111,7 +116,7 @@ class AbilityParser:
                     parsed_upgrade_set,
                     maps.KEYBIND_MAP,
                     {'ability_key': index},
-                    {'hero_name': ability_data['Key']},
+                    {'hero_name': hero_name},
                 )
 
                 formatted_desc = string_utils.format_description(desc, *format_vars)
@@ -119,29 +124,22 @@ class AbilityParser:
 
             # create our own description if none exists
             else:
-                # Determine hero that uses the ability, if any
-                hero_key = self._find_hero_name(ability_data['Key'], return_key_or_localized='key')
-                self._find_hero_name(ability_data['Key'], return_key_or_localized='localized')
-                if hero_key is None:
-                    continue
-
                 desc = ''
                 for attr, value in parsed_upgrade_set.items():
                     str_value = str(value)
 
-                    postfix = self._get_uom(attr, str_value)
+                    uom = self._get_uom(attr, str_value)
 
-                    # cleanse value of any unit of measure at the end
-                    str_value = string_utils.remove_letters(str_value)
+                    # update data value to have no unit of measurement
+                    num_value = num_utils.remove_uom(str_value)
+                    parsed_upgrade_set[prop] = num_value
 
                     prefix = ''
                     # attach "+" if the value is positive
                     if isinstance(value, str) or not value < 0:
                         prefix = '+'
 
-                    desc += (
-                        f'{prefix}{str_value}{postfix} {self._get_ability_display_name(attr)} and '
-                    )
+                    desc += f'{prefix}{num_value}{uom} {self._get_ability_display_name(attr)} and '
 
                 # strip off extra "and" from description
                 desc = desc[: -len(' and ')]
@@ -202,5 +200,8 @@ class AbilityParser:
         unit = ''
         if value.endswith('m'):
             unit = 'm'
+
+        if value.endswith('s'):
+            unit = 's'
 
         return unit
