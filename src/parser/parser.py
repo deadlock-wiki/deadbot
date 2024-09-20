@@ -1,7 +1,7 @@
 import os
 import sys
 
-from parsers import abilities, items, heroes, changelogs, localizations, attributes
+from parsers import abilities, ability_ui, items, heroes, changelogs, localizations, attributes
 
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -93,7 +93,8 @@ class Parser:
         print('Parsing...')
         self._parse_localizations()
         parsed_abilities = self._parse_abilities()
-        self._parse_heroes(parsed_abilities)
+        parsed_heroes = self._parse_heroes(parsed_abilities)
+        self._parsed_ability_ui(parsed_heroes)
         self._parse_items()
         self._parse_attributes()
         self._parse_changelogs()
@@ -121,6 +122,16 @@ class Parser:
             self.data['scripts']['heroes'],
             self.localizations[self.language],
         ).run()
+
+    def _parsed_ability_ui(self, parsed_heroes):
+        print('Parsing Ability UI...')
+        parsed_ability_ui = ability_ui.AbilityUiParser(
+            self.data['scripts']['abilities'],
+            parsed_heroes,
+            self.localizations[self.language],
+        ).run()
+
+        json_utils.write('../../output-data/json/ability_ui.json', parsed_ability_ui)
 
     def _parse_items(self):
         print('Parsing Items...')
