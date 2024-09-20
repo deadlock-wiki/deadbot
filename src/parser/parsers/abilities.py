@@ -60,13 +60,6 @@ class AbilityParser:
                     ability_data, ability['m_vecAbilityUpgrades'], hero_name
                 )
 
-            description = (self.localizations.get(ability_key + '_desc'),)
-
-            # required variables to insert into the description
-            format_vars = (ability_data, maps.KEYBIND_MAP, {'hero_name': hero_name})
-
-            ability_data['Description'] = string_utils.format_description(description, *format_vars)
-
             formatted_ability_data = {}
             for attr_key, attr_value in ability_data.items():
                 # strip attrs with value of 0, as that just means it is irrelevant
