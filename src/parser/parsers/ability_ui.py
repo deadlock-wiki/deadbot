@@ -183,15 +183,27 @@ class AbilityUiParser:
                 print(f'[WARN] - {attr_key} is probably an upgrade attr that is not tagged as such')
                 continue
 
-            main_block['Props'].append(
-                {
-                    'Name': self.localizations[attr_key + '_label'],
-                    'Base': parsed_ability[attr_key],
-                    'Type': self._get_raw_ability_attr(parsed_ability['Key'], attr_key).get(
-                        'm_strCSSClass'
-                    ),
-                }
-            )
+            raw_ability = self._get_raw_ability_attr(parsed_ability['Key'], attr_key)
+
+            prop = {
+                'Name': self.localizations[attr_key + '_label'],
+                'Value': parsed_ability[attr_key],
+                'Type': raw_ability.get('m_strCSSClass'),
+            }
+
+            if 'm_subclassScaleFunction' in raw_ability:
+                raw_scale = raw_ability['m_subclassScaleFunction']
+                # Only include scaler with a value, as not sure what
+                # any others mean so far.
+                if 'm_flStatScale' in raw_scale:
+                    prop['Scaler'] = {
+                        'Value': raw_scale['m_flStatScale'],
+                        'Type': maps.get_scaler_type(
+                            raw_scale.get('m_eSpecificStatScaleType', 'ETechPower')
+                        ),
+                    }
+
+            main_block['Props'].append(prop)
 
             self.used_attributes.append(attr_key)
         return main_block
@@ -202,7 +214,7 @@ class AbilityUiParser:
             alt_block.append(
                 {
                     'Name': self._get_ability_display_name(prop),
-                    'Base': parsed_ability.get(prop),
+                    'Value': parsed_ability.get(prop),
                     'Type': self._get_raw_ability_attr(parsed_ability['Key'], prop).get(
                         'm_strCSSClass'
                     ),
@@ -220,13 +232,12 @@ class AbilityUiParser:
             if prop in self.used_attributes:
                 continue
 
+            raw_ability = self._get_raw_ability_attr(parsed_ability['Key'], prop)
             other_block.append(
                 {
                     'Name': self._get_ability_display_name(prop),
-                    'Base': parsed_ability.get(prop),
-                    'Type': self._get_raw_ability_attr(parsed_ability['Key'], prop).get(
-                        'm_strCSSClass'
-                    ),
+                    'Value': parsed_ability.get(prop),
+                    'Type': raw_ability.get('m_strCSSClass'),
                 }
             )
         return other_block
@@ -312,7 +323,7 @@ class AbilityUiParser:
         localized_key = f'{attr}_label'
         if localized_key not in self.localizations:
             print(f'Missing label for key {localized_key}')
-            return
+            return attr
         return self.localizations[localized_key]
 
     def _get_raw_ability_attr(self, ability_key, attr_key):

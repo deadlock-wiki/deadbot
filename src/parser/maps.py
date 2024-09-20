@@ -164,3 +164,13 @@ def override_localization(attr):
         return LOCALIZATION_OVERRIDE_MAP[attr]
     else:
         return attr
+
+
+SCALER_TYPE_MAP = {'ETechPower': 'Spirit', 'ELightMeleeDamage': 'Melee'}
+
+
+def get_scaler_type(scaler):
+    if scaler not in SCALER_TYPE_MAP:
+        raise Exception(f'No scaler map found for {scaler}')
+
+    return SCALER_TYPE_MAP[scaler]
