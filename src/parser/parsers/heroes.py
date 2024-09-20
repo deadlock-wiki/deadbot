@@ -45,7 +45,7 @@ class HeroParser:
                 hero_stats.update(weapon_stats)
 
                 # Determine hero's ratio of heavy to light melee damage
-                heavy_light_ratio = hero_stats['HeavyMeleeDamage'] / hero_stats['LightMeleeDamage']
+                hl_ratio = hero_stats['HeavyMeleeDamage'] / hero_stats['LightMeleeDamage']
 
                 # Parse Level scaling
                 if 'm_mapStandardLevelUpUpgrades' in hero_value:
@@ -59,7 +59,8 @@ class HeroParser:
                     if 'MeleeDamage' in hero_stats['LevelScaling']:
                         md_scalar = hero_stats['LevelScaling']['MeleeDamage']
                         hero_stats['LevelScaling']['LightMeleeDamage'] = md_scalar
-                        hero_stats['LevelScaling']['HeavyMeleeDamage'] = md_scalar * heavy_light_ratio
+                        
+                        hero_stats['LevelScaling']['HeavyMeleeDamage'] = md_scalar * hl_ratio
                         del hero_stats['LevelScaling']['MeleeDamage']
 
                     # Remove scalings if they are 0.0
