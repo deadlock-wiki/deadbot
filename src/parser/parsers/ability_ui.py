@@ -19,17 +19,12 @@ class AbilityUiParser:
         for self.hero_key, hero in self.parsed_heroes.items():
             hero_abilities = {}
             for self.ability_index, ability in hero['BoundAbilities'].items():
-                # skip "generic_person"
-                ability_key = ability['Key']
-                if ability_key.startswith('genericperson') or ability_key.startswith('targetdummy'):
-                    continue
-
                 try:
                     parsed_ui = self._parse_ability_ui(ability)
                     if parsed_ui is not None:
                         hero_abilities[self.ability_index] = parsed_ui
                 except Exception as e:
-                    raise Exception(f'[ERROR] Failed to parse ui for ability {ability_key}', e)
+                    raise Exception(f'[ERROR] Failed to parse ui for ability {ability["Key"]}', e)
 
             output[self.hero_key] = hero_abilities
 
@@ -38,7 +33,7 @@ class AbilityUiParser:
     def _parse_ability_ui(self, parsed_ability):
         parsed_ui = {
             'Name': self.localizations.get(parsed_ability['Key']),
-            'Description': None,
+            'Key': parsed_ability['Key'],
             'Upgrades': [],
         }
 
@@ -74,7 +69,12 @@ class AbilityUiParser:
             'm_strLocString',
             'm_vecBasicProperties',
         ]
+
+        # track used attributes to see what should be put in the "Other" category
+        self.used_attributes = ['Key', 'Name', 'Upgrades']
         for index, info_section in enumerate(info_sections):
+            if parsed_ability['Key'] == 'viscous_goo_grenade':
+                print(index)
             # skip any UI that requires an upgraded ability to display it
             if 'm_strAbilityPropertyUpgradeRequired' in info_section:
                 continue
@@ -110,16 +110,18 @@ class AbilityUiParser:
 
             # some blocks might just be a description
             if 'm_vecAbilityPropertiesBlock' in info_section:
-                main_block = self._parse_main_block(info_section, parsed_ability)
-                parsed_info_section['Main'] = main_block
+                parsed_info_section['Main'] = self._parse_main_block(info_section, parsed_ability)
 
                 # if attr not in parsed_ability:
                 #     print(f'Missing base stat {attr}')
                 #     continue
-            # print(info_section)
-            # side_props = info_section['m_vecBasicProperties']
+
+            if 'm_vecBasicProperties' in info_section:
+                parsed_info_section['Alt'] = self._parse_alt_block(info_section, parsed_ability)
 
             parsed_ui[f'Info{index+1}'] = parsed_info_section
+
+        parsed_ui['Other'] = self._parse_other_block(info_section, parsed_ability)
 
         # remaining properties are placed into "Other"
         return parsed_ui
@@ -182,9 +184,52 @@ class AbilityUiParser:
                 continue
 
             main_block['Props'].append(
-                {'Name': self.localizations[attr_key + '_label'], 'Base': parsed_ability[attr_key]}
+                {
+                    'Name': self.localizations[attr_key + '_label'],
+                    'Base': parsed_ability[attr_key],
+                    'Type': self._get_raw_ability_attr(parsed_ability['Key'], attr_key).get(
+                        'm_strCSSClass'
+                    ),
+                }
             )
+
+            self.used_attributes.append(attr_key)
         return main_block
+
+    def _parse_alt_block(self, info_section, parsed_ability):
+        alt_block = []
+        for prop in info_section['m_vecBasicProperties']:
+            alt_block.append(
+                {
+                    'Name': self._get_ability_display_name(prop),
+                    'Base': parsed_ability.get(prop),
+                    'Type': self._get_raw_ability_attr(parsed_ability['Key'], prop).get(
+                        'm_strCSSClass'
+                    ),
+                }
+            )
+
+            self.used_attributes.append(prop)
+
+        return alt_block
+
+    def _parse_other_block(self, info_section, parsed_ability):
+        other_block = []
+        for prop in parsed_ability:
+            # skip any attributes that are already placed in other categories
+            if prop in self.used_attributes:
+                continue
+
+            other_block.append(
+                {
+                    'Name': self._get_ability_display_name(prop),
+                    'Base': parsed_ability.get(prop),
+                    'Type': self._get_raw_ability_attr(parsed_ability['Key'], prop).get(
+                        'm_strCSSClass'
+                    ),
+                }
+            )
+        return other_block
 
     def _parse_upgrades(self, parsed_ability):
         parsed_upgrades = []
@@ -229,7 +274,7 @@ class AbilityUiParser:
 
         # strip off extra "and" from description
         desc = desc[: -len(' and ')]
-        upgrade['Description'] = desc
+        return desc
 
     def _get_uom(self, attr, value):
         localized_key = f'{attr}_postfix'
@@ -252,6 +297,7 @@ class AbilityUiParser:
             'BonusHealthRegen': 'HealthRegen_label',
             'BarbedWireRadius': 'Radius_label',
             'BarbedWireDamagePerMeter': 'DamagePerMeter_label',
+            'BuildUpDuration': 'BuildupDuration_label',
             # capital "L" for some reason...
             'TechArmorDamageReduction': 'TechArmorDamageReduction_Label',
             'DamageAbsorb': 'DamageAbsorb_Label',
@@ -268,3 +314,6 @@ class AbilityUiParser:
             print(f'Missing label for key {localized_key}')
             return
         return self.localizations[localized_key]
+
+    def _get_raw_ability_attr(self, ability_key, attr_key):
+        return self.abilities[ability_key]['m_mapAbilityProperties'][attr_key]
