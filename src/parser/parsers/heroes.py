@@ -57,8 +57,9 @@ class HeroParser:
 
                     # Spread the MeleeDamage level scaling into Light and Heavy, using H/L ratio
                     if 'MeleeDamage' in hero_stats['LevelScaling']:
-                        hero_stats['LevelScaling']['LightMeleeDamage'] = hero_stats['LevelScaling']['MeleeDamage']
-                        hero_stats['LevelScaling']['HeavyMeleeDamage'] = hero_stats['LevelScaling']['MeleeDamage'] * heavy_light_ratio
+                        md_scalar = hero_stats['LevelScaling']['MeleeDamage']
+                        hero_stats['LevelScaling']['LightMeleeDamage'] = md_scalar
+                        hero_stats['LevelScaling']['HeavyMeleeDamage'] = md_scalar * heavy_light_ratio
                         del hero_stats['LevelScaling']['MeleeDamage']
 
                     # Remove scalings if they are 0.0
@@ -89,23 +90,24 @@ class HeroParser:
 
         weapon_prim_id = hero_value['m_mapBoundAbilities']['ESlot_Weapon_Primary']
         weapon_prim = self.abilities_data[weapon_prim_id]['m_WeaponInfo']
+        w = weapon_prim
 
         weapon_stats = {
-            'BulletDamage': weapon_prim['m_flBulletDamage'],
-            'RoundsPerSecond': 1 / weapon_prim['m_flCycleTime'],
-            'ClipSize': weapon_prim['m_iClipSize'],
-            'ReloadTime': weapon_prim['m_reloadDuration'],
-            'ReloadMovespeed': int(weapon_prim['m_flReloadMoveSpeed']) / 10000,
-            'ReloadDelay': weapon_prim.get('m_flReloadSingleBulletsInitialDelay', 0),
-            'ReloadSingle': weapon_prim.get('m_bReloadSingleBullets', False),
-            'BulletSpeed': self._calc_bullet_velocity(weapon_prim['m_BulletSpeedCurve']['m_spline']),
-            'FalloffStartRange': weapon_prim['m_flDamageFalloffStartRange'] / ENGINE_UNITS_PER_METER,
-            'FalloffEndRange': weapon_prim['m_flDamageFalloffEndRange'] / ENGINE_UNITS_PER_METER,
-            'FalloffStartScale': weapon_prim['m_flDamageFalloffStartScale'],
-            'FalloffEndScale': weapon_prim['m_flDamageFalloffEndScale'],
-            'FalloffBias': weapon_prim['m_flDamageFalloffBias'],
-            'BulletGravityScale': weapon_prim['m_flBulletGravityScale'],
-            #'BulletRadius': weapon_prim['m_flBulletRadius'] / ENGINE_UNITS_PER_METER,
+            'BulletDamage': w['m_flBulletDamage'],
+            'RoundsPerSecond': 1 / w['m_flCycleTime'],
+            'ClipSize': w['m_iClipSize'],
+            'ReloadTime': w['m_reloadDuration'],
+            'ReloadMovespeed': int(w['m_flReloadMoveSpeed']) / 10000,
+            'ReloadDelay': w.get('m_flReloadSingleBulletsInitialDelay', 0),
+            'ReloadSingle': w.get('m_bReloadSingleBullets', False),
+            'BulletSpeed': self._calc_bullet_velocity(w['m_BulletSpeedCurve']['m_spline']),
+            'FalloffStartRange': w['m_flDamageFalloffStartRange'] / ENGINE_UNITS_PER_METER,
+            'FalloffEndRange': w['m_flDamageFalloffEndRange'] / ENGINE_UNITS_PER_METER,
+            'FalloffStartScale': w['m_flDamageFalloffStartScale'],
+            'FalloffEndScale': w['m_flDamageFalloffEndScale'],
+            'FalloffBias': w['m_flDamageFalloffBias'],
+            'BulletGravityScale': w['m_flBulletGravityScale'],
+            #'BulletRadius': w['m_flBulletRadius'] / ENGINE_UNITS_PER_METER,
         }
 
         weapon_stats['DPS'] = weapon_stats['BulletDamage'] * weapon_stats['RoundsPerSecond']
