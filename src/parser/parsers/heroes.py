@@ -64,7 +64,8 @@ class HeroParser:
                         del hero_stats['LevelScaling']['MeleeDamage']
 
                     # Remove scalings if they are 0.0
-                    hero_stats['LevelScaling'] = {k: v for k, v in hero_stats['LevelScaling'].items() if v != 0.0}
+                    dict = {k: v for k, v in hero_stats['LevelScaling'].items() if v != 0.0}
+                    hero_stats['LevelScaling'] = dict
                     
 
                 all_hero_stats[hero_key] = json_utils.sort_dict(hero_stats)
