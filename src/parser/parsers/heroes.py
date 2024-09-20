@@ -105,7 +105,7 @@ class HeroParser:
             'FalloffEndScale': weapon_prim['m_flDamageFalloffEndScale'],
             'FalloffBias': weapon_prim['m_flDamageFalloffBias'],
             'BulletGravityScale': weapon_prim['m_flBulletGravityScale'],
-            #'BulletRadius': weapon_prim['m_flBulletRadius'] / ENGINE_UNITS_PER_METER, 
+            #'BulletRadius': weapon_prim['m_flBulletRadius'] / ENGINE_UNITS_PER_METER,
         }
 
         weapon_stats['DPS'] = weapon_stats['BulletDamage'] * weapon_stats['RoundsPerSecond']

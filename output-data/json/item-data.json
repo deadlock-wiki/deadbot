@@ -416,7 +416,7 @@
     },
     "upgrade_active_reload": {
         "Name": "Active Reload",
-        "Description": "While reloading, pressing [] during the highlighted portion will instantly finish your reload and grant you Fire Rate and Bullet Lifesteal.",
+        "Description": "While reloading, pressing [R] during the highlighted portion will instantly finish your reload and grant you Fire Rate and Bullet Lifesteal.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -577,7 +577,7 @@
     },
     "upgrade_aoe_smoke_bomb": {
         "Name": "Smoke",
-        "Description": "Give you and teammates invisibility and a movement speed bonus.  Attacking or taking damage will remove the invisibility.<br>Cast delay: s.",
+        "Description": "Give you and teammates invisibility and a movement speed bonus.  Attacking or taking damage will remove the invisibility.<br>Cast delay: UNKNOWN[AbilityCastDelay]s.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "InstantCast",
@@ -729,7 +729,7 @@
     },
     "upgrade_armor_reduction_debuff": {
         "Name": "Armor Piercing Rounds",
-        "Description": "Your bullets reduce the target's bullet resistance by -60% of their current value for s and deal bonus damage against bullet shields.",
+        "Description": "Your bullets reduce the target's bullet resistance by -60% of their current value for UNKNOWN[AbilityDuration]s and deal bonus damage against bullet shields.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -1608,7 +1608,7 @@
     },
     "upgrade_cloaking_device": {
         "Name": "Cloaking Device",
-        "Description": "Become invisible. Nearby enemies will temporaily reveal the hero.  Attacking or taking damage will remove the invisibility for s.",
+        "Description": "Become invisible. Nearby enemies will temporaily reveal the hero.  Attacking or taking damage will remove the invisibility for UNKNOWN[AbilityCooldown]s.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -2234,7 +2234,7 @@
     },
     "upgrade_duration_extender": {
         "Name": "[Deprecated] Duration Extender",
-        "Description": "Increases Duration of your abilities and items by %.",
+        "Description": "Increases Duration of your abilities and items by UNKNOWN[NonImbuedBonusDuration]%.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -3301,7 +3301,7 @@
     },
     "upgrade_kinetic_sash": {
         "Name": "Kinetic Dash",
-        "Description": "Your next Dash-Jump does not cost an extra stamina and you gain Fire Rate and bonus Ammo until your next reload. Lasts up to s.",
+        "Description": "Your next Dash-Jump does not cost an extra stamina and you gain Fire Rate and bonus Ammo until your next reload. Lasts up to UNKNOWN[AbilityDuration]s.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -3497,7 +3497,7 @@
     },
     "upgrade_magic_clarity": {
         "Name": "Clarity",
-        "Description": "On ability or item use, gain a move speed bonus for s.  Your next ability cast will remove the move speed bonus and apply a Spirit bonus to that ability.",
+        "Description": "On ability or item use, gain a move speed bonus for UNKNOWN[AbilityDuration]s.  Your next ability cast will remove the move speed bonus and apply a Spirit bonus to that ability.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -5892,7 +5892,7 @@
         "TechShieldMaxHealth": "200",
         "BonusClipSizePercent": "12",
         "BaseAttackDamagePercent": "10",
-        "BonusFireRate": "30",
+        "BonusFireRate": "20",
         "BonusClipSize": "0",
         "InvisDuration": "5",
         "BonusMoveSpeed": "3m"

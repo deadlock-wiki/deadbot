@@ -79,7 +79,7 @@ class ItemParser:
 
             description = self.localizations.get(key + '_desc')
             parsed_item_data['Description'] = string_utils.format_description(
-                description, parsed_item_data
+                description, parsed_item_data, maps.KEYBIND_MAP
             )
 
             if 'm_vecComponentItems' in item_value:

@@ -1,7 +1,29 @@
+import sys
+import os
 import re
 
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+import maps
 
-def format_description(description, data):
+
+def format_description(description, *data_sets):
+    """
+        Find and replace any variables inside of the game's description, in addition
+        to removing html tags.
+        Variables come in the form of "{s:<var_name>}"
+
+    Args:
+        description (str): the localized string containing variables
+        *data_sets: any number of objects to provide a source to replace the variables
+
+    Example:
+        "<span class=\"highlight\">+{s:AbilityCastRange}m</span> Cast Range and gain <span class=\"highlight\">+{s:WeaponDamageBonus}</span> Weapon Damage for {s:WeaponDamageBonusDuration}s"
+    ->  "+7 Weapon Damage for 10s after teleporting with Flying Cloak"
+    """  # noqa: E501
+    data = {}
+    for data_set in data_sets:
+        data.update(data_set)
+
     if isinstance(description, tuple):
         description = description[0]
 
@@ -18,21 +40,21 @@ def format_description(description, data):
 def _replace_variables(desc, data):
     def replace_match(match):
         key = match.group(1)
-        return str(data.get(key, ''))
+        key = maps.override_localization(key)
+        if key in data:
+            value = str(data[key])
+            # strip out "m" (metres), as it we just want the formatted
+            # description should contain any units
+            if value.endswith('m'):
+                return value[: -len('m')]
+
+            return value
+        return f'UNKNOWN[{key}]'
 
     formatted_desc = re.sub(r'\{s:(.*?)\}', replace_match, desc)
     return formatted_desc
 
 
-# converts string to number if possible
-def string_to_number(string):
-    number = None
-    try:
-        number = float(string)
-    except (TypeError, ValueError):
-        try:
-            number = int(string)
-        except (TypeError, ValueError):
-            number = string
-
-    return number
+def remove_letters(input_string):
+    """Remove letters from a string. Eg. -4.5m -> -4.5"""
+    return re.sub(r'[^0-9.\-]', '', input_string)
