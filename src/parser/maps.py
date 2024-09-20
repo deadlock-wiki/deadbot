@@ -166,11 +166,15 @@ def override_localization(attr):
         return attr
 
 
-SCALER_TYPE_MAP = {'ETechPower': 'Spirit', 'ELightMeleeDamage': 'Melee'}
+# 'EMultiplyScale' is only used for "kali", a hero not yet released
+SCALE_TYPE_MAP = {'ETechPower': 'Spirit', 'ELightMeleeDamage': 'Melee', 'ETechRange': 'Range'}
 
 
-def get_scaler_type(scaler):
-    if scaler not in SCALER_TYPE_MAP:
-        raise Exception(f'No scaler map found for {scaler}')
+def get_scale_type(scale):
+    if scale is None:
+        return scale
 
-    return SCALER_TYPE_MAP[scaler]
+    if scale not in SCALE_TYPE_MAP:
+        raise Exception(f'No scale map found for {scale}')
+
+    return SCALE_TYPE_MAP[scale]

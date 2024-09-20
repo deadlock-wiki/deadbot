@@ -78,6 +78,7 @@ class AbilityParser:
                 prop = None
                 value = None
                 upgrade_type = None
+                scale_type = None
 
                 for key in upgrade:
                     match key:
@@ -90,9 +91,18 @@ class AbilityParser:
                         case 'm_eUpgradeType':
                             upgrade_type = upgrade[key]
 
+                        case 'm_eScaleStatFilter':
+                            scale_type = upgrade[key]
+
                 # TODO - handle different types of upgrades
                 if upgrade_type is None:
                     parsed_upgrade_set[prop] = value
+                elif upgrade_type == 'EAddToScale':
+                    parsed_upgrade_set['Scale'] = {
+                        'Prop': prop,
+                        'Value': value,
+                        'Type': maps.get_scale_type(scale_type),
+                    }
 
             # Add description key to be formatted in AbilityUiParser.
             # Descriptions include t1, t2, and t3 denoting the tier

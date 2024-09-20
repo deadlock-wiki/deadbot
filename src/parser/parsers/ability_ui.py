@@ -193,12 +193,12 @@ class AbilityUiParser:
 
             if 'm_subclassScaleFunction' in raw_ability:
                 raw_scale = raw_ability['m_subclassScaleFunction']
-                # Only include scaler with a value, as not sure what
+                # Only include scale with a value, as not sure what
                 # any others mean so far.
                 if 'm_flStatScale' in raw_scale:
-                    prop['Scaler'] = {
+                    prop['Scale'] = {
                         'Value': raw_scale['m_flStatScale'],
-                        'Type': maps.get_scaler_type(
+                        'Type': maps.get_scale_type(
                             raw_scale.get('m_eSpecificStatScaleType', 'ETechPower')
                         ),
                     }
@@ -269,6 +269,9 @@ class AbilityUiParser:
     def _create_description(self, upgrade):
         desc = ''
         for attr, value in upgrade.items():
+            # Don't consider 'Scale' attr for use in the description
+            if attr == 'Scale':
+                continue
             str_value = str(value)
 
             uom = self._get_uom(attr, str_value)

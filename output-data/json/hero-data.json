@@ -74,6 +74,11 @@
                     },
                     {
                         "StompDamage": 100,
+                        "Scale": {
+                            "Prop": "StompDamage",
+                            "Value": 1.04832,
+                            "Type": null
+                        },
                         "DescKey": "ability_bounce_pad_t2_desc"
                     },
                     {
@@ -1689,6 +1694,11 @@
                         "DamagePerChain": 12,
                         "BonusPerChain": 12,
                         "ChainCount": 3,
+                        "Scale": {
+                            "Prop": "BonusPerChain",
+                            "Value": 0.366912,
+                            "Type": "Spirit"
+                        },
                         "DescKey": "ability_power_surge_t3_desc"
                     }
                 ]
@@ -1956,6 +1966,11 @@
                 "Upgrades": [
                     {
                         "ProcDamage": 60,
+                        "Scale": {
+                            "Prop": "ProcDamage",
+                            "Value": 0.39312,
+                            "Type": "Spirit"
+                        },
                         "ProcDamageStackCount": 20,
                         "SlowPercent": 15,
                         "SlowDuration": 2,
@@ -2577,6 +2592,11 @@
                     },
                     {
                         "HealAmount": 145,
+                        "Scale": {
+                            "Prop": "HealAmount",
+                            "Value": 1.9656,
+                            "Type": "Spirit"
+                        },
                         "DescKey": "ability_ice_grenade_t2_desc"
                     },
                     {
@@ -2650,6 +2670,11 @@
                     },
                     {
                         "BeamSplit": "13m",
+                        "Scale": {
+                            "Prop": "BeamSplit",
+                            "Value": 1.0,
+                            "Type": "Range"
+                        },
                         "BeamSplitCount": 2,
                         "DescKey": "ability_icebeam_t3_desc"
                     }
@@ -2679,6 +2704,11 @@
                     },
                     {
                         "BonusHealthRegen": 70,
+                        "Scale": {
+                            "Prop": "BonusHealthRegen",
+                            "Value": 1.638,
+                            "Type": "Spirit"
+                        },
                         "DescKey": "ability_ice_dome_t3_desc"
                     }
                 ]
@@ -2919,6 +2949,11 @@
                         "DescKey": "citadel_ability_lash_down_strike_t2_desc"
                     },
                     {
+                        "Scale": {
+                            "Prop": "StompDamagePerMeterSecondary",
+                            "Value": 0.00875,
+                            "Type": "Spirit"
+                        },
                         "DescKey": "citadel_ability_lash_down_strike_t3_desc"
                     }
                 ]
@@ -3451,6 +3486,11 @@
                     },
                     {
                         "AbilityCooldownBetweenCharge": -3,
+                        "Scale": {
+                            "Prop": "Damage",
+                            "Value": 0.91728,
+                            "Type": "Spirit"
+                        },
                         "DescKey": "ability_charged_shot_t3_desc"
                     }
                 ]
@@ -4735,6 +4775,11 @@
                         "AbilityChannelTime": 0.5
                     },
                     {
+                        "Scale": {
+                            "Prop": "HotDPS",
+                            "Value": 0.314496,
+                            "Type": "Spirit"
+                        },
                         "NormalDPS": 16,
                         "HotDPS": 48,
                         "DescKey": "tokamak_hot_shot_t3_desc"
@@ -4761,6 +4806,11 @@
                         "AbilityCooldown": -7.5
                     },
                     {
+                        "Scale": {
+                            "Prop": "Damage",
+                            "Value": 0.52416,
+                            "Type": "Spirit"
+                        },
                         "Damage": 80,
                         "DescKey": "tokamak_dying_star_t3_desc"
                     }
@@ -4789,6 +4839,11 @@
                         "EvasionChance": 20
                     },
                     {
+                        "Scale": {
+                            "Prop": "MaxDPS",
+                            "Value": 0.157248,
+                            "Type": "Spirit"
+                        },
                         "MaxDPS": 24
                     }
                 ]
@@ -4815,6 +4870,11 @@
                     },
                     {
                         "Damage": 50,
+                        "Scale": {
+                            "Prop": "Damage",
+                            "Value": 1.57248,
+                            "Type": "Spirit"
+                        },
                         "DescKey": "tokamak_crimson_cannon_t2_desc"
                     },
                     {
@@ -5103,6 +5163,11 @@
                     },
                     {
                         "TechShieldPoints": 200,
+                        "Scale": {
+                            "Prop": "TechShieldPoints",
+                            "Value": 3.9312,
+                            "Type": "Spirit"
+                        },
                         "DescKey": "ability_warden_high_alert_t3_desc"
                     }
                 ]
@@ -5261,6 +5326,11 @@
                     {
                         "BulletShieldOnLand": 300,
                         "BulletShieldDuration": 8,
+                        "Scale": {
+                            "Prop": "BulletShieldOnLand",
+                            "Value": 2.6208,
+                            "Type": "Spirit"
+                        },
                         "DescKey": "citadel_ability_projectmind_t2_desc"
                     },
                     {
