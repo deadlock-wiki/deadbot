@@ -18,8 +18,15 @@ class AttributeParser:
         # Extract the attributes names and group them by what category they belong to
         for hero_key, hero_value in self.heroes_data.items():
             if hero_key.startswith('hero') and hero_key != 'hero_base':
-                # Add attributes this hero contains to the master attr dict
-                all_attributes.update(self._parse_shop_stat_display(hero_value))
+                shop_stats_ui = hero_value['m_ShopStatDisplay']
+                for category, category_stats in shop_stats_ui.items():
+                    # Ensure category exists
+                    category_name = maps.get_shop_attr_group(category)
+                    if category_name not in all_attributes:
+                        all_attributes[category_name] = {}
+
+                    # Add attributes this hero contains to the categories' stats
+                    all_attributes[category_name].update(self._parse_shop_stat_display(category_stats))
 
         # Determine the unlocalized name of each attribute that they should map to
         all_attributes.update(self._map_to_unlocalized(all_attributes))
@@ -83,7 +90,7 @@ class AttributeParser:
 
         return all_attributes
 
-    def _parse_shop_stat_display(self, hero_value):
+    def _parse_shop_stat_display(self, category_stats):
         """Parses m_ShopStatDisplay for each hero"""
 
         """
@@ -104,40 +111,25 @@ class AttributeParser:
             "Weapon": [
                 "BulletDamage",
                 "LightMeleeDamage",
-                "WeaponAttribute_RapidFire",
-                "WeaponAttribute_MediumRange"
                 ]
         """
 
         category_attributes = {}
 
-        shop_stats_ui = hero_value['m_ShopStatDisplay']
-        for category, category_stats in shop_stats_ui.items():
-            category_name = maps.get_shop_attr_group(category)
+        # Process all stats in the category
+        stats = []
+        if 'm_vecDisplayStats' in category_stats:
+            stats += category_stats['m_vecDisplayStats']
+        if 'm_vecOtherDisplayStats' in category_stats:
+            stats += category_stats['m_vecOtherDisplayStats']
 
-            # Ensure category exists
-            if category_name not in category_attributes:
-                category_attributes[category_name] = {}
+        # Add to parsed stats
+        for stat in stats:
+            stat_mapped = maps.get_hero_attr(stat)
 
-            # Process all stats in the category
-            for _, stats in category_stats.items():
-                if type(stats) is str:
-                    # Contains weapon type and weapon range
-                    # May be parsed in the future, left out of this data for now
-                    # stats = stats.split(' | ')
-                    continue
-                elif type(stats) is list:
-                    pass
-                else:
-                    raise Exception(f'Expected string or list, got {type(stats)}')
-
-                # Add to parsed stats
-                for stat in stats:
-                    stat_mapped = maps.get_hero_attr(stat)
-
-                    # Add stat to category if not already present
-                    if stat_mapped not in category_attributes[category_name]:
-                        category_attributes[category_name][stat_mapped] = {}
+            # Add stat if not already present
+            if stat_mapped not in category_attributes:
+                category_attributes[stat_mapped] = {}
 
         return category_attributes
 """
