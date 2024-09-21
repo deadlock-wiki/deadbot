@@ -45,6 +45,7 @@ class AbilityUiParser:
             format_vars = (
                 parsed_ability,
                 maps.KEYBIND_MAP,
+                {'ability_key': self.ability_index},
                 {'hero_name': self.localizations[self.hero_key]},
             )
             ability_desc = string_utils.format_description(ability_desc, *format_vars)
@@ -98,6 +99,7 @@ class AbilityUiParser:
                     format_vars = (
                         parsed_ability,
                         maps.KEYBIND_MAP,
+                        {'ability_key': self.ability_index},
                         {'hero_name': self.localizations[self.hero_key]},
                     )
                     parsed_info_section['Description'] = string_utils.format_description(
@@ -312,7 +314,13 @@ class AbilityUiParser:
     def _parse_upgrades(self, parsed_ability):
         parsed_upgrades = []
         for upgrade in parsed_ability['Upgrades']:
-            if 'DescKey' not in upgrade:
+            # this key in particular is not accurate to the one in game
+            ignore_desc_key = False
+            if upgrade.get('DescKey') == 'citadel_ability_chrono_kinetic_carbine_t1_desc':
+                del upgrade['DescKey']
+                ignore_desc_key = True
+
+            if 'DescKey' not in upgrade or ignore_desc_key:
                 description = self._create_description(upgrade)
             else:
                 upgrade_desc = self.localizations[upgrade['DescKey']]
