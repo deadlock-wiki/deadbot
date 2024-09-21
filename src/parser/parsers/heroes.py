@@ -101,7 +101,7 @@ class HeroParser:
             'RoundsPerSecond': 1 / w['m_flCycleTime'],
             'ClipSize': w['m_iClipSize'],
             'ReloadTime': w['m_reloadDuration'],
-            'ReloadMovespeed': int(w['m_flReloadMoveSpeed']) / 10000,
+            'ReloadMovespeed': float(w['m_flReloadMoveSpeed']) / 10000,
             'ReloadDelay': w.get('m_flReloadSingleBulletsInitialDelay', 0),
             'ReloadSingle': w.get('m_bReloadSingleBullets', False),
             'BulletSpeed': self._calc_bullet_velocity(w['m_BulletSpeedCurve']['m_spline']),
@@ -211,4 +211,4 @@ class HeroParser:
                 raise Exception('Bullet speed curve is not constant')
 
         # If constant, return the y
-        return int(round(last_y / ENGINE_UNITS_PER_METER, 0))
+        return last_y / ENGINE_UNITS_PER_METER
