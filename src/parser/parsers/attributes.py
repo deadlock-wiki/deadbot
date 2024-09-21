@@ -7,12 +7,21 @@ from .constants import OUTPUT_DIR
 import utils.json_utils as json_utils
 import maps as maps
 
+
 class AttributeParser:
     def __init__(self, heroes_data, localizations):
         self.heroes_data = heroes_data
         self.localizations = localizations
-        self.INFOBOX_STATS = ["DPS", "ClipSize", "RoundsPerSecond", "ReloadTime", 
-                              "MaxHealth", "BulletArmorDamageReduction", "TechArmorDamageReduction", "MaxMoveSpeed"]
+        self.INFOBOX_STATS = [
+            'DPS',
+            'ClipSize',
+            'RoundsPerSecond',
+            'ReloadTime',
+            'MaxHealth',
+            'BulletArmorDamageReduction',
+            'TechArmorDamageReduction',
+            'MaxMoveSpeed',
+        ]
 
     def run(self):
         all_attributes = {}
@@ -42,7 +51,6 @@ class AttributeParser:
                     if 'display_regions' not in attributes[attribute]:
                         attributes[attribute]['display_regions'] = []
                     attributes[attribute]['display_regions'].append('hero_infobox')
-        
 
         # Determine the unlocalized name of each attribute that they should map to
         all_attributes.update(self._map_to_unlocalized(all_attributes))
@@ -152,6 +160,7 @@ class AttributeParser:
                 category_attributes[stat_mapped]['display_regions'].append('hero_statbox')
 
         return category_attributes
+
 
 """
 Output-data is used by https://deadlocked.wiki/Template:StatBoxes
