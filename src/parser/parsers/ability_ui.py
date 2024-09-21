@@ -115,7 +115,7 @@ class AbilityUiParser:
 
             parsed_ui[f'Info{index+1}'] = parsed_info_section
 
-        parsed_ui.update(self._parse_rest_of_data(info_section, parsed_ability))
+        parsed_ui.update(self._parse_rest_of_data(parsed_ability))
 
         # remaining properties are placed into "Other"
         return parsed_ui
@@ -174,17 +174,9 @@ class AbilityUiParser:
                 if attr_type is not None:
                     prop_object['Type'] = attr_type
 
-                if 'm_subclassScaleFunction' in raw_ability:
-                    raw_scale = raw_ability['m_subclassScaleFunction']
-                    # Only include scale with a value, as not sure what
-                    # any others mean so far.
-                    if 'm_flStatScale' in raw_scale:
-                        prop_object['Scale'] = {
-                            'Value': raw_scale['m_flStatScale'],
-                            'Type': maps.get_scale_type(
-                                raw_scale.get('m_eSpecificStatScaleType', 'ETechPower')
-                            ),
-                        }
+                scale = self._get_scale(parsed_ability['Key'], attr_key)
+                if scale is not None:
+                    prop_object['Scale'] = scale
                 self.used_attributes.append(attr_key)
 
                 main_block['Props'].append(prop_object)
@@ -233,13 +225,17 @@ class AbilityUiParser:
             if attr_type is not None:
                 prop_object['Type'] = attr_type
 
+            scale = self._get_scale(parsed_ability['Key'], prop)
+            if scale is not None:
+                prop_object['Scale'] = scale
+
             alt_block.append(prop_object)
 
             self.used_attributes.append(prop)
 
         return alt_block
 
-    def _parse_rest_of_data(self, info_section, parsed_ability):
+    def _parse_rest_of_data(self, parsed_ability):
         rest_of_data = {
             'Cooldown': [],
             'Duration': [],
@@ -269,6 +265,10 @@ class AbilityUiParser:
             attr_type = raw_ability.get('m_strCSSClass')
             if attr_type is not None:
                 data['Type'] = attr_type
+
+            scale = self._get_scale(parsed_ability['Key'], prop)
+            if scale is not None:
+                data['Scale'] = scale
 
             match attr_type:
                 case 'cooldown' | 'charge_cooldown':
@@ -340,6 +340,22 @@ class AbilityUiParser:
             parsed_upgrades.append(upgrade)
 
         return parsed_upgrades
+
+    def _get_scale(self, ability_key, attr):
+        raw_ability = self._get_raw_ability_attr(ability_key, attr)
+        if 'm_subclassScaleFunction' in raw_ability:
+            raw_scale = raw_ability['m_subclassScaleFunction']
+            # Only include scale with a value, as not sure what
+            # any others mean so far.
+            if 'm_flStatScale' in raw_scale:
+                return {
+                    'Value': raw_scale['m_flStatScale'],
+                    'Type': maps.get_scale_type(
+                        raw_scale.get('m_eSpecificStatScaleType', 'ETechPower')
+                    ),
+                }
+
+        return None
 
     def _create_description(self, upgrade):
         desc = ''

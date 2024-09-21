@@ -627,7 +627,11 @@
                     "Key": "AbilityCastRange",
                     "Name": "Cast Range",
                     "Value": 16,
-                    "Type": "range"
+                    "Type": "range",
+                    "Scale": {
+                        "Value": 0.07,
+                        "Type": "spirit"
+                    }
                 }
             ],
             "Cast": [
@@ -723,7 +727,11 @@
                     "Key": "AbilityDuration",
                     "Name": "Duration",
                     "Value": 10,
-                    "Type": "duration"
+                    "Type": "duration",
+                    "Scale": {
+                        "Value": 0.06552,
+                        "Type": "spirit"
+                    }
                 }
             ],
             "Cast": [
@@ -751,7 +759,11 @@
                 {
                     "Key": "BonusPerChain",
                     "Name": "Damage on Jump",
-                    "Value": 10
+                    "Value": 10,
+                    "Scale": {
+                        "Value": 0.132,
+                        "Type": "spirit"
+                    }
                 },
                 {
                     "Key": "BossDamagePercent",
@@ -1027,7 +1039,11 @@
                     "Key": "AbilityDuration",
                     "Name": "Duration",
                     "Value": 8,
-                    "Type": "duration"
+                    "Type": "duration",
+                    "Scale": {
+                        "Value": 0.1638,
+                        "Type": "spirit"
+                    }
                 }
             ],
             "Cast": [
@@ -1129,7 +1145,11 @@
                         "Key": "DebuffDuration",
                         "Name": "Debuff Duration",
                         "Value": 6,
-                        "Type": "duration"
+                        "Type": "duration",
+                        "Scale": {
+                            "Value": 0.03,
+                            "Type": "spirit"
+                        }
                     }
                 ],
                 "Description": "Your crow familiar deals impact damage, reduces their bullet resist and applies a bleed that deals damage based on the target's current health."
@@ -2195,7 +2215,11 @@
                     "Key": "AbilityCooldown",
                     "Name": "Cooldown",
                     "Value": 0.5,
-                    "Type": "cooldown"
+                    "Type": "cooldown",
+                    "Scale": {
+                        "Value": 0.0,
+                        "Type": "cooldown"
+                    }
                 }
             ],
             "Range": [
@@ -2203,7 +2227,11 @@
                     "Key": "AbilityCastRange",
                     "Name": "Cast Range",
                     "Value": 500,
-                    "Type": "range"
+                    "Type": "range",
+                    "Scale": {
+                        "Value": 0.0,
+                        "Type": "range"
+                    }
                 },
                 {
                     "Key": "Radius",
@@ -2244,7 +2272,11 @@
                 {
                     "Key": "CardResourceGenPctScale",
                     "Name": "Card Summon Rate",
-                    "Value": 106.0
+                    "Value": 106.0,
+                    "Scale": {
+                        "Value": -1.0,
+                        "Type": "cooldown"
+                    }
                 },
                 {
                     "Key": "CardResourcePerBulletCrit",
@@ -2417,7 +2449,11 @@
                     "Key": "AbilityDuration",
                     "Name": "Duration",
                     "Value": 5,
-                    "Type": "duration"
+                    "Type": "duration",
+                    "Scale": {
+                        "Value": 0.06552,
+                        "Type": "spirit"
+                    }
                 }
             ],
             "Range": [
@@ -2639,7 +2675,11 @@
                     "Key": "TurretDPS",
                     "Name": "Turret DPS",
                     "Value": 60,
-                    "Type": "tech_damage"
+                    "Type": "tech_damage",
+                    "Scale": {
+                        "Value": 0.419328,
+                        "Type": "spirit"
+                    }
                 }
             ],
             "Health": [
@@ -2771,7 +2811,11 @@
                     "Key": "AbilityDuration",
                     "Name": "Duration",
                     "Value": 6,
-                    "Type": "duration"
+                    "Type": "duration",
+                    "Scale": {
+                        "Value": 0.12,
+                        "Type": "spirit"
+                    }
                 }
             ],
             "Range": [
@@ -2785,7 +2829,11 @@
                     "Key": "HealRadius",
                     "Name": "Heal Radius",
                     "Value": 5,
-                    "Type": "distance"
+                    "Type": "distance",
+                    "Scale": {
+                        "Value": 0.05,
+                        "Type": "spirit"
+                    }
                 }
             ],
             "Cast": [
@@ -3435,7 +3483,11 @@
                         "Key": "BaseBulletDamage",
                         "Name": "Bullet Damage",
                         "Value": 5,
-                        "Type": "bullet_damage"
+                        "Type": "bullet_damage",
+                        "Scale": {
+                            "Value": 1.0,
+                            "Type": "damage"
+                        }
                     },
                     {
                         "Key": "MinBonusBulletDamage",
@@ -4372,7 +4424,11 @@
                         "Key": "BeamSplit",
                         "Name": "Extra Beam Range",
                         "Value": 0,
-                        "Type": "radius"
+                        "Type": "radius",
+                        "Scale": {
+                            "Value": 0.0,
+                            "Type": "range"
+                        }
                     }
                 ],
                 "Description": "Shoot freezing cold energy out in front of you, damaging targets and building up movement and fire rate slow against them the longer you sustain the beam on them. You have reduced movement speed while using Arctic Beam. The beam may also claim Souls."
@@ -4759,7 +4815,11 @@
                     "Key": "AbilityDuration",
                     "Name": "Duration",
                     "Value": 8,
-                    "Type": "duration"
+                    "Type": "duration",
+                    "Scale": {
+                        "Value": 0.19656,
+                        "Type": "spirit"
+                    }
                 },
                 {
                     "Key": "RevealOnDamageDuration",
@@ -4952,7 +5012,11 @@
                     "Key": "AbilityChannelTime",
                     "Name": "Channel Duration",
                     "Value": 3.0,
-                    "Type": "cast"
+                    "Type": "cast",
+                    "Scale": {
+                        "Value": 0.06552,
+                        "Type": "spirit"
+                    }
                 }
             ],
             "Move": [
@@ -5893,7 +5957,11 @@
                     "Key": "AbilityChannelTime",
                     "Name": "Channel Duration",
                     "Value": 8,
-                    "Type": "cast"
+                    "Type": "cast",
+                    "Scale": {
+                        "Value": 0.08,
+                        "Type": "spirit"
+                    }
                 }
             ],
             "Move": [
@@ -6187,7 +6255,11 @@
                     "Key": "AbilityCastRange",
                     "Name": "Cast Range",
                     "Value": 14,
-                    "Type": "range"
+                    "Type": "range",
+                    "Scale": {
+                        "Value": 0.08,
+                        "Type": "spirit"
+                    }
                 }
             ],
             "Cast": [
@@ -9401,7 +9473,11 @@
                     "Key": "StompDamagePerMeterSecondary",
                     "Name": null,
                     "Value": 4.5,
-                    "Type": "tech_damage"
+                    "Type": "tech_damage",
+                    "Scale": {
+                        "Value": 0.00875,
+                        "Type": "spirit"
+                    }
                 }
             ],
             "Other": [
@@ -9888,7 +9964,11 @@
                     "Key": "PuddleDuration",
                     "Name": "Puddle Duration",
                     "Value": 10,
-                    "Type": "duration"
+                    "Type": "duration",
+                    "Scale": {
+                        "Value": 1.0,
+                        "Type": "duration"
+                    }
                 }
             ],
             "Range": [
@@ -11767,7 +11847,11 @@
                     "Key": "MaxDamage",
                     "Name": null,
                     "Value": 100,
-                    "Type": "tech_damage"
+                    "Type": "tech_damage",
+                    "Scale": {
+                        "Value": 1.248,
+                        "Type": "spirit"
+                    }
                 }
             ],
             "Other": [
