@@ -31,11 +31,6 @@ class AttributeParser:
                         self._parse_shop_stat_display(category_stats)
                     )
 
-        # Specify currently parsed attributes as ones that go in statboxes
-
-        # Manually add DPS
-        all_attributes['Weapon']['DPS'] = {}
-
         # Determine the unlocalized name of each attribute that they should map to
         all_attributes.update(self._map_to_unlocalized(all_attributes))
 
