@@ -31,24 +31,30 @@ class AttributeParser:
                         self._parse_shop_stat_display(category_stats)
                     )
 
+        # Specify order for lua as it isn't capable of iterating jsons in the order it appears
+        order_lists = {}
+        category_order = ['Weapon', 'Vitality', 'Spirit']
+        for category, attributes in all_attributes.items():
+            # Convert to list of the stats in order
+            attributes_order = list(attributes.keys())
+            order_lists[category] = {}
+            order_lists[category]['_attribute_order'] = attributes_order
+        order_lists['_category_order'] = category_order
+        json_utils.write(OUTPUT_DIR + 'json/stat-box-attrs.json', order_lists)
+
+        # Manually add DPS to the Weapon category
+        all_attributes['Weapon']['DPS'] = {}
+
         # Determine the unlocalized name of each attribute that they should map to
         all_attributes.update(self._map_to_unlocalized(all_attributes))
 
         # Reorder 1st level to be in the order they are displayed in game
         # and which happens to be the best for UX reasons
-        category_order = ['Weapon', 'Vitality', 'Spirit']
         all_attributes = {
             category: all_attributes[category]
             for category in category_order
             if category in all_attributes
         }
-
-        # Specify order for lua as it isn't capable of iterating jsons in the order it appears
-        for category, attributes in all_attributes.items():
-            # Convert to list of the stats in order
-            attributes_order = list(attributes.keys())
-            all_attributes[category]['_attribute_order'] = attributes_order
-        all_attributes['_category_order'] = category_order
 
         # Write the attributes to a json file
         json_utils.write(OUTPUT_DIR + 'json/attribute-data.json', all_attributes)

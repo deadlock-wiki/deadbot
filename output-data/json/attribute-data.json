@@ -47,21 +47,10 @@
         "HeavyMeleeDamage": {
             "label": "StatDesc_HeavyMeleeDamage"
         },
-        "_attribute_order": [
-            "BulletDamage",
-            "BaseWeaponDamageIncrease",
-            "RoundsPerSecond",
-            "FireRate",
-            "ClipSize",
-            "ClipSizeIncrease",
-            "ReloadTime",
-            "ReloadSpeed",
-            "BulletSpeed",
-            "BulletSpeedIncrease",
-            "BulletLifesteal",
-            "LightMeleeDamage",
-            "HeavyMeleeDamage"
-        ]
+        "DPS": {
+            "label": "StatDesc_DPS",
+            "postfix": "DPS_postfix"
+        }
     },
     "Vitality": {
         "MaxHealth": {
@@ -114,23 +103,7 @@
         },
         "Stamina": {
             "label": "StatDesc_Stamina"
-        },
-        "_attribute_order": [
-            "MaxHealth",
-            "BaseHealthRegen",
-            "BulletArmorDamageReduction",
-            "TechArmorDamageReduction",
-            "BulletShieldHealth",
-            "TechShieldHealth",
-            "HealingOutput",
-            "DebuffResist",
-            "CritDamageReceivedScale",
-            "MaxMoveSpeed",
-            "SprintSpeed",
-            "StaminaCooldown",
-            "StaminaRegenIncrease",
-            "Stamina"
-        ]
+        }
     },
     "Spirit": {
         "TechCooldown": {
@@ -155,19 +128,6 @@
         "TechCooldownBetweenChargeUses": {
             "label": "StatDesc_TechCooldownBetweenCharges",
             "postfix": "StatDesc_TechCooldownBetweenCharges_postfix"
-        },
-        "_attribute_order": [
-            "TechCooldown",
-            "TechDuration",
-            "TechRange",
-            "TechLifesteal",
-            "MaxChargesIncrease",
-            "TechCooldownBetweenChargeUses"
-        ]
-    },
-    "_category_order": [
-        "Weapon",
-        "Vitality",
-        "Spirit"
-    ]
+        }
+    }
 }
