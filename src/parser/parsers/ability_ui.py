@@ -32,8 +32,8 @@ class AbilityUiParser:
 
     def _parse_ability_ui(self, parsed_ability):
         parsed_ui = {
-            'Name': self.localizations.get(parsed_ability['Key']),
             'Key': parsed_ability['Key'],
+            'Name': self.localizations.get(parsed_ability['Key']),
             'Upgrades': [],
         }
 
@@ -162,6 +162,7 @@ class AbilityUiParser:
 
                 prop_object.update(
                     {
+                        'Key': attr_key,
                         'Name': self.localizations[attr_key + '_label'],
                         'Value': parsed_ability[attr_key],
                     }
@@ -218,9 +219,13 @@ class AbilityUiParser:
         for prop in info_section['m_vecBasicProperties']:
             prop_object = {
                 'Key': prop,
-                'Name': self._get_ability_display_name(prop),
-                'Value': parsed_ability.get(prop),
             }
+
+            name = self._get_ability_display_name(prop)
+            if name is not None:
+                prop_object['Name'] = name
+
+            prop_object['Value'] = parsed_ability.get(prop)
 
             attr_type = self._get_raw_ability_attr(parsed_ability['Key'], prop).get('m_strCSSClass')
             if attr_type is not None:
@@ -388,7 +393,7 @@ class AbilityUiParser:
         localized_key = f'{attr}_label'
         if localized_key not in self.localizations:
             # print(f'Missing label for key {localized_key}')
-            return attr
+            return None
         return self.localizations[localized_key]
 
     def _get_raw_ability_attr(self, ability_key, attr_key):
