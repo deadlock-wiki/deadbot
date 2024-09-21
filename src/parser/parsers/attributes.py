@@ -7,6 +7,7 @@ from .constants import OUTPUT_DIR
 import utils.json_utils as json_utils
 import maps as maps
 
+
 class AttributeParser:
     def __init__(self, heroes_data, localizations):
         self.heroes_data = heroes_data
@@ -26,7 +27,9 @@ class AttributeParser:
                         all_attributes[category_name] = {}
 
                     # Add attributes this hero contains to the categories' stats
-                    all_attributes[category_name].update(self._parse_shop_stat_display(category_stats))
+                    all_attributes[category_name].update(
+                        self._parse_shop_stat_display(category_stats)
+                    )
 
         # Determine the unlocalized name of each attribute that they should map to
         all_attributes.update(self._map_to_unlocalized(all_attributes))
@@ -43,7 +46,7 @@ class AttributeParser:
         # Specify order for lua as it isn't capable of iterating jsons in the order it appears
         for category, attributes in all_attributes.items():
             attributes_order = list(attributes)
-            all_attributes[category]["_attribute_order"] = attributes_order
+            all_attributes[category]['_attribute_order'] = attributes_order
         all_attributes['_category_order'] = category_order
 
         # Write the attributes to a json file
@@ -51,7 +54,7 @@ class AttributeParser:
 
     def _map_to_unlocalized(self, all_attributes):
         """
-        Maps the attributes to their unlocalized names, 
+        Maps the attributes to their unlocalized names,
         such as "BulletDamage" to their unlocalized names "StatDesc_BulletDamage"
         The unlocalized name will then be localized on the front end
         """
@@ -83,9 +86,9 @@ class AttributeParser:
                     # Ensure the label is set for all attributes; though the postfix can be blank
                     if 'label' not in all_attributes[category][attribute]:
                         raise Exception(
-                            f'Unlocalized name not found for {attribute}, '+
-                            'find the label and postfix'+
-                            ' in localization data and add them to the manual_map'
+                            f'Unlocalized name not found for {attribute}, '
+                            + 'find the label and postfix'
+                            + ' in localization data and add them to the manual_map'
                         )
 
         return all_attributes
@@ -132,6 +135,8 @@ class AttributeParser:
                 category_attributes[stat_mapped] = {}
 
         return category_attributes
+
+
 """
 Output-data is used by https://deadlocked.wiki/Template:StatBoxes
 to display a hero's attributes on their hero page
