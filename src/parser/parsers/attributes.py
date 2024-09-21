@@ -42,15 +42,15 @@ class AttributeParser:
                     )
 
         # Manually add DPS
-        all_attributes['Weapon']['DPS'] = {'display_regions': []}
+        all_attributes['Weapon']['DPS'] = {'display_regions': {}}
 
         # Specify which attributes are displayed in the hero_infobox summary
         for attribute in self.INFOBOX_STATS:
             for category, attributes in all_attributes.items():
                 if attribute in attributes:
                     if 'display_regions' not in attributes[attribute]:
-                        attributes[attribute]['display_regions'] = []
-                    attributes[attribute]['display_regions'].append('hero_infobox')
+                        attributes[attribute]['display_regions'] = {}
+                    attributes[attribute]['display_regions']['hero_infobox'] = True
 
         # Determine the unlocalized name of each attribute that they should map to
         all_attributes.update(self._map_to_unlocalized(all_attributes))
@@ -156,8 +156,8 @@ class AttributeParser:
             if stat_mapped not in category_attributes:
                 category_attributes[stat_mapped] = {}
                 if 'display_regions' not in category_attributes[stat_mapped]:
-                    category_attributes[stat_mapped]['display_regions'] = []
-                category_attributes[stat_mapped]['display_regions'].append('hero_statbox')
+                    category_attributes[stat_mapped]['display_regions'] = {}
+                category_attributes[stat_mapped]['display_regions']['hero_statbox'] = True
 
         return category_attributes
 
