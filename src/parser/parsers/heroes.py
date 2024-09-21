@@ -59,15 +59,14 @@ class HeroParser:
                     if 'MeleeDamage' in hero_stats['LevelScaling']:
                         md_scalar = hero_stats['LevelScaling']['MeleeDamage']
                         hero_stats['LevelScaling']['LightMeleeDamage'] = md_scalar
-                        
+
                         hero_stats['LevelScaling']['HeavyMeleeDamage'] = md_scalar * hl_ratio
                         del hero_stats['LevelScaling']['MeleeDamage']
 
                     # Remove scalings if they are 0.0
-                    hero_stats['LevelScaling'] = {k: v for k, 
-                                                  v in hero_stats['LevelScaling'].items() 
-                                                  if v != 0.0}
-                    
+                    hero_stats['LevelScaling'] = {
+                        k: v for k, v in hero_stats['LevelScaling'].items() if v != 0.0
+                    }
 
                 all_hero_stats[hero_key] = json_utils.sort_dict(hero_stats)
 
@@ -92,6 +91,8 @@ class HeroParser:
         weapon_stats = {}
 
         weapon_prim_id = hero_value['m_mapBoundAbilities']['ESlot_Weapon_Primary']
+
+        # Parse weapon stats
         weapon_prim = self.abilities_data[weapon_prim_id]['m_WeaponInfo']
         w = weapon_prim
 
@@ -114,6 +115,19 @@ class HeroParser:
         }
 
         weapon_stats['DPS'] = weapon_stats['BulletDamage'] * weapon_stats['RoundsPerSecond']
+
+        weapon_stats['WeaponName'] = weapon_prim_id
+        # i.e. citadel_weapon_kelvin_set to citadel_weapon_hero_kelvin_set
+        weapon_stats['WeaponDescription'] = weapon_prim_id.replace(
+            'citadel_weapon_', 'citadel_weapon_hero_'
+        )
+
+        # Parse weapon types
+        shop_ui_weapon_stats = hero_value['m_ShopStatDisplay']['m_eWeaponStatsDisplay']
+        if 'm_eWeaponAttributes' in shop_ui_weapon_stats:
+            types = shop_ui_weapon_stats['m_eWeaponAttributes'].split(' | ')
+            weapon_stats['WeaponTypes'] = ['Attribute_' + wtype for wtype in types]
+
         return weapon_stats
 
     def _parse_spirit_scaling(self, hero_value):

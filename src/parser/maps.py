@@ -76,7 +76,12 @@ def get_shop_attr_group(value):
 def get_hero_attr(value):
     # Remove the 'E' prefix if its prefixed
     if value.startswith('E'):
-        value = value[1:]
+        value = value[len('E') :]
+
+    remaps = {'WeaponPower': 'BaseWeaponDamageIncrease', 'ClipSizeBonus': 'ClipSize'}
+
+    if value in remaps:
+        return remaps[value]
 
     remaps = {
         "WeaponPower": "BaseWeaponDamageIncrease",
