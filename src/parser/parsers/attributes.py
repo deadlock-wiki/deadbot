@@ -9,6 +9,11 @@ import maps as maps
 
 
 class AttributeParser:
+    """
+    Output-data is used by https://deadlocked.wiki/Template:StatBoxes
+    to display a hero's attributes on their hero page
+    """
+
     def __init__(self, heroes_data, localizations):
         self.heroes_data = heroes_data
         self.localizations = localizations
@@ -61,6 +66,7 @@ class AttributeParser:
 
     def _map_to_unlocalized(self, all_attributes):
         """
+        Maps the attributes to their unlocalized names,
         Maps the attributes to their unlocalized names,
         such as "BulletDamage" to their unlocalized names "StatDesc_BulletDamage"
         The unlocalized name will then be localized on the front end
@@ -132,7 +138,16 @@ class AttributeParser:
             stats += category_stats['m_vecDisplayStats']
         if 'm_vecOtherDisplayStats' in category_stats:
             stats += category_stats['m_vecOtherDisplayStats']
+        # Process all stats in the category
+        stats = []
+        if 'm_vecDisplayStats' in category_stats:
+            stats += category_stats['m_vecDisplayStats']
+        if 'm_vecOtherDisplayStats' in category_stats:
+            stats += category_stats['m_vecOtherDisplayStats']
 
+        # Add to parsed stats
+        for stat in stats:
+            stat_mapped = maps.get_hero_attr(stat)
         # Add to parsed stats
         for stat in stats:
             stat_mapped = maps.get_hero_attr(stat)
@@ -140,11 +155,8 @@ class AttributeParser:
             # Add stat if not already present
             if stat_mapped not in category_attributes:
                 category_attributes[stat_mapped] = {}
+            # Add stat if not already present
+            if stat_mapped not in category_attributes:
+                category_attributes[stat_mapped] = {}
 
         return category_attributes
-
-
-"""
-Output-data is used by https://deadlocked.wiki/Template:StatBoxes
-to display a hero's attributes on their hero page
-"""
