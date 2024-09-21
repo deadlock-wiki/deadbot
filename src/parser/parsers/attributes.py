@@ -11,6 +11,8 @@ class AttributeParser:
     def __init__(self, heroes_data, localizations):
         self.heroes_data = heroes_data
         self.localizations = localizations
+        self.INFOBOX_STATS = ["DPS", "ClipSize", "RoundsPerSecond", "ReloadTime", 
+                              "MaxHealth", "BulletArmorDamageReduction", "TechArmorDamageReduction", "MaxMoveSpeed"]
 
     def run(self):
         all_attributes = {}
@@ -30,8 +32,17 @@ class AttributeParser:
                         self._parse_shop_stat_display(category_stats)
                     )
 
-        # Manually add DPS, not as a shop statbox stat though
-        all_attributes['Weapon']['DPS'] = {'display_region': 'hero_infobox'}
+        # Manually add DPS
+        all_attributes['Weapon']['DPS'] = {'display_regions': []}
+
+        # Specify which attributes are displayed in the hero_infobox summary
+        for attribute in self.INFOBOX_STATS:
+            for category, attributes in all_attributes.items():
+                if attribute in attributes:
+                    if 'display_regions' not in attributes[attribute]:
+                        attributes[attribute]['display_regions'] = []
+                    attributes[attribute]['display_regions'].append('hero_infobox')
+        
 
         # Determine the unlocalized name of each attribute that they should map to
         all_attributes.update(self._map_to_unlocalized(all_attributes))
@@ -47,11 +58,8 @@ class AttributeParser:
 
         # Specify order for lua as it isn't capable of iterating jsons in the order it appears
         for category, attributes in all_attributes.items():
-            # Convert to list where display_region is hero_statbox
-            attributes_order = [
-                attr for attr in attributes if attributes[attr]['display_region'] == 'hero_statbox'
-            ]
-
+            # Convert to list of the stats in order
+            attributes_order = list(attributes.keys())
             all_attributes[category]['_attribute_order'] = attributes_order
         all_attributes['_category_order'] = category_order
 
@@ -139,7 +147,9 @@ class AttributeParser:
             # Add stat if not already present
             if stat_mapped not in category_attributes:
                 category_attributes[stat_mapped] = {}
-                category_attributes[stat_mapped]['display_region'] = 'hero_statbox'
+                if 'display_regions' not in category_attributes[stat_mapped]:
+                    category_attributes[stat_mapped]['display_regions'] = []
+                category_attributes[stat_mapped]['display_regions'].append('hero_statbox')
 
         return category_attributes
 
