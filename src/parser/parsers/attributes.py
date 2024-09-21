@@ -38,8 +38,8 @@ class AttributeParser:
             # Convert to list of the stats in order
             attributes_order = list(attributes.keys())
             order_lists[category] = {}
-            order_lists[category]['_attribute_order'] = attributes_order
-        order_lists['_category_order'] = category_order
+            order_lists[category]['attribute_order'] = attributes_order
+        order_lists['category_order'] = category_order
         json_utils.write(OUTPUT_DIR + 'json/stat-box-attrs.json', order_lists)
 
         # Manually add DPS to the Weapon category

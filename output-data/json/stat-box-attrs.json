@@ -1,6 +1,6 @@
 {
     "Weapon": {
-        "_attribute_order": [
+        "attribute_order": [
             "BulletDamage",
             "BaseWeaponDamageIncrease",
             "RoundsPerSecond",
@@ -17,7 +17,7 @@
         ]
     },
     "Vitality": {
-        "_attribute_order": [
+        "attribute_order": [
             "MaxHealth",
             "BaseHealthRegen",
             "BulletArmorDamageReduction",
@@ -35,7 +35,7 @@
         ]
     },
     "Spirit": {
-        "_attribute_order": [
+        "attribute_order": [
             "TechCooldown",
             "TechDuration",
             "TechRange",
@@ -44,7 +44,7 @@
             "TechCooldownBetweenChargeUses"
         ]
     },
-    "_category_order": [
+    "category_order": [
         "Weapon",
         "Vitality",
         "Spirit"
