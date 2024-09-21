@@ -19,7 +19,6 @@ class AttributeParser:
         for hero_key, hero_value in self.heroes_data.items():
             if hero_key.startswith('hero') and hero_key != 'hero_base':
                 # Add attributes this hero contains to the master attr dict
-                all_attributes.update(self._parse_stats_ui(hero_value))
                 all_attributes.update(self._parse_shop_stat_display(hero_value))
 
         # Determine the unlocalized name of each attribute that they should map to
@@ -83,39 +82,6 @@ class AttributeParser:
                         )
 
         return all_attributes
-
-    # Parse the stats that are listed in the UI in game
-    def _parse_stats_ui(self, hero_value):
-        """Parses m_heroStatsUI for each hero"""
-        """
-            Within m_heroStatsUI
-            Transform each value within m_vecDisplayStats array
-            
-            {
-                "m_eStatType": "EMaxHealth",
-                "m_eStatCategory": "ECitadelStat_Vitality"
-            }
-
-            to a dict entry
-            "Vitality": "MaxHealth"
-        """
-
-        category_attributes = {}
-
-        stats_ui = hero_value['m_heroStatsUI']['m_vecDisplayStats']
-        for stat in stats_ui:
-            parsed_stat_name = maps.get_hero_attr(stat['m_eStatType'])
-            parsed_stat_category = maps.get_attr_group(stat['m_eStatCategory'])
-
-            # Ensure category exists
-            if parsed_stat_category not in category_attributes:
-                category_attributes[parsed_stat_category] = {}
-
-            # Add stat to category if not already present
-            if parsed_stat_name not in category_attributes[parsed_stat_category]:
-                category_attributes[parsed_stat_category][parsed_stat_name] = {}
-
-        return category_attributes
 
     def _parse_shop_stat_display(self, hero_value):
         """Parses m_ShopStatDisplay for each hero"""
