@@ -1,98 +1,53 @@
 {
     "Weapon": {
         "BulletDamage": {
-            "display_regions": {
-                "hero_statbox": true
-            },
             "label": "StatDesc_BulletDamage"
         },
         "BaseWeaponDamageIncrease": {
-            "display_regions": {
-                "hero_statbox": true
-            },
             "label": "WeaponPower_label",
             "postfix": "WeaponPower_postfix"
         },
         "RoundsPerSecond": {
-            "display_regions": {
-                "hero_statbox": true,
-                "hero_infobox": true
-            },
             "label": "StatDesc_RoundsPerSecond"
         },
         "FireRate": {
-            "display_regions": {
-                "hero_statbox": true
-            },
             "label": "StatDesc_FireRate",
             "postfix": "StatDesc_FireRate_postfix"
         },
         "ClipSize": {
-            "display_regions": {
-                "hero_statbox": true,
-                "hero_infobox": true
-            },
             "label": "StatDesc_ClipSizeBonus"
         },
         "ClipSizeIncrease": {
-            "display_regions": {
-                "hero_statbox": true
-            },
             "label": "StatDesc_ClipSizeIncrease",
             "postfix": "StatDesc_ClipSizeIncrease_postfix"
         },
         "ReloadTime": {
-            "display_regions": {
-                "hero_statbox": true,
-                "hero_infobox": true
-            },
             "label": "StatDesc_ReloadTime",
             "postfix": "StatDesc_ReloadTime_postfix"
         },
         "ReloadSpeed": {
-            "display_regions": {
-                "hero_statbox": true
-            },
             "label": "StatDesc_ReloadSpeed",
             "postfix": "StatDesc_ReloadSpeed_postfix"
         },
         "BulletSpeed": {
-            "display_regions": {
-                "hero_statbox": true
-            },
             "label": "StatDesc_BulletSpeed",
             "postfix": "StatDesc_BulletSpeed_postfix"
         },
         "BulletSpeedIncrease": {
-            "display_regions": {
-                "hero_statbox": true
-            },
             "label": "StatDesc_BulletSpeedIncrease",
             "postfix": "StatDesc_BulletSpeedIncrease_postfix"
         },
         "BulletLifesteal": {
-            "display_regions": {
-                "hero_statbox": true
-            },
             "label": "StatDesc_BulletLifesteal",
             "postfix": "StatDesc_BulletLifesteal_postfix"
         },
         "LightMeleeDamage": {
-            "display_regions": {
-                "hero_statbox": true
-            },
             "label": "StatDesc_LightMeleeDamage"
         },
         "HeavyMeleeDamage": {
-            "display_regions": {
-                "hero_statbox": true
-            },
             "label": "StatDesc_HeavyMeleeDamage"
         },
         "DPS": {
-            "display_regions": {
-                "hero_infobox": true
-            },
             "label": "StatDesc_DPS",
             "postfix": "DPS_postfix"
         },
@@ -115,100 +70,54 @@
     },
     "Vitality": {
         "MaxHealth": {
-            "display_regions": {
-                "hero_statbox": true,
-                "hero_infobox": true
-            },
             "label": "StatDesc_MaxHealth"
         },
         "BaseHealthRegen": {
-            "display_regions": {
-                "hero_statbox": true
-            },
             "label": "StatDesc_BaseHealthRegen"
         },
         "BulletArmorDamageReduction": {
-            "display_regions": {
-                "hero_statbox": true,
-                "hero_infobox": true
-            },
             "label": "StatDesc_BulletArmorDamageReduction",
             "postfix": "StatDesc_BulletArmorDamageReduction_postfix"
         },
         "TechArmorDamageReduction": {
-            "display_regions": {
-                "hero_statbox": true,
-                "hero_infobox": true
-            },
             "label": "StatDesc_TechArmorDamageReduction",
             "postfix": "StatDesc_TechArmorDamageReduction_postfix"
         },
         "BulletShieldHealth": {
-            "display_regions": {
-                "hero_statbox": true
-            },
             "label": "StatDesc_BulletShieldHealth"
         },
         "TechShieldHealth": {
-            "display_regions": {
-                "hero_statbox": true
-            },
             "label": "StatDesc_TechShieldHealth"
         },
         "HealingOutput": {
-            "display_regions": {
-                "hero_statbox": true
-            },
             "label": "StatDesc_HealingOutput",
             "postfix": "StatDesc_HealingOutput_postfix"
         },
         "DebuffResist": {
-            "display_regions": {
-                "hero_statbox": true
-            },
             "label": "StatDesc_DebuffResist",
             "postfix": "StatDesc_DebuffResist_postfix"
         },
         "CritDamageReceivedScale": {
-            "display_regions": {
-                "hero_statbox": true
-            },
             "label": "StatDesc_CritDamageReceivedScale",
             "postfix": "StatDesc_CritDamageReceivedScale_postfix"
         },
         "MaxMoveSpeed": {
-            "display_regions": {
-                "hero_statbox": true,
-                "hero_infobox": true
-            },
             "label": "MoveSpeedMax_label",
             "postfix": "MoveSpeedMax_postfix"
         },
         "SprintSpeed": {
-            "display_regions": {
-                "hero_statbox": true
-            },
             "label": "StatDesc_SprintSpeed",
             "postfix": "StatDesc_SprintSpeed_postfix"
         },
         "StaminaCooldown": {
-            "display_regions": {
-                "hero_statbox": true
-            },
             "label": "StatDesc_StaminaCooldown",
             "postfix": "StatDesc_StaminaCooldown_postfix"
         },
         "StaminaRegenIncrease": {
-            "display_regions": {
-                "hero_statbox": true
-            },
             "label": "StatDesc_StaminaRegenIncrease",
             "postfix": "StatDesc_StaminaRegenIncrease_postfix"
         },
         "Stamina": {
-            "display_regions": {
-                "hero_statbox": true
-            },
             "label": "StatDesc_Stamina"
         },
         "_attribute_order": [
@@ -230,43 +139,25 @@
     },
     "Spirit": {
         "TechCooldown": {
-            "display_regions": {
-                "hero_statbox": true
-            },
             "label": "StatDesc_TechCooldown",
             "postfix": "StatDesc_TechCooldown_postfix"
         },
         "TechDuration": {
-            "display_regions": {
-                "hero_statbox": true
-            },
             "label": "StatDesc_TechDuration",
             "postfix": "StatDesc_TechDuration_postfix"
         },
         "TechRange": {
-            "display_regions": {
-                "hero_statbox": true
-            },
             "label": "StatDesc_TechRange",
             "postfix": "StatDesc_TechRange_postfix"
         },
         "TechLifesteal": {
-            "display_regions": {
-                "hero_statbox": true
-            },
             "label": "StatDesc_TechLifesteal",
             "postfix": "StatDesc_TechLifesteal_postfix"
         },
         "MaxChargesIncrease": {
-            "display_regions": {
-                "hero_statbox": true
-            },
             "label": "StatDesc_MaxChargesIncrease"
         },
         "TechCooldownBetweenChargeUses": {
-            "display_regions": {
-                "hero_statbox": true
-            },
             "label": "StatDesc_TechCooldownBetweenCharges",
             "postfix": "StatDesc_TechCooldownBetweenCharges_postfix"
         },
