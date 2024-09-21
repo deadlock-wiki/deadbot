@@ -78,6 +78,11 @@ def get_hero_attr(value):
     if value.startswith('E'):
         value = value[1:]
 
+    remaps = {'WeaponPower': 'BaseWeaponDamageIncrease', 'ClipSizeBonus': 'ClipSize'}
+
+    if value in remaps:
+        return remaps[value]
+
     return value
 
 
@@ -166,8 +171,14 @@ def override_localization(attr):
         return attr
 
 
-# 'EMultiplyScale' is only used for "kali", a hero not yet released
-SCALE_TYPE_MAP = {'ETechPower': 'spirit', 'ELightMeleeDamage': 'melee', 'ETechRange': 'range'}
+SCALE_TYPE_MAP = {
+    'ETechPower': 'spirit',
+    'ELightMeleeDamage': 'melee',
+    'ETechRange': 'range',
+    'ETechCooldown': 'cooldown',
+    'EBulletDamage': 'damage',
+    'ETechDuration': 'duration',
+}
 
 
 def get_scale_type(scale):

@@ -3,6 +3,7 @@
         "AbilityResourceMax": 0,
         "AbilityResourceRegenPerSecond": 0,
         "BaseHealthRegen": 2.0,
+        "BaseWeaponDamageIncrease": 0,
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.125,
@@ -146,7 +147,10 @@
         },
         "BulletDamage": 32.2,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": 635.0,
+        "BulletSpeed": [
+            635.0,
+            0
+        ],
         "ClipSize": 10,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -159,10 +163,9 @@
         "HeavyMeleeDamage": 116,
         "LevelScaling": {
             "BulletDamage": 1.9,
-            "MeleeDamage": 3.4,
             "Health": 33.0,
-            "TechDamagePerc": 0.0,
-            "BulletResist": 0.0
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "MaxHealth": 625,
@@ -183,13 +186,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPower": 0,
         "WeaponPowerScale": 1
     },
     "hero_atlas": {
         "AbilityResourceMax": 0,
         "AbilityResourceRegenPerSecond": 0,
         "BaseHealthRegen": 1.0,
+        "BaseWeaponDamageIncrease": 0,
         "BoundAbilities": {
             "1": {
                 "AbilityCooldown": 42.0,
@@ -297,7 +300,10 @@
         },
         "BulletDamage": 4.675,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": 609.5999503938,
+        "BulletSpeed": [
+            609.5999503938,
+            0
+        ],
         "ClipSize": 9,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -310,10 +316,9 @@
         "HeavyMeleeDamage": 116,
         "LevelScaling": {
             "BulletDamage": 0.32,
-            "MeleeDamage": 3.4,
             "Health": 32.0,
-            "TechDamagePerc": 0.0,
-            "BulletResist": 0.0
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "MaxHealth": 600,
@@ -334,13 +339,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPower": 0,
         "WeaponPowerScale": 1
     },
     "hero_bebop": {
         "AbilityResourceMax": 0,
         "AbilityResourceRegenPerSecond": 0,
         "BaseHealthRegen": 3.0,
+        "BaseWeaponDamageIncrease": 0,
         "BoundAbilities": {
             "1": {
                 "AbilityCooldown": 21.0,
@@ -471,7 +476,10 @@
         "BulletArmorDamageReduction": 10.0,
         "BulletDamage": 5.3,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": 508.0,
+        "BulletSpeed": [
+            508.0,
+            0
+        ],
         "ClipSize": 66,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -484,11 +492,11 @@
         "HeavyMeleeDamage": 116,
         "LevelScaling": {
             "BulletDamage": 0.373,
-            "MeleeDamage": 3.4,
             "Health": 41.0,
-            "TechDamagePerc": 0.0,
             "BulletResist": 1.6,
-            "BonusAttackRange": 98.4252
+            "BonusAttackRange": 98.4252,
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "MaxHealth": 650.0,
@@ -509,13 +517,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPower": 0,
         "WeaponPowerScale": 1
     },
     "hero_bomber": {
         "AbilityResourceMax": 0,
         "AbilityResourceRegenPerSecond": 0,
         "BaseHealthRegen": 2.0,
+        "BaseWeaponDamageIncrease": 0,
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.2,
@@ -599,7 +607,10 @@
         },
         "BulletDamage": 5.5,
         "BulletGravityScale": 0,
-        "BulletSpeed": 571.5,
+        "BulletSpeed": [
+            571.5,
+            0
+        ],
         "ClipSize": 30,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -612,10 +623,9 @@
         "HeavyMeleeDamage": 116,
         "LevelScaling": {
             "BulletDamage": 0.159,
-            "MeleeDamage": 3.4,
             "Health": 41.0,
-            "TechDamagePerc": 0.0,
-            "BulletResist": 0.0
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "MaxHealth": 550,
@@ -636,13 +646,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPower": 0,
         "WeaponPowerScale": 1
     },
     "hero_cadence": {
         "AbilityResourceMax": 0,
         "AbilityResourceRegenPerSecond": 0,
         "BaseHealthRegen": 2.0,
+        "BaseWeaponDamageIncrease": 0,
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.75,
@@ -744,7 +754,10 @@
         },
         "BulletDamage": 4.9,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": 635.0,
+        "BulletSpeed": [
+            635.0,
+            0
+        ],
         "ClipSize": 24,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -756,11 +769,9 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "LevelScaling": {
-            "BulletDamage": 0.0,
-            "MeleeDamage": 3.4,
             "Health": 41.0,
-            "TechDamagePerc": 0.0,
-            "BulletResist": 0.0
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "MaxHealth": 650,
@@ -781,13 +792,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPower": 0,
         "WeaponPowerScale": 1
     },
     "hero_chrono": {
         "AbilityResourceMax": 0,
         "AbilityResourceRegenPerSecond": 0,
         "BaseHealthRegen": 2.0,
+        "BaseWeaponDamageIncrease": 0,
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.2,
@@ -927,7 +938,10 @@
         },
         "BulletDamage": 7.2,
         "BulletGravityScale": 0.1,
-        "BulletSpeed": 411.47999999999996,
+        "BulletSpeed": [
+            411.47999999999996,
+            0
+        ],
         "ClipSize": 40,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -940,10 +954,9 @@
         "HeavyMeleeDamage": 116,
         "LevelScaling": {
             "BulletDamage": 0.42,
-            "MeleeDamage": 3.4,
             "Health": 40.0,
-            "TechDamagePerc": 0.0,
-            "BulletResist": 0.0
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "MaxHealth": 550,
@@ -964,13 +977,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPower": 0,
         "WeaponPowerScale": 1
     },
     "hero_dynamo": {
         "AbilityResourceMax": 0,
         "AbilityResourceRegenPerSecond": 0,
         "BaseHealthRegen": 2.0,
+        "BaseWeaponDamageIncrease": 0,
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.42,
@@ -1088,7 +1101,10 @@
         },
         "BulletDamage": 13.0,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": 320.03999999999996,
+        "BulletSpeed": [
+            320.03999999999996,
+            0
+        ],
         "ClipSize": 18,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -1101,10 +1117,9 @@
         "HeavyMeleeDamage": 116,
         "LevelScaling": {
             "BulletDamage": 0.9,
-            "MeleeDamage": 3.4,
             "Health": 44.0,
-            "TechDamagePerc": 0.0,
-            "BulletResist": 0.0
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "MaxHealth": 650,
@@ -1125,13 +1140,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPower": 0,
         "WeaponPowerScale": 1
     },
     "hero_forge": {
         "AbilityResourceMax": 0,
         "AbilityResourceRegenPerSecond": 0,
         "BaseHealthRegen": 2,
+        "BaseWeaponDamageIncrease": 0,
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.2,
@@ -1280,7 +1295,10 @@
         },
         "BulletDamage": 7.15,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": 533.4,
+        "BulletSpeed": [
+            533.4,
+            0
+        ],
         "ClipSize": 66,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -1293,10 +1311,9 @@
         "HeavyMeleeDamage": 116,
         "LevelScaling": {
             "BulletDamage": 0.44,
-            "MeleeDamage": 3.4,
             "Health": 41.0,
-            "TechDamagePerc": 0.0,
-            "BulletResist": 0.0
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "MaxHealth": 550,
@@ -1318,13 +1335,13 @@
         "TechArmorDamageReduction": 25.0,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPower": 0,
         "WeaponPowerScale": 1
     },
     "hero_genericperson": {
         "AbilityResourceMax": 0,
         "AbilityResourceRegenPerSecond": 0,
         "BaseHealthRegen": 2.0,
+        "BaseWeaponDamageIncrease": 0,
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 1,
@@ -1405,7 +1422,10 @@
         },
         "BulletDamage": 11.6,
         "BulletGravityScale": 0,
-        "BulletSpeed": 635.0,
+        "BulletSpeed": [
+            635.0,
+            0
+        ],
         "ClipSize": 15,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -1417,11 +1437,9 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "LevelScaling": {
-            "BulletDamage": 0.0,
-            "MeleeDamage": 3.4,
             "Health": 41.0,
-            "TechDamagePerc": 0.0,
-            "BulletResist": 0.0
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "MaxHealth": 550,
@@ -1442,13 +1460,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPower": 0,
         "WeaponPowerScale": 1
     },
     "hero_ghost": {
         "AbilityResourceMax": 0,
         "AbilityResourceRegenPerSecond": 0,
         "BaseHealthRegen": 1.0,
+        "BaseWeaponDamageIncrease": 0,
         "BoundAbilities": {
             "1": {
                 "AbilityCooldown": 10.5,
@@ -1569,7 +1587,10 @@
         },
         "BulletDamage": 25,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": 828.04,
+        "BulletSpeed": [
+            828.04,
+            0
+        ],
         "ClipSize": 13,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -1582,10 +1603,9 @@
         "HeavyMeleeDamage": 116,
         "LevelScaling": {
             "BulletDamage": 2.1,
-            "MeleeDamage": 3.4,
             "Health": 41.0,
-            "TechDamagePerc": 0.0,
-            "BulletResist": 0.0
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "MaxHealth": 650,
@@ -1606,13 +1626,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPower": 0,
         "WeaponPowerScale": 1
     },
     "hero_gigawatt": {
         "AbilityResourceMax": 0,
         "AbilityResourceRegenPerSecond": 0,
         "BaseHealthRegen": 1.5,
+        "BaseWeaponDamageIncrease": 0,
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.2,
@@ -1738,7 +1758,10 @@
         },
         "BulletDamage": 11.5,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": 635.0,
+        "BulletSpeed": [
+            635.0,
+            0
+        ],
         "ClipSize": 29,
         "CritDamageReceivedScale": -0.35,
         "CrouchSpeed": 4.75,
@@ -1751,10 +1774,9 @@
         "HeavyMeleeDamage": 116,
         "LevelScaling": {
             "BulletDamage": 0.76,
-            "MeleeDamage": 3.4,
             "Health": 31.0,
-            "TechDamagePerc": 0.0,
-            "BulletResist": 0.0
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "MaxHealth": 550,
@@ -1777,13 +1799,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPower": 0,
         "WeaponPowerScale": 1
     },
     "hero_gunslinger": {
         "AbilityResourceMax": 0,
         "AbilityResourceRegenPerSecond": 0,
         "BaseHealthRegen": 2.0,
+        "BaseWeaponDamageIncrease": 0,
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.2,
@@ -1846,7 +1868,10 @@
         },
         "BulletDamage": 11.6,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": 406.4,
+        "BulletSpeed": [
+            406.4,
+            0
+        ],
         "ClipSize": 22,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -1858,11 +1883,9 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "LevelScaling": {
-            "BulletDamage": 0.0,
-            "MeleeDamage": 3.4,
             "Health": 41.0,
-            "TechDamagePerc": 0.0,
-            "BulletResist": 0.0
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "MaxHealth": 550,
@@ -1883,13 +1906,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPower": 0,
         "WeaponPowerScale": 1
     },
     "hero_haze": {
         "AbilityResourceMax": 0,
         "AbilityResourceRegenPerSecond": 0,
         "BaseHealthRegen": 2.0,
+        "BaseWeaponDamageIncrease": 0,
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.2,
@@ -2014,7 +2037,10 @@
         },
         "BulletDamage": 5.6,
         "BulletGravityScale": 1.5,
-        "BulletSpeed": 762.0,
+        "BulletSpeed": [
+            762.0,
+            0
+        ],
         "ClipSize": 25,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -2027,10 +2053,9 @@
         "HeavyMeleeDamage": 116,
         "LevelScaling": {
             "BulletDamage": 0.285,
-            "MeleeDamage": 3.4,
             "Health": 27.0,
-            "TechDamagePerc": 0.0,
-            "BulletResist": 0.0
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "MaxHealth": 500.0,
@@ -2053,13 +2078,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPower": 0,
         "WeaponPowerScale": 1
     },
     "hero_hornet": {
         "AbilityResourceMax": 0,
         "AbilityResourceRegenPerSecond": 0,
         "BaseHealthRegen": 2.0,
+        "BaseWeaponDamageIncrease": 0,
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.2,
@@ -2183,7 +2208,10 @@
         "BulletArmorDamageReduction": -10.0,
         "BulletDamage": 13,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": 889.0,
+        "BulletSpeed": [
+            889.0,
+            0
+        ],
         "ClipSize": 22,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -2196,10 +2224,9 @@
         "HeavyMeleeDamage": 116,
         "LevelScaling": {
             "BulletDamage": 1.0,
-            "MeleeDamage": 3.4,
             "Health": 20.0,
-            "TechDamagePerc": 0.0,
-            "BulletResist": 0.0
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "MaxHealth": 550,
@@ -2220,13 +2247,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPower": 0,
         "WeaponPowerScale": 1
     },
     "hero_inferno": {
         "AbilityResourceMax": 0,
         "AbilityResourceRegenPerSecond": 0,
         "BaseHealthRegen": 2.0,
+        "BaseWeaponDamageIncrease": 0,
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.1,
@@ -2351,7 +2378,10 @@
         },
         "BulletDamage": 6.6,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": 660.4,
+        "BulletSpeed": [
+            660.4,
+            0
+        ],
         "ClipSize": 27,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -2364,10 +2394,9 @@
         "HeavyMeleeDamage": 116,
         "LevelScaling": {
             "BulletDamage": 0.36,
-            "MeleeDamage": 3.4,
             "Health": 33.0,
-            "TechDamagePerc": 0.0,
-            "BulletResist": 0.0
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "MaxHealth": 600,
@@ -2388,13 +2417,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPower": 0,
         "WeaponPowerScale": 1
     },
     "hero_kali": {
         "AbilityResourceMax": 0,
         "AbilityResourceRegenPerSecond": 0,
         "BaseHealthRegen": 2.0,
+        "BaseWeaponDamageIncrease": 0,
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.25,
@@ -2528,7 +2557,10 @@
         },
         "BulletDamage": 12.98,
         "BulletGravityScale": 0.6,
-        "BulletSpeed": 508.0,
+        "BulletSpeed": [
+            508.0,
+            0
+        ],
         "ClipSize": 16,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -2540,11 +2572,9 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "LevelScaling": {
-            "BulletDamage": 0.0,
-            "MeleeDamage": 3.4,
             "Health": 41.0,
-            "TechDamagePerc": 0.0,
-            "BulletResist": 0.0
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "MaxHealth": 550,
@@ -2565,13 +2595,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPower": 0,
         "WeaponPowerScale": 1
     },
     "hero_kelvin": {
         "AbilityResourceMax": 0,
         "AbilityResourceRegenPerSecond": 0,
         "BaseHealthRegen": 2.0,
+        "BaseWeaponDamageIncrease": 0,
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.1,
@@ -2716,7 +2746,10 @@
         },
         "BulletDamage": 20.9,
         "BulletGravityScale": 0.3,
-        "BulletSpeed": 254.0,
+        "BulletSpeed": [
+            254.0,
+            0
+        ],
         "ClipSize": 15,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -2729,10 +2762,9 @@
         "HeavyMeleeDamage": 116,
         "LevelScaling": {
             "BulletDamage": 1.2,
-            "MeleeDamage": 3.4,
             "Health": 50.0,
-            "TechDamagePerc": 0.0,
-            "BulletResist": 0.0
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "MaxHealth": 600.0,
@@ -2754,13 +2786,13 @@
         "TechArmorDamageReduction": 10.0,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPower": 0,
         "WeaponPowerScale": 1
     },
     "hero_krill": {
         "AbilityResourceMax": 0,
         "AbilityResourceRegenPerSecond": 0,
         "BaseHealthRegen": 3,
+        "BaseWeaponDamageIncrease": 0,
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.2,
@@ -2877,7 +2909,10 @@
         },
         "BulletDamage": 3.6,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": 320.03999999999996,
+        "BulletSpeed": [
+            320.03999999999996,
+            0
+        ],
         "ClipSize": 20,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -2890,10 +2925,9 @@
         "HeavyMeleeDamage": 116,
         "LevelScaling": {
             "BulletDamage": 0.25,
-            "MeleeDamage": 3.4,
             "Health": 44.0,
-            "TechDamagePerc": 0.0,
-            "BulletResist": 0.0
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "MaxHealth": 700,
@@ -2914,13 +2948,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPower": 0,
         "WeaponPowerScale": 1
     },
     "hero_lash": {
         "AbilityResourceMax": 0,
         "AbilityResourceRegenPerSecond": 0,
         "BaseHealthRegen": 2.0,
+        "BaseWeaponDamageIncrease": 0,
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.15,
@@ -3056,7 +3090,10 @@
         },
         "BulletDamage": 10,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": 635.0,
+        "BulletSpeed": [
+            635.0,
+            0
+        ],
         "ClipSize": 29,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -3069,10 +3106,9 @@
         "HeavyMeleeDamage": 116,
         "LevelScaling": {
             "BulletDamage": 0.9,
-            "MeleeDamage": 3.4,
             "Health": 42.0,
-            "TechDamagePerc": 0.0,
-            "BulletResist": 0.0
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "MaxHealth": 550,
@@ -3094,13 +3130,13 @@
         "TechArmorDamageReduction": 15.0,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPower": 0,
         "WeaponPowerScale": 1
     },
     "hero_mirage": {
         "AbilityResourceMax": 0,
         "AbilityResourceRegenPerSecond": 0,
         "BaseHealthRegen": 2.0,
+        "BaseWeaponDamageIncrease": 0,
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.3,
@@ -3224,7 +3260,10 @@
         },
         "BulletDamage": 4.7,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": 320.03999999999996,
+        "BulletSpeed": [
+            320.03999999999996,
+            0
+        ],
         "ClipSize": 14,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -3237,10 +3276,9 @@
         "HeavyMeleeDamage": 116,
         "LevelScaling": {
             "BulletDamage": 0.4,
-            "MeleeDamage": 3.4,
             "Health": 41.0,
-            "TechDamagePerc": 0.0,
-            "BulletResist": 0.0
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "MaxHealth": 550,
@@ -3261,13 +3299,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPower": 0,
         "WeaponPowerScale": 1
     },
     "hero_nano": {
         "AbilityResourceMax": 0,
         "AbilityResourceRegenPerSecond": 0,
         "BaseHealthRegen": 2.0,
+        "BaseWeaponDamageIncrease": 0,
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.2,
@@ -3415,7 +3453,10 @@
         },
         "BulletDamage": 3.0,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": 317.5,
+        "BulletSpeed": [
+            317.5,
+            0
+        ],
         "ClipSize": 16,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -3428,10 +3469,9 @@
         "HeavyMeleeDamage": 116,
         "LevelScaling": {
             "BulletDamage": 0.159,
-            "MeleeDamage": 3.4,
             "Health": 41.0,
-            "TechDamagePerc": 0.0,
-            "BulletResist": 0.0
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "MaxHealth": 550,
@@ -3452,13 +3492,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPower": 0,
         "WeaponPowerScale": 1
     },
     "hero_orion": {
         "AbilityResourceMax": 0,
         "AbilityResourceRegenPerSecond": 0,
         "BaseHealthRegen": 2.0,
+        "BaseWeaponDamageIncrease": 0,
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.5,
@@ -3584,7 +3624,10 @@
         },
         "BulletDamage": 22.0,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": 495.3,
+        "BulletSpeed": [
+            495.3,
+            0
+        ],
         "ClipSize": 17,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -3597,10 +3640,9 @@
         "HeavyMeleeDamage": 116,
         "LevelScaling": {
             "BulletDamage": 1.8,
-            "MeleeDamage": 3.4,
             "Health": 27.0,
-            "TechDamagePerc": 0.0,
-            "BulletResist": 0.0
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "MaxHealth": 550,
@@ -3625,13 +3667,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPower": 0,
         "WeaponPowerScale": 1
     },
     "hero_rutger": {
         "AbilityResourceMax": 0,
         "AbilityResourceRegenPerSecond": 0,
         "BaseHealthRegen": 2.0,
+        "BaseWeaponDamageIncrease": 0,
         "BoundAbilities": {
             "1": {
                 "AbilityCharges": 1,
@@ -3748,7 +3790,10 @@
         },
         "BulletDamage": 3.24,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": 320.03999999999996,
+        "BulletSpeed": [
+            320.03999999999996,
+            0
+        ],
         "ClipSize": 14,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -3760,11 +3805,9 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "LevelScaling": {
-            "BulletDamage": 0.0,
-            "MeleeDamage": 3.4,
             "Health": 41.0,
-            "TechDamagePerc": 0.0,
-            "BulletResist": 0.0
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "MaxHealth": 550,
@@ -3785,13 +3828,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPower": 0,
         "WeaponPowerScale": 1
     },
     "hero_shiv": {
         "AbilityResourceMax": 0,
         "AbilityResourceRegenPerSecond": 0,
         "BaseHealthRegen": 2.0,
+        "BaseWeaponDamageIncrease": 0,
         "BoundAbilities": {
             "1": {
                 "AOERadius": 10,
@@ -3924,7 +3967,10 @@
         },
         "BulletDamage": 5.7,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": 609.6,
+        "BulletSpeed": [
+            609.6,
+            0
+        ],
         "ClipSize": 10,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -3937,10 +3983,9 @@
         "HeavyMeleeDamage": 116,
         "LevelScaling": {
             "BulletDamage": 0.4,
-            "MeleeDamage": 3.4,
             "Health": 35.0,
-            "TechDamagePerc": 0.0,
-            "BulletResist": 0.0
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "MaxHealth": 600.0,
@@ -3961,13 +4006,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPower": 0,
         "WeaponPowerScale": 1
     },
     "hero_slork": {
         "AbilityResourceMax": 0,
         "AbilityResourceRegenPerSecond": 0,
         "BaseHealthRegen": 2.0,
+        "BaseWeaponDamageIncrease": 0,
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.2,
@@ -4090,7 +4135,10 @@
         },
         "BulletDamage": 11.0,
         "BulletGravityScale": 0.3,
-        "BulletSpeed": 231.14,
+        "BulletSpeed": [
+            231.14,
+            0
+        ],
         "ClipSize": 20,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -4103,10 +4151,9 @@
         "HeavyMeleeDamage": 116,
         "LevelScaling": {
             "BulletDamage": 0.73,
-            "MeleeDamage": 3.4,
             "Health": 41.0,
-            "TechDamagePerc": 0.0,
-            "BulletResist": 0.0
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "MaxHealth": 550,
@@ -4127,13 +4174,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPower": 0,
         "WeaponPowerScale": 1
     },
     "hero_synth": {
         "AbilityResourceMax": 0,
         "AbilityResourceRegenPerSecond": 0,
         "BaseHealthRegen": 2.0,
+        "BaseWeaponDamageIncrease": 0,
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.3,
@@ -4245,7 +4292,10 @@
         },
         "BulletDamage": 5.0,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": 558.8,
+        "BulletSpeed": [
+            558.8,
+            0
+        ],
         "ClipSize": 11,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -4258,10 +4308,9 @@
         "HeavyMeleeDamage": 116,
         "LevelScaling": {
             "BulletDamage": 0.4,
-            "MeleeDamage": 3.4,
             "Health": 31.0,
-            "TechDamagePerc": 0.0,
-            "BulletResist": 0.0
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "MaxHealth": 550,
@@ -4283,13 +4332,13 @@
         "TechArmorDamageReduction": -15.0,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPower": 0,
         "WeaponPowerScale": 1
     },
     "hero_targetdummy": {
         "AbilityResourceMax": 0,
         "AbilityResourceRegenPerSecond": 0,
         "BaseHealthRegen": 2.0,
+        "BaseWeaponDamageIncrease": 0,
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 1,
@@ -4370,7 +4419,10 @@
         },
         "BulletDamage": 11.6,
         "BulletGravityScale": 0,
-        "BulletSpeed": 635.0,
+        "BulletSpeed": [
+            635.0,
+            0
+        ],
         "ClipSize": 15,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -4382,11 +4434,9 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "LevelScaling": {
-            "BulletDamage": 0.0,
-            "MeleeDamage": 3.4,
             "Health": 41.0,
-            "TechDamagePerc": 0.0,
-            "BulletResist": 0.0
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "MaxHealth": 3000,
@@ -4407,13 +4457,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPower": 0,
         "WeaponPowerScale": 1
     },
     "hero_tengu": {
         "AbilityResourceMax": 0,
         "AbilityResourceRegenPerSecond": 0,
         "BaseHealthRegen": 2.0,
+        "BaseWeaponDamageIncrease": 0,
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.2,
@@ -4544,7 +4594,10 @@
         },
         "BulletDamage": 4.5,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": 571.5,
+        "BulletSpeed": [
+            571.5,
+            0
+        ],
         "ClipSize": 33,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -4557,10 +4610,9 @@
         "HeavyMeleeDamage": 116,
         "LevelScaling": {
             "BulletDamage": 0.5,
-            "MeleeDamage": 3.4,
             "Health": 35.0,
-            "TechDamagePerc": 0.0,
-            "BulletResist": 0.0
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "MaxHealth": 550,
@@ -4581,13 +4633,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPower": 0,
         "WeaponPowerScale": 1
     },
     "hero_thumper": {
         "AbilityResourceMax": 0,
         "AbilityResourceRegenPerSecond": 0,
         "BaseHealthRegen": 2.0,
+        "BaseWeaponDamageIncrease": 0,
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.1,
@@ -4705,7 +4757,10 @@
         },
         "BulletDamage": 34.2,
         "BulletGravityScale": 0.25,
-        "BulletSpeed": 124.46,
+        "BulletSpeed": [
+            124.46,
+            0
+        ],
         "ClipSize": 6,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -4717,11 +4772,9 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "LevelScaling": {
-            "BulletDamage": 0.0,
-            "MeleeDamage": 3.4,
             "Health": 41.0,
-            "TechDamagePerc": 0.0,
-            "BulletResist": 0.0
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "MaxHealth": 550,
@@ -4742,13 +4795,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPower": 0,
         "WeaponPowerScale": 1
     },
     "hero_tokamak": {
         "AbilityResourceMax": 0,
         "AbilityResourceRegenPerSecond": 0,
         "BaseHealthRegen": 2.0,
+        "BaseWeaponDamageIncrease": 0,
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.2,
@@ -4885,7 +4938,10 @@
         },
         "BulletDamage": 8.2,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": 406.4,
+        "BulletSpeed": [
+            406.4,
+            0
+        ],
         "ClipSize": 50,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -4898,10 +4954,9 @@
         "HeavyMeleeDamage": 116,
         "LevelScaling": {
             "BulletDamage": 0.8487,
-            "MeleeDamage": 3.4,
             "Health": 41.0,
-            "TechDamagePerc": 0.0,
-            "BulletResist": 0.0
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "MaxHealth": 550,
@@ -4922,13 +4977,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPower": 0,
         "WeaponPowerScale": 1
     },
     "hero_viscous": {
         "AbilityResourceMax": 0,
         "AbilityResourceRegenPerSecond": 0,
         "BaseHealthRegen": 2.0,
+        "BaseWeaponDamageIncrease": 0,
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.001,
@@ -5072,7 +5127,10 @@
         },
         "BulletDamage": 13.0,
         "BulletGravityScale": 0.0,
-        "BulletSpeed": 254.0,
+        "BulletSpeed": [
+            254.0,
+            0
+        ],
         "ClipSize": 20,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -5085,10 +5143,9 @@
         "HeavyMeleeDamage": 116,
         "LevelScaling": {
             "BulletDamage": 1.1,
-            "MeleeDamage": 3.4,
             "Health": 38.0,
-            "TechDamagePerc": 0.0,
-            "BulletResist": 0.0
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "MaxHealth": 550,
@@ -5109,13 +5166,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPower": 0,
         "WeaponPowerScale": 1
     },
     "hero_warden": {
         "AbilityResourceMax": 0,
         "AbilityResourceRegenPerSecond": 0,
         "BaseHealthRegen": 2.0,
+        "BaseWeaponDamageIncrease": 0,
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.1,
@@ -5228,7 +5285,10 @@
         },
         "BulletDamage": 19.8,
         "BulletGravityScale": 0.25,
-        "BulletSpeed": 213.35999999999999,
+        "BulletSpeed": [
+            213.35999999999999,
+            0
+        ],
         "ClipSize": 17,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -5241,10 +5301,9 @@
         "HeavyMeleeDamage": 116,
         "LevelScaling": {
             "BulletDamage": 1.2,
-            "MeleeDamage": 3.4,
             "Health": 45.0,
-            "TechDamagePerc": 0.0,
-            "BulletResist": 0.0
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "MaxHealth": 550,
@@ -5268,13 +5327,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPower": 0,
         "WeaponPowerScale": 1
     },
     "hero_wraith": {
         "AbilityResourceMax": 0,
         "AbilityResourceRegenPerSecond": 0,
         "BaseHealthRegen": 2.0,
+        "BaseWeaponDamageIncrease": 0,
         "BoundAbilities": {
             "1": {
                 "AbilityCastRange": 500,
@@ -5389,7 +5448,10 @@
         },
         "BulletDamage": 5.5,
         "BulletGravityScale": 0,
-        "BulletSpeed": 571.5,
+        "BulletSpeed": [
+            571.5,
+            0
+        ],
         "ClipSize": 52,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -5402,10 +5464,9 @@
         "HeavyMeleeDamage": 116,
         "LevelScaling": {
             "BulletDamage": 0.48,
-            "MeleeDamage": 3.4,
             "Health": 31.0,
-            "TechDamagePerc": 0.0,
-            "BulletResist": 0.0
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "MaxHealth": 550,
@@ -5428,13 +5489,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPower": 0,
         "WeaponPowerScale": 1
     },
     "hero_wrecker": {
         "AbilityResourceMax": 0,
         "AbilityResourceRegenPerSecond": 0,
         "BaseHealthRegen": 2.0,
+        "BaseWeaponDamageIncrease": 0,
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 1.2,
@@ -5540,7 +5601,10 @@
         },
         "BulletDamage": 25,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": 635.0,
+        "BulletSpeed": [
+            635.0,
+            0
+        ],
         "ClipSize": 10,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -5553,10 +5617,9 @@
         "HeavyMeleeDamage": 116,
         "LevelScaling": {
             "BulletDamage": 1.58,
-            "MeleeDamage": 3.4,
             "Health": 41.0,
-            "TechDamagePerc": 0.0,
-            "BulletResist": 0.0
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "MaxHealth": 550,
@@ -5577,13 +5640,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPower": 0,
         "WeaponPowerScale": 1
     },
     "hero_yakuza": {
         "AbilityResourceMax": 0,
         "AbilityResourceRegenPerSecond": 0,
         "BaseHealthRegen": 2.0,
+        "BaseWeaponDamageIncrease": 0,
         "BoundAbilities": {
             "1": {
                 "AbilityChannelTimeDisplay": 5,
@@ -5688,7 +5751,10 @@
         },
         "BulletDamage": 5.4,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": 406.4,
+        "BulletSpeed": [
+            406.4,
+            0
+        ],
         "ClipSize": 20,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -5700,11 +5766,9 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "LevelScaling": {
-            "BulletDamage": 0.0,
-            "MeleeDamage": 3.4,
             "Health": 41.0,
-            "TechDamagePerc": 0.0,
-            "BulletResist": 0.0
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "MaxHealth": 550,
@@ -5725,13 +5789,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPower": 0,
         "WeaponPowerScale": 1
     },
     "hero_yamato": {
         "AbilityResourceMax": 0,
         "AbilityResourceRegenPerSecond": 0,
         "BaseHealthRegen": 2.0,
+        "BaseWeaponDamageIncrease": 0,
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 1.4,
@@ -5842,7 +5906,10 @@
         },
         "BulletDamage": 5.65,
         "BulletGravityScale": 0.0,
-        "BulletSpeed": 254.0,
+        "BulletSpeed": [
+            254.0,
+            0
+        ],
         "ClipSize": 12,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -5855,10 +5922,9 @@
         "HeavyMeleeDamage": 128,
         "LevelScaling": {
             "BulletDamage": 0.5,
-            "MeleeDamage": 3.4,
             "Health": 31.0,
-            "TechDamagePerc": 0.0,
-            "BulletResist": 0.0
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.3072463768115945
         },
         "LightMeleeDamage": 69,
         "MaxHealth": 500.0,
@@ -5881,7 +5947,6 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPower": 0,
         "WeaponPowerScale": 1
     }
 }

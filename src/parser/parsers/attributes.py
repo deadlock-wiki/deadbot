@@ -83,14 +83,6 @@ class AttributeParser:
                             + ' in localization data and add them to the manual_map'
                         )
 
-                # Add the alternate name which currently is whats used in the hero data,
-                # therefore used to link to hero data
-                # Refraining from labeling this something like "hero_stat_name"
-                # as it's likely not restricted to hero
-                all_attributes[category][attribute]['alternate_name'] = unlocalized_to_base_name(
-                    all_attributes[category][attribute]['label']
-                )
-
         return all_attributes
 
     # Parse the stats that are listed in the UI in game
@@ -189,12 +181,3 @@ class AttributeParser:
 Output-data is used by https://deadlocked.wiki/Template:StatBoxes
 to display a hero's attributes on their hero page
 """
-
-
-def unlocalized_to_base_name(unlocalized_name):
-    """Returns the base name of an unlocalized name"""
-    # i.e. StatDesc_Vitality_label -> Vitality
-    # base name represents the name that is either used in the shop UI, or the hero data
-    if unlocalized_name.startswith('StatDesc_'):
-        unlocalized_name = unlocalized_name.split('StatDesc_')[1]
-    return unlocalized_name.split('_label')[0].split('_postfix')[0]
