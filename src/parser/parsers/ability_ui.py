@@ -164,11 +164,12 @@ class AbilityUiParser:
                     {
                         'Name': self.localizations[attr_key + '_label'],
                         'Value': parsed_ability[attr_key],
-                        'Type': raw_ability.get('m_strCSSClass'),
                     }
                 )
-                if parsed_ability['Key'] == 'citadel_ability_bebop_laser_beam':
-                    print('----', prop_object)
+
+                attr_type = raw_ability.get('m_strCSSClass')
+                if attr_type is not None:
+                    prop_object['Type'] = attr_type
 
                 if 'm_subclassScaleFunction' in raw_ability:
                     raw_scale = raw_ability['m_subclassScaleFunction']
@@ -215,16 +216,17 @@ class AbilityUiParser:
     def _parse_alt_block(self, info_section, parsed_ability):
         alt_block = []
         for prop in info_section['m_vecBasicProperties']:
-            alt_block.append(
-                {
-                    'Key': prop,
-                    'Name': self._get_ability_display_name(prop),
-                    'Value': parsed_ability.get(prop),
-                    'Type': self._get_raw_ability_attr(parsed_ability['Key'], prop).get(
-                        'm_strCSSClass'
-                    ),
-                }
-            )
+            prop_object = {
+                'Key': prop,
+                'Name': self._get_ability_display_name(prop),
+                'Value': parsed_ability.get(prop),
+            }
+
+            attr_type = self._get_raw_ability_attr(parsed_ability['Key'], prop).get('m_strCSSClass')
+            if attr_type is not None:
+                prop_object['Type'] = attr_type
+
+            alt_block.append(prop_object)
 
             self.used_attributes.append(prop)
 
@@ -250,14 +252,16 @@ class AbilityUiParser:
                 continue
 
             raw_ability = self._get_raw_ability_attr(parsed_ability['Key'], prop)
-            attr_type = raw_ability.get('m_strCSSClass')
 
             data = {
                 'Key': prop,
                 'Name': self._get_ability_display_name(prop),
                 'Value': parsed_ability.get(prop),
-                'Type': attr_type,
             }
+
+            attr_type = raw_ability.get('m_strCSSClass')
+            if attr_type is not None:
+                data['Type'] = attr_type
 
             match attr_type:
                 case 'cooldown' | 'charge_cooldown':
