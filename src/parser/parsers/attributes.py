@@ -30,6 +30,9 @@ class AttributeParser:
                         self._parse_shop_stat_display(category_stats)
                     )
 
+        # Manually add DPS, not as a shop statbox stat though
+        all_attributes['Weapon']['DPS'] = {'display_region': 'hero_infobox'}
+
         # Determine the unlocalized name of each attribute that they should map to
         all_attributes.update(self._map_to_unlocalized(all_attributes))
 
@@ -44,7 +47,11 @@ class AttributeParser:
 
         # Specify order for lua as it isn't capable of iterating jsons in the order it appears
         for category, attributes in all_attributes.items():
-            attributes_order = list(attributes)
+            # Convert to list where display_region is hero_statbox
+            attributes_order = [
+                attr for attr in attributes if attributes[attr]['display_region'] == 'hero_statbox'
+            ]
+
             all_attributes[category]['_attribute_order'] = attributes_order
         all_attributes['_category_order'] = category_order
 
@@ -132,7 +139,7 @@ class AttributeParser:
             # Add stat if not already present
             if stat_mapped not in category_attributes:
                 category_attributes[stat_mapped] = {}
-                category_attributes[stat_mapped]['display_region'] = 'statbox'
+                category_attributes[stat_mapped]['display_region'] = 'hero_statbox'
 
         return category_attributes
 
