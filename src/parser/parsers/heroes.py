@@ -197,4 +197,4 @@ class HeroParser:
                 raise Exception('Bullet speed curve is not constant')
 
         # If constant, return the y
-        return last_y / ENGINE_UNITS_PER_METER, 0
+        return last_y / ENGINE_UNITS_PER_METER
