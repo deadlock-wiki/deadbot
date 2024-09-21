@@ -7,7 +7,6 @@ from .constants import OUTPUT_DIR
 import utils.json_utils as json_utils
 import maps as maps
 
-
 class AttributeParser:
     def __init__(self, heroes_data, localizations):
         self.heroes_data = heroes_data
@@ -133,9 +132,9 @@ class AttributeParser:
             # Add stat if not already present
             if stat_mapped not in category_attributes:
                 category_attributes[stat_mapped] = {}
+                category_attributes[stat_mapped]['display_region'] = 'statbox'
 
         return category_attributes
-
 
 """
 Output-data is used by https://deadlocked.wiki/Template:StatBoxes
