@@ -63,37 +63,6 @@
                     "Description": "+15% Damage Amplification and -40% Heal/Regen"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 25.0,
-                    "Type": "cooldown"
-                },
-                "AbilityCooldownBetweenCharge": {
-                    "Name": "Charge Delay",
-                    "Value": 6,
-                    "Type": "charge_cooldown"
-                }
-            },
-            "Range": {
-                "AbilityCastRange": {
-                    "Name": "Cast Range",
-                    "Value": 20,
-                    "Type": "range"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.1,
-                    "Type": "cast"
-                },
-                "AbilityCharges": {
-                    "Name": "Charges",
-                    "Value": 1,
-                    "Type": "cast"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -126,6 +95,26 @@
                     "Name": null,
                     "Value": 0.5
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.1
+            },
+            "AbilityCastRange": {
+                "Name": "Cast Range",
+                "Value": 20
+            },
+            "AbilityCharges": {
+                "Name": "Charges",
+                "Value": 1
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 25.0
+            },
+            "AbilityCooldownBetweenCharge": {
+                "Name": "Charge Delay",
+                "Value": 6
             }
         },
         "2": {
@@ -202,20 +191,6 @@
                     "Description": "-19.0s Cooldown"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 40.0,
-                    "Type": "cooldown"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.2,
-                    "Type": "cast"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -258,6 +233,14 @@
                     "Name": null,
                     "Value": 0.5
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.2
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 40.0
             }
         },
         "3": {
@@ -387,20 +370,6 @@
                     "Description": "+115 Damage and 100% lifesteal from enemy heroes hit"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 127.0,
-                    "Type": "cooldown"
-                }
-            },
-            "Range": {
-                "Radius": {
-                    "Name": "Radius",
-                    "Value": 12,
-                    "Type": "distance"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -413,6 +382,14 @@
                     "Name": null,
                     "Value": 1
                 }
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 127.0
+            },
+            "Radius": {
+                "Name": "Radius",
+                "Value": 12
             }
         }
     },
@@ -467,30 +444,6 @@
                     "Description": "+70 DPS"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 23.0,
-                    "Type": "cooldown"
-                },
-                "AbilityCooldownBetweenCharge": {
-                    "Name": "Charge Delay",
-                    "Value": 8,
-                    "Type": "charge_cooldown"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.2,
-                    "Type": "cast"
-                },
-                "AbilityCharges": {
-                    "Name": "Charges",
-                    "Value": 1,
-                    "Type": "cast"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -519,6 +472,22 @@
                     "Name": null,
                     "Value": 0.1
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.2
+            },
+            "AbilityCharges": {
+                "Name": "Charges",
+                "Value": 1
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 23.0
+            },
+            "AbilityCooldownBetweenCharge": {
+                "Name": "Charge Delay",
+                "Value": 8
             }
         },
         "2": {
@@ -576,31 +545,6 @@
                     "Description": "+1.1s Stun Duration"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 42.0,
-                    "Type": "cooldown"
-                }
-            },
-            "Range": {
-                "AbilityCastRange": {
-                    "Name": "Cast Range",
-                    "Value": 16,
-                    "Type": "range",
-                    "Scale": {
-                        "Value": 0.07,
-                        "Type": "spirit"
-                    }
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.2,
-                    "Type": "cast"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -613,6 +557,18 @@
                     "Name": null,
                     "Value": 1
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.2
+            },
+            "AbilityCastRange": {
+                "Name": "Cast Range",
+                "Value": 16
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 42.0
             }
         },
         "3": {
@@ -671,13 +627,6 @@
                     "Description": "+12 Shock Damage, improved Spirit scaling, and +3 Max Jumps"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 48.0,
-                    "Type": "cooldown"
-                }
-            },
             "Duration": {
                 "AbilityDuration": {
                     "Name": "Duration",
@@ -687,13 +636,6 @@
                         "Value": 0.06552,
                         "Type": "spirit"
                     }
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.2,
-                    "Type": "cast"
                 }
             },
             "Move": {
@@ -724,6 +666,14 @@
                     "Name": null,
                     "Value": 0.2
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.2
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 48.0
             }
         },
         "4": {
@@ -777,22 +727,10 @@
                 }
             ],
             "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 148.0,
-                    "Type": "cooldown"
-                },
                 "ExpandTime": {
                     "Name": "Expand time",
                     "Value": 3,
                     "Type": "cooldown"
-                }
-            },
-            "Range": {
-                "Radius": {
-                    "Name": "Radius",
-                    "Value": 25,
-                    "Type": "distance"
                 }
             },
             "Cast": {
@@ -827,6 +765,14 @@
                     "Name": null,
                     "Value": 2
                 }
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 148.0
+            },
+            "Radius": {
+                "Name": "Radius",
+                "Value": 25
             }
         }
     },
@@ -893,20 +839,6 @@
                     "Description": "Tethered enemies are also disarmed<%s3>"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 42.0,
-                    "Type": "cooldown"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.2,
-                    "Type": "cast"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -923,6 +855,14 @@
                     "Name": null,
                     "Value": 1000
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.2
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 42.0
             }
         },
         "2": {
@@ -961,13 +901,6 @@
                     "Description": "+12.0 Spirit Damage Per Bullet"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 42.0,
-                    "Type": "cooldown"
-                }
-            },
             "Duration": {
                 "AbilityDuration": {
                     "Name": "Duration",
@@ -1015,6 +948,10 @@
                     "Name": "Recoil Reduction",
                     "Value": 40
                 }
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 42.0
             }
         },
         "3": {
@@ -1079,20 +1016,6 @@
                     "Description": "+3% Bleed and suppresses healing by -40%"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 26.0,
-                    "Type": "cooldown"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.2,
-                    "Type": "cast"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -1117,6 +1040,14 @@
                     "Name": null,
                     "Value": 1
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.2
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 26.0
             }
         },
         "4": {
@@ -1177,18 +1108,6 @@
                     "Description": "Assassinate kills grant +600 souls"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 53.0,
-                    "Type": "cooldown"
-                },
-                "AbilityCooldownBetweenCharge": {
-                    "Name": "Charge Delay",
-                    "Value": 1.6,
-                    "Type": "charge_cooldown"
-                }
-            },
             "Duration": {
                 "SnipeZoomDuration": {
                     "Name": null,
@@ -1201,13 +1120,6 @@
                     "Name": "Range",
                     "Value": 1000,
                     "Type": "distance"
-                }
-            },
-            "Cast": {
-                "AbilityCharges": {
-                    "Name": "Charges",
-                    "Value": 2,
-                    "Type": "cast"
                 }
             },
             "Move": {
@@ -1253,6 +1165,18 @@
                     "Name": null,
                     "Value": 2.5
                 }
+            },
+            "AbilityCharges": {
+                "Name": "Charges",
+                "Value": 2
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 53.0
+            },
+            "AbilityCooldownBetweenCharge": {
+                "Name": "Charge Delay",
+                "Value": 1.6
             }
         }
     },
@@ -1312,20 +1236,6 @@
                     "Description": "Bombs leave a toxic mess on the ground, dealing 26% of the original damage per second, for 6s."
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 10.5,
-                    "Type": "cooldown"
-                }
-            },
-            "Range": {
-                "Radius": {
-                    "Name": "Radius",
-                    "Value": 7,
-                    "Type": "distance"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -1354,6 +1264,14 @@
                     "Name": null,
                     "Value": 25
                 }
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 10.5
+            },
+            "Radius": {
+                "Name": "Radius",
+                "Value": 7
             }
         },
         "2": {
@@ -1399,32 +1317,11 @@
                     "Description": "Enemy is Silenced while being Life Drained (requires line of sight)"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 42.0,
-                    "Type": "cooldown"
-                }
-            },
             "Duration": {
                 "AbilityDuration": {
                     "Name": "Duration",
                     "Value": 2,
                     "Type": "duration"
-                }
-            },
-            "Range": {
-                "AbilityCastRange": {
-                    "Name": "Cast Range",
-                    "Value": 20,
-                    "Type": "distance"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.2,
-                    "Type": "cast"
                 }
             },
             "Move": {
@@ -1454,6 +1351,18 @@
                     "Name": null,
                     "Value": 0.1
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.2
+            },
+            "AbilityCastRange": {
+                "Name": "Cast Range",
+                "Value": 20
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 42.0
             }
         },
         "3": {
@@ -1537,20 +1446,6 @@
                     "Description": "+6 Blood Shards"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 6.25,
-                    "Type": "cooldown"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.12,
-                    "Type": "cast"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -1571,6 +1466,14 @@
                     "Name": null,
                     "Value": 6
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.12
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 6.25
             }
         },
         "4": {
@@ -1619,32 +1522,11 @@
                     "Description": "On cast, +40% Fire Rate and +40% Spirit Resist for 8s."
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 170.0,
-                    "Type": "cooldown"
-                }
-            },
             "Duration": {
                 "AbilityDuration": {
                     "Name": "Duration",
                     "Value": 0.25,
                     "Type": "duration"
-                }
-            },
-            "Range": {
-                "AbilityCastRange": {
-                    "Name": "Cast Range",
-                    "Value": 7,
-                    "Type": "range"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.2,
-                    "Type": "cast"
                 }
             },
             "Move": {
@@ -1675,6 +1557,18 @@
                     "Name": null,
                     "Value": 0.7
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.2
+            },
+            "AbilityCastRange": {
+                "Name": "Cast Range",
+                "Value": 7
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 170.0
             }
         }
     },
@@ -1728,25 +1622,11 @@
                     "Description": "+40 Damage Per Second"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 42.0,
-                    "Type": "cooldown"
-                }
-            },
             "Duration": {
                 "AbilityDuration": {
                     "Name": "Duration",
                     "Value": 4,
                     "Type": "duration"
-                }
-            },
-            "Range": {
-                "Radius": {
-                    "Name": "Radius",
-                    "Value": 10,
-                    "Type": "distance"
                 }
             },
             "Move": {
@@ -1765,6 +1645,14 @@
                     "Name": null,
                     "Value": 0.25
                 }
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 42.0
+            },
+            "Radius": {
+                "Name": "Radius",
+                "Value": 10
             }
         },
         "2": {
@@ -1810,13 +1698,6 @@
                     "Description": "+5.5 Weapon Damage for 8s after colliding with an enemy"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 37.0,
-                    "Type": "cooldown"
-                }
-            },
             "Duration": {
                 "AbilityDuration": {
                     "Name": "Duration",
@@ -1872,6 +1753,10 @@
                     "Name": null,
                     "Value": 140
                 }
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 37.0
             }
         },
         "3": {
@@ -1988,13 +1873,6 @@
                     "Description": "On cast, become Immune to Stun, Silence, Sleep, Root, and Disarm. Expires 3s after landing."
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 159.0,
-                    "Type": "cooldown"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -2011,6 +1889,10 @@
                     "Name": null,
                     "Value": 4
                 }
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 159.0
             }
         }
     },
@@ -2058,33 +1940,6 @@
                     "Description": "+50% Card Summon Rate"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 0.5,
-                    "Type": "cooldown",
-                    "Scale": {
-                        "Value": 0.0,
-                        "Type": "cooldown"
-                    }
-                }
-            },
-            "Range": {
-                "AbilityCastRange": {
-                    "Name": "Cast Range",
-                    "Value": 500,
-                    "Type": "range",
-                    "Scale": {
-                        "Value": 0.0,
-                        "Type": "range"
-                    }
-                },
-                "Radius": {
-                    "Name": "Radius",
-                    "Value": 5,
-                    "Type": "distance"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -2145,6 +2000,22 @@
                     "Name": null,
                     "Value": 100
                 }
+            },
+            "AbilityCastRange": {
+                "Name": "Cast Range",
+                "Value": 500
+            },
+            "AbilityCharges": {
+                "Name": "Charges",
+                "Value": 1
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 0.5
+            },
+            "Radius": {
+                "Name": "Radius",
+                "Value": 5
             }
         },
         "2": {
@@ -2176,27 +2047,6 @@
                     "Description": "-28.0s Cooldown"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 48.0,
-                    "Type": "cooldown"
-                }
-            },
-            "Range": {
-                "AbilityCastRange": {
-                    "Name": "Cast Range",
-                    "Value": 25,
-                    "Type": "range"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.75,
-                    "Type": "cast"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -2217,6 +2067,18 @@
                     "Name": null,
                     "Value": 0.1
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.75
+            },
+            "AbilityCastRange": {
+                "Name": "Cast Range",
+                "Value": 25
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 48.0
             }
         },
         "3": {
@@ -2261,13 +2123,6 @@
                     "Description": "+35% Bullet Lifesteal"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 48.0,
-                    "Type": "cooldown"
-                }
-            },
             "Duration": {
                 "AbilityDuration": {
                     "Name": "Duration",
@@ -2277,13 +2132,6 @@
                         "Value": 0.06552,
                         "Type": "spirit"
                     }
-                }
-            },
-            "Range": {
-                "Radius": {
-                    "Name": "Radius",
-                    "Value": 25,
-                    "Type": "distance"
                 }
             },
             "Move": {
@@ -2302,6 +2150,14 @@
                     "Name": null,
                     "Value": 50
                 }
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 48.0
+            },
+            "Radius": {
+                "Name": "Radius",
+                "Value": 25
             }
         },
         "4": {
@@ -2340,32 +2196,11 @@
                     "Description": "Telekinesis will target enemies in an area around Wraith"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 95.0,
-                    "Type": "cooldown"
-                }
-            },
             "Duration": {
                 "AbilityDuration": {
                     "Name": "Duration",
                     "Value": 1.25,
                     "Type": "duration"
-                }
-            },
-            "Range": {
-                "AbilityCastRange": {
-                    "Name": "Cast Range",
-                    "Value": 20,
-                    "Type": "range"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.6,
-                    "Type": "cast"
                 }
             },
             "Move": {
@@ -2388,6 +2223,18 @@
                     "Name": null,
                     "Value": 120
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.6
+            },
+            "AbilityCastRange": {
+                "Name": "Cast Range",
+                "Value": 20
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 95.0
             }
         }
     },
@@ -2414,18 +2261,6 @@
                     "Description": "+45 Turret DPS"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 30.0,
-                    "Type": "cooldown"
-                },
-                "AbilityCooldownBetweenCharge": {
-                    "Name": "Charge Delay",
-                    "Value": 5,
-                    "Type": "charge_cooldown"
-                }
-            },
             "Duration": {
                 "TurretDeployTime": {
                     "Name": "Deploy Time",
@@ -2439,11 +2274,6 @@
                 }
             },
             "Range": {
-                "AbilityCastRange": {
-                    "Name": "Cast Range",
-                    "Value": 15,
-                    "Type": "range"
-                },
                 "TurretAttackFalloffEnd": {
                     "Name": null,
                     "Value": 35,
@@ -2458,18 +2288,6 @@
                     "Name": "Attack Range",
                     "Value": 25,
                     "Type": "distance"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.2,
-                    "Type": "cast"
-                },
-                "AbilityCharges": {
-                    "Name": "Charges",
-                    "Value": 1,
-                    "Type": "cast"
                 }
             },
             "Damage": {
@@ -2544,6 +2362,26 @@
                     "Name": null,
                     "Value": 20
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.2
+            },
+            "AbilityCastRange": {
+                "Name": "Cast Range",
+                "Value": 15
+            },
+            "AbilityCharges": {
+                "Name": "Charges",
+                "Value": 1
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 30.0
+            },
+            "AbilityCooldownBetweenCharge": {
+                "Name": "Charge Delay",
+                "Value": 5
             }
         },
         "2": {
@@ -2585,13 +2423,6 @@
                     "Description": "+5% Max Health regen per second"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 48.0,
-                    "Type": "cooldown"
-                }
-            },
             "Duration": {
                 "AbilityDuration": {
                     "Name": "Duration",
@@ -2604,11 +2435,6 @@
                 }
             },
             "Range": {
-                "AbilityCastRange": {
-                    "Name": "Cast Range",
-                    "Value": 15,
-                    "Type": "range"
-                },
                 "HealRadius": {
                     "Name": "Heal Radius",
                     "Value": 5,
@@ -2617,13 +2443,6 @@
                         "Value": 0.05,
                         "Type": "spirit"
                     }
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.2,
-                    "Type": "cast"
                 }
             },
             "Move": {
@@ -2649,6 +2468,18 @@
                     "Name": null,
                     "Value": 0.5
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.2
+            },
+            "AbilityCastRange": {
+                "Name": "Cast Range",
+                "Value": 15
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 48.0
             }
         },
         "3": {
@@ -2714,25 +2545,11 @@
                     "Description": "Adds a 1s Stun to enemies hit by Spectral Wall"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 37.0,
-                    "Type": "cooldown"
-                }
-            },
             "Duration": {
                 "AbilityDuration": {
                     "Name": "Duration",
                     "Value": 5,
                     "Type": "duration"
-                }
-            },
-            "Range": {
-                "AbilityCastRange": {
-                    "Name": "Cast Range",
-                    "Value": 50,
-                    "Type": "range"
                 }
             },
             "Move": {
@@ -2767,6 +2584,14 @@
                     "Name": null,
                     "Value": 2
                 }
+            },
+            "AbilityCastRange": {
+                "Name": "Cast Range",
+                "Value": 50
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 37.0
             }
         },
         "4": {
@@ -2830,20 +2655,6 @@
                     "Description": "+30 Damage per Rocket "
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 106.0,
-                    "Type": "cooldown"
-                }
-            },
-            "Range": {
-                "AbilityCastRange": {
-                    "Name": "Cast Range",
-                    "Value": 50,
-                    "Type": "range"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -2900,6 +2711,14 @@
                     "Name": null,
                     "Value": 0
                 }
+            },
+            "AbilityCastRange": {
+                "Name": "Cast Range",
+                "Value": 50
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 106.0
             }
         }
     },
@@ -2976,32 +2795,11 @@
                     "Description": "+45 Pulse Damage"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 28.0,
-                    "Type": "cooldown"
-                }
-            },
             "Duration": {
                 "AbilityDuration": {
                     "Name": "Duration",
                     "Value": 4,
                     "Type": "duration"
-                }
-            },
-            "Range": {
-                "Radius": {
-                    "Name": "Radius",
-                    "Value": 7,
-                    "Type": "distance"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.2,
-                    "Type": "cast"
                 }
             },
             "Move": {
@@ -3020,6 +2818,18 @@
                     "Name": null,
                     "Value": 50
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.2
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 28.0
+            },
+            "Radius": {
+                "Name": "Radius",
+                "Value": 7
             }
         },
         "2": {
@@ -3079,42 +2889,11 @@
                     "Description": "Enemies that touch Time Wall will be Silenced for 3.0s"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 37.0,
-                    "Type": "cooldown"
-                },
-                "AbilityCooldownBetweenCharge": {
-                    "Name": "Charge Delay",
-                    "Value": 8,
-                    "Type": "charge_cooldown"
-                }
-            },
             "Duration": {
                 "AbilityDuration": {
                     "Name": "Duration",
                     "Value": 7,
                     "Type": "duration"
-                }
-            },
-            "Range": {
-                "AbilityCastRange": {
-                    "Name": "Cast Range",
-                    "Value": 200,
-                    "Type": "range"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.2,
-                    "Type": "cast"
-                },
-                "AbilityCharges": {
-                    "Name": "Charges",
-                    "Value": 1,
-                    "Type": "cast"
                 }
             },
             "Move": {
@@ -3161,6 +2940,26 @@
                     "Name": null,
                     "Value": 0.0001
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.2
+            },
+            "AbilityCastRange": {
+                "Name": "Cast Range",
+                "Value": 200
+            },
+            "AbilityCharges": {
+                "Name": "Charges",
+                "Value": 1
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 37.0
+            },
+            "AbilityCooldownBetweenCharge": {
+                "Name": "Charge Delay",
+                "Value": 8
             }
         },
         "3": {
@@ -3247,13 +3046,6 @@
                     "Description": "+50% Max Damage Amp"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 30.0,
-                    "Type": "cooldown"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -3298,6 +3090,10 @@
                     "Name": null,
                     "Value": 5
                 }
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 30.0
             }
         },
         "4": {
@@ -3341,27 +3137,6 @@
                     "Description": "-14.0s Cooldown"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 48.0,
-                    "Type": "cooldown"
-                }
-            },
-            "Range": {
-                "AbilityCastRange": {
-                    "Name": "Cast Range",
-                    "Value": 30,
-                    "Type": "range"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.15,
-                    "Type": "cast"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -3402,6 +3177,18 @@
                     "Name": null,
                     "Value": 0.25
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.15
+            },
+            "AbilityCastRange": {
+                "Name": "Cast Range",
+                "Value": 30
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 48.0
             }
         }
     },
@@ -3463,30 +3250,6 @@
                     "Description": "+125 Damage"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 26.0,
-                    "Type": "cooldown"
-                },
-                "AbilityCooldownBetweenCharge": {
-                    "Name": "Charge Delay",
-                    "Value": 5,
-                    "Type": "charge_cooldown"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.42,
-                    "Type": "cast"
-                },
-                "AbilityCharges": {
-                    "Name": "Charges",
-                    "Value": 1,
-                    "Type": "cast"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -3523,6 +3286,22 @@
                     "Name": null,
                     "Value": 450
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.42
+            },
+            "AbilityCharges": {
+                "Name": "Charges",
+                "Value": 1
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 26.0
+            },
+            "AbilityCooldownBetweenCharge": {
+                "Name": "Charge Delay",
+                "Value": 5
             }
         },
         "2": {
@@ -3569,20 +3348,6 @@
                     "Description": "On reappearing, +120% base ammo"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 12.5,
-                    "Type": "cooldown"
-                }
-            },
-            "Range": {
-                "AbilityCastRange": {
-                    "Name": "Cast Range",
-                    "Value": 9,
-                    "Type": "range"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -3603,6 +3368,14 @@
                     "Name": null,
                     "Value": 0.01
                 }
+            },
+            "AbilityCastRange": {
+                "Name": "Cast Range",
+                "Value": 9
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 12.5
             }
         },
         "3": {
@@ -3656,13 +3429,6 @@
                     "Description": "Full move and ability use and additionaly heals +3.8% of Max Health per second"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 48.0,
-                    "Type": "cooldown"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -3680,6 +3446,10 @@
                     "Name": null,
                     "Value": 1
                 }
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 48.0
             }
         },
         "4": {
@@ -3731,20 +3501,6 @@
                     "Description": "Singularity takes 3.8% of the enemies' max health each second."
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 191.0,
-                    "Type": "cooldown"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.2,
-                    "Type": "cast"
-                }
-            },
             "Other": {
                 "AbilityUnitTargetLimit": {
                     "Name": null,
@@ -3770,6 +3526,14 @@
                     "Name": null,
                     "Value": 350
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.2
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 191.0
             }
         }
     },
@@ -3829,37 +3593,6 @@
                     "Description": "+175 Damage"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 22.0,
-                    "Type": "cooldown"
-                },
-                "AbilityCooldownBetweenCharge": {
-                    "Name": "Charge Delay",
-                    "Value": 7,
-                    "Type": "charge_cooldown"
-                }
-            },
-            "Range": {
-                "Radius": {
-                    "Name": "Radius",
-                    "Value": 6.5,
-                    "Type": "distance"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.1,
-                    "Type": "cast"
-                },
-                "AbilityCharges": {
-                    "Name": "Charges",
-                    "Value": 1,
-                    "Type": "cast"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -3872,6 +3605,26 @@
                     "Name": null,
                     "Value": 1
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.1
+            },
+            "AbilityCharges": {
+                "Name": "Charges",
+                "Value": 1
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 22.0
+            },
+            "AbilityCooldownBetweenCharge": {
+                "Name": "Charge Delay",
+                "Value": 7
+            },
+            "Radius": {
+                "Name": "Radius",
+                "Value": 6.5
             }
         },
         "2": {
@@ -3921,13 +3674,6 @@
                     "Description": "While active, gain +1 Spirit Power per meter of Ice Path trail created.  Max of 55 Spirit Power"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 38.0,
-                    "Type": "cooldown"
-                }
-            },
             "Duration": {
                 "AbilityDuration": {
                     "Name": "Duration",
@@ -3945,13 +3691,6 @@
                     "Name": null,
                     "Value": 5,
                     "Type": "distance"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.2,
-                    "Type": "cast"
                 }
             },
             "Move": {
@@ -4005,6 +3744,14 @@
                     "Name": null,
                     "Value": 30
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.2
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 38.0
             }
         },
         "3": {
@@ -4090,13 +3837,6 @@
                     "Description": "Fires 2 additional Arctic Beams toward enemies within 13m of the last target hit"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 24.0,
-                    "Type": "cooldown"
-                }
-            },
             "Duration": {
                 "SlowDuration": {
                     "Name": "Slow Duration",
@@ -4146,6 +3886,10 @@
                     "Name": null,
                     "Value": 0.1
                 }
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 24.0
             }
         },
         "4": {
@@ -4202,32 +3946,11 @@
                     "Description": "+70 Health Regen and now scales with Spirit Power"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 127.0,
-                    "Type": "cooldown"
-                }
-            },
             "Duration": {
                 "AbilityDuration": {
                     "Name": "Duration",
                     "Value": 5.5,
                     "Type": "duration"
-                }
-            },
-            "Range": {
-                "Radius": {
-                    "Name": "Radius",
-                    "Value": 10,
-                    "Type": "distance"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.2,
-                    "Type": "cast"
                 }
             },
             "Move": {
@@ -4254,6 +3977,18 @@
                     "Name": null,
                     "Value": 0.2
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.2
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 127.0
+            },
+            "Radius": {
+                "Name": "Radius",
+                "Value": 10
             }
         }
     },
@@ -4319,13 +4054,6 @@
                     "Description": "Applies -12% Bullet Resist for 6s on wake-up."
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 26.0,
-                    "Type": "cooldown"
-                }
-            },
             "Duration": {
                 "DrowsyDuration": {
                     "Name": null,
@@ -4338,13 +4066,6 @@
                     "Name": "Explode Radius",
                     "Value": 0,
                     "Type": "distance"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.2,
-                    "Type": "cast"
                 }
             },
             "Move": {
@@ -4382,6 +4103,14 @@
                     "Name": null,
                     "Value": 0.5
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.2
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 26.0
             }
         },
         "2": {
@@ -4430,13 +4159,6 @@
                     "Description": "After invis, gain +30% Bullet Lifesteal for 8s"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 37.0,
-                    "Type": "cooldown"
-                }
-            },
             "Duration": {
                 "AbilityDuration": {
                     "Name": "Duration",
@@ -4478,6 +4200,10 @@
                     "Name": null,
                     "Value": 1
                 }
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 37.0
             }
         },
         "3": {
@@ -4601,26 +4327,7 @@
                     "Description": "+1 Targets Hit Per Shot"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 138.0,
-                    "Type": "cooldown"
-                }
-            },
-            "Range": {
-                "Radius": {
-                    "Name": "Radius",
-                    "Value": 15,
-                    "Type": "distance"
-                }
-            },
             "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.4,
-                    "Type": "cast"
-                },
                 "AbilityChannelTime": {
                     "Name": "Channel Duration",
                     "Value": 3.0,
@@ -4643,6 +4350,18 @@
                     "Name": null,
                     "Value": 1
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.4
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 138.0
+            },
+            "Radius": {
+                "Name": "Radius",
+                "Value": 15
             }
         }
     },
@@ -4691,42 +4410,11 @@
                     "Description": "-9.5 Cooldown<br>No arm time"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 32.0,
-                    "Type": "cooldown"
-                },
-                "AbilityCooldownBetweenCharge": {
-                    "Name": "Charge Delay",
-                    "Value": 5,
-                    "Type": "charge_cooldown"
-                }
-            },
             "Duration": {
                 "BarrelLifetime": {
                     "Name": "Barrel Life Time",
                     "Value": 8,
                     "Type": "duration"
-                }
-            },
-            "Range": {
-                "Radius": {
-                    "Name": "Radius",
-                    "Value": 6,
-                    "Type": "distance"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.125,
-                    "Type": "cast"
-                },
-                "AbilityCharges": {
-                    "Name": "Charges",
-                    "Value": 2,
-                    "Type": "cast"
                 }
             },
             "Move": {
@@ -4785,6 +4473,26 @@
                     "Name": null,
                     "Value": 400
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.125
+            },
+            "AbilityCharges": {
+                "Name": "Charges",
+                "Value": 2
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 32.0
+            },
+            "AbilityCooldownBetweenCharge": {
+                "Name": "Charge Delay",
+                "Value": 5
+            },
+            "Radius": {
+                "Name": "Radius",
+                "Value": 6
             }
         },
         "2": {
@@ -4836,18 +4544,6 @@
                     "Description": "+1.25s Stun on Stomp"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 37.0,
-                    "Type": "cooldown"
-                },
-                "AbilityCooldownBetweenCharge": {
-                    "Name": "Charge Delay",
-                    "Value": 3.5,
-                    "Type": "charge_cooldown"
-                }
-            },
             "Duration": {
                 "AbilityDuration": {
                     "Name": "Duration",
@@ -4858,25 +4554,6 @@
                     "Name": "Min Air Time for Stomp",
                     "Value": 0.2,
                     "Type": "duration"
-                }
-            },
-            "Range": {
-                "Radius": {
-                    "Name": "Radius",
-                    "Value": 8,
-                    "Type": "distance"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.08,
-                    "Type": "cast"
-                },
-                "AbilityCharges": {
-                    "Name": "Charges",
-                    "Value": 1,
-                    "Type": "cast"
                 }
             },
             "Move": {
@@ -4933,6 +4610,26 @@
                     "Name": null,
                     "Value": 60
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.08
+            },
+            "AbilityCharges": {
+                "Name": "Charges",
+                "Value": 1
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 37.0
+            },
+            "AbilityCooldownBetweenCharge": {
+                "Name": "Charge Delay",
+                "Value": 3.5
+            },
+            "Radius": {
+                "Name": "Radius",
+                "Value": 8
             }
         },
         "3": {
@@ -4983,13 +4680,6 @@
                     "Description": "+30% Movement Slow"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 21.0,
-                    "Type": "cooldown"
-                }
-            },
             "Range": {
                 "ExplosionRadius": {
                     "Name": "Explosion Radius",
@@ -4997,18 +4687,19 @@
                     "Type": "distance"
                 }
             },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.15,
-                    "Type": "cast"
-                }
-            },
             "Other": {
                 "AbilityUnitTargetLimit": {
                     "Name": null,
                     "Value": 1
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.15
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 21.0
             }
         },
         "4": {
@@ -5043,25 +4734,11 @@
                     "Description": "Can lasso another enemy inside targetting area"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 159.0,
-                    "Type": "cooldown"
-                }
-            },
             "Duration": {
                 "AbilityDuration": {
                     "Name": "Duration",
                     "Value": 2.5,
                     "Type": "duration"
-                }
-            },
-            "Range": {
-                "AbilityCastRange": {
-                    "Name": "Cast Range",
-                    "Value": 10,
-                    "Type": "range"
                 }
             },
             "Other": {
@@ -5113,6 +4790,14 @@
                     "Name": null,
                     "Value": -30
                 }
+            },
+            "AbilityCastRange": {
+                "Name": "Cast Range",
+                "Value": 10
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 159.0
             }
         }
     },
@@ -5172,13 +4857,6 @@
                     "Description": "On Uppercut enemy Hero, set Hook cooldown to 0 and instantly +100% bullets to your current clip"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 21.0,
-                    "Type": "cooldown"
-                }
-            },
             "Range": {
                 "MeleeAttackLength": {
                     "Name": "Melee Range",
@@ -5223,6 +4901,10 @@
                     "Name": null,
                     "Value": 25
                 }
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 21.0
             }
         },
         "2": {
@@ -5267,30 +4949,11 @@
                     "Description": "On Attach, disarms the target for 3.5s"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 19.0,
-                    "Type": "cooldown"
-                }
-            },
             "Duration": {
                 "AbilityDuration": {
                     "Name": "Duration",
                     "Value": 3.0,
                     "Type": "duration"
-                }
-            },
-            "Range": {
-                "AbilityCastRange": {
-                    "Name": "Cast Range",
-                    "Value": 6,
-                    "Type": "range"
-                },
-                "Radius": {
-                    "Name": "Radius",
-                    "Value": 12,
-                    "Type": "distance"
                 }
             },
             "Move": {
@@ -5309,6 +4972,18 @@
                     "Name": null,
                     "Value": 2.5
                 }
+            },
+            "AbilityCastRange": {
+                "Name": "Cast Range",
+                "Value": 6
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 19.0
+            },
+            "Radius": {
+                "Name": "Radius",
+                "Value": 12
             }
         },
         "3": {
@@ -5344,20 +5019,6 @@
                     "Description": "-11.5s Cooldown"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 23.0,
-                    "Type": "cooldown"
-                }
-            },
-            "Range": {
-                "AbilityCastRange": {
-                    "Name": "Cast Range",
-                    "Value": 30,
-                    "Type": "range"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -5399,6 +5060,14 @@
                     "Name": null,
                     "Value": 2200
                 }
+            },
+            "AbilityCastRange": {
+                "Name": "Cast Range",
+                "Value": 30
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 23.0
             }
         },
         "4": {
@@ -5457,13 +5126,6 @@
                     "Description": "Hyper Beam heals Bebop for 100% of its damage on Heroes. 33% on non-hero"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 130.0,
-                    "Type": "cooldown"
-                }
-            },
             "Duration": {
                 "SlowTargetDuration": {
                     "Name": null,
@@ -5472,11 +5134,6 @@
                 }
             },
             "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 1.0,
-                    "Type": "cast"
-                },
                 "AbilityChannelTime": {
                     "Name": "Channel Duration",
                     "Value": 8,
@@ -5547,6 +5204,14 @@
                     "Name": null,
                     "Value": 0.1
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 1.0
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 130.0
             }
         }
     },
@@ -5594,25 +5259,11 @@
                     "Description": "+100 Explosion Damage"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 26.0,
-                    "Type": "cooldown"
-                }
-            },
             "Duration": {
                 "CatLifetime": {
                     "Name": "Cat Lifetime",
                     "Value": 2.5,
                     "Type": "duration"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.2,
-                    "Type": "cast"
                 }
             },
             "Move": {
@@ -5663,6 +5314,14 @@
                     "Name": null,
                     "Value": 400
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.2
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 26.0
             }
         },
         "2": {
@@ -5732,41 +5391,6 @@
                     "Description": "+1 Ability Charge and reloads up to 25% of your ammo"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 32.0,
-                    "Type": "cooldown"
-                },
-                "AbilityCooldownBetweenCharge": {
-                    "Name": "Charge Delay",
-                    "Value": 10,
-                    "Type": "charge_cooldown"
-                }
-            },
-            "Range": {
-                "AbilityCastRange": {
-                    "Name": "Cast Range",
-                    "Value": 14,
-                    "Type": "range",
-                    "Scale": {
-                        "Value": 0.08,
-                        "Type": "spirit"
-                    }
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.2,
-                    "Type": "cast"
-                },
-                "AbilityCharges": {
-                    "Name": "Charges",
-                    "Value": 1,
-                    "Type": "cast"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -5803,6 +5427,26 @@
                     "Name": null,
                     "Value": 3
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.2
+            },
+            "AbilityCastRange": {
+                "Name": "Cast Range",
+                "Value": 14
+            },
+            "AbilityCharges": {
+                "Name": "Charges",
+                "Value": 1
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 32.0
+            },
+            "AbilityCooldownBetweenCharge": {
+                "Name": "Charge Delay",
+                "Value": 10
             }
         },
         "3": {
@@ -5886,25 +5530,11 @@
                     "Description": "+35% Damage Amplification and -30% Heal Reduction on Victims."
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 64.0,
-                    "Type": "cooldown"
-                }
-            },
             "Range": {
                 "InactiveRadius": {
                     "Name": "Inactive Radius",
                     "Value": 20,
                     "Type": "distance"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.2,
-                    "Type": "cast"
                 }
             },
             "Move": {
@@ -5954,6 +5584,14 @@
                     "Name": null,
                     "Value": 0.1
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.2
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 64.0
             }
         },
         "4": {
@@ -6037,13 +5675,6 @@
                     "Description": "Heavy Melee attacks cause Silence for 3s"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 95.0,
-                    "Type": "cooldown"
-                }
-            },
             "Duration": {
                 "AbilityDuration": {
                     "Name": "Duration",
@@ -6059,13 +5690,6 @@
                     "Name": null,
                     "Value": 0.25,
                     "Type": "duration"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.2,
-                    "Type": "cast"
                 }
             },
             "Move": {
@@ -6084,6 +5708,14 @@
                     "Name": null,
                     "Value": 1
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.2
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 95.0
             }
         }
     },
@@ -6129,32 +5761,10 @@
                     "Description": "Improved damage scaling and -3s Charge Delay"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 17.0,
-                    "Type": "cooldown"
-                },
-                "AbilityCooldownBetweenCharge": {
-                    "Name": "Charge Delay",
-                    "Value": 4,
-                    "Type": "charge_cooldown"
-                }
-            },
             "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.5,
-                    "Type": "cast"
-                },
                 "AbilityChannelTime": {
                     "Name": "Channel Duration",
                     "Value": 9999,
-                    "Type": "cast"
-                },
-                "AbilityCharges": {
-                    "Name": "Charges",
-                    "Value": 1,
                     "Type": "cast"
                 }
             },
@@ -6194,6 +5804,22 @@
                     "Name": null,
                     "Value": 0.2
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.5
+            },
+            "AbilityCharges": {
+                "Name": "Charges",
+                "Value": 1
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 17.0
+            },
+            "AbilityCooldownBetweenCharge": {
+                "Name": "Charge Delay",
+                "Value": 4
             }
         },
         "2": {
@@ -6262,25 +5888,11 @@
                     "Description": "While airborne, +50% Bullet Lifesteal and +50% Spirit Lifesteal"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 35.0,
-                    "Type": "cooldown"
-                }
-            },
             "Duration": {
                 "AbilityDuration": {
                     "Name": "Duration",
                     "Value": 7,
                     "Type": "duration"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.5,
-                    "Type": "cast"
                 }
             },
             "Other": {
@@ -6308,6 +5920,14 @@
                     "Name": null,
                     "Value": 27.5
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.5
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 35.0
             }
         },
         "3": {
@@ -6386,25 +6006,11 @@
                     "Description": "Grey Talon deals +30% more Bullet Damage to enemies hit by Immobilizing Trap for 10s"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 37.0,
-                    "Type": "cooldown"
-                }
-            },
             "Duration": {
                 "TripTime": {
                     "Name": null,
                     "Value": 0.5,
                     "Type": "duration"
-                }
-            },
-            "Range": {
-                "Radius": {
-                    "Name": "Radius",
-                    "Value": 6,
-                    "Type": "distance"
                 }
             },
             "Move": {
@@ -6431,6 +6037,14 @@
                     "Name": null,
                     "Value": 250
                 }
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 37.0
+            },
+            "Radius": {
+                "Name": "Radius",
+                "Value": 6
             }
         },
         "4": {
@@ -6482,13 +6096,6 @@
                     "Description": "After hit, kills enemies that are below 22% Health"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 127.0,
-                    "Type": "cooldown"
-                }
-            },
             "Duration": {
                 "StunDuration": {
                     "Name": "Stun Duration",
@@ -6497,11 +6104,6 @@
                 }
             },
             "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 1.5,
-                    "Type": "cast"
-                },
                 "AbilityChannelTime": {
                     "Name": "Channel Duration",
                     "Value": 14,
@@ -6513,6 +6115,14 @@
                     "Name": null,
                     "Value": 1
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 1.5
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 127.0
             }
         }
     },
@@ -6568,27 +6178,6 @@
                     "Description": "Adds a debuff to enemies that lets Mo & Krill deal +15% Damage to them. Stacks and lasts 16s."
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 12.5,
-                    "Type": "cooldown"
-                }
-            },
-            "Range": {
-                "Radius": {
-                    "Name": "Radius",
-                    "Value": 10,
-                    "Type": "distance"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.2,
-                    "Type": "cast"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -6605,6 +6194,18 @@
                     "Name": null,
                     "Value": 0.1
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.2
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 12.5
+            },
+            "Radius": {
+                "Name": "Radius",
+                "Value": 10
             }
         },
         "2": {
@@ -6670,13 +6271,6 @@
                     "Description": "-19.0 Cooldown and +3m/s Move Speed"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 37.0,
-                    "Type": "cooldown"
-                }
-            },
             "Duration": {
                 "SpeedLostDuration": {
                     "Name": null,
@@ -6689,19 +6283,7 @@
                     "Type": "duration"
                 }
             },
-            "Range": {
-                "Radius": {
-                    "Name": "Radius",
-                    "Value": 5,
-                    "Type": "distance"
-                }
-            },
             "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 1,
-                    "Type": "cast"
-                },
                 "AbilityChannelTime": {
                     "Name": "Channel Duration",
                     "Value": 5,
@@ -6736,6 +6318,18 @@
                     "Name": null,
                     "Value": 250
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 1
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 37.0
+            },
+            "Radius": {
+                "Name": "Radius",
+                "Value": 5
             }
         },
         "3": {
@@ -6774,32 +6368,11 @@
                     "Description": "Slow targets by -50%"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 42.0,
-                    "Type": "cooldown"
-                }
-            },
             "Duration": {
                 "AbilityDuration": {
                     "Name": "Duration",
                     "Value": 3.5,
                     "Type": "duration"
-                }
-            },
-            "Range": {
-                "AbilityCastRange": {
-                    "Name": "Cast Range",
-                    "Value": 30,
-                    "Type": "range"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.15,
-                    "Type": "cast"
                 }
             },
             "Move": {
@@ -6822,6 +6395,18 @@
                     "Name": null,
                     "Value": 5
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.15
+            },
+            "AbilityCastRange": {
+                "Name": "Cast Range",
+                "Value": 30
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 42.0
             }
         },
         "4": {
@@ -6867,20 +6452,6 @@
                     "Description": "+40 Damage Per Second and 100% lifesteal"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 95.0,
-                    "Type": "cooldown"
-                }
-            },
-            "Range": {
-                "AbilityCastRange": {
-                    "Name": "Cast Range",
-                    "Value": 5,
-                    "Type": "range"
-                }
-            },
             "Cast": {
                 "AbilityChannelTime": {
                     "Name": "Channel Duration",
@@ -6893,6 +6464,14 @@
                     "Name": null,
                     "Value": 1
                 }
+            },
+            "AbilityCastRange": {
+                "Name": "Cast Range",
+                "Value": 5
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 95.0
             }
         }
     },
@@ -6965,18 +6544,6 @@
                     "Description": "+40 Damage and +5 Bleed DPS"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 19.0,
-                    "Type": "cooldown"
-                },
-                "AbilityCooldownBetweenCharge": {
-                    "Name": "Charge Delay",
-                    "Value": 2,
-                    "Type": "charge_cooldown"
-                }
-            },
             "Range": {
                 "AOERadius": {
                     "Name": "Impact Radius",
@@ -6988,11 +6555,6 @@
                 "AbilityChannelTime": {
                     "Name": "Channel Duration",
                     "Value": 0.2,
-                    "Type": "cast"
-                },
-                "AbilityCharges": {
-                    "Name": "Charges",
-                    "Value": 2,
                     "Type": "cast"
                 }
             },
@@ -7020,6 +6582,18 @@
                     "Name": null,
                     "Value": 1
                 }
+            },
+            "AbilityCharges": {
+                "Name": "Charges",
+                "Value": 2
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 19.0
+            },
+            "AbilityCooldownBetweenCharge": {
+                "Name": "Charge Delay",
+                "Value": 2
             }
         },
         "2": {
@@ -7066,20 +6640,6 @@
                     "Description": "Reduce cooldown by 2s per enemy hero hit (1s for Non-Hero). Max -6s per Dash."
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 16.0,
-                    "Type": "cooldown"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.25,
-                    "Type": "cast"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -7124,6 +6684,14 @@
                     "Name": null,
                     "Value": 0.35
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.25
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 16.0
             }
         },
         "3": {
@@ -7192,20 +6760,6 @@
                     "Description": "+25% Deferred Damage Cleared"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 21.0,
-                    "Type": "cooldown"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.25,
-                    "Type": "cast"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -7218,6 +6772,14 @@
                     "Name": null,
                     "Value": 1
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.25
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 21.0
             }
         },
         "4": {
@@ -7267,11 +6829,6 @@
                 }
             ],
             "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 95.0,
-                    "Type": "cooldown"
-                },
                 "RageDrainDelayDuration": {
                     "Name": null,
                     "Value": 7,
@@ -7283,13 +6840,6 @@
                     "Name": null,
                     "Value": 0.3,
                     "Type": "duration"
-                }
-            },
-            "Range": {
-                "AbilityCastRange": {
-                    "Name": "Cast Range",
-                    "Value": 20,
-                    "Type": "range"
                 }
             },
             "Move": {
@@ -7367,6 +6917,14 @@
                     "Name": null,
                     "Value": 80
                 }
+            },
+            "AbilityCastRange": {
+                "Name": "Cast Range",
+                "Value": 20
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 95.0
             }
         }
     },
@@ -7414,42 +6972,11 @@
                     "Description": "+60 DPS"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 32.0,
-                    "Type": "cooldown"
-                },
-                "AbilityCooldownBetweenCharge": {
-                    "Name": "Charge Delay",
-                    "Value": 8,
-                    "Type": "charge_cooldown"
-                }
-            },
             "Duration": {
                 "AbilityDuration": {
                     "Name": "Duration",
                     "Value": 4,
                     "Type": "duration"
-                }
-            },
-            "Range": {
-                "Radius": {
-                    "Name": "Radius",
-                    "Value": 6,
-                    "Type": "distance"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.2,
-                    "Type": "cast"
-                },
-                "AbilityCharges": {
-                    "Name": "Charges",
-                    "Value": 1,
-                    "Type": "cast"
                 }
             },
             "Move": {
@@ -7476,6 +7003,26 @@
                     "Name": null,
                     "Value": 0.25
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.2
+            },
+            "AbilityCharges": {
+                "Name": "Charges",
+                "Value": 1
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 32.0
+            },
+            "AbilityCooldownBetweenCharge": {
+                "Name": "Charge Delay",
+                "Value": 8
+            },
+            "Radius": {
+                "Name": "Radius",
+                "Value": 6
             }
         },
         "2": {
@@ -7542,25 +7089,11 @@
                     "Description": "+1 Tether Count"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 37.0,
-                    "Type": "cooldown"
-                }
-            },
             "Duration": {
                 "AbilityDuration": {
                     "Name": "Duration",
                     "Value": 12,
                     "Type": "duration"
-                }
-            },
-            "Range": {
-                "AbilityCastRange": {
-                    "Name": "Cast Range",
-                    "Value": 16,
-                    "Type": "range"
                 }
             },
             "Move": {
@@ -7583,6 +7116,14 @@
                     "Name": null,
                     "Value": 0.1
                 }
+            },
+            "AbilityCastRange": {
+                "Name": "Cast Range",
+                "Value": 16
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 37.0
             }
         },
         "3": {
@@ -7634,32 +7175,11 @@
                     "Description": "+20% Max Health Heal"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 42.0,
-                    "Type": "cooldown"
-                }
-            },
             "Duration": {
                 "AbilityDuration": {
                     "Name": "Duration",
                     "Value": 2,
                     "Type": "duration"
-                }
-            },
-            "Range": {
-                "Radius": {
-                    "Name": "Radius",
-                    "Value": 6,
-                    "Type": "distance"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.25,
-                    "Type": "cast"
                 }
             },
             "Move": {
@@ -7697,6 +7217,18 @@
                     "Name": null,
                     "Value": 1.0
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.25
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 42.0
+            },
+            "Radius": {
+                "Name": "Radius",
+                "Value": 6
             }
         },
         "4": {
@@ -7796,13 +7328,6 @@
                     "Description": "Applies Silence on enemies hit for +4.5s"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 85.0,
-                    "Type": "cooldown"
-                }
-            },
             "Duration": {
                 "AbilityDuration": {
                     "Name": "Duration",
@@ -7813,20 +7338,6 @@
                     "Name": null,
                     "Value": 0.2,
                     "Type": "duration"
-                }
-            },
-            "Range": {
-                "AbilityCastRange": {
-                    "Name": "Cast Range",
-                    "Value": 8,
-                    "Type": "range"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 1.3,
-                    "Type": "cast"
                 }
             },
             "Move": {
@@ -7860,6 +7371,18 @@
                     "Name": null,
                     "Value": 400
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 1.3
+            },
+            "AbilityCastRange": {
+                "Name": "Cast Range",
+                "Value": 8
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 85.0
             }
         }
     },
@@ -7929,27 +7452,6 @@
                     "Description": "-6.5s Cooldown and applies 35% Fire Rate Slow"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 14.0,
-                    "Type": "cooldown"
-                }
-            },
-            "Range": {
-                "Radius": {
-                    "Name": "Radius",
-                    "Value": 6.5,
-                    "Type": "distance"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.1,
-                    "Type": "cast"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -7970,6 +7472,18 @@
                     "Name": null,
                     "Value": 60
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.1
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 14.0
+            },
+            "Radius": {
+                "Name": "Radius",
+                "Value": 6.5
             }
         },
         "2": {
@@ -8019,13 +7533,6 @@
                     "Description": "+200 Spirit Shield Health and now scales with Spirit Power"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 42.0,
-                    "Type": "cooldown"
-                }
-            },
             "Duration": {
                 "AbilityDuration": {
                     "Name": "Duration",
@@ -8045,6 +7552,10 @@
                     "Name": null,
                     "Value": 1
                 }
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 42.0
             }
         },
         "3": {
@@ -8103,27 +7614,6 @@
                     "Description": "Warden deals +20% more Bullet Damage to trapped Heroes for 6s"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 37.0,
-                    "Type": "cooldown"
-                }
-            },
-            "Range": {
-                "AbilityCastRange": {
-                    "Name": "Cast Range",
-                    "Value": 20,
-                    "Type": "range"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.15,
-                    "Type": "cast"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -8136,6 +7626,18 @@
                     "Name": null,
                     "Value": 1
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.15
+            },
+            "AbilityCastRange": {
+                "Name": "Cast Range",
+                "Value": 20
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 37.0
             }
         },
         "4": {
@@ -8199,32 +7701,11 @@
                     "Description": "-56.0s Cooldown"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 138.0,
-                    "Type": "cooldown"
-                }
-            },
             "Duration": {
                 "AbilityDuration": {
                     "Name": "Duration",
                     "Value": 6,
                     "Type": "duration"
-                }
-            },
-            "Range": {
-                "Radius": {
-                    "Name": "Radius",
-                    "Value": 12,
-                    "Type": "distance"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 2.25,
-                    "Type": "cast"
                 }
             },
             "Buff": {
@@ -8243,6 +7724,18 @@
                     "Name": "Cone Angle",
                     "Value": 115
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 2.25
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 138.0
+            },
+            "Radius": {
+                "Name": "Radius",
+                "Value": 12
             }
         }
     },
@@ -8310,20 +7803,6 @@
                     "Description": "+200 Full Charge Damage"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 8.5,
-                    "Type": "cooldown"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 1.4,
-                    "Type": "cast"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -8369,6 +7848,14 @@
                     "Value": 41,
                     "Type": ""
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 1.4
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 8.5
             }
         },
         "2": {
@@ -8421,20 +7908,6 @@
                     "Description": "+6 Weapon Damage for 10s after striking the target"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 21.0,
-                    "Type": "cooldown"
-                }
-            },
-            "Range": {
-                "AbilityCastRange": {
-                    "Name": "Cast Range",
-                    "Value": 20,
-                    "Type": "range"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -8451,6 +7924,14 @@
                     "Name": null,
                     "Value": 1
                 }
+            },
+            "AbilityCastRange": {
+                "Name": "Cast Range",
+                "Value": 20
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 21.0
             }
         },
         "3": {
@@ -8512,27 +7993,6 @@
                     "Description": "-5.75s Cooldown"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 11.5,
-                    "Type": "cooldown"
-                }
-            },
-            "Range": {
-                "Radius": {
-                    "Name": "Radius",
-                    "Value": 13,
-                    "Type": "distance"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.3,
-                    "Type": "cast"
-                }
-            },
             "Other": {
                 "AbilityPostCastDuration": {
                     "Name": null,
@@ -8542,6 +8002,18 @@
                     "Name": null,
                     "Value": 1
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.3
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 11.5
+            },
+            "Radius": {
+                "Name": "Radius",
+                "Value": 13
             }
         },
         "4": {
@@ -8595,13 +8067,6 @@
                     "Description": "+1.5s Duration"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 106.0,
-                    "Type": "cooldown"
-                }
-            },
             "Duration": {
                 "AbilityChannelTime": {
                     "Name": "Channel Duration",
@@ -8629,11 +8094,15 @@
                 "AbilityUnitTargetLimit": {
                     "Name": null,
                     "Value": 1
-                },
-                "Radius": {
-                    "Name": "Radius",
-                    "Value": null
                 }
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 106.0
+            },
+            "Radius": {
+                "Name": "Radius",
+                "Value": null
             }
         }
     },
@@ -8704,27 +8173,6 @@
                     "Description": "Damage Per Meter +110% and improved scaling"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 19.0,
-                    "Type": "cooldown"
-                }
-            },
-            "Range": {
-                "Radius": {
-                    "Name": "Radius",
-                    "Value": 11,
-                    "Type": "distance"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.15,
-                    "Type": "cast"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -8768,6 +8216,18 @@
                     "Name": null,
                     "Value": 50
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.15
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 19.0
+            },
+            "Radius": {
+                "Name": "Radius",
+                "Value": 11
             }
         },
         "2": {
@@ -8823,35 +8283,11 @@
                     "Description": "+20% Fire Rate to Weapon Bonus Buff"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 42.0,
-                    "Type": "cooldown"
-                },
-                "AbilityCooldownBetweenCharge": {
-                    "Name": "Charge Delay",
-                    "Value": 2,
-                    "Type": "charge_cooldown"
-                }
-            },
             "Range": {
-                "AbilityCastRange": {
-                    "Name": "Cast Range",
-                    "Value": 30,
-                    "Type": "range"
-                },
                 "MinDistance": {
                     "Name": "Min Range",
                     "Value": 0,
                     "Type": "distance"
-                }
-            },
-            "Cast": {
-                "AbilityCharges": {
-                    "Name": "Charges",
-                    "Value": 1,
-                    "Type": "cast"
                 }
             },
             "Move": {
@@ -8874,6 +8310,22 @@
                     "Name": null,
                     "Value": 1
                 }
+            },
+            "AbilityCastRange": {
+                "Name": "Cast Range",
+                "Value": 30
+            },
+            "AbilityCharges": {
+                "Name": "Charges",
+                "Value": 1
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 42.0
+            },
+            "AbilityCooldownBetweenCharge": {
+                "Name": "Charge Delay",
+                "Value": 2
             }
         },
         "3": {
@@ -8949,27 +8401,6 @@
                     "Description": "+105 Damage and applies 35% Fire Rate Slow"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 26.0,
-                    "Type": "cooldown"
-                }
-            },
-            "Range": {
-                "AbilityCastRange": {
-                    "Name": "Cast Range",
-                    "Value": 25,
-                    "Type": "range"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.15,
-                    "Type": "cast"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -8982,6 +8413,18 @@
                     "Name": null,
                     "Value": 30
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.15
+            },
+            "AbilityCastRange": {
+                "Name": "Cast Range",
+                "Value": 25
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 26.0
             }
         },
         "4": {
@@ -9049,11 +8492,6 @@
                 }
             ],
             "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 138.0,
-                    "Type": "cooldown"
-                },
                 "TimeToGainLockonStack": {
                     "Name": null,
                     "Value": 0.6,
@@ -9061,11 +8499,6 @@
                 }
             },
             "Range": {
-                "AbilityCastRange": {
-                    "Name": "Cast Range",
-                    "Value": 18,
-                    "Type": "distance"
-                },
                 "LockonConeAngle": {
                     "Name": null,
                     "Value": 40,
@@ -9135,6 +8568,18 @@
                     "Name": null,
                     "Value": 400
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.3
+            },
+            "AbilityCastRange": {
+                "Name": "Cast Range",
+                "Value": 18
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 138.0
             }
         }
     },
@@ -9177,13 +8622,6 @@
                     "Description": "Bounces 2 times"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 21.0,
-                    "Type": "cooldown"
-                }
-            },
             "Duration": {
                 "PuddleDuration": {
                     "Name": "Puddle Duration",
@@ -9193,20 +8631,6 @@
                         "Value": 1.0,
                         "Type": "duration"
                     }
-                }
-            },
-            "Range": {
-                "Radius": {
-                    "Name": "Radius",
-                    "Value": 5,
-                    "Type": "distance"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.001,
-                    "Type": "cast"
                 }
             },
             "Move": {
@@ -9248,6 +8672,18 @@
                     "Name": null,
                     "Value": 0.5
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.001
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 21.0
+            },
+            "Radius": {
+                "Name": "Radius",
+                "Value": 5
             }
         },
         "2": {
@@ -9290,27 +8726,6 @@
                     "Description": "+60 Health Regen"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 48.0,
-                    "Type": "cooldown"
-                }
-            },
-            "Range": {
-                "AbilityCastRange": {
-                    "Name": "Cast Range",
-                    "Value": 30,
-                    "Type": "range"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.1,
-                    "Type": "cast"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -9367,6 +8782,18 @@
                     "Name": null,
                     "Value": 70
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.1
+            },
+            "AbilityCastRange": {
+                "Name": "Cast Range",
+                "Value": 30
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 48.0
             }
         },
         "3": {
@@ -9408,37 +8835,6 @@
                     "Description": "-11.5s Cooldown"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 30.0,
-                    "Type": "cooldown"
-                },
-                "AbilityCooldownBetweenCharge": {
-                    "Name": "Charge Delay",
-                    "Value": 1.5,
-                    "Type": "charge_cooldown"
-                }
-            },
-            "Range": {
-                "AbilityCastRange": {
-                    "Name": "Cast Range",
-                    "Value": 40,
-                    "Type": "range"
-                },
-                "Radius": {
-                    "Name": "Radius",
-                    "Value": 4,
-                    "Type": "distance"
-                }
-            },
-            "Cast": {
-                "AbilityCharges": {
-                    "Name": "Charges",
-                    "Value": 1,
-                    "Type": "cast"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -9479,6 +8875,26 @@
                     "Name": null,
                     "Value": 750
                 }
+            },
+            "AbilityCastRange": {
+                "Name": "Cast Range",
+                "Value": 40
+            },
+            "AbilityCharges": {
+                "Name": "Charges",
+                "Value": 1
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 30.0
+            },
+            "AbilityCooldownBetweenCharge": {
+                "Name": "Charge Delay",
+                "Value": 1.5
+            },
+            "Radius": {
+                "Name": "Radius",
+                "Value": 4
             }
         },
         "4": {
@@ -9533,32 +8949,11 @@
                     "Description": "Can cast abilities and use items while rolling"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 95.0,
-                    "Type": "cooldown"
-                }
-            },
             "Duration": {
                 "AbilityDuration": {
                     "Name": "Duration",
                     "Value": 10,
                     "Type": "duration"
-                }
-            },
-            "Range": {
-                "Radius": {
-                    "Name": "Radius",
-                    "Value": null,
-                    "Type": "distance"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.55,
-                    "Type": "cast"
                 }
             },
             "Move": {
@@ -9626,6 +9021,18 @@
                     "Name": null,
                     "Value": 0.25
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.55
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 95.0
+            },
+            "Radius": {
+                "Name": "Radius",
+                "Value": null
             }
         }
     },
@@ -9692,32 +9099,11 @@
                     "Description": "+4m/s Move Speed"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 21.0,
-                    "Type": "cooldown"
-                }
-            },
             "Duration": {
                 "AbilityDuration": {
                     "Name": "Duration",
                     "Value": 6,
                     "Type": "duration"
-                }
-            },
-            "Range": {
-                "AbilityCastRange": {
-                    "Name": "Cast Range",
-                    "Value": 50,
-                    "Type": "range"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 1.2,
-                    "Type": "cast"
                 }
             },
             "Move": {
@@ -9744,6 +9130,18 @@
                     "Name": null,
                     "Value": 280
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 1.2
+            },
+            "AbilityCastRange": {
+                "Name": "Cast Range",
+                "Value": 50
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 21.0
             }
         },
         "2": {
@@ -9807,20 +9205,6 @@
                     "Description": "+80s Bonus Duration"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 12.5,
-                    "Type": "cooldown"
-                }
-            },
-            "Range": {
-                "AbilityCastRange": {
-                    "Name": "Cast Range",
-                    "Value": 10,
-                    "Type": "range"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -9837,6 +9221,14 @@
                     "Name": null,
                     "Value": 0.25
                 }
+            },
+            "AbilityCastRange": {
+                "Name": "Cast Range",
+                "Value": 10
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 12.5
             }
         },
         "3": {
@@ -9888,40 +9280,11 @@
                     "Description": "+20% Enemy Slow per hit"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 64.0,
-                    "Type": "cooldown"
-                },
-                "AbilityCooldownBetweenCharge": {
-                    "Name": "Charge Delay",
-                    "Value": 3,
-                    "Type": "charge_cooldown"
-                }
-            },
             "Range": {
-                "AbilityCastRange": {
-                    "Name": "Cast Range",
-                    "Value": 15,
-                    "Type": "range"
-                },
                 "BlastRadius": {
                     "Name": null,
                     "Value": 5,
                     "Type": "distance"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.25,
-                    "Type": "cast"
-                },
-                "AbilityCharges": {
-                    "Name": "Charges",
-                    "Value": 2,
-                    "Type": "cast"
                 }
             },
             "Move": {
@@ -9936,6 +9299,26 @@
                     "Name": null,
                     "Value": 1
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.25
+            },
+            "AbilityCastRange": {
+                "Name": "Cast Range",
+                "Value": 15
+            },
+            "AbilityCharges": {
+                "Name": "Charges",
+                "Value": 2
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 64.0
+            },
+            "AbilityCooldownBetweenCharge": {
+                "Name": "Charge Delay",
+                "Value": 3
             }
         },
         "4": {
@@ -9999,13 +9382,6 @@
                     "Description": "+16 Damage per second flown"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 138.0,
-                    "Type": "cooldown"
-                }
-            },
             "Cast": {
                 "AbilityChannelTime": {
                     "Name": "Channel Duration",
@@ -10018,6 +9394,14 @@
                     "Name": null,
                     "Value": 1
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 1.5
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 138.0
             }
         }
     },
@@ -10091,26 +9475,7 @@
                     "Description": "+5% Amp Per Stack"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 32.0,
-                    "Type": "cooldown"
-                }
-            },
-            "Range": {
-                "Radius": {
-                    "Name": "Radius",
-                    "Value": 6.5,
-                    "Type": "distance"
-                }
-            },
             "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.3,
-                    "Type": "cast"
-                },
                 "AbilityChannelTime": {
                     "Name": "Channel Duration",
                     "Value": 2,
@@ -10141,6 +9506,18 @@
                     "Name": null,
                     "Value": 10
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.3
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 32.0
+            },
+            "Radius": {
+                "Name": "Radius",
+                "Value": 6.5
             }
         },
         "2": {
@@ -10187,27 +9564,6 @@
                     "Description": "+7 Weapon Damage for 10s after teleporting with Flying Cloak."
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 32.0,
-                    "Type": "cooldown"
-                }
-            },
-            "Range": {
-                "Radius": {
-                    "Name": "Radius",
-                    "Value": 5,
-                    "Type": "distance"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.2,
-                    "Type": "cast"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -10224,6 +9580,18 @@
                     "Name": null,
                     "Value": 0.1
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.2
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 32.0
+            },
+            "Radius": {
+                "Name": "Radius",
+                "Value": 5
             }
         },
         "3": {
@@ -10276,27 +9644,6 @@
                     "Description": "Applies 40% Fire Rate Slow for 4.0s"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 17.0,
-                    "Type": "cooldown"
-                }
-            },
-            "Range": {
-                "Radius": {
-                    "Name": "Radius",
-                    "Value": 12,
-                    "Type": "distance"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.15,
-                    "Type": "cast"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -10313,6 +9660,18 @@
                     "Name": null,
                     "Value": 1
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.15
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 17.0
+            },
+            "Radius": {
+                "Name": "Radius",
+                "Value": 12
             }
         },
         "4": {
@@ -10358,27 +9717,6 @@
                     "Description": "+27 DPS"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 127.0,
-                    "Type": "cooldown"
-                }
-            },
-            "Range": {
-                "Radius": {
-                    "Name": "Radius",
-                    "Value": 14,
-                    "Type": "distance"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.6,
-                    "Type": "cast"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -10399,6 +9737,18 @@
                     "Name": "Damage Interval",
                     "Value": 0.5
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.6
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 127.0
+            },
+            "Radius": {
+                "Name": "Radius",
+                "Value": 14
             }
         }
     },
@@ -10456,13 +9806,6 @@
                     "Description": "-15% Spirit Resist"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 32.0,
-                    "Type": "cooldown"
-                }
-            },
             "Duration": {
                 "AbilityDuration": {
                     "Name": "Duration",
@@ -10480,13 +9823,6 @@
                     "Name": null,
                     "Value": 8,
                     "Type": "distance"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.3,
-                    "Type": "cast"
                 }
             },
             "Move": {
@@ -10545,6 +9881,18 @@
                     "Name": null,
                     "Value": 1200
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.3
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 32.0
+            },
+            "Radius": {
+                "Name": "Radius",
+                "Value": 3.5
             }
         },
         "2": {
@@ -10614,32 +9962,6 @@
                     "Description": "+40 DPS"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldownBetweenCharge": {
-                    "Name": "Charge Delay",
-                    "Value": 0.05,
-                    "Type": "charge_cooldown"
-                }
-            },
-            "Range": {
-                "Radius": {
-                    "Name": "Radius",
-                    "Value": 4,
-                    "Type": "distance"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.05,
-                    "Type": "cast"
-                },
-                "AbilityCharges": {
-                    "Name": "Charges",
-                    "Value": 3,
-                    "Type": "cast"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -10660,6 +9982,22 @@
                     "Name": "Damage Interval",
                     "Value": 0.5
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.05
+            },
+            "AbilityCharges": {
+                "Name": "Charges",
+                "Value": 3
+            },
+            "AbilityCooldownBetweenCharge": {
+                "Name": "Charge Delay",
+                "Value": 0.05
+            },
+            "Radius": {
+                "Name": "Radius",
+                "Value": 4
             }
         },
         "3": {
@@ -10744,20 +10082,6 @@
                     "Description": "-19.0s Cooldown"
                 }
             ],
-            "Range": {
-                "Radius": {
-                    "Name": "Radius",
-                    "Value": 10,
-                    "Type": "distance"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.0,
-                    "Type": "cast"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -10778,6 +10102,18 @@
                     "Name": null,
                     "Value": 8.0
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.0
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 37.0
+            },
+            "Radius": {
+                "Name": "Radius",
+                "Value": 10
             }
         },
         "4": {
@@ -10832,27 +10168,6 @@
                     "Description": "+150 Damage"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 74.0,
-                    "Type": "cooldown"
-                }
-            },
-            "Range": {
-                "Radius": {
-                    "Name": "Radius",
-                    "Value": 11,
-                    "Type": "distance"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.5,
-                    "Type": "cast"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -10869,6 +10184,18 @@
                     "Name": null,
                     "Value": 50
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.5
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 74.0
+            },
+            "Radius": {
+                "Name": "Radius",
+                "Value": 11
             }
         }
     },
@@ -10906,27 +10233,6 @@
                     "Description": "+0s Cooldown"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 10.5,
-                    "Type": "cooldown"
-                }
-            },
-            "Range": {
-                "Radius": {
-                    "Name": "Radius",
-                    "Value": 7,
-                    "Type": "distance"
-                }
-            },
-            "Cast": {
-                "AbilityCastDelay": {
-                    "Name": "Cast Delay",
-                    "Value": 0.2,
-                    "Type": "cast"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -10966,6 +10272,18 @@
                     "Name": null,
                     "Value": 2.0
                 }
+            },
+            "AbilityCastDelay": {
+                "Name": "Cast Delay",
+                "Value": 0.2
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 10.5
+            },
+            "Radius": {
+                "Name": "Radius",
+                "Value": 7
             }
         },
         "2": {
@@ -10991,13 +10309,6 @@
                     "Description": "+0s Cooldown"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 26.0,
-                    "Type": "cooldown"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -11010,6 +10321,10 @@
                     "Name": null,
                     "Value": 1
                 }
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 26.0
             }
         },
         "3": {
@@ -11035,13 +10350,6 @@
                     "Description": "+0s Cooldown"
                 }
             ],
-            "Cooldown": {
-                "AbilityCooldown": {
-                    "Name": "Cooldown",
-                    "Value": 26.0,
-                    "Type": "cooldown"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -11054,6 +10362,10 @@
                     "Name": null,
                     "Value": 1
                 }
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 26.0
             }
         },
         "4": {
@@ -11098,6 +10410,10 @@
                     "Name": null,
                     "Value": 1
                 }
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 127.0
             }
         }
     }

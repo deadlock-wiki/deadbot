@@ -272,16 +272,28 @@ class AbilityUiParser:
         }
 
         for prop in parsed_ability:
+            data = {
+                'Name': self._get_ability_display_name(prop),
+                'Value': parsed_ability.get(prop),
+            }
+
+            # These props are directly referenced and should live on the top level
+            if prop in [
+                'AbilityCharges',
+                'AbilityCooldownBetweenCharge',
+                'AbilityCooldown',
+                'AbilityCastDelay',
+                'AbilityCastRange',
+                'Radius',
+            ]:
+                rest_of_data[prop] = data
+                continue
+
             # skip any attributes that are already placed in other categories
             if prop in self.used_attributes:
                 continue
 
             raw_ability = self._get_raw_ability_attr(parsed_ability['Key'], prop)
-
-            data = {
-                'Name': self._get_ability_display_name(prop),
-                'Value': parsed_ability.get(prop),
-            }
 
             attr_type = raw_ability.get('m_strCSSClass')
             if attr_type is not None:
