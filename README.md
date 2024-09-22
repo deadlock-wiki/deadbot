@@ -53,4 +53,3 @@ DeadBot is currently early in its development and welcomes new contributers to g
 Regularly discussed in the wiki channel on [the Discord server](https://discord.com/invite/jUyhZKwxSW). Ask for access on there if you are interested in contributing.
 
 At the moment the work is fairly ad-hoc, so find me on discord as "HariyoSaag" if you're not sure where to start.
-
