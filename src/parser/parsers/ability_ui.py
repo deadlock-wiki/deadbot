@@ -38,7 +38,7 @@ class AbilityUiParser:
     def run(self):
         output = {}
         for self.hero_key, hero in self.parsed_heroes.items():
-            hero_abilities = {}
+            hero_abilities = {'Name': hero['Name']}
             for self.ability_index, ability in hero['BoundAbilities'].items():
                 try:
                     parsed_ui = self._parse_ability_ui(ability)
