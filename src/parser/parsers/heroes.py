@@ -73,6 +73,10 @@ class HeroParser:
                         k: v for k, v in hero_stats['LevelScaling'].items() if v != 0.0
                     }
 
+                hero_stats['WeaponName'] = 'citadel_weapon_'+hero_key+'_set'
+                # i.e. citadel_weapon_hero_kelvin_set
+                hero_stats['WeaponDescription'] = hero_stats['WeaponName']+'_desc'
+
                 all_hero_stats[hero_key] = json_utils.sort_dict(hero_stats)
 
         json_utils.write(OUTPUT_DIR + 'json/hero-data.json', json_utils.sort_dict(all_hero_stats))
@@ -120,11 +124,6 @@ class HeroParser:
         }
 
         weapon_stats['DPS'] = weapon_stats['BulletDamage'] * weapon_stats['RoundsPerSecond']
-
-        weapon_stats['WeaponName'] = weapon_prim_id.replace(
-            'citadel_weapon_', 'citadel_weapon_hero_')
-        # i.e. citadel_weapon_kelvin_set to citadel_weapon_hero_kelvin_set
-        weapon_stats['WeaponDescription'] = weapon_stats['WeaponName']+'_desc'
         
 
         # Parse weapon types
