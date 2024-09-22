@@ -147,10 +147,7 @@
         },
         "BulletDamage": 32.2,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": [
-            635.0,
-            0
-        ],
+        "BulletSpeed": 635.0,
         "ClipSize": 10,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -186,7 +183,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPowerScale": 1
+        "WeaponDescription": "citadel_weapon_hero_astro_set",
+        "WeaponName": "citadel_weapon_astro_set",
+        "WeaponPowerScale": 1,
+        "WeaponTypes": [
+            "Attribute_EWeaponAttribute_MediumRange",
+            "Attribute_EWeaponAttribute_HeavyHitter"
+        ]
     },
     "hero_atlas": {
         "AbilityResourceMax": 0,
@@ -300,10 +303,7 @@
         },
         "BulletDamage": 4.675,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": [
-            609.5999503938,
-            0
-        ],
+        "BulletSpeed": 609.5999503938,
         "ClipSize": 9,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -339,7 +339,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPowerScale": 1
+        "WeaponDescription": "citadel_weapon_hero_bull_set",
+        "WeaponName": "citadel_weapon_bull_set",
+        "WeaponPowerScale": 1,
+        "WeaponTypes": [
+            "Attribute_EWeaponAttribute_Spreadshot",
+            "Attribute_EWeaponAttribute_CloseRange"
+        ]
     },
     "hero_bebop": {
         "AbilityResourceMax": 0,
@@ -476,10 +482,7 @@
         "BulletArmorDamageReduction": 10.0,
         "BulletDamage": 5.3,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": [
-            508.0,
-            0
-        ],
+        "BulletSpeed": 508.0,
         "ClipSize": 66,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -517,7 +520,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPowerScale": 1
+        "WeaponDescription": "citadel_weapon_hero_bebop_set",
+        "WeaponName": "citadel_weapon_bebop_set",
+        "WeaponPowerScale": 1,
+        "WeaponTypes": [
+            "Attribute_EWeaponAttribute_BeamWeapon",
+            "Attribute_EWeaponAttribute_MediumRange"
+        ]
     },
     "hero_bomber": {
         "AbilityResourceMax": 0,
@@ -607,10 +616,7 @@
         },
         "BulletDamage": 5.5,
         "BulletGravityScale": 0,
-        "BulletSpeed": [
-            571.5,
-            0
-        ],
+        "BulletSpeed": 571.5,
         "ClipSize": 30,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -646,6 +652,8 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
+        "WeaponDescription": "citadel_weapon_hero_bomber_set",
+        "WeaponName": "citadel_weapon_bomber_set",
         "WeaponPowerScale": 1
     },
     "hero_cadence": {
@@ -754,10 +762,7 @@
         },
         "BulletDamage": 4.9,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": [
-            635.0,
-            0
-        ],
+        "BulletSpeed": 635.0,
         "ClipSize": 24,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -792,6 +797,8 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
+        "WeaponDescription": "citadel_weapon_hero_cadence_set",
+        "WeaponName": "citadel_weapon_cadence_set",
         "WeaponPowerScale": 1
     },
     "hero_chrono": {
@@ -938,10 +945,7 @@
         },
         "BulletDamage": 7.2,
         "BulletGravityScale": 0.1,
-        "BulletSpeed": [
-            411.47999999999996,
-            0
-        ],
+        "BulletSpeed": 411.47999999999996,
         "ClipSize": 40,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -977,7 +981,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPowerScale": 1
+        "WeaponDescription": "citadel_weapon_hero_chrono_set",
+        "WeaponName": "citadel_weapon_chrono_set",
+        "WeaponPowerScale": 1,
+        "WeaponTypes": [
+            "Attribute_EWeaponAttribute_BurstFire",
+            "Attribute_EWeaponAttribute_MediumRange"
+        ]
     },
     "hero_dynamo": {
         "AbilityResourceMax": 0,
@@ -1101,10 +1111,7 @@
         },
         "BulletDamage": 13.0,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": [
-            320.03999999999996,
-            0
-        ],
+        "BulletSpeed": 320.03999999999996,
         "ClipSize": 18,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -1140,7 +1147,14 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPowerScale": 1
+        "WeaponDescription": "citadel_weapon_hero_sumo_set",
+        "WeaponName": "citadel_weapon_sumo_set",
+        "WeaponPowerScale": 1,
+        "WeaponTypes": [
+            "Attribute_EWeaponAttribute_MediumRange",
+            "Attribute_EWeaponAttribute_HeavyHitter",
+            "Attribute_EWeaponAttribute_Projectile"
+        ]
     },
     "hero_forge": {
         "AbilityResourceMax": 0,
@@ -1295,10 +1309,7 @@
         },
         "BulletDamage": 7.15,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": [
-            533.4,
-            0
-        ],
+        "BulletSpeed": 533.4,
         "ClipSize": 66,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -1335,7 +1346,13 @@
         "TechArmorDamageReduction": 25.0,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPowerScale": 1
+        "WeaponDescription": "citadel_weapon_hero_engineer_set",
+        "WeaponName": "citadel_weapon_engineer_set",
+        "WeaponPowerScale": 1,
+        "WeaponTypes": [
+            "Attribute_EWeaponAttribute_RapidFire",
+            "Attribute_EWeaponAttribute_MediumRange"
+        ]
     },
     "hero_genericperson": {
         "AbilityResourceMax": 0,
@@ -1422,10 +1439,7 @@
         },
         "BulletDamage": 11.6,
         "BulletGravityScale": 0,
-        "BulletSpeed": [
-            635.0,
-            0
-        ],
+        "BulletSpeed": 635.0,
         "ClipSize": 15,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -1460,6 +1474,8 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
+        "WeaponDescription": "citadel_weapon_hero_genericperson_set",
+        "WeaponName": "citadel_weapon_genericperson_set",
         "WeaponPowerScale": 1
     },
     "hero_ghost": {
@@ -1587,10 +1603,7 @@
         },
         "BulletDamage": 25,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": [
-            828.04,
-            0
-        ],
+        "BulletSpeed": 828.04,
         "ClipSize": 13,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -1626,7 +1639,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPowerScale": 1
+        "WeaponDescription": "citadel_weapon_hero_ghost_set",
+        "WeaponName": "citadel_weapon_ghost_set",
+        "WeaponPowerScale": 1,
+        "WeaponTypes": [
+            "Attribute_EWeaponAttribute_MediumRange",
+            "Attribute_EWeaponAttribute_HeavyHitter"
+        ]
     },
     "hero_gigawatt": {
         "AbilityResourceMax": 0,
@@ -1758,10 +1777,7 @@
         },
         "BulletDamage": 11.5,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": [
-            635.0,
-            0
-        ],
+        "BulletSpeed": 635.0,
         "ClipSize": 29,
         "CritDamageReceivedScale": -0.35,
         "CrouchSpeed": 4.75,
@@ -1799,7 +1815,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPowerScale": 1
+        "WeaponDescription": "citadel_weapon_hero_gigawatt_set",
+        "WeaponName": "citadel_weapon_gigawatt_set",
+        "WeaponPowerScale": 1,
+        "WeaponTypes": [
+            "Attribute_EWeaponAttribute_BurstFire",
+            "Attribute_EWeaponAttribute_MediumRange"
+        ]
     },
     "hero_gunslinger": {
         "AbilityResourceMax": 0,
@@ -1868,10 +1890,7 @@
         },
         "BulletDamage": 11.6,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": [
-            406.4,
-            0
-        ],
+        "BulletSpeed": 406.4,
         "ClipSize": 22,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -1906,6 +1925,8 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
+        "WeaponDescription": "citadel_weapon_hero_gunslinger_set",
+        "WeaponName": "citadel_weapon_gunslinger_set",
         "WeaponPowerScale": 1
     },
     "hero_haze": {
@@ -2037,10 +2058,7 @@
         },
         "BulletDamage": 5.6,
         "BulletGravityScale": 1.5,
-        "BulletSpeed": [
-            762.0,
-            0
-        ],
+        "BulletSpeed": 762.0,
         "ClipSize": 25,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -2078,7 +2096,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPowerScale": 1
+        "WeaponDescription": "citadel_weapon_hero_haze_set",
+        "WeaponName": "citadel_weapon_haze_set",
+        "WeaponPowerScale": 1,
+        "WeaponTypes": [
+            "Attribute_EWeaponAttribute_RapidFire",
+            "Attribute_EWeaponAttribute_CloseRange"
+        ]
     },
     "hero_hornet": {
         "AbilityResourceMax": 0,
@@ -2208,10 +2232,7 @@
         "BulletArmorDamageReduction": -10.0,
         "BulletDamage": 13,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": [
-            889.0,
-            0
-        ],
+        "BulletSpeed": 889.0,
         "ClipSize": 22,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -2247,7 +2268,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPowerScale": 1
+        "WeaponDescription": "citadel_weapon_hero_hornet_set",
+        "WeaponName": "citadel_weapon_hornet_set",
+        "WeaponPowerScale": 1,
+        "WeaponTypes": [
+            "Attribute_EWeaponAttribute_RapidFire",
+            "Attribute_EWeaponAttribute_LongRange"
+        ]
     },
     "hero_inferno": {
         "AbilityResourceMax": 0,
@@ -2378,10 +2405,7 @@
         },
         "BulletDamage": 6.6,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": [
-            660.4,
-            0
-        ],
+        "BulletSpeed": 660.4,
         "ClipSize": 27,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -2417,7 +2441,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPowerScale": 1
+        "WeaponDescription": "citadel_weapon_hero_inferno_set",
+        "WeaponName": "citadel_weapon_inferno_set",
+        "WeaponPowerScale": 1,
+        "WeaponTypes": [
+            "Attribute_EWeaponAttribute_RapidFire",
+            "Attribute_EWeaponAttribute_MediumRange"
+        ]
     },
     "hero_kali": {
         "AbilityResourceMax": 0,
@@ -2557,10 +2587,7 @@
         },
         "BulletDamage": 12.98,
         "BulletGravityScale": 0.6,
-        "BulletSpeed": [
-            508.0,
-            0
-        ],
+        "BulletSpeed": 508.0,
         "ClipSize": 16,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -2595,6 +2622,8 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
+        "WeaponDescription": "citadel_weapon_hero_kali_set",
+        "WeaponName": "citadel_weapon_kali_set",
         "WeaponPowerScale": 1
     },
     "hero_kelvin": {
@@ -2746,10 +2775,7 @@
         },
         "BulletDamage": 20.9,
         "BulletGravityScale": 0.3,
-        "BulletSpeed": [
-            254.0,
-            0
-        ],
+        "BulletSpeed": 254.0,
         "ClipSize": 15,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -2786,7 +2812,14 @@
         "TechArmorDamageReduction": 10.0,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPowerScale": 1
+        "WeaponDescription": "citadel_weapon_hero_kelvin_set",
+        "WeaponName": "citadel_weapon_kelvin_set",
+        "WeaponPowerScale": 1,
+        "WeaponTypes": [
+            "Attribute_EWeaponAttribute_MediumRange",
+            "Attribute_EWeaponAttribute_HeavyHitter",
+            "Attribute_EWeaponAttribute_Projectile"
+        ]
     },
     "hero_krill": {
         "AbilityResourceMax": 0,
@@ -2909,10 +2942,7 @@
         },
         "BulletDamage": 3.6,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": [
-            320.03999999999996,
-            0
-        ],
+        "BulletSpeed": 320.03999999999996,
         "ClipSize": 20,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -2948,7 +2978,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPowerScale": 1
+        "WeaponDescription": "citadel_weapon_hero_digger_set",
+        "WeaponName": "citadel_weapon_digger_set",
+        "WeaponPowerScale": 1,
+        "WeaponTypes": [
+            "Attribute_EWeaponAttribute_RapidFire",
+            "Attribute_EWeaponAttribute_Spreadshot"
+        ]
     },
     "hero_lash": {
         "AbilityResourceMax": 0,
@@ -3090,10 +3126,7 @@
         },
         "BulletDamage": 10,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": [
-            635.0,
-            0
-        ],
+        "BulletSpeed": 635.0,
         "ClipSize": 29,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -3130,7 +3163,13 @@
         "TechArmorDamageReduction": 15.0,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPowerScale": 1
+        "WeaponDescription": "citadel_weapon_hero_lash_set",
+        "WeaponName": "citadel_weapon_lash_set",
+        "WeaponPowerScale": 1,
+        "WeaponTypes": [
+            "Attribute_EWeaponAttribute_BurstFire",
+            "Attribute_EWeaponAttribute_MediumRange"
+        ]
     },
     "hero_mirage": {
         "AbilityResourceMax": 0,
@@ -3260,10 +3299,7 @@
         },
         "BulletDamage": 4.7,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": [
-            320.03999999999996,
-            0
-        ],
+        "BulletSpeed": 320.03999999999996,
         "ClipSize": 14,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -3299,7 +3335,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPowerScale": 1
+        "WeaponDescription": "citadel_weapon_hero_mirage_set",
+        "WeaponName": "citadel_weapon_mirage_set",
+        "WeaponPowerScale": 1,
+        "WeaponTypes": [
+            "Attribute_EWeaponAttribute_MediumRange",
+            "Attribute_EWeaponAttribute_HeavyHitter"
+        ]
     },
     "hero_nano": {
         "AbilityResourceMax": 0,
@@ -3453,10 +3495,7 @@
         },
         "BulletDamage": 3.0,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": [
-            317.5,
-            0
-        ],
+        "BulletSpeed": 317.5,
         "ClipSize": 16,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -3492,6 +3531,8 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
+        "WeaponDescription": "citadel_weapon_hero_nano_set",
+        "WeaponName": "citadel_weapon_nano_set",
         "WeaponPowerScale": 1
     },
     "hero_orion": {
@@ -3624,10 +3665,7 @@
         },
         "BulletDamage": 22.0,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": [
-            495.3,
-            0
-        ],
+        "BulletSpeed": 495.3,
         "ClipSize": 17,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -3667,7 +3705,14 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPowerScale": 1
+        "WeaponDescription": "citadel_weapon_hero_archer_set",
+        "WeaponName": "citadel_weapon_archer_set",
+        "WeaponPowerScale": 1,
+        "WeaponTypes": [
+            "Attribute_EWeaponAttribute_MediumRange",
+            "Attribute_EWeaponAttribute_HeavyHitter",
+            "Attribute_EWeaponAttribute_Projectile"
+        ]
     },
     "hero_rutger": {
         "AbilityResourceMax": 0,
@@ -3790,10 +3835,7 @@
         },
         "BulletDamage": 3.24,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": [
-            320.03999999999996,
-            0
-        ],
+        "BulletSpeed": 320.03999999999996,
         "ClipSize": 14,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -3828,6 +3870,8 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
+        "WeaponDescription": "citadel_weapon_hero_rutger_set",
+        "WeaponName": "citadel_weapon_rutger_set",
         "WeaponPowerScale": 1
     },
     "hero_shiv": {
@@ -3967,10 +4011,7 @@
         },
         "BulletDamage": 5.7,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": [
-            609.6,
-            0
-        ],
+        "BulletSpeed": 609.6,
         "ClipSize": 10,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -4006,7 +4047,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPowerScale": 1
+        "WeaponDescription": "citadel_weapon_hero_shiv_set",
+        "WeaponName": "citadel_weapon_shiv_set",
+        "WeaponPowerScale": 1,
+        "WeaponTypes": [
+            "Attribute_EWeaponAttribute_Spreadshot",
+            "Attribute_EWeaponAttribute_CloseRange"
+        ]
     },
     "hero_slork": {
         "AbilityResourceMax": 0,
@@ -4135,10 +4182,7 @@
         },
         "BulletDamage": 11.0,
         "BulletGravityScale": 0.3,
-        "BulletSpeed": [
-            231.14,
-            0
-        ],
+        "BulletSpeed": 231.14,
         "ClipSize": 20,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -4174,6 +4218,8 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
+        "WeaponDescription": "citadel_weapon_hero_slork_set",
+        "WeaponName": "citadel_weapon_slork_set",
         "WeaponPowerScale": 1
     },
     "hero_synth": {
@@ -4292,10 +4338,7 @@
         },
         "BulletDamage": 5.0,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": [
-            558.8,
-            0
-        ],
+        "BulletSpeed": 558.8,
         "ClipSize": 11,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -4332,7 +4375,13 @@
         "TechArmorDamageReduction": -15.0,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPowerScale": 1
+        "WeaponDescription": "citadel_weapon_hero_synth_set",
+        "WeaponName": "citadel_weapon_synth_set",
+        "WeaponPowerScale": 1,
+        "WeaponTypes": [
+            "Attribute_EWeaponAttribute_Spreadshot",
+            "Attribute_EWeaponAttribute_CloseRange"
+        ]
     },
     "hero_targetdummy": {
         "AbilityResourceMax": 0,
@@ -4419,10 +4468,7 @@
         },
         "BulletDamage": 11.6,
         "BulletGravityScale": 0,
-        "BulletSpeed": [
-            635.0,
-            0
-        ],
+        "BulletSpeed": 635.0,
         "ClipSize": 15,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -4457,6 +4503,8 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
+        "WeaponDescription": "citadel_weapon_hero_targetdummy_set",
+        "WeaponName": "citadel_weapon_targetdummy_set",
         "WeaponPowerScale": 1
     },
     "hero_tengu": {
@@ -4594,10 +4642,7 @@
         },
         "BulletDamage": 4.5,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": [
-            571.5,
-            0
-        ],
+        "BulletSpeed": 571.5,
         "ClipSize": 33,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -4633,7 +4678,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPowerScale": 1
+        "WeaponDescription": "citadel_weapon_hero_tengu_set",
+        "WeaponName": "citadel_weapon_tengu_set",
+        "WeaponPowerScale": 1,
+        "WeaponTypes": [
+            "Attribute_EWeaponAttribute_RapidFire",
+            "Attribute_EWeaponAttribute_MediumRange"
+        ]
     },
     "hero_thumper": {
         "AbilityResourceMax": 0,
@@ -4757,10 +4808,7 @@
         },
         "BulletDamage": 34.2,
         "BulletGravityScale": 0.25,
-        "BulletSpeed": [
-            124.46,
-            0
-        ],
+        "BulletSpeed": 124.46,
         "ClipSize": 6,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -4795,6 +4843,8 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
+        "WeaponDescription": "citadel_weapon_hero_thumper_set",
+        "WeaponName": "citadel_weapon_thumper_set",
         "WeaponPowerScale": 1
     },
     "hero_tokamak": {
@@ -4938,10 +4988,7 @@
         },
         "BulletDamage": 8.2,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": [
-            406.4,
-            0
-        ],
+        "BulletSpeed": 406.4,
         "ClipSize": 50,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -4977,6 +5024,8 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
+        "WeaponDescription": "citadel_weapon_hero_tokamak_set",
+        "WeaponName": "citadel_weapon_tokamak_set",
         "WeaponPowerScale": 1
     },
     "hero_viscous": {
@@ -5127,10 +5176,7 @@
         },
         "BulletDamage": 13.0,
         "BulletGravityScale": 0.0,
-        "BulletSpeed": [
-            254.0,
-            0
-        ],
+        "BulletSpeed": 254.0,
         "ClipSize": 20,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -5166,7 +5212,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPowerScale": 1
+        "WeaponDescription": "citadel_weapon_hero_viscous_set",
+        "WeaponName": "citadel_weapon_viscous_set",
+        "WeaponPowerScale": 1,
+        "WeaponTypes": [
+            "Attribute_EWeaponAttribute_MediumRange",
+            "Attribute_EWeaponAttribute_Projectile"
+        ]
     },
     "hero_warden": {
         "AbilityResourceMax": 0,
@@ -5285,10 +5337,7 @@
         },
         "BulletDamage": 19.8,
         "BulletGravityScale": 0.25,
-        "BulletSpeed": [
-            213.35999999999999,
-            0
-        ],
+        "BulletSpeed": 213.35999999999999,
         "ClipSize": 17,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -5327,7 +5376,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPowerScale": 1
+        "WeaponDescription": "citadel_weapon_hero_warden_set",
+        "WeaponName": "citadel_weapon_warden_set",
+        "WeaponPowerScale": 1,
+        "WeaponTypes": [
+            "Attribute_EWeaponAttribute_MediumRange",
+            "Attribute_EWeaponAttribute_Projectile"
+        ]
     },
     "hero_wraith": {
         "AbilityResourceMax": 0,
@@ -5448,10 +5503,7 @@
         },
         "BulletDamage": 5.5,
         "BulletGravityScale": 0,
-        "BulletSpeed": [
-            571.5,
-            0
-        ],
+        "BulletSpeed": 571.5,
         "ClipSize": 52,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -5489,7 +5541,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPowerScale": 1
+        "WeaponDescription": "citadel_weapon_hero_wraith_set",
+        "WeaponName": "citadel_weapon_wraith_set",
+        "WeaponPowerScale": 1,
+        "WeaponTypes": [
+            "Attribute_EWeaponAttribute_RapidFire",
+            "Attribute_EWeaponAttribute_MediumRange"
+        ]
     },
     "hero_wrecker": {
         "AbilityResourceMax": 0,
@@ -5601,10 +5659,7 @@
         },
         "BulletDamage": 25,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": [
-            635.0,
-            0
-        ],
+        "BulletSpeed": 635.0,
         "ClipSize": 10,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -5640,7 +5695,13 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPowerScale": 1
+        "WeaponDescription": "citadel_weapon_hero_wrecker_set",
+        "WeaponName": "citadel_weapon_wrecker_set",
+        "WeaponPowerScale": 1,
+        "WeaponTypes": [
+            "Attribute_EWeaponAttribute_MediumRange",
+            "Attribute_EWeaponAttribute_HeavyHitter"
+        ]
     },
     "hero_yakuza": {
         "AbilityResourceMax": 0,
@@ -5751,10 +5812,7 @@
         },
         "BulletDamage": 5.4,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": [
-            406.4,
-            0
-        ],
+        "BulletSpeed": 406.4,
         "ClipSize": 20,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -5789,6 +5847,8 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
+        "WeaponDescription": "citadel_weapon_hero_yakuza_set",
+        "WeaponName": "citadel_weapon_yakuza_set",
         "WeaponPowerScale": 1
     },
     "hero_yamato": {
@@ -5906,10 +5966,7 @@
         },
         "BulletDamage": 5.65,
         "BulletGravityScale": 0.0,
-        "BulletSpeed": [
-            254.0,
-            0
-        ],
+        "BulletSpeed": 254.0,
         "ClipSize": 12,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -5947,6 +6004,12 @@
         "StaminaRegenPerSecond": 0.2,
         "TechDuration": 0,
         "TechRange": 0,
-        "WeaponPowerScale": 1
+        "WeaponDescription": "citadel_weapon_hero_yamato_set",
+        "WeaponName": "citadel_weapon_yamato_set",
+        "WeaponPowerScale": 1,
+        "WeaponTypes": [
+            "Attribute_EWeaponAttribute_Spreadshot",
+            "Attribute_EWeaponAttribute_CloseRange"
+        ]
     }
 }
