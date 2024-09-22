@@ -1,5 +1,7 @@
-
+!#/bin/sh
+if [ -f "../../../.env" ]; then
 . ../../../.env #Retrieve config paths
+fi
 # Define paths
 OUTPUT_DIR="decompiled-data/vdata"
 
@@ -25,7 +27,7 @@ done
 rm -rf "$OUTPUT_DIR"
 
 
-mkdir -p "decompiled-data\localizations"
+mkdir -p "decompiled-data/localizations"
 
 # Define an array of folders to parse
 #folders=("citadel_attributes" "citadel_dev" "citadel_gc" "citadel_generated_vo" "citadel_heroes" "citadel_main" "citadel_mods") # All folders
