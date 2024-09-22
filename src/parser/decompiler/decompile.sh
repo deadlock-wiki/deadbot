@@ -2,37 +2,32 @@
 if [ -f "../../../.env" ]; then
 . ../../../.env #Retrieve config paths
 fi
-# Define paths
-TMP_VDATA_DIR="decompiled-data/vdata"
 
+# Windows vs. linux package
 if [ -f "$DECOMPILER_PATH/Decompiler.exe"  ]; then
   DEC_CMD="$DECOMPILER_PATH/Decompiler.exe"
   else
   DEC_CMD="$DECOMPILER_PATH/Decompiler"
 fi
-mkdir -p decompiled-data/scripts
 
-cp "$DEADLOCK_PATH/game/citadel/steam.inf" "decompiled-data/version.txt"
+# Define paths
+TMP_VDATA_DIR="$OUTPUT_DIR/decompiled-data"
+mkdir -p $TMP_VDATA_DIR
+cp "$DEADLOCK_PATH/game/citadel/steam.inf" "$TMP_VDATA_DIR/version.txt"
 
 # Define files to be decompiled and processed
 FILES=("scripts/heroes" "scripts/abilities" "scripts/generic_data" "scripts/misc")
+mkdir -p "$TMP_VDATA_DIR/scripts"
 # Loop through files and run Decompiler.exe for each
 for FILE in "${FILES[@]}"; do
   INPUT_PATH="$DEADLOCK_PATH/game/citadel/pak01_dir.vpk"
   VPK_FILEPATH="${FILE}.vdata_c"
   # Run the decompiler
-  $DEC_CMD -i "$INPUT_PATH" --output "$TMP_VDATA_DIR" --vpk_filepath "$VPK_FILEPATH" -d
+  $DEC_CMD -i "$INPUT_PATH" --output "$TMP_VDATA_DIR/vdata" --vpk_filepath "$VPK_FILEPATH" -d
 
   # Remove subclass and convert to json
-  VDATA_FILE="$TMP_VDATA_DIR/${FILE}.vdata"
-  python3 kv3_to_json.py "$VDATA_FILE"
+  python3 kv3_to_json.py "$TMP_VDATA_DIR/vdata/${FILE}.vdata" "$TMP_VDATA_DIR/${FILE}.json"
 done
-
-# Remove the vdata directory
-rm -rf "$TMP_VDATA_DIR"
-
-
-mkdir -p "decompiled-data/localizations"
 
 # Define an array of folders to parse
 #folders=("citadel_attributes" "citadel_dev" "citadel_gc" "citadel_generated_vo" "citadel_heroes" "citadel_main" "citadel_mods") # All folders
@@ -45,7 +40,7 @@ for folder in "${folders[@]}"; do
     
     # Construct the destination path by replacing "citadel_" prefix with ""
     dest_folder_name="${folder#citadel_}"
-    dest_path="decompiled-data/localizations/$dest_folder_name"
+    dest_path="$TMP_VDATA_DIR/localizations/$dest_folder_name"
     mkdir -p $dest_path
 
     # Run the Python script to parse the folder

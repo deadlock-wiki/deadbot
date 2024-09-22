@@ -20,7 +20,7 @@ ENV POETRY_NO_INTERACTION=1 \
     POETRY_VIRTUALENVS_CREATE=False \
     POETRY_CACHE_DIR=/tmp/poetry_cache
 
-WORKDIR /src
+WORKDIR /repo
 
 # Install build dependencies first
 COPY pyproject.toml poetry.lock ./
@@ -40,4 +40,4 @@ ENV BOT_WIKI_PASSWORD='hunter2'
 ENV DEADLOCK_PATH="/data"
 ENV OUTPUT_DIR="/output"
 
-ENTRYPOINT [ "sh", "/src/main.sh" ]
+ENTRYPOINT [ "sh", "/repo/main.sh" ]

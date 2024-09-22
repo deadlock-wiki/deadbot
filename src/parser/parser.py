@@ -11,10 +11,11 @@ from utils import json_utils
 class Parser:
     def __init__(self, language='english'):
         # constants
-        self.DATA_DIR = './decompiler/decompiled-data/'
+        self.DATA_DIR = os.path.join(os.getenv('OUTPUT_DIR',"./decompiler"),'decompiled-data/')
         self.language = language
         self.data = {'scripts': {}}
-
+        print("env:"+os.getenv('OUTPUT_DIR'))
+        print("ed2:"+self.DATA_DIR)
         self.localization_groups = os.listdir(os.path.join(self.DATA_DIR, 'localizations'))
         # Get all languages from localization_file i.e. citadel_attributes_english.json -> english
         self.languages = [
@@ -34,7 +35,7 @@ class Parser:
         scripts_path = 'scripts'
 
         # Load json files to memory
-        for file_name in os.listdir(self.DATA_DIR + scripts_path):
+        for file_name in os.listdir(os.path.join(self.DATA_DIR,scripts_path)):
             if file_name.endswith('.json'):
                 # path/to/scripts/abilities.json -> abilities
                 key = file_name.split('.')[0].split('/')[-1]
@@ -52,15 +53,12 @@ class Parser:
         for language in self.languages:
             self.localizations[language] = {}
             for localization_group in self.localization_groups:
-                localization_data = json_utils.read(
-                    self.DATA_DIR
-                    + 'localizations/'
-                    + localization_group
-                    + '/citadel_'
-                    + localization_group
-                    + '_'
-                    + language
-                    + '.json'
+                localization_data = json_utils.read( os.path.join(
+                    self.DATA_DIR,
+                    'localizations/',
+                    localization_group,
+                    'citadel_' + localization_group + '_' + language + '.json'
+                )
                 )
 
                 self._merge_localizations(language, localization_data)

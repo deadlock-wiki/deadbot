@@ -33,6 +33,11 @@ else
     echo "! Skipping DeadBot !"
 fi
 
+# cleanup
+if [ "$OUTPUT_DIR/decompiled-data" ]; then
+    rm -rf $OUTPUT_DIR/decompiled-data
+fi
+
 
 echo ""
 echo "Done!"
