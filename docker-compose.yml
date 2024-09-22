@@ -12,5 +12,5 @@ services:
       SKIP_BOT: true
       OUTPUT_DIR: "/output"
       # volumes:
-      # - "C:\Program Files (x86)\Steam\steamapps\common\Deadlock:/data"
-      # - "/mnt/SteamLibrary/steamapps/common/Deadlock:/data"
+      # - 'C:\Program Files (x86)\Steam\steamapps\common\Deadlock':'/data'
+      # - "/mnt/SteamLibrary/steamapps/common/Deadlock":"/data"
