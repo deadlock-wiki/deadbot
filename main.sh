@@ -10,6 +10,7 @@ if [ "$SKIP_DECOMPILER" = false ]; then
     cd src/parser/decompiler
     echo "Decompiling source files..."
     bash decompile.sh
+    cd ../../..
 else
     echo "! Skipping Decompiler !"
 fi
@@ -27,6 +28,7 @@ if [ "$SKIP_BOT" = "false" ]; then
     cd src
     echo "Running DeadBot..."
     python3 deadbot.py
+    cd ..
 else
     echo "! Skipping DeadBot !"
 fi
