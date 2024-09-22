@@ -3,7 +3,7 @@ if [ -f "../../../.env" ]; then
 . ../../../.env #Retrieve config paths
 fi
 # Define paths
-OUTPUT_DIR="decompiled-data/vdata"
+TMP_VDATA_DIR="decompiled-data/vdata"
 
 if [ -f "$DECOMPILER_PATH/Decompiler.exe"  ]; then
   DEC_CMD="$DECOMPILER_PATH/Decompiler.exe"
@@ -21,15 +21,15 @@ for FILE in "${FILES[@]}"; do
   INPUT_PATH="$DEADLOCK_PATH/game/citadel/pak01_dir.vpk"
   VPK_FILEPATH="${FILE}.vdata_c"
   # Run the decompiler
-  $DEC_CMD -i "$INPUT_PATH" --output "$OUTPUT_DIR" --vpk_filepath "$VPK_FILEPATH" -d
+  $DEC_CMD -i "$INPUT_PATH" --output "$TMP_VDATA_DIR" --vpk_filepath "$VPK_FILEPATH" -d
 
   # Remove subclass and convert to json
-  VDATA_FILE="$OUTPUT_DIR/${FILE}.vdata"
+  VDATA_FILE="$TMP_VDATA_DIR/${FILE}.vdata"
   python3 kv3_to_json.py "$VDATA_FILE"
 done
 
 # Remove the vdata directory
-rm -rf "$OUTPUT_DIR"
+rm -rf "$TMP_VDATA_DIR"
 
 
 mkdir -p "decompiled-data/localizations"
