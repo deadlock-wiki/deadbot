@@ -1,0 +1,15 @@
+version: '3'
+services:
+  deadbot:
+    image: ghcr.io/deadlock_wiki/deadbot
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      # runtime config
+      SKIP_DECOMPILER: false
+      SKIP_PARSER: false
+      SKIP_BOT: true
+    # volumes:
+      # - "C:\Program Files (x86)\Steam\steamapps\common\Deadlock:/data"
+      # - "/mnt/SteamLibrary/steamapps/common/Deadlock:/data"

@@ -27,6 +27,23 @@ Some data has been processed and formatted for google sheets:\
 `bash main.sh` to run end-to-end decompilation, parsing and bot (bot is a WIP)\
 `bash parser.sh` to just run the parser. Must have already run `main.sh` once to decompile the source files
 
+## Docker
+
+Build with `docker-compose build`
+
+Run with `docker-compose up`
+
+Be sure to setup volumes:
+
+```yml
+service:
+    deadbot:
+        ...
+        volumes:
+        - "C:\Program Files (x86)\Steam\steamapps\common\Deadlock:/data"
+        # or
+        - "/mnt/SteamLibrary/steamapps/common/Deadlock:/data"
+```
 
 ## Contributing
 DeadBot is currently early in its development and welcomes new contributers to get involved no matter what level experience you have.
