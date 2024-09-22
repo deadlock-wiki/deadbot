@@ -259,16 +259,16 @@ class AbilityUiParser:
         Parse any data that has not been included in the main or alt block of the info section
         """
         rest_of_data = {
-            'Cooldown': [],
-            'Duration': [],
-            'Range': [],
-            'Cast': [],
-            'Move': [],
-            'Damage': [],
-            'Health': [],
-            'Buff': [],
-            'Debuff': [],
-            'Other': [],
+            'Cooldown': {},
+            'Duration': {},
+            'Range': {},
+            'Cast': {},
+            'Move': {},
+            'Damage': {},
+            'Health': {},
+            'Buff': {},
+            'Debuff': {},
+            'Other': {},
         }
 
         for prop in parsed_ability:
@@ -279,7 +279,6 @@ class AbilityUiParser:
             raw_ability = self._get_raw_ability_attr(parsed_ability['Key'], prop)
 
             data = {
-                'Key': prop,
                 'Name': self._get_ability_display_name(prop),
                 'Value': parsed_ability.get(prop),
             }
@@ -294,34 +293,34 @@ class AbilityUiParser:
 
             match attr_type:
                 case 'cooldown' | 'charge_cooldown':
-                    rest_of_data['Cooldown'].append(data)
+                    rest_of_data['Cooldown'][prop] = data
 
                 case 'duration':
-                    rest_of_data['Duration'].append(data)
+                    rest_of_data['Duration'][prop] = data
 
                 case 'range' | 'distance':
-                    rest_of_data['Range'].append(data)
+                    rest_of_data['Range'][prop] = data
 
                 case 'damage' | 'bullet_damage' | 'tech_damage':
-                    rest_of_data['Damage'].append(data)
+                    rest_of_data['Damage'][prop] = data
 
                 case 'healing' | 'health':
-                    rest_of_data['Health'].append(data)
+                    rest_of_data['Health'][prop] = data
 
                 case 'bullet_armor_up':
-                    rest_of_data['Buff'].append(data)
+                    rest_of_data['Buff'][prop] = data
 
                 case 'slow':
-                    rest_of_data['Debuff'].append(data)
+                    rest_of_data['Debuff'][prop] = data
 
                 case 'cast':
-                    rest_of_data['Cast'].append(data)
+                    rest_of_data['Cast'][prop] = data
 
                 case 'move_speed':
-                    rest_of_data['Move'].append(data)
+                    rest_of_data['Move'][prop] = data
 
                 case None | '':
-                    rest_of_data['Other'].append(data)
+                    rest_of_data['Other'][prop] = data
                 case _:
                     raise Exception(f'Unhandled ability attr type {attr_type}')
 
