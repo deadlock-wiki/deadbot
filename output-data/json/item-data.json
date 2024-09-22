@@ -1331,7 +1331,7 @@
             "MagicDamage",
             "FireRate"
         ],
-        "Cooldown": 0.65,
+        "Cooldown": 0.4,
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -2166,7 +2166,7 @@
         "WeaponPower": "0",
         "AirJumps": "1",
         "AirJumpVerticalSpeedPercent": "75",
-        "InteruptCooldown": 4.25
+        "InteruptCooldown": 4
     },
     "upgrade_dps_aura": {
         "Name": "Heroic Aura",
@@ -4693,7 +4693,7 @@
     },
     "upgrade_rocket_boots": {
         "Name": "Majestic Leap - Disabled",
-        "Description": "Launch yourself high into the air. Cannot be used for 4.25s if damaged by enemy Hero.",
+        "Description": "Launch yourself high into the air. Cannot be used for 4s if damaged by enemy Hero.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "InstantCast",
@@ -4718,7 +4718,7 @@
         "TechPower": "8",
         "WeaponPower": "0",
         "JumpVelocityHidden": "22.5m",
-        "InteruptCooldown": 4.25,
+        "InteruptCooldown": 4,
         "AirControlPercent": "100",
         "BonusHealth": "75"
     },
@@ -5484,7 +5484,7 @@
             "MagicDamage",
             "Durability"
         ],
-        "Cooldown": 1.75,
+        "Cooldown": 1.5,
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -5892,7 +5892,7 @@
         "TechShieldMaxHealth": "200",
         "BonusClipSizePercent": "12",
         "BaseAttackDamagePercent": "10",
-        "BonusFireRate": "30",
+        "BonusFireRate": "20",
         "BonusClipSize": "0",
         "InvisDuration": "5",
         "BonusMoveSpeed": "3m"
