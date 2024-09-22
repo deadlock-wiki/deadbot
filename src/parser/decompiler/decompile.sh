@@ -5,18 +5,23 @@ fi
 # Define paths
 OUTPUT_DIR="decompiled-data/vdata"
 
-# Define files to be decompiled and processed
-FILES=("scripts/heroes" "scripts/abilities" "scripts/generic_data" "scripts/misc")
+if [ -f "$DECOMPILER_PATH/Decompiler.exe"  ]; then
+  DEC_CMD="$DECOMPILER_PATH/Decompiler.exe"
+  else
+  DEC_CMD="$DECOMPILER_PATH/Decompiler"
+fi
+mkdir -p decompiled-data/scripts
 
 cp "$DEADLOCK_PATH/game/citadel/steam.inf" "decompiled-data/version.txt"
 
+# Define files to be decompiled and processed
+FILES=("scripts/heroes" "scripts/abilities" "scripts/generic_data" "scripts/misc")
 # Loop through files and run Decompiler.exe for each
 for FILE in "${FILES[@]}"; do
   INPUT_PATH="$DEADLOCK_PATH/game/citadel/pak01_dir.vpk"
   VPK_FILEPATH="${FILE}.vdata_c"
-  
   # Run the decompiler
-  "$DECOMPILER_PATH/Decompiler.exe" -i "$INPUT_PATH" --output "$OUTPUT_DIR" --vpk_filepath "$VPK_FILEPATH" -d
+  $DEC_CMD -i "$INPUT_PATH" --output "$OUTPUT_DIR" --vpk_filepath "$VPK_FILEPATH" -d
 
   # Remove subclass and convert to json
   VDATA_FILE="$OUTPUT_DIR/${FILE}.vdata"
