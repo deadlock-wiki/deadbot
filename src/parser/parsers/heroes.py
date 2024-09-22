@@ -121,11 +121,11 @@ class HeroParser:
 
         weapon_stats['DPS'] = weapon_stats['BulletDamage'] * weapon_stats['RoundsPerSecond']
 
-        weapon_stats['WeaponName'] = weapon_prim_id
+        weapon_stats['WeaponName'] = weapon_prim_id.replace(
+            'citadel_weapon_', 'citadel_weapon_hero_')
         # i.e. citadel_weapon_kelvin_set to citadel_weapon_hero_kelvin_set
-        weapon_stats['WeaponDescription'] = weapon_prim_id.replace(
-            'citadel_weapon_', 'citadel_weapon_hero_'
-        )
+        weapon_stats['WeaponDescription'] = weapon_stats['WeaponName']+'_desc'
+        
 
         # Parse weapon types
         shop_ui_weapon_stats = hero_value['m_ShopStatDisplay']['m_eWeaponStatsDisplay']
