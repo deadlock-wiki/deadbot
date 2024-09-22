@@ -25,7 +25,7 @@ class AbilityUiParser:
 
     *Upgrades* - The three upgrades that modify the ability
 
-    Remaining data categories contain those that do not appear in Info<x>.
+    Remaining data categories contain those that do not appear in Info[x].
     Important ones include *Cooldown* and *Charges*, as those are specifically shown in the
     top corners of the ability card
     """
