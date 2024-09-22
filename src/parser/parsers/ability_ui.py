@@ -9,6 +9,27 @@ import utils.num_utils as num_utils
 
 
 class AbilityUiParser:
+    """
+    Takes in parsed hero data (hero-data.json) and and for each hero, format their abilities for
+    display in the Wiki Ability Cards
+    This is with the aim of matching the in-game layout
+
+    Components of the ability card UI:
+
+    *Info[x]* - Info section that contains a number of main attributes, sometimes with a description.
+    Although rare, some abilities have multiple info sections.
+    Info section contains:
+    - *Main* - Main attributes of the ability
+    - *Alt* - Other attributes that are displayed below the main ones
+    - *Description* - Description of the info section
+
+    *Upgrades* - The three upgrades that modify the ability
+
+    Remaining data categories contain those that do not appear in Info<x>.
+    Important ones include *Cooldown* and *Charges*, as those are specifically shown in the
+    top corners of the ability card
+    """
+
     def __init__(self, abilities, parsed_heroes, localizations):
         self.abilities = abilities
         self.parsed_heroes = parsed_heroes
@@ -34,7 +55,6 @@ class AbilityUiParser:
         parsed_ui = {
             'Key': parsed_ability['Key'],
             'Name': self.localizations.get(parsed_ability['Key']),
-            'Upgrades': [],
         }
 
         ability_desc_key = parsed_ability['Key'] + '_desc'
@@ -50,8 +70,6 @@ class AbilityUiParser:
             )
             ability_desc = string_utils.format_description(ability_desc, *format_vars)
             parsed_ui['Description'] = ability_desc
-
-        parsed_ui['Upgrades'] = self._parse_upgrades(parsed_ability)
 
         raw_ability = self.abilities[parsed_ability['Key']]
 
@@ -115,9 +133,10 @@ class AbilityUiParser:
 
             parsed_ui[f'Info{index+1}'] = parsed_info_section
 
+        parsed_ui['Upgrades'] = self._parse_upgrades(parsed_ability)
+
         parsed_ui.update(self._parse_rest_of_data(parsed_ability))
 
-        # remaining properties are placed into "Other"
         return parsed_ui
 
     def _parse_main_block(self, info_section, parsed_ability):
@@ -236,6 +255,9 @@ class AbilityUiParser:
         return alt_block
 
     def _parse_rest_of_data(self, parsed_ability):
+        """
+        Parse any data that has not been included in the main or alt block of the info section
+        """
         rest_of_data = {
             'Cooldown': [],
             'Duration': [],
@@ -342,6 +364,10 @@ class AbilityUiParser:
         return parsed_upgrades
 
     def _get_scale(self, ability_key, attr):
+        """
+        Get scale data for the ability attribute, which will refer to how the value of the attribute
+        scales with another stat, usually Spirit
+        """
         raw_ability = self._get_raw_ability_attr(ability_key, attr)
         if 'm_subclassScaleFunction' in raw_ability:
             raw_scale = raw_ability['m_subclassScaleFunction']
@@ -358,6 +384,11 @@ class AbilityUiParser:
         return None
 
     def _create_description(self, upgrade):
+        """
+        Generate a description for the upgrade based on its attributes.
+
+        Example - {Damage: 45, Cooldown: -12} -> "+45 Damage and -12s Cooldown"
+        """
         desc = ''
         for attr, value in upgrade.items():
             # Don't consider 'Scale' attr for use in the description
@@ -382,6 +413,12 @@ class AbilityUiParser:
         return desc
 
     def _get_uom(self, attr, value):
+        """
+        Extract unit of measurement for an attribute, either using the *[attr]_postfix* localization
+        key, or if none exists, by checking the string value
+
+        Example - If attribute has no localization key, but value is '53s'. Returns 's'
+        """
         localized_key = f'{attr}_postfix'
 
         if localized_key in self.localizations:
@@ -398,6 +435,12 @@ class AbilityUiParser:
         return unit
 
     def _get_ability_display_name(self, attr):
+        """
+        Returns localized string for the input attr, using '[attr]_label'
+
+        For some edge cases, the localization key does not match this pattern
+        and we defer to an override
+        """
         OVERRIDES = {
             'BonusHealthRegen': 'HealthRegen_label',
             'BarbedWireRadius': 'Radius_label',
