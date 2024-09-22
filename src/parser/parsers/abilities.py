@@ -3,7 +3,6 @@ import os
 
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
-from .constants import OUTPUT_DIR
 import maps as maps
 import utils.json_utils as json_utils
 import utils.num_utils as num_utils
@@ -63,8 +62,6 @@ class AbilityParser:
                     formatted_ability_data[attr_key] = num_utils.remove_uom(attr_value)
 
             all_abilities[ability_key] = json_utils.sort_dict(formatted_ability_data)
-
-        json_utils.write(OUTPUT_DIR + 'json/ability-data.json', json_utils.sort_dict(all_abilities))
 
         return all_abilities
 

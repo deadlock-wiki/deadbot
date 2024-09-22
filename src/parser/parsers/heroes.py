@@ -5,7 +5,7 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 import maps as maps
 import utils.json_utils as json_utils
-from .constants import OUTPUT_DIR, ENGINE_UNITS_PER_METER
+from .constants import ENGINE_UNITS_PER_METER
 
 
 class HeroParser:
@@ -70,7 +70,6 @@ class HeroParser:
 
                 all_hero_stats[hero_key] = json_utils.sort_dict(hero_stats)
 
-        json_utils.write(OUTPUT_DIR + 'json/hero-data.json', json_utils.sort_dict(all_hero_stats))
         return all_hero_stats
 
     def _parse_hero_abilities(self, hero_value):
