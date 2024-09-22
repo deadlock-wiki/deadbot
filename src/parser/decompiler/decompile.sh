@@ -14,6 +14,7 @@ fi
 TMP_VDATA_DIR="$OUTPUT_DIR/decompiled-data"
 mkdir -p $TMP_VDATA_DIR
 cp "$DEADLOCK_PATH/game/citadel/steam.inf" "$TMP_VDATA_DIR/version.txt"
+cp "$DEADLOCK_PATH/game/citadel/steam.inf" "$OUTPUT_DIR/version.txt"
 
 # Define files to be decompiled and processed
 FILES=("scripts/heroes" "scripts/abilities" "scripts/generic_data" "scripts/misc")
