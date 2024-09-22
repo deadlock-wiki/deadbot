@@ -43,6 +43,8 @@ service:
         - "C:\Program Files (x86)\Steam\steamapps\common\Deadlock:/data"
         # or
         - "/mnt/SteamLibrary/steamapps/common/Deadlock:/data"
+        # and an output dir
+        - "./output-data:/output"
 ```
 
 ## Contributing

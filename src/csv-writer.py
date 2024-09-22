@@ -1,7 +1,7 @@
 import pandas as pd
+import os
 
-OUTPUT_DIR = '../output-data'
-
+OUTPUT_DIR = os.getenv('OUTPUT_DIR', '../output-data')
 
 def export_json_file_to_csv(file_name):
     df = pd.read_json(f'{OUTPUT_DIR}/json/{file_name}.json').transpose()

@@ -35,6 +35,7 @@ RUN python3 -m poetry install
 ENV SKIP_DECOMPILER=false
 ENV SKIP_PARSER=false
 ENV SKIP_BOT=true
+ENV BOT_WIKI_PASSWORD='hunter2'
 
 ENV DEADLOCK_PATH="/data"
 ENV OUTPUT_DIR="/output"
