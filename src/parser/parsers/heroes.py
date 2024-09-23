@@ -44,6 +44,11 @@ class HeroParser:
                 weapon_stats = self._parse_hero_weapon(hero_value)
                 hero_stats.update(weapon_stats)
 
+                # Lore, Playstyle, and Role keys from localization
+                for key in ['Lore', 'Playstyle', 'Role']:
+                    # i.e. hero_kelvin_lore which is a key in localization
+                    hero_stats[key] = hero_key + '_' + key.lower() 
+
                 # Determine hero's ratio of heavy to light melee damage
                 hl_ratio = hero_stats['HeavyMeleeDamage'] / hero_stats['LightMeleeDamage']
 
