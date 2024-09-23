@@ -4,7 +4,7 @@
         "1": {
             "Key": "ability_incendiary_projectile",
             "Name": "Catalyst",
-            "Description": "Spew napalm that slows enemy movement and amplifies the damage Infernus does to them.",
+            "DescKey": "ability_incendiary_projectile_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -45,22 +45,22 @@
                         "Type": "duration"
                     }
                 ],
-                "Description": "Spew napalm that slows enemy movement and amplifies the damage Infernus does to them."
+                "DescKey": "ability_incendiary_projectile_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCharges": 1,
-                    "Description": "+1 Charges"
+                    "DescKey": "ability_incendiary_projectile_t1_desc"
                 },
                 {
                     "LifestealPercentHero": 15,
-                    "Description": "Infernus gains 15% Lifesteal against victims"
+                    "DescKey": "ability_incendiary_projectile_t2_desc"
                 },
                 {
                     "DamageAmplification": 15,
                     "HealAmpReceivePenaltyPercent": -40,
                     "HealAmpRegenPenaltyPercent": -40,
-                    "Description": "+15% Damage Amplification and -40% Heal/Regen"
+                    "DescKey": "ability_incendiary_projectile_t3_desc"
                 }
             ],
             "Move": {
@@ -120,7 +120,7 @@
         "2": {
             "Key": "ability_flame_dash",
             "Name": "Flame Dash",
-            "Description": "Move forward at high speed and leave a flame trail that burns enemies. Infernus gains 50% slow resistance for the duration.  <br>Hold [M1] to dash faster.",
+            "DescKey": "ability_flame_dash_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -174,21 +174,21 @@
                         "Type": "distance"
                     }
                 ],
-                "Description": "Move forward at high speed and leave a flame trail that burns enemies. Infernus gains 50% slow resistance for the duration.  <br>Hold [M1] to dash faster."
+                "DescKey": "ability_flame_dash_desc"
             },
             "Upgrades": [
                 {
                     "FireRateSlow": 30,
                     "FlameDashDebuffDuration": 6,
-                    "Description": "+30% Fire Rate Slow for 6s"
+                    "DescKey": "ability_flame_dash_t1_desc"
                 },
                 {
                     "FlameAuraDPS": 45,
-                    "Description": "+45 DPS"
+                    "DescKey": "ability_flame_dash_t2_desc"
                 },
                 {
                     "AbilityCooldown": -19.0,
-                    "Description": "-19.0s Cooldown"
+                    "DescKey": "ability_flame_dash_t3_desc"
                 }
             ],
             "Move": {
@@ -246,7 +246,7 @@
         "3": {
             "Key": "ability_afterburn",
             "Name": "Afterburn",
-            "Description": "Your bullets build up to apply a burning effect on enemies. Infernus's bullets and abilities will refresh the duration.",
+            "DescKey": "ability_afterburn_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -286,20 +286,20 @@
                         "Type": "duration"
                     }
                 ],
-                "Description": "Your bullets build up to apply a burning effect on enemies. Infernus's bullets and abilities will refresh the duration."
+                "DescKey": "ability_afterburn_desc"
             },
             "Upgrades": [
                 {
                     "AfterburnSpiritDamageReduction": -30,
-                    "Description": "Victims deal -30% Spirit Damage."
+                    "DescKey": "ability_afterburn_t1_desc"
                 },
                 {
                     "BurnDuration": 1,
-                    "Description": "+1s Burn Duration"
+                    "DescKey": "ability_afterburn_t2_desc"
                 },
                 {
                     "DPS": 30,
-                    "Description": "+30 DPS"
+                    "DescKey": "ability_afterburn_t3_desc"
                 }
             ],
             "Move": {
@@ -323,7 +323,7 @@
         "4": {
             "Key": "ability_fire_bomb",
             "Name": "Concussive Combustion",
-            "Description": "Turns you into a living bomb that explodes after a short delay, stunning all enemies in its radius.",
+            "DescKey": "ability_fire_bomb_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -352,22 +352,22 @@
                     ]
                 },
                 "Alt": [],
-                "Description": "Turns you into a living bomb that explodes after a short delay, stunning all enemies in its radius."
+                "DescKey": "ability_fire_bomb_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCooldown": -38.0,
-                    "Description": "-38.0s Cooldown"
+                    "DescKey": "ability_fire_bomb_t1_desc"
                 },
                 {
                     "StunDuration": 0.5,
                     "Radius": "4m",
-                    "Description": "+0.5s Stun Duration and +4m Radius"
+                    "DescKey": "ability_fire_bomb_t2_desc"
                 },
                 {
                     "Damage": 115,
                     "LifeStealPercentOnHit": 100,
-                    "Description": "+115 Damage and 100% lifesteal from enemy heroes hit"
+                    "DescKey": "ability_fire_bomb_t3_desc"
                 }
             ],
             "Move": {
@@ -398,7 +398,7 @@
         "1": {
             "Key": "citadel_ability_lightning_ball",
             "Name": "Lightning Ball",
-            "Description": "Shoot a ball of lightning that travels in a straight line. Does damage to all targets in its radius. Slows down when damaging enemies and stops if it hits the world.",
+            "DescKey": "citadel_ability_lightning_ball_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -428,20 +428,20 @@
                         "Type": "duration"
                     }
                 ],
-                "Description": "Shoot a ball of lightning that travels in a straight line. Does damage to all targets in its radius. Slows down when damaging enemies and stops if it hits the world."
+                "DescKey": "citadel_ability_lightning_ball_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCharges": 1,
-                    "Description": "+1 Charges"
+                    "DescKey": "citadel_ability_lightning_ball_t1_desc"
                 },
                 {
                     "SlowPercent": 40,
-                    "Description": "+40% Movement Slow"
+                    "DescKey": "citadel_ability_lightning_ball_t2_desc"
                 },
                 {
                     "DPS": 70,
-                    "Description": "+70 DPS"
+                    "DescKey": "citadel_ability_lightning_ball_t3_desc"
                 }
             ],
             "Move": {
@@ -493,7 +493,7 @@
         "2": {
             "Key": "citadel_ability_static_charge",
             "Name": "Static Charge",
-            "Description": "Apply a charge to a target enemy hero. After a short duration, the static charge stuns and damages enemies within the radius.",
+            "DescKey": "citadel_ability_static_charge_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -529,20 +529,20 @@
                         "Type": "distance"
                     }
                 ],
-                "Description": "Apply a charge to a target enemy hero. After a short duration, the static charge stuns and damages enemies within the radius."
+                "DescKey": "citadel_ability_static_charge_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCooldown": -19.0,
-                    "Description": "-19.0s Cooldown"
+                    "DescKey": "citadel_ability_static_charge_t1_desc"
                 },
                 {
                     "ShockRadius": "8m",
-                    "Description": "+8m Radius"
+                    "DescKey": "citadel_ability_static_charge_t2_desc"
                 },
                 {
                     "StunDuration": 1.1,
-                    "Description": "+1.1s Stun Duration"
+                    "DescKey": "citadel_ability_static_charge_t3_desc"
                 }
             ],
             "Move": {
@@ -574,7 +574,7 @@
         "3": {
             "Key": "ability_power_surge",
             "Name": "Power Surge",
-            "Description": "Power up your weapon with a shock effect, making your bullets proc shock damage on your target. This shock damage bounces to enemies near your target. Occurs once per burst shot.",
+            "DescKey": "ability_power_surge_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -603,17 +603,17 @@
                         "Type": "distance"
                     }
                 ],
-                "Description": "Power up your weapon with a shock effect, making your bullets proc shock damage on your target. This shock damage bounces to enemies near your target. Occurs once per burst shot."
+                "DescKey": "ability_power_surge_desc"
             },
             "Upgrades": [
                 {
                     "TechResistDebuff": -15,
                     "DebuffDuration": 8,
-                    "Description": "Shock Damage applies -15% Spirit Resist for 8s"
+                    "DescKey": "ability_power_surge_t1_desc"
                 },
                 {
                     "AbilityCooldown": -15.0,
-                    "Description": "-15.0s Cooldown"
+                    "DescKey": "ability_power_surge_t2_desc"
                 },
                 {
                     "DamagePerChain": 12,
@@ -624,7 +624,7 @@
                         "Value": 0.366912,
                         "Type": "spirit"
                     },
-                    "Description": "+12 Shock Damage, improved Spirit scaling, and +3 Max Jumps"
+                    "DescKey": "ability_power_surge_t3_desc"
                 }
             ],
             "Duration": {
@@ -679,7 +679,7 @@
         "4": {
             "Key": "citadel_ability_storm_cloud",
             "Name": "Storm Cloud",
-            "Description": "Channel an expanding storm cloud around you that damages all enemies within its radius. Enemies do not take damage when they are out of line-of-sight. You have increased Bullet Resist during the channel.",
+            "DescKey": "citadel_ability_storm_cloud_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -709,21 +709,21 @@
                         "Type": "bullet_armor_up"
                     }
                 ],
-                "Description": "Channel an expanding storm cloud around you that damages all enemies within its radius. Enemies do not take damage when they are out of line-of-sight. You have increased Bullet Resist during the channel."
+                "DescKey": "citadel_ability_storm_cloud_desc"
             },
             "Upgrades": [
                 {
                     "BulletResistOnActive": 35,
-                    "Description": "+35% Bullet Resist while channeling Storm Cloud"
+                    "DescKey": "citadel_ability_storm_cloud_t1_desc"
                 },
                 {
                     "Radius": "10m",
                     "AbilityChannelTime": 7,
-                    "Description": "+7s Channel Time and +10m Radius"
+                    "DescKey": "citadel_ability_storm_cloud_t2_desc"
                 },
                 {
                     "DPS": 75,
-                    "Description": "+75 DPS"
+                    "DescKey": "citadel_ability_storm_cloud_t3_desc"
                 }
             ],
             "Cooldown": {
@@ -781,7 +781,7 @@
         "1": {
             "Key": "citadel_ability_hornet_chain",
             "Name": "Stake",
-            "Description": "Throw a stake that tethers enemies to the location where the stake lands. Enemy movement is restricted to the length of the tether.",
+            "DescKey": "citadel_ability_hornet_chain_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -823,20 +823,20 @@
                         "Type": "slow"
                     }
                 ],
-                "Description": "Throw a stake that tethers enemies to the location where the stake lands. Enemy movement is restricted to the length of the tether."
+                "DescKey": "citadel_ability_hornet_chain_desc"
             },
             "Upgrades": [
                 {
                     "ChainDuration": 0.5,
-                    "Description": "+0.5s Tether Duration"
+                    "DescKey": "citadel_ability_hornet_chain_t1_desc"
                 },
                 {
                     "AbilityCooldown": -19.0,
-                    "Description": "-19.0s Cooldown"
+                    "DescKey": "citadel_ability_hornet_chain_t2_desc"
                 },
                 {
                     "HasDisarm": 1,
-                    "Description": "Tethered enemies are also disarmed<%s3>"
+                    "DescKey": "citadel_ability_hornet_chain_t3_desc"
                 }
             ],
             "Move": {
@@ -868,7 +868,7 @@
         "2": {
             "Key": "citadel_ability_hornet_leap",
             "Name": "Flight",
-            "Description": "Leap into the air and fly. While in flight your weapon deals bonus spirit damage.",
+            "DescKey": "citadel_ability_hornet_leap_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -885,20 +885,20 @@
                     ]
                 },
                 "Alt": [],
-                "Description": "Leap into the air and fly. While in flight your weapon deals bonus spirit damage."
+                "DescKey": "citadel_ability_hornet_leap_desc"
             },
             "Upgrades": [
                 {
                     "BonusClipSizePercent": 50,
-                    "Description": "+50% base Ammo while flying"
+                    "DescKey": "citadel_ability_hornet_leap_t1_desc"
                 },
                 {
                     "AbilityCooldown": -14.0,
-                    "Description": "-14.0s Cooldown"
+                    "DescKey": "citadel_ability_hornet_leap_t2_desc"
                 },
                 {
                     "MagicDamagePerBullet": 12.0,
-                    "Description": "+12.0 Spirit Damage Per Bullet"
+                    "DescKey": "citadel_ability_hornet_leap_t3_desc"
                 }
             ],
             "Duration": {
@@ -957,7 +957,7 @@
         "3": {
             "Key": "citadel_ability_hornet_sting",
             "Name": "Crow Familiar",
-            "Description": "Your crow familiar deals impact damage, reduces their bullet resist and applies a bleed that deals damage based on the target's current health.",
+            "DescKey": "citadel_ability_hornet_sting_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -997,23 +997,23 @@
                         }
                     }
                 ],
-                "Description": "Your crow familiar deals impact damage, reduces their bullet resist and applies a bleed that deals damage based on the target's current health."
+                "DescKey": "citadel_ability_hornet_sting_desc"
             },
             "Upgrades": [
                 {
                     "TargetBounceRange": "15m",
                     "TargetBounceCount": 3,
-                    "Description": "Crow Ricochets up to 2 times towards other enemies within 15m"
+                    "DescKey": "citadel_ability_hornet_sting_t1_desc"
                 },
                 {
                     "AbilityCooldown": -16.0,
-                    "Description": "-16.0s Cooldown"
+                    "DescKey": "citadel_ability_hornet_sting_t2_desc"
                 },
                 {
                     "DotHealthPercent": 3,
                     "HealAmpReceivePenaltyPercent": -40,
                     "HealAmpRegenPenaltyPercent": -40,
-                    "Description": "+3% Bleed and suppresses healing by -40%"
+                    "DescKey": "citadel_ability_hornet_sting_t3_desc"
                 }
             ],
             "Move": {
@@ -1053,7 +1053,7 @@
         "4": {
             "Key": "citadel_ability_hornet_snipe",
             "Name": "Assassinate",
-            "Description": "Use your scoped rifle to fire a powerful shot over long distances. Deal only partial damage until fully charged after 1s of being scoped. Does bonus damage to enemies with less than 50% health remaining. Landing a killing blow on a player with Assassinate grants you bonus souls.",
+            "DescKey": "citadel_ability_hornet_snipe_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1092,20 +1092,20 @@
                         "Type": "bullet_damage"
                     }
                 ],
-                "Description": "Use your scoped rifle to fire a powerful shot over long distances. Deal only partial damage until fully charged after 1s of being scoped. Does bonus damage to enemies with less than 50% health remaining. Landing a killing blow on a player with Assassinate grants you bonus souls."
+                "DescKey": "citadel_ability_hornet_snipe_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCooldown": -19.0,
-                    "Description": "-19.0s Cooldown"
+                    "DescKey": "citadel_ability_hornet_snipe_t1_desc"
                 },
                 {
                     "LowHealthEnemyDamageBonus": 140,
-                    "Description": "+140 Bonus Damage"
+                    "DescKey": "citadel_ability_hornet_snipe_t2_desc"
                 },
                 {
                     "BonusGoldOnKill": 600,
-                    "Description": "Assassinate kills grant +600 souls"
+                    "DescKey": "citadel_ability_hornet_snipe_t3_desc"
                 }
             ],
             "Duration": {
@@ -1185,7 +1185,7 @@
         "1": {
             "Key": "ability_blood_bomb",
             "Name": "Essence Bomb",
-            "Description": "Sacrifice some of your health to launch a bomb that deals damage after a brief arm time.<br>Self damage type is Spirit and can be mitigated.",
+            "DescKey": "ability_blood_bomb_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1219,21 +1219,21 @@
                         "Type": "duration"
                     }
                 ],
-                "Description": "Sacrifice some of your health to launch a bomb that deals damage after a brief arm time.<br>Self damage type is Spirit and can be mitigated."
+                "DescKey": "ability_blood_bomb_desc"
             },
             "Upgrades": [
                 {
                     "Radius": "2m",
-                    "Description": "+2m Radius"
+                    "DescKey": "ability_blood_bomb_t1_desc"
                 },
                 {
                     "Damage": 60,
-                    "Description": "+60 Damage"
+                    "DescKey": "ability_blood_bomb_t2_desc"
                 },
                 {
                     "BloodSpillDPSPercent": 26,
                     "BloodSpillDuration": 6,
-                    "Description": "Bombs leave a toxic mess on the ground, dealing 26% of the original damage per second, for 6s."
+                    "DescKey": "ability_blood_bomb_t3_desc"
                 }
             ],
             "Move": {
@@ -1277,7 +1277,7 @@
         "2": {
             "Key": "ability_life_drain",
             "Name": "Life Drain",
-            "Description": "Create a tether that drains enemy health over time and heals you. Target must be in line of sight and within max range to drain. You can shoot and use other abilities during the drain, but your movement speed is reduced by half. Press [2] to cancel.",
+            "DescKey": "ability_life_drain_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1301,20 +1301,20 @@
                         "Type": "distance"
                     }
                 ],
-                "Description": "Create a tether that drains enemy health over time and heals you. Target must be in line of sight and within max range to drain. You can shoot and use other abilities during the drain, but your movement speed is reduced by half. Press [2] to cancel."
+                "DescKey": "ability_life_drain_desc"
             },
             "Upgrades": [
                 {
                     "LifeDrainPerSecond": 20,
-                    "Description": "+20 Damage Per Second"
+                    "DescKey": "ability_life_drain_t1_desc"
                 },
                 {
                     "AbilityDuration": 2.0,
-                    "Description": "+2.0s Duration"
+                    "DescKey": "ability_life_drain_t2_desc"
                 },
                 {
                     "SilenceOnDrain": 1,
-                    "Description": "Enemy is Silenced while being Life Drained (requires line of sight)"
+                    "DescKey": "ability_life_drain_t3_desc"
                 }
             ],
             "Duration": {
@@ -1368,7 +1368,7 @@
         "3": {
             "Key": "ability_blood_shards",
             "Name": "Malice",
-            "Description": "Sacrifice some of your health to launch blood shards that apply a stack of Malice. Each stack slows the victim and increases the damage they take from you. The slow effect decreases over time.",
+            "DescKey": "ability_blood_shards_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1396,7 +1396,7 @@
                         "Value": 5
                     }
                 ],
-                "Description": "Sacrifice some of your health to launch blood shards that apply a stack of Malice. Each stack slows the victim and increases the damage they take from you. The slow effect decreases over time."
+                "DescKey": "ability_blood_shards_desc"
             },
             "Info2": {
                 "Main": {
@@ -1434,16 +1434,16 @@
             "Upgrades": [
                 {
                     "AbilityCooldown": -2.75,
-                    "Description": "-2.75s Cooldown"
+                    "DescKey": "ability_blood_shards_t1_desc"
                 },
                 {
                     "HealthToDamage": 40,
-                    "Description": "+40 Health To Damage"
+                    "DescKey": "ability_blood_shards_t2_desc"
                 },
                 {
                     "NumBloodShards": 6,
                     "SpreadAngleDegrees": 22,
-                    "Description": "+6 Blood Shards"
+                    "DescKey": "ability_blood_shards_t3_desc"
                 }
             ],
             "Move": {
@@ -1479,7 +1479,7 @@
         "4": {
             "Key": "ability_health_swap",
             "Name": "Soul Exchange",
-            "Description": "Swaps health levels with an enemy target. There is a minimum health percentage that enemies can be brought down to and a minimum amount of health received based on victims current health.",
+            "DescKey": "ability_health_swap_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1504,22 +1504,22 @@
                         "Type": "duration"
                     }
                 ],
-                "Description": "Swaps health levels with an enemy target. There is a minimum health percentage that enemies can be brought down to and a minimum amount of health received based on victims current health."
+                "DescKey": "ability_health_swap_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCooldown": -38.0,
-                    "Description": "-38.0s Cooldown"
+                    "DescKey": "ability_health_swap_t1_desc"
                 },
                 {
                     "EnemyMinHealthPct": -10,
-                    "Description": "-10% Enemy Min Health"
+                    "DescKey": "ability_health_swap_t2_desc"
                 },
                 {
                     "SelfBuffDuration": 8,
                     "TechResist": 40,
                     "BonusFireRate": 40,
-                    "Description": "On cast, +40% Fire Rate and +40% Spirit Resist for 8s."
+                    "DescKey": "ability_health_swap_t3_desc"
                 }
             ],
             "Duration": {
@@ -1577,7 +1577,7 @@
         "1": {
             "Key": "citadel_ability_bull_heal",
             "Name": "Siphon Life",
-            "Description": "Drain health from enemies in front of you while they are in the radius.",
+            "DescKey": "citadel_ability_bull_heal_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1606,20 +1606,20 @@
                     ]
                 },
                 "Alt": [],
-                "Description": "Drain health from enemies in front of you while they are in the radius."
+                "DescKey": "citadel_ability_bull_heal_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCooldown": -19.0,
-                    "Description": "-19.0s Cooldown"
+                    "DescKey": "citadel_ability_bull_heal_t1_desc"
                 },
                 {
                     "AbilityDuration": 2,
-                    "Description": "+2s Duration"
+                    "DescKey": "citadel_ability_bull_heal_t2_desc"
                 },
                 {
                     "LifeDrainPerSecond": 40,
-                    "Description": "+40 Damage Per Second"
+                    "DescKey": "citadel_ability_bull_heal_t3_desc"
                 }
             ],
             "Duration": {
@@ -1658,7 +1658,7 @@
         "2": {
             "Key": "citadel_ability_bull_charge",
             "Name": "Shoulder Charge",
-            "Description": "Charge forward, colliding with enemies and dragging them along.  Hitting a wall will Stun enemies caught by Abrams. Speed increased after colliding with enemy Heroes.",
+            "DescKey": "citadel_ability_bull_charge_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1681,21 +1681,21 @@
                     ]
                 },
                 "Alt": [],
-                "Description": "Charge forward, colliding with enemies and dragging them along.  Hitting a wall will Stun enemies caught by Abrams. Speed increased after colliding with enemy Heroes."
+                "DescKey": "citadel_ability_bull_charge_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCooldown": -19.0,
-                    "Description": "-19.0s Cooldown"
+                    "DescKey": "citadel_ability_bull_charge_t1_desc"
                 },
                 {
                     "AbilityDuration": 0.5,
-                    "Description": "+0.5s Duration"
+                    "DescKey": "citadel_ability_bull_charge_t2_desc"
                 },
                 {
                     "WeaponDamageBonus": 5.5,
                     "WeaponPowerIncreaseDuration": 8,
-                    "Description": "+5.5 Weapon Damage for 8s after colliding with an enemy"
+                    "DescKey": "citadel_ability_bull_charge_t3_desc"
                 }
             ],
             "Duration": {
@@ -1762,7 +1762,7 @@
         "3": {
             "Key": "citadel_ability_passive_beefy",
             "Name": "Infernal Resilience",
-            "Description": "Regenerate a portion of incoming damage over time.",
+            "DescKey": "citadel_ability_passive_beefy_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1788,20 +1788,20 @@
                         "Type": "health"
                     }
                 ],
-                "Description": "Regenerate a portion of incoming damage over time."
+                "DescKey": "citadel_ability_passive_beefy_desc"
             },
             "Upgrades": [
                 {
                     "BonusHealthRegen": 1.5,
-                    "Description": "+1.5 Health Regen"
+                    "DescKey": "citadel_ability_passive_beefy_t1_desc"
                 },
                 {
                     "BonusMaxHealth": 150,
-                    "Description": "+150 Health"
+                    "DescKey": "citadel_ability_passive_beefy_t2_desc"
                 },
                 {
                     "RegenIncomingDamagePercent": 9,
-                    "Description": "+9% Damage regenerated"
+                    "DescKey": "citadel_ability_passive_beefy_t3_desc"
                 }
             ],
             "Move": {
@@ -1825,7 +1825,7 @@
         "4": {
             "Key": "citadel_ability_bull_leap",
             "Name": "Seismic Impact",
-            "Description": "Leap high into the air and choose a ground location to crash into.  When you hit the ground, all enemies in the radius are damaged and stunned.<br>Press [M1] to crash down early.",
+            "DescKey": "citadel_ability_bull_leap_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1855,22 +1855,22 @@
                         "Type": "distance"
                     }
                 ],
-                "Description": "Leap high into the air and choose a ground location to crash into.  When you hit the ground, all enemies in the radius are damaged and stunned.<br>Press [M1] to crash down early."
+                "DescKey": "citadel_ability_bull_leap_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCooldown": -38.0,
-                    "Description": "-38.0s Cooldown"
+                    "DescKey": "citadel_ability_bull_leap_t1_desc"
                 },
                 {
                     "BonusMaxHealthPerHero": 100,
                     "BonusFireRatePerHero": 15,
                     "LandingBonusesDuration": 25,
-                    "Description": "Gain 100 Max HP and 15% Fire Rate per hero hit. Lasts 25s."
+                    "DescKey": "citadel_ability_bull_leap_t2_desc"
                 },
                 {
                     "ImmunityDuration": 3,
-                    "Description": "On cast, become Immune to Stun, Silence, Sleep, Root, and Disarm. Expires 3s after landing."
+                    "DescKey": "citadel_ability_bull_leap_t3_desc"
                 }
             ],
             "Move": {
@@ -1901,7 +1901,7 @@
         "1": {
             "Key": "citadel_ability_card_toss",
             "Name": "Card Trick",
-            "Description": "Deal weapon damage to summon cards.  Activate to throw a card that flies towards the enemy or point under your crosshair.",
+            "DescKey": "citadel_ability_card_toss_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -1924,20 +1924,20 @@
                     ]
                 },
                 "Alt": [],
-                "Description": "Deal weapon damage to summon cards.  Activate to throw a card that flies towards the enemy or point under your crosshair."
+                "DescKey": "citadel_ability_card_toss_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCharges": 1,
-                    "Description": "+1 Charges"
+                    "DescKey": "citadel_ability_card_toss_t1_desc"
                 },
                 {
                     "Damage": 50,
-                    "Description": "+50 Damage"
+                    "DescKey": "citadel_ability_card_toss_t2_desc"
                 },
                 {
                     "CardResourceGenPctScale": 50,
-                    "Description": "+50% Card Summon Rate"
+                    "DescKey": "citadel_ability_card_toss_t3_desc"
                 }
             ],
             "Move": {
@@ -2021,16 +2021,16 @@
         "2": {
             "Key": "citadel_ability_projectmind",
             "Name": "Project Mind",
-            "Description": "Teleport to the targeted location.",
+            "DescKey": "citadel_ability_projectmind_desc",
             "Info1": {
                 "Main": [],
                 "Alt": [],
-                "Description": "Teleport to the targeted location."
+                "DescKey": "citadel_ability_projectmind_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCastRange": "15m",
-                    "Description": "+15m Cast Range"
+                    "DescKey": "citadel_ability_projectmind_t1_desc"
                 },
                 {
                     "BulletShieldOnLand": 300,
@@ -2040,11 +2040,11 @@
                         "Value": 2.6208,
                         "Type": "spirit"
                     },
-                    "Description": "Provides a 300 bullet shield for 8s on teleport. Shield amount scales with Spirit Power."
+                    "DescKey": "citadel_ability_projectmind_t2_desc"
                 },
                 {
                     "AbilityCooldown": -28.0,
-                    "Description": "-28.0s Cooldown"
+                    "DescKey": "citadel_ability_projectmind_t3_desc"
                 }
             ],
             "Move": {
@@ -2084,7 +2084,7 @@
         "3": {
             "Key": "citadel_ability_wraith_rapidfire",
             "Name": "Full Auto",
-            "Description": "Temporarily boosts your fire rate. Nearby allies receive half the fire rate bonus.",
+            "DescKey": "citadel_ability_wraith_rapidfire_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -2107,20 +2107,20 @@
                     ]
                 },
                 "Alt": [],
-                "Description": "Temporarily boosts your fire rate. Nearby allies receive half the fire rate bonus."
+                "DescKey": "citadel_ability_wraith_rapidfire_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCooldown": -14.0,
-                    "Description": "-14.0s Cooldown"
+                    "DescKey": "citadel_ability_wraith_rapidfire_t1_desc"
                 },
                 {
                     "MagicDamagePerBullet": 5,
-                    "Description": "+5 Spirit Damage Per Bullet"
+                    "DescKey": "citadel_ability_wraith_rapidfire_t2_desc"
                 },
                 {
                     "BulletLifestealPercent": 35,
-                    "Description": "+35% Bullet Lifesteal"
+                    "DescKey": "citadel_ability_wraith_rapidfire_t3_desc"
                 }
             ],
             "Duration": {
@@ -2163,7 +2163,7 @@
         "4": {
             "Key": "citadel_ability_psychic_lift",
             "Name": "Telekinesis",
-            "Description": "Lift an enemy hero into the air, stunning them for a short time. When the lift ends, the target receives Telekinesis damage.",
+            "DescKey": "citadel_ability_psychic_lift_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -2180,20 +2180,20 @@
                     ]
                 },
                 "Alt": [],
-                "Description": "Lift an enemy hero into the air, stunning them for a short time. When the lift ends, the target receives Telekinesis damage."
+                "DescKey": "citadel_ability_psychic_lift_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCooldown": -28.0,
-                    "Description": "-28.0s Cooldown"
+                    "DescKey": "citadel_ability_psychic_lift_t1_desc"
                 },
                 {
                     "AbilityDuration": 0.5,
-                    "Description": "+0.5s Duration"
+                    "DescKey": "citadel_ability_psychic_lift_t2_desc"
                 },
                 {
                     "AbilityUnitTargetLimit": 5,
-                    "Description": "Telekinesis will target enemies in an area around Wraith"
+                    "DescKey": "citadel_ability_psychic_lift_t3_desc"
                 }
             ],
             "Duration": {
@@ -2243,22 +2243,22 @@
         "1": {
             "Key": "citadel_ability_shieldedsentry",
             "Name": "Mini Turret",
-            "Description": "Deploy a Mini Turret that automatically shoots enemies. The turret expires after a limited lifetime.<br>Turrets gain 30% of McGinnis's max health and have 60% Spirit Resist. They deal reduced damage to troopers and objectives.",
+            "DescKey": "citadel_ability_shieldedsentry_desc",
             "Upgrades": [
                 {
                     "AbilityCharges": 1,
                     "MoveSlowPercent": 25,
                     "SlowDuration": 1.3,
-                    "Description": "+1 Ability Charge and turrets apply +25% Movement Slow"
+                    "DescKey": "citadel_ability_shieldedsentry_t1_desc"
                 },
                 {
                     "TurretAttackRange": "10m",
                     "AttackSpeedMult": 10,
-                    "Description": "+10m Attack Range and +10% turret fire rate"
+                    "DescKey": "citadel_ability_shieldedsentry_t2_desc"
                 },
                 {
                     "TurretDPS": 45,
-                    "Description": "+45 Turret DPS"
+                    "DescKey": "citadel_ability_shieldedsentry_t3_desc"
                 }
             ],
             "Duration": {
@@ -2387,7 +2387,7 @@
         "2": {
             "Key": "citadel_ability_mobile_resupply",
             "Name": "Medicinal Specter",
-            "Description": "Deploy a spirit that heals nearby units.",
+            "DescKey": "citadel_ability_mobile_resupply_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -2407,20 +2407,20 @@
                         "Type": "healing"
                     }
                 ],
-                "Description": "Deploy a spirit that heals nearby units."
+                "DescKey": "citadel_ability_mobile_resupply_desc"
             },
             "Upgrades": [
                 {
                     "AuraFireRateBonus": 35,
-                    "Description": "+35% Fire Rate on units being healed by Medicinal Specter"
+                    "DescKey": "citadel_ability_mobile_resupply_t1_desc"
                 },
                 {
                     "AbilityCooldown": -17.0,
-                    "Description": "-17.0s Cooldown"
+                    "DescKey": "citadel_ability_mobile_resupply_t2_desc"
                 },
                 {
                     "MaxHealthRegenPct": 5,
-                    "Description": "+5% Max Health regen per second"
+                    "DescKey": "citadel_ability_mobile_resupply_t3_desc"
                 }
             ],
             "Duration": {
@@ -2485,7 +2485,7 @@
         "3": {
             "Key": "citadel_ability_fissure_wall",
             "Name": "Spectral Wall",
-            "Description": "Creates a wall that divides the terrain in half. On creation, the wall deals damage and applies slow to enemies nearby. <br>After casting, press [M1] or [3] to erupt the wall early.",
+            "DescKey": "citadel_ability_fissure_wall_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -2527,22 +2527,22 @@
                         "Type": "duration"
                     }
                 ],
-                "Description": "Creates a wall that divides the terrain in half. On creation, the wall deals damage and applies slow to enemies nearby. <br>After casting, press [M1] or [3] to erupt the wall early."
+                "DescKey": "citadel_ability_fissure_wall_desc"
             },
             "Upgrades": [
                 {
                     "StaminaReduction": 1,
                     "BonusDamagePercent": 25,
                     "DebuffDuration": 7,
-                    "Description": "Removes 1 stamina and amplifies McGinnis's damage by 25% on hit enemies for 7s"
+                    "DescKey": "citadel_ability_fissure_wall_t1_desc"
                 },
                 {
                     "AbilityCooldown": -14.0,
-                    "Description": "-14.0s Cooldown"
+                    "DescKey": "citadel_ability_fissure_wall_t2_desc"
                 },
                 {
                     "WallStunDuration": 1,
-                    "Description": "Adds a 1s Stun to enemies hit by Spectral Wall"
+                    "DescKey": "citadel_ability_fissure_wall_t3_desc"
                 }
             ],
             "Duration": {
@@ -2597,7 +2597,7 @@
         "4": {
             "Key": "citadel_ability_rocket_barrage",
             "Name": "Heavy Barrage",
-            "Description": "Unleashes a volley of rockets that home in on a targeted location.",
+            "DescKey": "citadel_ability_rocket_barrage_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -2638,21 +2638,21 @@
                         "Type": "cast"
                     }
                 ],
-                "Description": "Unleashes a volley of rockets that home in on a targeted location."
+                "DescKey": "citadel_ability_rocket_barrage_desc"
             },
             "Upgrades": [
                 {
                     "MoveSlowPercent": 35,
                     "MoveSlowDuration": 2.0,
-                    "Description": "Applies 35% movement slow"
+                    "DescKey": "citadel_ability_rocket_barrage_t1_desc"
                 },
                 {
                     "AbilityCooldown": -47.0,
-                    "Description": "-47.0s Cooldown"
+                    "DescKey": "citadel_ability_rocket_barrage_t2_desc"
                 },
                 {
                     "DamagePerRocket": 30,
-                    "Description": "+30 Damage per Rocket "
+                    "DescKey": "citadel_ability_rocket_barrage_t3_desc"
                 }
             ],
             "Move": {
@@ -2727,7 +2727,7 @@
         "1": {
             "Key": "citadel_ability_chrono_pulse_grenade",
             "Name": "Pulse Grenade",
-            "Description": "Throw a grenade that begins pulsing when it lands. Each pulse applies damage, movement slow, and stacking damage amplification for Paradox against the victim.",
+            "DescKey": "citadel_ability_chrono_pulse_grenade_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -2779,20 +2779,20 @@
                         "Type": "duration"
                     }
                 ],
-                "Description": "Throw a grenade that begins pulsing when it lands. Each pulse applies damage, movement slow, and stacking damage amplification for Paradox against the victim."
+                "DescKey": "citadel_ability_chrono_pulse_grenade_desc"
             },
             "Upgrades": [
                 {
                     "Pulses": 1,
-                    "Description": "+1 Pulses"
+                    "DescKey": "citadel_ability_chrono_pulse_grenade_t1_desc"
                 },
                 {
                     "AbilityCooldown": -7.5,
-                    "Description": "-7.5s Cooldown"
+                    "DescKey": "citadel_ability_chrono_pulse_grenade_t2_desc"
                 },
                 {
                     "PulseDamage": 45,
-                    "Description": "+45 Pulse Damage"
+                    "DescKey": "citadel_ability_chrono_pulse_grenade_t3_desc"
                 }
             ],
             "Duration": {
@@ -2835,7 +2835,7 @@
         "2": {
             "Key": "citadel_ability_chrono_time_wall",
             "Name": "Time Wall",
-            "Description": "Create a time warping wall that stops time for all enemy projectiles and bullets that touch it.  Enemies that touch the wall will take damage as a percentage of their max health and be briefly slowed.",
+            "DescKey": "citadel_ability_chrono_time_wall_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -2872,21 +2872,21 @@
                         "Value": 3.5
                     }
                 ],
-                "Description": "Create a time warping wall that stops time for all enemy projectiles and bullets that touch it.  Enemies that touch the wall will take damage as a percentage of their max health and be briefly slowed."
+                "DescKey": "citadel_ability_chrono_time_wall_desc"
             },
             "Upgrades": [
                 {
                     "TimeWallWidth": "2m",
                     "TimeWallHeight": "1m",
-                    "Description": "+2m Width, +1m Height"
+                    "DescKey": "citadel_ability_chrono_time_wall_t1_desc"
                 },
                 {
                     "AbilityCharges": 1,
-                    "Description": "+1 Charges"
+                    "DescKey": "citadel_ability_chrono_time_wall_t2_desc"
                 },
                 {
                     "DebuffDuration": 3.0,
-                    "Description": "Enemies that touch Time Wall will be Silenced for 3.0s"
+                    "DescKey": "citadel_ability_chrono_time_wall_t3_desc"
                 }
             ],
             "Duration": {
@@ -2965,7 +2965,7 @@
         "3": {
             "Key": "citadel_ability_chrono_kinetic_carbine",
             "Name": "Kinetic Carbine",
-            "Description": "Start charging your weapon and gain increased movement speed once it's fully charged. Your next shot will release the energy, dealing spirit damage and applying a time stop to the enemy hit. The damage dealt is an amplification of your current weapon damage. <br><br>You can slow time on yourself by pressing [M2] while an empowered shot is available.",
+            "DescKey": "citadel_ability_chrono_kinetic_carbine_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -3029,21 +3029,21 @@
                         "Type": "duration"
                     }
                 ],
-                "Description": "Start charging your weapon and gain increased movement speed once it's fully charged. Your next shot will release the energy, dealing spirit damage and applying a time stop to the enemy hit. The damage dealt is an amplification of your current weapon damage. <br><br>You can slow time on yourself by pressing [M2] while an empowered shot is available."
+                "DescKey": "citadel_ability_chrono_kinetic_carbine_desc"
             },
             "Upgrades": [
                 {
                     "MaxSlowDuration": 0.5,
-                    "Description": "+0.5s Max Stop Duration"
+                    "DescKey": "citadel_ability_chrono_kinetic_carbine_t1_desc"
                 },
                 {
                     "AbilityCooldown": -9.5,
                     "SpeedBoostDuration": 2,
-                    "Description": "+2s Speed Duration, 2s Charge Time"
+                    "DescKey": "citadel_ability_chrono_kinetic_carbine_t2_desc"
                 },
                 {
                     "MaxBonusBulletDamage": 50,
-                    "Description": "+50% Max Damage Amp"
+                    "DescKey": "citadel_ability_chrono_kinetic_carbine_t3_desc"
                 }
             ],
             "Move": {
@@ -3099,7 +3099,7 @@
         "4": {
             "Key": "citadel_ability_chrono_swap",
             "Name": "Paradoxical Swap",
-            "Description": "Fire a projectile that swaps your position with the target enemy hero. While the effect occurs, you gain spirit lifesteal and the enemy takes damage over time.",
+            "DescKey": "citadel_ability_chrono_swap_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -3121,20 +3121,20 @@
                     ]
                 },
                 "Alt": [],
-                "Description": "Fire a projectile that swaps your position with the target enemy hero. While the effect occurs, you gain spirit lifesteal and the enemy takes damage over time."
+                "DescKey": "citadel_ability_chrono_swap_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCastRange": "15m",
-                    "Description": "+15m Cast Range"
+                    "DescKey": "citadel_ability_chrono_swap_t1_desc"
                 },
                 {
                     "SwapTotalDamage": 100,
-                    "Description": "+100 Swap Damage"
+                    "DescKey": "citadel_ability_chrono_swap_t2_desc"
                 },
                 {
                     "AbilityCooldown": -14.0,
-                    "Description": "-14.0s Cooldown"
+                    "DescKey": "citadel_ability_chrono_swap_t3_desc"
                 }
             ],
             "Move": {
@@ -3197,7 +3197,7 @@
         "1": {
             "Key": "citadel_ability_stomp",
             "Name": "Kinetic Pulse",
-            "Description": "Release an energy pulse that knocks enemies up into the air.",
+            "DescKey": "citadel_ability_stomp_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -3231,23 +3231,23 @@
                         "Type": "distance"
                     }
                 ],
-                "Description": "Release an energy pulse that knocks enemies up into the air."
+                "DescKey": "citadel_ability_stomp_desc"
             },
             "Upgrades": [
                 {
                     "FireRateSlow": 25,
                     "SlowPercent": 35,
                     "SlowDuration": 4,
-                    "Description": "Hit enemies are fire rate and movement slowed by 35% for 4s."
+                    "DescKey": "citadel_ability_stomp_t1_desc"
                 },
                 {
                     "BulletArmorReduction": 30,
                     "BulletArmorReductionDuration": 8,
-                    "Description": "Dynamo deals 30% more Weapon Damage to hit enemies for 8s"
+                    "DescKey": "citadel_ability_stomp_t2_desc"
                 },
                 {
                     "Damage": 125,
-                    "Description": "+125 Damage"
+                    "DescKey": "citadel_ability_stomp_t3_desc"
                 }
             ],
             "Move": {
@@ -3307,7 +3307,7 @@
         "2": {
             "Key": "citadel_ability_void_sphere",
             "Name": "Quantum Entanglement",
-            "Description": "Dynamo briefly disappears into the void and then reappears a short distance away. On reappearing, your weapon is reloaded and has a fire rate bonus for the next clip (Max 8s). Can be cast with [M3] to also bring nearby allies and give them half fire rate bonus.",
+            "DescKey": "citadel_ability_void_sphere_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -3332,20 +3332,20 @@
                     ]
                 },
                 "Alt": [],
-                "Description": "Dynamo briefly disappears into the void and then reappears a short distance away. On reappearing, your weapon is reloaded and has a fire rate bonus for the next clip (Max 8s). Can be cast with [M3] to also bring nearby allies and give them half fire rate bonus."
+                "DescKey": "citadel_ability_void_sphere_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCastRange": "4m",
-                    "Description": "+4m Cast Range"
+                    "DescKey": "citadel_ability_void_sphere_t1_desc"
                 },
                 {
                     "FireRateBonus": 25,
-                    "Description": "+25% Fire Rate Bonus"
+                    "DescKey": "citadel_ability_void_sphere_t2_desc"
                 },
                 {
                     "BonusClipSizePercent": 120,
-                    "Description": "On reappearing, +120% base ammo"
+                    "DescKey": "citadel_ability_void_sphere_t3_desc"
                 }
             ],
             "Move": {
@@ -3381,7 +3381,7 @@
         "3": {
             "Key": "citadel_ability_nikuman",
             "Name": "Rejuvenating Aurora",
-            "Description": "While channelling, restore health over time to you and any allies nearby. Dashing does not break channel.",
+            "DescKey": "citadel_ability_nikuman_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -3411,22 +3411,22 @@
                         "Type": "distance"
                     }
                 ],
-                "Description": "While channelling, restore health over time to you and any allies nearby. Dashing does not break channel."
+                "DescKey": "citadel_ability_nikuman_desc"
             },
             "Upgrades": [
                 {
                     "MovementSpeedBonus": "4m",
                     "MovementSpeedBonusDuration": 8,
-                    "Description": "Gain +4m/s movespeed bonus for 8s if Aurora is fully channeled.  Gain instantly with 5AP Upgrade."
+                    "DescKey": "citadel_ability_nikuman_t1_desc"
                 },
                 {
                     "AbilityCooldown": -14.0,
-                    "Description": "-14.0s Cooldown"
+                    "DescKey": "citadel_ability_nikuman_t2_desc"
                 },
                 {
                     "NoChannel": 1,
                     "HealMaxHealthPercent": 3.8,
-                    "Description": "Full move and ability use and additionaly heals +3.8% of Max Health per second"
+                    "DescKey": "citadel_ability_nikuman_t3_desc"
                 }
             ],
             "Move": {
@@ -3455,7 +3455,7 @@
         "4": {
             "Key": "citadel_ability_self_vacuum",
             "Name": "Singularity",
-            "Description": "Create a singularity in your hands that pulls in nearby enemies and damages them. Once it's finished, enemies get knocked into the air.",
+            "DescKey": "citadel_ability_self_vacuum_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -3485,20 +3485,20 @@
                         "Type": "distance"
                     }
                 ],
-                "Description": "Create a singularity in your hands that pulls in nearby enemies and damages them. Once it's finished, enemies get knocked into the air."
+                "DescKey": "citadel_ability_self_vacuum_desc"
             },
             "Upgrades": [
                 {
                     "VacuumRadius": "2m",
-                    "Description": "+2m Singularity Radius"
+                    "DescKey": "citadel_ability_self_vacuum_t1_desc"
                 },
                 {
                     "AbilityChannelTime": 0.75,
-                    "Description": "+0.75s Channel Duration"
+                    "DescKey": "citadel_ability_self_vacuum_t2_desc"
                 },
                 {
                     "DamagePercentHealth": 3.8,
-                    "Description": "Singularity takes 3.8% of the enemies' max health each second."
+                    "DescKey": "citadel_ability_self_vacuum_t3_desc"
                 }
             ],
             "Other": {
@@ -3542,7 +3542,7 @@
         "1": {
             "Key": "ability_ice_grenade",
             "Name": "Frost Grenade",
-            "Description": "Throw a grenade that explodes in a cloud of freezing ice, damaging and slowing enemies.",
+            "DescKey": "ability_ice_grenade_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -3572,12 +3572,12 @@
                         "Type": "duration"
                     }
                 ],
-                "Description": "Throw a grenade that explodes in a cloud of freezing ice, damaging and slowing enemies."
+                "DescKey": "ability_ice_grenade_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCharges": 1,
-                    "Description": "+1 Charges"
+                    "DescKey": "ability_ice_grenade_t1_desc"
                 },
                 {
                     "HealAmount": 145,
@@ -3586,11 +3586,11 @@
                         "Value": 1.9656,
                         "Type": "spirit"
                     },
-                    "Description": "Frost Grenade now heals 145 HP to friendly targets. Scales with Spirit."
+                    "DescKey": "ability_ice_grenade_t2_desc"
                 },
                 {
                     "Damage": 175,
-                    "Description": "+175 Damage"
+                    "DescKey": "ability_ice_grenade_t3_desc"
                 }
             ],
             "Move": {
@@ -3630,7 +3630,7 @@
         "2": {
             "Key": "ability_icepath",
             "Name": "Ice Path",
-            "Description": "Kelvin creates a floating trail of ice and snow that gives movement bonuses to him and his allies. Kelvin gains 60% slow resistance for the duration. Enemies can also walk on the floating trail. <br>Press [Shift] / [Ctrl] to travel up or down while in Ice Path.",
+            "DescKey": "ability_icepath_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -3656,22 +3656,22 @@
                         "Type": "duration"
                     }
                 ],
-                "Description": "Kelvin creates a floating trail of ice and snow that gives movement bonuses to him and his allies. Kelvin gains 60% slow resistance for the duration. Enemies can also walk on the floating trail. <br>Press [Shift] / [Ctrl] to travel up or down while in Ice Path."
+                "DescKey": "ability_icepath_desc"
             },
             "Upgrades": [
                 {
                     "SprintSpeedBonus": "4m",
-                    "Description": "+4m/s Sprint Speed"
+                    "DescKey": "ability_icepath_t1_desc"
                 },
                 {
                     "AbilityCooldown": -15.0,
-                    "Description": "-15.0s Cooldown"
+                    "DescKey": "ability_icepath_t2_desc"
                 },
                 {
                     "BonusSpiritMeter": 1,
                     "BonusSpiritMax": 55,
                     "BonusSpiritLingerDuration": 6,
-                    "Description": "While active, gain +1 Spirit Power per meter of Ice Path trail created.  Max of 55 Spirit Power"
+                    "DescKey": "ability_icepath_t3_desc"
                 }
             ],
             "Duration": {
@@ -3757,7 +3757,7 @@
         "3": {
             "Key": "ability_icebeam",
             "Name": "Arctic Beam",
-            "Description": "Shoot freezing cold energy out in front of you, damaging targets and building up movement and fire rate slow against them the longer you sustain the beam on them. You have reduced movement speed while using Arctic Beam. The beam may also claim Souls.",
+            "DescKey": "ability_icebeam_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -3815,16 +3815,16 @@
                         }
                     }
                 ],
-                "Description": "Shoot freezing cold energy out in front of you, damaging targets and building up movement and fire rate slow against them the longer you sustain the beam on them. You have reduced movement speed while using Arctic Beam. The beam may also claim Souls."
+                "DescKey": "ability_icebeam_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCooldown": -7.5,
-                    "Description": "-7.5s Cooldown"
+                    "DescKey": "ability_icebeam_t1_desc"
                 },
                 {
                     "DPS": 40,
-                    "Description": "+40 DPS"
+                    "DescKey": "ability_icebeam_t2_desc"
                 },
                 {
                     "BeamSplit": "13m",
@@ -3834,7 +3834,7 @@
                         "Type": "range"
                     },
                     "BeamSplitCount": 2,
-                    "Description": "Fires 2 additional Arctic Beams toward enemies within 13m of the last target hit"
+                    "DescKey": "ability_icebeam_t3_desc"
                 }
             ],
             "Duration": {
@@ -3895,7 +3895,7 @@
         "4": {
             "Key": "ability_ice_dome",
             "Name": "Frozen Shelter",
-            "Description": "Kelvin freezes the air around him, creating an impenetrable dome around himself. While in the dome, allies rapidly regenerate health and enemies are slowed.",
+            "DescKey": "ability_ice_dome_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -3925,16 +3925,16 @@
                         "Type": "healing"
                     }
                 ],
-                "Description": "Kelvin freezes the air around him, creating an impenetrable dome around himself. While in the dome, allies rapidly regenerate health and enemies are slowed."
+                "DescKey": "ability_ice_dome_desc"
             },
             "Upgrades": [
                 {
                     "FireRateSlow": 40,
-                    "Description": "+40% Fire Rate Slow"
+                    "DescKey": "ability_ice_dome_t1_desc"
                 },
                 {
                     "AbilityCooldown": -38.0,
-                    "Description": "-38.0s Cooldown"
+                    "DescKey": "ability_ice_dome_t2_desc"
                 },
                 {
                     "BonusHealthRegen": 70,
@@ -3943,7 +3943,7 @@
                         "Value": 1.638,
                         "Type": "spirit"
                     },
-                    "Description": "+70 Health Regen and now scales with Spirit Power"
+                    "DescKey": "ability_ice_dome_t3_desc"
                 }
             ],
             "Duration": {
@@ -3997,7 +3997,7 @@
         "1": {
             "Key": "ability_sleep_dagger",
             "Name": "Sleep Dagger",
-            "Description": "Throw a dagger that damages and sleeps the target. Sleeping targets wake up shortly after being damaged. Throwing a Dagger does not break your invisibility. Sleep Dagger does not interrupt enemies' channeling abilities.",
+            "DescKey": "ability_sleep_dagger_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -4037,21 +4037,21 @@
                         "Type": "duration"
                     }
                 ],
-                "Description": "Throw a dagger that damages and sleeps the target. Sleeping targets wake up shortly after being damaged. Throwing a Dagger does not break your invisibility. Sleep Dagger does not interrupt enemies' channeling abilities."
+                "DescKey": "ability_sleep_dagger_desc"
             },
             "Upgrades": [
                 {
                     "StaminaReduction": 1,
-                    "Description": "Removes 1 stamina"
+                    "DescKey": "ability_sleep_dagger_t1_desc"
                 },
                 {
                     "AbilityCooldown": -12.0,
-                    "Description": "-12.0s Cooldown"
+                    "DescKey": "ability_sleep_dagger_t2_desc"
                 },
                 {
                     "BulletResistReduction": -12,
                     "BulletResistReductionDuration": 6,
-                    "Description": "Applies -12% Bullet Resist for 6s on wake-up."
+                    "DescKey": "ability_sleep_dagger_t3_desc"
                 }
             ],
             "Duration": {
@@ -4116,7 +4116,7 @@
         "2": {
             "Key": "ability_smoke_bomb",
             "Name": "Smoke Bomb",
-            "Description": "Fade out of sight, becoming invisible and gaining sprint speed. Attacking removes invisibility. Close enemies can see through your invisibility.",
+            "DescKey": "ability_smoke_bomb_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -4142,21 +4142,21 @@
                         "Type": "move_speed"
                     }
                 ],
-                "Description": "Fade out of sight, becoming invisible and gaining sprint speed. Attacking removes invisibility. Close enemies can see through your invisibility."
+                "DescKey": "ability_smoke_bomb_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCooldown": -14.0,
-                    "Description": "-14.0s Ability Cooldown"
+                    "DescKey": "ability_smoke_bomb_t1_desc"
                 },
                 {
                     "InvisMoveSpeedMod": "6m",
-                    "Description": "+6m/s Invis Sprint Speed"
+                    "DescKey": "ability_smoke_bomb_t2_desc"
                 },
                 {
                     "BulletLifesteal": 30,
                     "PostInvisBuffDuration": 8,
-                    "Description": "After invis, gain +30% Bullet Lifesteal for 8s"
+                    "DescKey": "ability_smoke_bomb_t3_desc"
                 }
             ],
             "Duration": {
@@ -4209,7 +4209,7 @@
         "3": {
             "Key": "ability_stacking_damage",
             "Name": "Fixation",
-            "Description": "Shooting a target increases your bullet damage on that target. Gain one stack per bullet hit, two if the hit is a headshot.",
+            "DescKey": "ability_stacking_damage_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -4227,7 +4227,7 @@
                     ]
                 },
                 "Alt": [],
-                "Description": "Shooting a target increases your bullet damage on that target. Gain one stack per bullet hit, two if the hit is a headshot."
+                "DescKey": "ability_stacking_damage_desc"
             },
             "Upgrades": [
                 {
@@ -4240,16 +4240,16 @@
                     "ProcDamageStackCount": 20,
                     "SlowPercent": 15,
                     "SlowDuration": 2,
-                    "Description": "60 Spirit damage and 15% slow for 2s to target every 20 stacks"
+                    "DescKey": "ability_stacking_damage_t1_desc"
                 },
                 {
                     "AbilityDuration": 5,
                     "MaxStacks": 40,
-                    "Description": "+40 Max Stacks and +5s Duration"
+                    "DescKey": "ability_stacking_damage_t2_desc"
                 },
                 {
                     "DamageBonusFixedPerStack": 0.2,
-                    "Description": "+0.2per stack Weapon Damage"
+                    "DescKey": "ability_stacking_damage_t3_desc"
                 }
             ],
             "Duration": {
@@ -4280,7 +4280,7 @@
         "4": {
             "Key": "ability_bullet_flurry",
             "Name": "Bullet Dance",
-            "Description": "Enter a flurry, firing your weapon at nearby enemies with perfect accuracy.  During the flurry, Haze gains a fire rate bonus and will evade some of the bullets shot at her.",
+            "DescKey": "ability_bullet_flurry_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -4311,20 +4311,20 @@
                         "Value": 50
                     }
                 ],
-                "Description": "Enter a flurry, firing your weapon at nearby enemies with perfect accuracy.  During the flurry, Haze gains a fire rate bonus and will evade some of the bullets shot at her."
+                "DescKey": "ability_bullet_flurry_desc"
             },
             "Upgrades": [
                 {
                     "WeaponDamageBonus": 7,
-                    "Description": "+7 Weapon Damage"
+                    "DescKey": "ability_bullet_flurry_t1_desc"
                 },
                 {
                     "AbilityCooldown": -38.0,
-                    "Description": "-38.0s Cooldown"
+                    "DescKey": "ability_bullet_flurry_t2_desc"
                 },
                 {
                     "TargetsPerTick": 1,
-                    "Description": "+1 Targets Hit Per Shot"
+                    "DescKey": "ability_bullet_flurry_t3_desc"
                 }
             ],
             "Cast": {
@@ -4370,7 +4370,7 @@
         "1": {
             "Key": "ability_explosive_barrel",
             "Name": "Powder Keg",
-            "Description": "Place a barrel that explodes when shot, or on landing after launched via melee attack or bounce pad. Has a minimum arm time before it can explode.",
+            "DescKey": "ability_explosive_barrel_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -4392,22 +4392,22 @@
                     ]
                 },
                 "Alt": [],
-                "Description": "Place a barrel that explodes when shot, or on landing after launched via melee attack or bounce pad. Has a minimum arm time before it can explode."
+                "DescKey": "ability_explosive_barrel_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCharges": 1,
-                    "Description": "+1 Charges"
+                    "DescKey": "ability_explosive_barrel_t1_desc"
                 },
                 {
                     "BarrelDamage": 140,
-                    "Description": "+140 Explosion Damage"
+                    "DescKey": "ability_explosive_barrel_t2_desc"
                 },
                 {
                     "AbilityCooldown": -9.5,
                     "MinTimeBeforeDestroy": -1,
                     "ArmTime": -1,
-                    "Description": "-9.5 Cooldown<br>No arm time"
+                    "DescKey": "ability_explosive_barrel_t3_desc"
                 }
             ],
             "Duration": {
@@ -4498,7 +4498,7 @@
         "2": {
             "Key": "ability_bounce_pad",
             "Name": "Bounce Pad",
-            "Description": "Drop a bounce pad in the world that sends you and other heroes flying. You will stomp down on landing, dealing damage to any nearby enemies.",
+            "DescKey": "ability_bounce_pad_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -4522,13 +4522,13 @@
                         "Type": "move_speed"
                     }
                 ],
-                "Description": "Drop a bounce pad in the world that sends you and other heroes flying. You will stomp down on landing, dealing damage to any nearby enemies."
+                "DescKey": "ability_bounce_pad_desc"
             },
             "Upgrades": [
                 {
                     "SpeedOnLand": "4m",
                     "SpeedOnLandDuration": 4,
-                    "Description": "You and allies gain a +4m/s movement speed bonus for 4s on landing"
+                    "DescKey": "ability_bounce_pad_t1_desc"
                 },
                 {
                     "StompDamage": 100,
@@ -4537,11 +4537,11 @@
                         "Value": 1.04832,
                         "Type": null
                     },
-                    "Description": "+100 Stomp Damage with improved scaling"
+                    "DescKey": "ability_bounce_pad_t2_desc"
                 },
                 {
                     "StompStunDuration": 1.25,
-                    "Description": "+1.25s Stun on Stomp"
+                    "DescKey": "ability_bounce_pad_t3_desc"
                 }
             ],
             "Duration": {
@@ -4635,7 +4635,7 @@
         "3": {
             "Key": "ability_hat_trick",
             "Name": "Hat Trick",
-            "Description": "Throws out her hat to strike enemies, slowing and revealing them through walls.",
+            "DescKey": "ability_hat_trick_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -4664,20 +4664,20 @@
                     ]
                 },
                 "Alt": [],
-                "Description": "Throws out her hat to strike enemies, slowing and revealing them through walls."
+                "DescKey": "ability_hat_trick_desc"
             },
             "Upgrades": [
                 {
                     "Damage": 50,
-                    "Description": "+50 Damage"
+                    "DescKey": "ability_hat_trick_t1_desc"
                 },
                 {
                     "AbilityCooldown": -9.5,
-                    "Description": "-9.5s Cooldown"
+                    "DescKey": "ability_hat_trick_t2_desc"
                 },
                 {
                     "SlowPercent": 30,
-                    "Description": "+30% Movement Slow"
+                    "DescKey": "ability_hat_trick_t3_desc"
                 }
             ],
             "Range": {
@@ -4705,7 +4705,7 @@
         "4": {
             "Key": "ability_gravity_lasso",
             "Name": "Spirit Lasso",
-            "Description": "Grab an enemy with your lasso and drag them along behind you. The enemy is stunned and Astro is slowed slightly during the lasso.<br><br> Lasso duration is paused for 2s during the first usage of a bounce pad.",
+            "DescKey": "ability_gravity_lasso_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -4717,21 +4717,21 @@
                     ]
                 },
                 "Alt": [],
-                "Description": "Grab an enemy with your lasso and drag them along behind you. The enemy is stunned and Astro is slowed slightly during the lasso.<br><br> Lasso duration is paused for 2s during the first usage of a bounce pad."
+                "DescKey": "ability_gravity_lasso_desc"
             },
             "Upgrades": [
                 {
                     "AbilityDuration": 0.6,
-                    "Description": "+0.6s Duration"
+                    "DescKey": "ability_gravity_lasso_t1_desc"
                 },
                 {
                     "AbilityCooldown": -56.0,
-                    "Description": "-56.0s Cooldown"
+                    "DescKey": "ability_gravity_lasso_t2_desc"
                 },
                 {
                     "GrabExtraTargets": 1,
                     "ExtraTargetConeAngle": 60,
-                    "Description": "Can lasso another enemy inside targetting area"
+                    "DescKey": "ability_gravity_lasso_t3_desc"
                 }
             ],
             "Duration": {
@@ -4806,7 +4806,7 @@
         "1": {
             "Key": "citadel_ability_uppercut",
             "Name": "Exploding Uppercut",
-            "Description": "Deal Light Melee damage to nearby units and send them flying back, causing area damage where they land. Does not damage allies.",
+            "DescKey": "citadel_ability_uppercut_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -4839,22 +4839,22 @@
                     ]
                 },
                 "Alt": [],
-                "Description": "Deal Light Melee damage to nearby units and send them flying back, causing area damage where they land. Does not damage allies."
+                "DescKey": "citadel_ability_uppercut_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCooldown": -10.5,
-                    "Description": "-10.5s Cooldown"
+                    "DescKey": "citadel_ability_uppercut_t1_desc"
                 },
                 {
                     "UppercutBuffOnHit": 12,
                     "BuffBaseWeaponPct": 60,
-                    "Description": "On Uppercut enemy Hero, gain fast spin-up time, 2x range, and +60% weapon damage for 12s"
+                    "DescKey": "citadel_ability_uppercut_t2_desc"
                 },
                 {
                     "RestoreHookCooldown": 1,
                     "ClipSizeBonus": 100,
-                    "Description": "On Uppercut enemy Hero, set Hook cooldown to 0 and instantly +100% bullets to your current clip"
+                    "DescKey": "citadel_ability_uppercut_t3_desc"
                 }
             ],
             "Range": {
@@ -4910,7 +4910,7 @@
         "2": {
             "Key": "citadel_ability_sticky_bomb",
             "Name": "Sticky Bomb",
-            "Description": "Attach a Sticky Bomb to a nearby target that deals explosive damage after a short fuse time. <br>Gain +2.5% bomb damage for every enemy hero hit.  <br>Hold [M3] to cast a Sticky Bomb on yourself.",
+            "DescKey": "citadel_ability_sticky_bomb_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -4933,20 +4933,20 @@
                     ]
                 },
                 "Alt": [],
-                "Description": "Attach a Sticky Bomb to a nearby target that deals explosive damage after a short fuse time. <br>Gain +2.5% bomb damage for every enemy hero hit.  <br>Hold [M3] to cast a Sticky Bomb on yourself."
+                "DescKey": "citadel_ability_sticky_bomb_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCooldown": -7.5,
-                    "Description": "-7.5s Cooldown"
+                    "DescKey": "citadel_ability_sticky_bomb_t1_desc"
                 },
                 {
                     "Damage": 80,
-                    "Description": "+80 Damage"
+                    "DescKey": "citadel_ability_sticky_bomb_t2_desc"
                 },
                 {
                     "DebuffDuration": 3.5,
-                    "Description": "On Attach, disarms the target for 3.5s"
+                    "DescKey": "citadel_ability_sticky_bomb_t3_desc"
                 }
             ],
             "Duration": {
@@ -4989,7 +4989,7 @@
         "3": {
             "Key": "citadel_ability_hook",
             "Name": "Hook",
-            "Description": "Launch out a hook that grabs and reels in the first hero it hits and deals damage to enemies. Target will be placed where you are facing.",
+            "DescKey": "citadel_ability_hook_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -5002,21 +5002,21 @@
                     ]
                 },
                 "Alt": [],
-                "Description": "Launch out a hook that grabs and reels in the first hero it hits and deals damage to enemies. Target will be placed where you are facing."
+                "DescKey": "citadel_ability_hook_desc"
             },
             "Upgrades": [
                 {
                     "BulletAmp": 30,
                     "BulletAmpDuration": 10,
-                    "Description": "Bebop deals 30% more bullet damage against hooked enemies for 10s"
+                    "DescKey": "citadel_ability_hook_t1_desc"
                 },
                 {
                     "AbilityCastRange": "30m",
-                    "Description": "+30m Cast Range"
+                    "DescKey": "citadel_ability_hook_t2_desc"
                 },
                 {
                     "AbilityCooldown": -11.5,
-                    "Description": "-11.5s Cooldown"
+                    "DescKey": "citadel_ability_hook_t3_desc"
                 }
             ],
             "Move": {
@@ -5073,7 +5073,7 @@
         "4": {
             "Key": "citadel_ability_bebop_laser_beam",
             "Name": "Hyper Beam",
-            "Description": "Charge up your laser to unleash a powerful torrent of energy that deals damage and slows enemies' movement and dashes. You have slow movement and turn rate for the duration. If activated in the air, you will hover while unleashing the beam.",
+            "DescKey": "citadel_ability_bebop_laser_beam_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -5109,21 +5109,21 @@
                         "Type": "distance"
                     }
                 ],
-                "Description": "Charge up your laser to unleash a powerful torrent of energy that deals damage and slows enemies' movement and dashes. You have slow movement and turn rate for the duration. If activated in the air, you will hover while unleashing the beam."
+                "DescKey": "citadel_ability_bebop_laser_beam_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCooldown": -30.0,
-                    "Description": "-30.0s Cooldown"
+                    "DescKey": "citadel_ability_bebop_laser_beam_t1_desc"
                 },
                 {
                     "DPS": 100,
-                    "Description": "+100 DPS"
+                    "DescKey": "citadel_ability_bebop_laser_beam_t2_desc"
                 },
                 {
                     "BeamLifesteal": 100,
                     "BeamLifestealNonHeroPercent": 33,
-                    "Description": "Hyper Beam heals Bebop for 100% of its damage on Heroes. 33% on non-hero"
+                    "DescKey": "citadel_ability_bebop_laser_beam_t3_desc"
                 }
             ],
             "Duration": {
@@ -5220,7 +5220,7 @@
         "1": {
             "Key": "ability_perched_predator",
             "Name": "Sekhmet's Spirit",
-            "Description": "Send a Spirit Cat forward that grab's targets in its way.  Grabbing a Hero will cause an explosion soon after. <br>Press [1] to manually create the explosion.",
+            "DescKey": "ability_perched_predator_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -5243,20 +5243,20 @@
                     ]
                 },
                 "Alt": [],
-                "Description": "Send a Spirit Cat forward that grab's targets in its way.  Grabbing a Hero will cause an explosion soon after. <br>Press [1] to manually create the explosion."
+                "DescKey": "ability_perched_predator_desc"
             },
             "Upgrades": [
                 {
                     "ExplosionRadius": "4m",
-                    "Description": "+4m Explosion Radius"
+                    "DescKey": "ability_perched_predator_t1_desc"
                 },
                 {
                     "AbilityCooldown": -11.5,
-                    "Description": "-11.5s Cooldown"
+                    "DescKey": "ability_perched_predator_t2_desc"
                 },
                 {
                     "ExplosionDamage": 100,
-                    "Description": "+100 Explosion Damage"
+                    "DescKey": "ability_perched_predator_t3_desc"
                 }
             ],
             "Duration": {
@@ -5327,7 +5327,7 @@
         "2": {
             "Key": "ability_nano_pounce",
             "Name": "Pounce",
-            "Description": "Leap at a target to inflict Light Melee damage.  Targetting an enemy will cause slow on nearby enemies.  Targeting an ally will have reduced Cooldown and Recharge times.",
+            "DescKey": "ability_nano_pounce_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -5373,22 +5373,22 @@
                         "Type": "duration"
                     }
                 ],
-                "Description": "Leap at a target to inflict Light Melee damage.  Targetting an enemy will cause slow on nearby enemies.  Targeting an ally will have reduced Cooldown and Recharge times."
+                "DescKey": "ability_nano_pounce_desc"
             },
             "Upgrades": [
                 {
                     "SlowDuration": 1,
-                    "Description": "+1s Slow Duration"
+                    "DescKey": "ability_nano_pounce_t1_desc"
                 },
                 {
                     "FireRateSlow": 30,
                     "ExplodeRadius": "6m",
-                    "Description": "+30% Fire Rate Slow and +6m Slow Radius"
+                    "DescKey": "ability_nano_pounce_t2_desc"
                 },
                 {
                     "AbilityCharges": 1,
                     "ActiveReloadPercent": 25,
-                    "Description": "+1 Ability Charge and reloads up to 25% of your ammo"
+                    "DescKey": "ability_nano_pounce_t3_desc"
                 }
             ],
             "Move": {
@@ -5452,7 +5452,7 @@
         "3": {
             "Key": "ability_nano_proximity_ritual",
             "Name": "Perched Predator",
-            "Description": "Send out Ava to attack a nearby enemy.  Targetted enemies have reduced healing and give health to Ava and Calico when damanged by them.  Ava is only active when Calico is nearby. <br>While nearby Press [3] to recall Ava, Ava regains health while recalled.",
+            "DescKey": "ability_nano_proximity_ritual_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -5512,22 +5512,22 @@
                         "Type": "healing"
                     }
                 ],
-                "Description": "Send out Ava to attack a nearby enemy.  Targetted enemies have reduced healing and give health to Ava and Calico when damanged by them.  Ava is only active when Calico is nearby. <br>While nearby Press [3] to recall Ava, Ava regains health while recalled."
+                "DescKey": "ability_nano_proximity_ritual_desc"
             },
             "Upgrades": [
                 {
                     "StatueHealth": 200,
-                    "Description": "+200<\"span> Health for Ava"
+                    "DescKey": "ability_nano_proximity_ritual_t1_desc"
                 },
                 {
                     "DPS": 30,
-                    "Description": "Victims receive UNKNOWN[FireRateSlow]% Fire Rate Slow and +UNKNOWN[ActiveRadius]m Active Radius"
+                    "DescKey": "ability_nano_proximity_ritual_t2_desc"
                 },
                 {
                     "DamageAmplification": 35,
                     "HealAmpReceivePenaltyPercent": -30,
                     "HealAmpRegenPenaltyPercent": -30,
-                    "Description": "+35% Damage Amplification and -30% Heal Reduction on Victims."
+                    "DescKey": "ability_nano_proximity_ritual_t3_desc"
                 }
             ],
             "Range": {
@@ -5597,7 +5597,7 @@
         "4": {
             "Key": "ability_nano_ult_shadow",
             "Name": "Queen of Shadows",
-            "Description": "Cast yourself in shadow and go Invisible.  Attacks do not break invisibility but they will temporarily reveal you.  Hitting enemies with Melee damage will reduce their bullet resist (stacking)",
+            "DescKey": "ability_nano_ult_shadow_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -5659,20 +5659,20 @@
                         "Value": null
                     }
                 ],
-                "Description": "Cast yourself in shadow and go Invisible.  Attacks do not break invisibility but they will temporarily reveal you.  Hitting enemies with Melee damage will reduce their bullet resist (stacking)"
+                "DescKey": "ability_nano_ult_shadow_desc"
             },
             "Upgrades": [
                 {
                     "StaminaCooldownReduction": 30,
-                    "Description": "+30% Stamina Recovery"
+                    "DescKey": "ability_nano_ult_shadow_t1_desc"
                 },
                 {
                     "PurgeOnActivate": 1,
-                    "Description": "On Cast, Remove all Debuffs"
+                    "DescKey": "ability_nano_ult_shadow_t2_desc"
                 },
                 {
                     "SilenceOnHeavyDuration": 3,
-                    "Description": "Heavy Melee attacks cause Silence for 3s"
+                    "DescKey": "ability_nano_ult_shadow_t3_desc"
                 }
             ],
             "Duration": {
@@ -5724,7 +5724,7 @@
         "1": {
             "Key": "ability_charged_shot",
             "Name": "Charged Shot",
-            "Description": "Charge up a powerful shot that pierces through enemies. Hold [1] or [M1] to hold the shot.",
+            "DescKey": "ability_charged_shot_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -5741,15 +5741,15 @@
                     ]
                 },
                 "Alt": [],
-                "Description": "Charge up a powerful shot that pierces through enemies. Hold [1] or [M1] to hold the shot."
+                "DescKey": "ability_charged_shot_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCharges": 1,
-                    "Description": "+1 Charges"
+                    "DescKey": "ability_charged_shot_t1_desc"
                 },
                 {
-                    "Description": "+UNKNOWN[Damage] Damage"
+                    "DescKey": "ability_charged_shot_t2_desc"
                 },
                 {
                     "AbilityCooldownBetweenCharge": -3,
@@ -5758,7 +5758,7 @@
                         "Value": 0.91728,
                         "Type": "spirit"
                     },
-                    "Description": "Improved damage scaling and -3s Charge Delay"
+                    "DescKey": "ability_charged_shot_t3_desc"
                 }
             ],
             "Cast": {
@@ -5825,7 +5825,7 @@
         "2": {
             "Key": "ability_power_jump",
             "Name": "Rain of Arrows",
-            "Description": "Launches you high in the air, allowing you to glide slowly. While airborne, you gain Weapon Damage and multishot on your weapon. Press [Space] to cancel the glide.",
+            "DescKey": "ability_power_jump_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -5869,23 +5869,23 @@
                         "Type": "healing"
                     }
                 ],
-                "Description": "Launches you high in the air, allowing you to glide slowly. While airborne, you gain Weapon Damage and multishot on your weapon. Press [Space] to cancel the glide."
+                "DescKey": "ability_power_jump_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCooldown": -14.0,
-                    "Description": "-14.0s Cooldown"
+                    "DescKey": "ability_power_jump_t1_desc"
                 },
                 {
                     "WeaponDamageBonus": 5,
                     "SlowPercent": 40,
                     "SlowDuration": 1.5,
-                    "Description": "While airborne, +5 Weapon Damage and weapon damage applies 40% movement slow for 1.5s"
+                    "DescKey": "ability_power_jump_t2_desc"
                 },
                 {
                     "BulletLifestealPercent": 50,
                     "TechLifestealPercent": 50,
-                    "Description": "While airborne, +50% Bullet Lifesteal and +50% Spirit Lifesteal"
+                    "DescKey": "ability_power_jump_t3_desc"
                 }
             ],
             "Duration": {
@@ -5933,7 +5933,7 @@
         "3": {
             "Key": "ability_immobilize_trap",
             "Name": "Immobilizing Trap",
-            "Description": "Throw out a trap that begins to arm itself. Once armed, the trap will trigger when an enemy enters its radius, immobilizing and then slowing them.",
+            "DescKey": "ability_immobilize_trap_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -5989,21 +5989,21 @@
                         "Type": "duration"
                     }
                 ],
-                "Description": "Throw out a trap that begins to arm itself. Once armed, the trap will trigger when an enemy enters its radius, immobilizing and then slowing them."
+                "DescKey": "ability_immobilize_trap_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCooldown": -19.0,
-                    "Description": "-19.0s Cooldown"
+                    "DescKey": "ability_immobilize_trap_t1_desc"
                 },
                 {
                     "SlowDuration": 2.0,
-                    "Description": "+2.0s Slow Duration"
+                    "DescKey": "ability_immobilize_trap_t2_desc"
                 },
                 {
                     "BulletVulnerbility": 30,
                     "DebuffDuration": 10,
-                    "Description": "Grey Talon deals +30% more Bullet Damage to enemies hit by Immobilizing Trap for 10s"
+                    "DescKey": "ability_immobilize_trap_t3_desc"
                 }
             ],
             "Duration": {
@@ -6050,7 +6050,7 @@
         "4": {
             "Key": "ability_guided_arrow",
             "Name": "Guided Owl",
-            "Description": "After 1.5s cast time, launch a spirit owl that you control and which explodes on impact, damaging and stunning enemies. Hold [M1] to accelerate the owl.<br>Press [Space] to release control. Gain permanent Spirit Power for each enemy hero killed with Guided Owl.",
+            "DescKey": "ability_guided_arrow_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -6080,20 +6080,20 @@
                         "Type": "tech_damage"
                     }
                 ],
-                "Description": "After 1.5s cast time, launch a spirit owl that you control and which explodes on impact, damaging and stunning enemies. Hold [M1] to accelerate the owl.<br>Press [Space] to release control. Gain permanent Spirit Power for each enemy hero killed with Guided Owl."
+                "DescKey": "ability_guided_arrow_desc"
             },
             "Upgrades": [
                 {
                     "Damage": 100,
-                    "Description": "+100 Damage"
+                    "DescKey": "ability_guided_arrow_t1_desc"
                 },
                 {
                     "AbilityCooldown": -47.0,
-                    "Description": "-47.0s Cooldown"
+                    "DescKey": "ability_guided_arrow_t2_desc"
                 },
                 {
                     "LowHealthEnemyThresholdPct": 22,
-                    "Description": "After hit, kills enemies that are below 22% Health"
+                    "DescKey": "ability_guided_arrow_t3_desc"
                 }
             ],
             "Duration": {
@@ -6131,7 +6131,7 @@
         "1": {
             "Key": "ability_intimidate",
             "Name": "Scorn",
-            "Description": "Deal damage to nearby enemies and heal yourself based on the damage done. Heal is stronger against enemy heroes.",
+            "DescKey": "ability_intimidate_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -6161,21 +6161,21 @@
                         "Type": "healing"
                     }
                 ],
-                "Description": "Deal damage to nearby enemies and heal yourself based on the damage done. Heal is stronger against enemy heroes."
+                "DescKey": "ability_intimidate_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCooldown": -3.75,
-                    "Description": "-3.75s Cooldown"
+                    "DescKey": "ability_intimidate_t1_desc"
                 },
                 {
                     "Damage": 25,
-                    "Description": "+25 Damage"
+                    "DescKey": "ability_intimidate_t2_desc"
                 },
                 {
                     "DamageBonus": 15,
                     "DebuffDuration": 16,
-                    "Description": "Adds a debuff to enemies that lets Mo & Krill deal +15% Damage to them. Stacks and lasts 16s."
+                    "DescKey": "ability_intimidate_t3_desc"
                 }
             ],
             "Move": {
@@ -6211,7 +6211,7 @@
         "2": {
             "Key": "ability_burrow",
             "Name": "Burrow",
-            "Description": "Burrow underground, moving faster, and gaining spirit and bullet armor. Damage from enemy heroes will reduce the speed bonus. When you jump out, knock enemies into the air and perform a spin attack that damages and slows. Cooldown starts when Burrow ends.",
+            "DescKey": "ability_burrow_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -6253,22 +6253,22 @@
                         "Type": "tech_armor_up"
                     }
                 ],
-                "Description": "Burrow underground, moving faster, and gaining spirit and bullet armor. Damage from enemy heroes will reduce the speed bonus. When you jump out, knock enemies into the air and perform a spin attack that damages and slows. Cooldown starts when Burrow ends."
+                "DescKey": "ability_burrow_desc"
             },
             "Upgrades": [
                 {
                     "AbilityChannelTime": 3,
-                    "Description": "Burrow time +3s"
+                    "DescKey": "ability_burrow_t1_desc"
                 },
                 {
                     "DPS": 140,
                     "Radius": "2m",
-                    "Description": "+140 Spin DPS and +2 radius"
+                    "DescKey": "ability_burrow_t2_desc"
                 },
                 {
                     "AbilityCooldown": -19.0,
                     "BonusMoveSpeed": "3m",
-                    "Description": "-19.0 Cooldown and +3m/s Move Speed"
+                    "DescKey": "ability_burrow_t3_desc"
                 }
             ],
             "Duration": {
@@ -6335,7 +6335,7 @@
         "3": {
             "Key": "ability_throw_sand",
             "Name": "Sand Blast",
-            "Description": "Spray sand that disarms enemies in front of you and deals damage.",
+            "DescKey": "ability_throw_sand_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -6352,20 +6352,20 @@
                     ]
                 },
                 "Alt": [],
-                "Description": "Spray sand that disarms enemies in front of you and deals damage."
+                "DescKey": "ability_throw_sand_desc"
             },
             "Upgrades": [
                 {
                     "AbilityDuration": 1.5,
-                    "Description": "+1.5s Duration"
+                    "DescKey": "ability_throw_sand_t1_desc"
                 },
                 {
                     "AbilityCooldown": -19.0,
-                    "Description": "-19.0s Cooldown"
+                    "DescKey": "ability_throw_sand_t2_desc"
                 },
                 {
                     "SlowPercent": 50,
-                    "Description": "Slow targets by -50%"
+                    "DescKey": "ability_throw_sand_t3_desc"
                 }
             ],
             "Duration": {
@@ -6412,7 +6412,7 @@
         "4": {
             "Key": "ability_ult_combo",
             "Name": "Combo",
-            "Description": "Hold the target in place, stunning them and dealing damage during the channel. If they die during Combo, you permanently gain max health.",
+            "DescKey": "ability_ult_combo_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -6435,21 +6435,21 @@
                     ]
                 },
                 "Alt": [],
-                "Description": "Hold the target in place, stunning them and dealing damage during the channel. If they die during Combo, you permanently gain max health."
+                "DescKey": "ability_ult_combo_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCooldown": -28.0,
-                    "Description": "-28.0s Cooldown"
+                    "DescKey": "ability_ult_combo_t1_desc"
                 },
                 {
                     "AbilityChannelTime": 0.75,
-                    "Description": "Combo Duration +0.75s"
+                    "DescKey": "ability_ult_combo_t2_desc"
                 },
                 {
                     "DPS": 40,
                     "LifeStealPercentOnHit": 100,
-                    "Description": "+40 Damage Per Second and 100% lifesteal"
+                    "DescKey": "ability_ult_combo_t3_desc"
                 }
             ],
             "Cast": {
@@ -6480,7 +6480,7 @@
         "1": {
             "Key": "citadel_ability_shiv_dagger",
             "Name": "Serrated Knives",
-            "Description": "Throw a knife that damages and bleeds an enemy.  Each additional hit adds a stack and refreshes the bleed duration, causing the bleed to increase per stack.",
+            "DescKey": "citadel_ability_shiv_dagger_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -6513,7 +6513,7 @@
                     ]
                 },
                 "Alt": [],
-                "Description": "Throw a knife that damages and bleeds an enemy.  Each additional hit adds a stack and refreshes the bleed duration, causing the bleed to increase per stack."
+                "DescKey": "citadel_ability_shiv_dagger_desc"
             },
             "Info2": {
                 "Main": {
@@ -6527,21 +6527,21 @@
                     ]
                 },
                 "Alt": [],
-                "Description": "Ultimate Unlock:  While rage is full knives will ricochet to another enemy and apply a slow to enemies they bleed."
+                "DescKey": "citadel_ability_shiv_dagger_max_rage_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCharges": 1,
-                    "Description": "+1 Charges"
+                    "DescKey": "citadel_ability_shiv_dagger_t1_desc"
                 },
                 {
                     "BleedDuration": 2,
-                    "Description": "+2s Bleed Duration"
+                    "DescKey": "citadel_ability_shiv_dagger_t2_desc"
                 },
                 {
                     "ImpactDamage": 40,
                     "BleedDPSPerStack": 5,
-                    "Description": "+40 Damage and +5 Bleed DPS"
+                    "DescKey": "citadel_ability_shiv_dagger_t3_desc"
                 }
             ],
             "Range": {
@@ -6599,7 +6599,7 @@
         "2": {
             "Key": "citadel_ability_shiv_dash",
             "Name": "Slice and Dice",
-            "Description": "Perform a dash forward, damaging enemies along the path.<br><br>Ultimate Unlock: While rage is full an echo of Shiv retraces the dash path after a short delay, damaging enemies again.",
+            "DescKey": "citadel_ability_shiv_dash_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -6622,22 +6622,22 @@
                     ]
                 },
                 "Alt": [],
-                "Description": "Perform a dash forward, damaging enemies along the path.<br><br>Ultimate Unlock: While rage is full an echo of Shiv retraces the dash path after a short delay, damaging enemies again."
+                "DescKey": "citadel_ability_shiv_dash_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCooldown": -3.75,
-                    "Description": "-3.75s Cooldown"
+                    "DescKey": "citadel_ability_shiv_dash_t1_desc"
                 },
                 {
                     "ImpactDamage": 85,
-                    "Description": "+85 Damage"
+                    "DescKey": "citadel_ability_shiv_dash_t2_desc"
                 },
                 {
                     "CooldownReductionOnHit": 2,
                     "CooldownReductionOnHitNonHero": 1,
                     "MaxCooldownReductionsFromHits": 6,
-                    "Description": "Reduce cooldown by 2s per enemy hero hit (1s for Non-Hero). Max -6s per Dash."
+                    "DescKey": "citadel_ability_shiv_dash_t3_desc"
                 }
             ],
             "Move": {
@@ -6697,7 +6697,7 @@
         "3": {
             "Key": "citadel_ability_shiv_defer_damage",
             "Name": "Bloodletting",
-            "Description": "Take only a portion of incoming damage immediately and defer the rest to be taken over time.  Activate to clear a portion of the deferred damage.",
+            "DescKey": "citadel_ability_shiv_defer_damage_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -6716,7 +6716,7 @@
                     ]
                 },
                 "Alt": [],
-                "Description": "Take only a portion of incoming damage immediately and defer the rest to be taken over time.  Activate to clear a portion of the deferred damage."
+                "DescKey": "citadel_ability_shiv_defer_damage_desc"
             },
             "Info2": {
                 "Main": {
@@ -6744,20 +6744,20 @@
                     ]
                 },
                 "Alt": [],
-                "Description": "Ultimate Unlock: While rage is full the amount of damage deferred is increased."
+                "DescKey": "citadel_ability_shiv_defer_damage_max_rage_desc"
             },
             "Upgrades": [
                 {
                     "DeferredDamageDuration": 5,
-                    "Description": "+5s Deferred Damage Duration"
+                    "DescKey": "citadel_ability_shiv_defer_damage_t1_desc"
                 },
                 {
                     "AbilityCooldown": -4.75,
-                    "Description": "-4.75s Cooldown"
+                    "DescKey": "citadel_ability_shiv_defer_damage_t2_desc"
                 },
                 {
                     "DeferClearPct": 25,
-                    "Description": "+25% Deferred Damage Cleared"
+                    "DescKey": "citadel_ability_shiv_defer_damage_t3_desc"
                 }
             ],
             "Move": {
@@ -6797,7 +6797,7 @@
                     ]
                 },
                 "Alt": [],
-                "Description": "Activate to leap towards an enemy hero and instantly kill them if their health is below the kill threshold, otherwise deal 200 damage to them."
+                "DescKey": "citadel_ability_shiv_killing_blow_active_desc"
             },
             "Info2": {
                 "Main": {
@@ -6811,21 +6811,21 @@
                     ]
                 },
                 "Alt": [],
-                "Description": "Passive: Damaging enemies fills you with rage.  While at full rage, Shiv gains increased damage and special properties on his other abilities."
+                "DescKey": "citadel_ability_shiv_killing_blow_passive_desc"
             },
             "Upgrades": [
                 {
                     "BonusMoveSpeed": "2m",
-                    "Description": "Gain +2 m/s move speed while at full rage."
+                    "DescKey": "citadel_ability_shiv_killing_blow_t1_desc"
                 },
                 {
                     "EnemyHealthPercent": 8,
                     "BuffDamage": 5,
-                    "Description": "+8% Enemy Health Threshold and +5% Full Rage Bonus Damage"
+                    "DescKey": "citadel_ability_shiv_killing_blow_t2_desc"
                 },
                 {
                     "ShortCooldown": 0.5,
-                    "Description": "Finishing off an enemy with Killing Blow resets its cooldown."
+                    "DescKey": "citadel_ability_shiv_killing_blow_t3_desc"
                 }
             ],
             "Cooldown": {
@@ -6933,7 +6933,7 @@
         "1": {
             "Key": "citadel_ability_tengu_urn",
             "Name": "Kudzu Bomb",
-            "Description": "Summon a patch of choking vines that damages and slows enemies in its radius.",
+            "DescKey": "citadel_ability_tengu_urn_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -6956,20 +6956,20 @@
                     ]
                 },
                 "Alt": [],
-                "Description": "Summon a patch of choking vines that damages and slows enemies in its radius."
+                "DescKey": "citadel_ability_tengu_urn_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCharges": 1,
-                    "Description": "+1 Charges"
+                    "DescKey": "citadel_ability_tengu_urn_t1_desc"
                 },
                 {
                     "AbilityDuration": 2,
-                    "Description": "+2s Duration"
+                    "DescKey": "citadel_ability_tengu_urn_t2_desc"
                 },
                 {
                     "DPS": 60,
-                    "Description": "+60 DPS"
+                    "DescKey": "citadel_ability_tengu_urn_t3_desc"
                 }
             ],
             "Duration": {
@@ -7028,7 +7028,7 @@
         "2": {
             "Key": "citadel_ability_tangotether",
             "Name": "Watcher's Covenant",
-            "Description": "Gain bonuses and automatically connect with a nearby ally to share them.  Healing is replicated among all those connected. Connection requires line of sight. Press [2] to Lock on to a target",
+            "DescKey": "citadel_ability_tangotether_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -7073,20 +7073,20 @@
                         "Value": 1
                     }
                 ],
-                "Description": "Gain bonuses and automatically connect with a nearby ally to share them.  Healing is replicated among all those connected. Connection requires line of sight. Press [2] to Lock on to a target"
+                "DescKey": "citadel_ability_tangotether_desc"
             },
             "Upgrades": [
                 {
                     "BonusFireRate": 10,
-                    "Description": "+10% Fire Rate"
+                    "DescKey": "citadel_ability_tangotether_t1_desc"
                 },
                 {
                     "MoveSpeedBonus": "2.0m",
-                    "Description": "+2.0m/s movement bonus"
+                    "DescKey": "citadel_ability_tangotether_t2_desc"
                 },
                 {
                     "TotalTetherTargets": 1,
-                    "Description": "+1 Tether Count"
+                    "DescKey": "citadel_ability_tangotether_t3_desc"
                 }
             ],
             "Duration": {
@@ -7129,7 +7129,7 @@
         "3": {
             "Key": "citadel_ability_tengu_stone_form",
             "Name": "Stone Form",
-            "Description": "Turn yourself into impervious stone and smash into the ground, stunning and damaging enemies nearby. Heals you for a percentage of your max health. You have some air control before falling.",
+            "DescKey": "citadel_ability_tengu_stone_form_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -7158,21 +7158,21 @@
                     ]
                 },
                 "Alt": [],
-                "Description": "Turn yourself into impervious stone and smash into the ground, stunning and damaging enemies nearby. Heals you for a percentage of your max health. You have some air control before falling."
+                "DescKey": "citadel_ability_tengu_stone_form_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCooldown": -19.0,
-                    "Description": "-19.0s Cooldown"
+                    "DescKey": "citadel_ability_tengu_stone_form_t1_desc"
                 },
                 {
                     "StunDuration": 0.5,
                     "Damage": 80,
-                    "Description": "+80 Damage and stuns for 0.5s."
+                    "DescKey": "citadel_ability_tengu_stone_form_t2_desc"
                 },
                 {
                     "MaxHealthRegen": 20,
-                    "Description": "+20% Max Health Heal"
+                    "DescKey": "citadel_ability_tengu_stone_form_t3_desc"
                 }
             ],
             "Duration": {
@@ -7234,7 +7234,7 @@
         "4": {
             "Key": "citadel_ability_tengu_airlift",
             "Name": "Air Drop",
-            "Description": "Take flight with an ally or a bomb. Drop your ally or bomb to cause a large explosion that causes movement slow. Ivy and ally gain a bullet shield when flying ends. <br>While lifted, your ally gains bullet resist but cannot attack and deals -50% damage. Air Drop has faster cast time when targeting an ally. <br>[M1] to accelerate flying speed. <br>[M2] to drop ally/bomb.",
+            "DescKey": "citadel_ability_tengu_airlift_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -7310,22 +7310,22 @@
                         "Type": "duration"
                     }
                 ],
-                "Description": "Take flight with an ally or a bomb. Drop your ally or bomb to cause a large explosion that causes movement slow. Ivy and ally gain a bullet shield when flying ends. <br>While lifted, your ally gains bullet resist but cannot attack and deals -50% damage. Air Drop has faster cast time when targeting an ally. <br>[M1] to accelerate flying speed. <br>[M2] to drop ally/bomb."
+                "DescKey": "citadel_ability_tengu_airlift_desc"
             },
             "Upgrades": [
                 {
                     "BulletArmorReduction": -20,
                     "BulletArmorReductionDuration": 12,
-                    "Description": "-20% Bullet Resist on enemies hit for 12s"
+                    "DescKey": "citadel_ability_tengu_airlift_t1_desc"
                 },
                 {
                     "AirDropBulletShield": 300,
                     "OnLandDamageRadius": "5m",
-                    "Description": "+300 Bullet Shield and +5m Explode Radius"
+                    "DescKey": "citadel_ability_tengu_airlift_t2_desc"
                 },
                 {
                     "SilenceDuration": 4.5,
-                    "Description": "Applies Silence on enemies hit for +4.5s"
+                    "DescKey": "citadel_ability_tengu_airlift_t3_desc"
                 }
             ],
             "Duration": {
@@ -7386,15 +7386,12 @@
             }
         }
     },
-    "hero_kali": {
-        "Name": "Kali"
-    },
     "hero_warden": {
         "Name": "Warden",
         "1": {
             "Key": "ability_warden_crowd_control",
             "Name": "Alchemical Flask",
-            "Description": "Throw a flask that damages, slows, and reduces the weapon damage and stamina of enemies it hits.",
+            "DescKey": "ability_warden_crowd_control_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -7435,21 +7432,21 @@
                         "Value": null
                     }
                 ],
-                "Description": "Throw a flask that damages, slows, and reduces the weapon damage and stamina of enemies it hits."
+                "DescKey": "ability_warden_crowd_control_desc"
             },
             "Upgrades": [
                 {
                     "Damage": 40,
-                    "Description": "+40 Damage"
+                    "DescKey": "ability_warden_crowd_control_t1_desc"
                 },
                 {
                     "StaminaReduction": 1,
-                    "Description": "+1 Stamina Reduction"
+                    "DescKey": "ability_warden_crowd_control_t2_desc"
                 },
                 {
                     "FireRateSlow": 35,
                     "AbilityCooldown": -6.5,
-                    "Description": "-6.5s Cooldown and applies 35% Fire Rate Slow"
+                    "DescKey": "ability_warden_crowd_control_t3_desc"
                 }
             ],
             "Move": {
@@ -7489,7 +7486,7 @@
         "2": {
             "Key": "ability_warden_high_alert",
             "Name": "Willpower",
-            "Description": "Gain a spirit shield and bonus movement speed.",
+            "DescKey": "ability_warden_high_alert_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -7512,16 +7509,16 @@
                     ]
                 },
                 "Alt": [],
-                "Description": "Gain a spirit shield and bonus movement speed."
+                "DescKey": "ability_warden_high_alert_desc"
             },
             "Upgrades": [
                 {
                     "MoveSpeedBonusPct": 20,
-                    "Description": "+20% Move speed bonus"
+                    "DescKey": "ability_warden_high_alert_t1_desc"
                 },
                 {
                     "AbilityCooldown": -19.0,
-                    "Description": "-19.0s Cooldown"
+                    "DescKey": "ability_warden_high_alert_t2_desc"
                 },
                 {
                     "TechShieldPoints": 200,
@@ -7530,7 +7527,7 @@
                         "Value": 3.9312,
                         "Type": "spirit"
                     },
-                    "Description": "+200 Spirit Shield Health and now scales with Spirit Power"
+                    "DescKey": "ability_warden_high_alert_t3_desc"
                 }
             ],
             "Duration": {
@@ -7561,7 +7558,7 @@
         "3": {
             "Key": "ability_warden_lock_down",
             "Name": "Binding Word",
-            "Description": "Curse an enemy hero. If they don't move away from their initial position within the escape time, they will be damaged and immobilized.",
+            "DescKey": "ability_warden_lock_down_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -7597,21 +7594,21 @@
                         "Type": "distance"
                     }
                 ],
-                "Description": "Curse an enemy hero. If they don't move away from their initial position within the escape time, they will be damaged and immobilized."
+                "DescKey": "ability_warden_lock_down_desc"
             },
             "Upgrades": [
                 {
                     "ImmobilizeDuration": 1,
-                    "Description": "+1s Immobilize Duration"
+                    "DescKey": "ability_warden_lock_down_t1_desc"
                 },
                 {
                     "AbilityCooldown": -19.0,
-                    "Description": "-19.0s Cooldown"
+                    "DescKey": "ability_warden_lock_down_t2_desc"
                 },
                 {
                     "BulletArmorReduction": 20,
                     "BulletArmorReductionDuration": 6,
-                    "Description": "Warden deals +20% more Bullet Damage to trapped Heroes for 6s"
+                    "DescKey": "ability_warden_lock_down_t3_desc"
                 }
             ],
             "Move": {
@@ -7643,7 +7640,7 @@
         "4": {
             "Key": "ability_warden_riot_protocol",
             "Name": "Last Stand",
-            "Description": "After charging for 2.25s, release pulses that damage enemies and heal you based on the damage done. <br>While channeling Last Stand you have greatly increased bullet resist.",
+            "DescKey": "ability_warden_riot_protocol_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -7685,20 +7682,20 @@
                         "Type": "healing"
                     }
                 ],
-                "Description": "After charging for 2.25s, release pulses that damage enemies and heal you based on the damage done. <br>While channeling Last Stand you have greatly increased bullet resist."
+                "DescKey": "ability_warden_riot_protocol_desc"
             },
             "Upgrades": [
                 {
                     "Radius": "3m",
-                    "Description": "+3m Radius"
+                    "DescKey": "ability_warden_riot_protocol_t1_desc"
                 },
                 {
                     "PulseDPS": 70,
-                    "Description": "+70 DPS"
+                    "DescKey": "ability_warden_riot_protocol_t2_desc"
                 },
                 {
                     "AbilityCooldown": -56.0,
-                    "Description": "-56.0s Cooldown"
+                    "DescKey": "ability_warden_riot_protocol_t3_desc"
                 }
             ],
             "Duration": {
@@ -7744,7 +7741,7 @@
         "1": {
             "Key": "citadel_ability_power_slash",
             "Name": "Power Slash",
-            "Description": "Channel to increase damage over 1.4 seconds, then release a fully-charged sword strike.<br>Press [1] or [M1] to trigger the strike early, dealing partial damage.",
+            "DescKey": "citadel_ability_power_slash_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -7786,21 +7783,21 @@
                         "Type": "bullet_armor_up"
                     }
                 ],
-                "Description": "Channel to increase damage over 1.4 seconds, then release a fully-charged sword strike.<br>Press [1] or [M1] to trigger the strike early, dealing partial damage."
+                "DescKey": "citadel_ability_power_slash_desc"
             },
             "Upgrades": [
                 {
                     "BulletResist": 60,
-                    "Description": "Gain +60 Bullet Resist while channeling"
+                    "DescKey": "citadel_ability_power_slash_t1_desc"
                 },
                 {
                     "SlowDuration": 3,
                     "SlowPercent": 40,
-                    "Description": "Apply 40% movement slow for 3s"
+                    "DescKey": "citadel_ability_power_slash_t2_desc"
                 },
                 {
                     "FullChargeDamage": 200,
-                    "Description": "+200 Full Charge Damage"
+                    "DescKey": "citadel_ability_power_slash_t3_desc"
                 }
             ],
             "Move": {
@@ -7861,7 +7858,7 @@
         "2": {
             "Key": "citadel_ability_flying_strike",
             "Name": "Flying Strike",
-            "Description": "Throw a grappling hook to reel yourself towards an enemy, damaging and slowing the target when you arrive.",
+            "DescKey": "citadel_ability_flying_strike_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -7891,21 +7888,21 @@
                         "Type": "duration"
                     }
                 ],
-                "Description": "Throw a grappling hook to reel yourself towards an enemy, damaging and slowing the target when you arrive."
+                "DescKey": "citadel_ability_flying_strike_desc"
             },
             "Upgrades": [
                 {
                     "SlowPercent": 25,
-                    "Description": "+25% Movement Slow"
+                    "DescKey": "citadel_ability_flying_strike_t1_desc"
                 },
                 {
                     "AbilityCastRange": "20m",
-                    "Description": "+20m Cast Range"
+                    "DescKey": "citadel_ability_flying_strike_t2_desc"
                 },
                 {
                     "WeaponDamageBonus": 6,
                     "WeaponPowerIncreaseDuration": 10,
-                    "Description": "+6 Weapon Damage for 10s after striking the target"
+                    "DescKey": "citadel_ability_flying_strike_t3_desc"
                 }
             ],
             "Move": {
@@ -7937,7 +7934,7 @@
         "3": {
             "Key": "citadel_ability_healing_slash",
             "Name": "Crimson Slash",
-            "Description": "Slash enemies in front of you, damaging them and slowing their fire rate. If any enemy heroes are hit, you heal.",
+            "DescKey": "citadel_ability_healing_slash_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -7977,20 +7974,20 @@
                         "Type": "duration"
                     }
                 ],
-                "Description": "Slash enemies in front of you, damaging them and slowing their fire rate. If any enemy heroes are hit, you heal."
+                "DescKey": "citadel_ability_healing_slash_desc"
             },
             "Upgrades": [
                 {
                     "FireRateSlow": 30,
-                    "Description": "+30% Fire Rate Slow"
+                    "DescKey": "citadel_ability_healing_slash_t1_desc"
                 },
                 {
                     "HealMaxHealth": 10,
-                    "Description": "+10% of Max Health Heal on hero hit"
+                    "DescKey": "citadel_ability_healing_slash_t2_desc"
                 },
                 {
                     "AbilityCooldown": -5.75,
-                    "Description": "-5.75s Cooldown"
+                    "DescKey": "citadel_ability_healing_slash_t3_desc"
                 }
             ],
             "Other": {
@@ -8019,7 +8016,7 @@
         "4": {
             "Key": "citadel_ability_infinity_slash",
             "Name": "Shadow Transformation",
-            "Description": "Become infused with Yamato's shadow soul. After an initial invincible transformation, your abilities are refreshed and are 60% faster, your weapon has infinite ammo, and you gain damage resists and immunity to negative status effects. You are unable to die in this mode.",
+            "DescKey": "citadel_ability_infinity_slash_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -8051,20 +8048,20 @@
                         "Type": "bullet_armor_up"
                     }
                 ],
-                "Description": "Become infused with Yamato's shadow soul. After an initial invincible transformation, your abilities are refreshed and are 60% faster, your weapon has infinite ammo, and you gain damage resists and immunity to negative status effects. You are unable to die in this mode."
+                "DescKey": "citadel_ability_infinity_slash_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCooldown": -28.0,
-                    "Description": "-28.0s Cooldown"
+                    "DescKey": "citadel_ability_infinity_slash_t1_desc"
                 },
                 {
                     "BonusMoveSpeed": "4m",
-                    "Description": "+4m/s Move Speed"
+                    "DescKey": "citadel_ability_infinity_slash_t2_desc"
                 },
                 {
                     "AbilityDuration": 1.5,
-                    "Description": "+1.5s Duration"
+                    "DescKey": "citadel_ability_infinity_slash_t3_desc"
                 }
             ],
             "Duration": {
@@ -8111,7 +8108,7 @@
         "1": {
             "Key": "citadel_ability_lash_down_strike",
             "Name": "Ground Strike",
-            "Description": "Stomp the ground beneath you, damaging enemies in front of you. If you perform Ground Strike while airborne, you quickly dive towards the ground. Damage grows slower after 25m.",
+            "DescKey": "citadel_ability_lash_down_strike_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -8151,18 +8148,18 @@
                         "Type": "duration"
                     }
                 ],
-                "Description": "Stomp the ground beneath you, damaging enemies in front of you. If you perform Ground Strike while airborne, you quickly dive towards the ground. Damage grows slower after 25m."
+                "DescKey": "citadel_ability_lash_down_strike_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCooldown": -9.5,
-                    "Description": "-9.5s Cooldown"
+                    "DescKey": "citadel_ability_lash_down_strike_t1_desc"
                 },
                 {
                     "EnemySlowPct": 50,
                     "SlowDuration": 3,
                     "StompBounceHeight": 400,
-                    "Description": "Struck enemies are popped into the air and slowed by 50% for 3s"
+                    "DescKey": "citadel_ability_lash_down_strike_t2_desc"
                 },
                 {
                     "Scale": {
@@ -8170,7 +8167,7 @@
                         "Value": 0.00875,
                         "Type": "spirit"
                     },
-                    "Description": "Damage Per Meter +110% and improved scaling"
+                    "DescKey": "citadel_ability_lash_down_strike_t3_desc"
                 }
             ],
             "Move": {
@@ -8233,7 +8230,7 @@
         "2": {
             "Key": "citadel_ability_lash",
             "Name": "Grapple",
-            "Description": "Pull yourself through the air toward a target. Using Grapple also resets your limit of air jumps and dashes.",
+            "DescKey": "citadel_ability_lash_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -8265,22 +8262,22 @@
                         "Type": "fire_rate"
                     }
                 ],
-                "Description": "Pull yourself through the air toward a target. Using Grapple also resets your limit of air jumps and dashes."
+                "DescKey": "citadel_ability_lash_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCooldown": -19.0,
-                    "Description": "-19.0s Cooldown"
+                    "DescKey": "citadel_ability_lash_t1_desc"
                 },
                 {
                     "AbilityCastRange": "20m",
                     "WeaponDamageBonus": 6,
                     "WeaponDamageBonusDuration": 10,
-                    "Description": "+20m Cast Range and gain +6 Weapon Damage for 10s"
+                    "DescKey": "citadel_ability_lash_t2_desc"
                 },
                 {
                     "WeaponFireRateBonus": 20,
-                    "Description": "+20% Fire Rate to Weapon Bonus Buff"
+                    "DescKey": "citadel_ability_lash_t3_desc"
                 }
             ],
             "Range": {
@@ -8331,7 +8328,7 @@
         "3": {
             "Key": "ability_lash_flog",
             "Name": "Flog",
-            "Description": "Strike enemies with your whip, stealing life from them.",
+            "DescKey": "ability_lash_flog_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -8383,22 +8380,22 @@
                         "Type": "duration"
                     }
                 ],
-                "Description": "Strike enemies with your whip, stealing life from them."
+                "DescKey": "ability_lash_flog_desc"
             },
             "Upgrades": [
                 {
                     "EnemySlowDuration": 3,
                     "EnemySlowPct": 35,
-                    "Description": "Apply 35% Movement Slow for 3s"
+                    "DescKey": "ability_lash_flog_t1_desc"
                 },
                 {
                     "AbilityCooldown": -14.0,
-                    "Description": "-14.0s Cooldown"
+                    "DescKey": "ability_lash_flog_t2_desc"
                 },
                 {
                     "Damage": 105,
                     "FireRateSlow": 35,
-                    "Description": "+105 Damage and applies 35% Fire Rate Slow"
+                    "DescKey": "ability_lash_flog_t3_desc"
                 }
             ],
             "Move": {
@@ -8430,7 +8427,7 @@
         "4": {
             "Key": "citadel_ability_lash_ultimate",
             "Name": "Death Slam",
-            "Description": "Focus on enemies to connect whips to them. After channeling, connected enemies are lifted and stunned then slammed into the ground. Your victims and any enemies in the landing zone will be damaged and slowed. <br>Press [M1] to throw connected enemies early. Enemies that are not in line of sight or go out of range during the latch time will not be grabbed.",
+            "DescKey": "citadel_ability_lash_ultimate_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -8475,20 +8472,20 @@
                         "Type": "cast"
                     }
                 ],
-                "Description": "Focus on enemies to connect whips to them. After channeling, connected enemies are lifted and stunned then slammed into the ground. Your victims and any enemies in the landing zone will be damaged and slowed. <br>Press [M1] to throw connected enemies early. Enemies that are not in line of sight or go out of range during the latch time will not be grabbed."
+                "DescKey": "citadel_ability_lash_ultimate_desc"
             },
             "Upgrades": [
                 {
                     "ThrowDistance": "8m",
-                    "Description": "+8m Max Throw Distance"
+                    "DescKey": "citadel_ability_lash_ultimate_t1_desc"
                 },
                 {
                     "ImpactDamage": 100,
-                    "Description": "+100 Damage"
+                    "DescKey": "citadel_ability_lash_ultimate_t2_desc"
                 },
                 {
                     "AbilityCooldown": -56.0,
-                    "Description": "-56.0s Cooldown"
+                    "DescKey": "citadel_ability_lash_ultimate_t3_desc"
                 }
             ],
             "Cooldown": {
@@ -8588,7 +8585,7 @@
         "1": {
             "Key": "viscous_goo_grenade",
             "Name": "Splatter",
-            "Description": "Throw a ball of goo that deals damage and leaves puddles of goo behind that apply movement slow to enemies in the radius.",
+            "DescKey": "viscous_goo_grenade_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -8605,21 +8602,21 @@
                     ]
                 },
                 "Alt": [],
-                "Description": "Throw a ball of goo that deals damage and leaves puddles of goo behind that apply movement slow to enemies in the radius."
+                "DescKey": "viscous_goo_grenade_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCooldown": -5.75,
-                    "Description": "-5.75s Cooldown"
+                    "DescKey": "viscous_goo_grenade_t1_desc"
                 },
                 {
                     "Damage": 70,
                     "Radius": "1m",
-                    "Description": "+70 Damage and +1m Radius"
+                    "DescKey": "viscous_goo_grenade_t2_desc"
                 },
                 {
                     "MaxBounces": 2,
-                    "Description": "Bounces 2 times"
+                    "DescKey": "viscous_goo_grenade_t3_desc"
                 }
             ],
             "Duration": {
@@ -8689,7 +8686,7 @@
         "2": {
             "Key": "viscous_restorative_goo",
             "Name": "The Cube",
-            "Description": "Encase the target in a cube of restorative goo that purges debuffs, protects from damage, and increases health regen. Target is unable to take any new actions while cubed. Can be used on self. Press [Space] to escape early.",
+            "DescKey": "viscous_restorative_goo_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -8708,22 +8705,22 @@
                     ]
                 },
                 "Alt": [],
-                "Description": "Encase the target in a cube of restorative goo that purges debuffs, protects from damage, and increases health regen. Target is unable to take any new actions while cubed. Can be used on self. Press [Space] to escape early."
+                "DescKey": "viscous_restorative_goo_desc"
             },
             "Upgrades": [
                 {
                     "BonusMoveSpeed": "2.5m",
                     "StaminaCooldownReduction": 30,
                     "PostCubeBuff": 1,
-                    "Description": "Increases Movement Speed and Stamina Recovery"
+                    "DescKey": "viscous_restorative_goo_t1_desc"
                 },
                 {
                     "AbilityCooldown": -21.0,
-                    "Description": "-21.0s Cooldown"
+                    "DescKey": "viscous_restorative_goo_t2_desc"
                 },
                 {
                     "BonusHealthRegen": 60,
-                    "Description": "+60 Health Regen"
+                    "DescKey": "viscous_restorative_goo_t3_desc"
                 }
             ],
             "Move": {
@@ -8799,7 +8796,7 @@
         "3": {
             "Key": "viscous_telepunch",
             "Name": "Puddle Punch",
-            "Description": "Materialize a fist in the world that punches units in the area and send them flying. Enemies will be dealt damage, have their dash distance reduced for a brief moment, and have their movement slowed. This is considered a Light Melee attack.",
+            "DescKey": "viscous_telepunch_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -8818,21 +8815,21 @@
                         "Value": 4
                     }
                 ],
-                "Description": "Materialize a fist in the world that punches units in the area and send them flying. Enemies will be dealt damage, have their dash distance reduced for a brief moment, and have their movement slowed. This is considered a Light Melee attack."
+                "DescKey": "viscous_telepunch_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCharges": 1,
-                    "Description": "+1 Charges"
+                    "DescKey": "viscous_telepunch_t1_desc"
                 },
                 {
                     "Damage": 35,
                     "SlowPercent": 20,
-                    "Description": "+35 Damage and +20% Movement Slow"
+                    "DescKey": "viscous_telepunch_t2_desc"
                 },
                 {
                     "AbilityCooldown": -11.5,
-                    "Description": "-11.5s Cooldown"
+                    "DescKey": "viscous_telepunch_t3_desc"
                 }
             ],
             "Move": {
@@ -8900,7 +8897,7 @@
         "4": {
             "Key": "viscous_goo_bowling_ball",
             "Name": "Goo Ball",
-            "Description": "Morph into a large goo ball that deals damage and stuns enemies on impact. The ball grants large amounts of Bullet and Spirit resist, bounces off walls and can double jump.",
+            "DescKey": "viscous_goo_bowling_ball_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -8933,20 +8930,20 @@
                         "Value": 60
                     }
                 ],
-                "Description": "Morph into a large goo ball that deals damage and stuns enemies on impact. The ball grants large amounts of Bullet and Spirit resist, bounces off walls and can double jump."
+                "DescKey": "viscous_goo_bowling_ball_desc"
             },
             "Upgrades": [
                 {
                     "AbilityDuration": 5,
-                    "Description": "+5s Duration"
+                    "DescKey": "viscous_goo_bowling_ball_t1_desc"
                 },
                 {
                     "Damage": 120,
-                    "Description": "+120 Damage"
+                    "DescKey": "viscous_goo_bowling_ball_t2_desc"
                 },
                 {
                     "CastWhileRolling": 1,
-                    "Description": "Can cast abilities and use items while rolling"
+                    "DescKey": "viscous_goo_bowling_ball_t3_desc"
                 }
             ],
             "Duration": {
@@ -9036,24 +9033,12 @@
             }
         }
     },
-    "hero_gunslinger": {
-        "Name": "Gunslinger"
-    },
-    "hero_yakuza": {
-        "Name": "The Boss"
-    },
-    "hero_genericperson": {
-        "Name": "Generic Person"
-    },
-    "hero_tokamak": {
-        "Name": "Tokamak"
-    },
     "hero_wrecker": {
         "Name": "Wrecker",
         "1": {
             "Key": "ability_wrecking_ball",
             "Name": "Wrecking Ball",
-            "Description": "Create a large ball of scrap that can be thrown, damaging and stunning anything it hits. The ball takes time to create and you move slower while carrying it.",
+            "DescKey": "ability_wrecking_ball_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -9083,20 +9068,20 @@
                         "Type": "move_speed"
                     }
                 ],
-                "Description": "Create a large ball of scrap that can be thrown, damaging and stunning anything it hits. The ball takes time to create and you move slower while carrying it."
+                "DescKey": "ability_wrecking_ball_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCooldown": -7.5,
-                    "Description": "-7.5s Cooldown"
+                    "DescKey": "ability_wrecking_ball_t1_desc"
                 },
                 {
                     "WreckingBallDamage": 80,
-                    "Description": "+80 Damage"
+                    "DescKey": "ability_wrecking_ball_t2_desc"
                 },
                 {
                     "MoveSpeedLimit": "4m",
-                    "Description": "+4m/s Move Speed"
+                    "DescKey": "ability_wrecking_ball_t3_desc"
                 }
             ],
             "Duration": {
@@ -9147,7 +9132,7 @@
         "2": {
             "Key": "ability_wrecker_salvage",
             "Name": "Consume",
-            "Description": "Stuns an enemy trooper or NPC, damaging them while held. A successful kill provides a fire rate bonus, and restores a Bio Blast charge.  This bonus stacks independently",
+            "DescKey": "ability_wrecker_salvage_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -9189,20 +9174,20 @@
                         "Type": "healing"
                     }
                 ],
-                "Description": "Stuns an enemy trooper or NPC, damaging them while held. A successful kill provides a fire rate bonus, and restores a Bio Blast charge.  This bonus stacks independently"
+                "DescKey": "ability_wrecker_salvage_desc"
             },
             "Upgrades": [
                 {
                     "SalvageBonus_Health": 150,
-                    "Description": "150 health restored per kill."
+                    "DescKey": "ability_wrecker_salvage_t1_desc"
                 },
                 {
                     "DPS": 80,
-                    "Description": "+80 DPS"
+                    "DescKey": "ability_wrecker_salvage_t2_desc"
                 },
                 {
                     "FireRateBuffDuration": 80,
-                    "Description": "+80s Bonus Duration"
+                    "DescKey": "ability_wrecker_salvage_t3_desc"
                 }
             ],
             "Move": {
@@ -9234,7 +9219,7 @@
         "3": {
             "Key": "ability_scrap_blast",
             "Name": "Bio Blast",
-            "Description": "Shoots out a blast of consumed remains, damaging and slowing enemies. Multiple hits increase the slow.",
+            "DescKey": "ability_scrap_blast_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -9264,20 +9249,20 @@
                         "Type": "duration"
                     }
                 ],
-                "Description": "Shoots out a blast of consumed remains, damaging and slowing enemies. Multiple hits increase the slow."
+                "DescKey": "ability_scrap_blast_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCharges": 2,
-                    "Description": "+2 Charges"
+                    "DescKey": "ability_scrap_blast_t1_desc"
                 },
                 {
                     "ScrapDamage": 55,
-                    "Description": "+55 Damage"
+                    "DescKey": "ability_scrap_blast_t2_desc"
                 },
                 {
                     "EnemyMoveSlow": 20,
-                    "Description": "+20% Enemy Slow per hit"
+                    "DescKey": "ability_scrap_blast_t3_desc"
                 }
             ],
             "Range": {
@@ -9324,7 +9309,7 @@
         "4": {
             "Key": "ability_wrecker_teleport",
             "Name": "Astral Walk",
-            "Description": "Launch a flying shadow copy of yourself that you control, teleporting your original body to wherever it lands. The teleport explosion slows enemies and deals damage based on how long you were flying.",
+            "DescKey": "ability_wrecker_teleport_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -9366,20 +9351,20 @@
                         "Type": "duration"
                     }
                 ],
-                "Description": "Launch a flying shadow copy of yourself that you control, teleporting your original body to wherever it lands. The teleport explosion slows enemies and deals damage based on how long you were flying."
+                "DescKey": "ability_wrecker_teleport_desc"
             },
             "Upgrades": [
                 {
                     "AbilityChannelTime": 8,
-                    "Description": "+8s Channel Duration"
+                    "DescKey": "ability_wrecker_teleport_t1_desc"
                 },
                 {
                     "AbilityCooldown": -47.0,
-                    "Description": "-47.0s Cooldown"
+                    "DescKey": "ability_wrecker_teleport_t2_desc"
                 },
                 {
                     "DamagePerSecondFlown": 16,
-                    "Description": "+16 Damage per second flown"
+                    "DescKey": "ability_wrecker_teleport_t3_desc"
                 }
             ],
             "Cast": {
@@ -9405,15 +9390,12 @@
             }
         }
     },
-    "hero_rutger": {
-        "Name": "Rutger"
-    },
     "hero_synth": {
         "Name": "Pocket",
         "1": {
             "Key": "synth_barrage",
             "Name": "Barrage",
-            "Description": "Channel to start launching projectiles that deal damage and apply movement slow around their impact point. Each projectile landed on a hero grants you a stacking buff that amplifies all of your damage.<br>If you cast it while in the air, you'll float and maintain any horizontal momentum you started with.",
+            "DescKey": "synth_barrage_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -9459,20 +9441,20 @@
                         "Type": "duration"
                     }
                 ],
-                "Description": "Channel to start launching projectiles that deal damage and apply movement slow around their impact point. Each projectile landed on a hero grants you a stacking buff that amplifies all of your damage.<br>If you cast it while in the air, you'll float and maintain any horizontal momentum you started with."
+                "DescKey": "synth_barrage_desc"
             },
             "Upgrades": [
                 {
                     "DamagePerProjectile": 15,
-                    "Description": "+15 Damage Per Projectile"
+                    "DescKey": "synth_barrage_t1_desc"
                 },
                 {
                     "AbilityCooldown": -14.0,
-                    "Description": "-14.0s Cooldown"
+                    "DescKey": "synth_barrage_t2_desc"
                 },
                 {
                     "AmpPercentPerStack": 5,
-                    "Description": "+5% Amp Per Stack"
+                    "DescKey": "synth_barrage_t3_desc"
                 }
             ],
             "Cast": {
@@ -9523,7 +9505,7 @@
         "2": {
             "Key": "synth_plasma_flux",
             "Name": "Flying Cloak",
-            "Description": "Launch a sentient cloak that travels forward and damages enemies. You can press [2] to teleport to its location.",
+            "DescKey": "synth_plasma_flux_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -9547,21 +9529,21 @@
                         "Type": "duration"
                     }
                 ],
-                "Description": "Launch a sentient cloak that travels forward and damages enemies. You can press [2] to teleport to its location."
+                "DescKey": "synth_plasma_flux_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCooldown": -14.0,
-                    "Description": "-14.0s Cooldown"
+                    "DescKey": "synth_plasma_flux_t1_desc"
                 },
                 {
                     "Damage": 80,
-                    "Description": "+80 Damage"
+                    "DescKey": "synth_plasma_flux_t2_desc"
                 },
                 {
                     "WeaponDamageBonus": 7,
                     "WeaponDamageBonusDuration": 10,
-                    "Description": "+7 Weapon Damage for 10s after teleporting with Flying Cloak."
+                    "DescKey": "synth_plasma_flux_t3_desc"
                 }
             ],
             "Move": {
@@ -9597,7 +9579,7 @@
         "3": {
             "Key": "synth_pulse",
             "Name": "Enchanter's Satchel",
-            "Description": "Escape into your suitcase. When the duration ends, deal damage to nearby enemies. Duration can be ended early by performing any action.",
+            "DescKey": "synth_pulse_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -9627,21 +9609,21 @@
                         "Type": "duration"
                     }
                 ],
-                "Description": "Escape into your suitcase. When the duration ends, deal damage to nearby enemies. Duration can be ended early by performing any action."
+                "DescKey": "synth_pulse_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCooldown": -4.75,
-                    "Description": "-4.75s Cooldown"
+                    "DescKey": "synth_pulse_t1_desc"
                 },
                 {
                     "Damage": 80,
-                    "Description": "+80 Damage"
+                    "DescKey": "synth_pulse_t2_desc"
                 },
                 {
                     "FireRateSlow": 40,
                     "DebuffDuration": 4.0,
-                    "Description": "Applies 40% Fire Rate Slow for 4.0s"
+                    "DescKey": "synth_pulse_t3_desc"
                 }
             ],
             "Move": {
@@ -9677,7 +9659,7 @@
         "4": {
             "Key": "synth_affliction",
             "Name": "Affliction",
-            "Description": "Apply damage over time to all enemies nearby.<br>Affliction's damage is non-lethal and does not apply item procs.",
+            "DescKey": "synth_affliction_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -9700,21 +9682,21 @@
                     ]
                 },
                 "Alt": [],
-                "Description": "Apply damage over time to all enemies nearby.<br>Affliction's damage is non-lethal and does not apply item procs."
+                "DescKey": "synth_affliction_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCooldown": -28.0,
-                    "Description": "-28.0s Cooldown"
+                    "DescKey": "synth_affliction_t1_desc"
                 },
                 {
                     "HealAmpReceivePenaltyPercent": -60,
                     "HealAmpRegenPenaltyPercent": -60,
-                    "Description": "Suppress targets' healing by -60%"
+                    "DescKey": "synth_affliction_t2_desc"
                 },
                 {
                     "DPS": 27,
-                    "Description": "+27 DPS"
+                    "DescKey": "synth_affliction_t3_desc"
                 }
             ],
             "Move": {
@@ -9752,15 +9734,12 @@
             }
         }
     },
-    "hero_thumper": {
-        "Name": "Thumper"
-    },
     "hero_mirage": {
         "Name": "Mirage",
         "1": {
             "Key": "mirage_tornado",
             "Name": "Tornado",
-            "Description": "Send out a tornado that damages enemies and lifts them up in the air. While they're up in the air, targets will fully evade all bullets.",
+            "DescKey": "mirage_tornado_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -9790,20 +9769,20 @@
                         "Type": "distance"
                     }
                 ],
-                "Description": "Send out a tornado that damages enemies and lifts them up in the air. While they're up in the air, targets will fully evade all bullets."
+                "DescKey": "mirage_tornado_desc"
             },
             "Upgrades": [
                 {
                     "HoldInPlaceDuration": 0.75,
-                    "Description": "+0.75s Lift Duration"
+                    "DescKey": "mirage_tornado_t1_desc"
                 },
                 {
                     "AbilityCooldown": -14.0,
-                    "Description": "-14.0s Cooldown"
+                    "DescKey": "mirage_tornado_t2_desc"
                 },
                 {
                     "TechArmorDamageReduction": -15,
-                    "Description": "-15% Spirit Resist"
+                    "DescKey": "mirage_tornado_t3_desc"
                 }
             ],
             "Duration": {
@@ -9898,7 +9877,7 @@
         "2": {
             "Key": "mirage_fire_beetles",
             "Name": "Fire Scarabs",
-            "Description": "Start launching fire scarabs. Each scarab can be launched separately, applying a lifesteal over time to enemies they hit. Once the launch window ends, this ability goes on cooldown.",
+            "DescKey": "mirage_fire_beetles_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -9945,21 +9924,21 @@
                         "Type": "healing"
                     }
                 ],
-                "Description": "Start launching fire scarabs. Each scarab can be launched separately, applying a lifesteal over time to enemies they hit. Once the launch window ends, this ability goes on cooldown."
+                "DescKey": "mirage_fire_beetles_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCharges": 2,
-                    "Description": "+2 Charges"
+                    "DescKey": "mirage_fire_beetles_t1_desc"
                 },
                 {
                     "HealingFactor": 40,
                     "NonHeroHealingFactor": 15,
-                    "Description": "+40% Heal vs Heroes"
+                    "DescKey": "mirage_fire_beetles_t2_desc"
                 },
                 {
                     "DPS": 40,
-                    "Description": "+40 DPS"
+                    "DescKey": "mirage_fire_beetles_t3_desc"
                 }
             ],
             "Move": {
@@ -10003,7 +9982,7 @@
         "3": {
             "Key": "mirage_sand_phantom",
             "Name": "Tempest Ward",
-            "Description": "You become enveloped in a whirlwind that provides bullet evasion and movement speed.",
+            "DescKey": "mirage_sand_phantom_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -10041,7 +10020,7 @@
                         "Value": 5
                     }
                 ],
-                "Description": "Passive: Your next shot is amplified with Spirit Damage. Each amplified shot that hits the same target increases the Spirit Damage dealt."
+                "DescKey": "mirage_sand_phantom_passive_desc"
             },
             "Info2": {
                 "Main": {
@@ -10066,20 +10045,20 @@
                         "Type": "cooldown"
                     }
                 ],
-                "Description": "You become enveloped in a whirlwind that provides bullet evasion and movement speed."
+                "DescKey": "mirage_sand_phantom_desc"
             },
             "Upgrades": [
                 {
                     "WhirlwindEvasionChance": 30,
-                    "Description": "+30% Bullet Evasion Chance"
+                    "DescKey": "mirage_sand_phantom_t1_desc"
                 },
                 {
                     "ProcBonusMagicDamageEscalation": 10,
-                    "Description": "+10 Escalating Spirit Damage"
+                    "DescKey": "mirage_sand_phantom_t2_desc"
                 },
                 {
                     "AbilityCooldown": -19.0,
-                    "Description": "-19.0s Cooldown"
+                    "DescKey": "mirage_sand_phantom_t3_desc"
                 }
             ],
             "Move": {
@@ -10119,7 +10098,7 @@
         "4": {
             "Key": "mirage_djinn_bomb",
             "Name": "Djinn Bomb",
-            "Description": "Launch a slow projectile that you can activate anywhere along its path to detonate it, dealing damage to enemies caught in its radius. Deals bonus damage for each additional hero hit.",
+            "DescKey": "mirage_djinn_bomb_desc",
             "Info1": {
                 "Main": {
                     "Props": [
@@ -10152,20 +10131,20 @@
                         "Value": 8
                     }
                 ],
-                "Description": "Launch a slow projectile that you can activate anywhere along its path to detonate it, dealing damage to enemies caught in its radius. Deals bonus damage for each additional hero hit."
+                "DescKey": "mirage_djinn_bomb_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCooldown": -28.0,
-                    "Description": "-28.0s Cooldown"
+                    "DescKey": "mirage_djinn_bomb_t1_desc"
                 },
                 {
                     "BombBonusDamagePerHero": 40,
-                    "Description": "+40 Bonus Damage Per Hero"
+                    "DescKey": "mirage_djinn_bomb_t2_desc"
                 },
                 {
                     "Damage": 150,
-                    "Description": "+150 Damage"
+                    "DescKey": "mirage_djinn_bomb_t3_desc"
                 }
             ],
             "Move": {
@@ -10196,224 +10175,6 @@
             "Radius": {
                 "Name": "Radius",
                 "Value": 11
-            }
-        }
-    },
-    "hero_slork": {
-        "Name": "Fathom"
-    },
-    "hero_cadence": {
-        "Name": "Cadence"
-    },
-    "hero_targetdummy": {
-        "Name": "TargetDummy"
-    },
-    "hero_bomber": {
-        "Name": "Bomber",
-        "1": {
-            "Key": "ability_charged_bomb",
-            "Name": null,
-            "Info1": {
-                "Main": {
-                    "Props": []
-                },
-                "Alt": []
-            },
-            "Upgrades": [
-                {
-                    "AbilityCooldown": 0,
-                    "Description": "+0s Cooldown"
-                },
-                {
-                    "AbilityCooldown": 0,
-                    "Description": "+0s Cooldown"
-                },
-                {
-                    "AbilityCooldown": 0,
-                    "Description": "+0s Cooldown"
-                }
-            ],
-            "Move": {
-                "ChannelMoveSpeed": {
-                    "Name": "Channel Move Speed",
-                    "Value": 50,
-                    "Type": "move_speed"
-                }
-            },
-            "Damage": {
-                "MaxDamage": {
-                    "Name": null,
-                    "Value": 100,
-                    "Type": "tech_damage",
-                    "Scale": {
-                        "Value": 1.248,
-                        "Type": "spirit"
-                    }
-                }
-            },
-            "Other": {
-                "AbilityUnitTargetLimit": {
-                    "Name": null,
-                    "Value": 1
-                },
-                "BlastJumpVelocity": {
-                    "Name": null,
-                    "Value": 25
-                },
-                "BlastJumpVelocityCrouch": {
-                    "Name": null,
-                    "Value": 30
-                },
-                "BlastJumpVelocityGround": {
-                    "Name": null,
-                    "Value": 20
-                },
-                "MaxChargeTime": {
-                    "Name": null,
-                    "Value": 2.0
-                }
-            },
-            "AbilityCastDelay": {
-                "Name": "Cast Delay",
-                "Value": 0.2
-            },
-            "AbilityCooldown": {
-                "Name": "Cooldown",
-                "Value": 10.5
-            },
-            "Radius": {
-                "Name": "Radius",
-                "Value": 7
-            }
-        },
-        "2": {
-            "Key": "ability_bomber_ability02",
-            "Name": null,
-            "Info1": {
-                "Main": {
-                    "Props": []
-                },
-                "Alt": []
-            },
-            "Upgrades": [
-                {
-                    "AbilityCooldown": 0,
-                    "Description": "+0s Cooldown"
-                },
-                {
-                    "AbilityCooldown": 0,
-                    "Description": "+0s Cooldown"
-                },
-                {
-                    "AbilityCooldown": 0,
-                    "Description": "+0s Cooldown"
-                }
-            ],
-            "Move": {
-                "ChannelMoveSpeed": {
-                    "Name": "Channel Move Speed",
-                    "Value": 50,
-                    "Type": "move_speed"
-                }
-            },
-            "Other": {
-                "AbilityUnitTargetLimit": {
-                    "Name": null,
-                    "Value": 1
-                }
-            },
-            "AbilityCooldown": {
-                "Name": "Cooldown",
-                "Value": 26.0
-            }
-        },
-        "3": {
-            "Key": "ability_bomber_ability03",
-            "Name": null,
-            "Info1": {
-                "Main": {
-                    "Props": []
-                },
-                "Alt": []
-            },
-            "Upgrades": [
-                {
-                    "AbilityCooldown": 0,
-                    "Description": "+0s Cooldown"
-                },
-                {
-                    "AbilityCooldown": 0,
-                    "Description": "+0s Cooldown"
-                },
-                {
-                    "AbilityCooldown": 0,
-                    "Description": "+0s Cooldown"
-                }
-            ],
-            "Move": {
-                "ChannelMoveSpeed": {
-                    "Name": "Channel Move Speed",
-                    "Value": 50,
-                    "Type": "move_speed"
-                }
-            },
-            "Other": {
-                "AbilityUnitTargetLimit": {
-                    "Name": null,
-                    "Value": 1
-                }
-            },
-            "AbilityCooldown": {
-                "Name": "Cooldown",
-                "Value": 26.0
-            }
-        },
-        "4": {
-            "Key": "ability_bomber_ult",
-            "Name": null,
-            "Info1": {
-                "Main": {
-                    "Props": [
-                        {
-                            "Key": "AbilityCooldown",
-                            "Name": "Cooldown",
-                            "Value": 127.0,
-                            "Type": "cooldown"
-                        }
-                    ]
-                },
-                "Alt": []
-            },
-            "Upgrades": [
-                {
-                    "AbilityCooldown": 0,
-                    "Description": "+0s Cooldown"
-                },
-                {
-                    "AbilityCooldown": 0,
-                    "Description": "+0s Cooldown"
-                },
-                {
-                    "AbilityCooldown": 0,
-                    "Description": "+0s Cooldown"
-                }
-            ],
-            "Move": {
-                "ChannelMoveSpeed": {
-                    "Name": "Channel Move Speed",
-                    "Value": 50,
-                    "Type": "move_speed"
-                }
-            },
-            "Other": {
-                "AbilityUnitTargetLimit": {
-                    "Name": null,
-                    "Value": 1
-                }
-            },
-            "AbilityCooldown": {
-                "Name": "Cooldown",
-                "Value": 127.0
             }
         }
     }

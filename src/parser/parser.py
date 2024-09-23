@@ -92,13 +92,13 @@ class Parser:
 
     def run(self):
         print('Parsing...')
-        self._parse_localizations()
         parsed_abilities = self._parse_abilities()
         parsed_heroes = self._parse_heroes(parsed_abilities)
         self._parsed_ability_ui(parsed_heroes)
         self._parse_items()
         self._parse_attributes()
         self._parse_changelogs()
+        self._parse_localizations()
         print('Done parsing')
 
     def _parse_localizations(self):
@@ -134,13 +134,20 @@ class Parser:
 
     def _parsed_ability_ui(self, parsed_heroes):
         print('Parsing Ability UI...')
-        parsed_ability_ui = ability_ui.AbilityUiParser(
-            self.data['scripts']['abilities'],
-            parsed_heroes,
-            self.localizations[self.language],
-        ).run()
 
-        json_utils.write(self.OUTPUT_DIR + 'json/ability_ui.json', parsed_ability_ui)
+        for language in self.languages:
+            (parsed_ability_ui, changed_localizations) = ability_ui.AbilityUiParser(
+                self.data['scripts']['abilities'],
+                parsed_heroes,
+                language,
+                self.localizations,
+            ).run()
+
+            self.localizations[language].update(changed_localizations)
+
+            # Only write to ability_ui.json for English
+            if language == 'english':
+                json_utils.write(self.OUTPUT_DIR + 'json/ability_ui.json', parsed_ability_ui)
 
     def _parse_items(self):
         print('Parsing Items...')

@@ -30,14 +30,20 @@ class AbilityUiParser:
     top corners of the ability card
     """
 
-    def __init__(self, abilities, parsed_heroes, localizations):
+    def __init__(self, abilities, parsed_heroes, language, localizations):
         self.abilities = abilities
         self.parsed_heroes = parsed_heroes
+        self.language = language
         self.localizations = localizations
+        self.localization_updates = {}
 
     def run(self):
         output = {}
         for self.hero_key, hero in self.parsed_heroes.items():
+            # skip disabled heroes
+            if hero['Disabled']:
+                continue
+
             hero_abilities = {'Name': hero['Name']}
             for self.ability_index, ability in hero['BoundAbilities'].items():
                 try:
@@ -49,27 +55,30 @@ class AbilityUiParser:
 
             output[self.hero_key] = hero_abilities
 
-        return output
+        return (output, self.localization_updates)
 
     def _parse_ability_ui(self, parsed_ability):
         parsed_ui = {
             'Key': parsed_ability['Key'],
-            'Name': self.localizations.get(parsed_ability['Key']),
+            'Name': self._get_localized_string(parsed_ability['Key']),
         }
 
         ability_desc_key = parsed_ability['Key'] + '_desc'
         # some description keys are not found as they have a specific description per info section
-        if ability_desc_key in self.localizations:
-            ability_desc = self.localizations[parsed_ability['Key'] + '_desc']
+        if ability_desc_key in self.localizations[self.language]:
+            ability_desc = self._get_localized_string(parsed_ability['Key'] + '_desc')
             # required variables to insert into the description
             format_vars = (
                 parsed_ability,
                 maps.KEYBIND_MAP,
                 {'ability_key': self.ability_index},
-                {'hero_name': self.localizations[self.hero_key]},
+                {'hero_name': self._get_localized_string(self.hero_key)},
             )
             ability_desc = string_utils.format_description(ability_desc, *format_vars)
-            parsed_ui['Description'] = ability_desc
+            parsed_ui['DescKey'] = ability_desc_key
+
+            # update localization file with formatted description
+            self.localization_updates[ability_desc_key] = ability_desc
 
         raw_ability = self.abilities[parsed_ability['Key']]
 
@@ -109,20 +118,23 @@ class AbilityUiParser:
             if desc_key is not None and desc_key != '':
                 # localization keys are prefixed with a "#"
                 desc_key = desc_key.replace('#', '')
-                if desc_key in self.localizations:
+                if desc_key in self.localizations[self.language]:
                     # raise Exception(f'Missing description for key {desc_key}')
 
-                    description = self.localizations[desc_key]
+                    description = self._get_localized_string(desc_key)
                     # required variables to insert into the description
                     format_vars = (
                         parsed_ability,
                         maps.KEYBIND_MAP,
                         {'ability_key': self.ability_index},
-                        {'hero_name': self.localizations[self.hero_key]},
+                        {'hero_name': self._get_localized_string(self.hero_key)},
                     )
-                    parsed_info_section['Description'] = string_utils.format_description(
-                        description, *format_vars
-                    )
+                    parsed_info_section['DescKey'] = desc_key
+
+                    description = string_utils.format_description(description, *format_vars)
+
+                    # update localization file with formatted description
+                    self.localization_updates[desc_key] = description
 
             # some blocks might just be a description
             if 'm_vecAbilityPropertiesBlock' in info_section:
@@ -150,10 +162,9 @@ class AbilityUiParser:
                 # localization keys are prefixed with a "#"
                 title_key = title_key.replace('#', '')
                 if title_key != '':
-                    if title_key not in self.localizations:
-                        raise Exception(f'Missing title for key {title_key}')
-
-                    title = self.localizations[title_key]
+                    # if title_key not in self.localizations[self.language]:
+                    #     raise Exception(f'Missing title for key {title_key}')
+                    title = self._get_localized_string(title_key)
 
             ability_props = props['m_vecAbilityProperties']
 
@@ -173,10 +184,9 @@ class AbilityUiParser:
                 if attr_key is None:
                     raise Exception(f"Missing value for ability {parsed_ability['Name']}")
 
+                # This is probably an upgrade attr that is not tagged as such, so it will
+                # not be shown in the main block
                 if attr_key not in parsed_ability:
-                    print(
-                        f'[WARN] - {attr_key} is probably an upgrade attr that is not tagged as such'
-                    )
                     continue
 
                 raw_ability = self._get_raw_ability_attr(parsed_ability['Key'], attr_key)
@@ -184,7 +194,7 @@ class AbilityUiParser:
                 prop_object.update(
                     {
                         'Key': attr_key,
-                        'Name': self.localizations[attr_key + '_label'],
+                        'Name': self._get_localized_string(attr_key + '_label'),
                         'Value': parsed_ability[attr_key],
                     }
                 )
@@ -355,22 +365,24 @@ class AbilityUiParser:
             if desc_key == 'citadel_ability_chrono_kinetic_carbine_t1_desc':
                 ignore_desc_key = True
 
-            if desc_key not in self.localizations or ignore_desc_key:
-                description = self._create_description(upgrade)
+            if desc_key not in self.localizations[self.language] or ignore_desc_key:
+                upgrade_desc = self._create_description(upgrade)
             else:
-                upgrade_desc = self.localizations[desc_key]
+                upgrade_desc = self._get_localized_string(desc_key)
                 # required variables to insert into the description
                 format_vars = (
                     upgrade,
                     maps.KEYBIND_MAP,
                     {'ability_key': self.ability_index},
-                    {'hero_name': self.localizations[self.hero_key]},
+                    {'hero_name': self._get_localized_string(self.hero_key)},
                 )
 
                 upgrade_desc = string_utils.format_description(upgrade_desc, *format_vars)
-                description = upgrade_desc
 
-            upgrade['Description'] = description
+                # update localization file with formatted description
+                self.localization_updates[desc_key] = upgrade_desc
+
+            upgrade['DescKey'] = desc_key
             parsed_upgrades.append(upgrade)
 
         return parsed_upgrades
@@ -433,8 +445,8 @@ class AbilityUiParser:
         """
         localized_key = f'{attr}_postfix'
 
-        if localized_key in self.localizations:
-            return self.localizations[localized_key]
+        if localized_key in self.localizations[self.language]:
+            return self._get_localized_string(localized_key)
 
         # Sometimes the uom is attached to the end of the value
         unit = ''
@@ -467,13 +479,23 @@ class AbilityUiParser:
         }
 
         if attr in OVERRIDES:
-            return self.localizations[OVERRIDES[attr]]
+            return self._get_localized_string(OVERRIDES[attr])
 
         localized_key = f'{attr}_label'
-        if localized_key not in self.localizations:
-            # print(f'Missing label for key {localized_key}')
+        if localized_key not in self.localizations[self.language]:
             return None
-        return self.localizations[localized_key]
+
+        return self._get_localized_string(localized_key)
 
     def _get_raw_ability_attr(self, ability_key, attr_key):
         return self.abilities[ability_key]['m_mapAbilityProperties'][attr_key]
+
+    def _get_localized_string(self, key):
+        if key in self.localizations[self.language]:
+            return self.localizations[self.language][key]
+
+        # Default to English if not found in current language
+        if key in self.localizations['english']:
+            return self.localizations['english'][key]
+
+        raise Exception(f'No localized string for key {key}')

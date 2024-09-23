@@ -26,6 +26,7 @@ class HeroParser:
 
                 hero_stats = {
                     'Name': self.localizations.get(hero_key, None),
+                    'Disabled': hero_value['m_bDisabled'],
                     'BoundAbilities': self._parse_hero_abilities(hero_value),
                 }
 
