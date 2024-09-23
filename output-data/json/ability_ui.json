@@ -615,17 +615,6 @@
                     "DescKey": "ability_power_surge_t3_desc"
                 }
             ],
-            "Duration": {
-                "AbilityDuration": {
-                    "Name": "Duration",
-                    "Value": 10,
-                    "Type": "duration",
-                    "Scale": {
-                        "Value": 0.06552,
-                        "Type": "spirit"
-                    }
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -662,6 +651,10 @@
             "AbilityCooldown": {
                 "Name": "Cooldown",
                 "Value": 48.0
+            },
+            "AbilityDuration": {
+                "Name": "Duration",
+                "Value": 10
             }
         },
         "4": {
@@ -885,17 +878,6 @@
                     "MagicDamagePerBullet": 12.0
                 }
             ],
-            "Duration": {
-                "AbilityDuration": {
-                    "Name": "Duration",
-                    "Value": 8,
-                    "Type": "duration",
-                    "Scale": {
-                        "Value": 0.1638,
-                        "Type": "spirit"
-                    }
-                }
-            },
             "Cast": {
                 "AbilityChannelTime": {
                     "Name": "Channel Duration",
@@ -936,6 +918,10 @@
             "AbilityCooldown": {
                 "Name": "Cooldown",
                 "Value": 42.0
+            },
+            "AbilityDuration": {
+                "Name": "Duration",
+                "Value": 8
             }
         },
         "3": {
@@ -1294,13 +1280,6 @@
                     "DescKey": "ability_life_drain_t3_desc"
                 }
             ],
-            "Duration": {
-                "AbilityDuration": {
-                    "Name": "Duration",
-                    "Value": 2,
-                    "Type": "duration"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -1340,6 +1319,10 @@
             "AbilityCooldown": {
                 "Name": "Cooldown",
                 "Value": 42.0
+            },
+            "AbilityDuration": {
+                "Name": "Duration",
+                "Value": 2
             }
         },
         "3": {
@@ -1496,13 +1479,6 @@
                     "DescKey": "ability_health_swap_t3_desc"
                 }
             ],
-            "Duration": {
-                "AbilityDuration": {
-                    "Name": "Duration",
-                    "Value": 0.25,
-                    "Type": "duration"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -1543,6 +1519,10 @@
             "AbilityCooldown": {
                 "Name": "Cooldown",
                 "Value": 170.0
+            },
+            "AbilityDuration": {
+                "Name": "Duration",
+                "Value": 0.25
             }
         }
     },
@@ -1593,13 +1573,6 @@
                     "LifeDrainPerSecond": 40
                 }
             ],
-            "Duration": {
-                "AbilityDuration": {
-                    "Name": "Duration",
-                    "Value": 4,
-                    "Type": "duration"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -1620,6 +1593,10 @@
             "AbilityCooldown": {
                 "Name": "Cooldown",
                 "Value": 42.0
+            },
+            "AbilityDuration": {
+                "Name": "Duration",
+                "Value": 4
             },
             "Radius": {
                 "Name": "Radius",
@@ -1667,13 +1644,6 @@
                     "DescKey": "citadel_ability_bull_charge_t3_desc"
                 }
             ],
-            "Duration": {
-                "AbilityDuration": {
-                    "Name": "Duration",
-                    "Value": 1.2,
-                    "Type": "duration"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -1726,6 +1696,10 @@
             "AbilityCooldown": {
                 "Name": "Cooldown",
                 "Value": 37.0
+            },
+            "AbilityDuration": {
+                "Name": "Duration",
+                "Value": 1.2
             }
         },
         "3": {
@@ -2080,17 +2054,6 @@
                     "BulletLifestealPercent": 35
                 }
             ],
-            "Duration": {
-                "AbilityDuration": {
-                    "Name": "Duration",
-                    "Value": 5,
-                    "Type": "duration",
-                    "Scale": {
-                        "Value": 0.06552,
-                        "Type": "spirit"
-                    }
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -2111,6 +2074,10 @@
             "AbilityCooldown": {
                 "Name": "Cooldown",
                 "Value": 48.0
+            },
+            "AbilityDuration": {
+                "Name": "Duration",
+                "Value": 5
             },
             "Radius": {
                 "Name": "Radius",
@@ -2151,13 +2118,6 @@
                     "DescKey": "citadel_ability_psychic_lift_t3_desc"
                 }
             ],
-            "Duration": {
-                "AbilityDuration": {
-                    "Name": "Duration",
-                    "Value": 1.25,
-                    "Type": "duration"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -2190,6 +2150,10 @@
             "AbilityCooldown": {
                 "Name": "Cooldown",
                 "Value": 95.0
+            },
+            "AbilityDuration": {
+                "Name": "Duration",
+                "Value": 1.25
             }
         }
     },
@@ -2376,17 +2340,6 @@
                     "DescKey": "citadel_ability_mobile_resupply_t3_desc"
                 }
             ],
-            "Duration": {
-                "AbilityDuration": {
-                    "Name": "Duration",
-                    "Value": 6,
-                    "Type": "duration",
-                    "Scale": {
-                        "Value": 0.12,
-                        "Type": "spirit"
-                    }
-                }
-            },
             "Range": {
                 "HealRadius": {
                     "Name": "Heal Radius",
@@ -2433,6 +2386,10 @@
             "AbilityCooldown": {
                 "Name": "Cooldown",
                 "Value": 48.0
+            },
+            "AbilityDuration": {
+                "Name": "Duration",
+                "Value": 6
             }
         },
         "3": {
@@ -2497,13 +2454,6 @@
                     "DescKey": "citadel_ability_fissure_wall_t3_desc"
                 }
             ],
-            "Duration": {
-                "AbilityDuration": {
-                    "Name": "Duration",
-                    "Value": 5,
-                    "Type": "duration"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -2544,6 +2494,10 @@
             "AbilityCooldown": {
                 "Name": "Cooldown",
                 "Value": 37.0
+            },
+            "AbilityDuration": {
+                "Name": "Duration",
+                "Value": 5
             }
         },
         "4": {
@@ -2743,13 +2697,6 @@
                     "PulseDamage": 45
                 }
             ],
-            "Duration": {
-                "AbilityDuration": {
-                    "Name": "Duration",
-                    "Value": 4,
-                    "Type": "duration"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -2774,6 +2721,10 @@
             "AbilityCooldown": {
                 "Name": "Cooldown",
                 "Value": 28.0
+            },
+            "AbilityDuration": {
+                "Name": "Duration",
+                "Value": 4
             },
             "Radius": {
                 "Name": "Radius",
@@ -2836,13 +2787,6 @@
                     "DescKey": "citadel_ability_chrono_time_wall_t3_desc"
                 }
             ],
-            "Duration": {
-                "AbilityDuration": {
-                    "Name": "Duration",
-                    "Value": 7,
-                    "Type": "duration"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -2907,6 +2851,10 @@
             "AbilityCooldownBetweenCharge": {
                 "Name": "Charge Delay",
                 "Value": 8
+            },
+            "AbilityDuration": {
+                "Name": "Duration",
+                "Value": 7
             }
         },
         "3": {
@@ -3607,13 +3555,6 @@
                     "DescKey": "ability_icepath_t3_desc"
                 }
             ],
-            "Duration": {
-                "AbilityDuration": {
-                    "Name": "Duration",
-                    "Value": 8,
-                    "Type": "duration"
-                }
-            },
             "Range": {
                 "IcePathShardRadius": {
                     "Name": "Path Width",
@@ -3685,6 +3626,10 @@
             "AbilityCooldown": {
                 "Name": "Cooldown",
                 "Value": 38.0
+            },
+            "AbilityDuration": {
+                "Name": "Duration",
+                "Value": 8
             }
         },
         "3": {
@@ -3876,13 +3821,6 @@
                     "DescKey": "ability_ice_dome_t3_desc"
                 }
             ],
-            "Duration": {
-                "AbilityDuration": {
-                    "Name": "Duration",
-                    "Value": 5.5,
-                    "Type": "duration"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -3915,6 +3853,10 @@
             "AbilityCooldown": {
                 "Name": "Cooldown",
                 "Value": 127.0
+            },
+            "AbilityDuration": {
+                "Name": "Duration",
+                "Value": 5.5
             },
             "Radius": {
                 "Name": "Radius",
@@ -4089,15 +4031,6 @@
                 }
             ],
             "Duration": {
-                "AbilityDuration": {
-                    "Name": "Duration",
-                    "Value": 8,
-                    "Type": "duration",
-                    "Scale": {
-                        "Value": 0.19656,
-                        "Type": "spirit"
-                    }
-                },
                 "RevealOnDamageDuration": {
                     "Name": null,
                     "Value": 1.5,
@@ -4133,6 +4066,10 @@
             "AbilityCooldown": {
                 "Name": "Cooldown",
                 "Value": 37.0
+            },
+            "AbilityDuration": {
+                "Name": "Duration",
+                "Value": 8
             }
         },
         "3": {
@@ -4180,13 +4117,6 @@
                     "DamageBonusFixedPerStack": 0.2
                 }
             ],
-            "Duration": {
-                "AbilityDuration": {
-                    "Name": "Duration",
-                    "Value": 6,
-                    "Type": "duration"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -4203,6 +4133,10 @@
                     "Name": null,
                     "Value": 30
                 }
+            },
+            "AbilityDuration": {
+                "Name": "Duration",
+                "Value": 6
             }
         },
         "4": {
@@ -4468,11 +4402,6 @@
                 }
             ],
             "Duration": {
-                "AbilityDuration": {
-                    "Name": "Duration",
-                    "Value": 22,
-                    "Type": "duration"
-                },
                 "MinAirTimeForStomp": {
                     "Name": "Min Air Time for Stomp",
                     "Value": 0.2,
@@ -4549,6 +4478,10 @@
             "AbilityCooldownBetweenCharge": {
                 "Name": "Charge Delay",
                 "Value": 3.5
+            },
+            "AbilityDuration": {
+                "Name": "Duration",
+                "Value": 22
             },
             "Radius": {
                 "Name": "Radius",
@@ -4652,13 +4585,6 @@
                     "DescKey": "ability_gravity_lasso_t3_desc"
                 }
             ],
-            "Duration": {
-                "AbilityDuration": {
-                    "Name": "Duration",
-                    "Value": 2.5,
-                    "Type": "duration"
-                }
-            },
             "Other": {
                 "AbilityUnitTargetLimit": {
                     "Name": null,
@@ -4716,6 +4642,10 @@
             "AbilityCooldown": {
                 "Name": "Cooldown",
                 "Value": 159.0
+            },
+            "AbilityDuration": {
+                "Name": "Duration",
+                "Value": 2.5
             }
         }
     },
@@ -4864,13 +4794,6 @@
                     "DescKey": "citadel_ability_sticky_bomb_t3_desc"
                 }
             ],
-            "Duration": {
-                "AbilityDuration": {
-                    "Name": "Duration",
-                    "Value": 3.0,
-                    "Type": "duration"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -4895,6 +4818,10 @@
             "AbilityCooldown": {
                 "Name": "Cooldown",
                 "Value": 19.0
+            },
+            "AbilityDuration": {
+                "Name": "Duration",
+                "Value": 3.0
             },
             "Radius": {
                 "Name": "Radius",
@@ -5583,11 +5510,6 @@
                 }
             ],
             "Duration": {
-                "AbilityDuration": {
-                    "Name": "Duration",
-                    "Value": 12,
-                    "Type": "duration"
-                },
                 "RevealOnDamageDuration": {
                     "Name": null,
                     "Value": 0.25,
@@ -5623,6 +5545,10 @@
             "AbilityCooldown": {
                 "Name": "Cooldown",
                 "Value": 95.0
+            },
+            "AbilityDuration": {
+                "Name": "Duration",
+                "Value": 12
             }
         }
     },
@@ -5793,13 +5719,6 @@
                     "DescKey": "ability_power_jump_t3_desc"
                 }
             ],
-            "Duration": {
-                "AbilityDuration": {
-                    "Name": "Duration",
-                    "Value": 7,
-                    "Type": "duration"
-                }
-            },
             "Other": {
                 "AbilityUnitTargetLimit": {
                     "Name": null,
@@ -5833,6 +5752,10 @@
             "AbilityCooldown": {
                 "Name": "Cooldown",
                 "Value": 35.0
+            },
+            "AbilityDuration": {
+                "Name": "Duration",
+                "Value": 7
             }
         },
         "3": {
@@ -6265,13 +6188,6 @@
                     "DescKey": "ability_throw_sand_t3_desc"
                 }
             ],
-            "Duration": {
-                "AbilityDuration": {
-                    "Name": "Duration",
-                    "Value": 3.5,
-                    "Type": "duration"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -6304,6 +6220,10 @@
             "AbilityCooldown": {
                 "Name": "Cooldown",
                 "Value": 42.0
+            },
+            "AbilityDuration": {
+                "Name": "Duration",
+                "Value": 3.5
             }
         },
         "4": {
@@ -6859,13 +6779,6 @@
                     "DescKey": "citadel_ability_tengu_urn_t3_desc"
                 }
             ],
-            "Duration": {
-                "AbilityDuration": {
-                    "Name": "Duration",
-                    "Value": 4,
-                    "Type": "duration"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -6906,6 +6819,10 @@
             "AbilityCooldownBetweenCharge": {
                 "Name": "Charge Delay",
                 "Value": 8
+            },
+            "AbilityDuration": {
+                "Name": "Duration",
+                "Value": 4
             },
             "Radius": {
                 "Name": "Radius",
@@ -6974,13 +6891,6 @@
                     "TotalTetherTargets": 1
                 }
             ],
-            "Duration": {
-                "AbilityDuration": {
-                    "Name": "Duration",
-                    "Value": 12,
-                    "Type": "duration"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -7009,6 +6919,10 @@
             "AbilityCooldown": {
                 "Name": "Cooldown",
                 "Value": 37.0
+            },
+            "AbilityDuration": {
+                "Name": "Duration",
+                "Value": 12
             }
         },
         "3": {
@@ -7058,13 +6972,6 @@
                     "MaxHealthRegen": 20
                 }
             ],
-            "Duration": {
-                "AbilityDuration": {
-                    "Name": "Duration",
-                    "Value": 2,
-                    "Type": "duration"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -7108,6 +7015,10 @@
             "AbilityCooldown": {
                 "Name": "Cooldown",
                 "Value": 42.0
+            },
+            "AbilityDuration": {
+                "Name": "Duration",
+                "Value": 2
             },
             "Radius": {
                 "Name": "Radius",
@@ -7212,11 +7123,6 @@
                 }
             ],
             "Duration": {
-                "AbilityDuration": {
-                    "Name": "Duration",
-                    "Value": 17.0,
-                    "Type": "duration"
-                },
                 "AllyCastDelay": {
                     "Name": null,
                     "Value": 0.2,
@@ -7266,6 +7172,10 @@
             "AbilityCooldown": {
                 "Name": "Cooldown",
                 "Value": 85.0
+            },
+            "AbilityDuration": {
+                "Name": "Duration",
+                "Value": 17.0
             }
         }
     },
@@ -7409,13 +7319,6 @@
                     "DescKey": "ability_warden_high_alert_t3_desc"
                 }
             ],
-            "Duration": {
-                "AbilityDuration": {
-                    "Name": "Duration",
-                    "Value": 7,
-                    "Type": "duration"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -7432,6 +7335,10 @@
             "AbilityCooldown": {
                 "Name": "Cooldown",
                 "Value": 42.0
+            },
+            "AbilityDuration": {
+                "Name": "Duration",
+                "Value": 7
             }
         },
         "3": {
@@ -7572,13 +7479,6 @@
                     "AbilityCooldown": -56.0
                 }
             ],
-            "Duration": {
-                "AbilityDuration": {
-                    "Name": "Duration",
-                    "Value": 6,
-                    "Type": "duration"
-                }
-            },
             "Buff": {
                 "BulletResist": {
                     "Name": "Bullet Resist",
@@ -7603,6 +7503,10 @@
             "AbilityCooldown": {
                 "Name": "Cooldown",
                 "Value": 138.0
+            },
+            "AbilityDuration": {
+                "Name": "Duration",
+                "Value": 6
             },
             "Radius": {
                 "Name": "Radius",
@@ -7961,6 +7865,10 @@
             "AbilityCooldown": {
                 "Name": "Cooldown",
                 "Value": 106.0
+            },
+            "AbilityDuration": {
+                "Name": "Duration",
+                "Value": 5
             },
             "Radius": {
                 "Name": "Radius",
@@ -8647,6 +8555,10 @@
             "AbilityCooldown": {
                 "Name": "Cooldown",
                 "Value": 48.0
+            },
+            "AbilityDuration": {
+                "Name": "Duration",
+                "Value": 4
             }
         },
         "3": {
@@ -8798,13 +8710,6 @@
                     "DescKey": "viscous_goo_bowling_ball_t3_desc"
                 }
             ],
-            "Duration": {
-                "AbilityDuration": {
-                    "Name": "Duration",
-                    "Value": 10,
-                    "Type": "duration"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -8879,6 +8784,10 @@
                 "Name": "Cooldown",
                 "Value": 95.0
             },
+            "AbilityDuration": {
+                "Name": "Duration",
+                "Value": 10
+            },
             "Radius": {
                 "Name": "Radius",
                 "Value": null
@@ -8933,13 +8842,6 @@
                     "MoveSpeedLimit": "4m"
                 }
             ],
-            "Duration": {
-                "AbilityDuration": {
-                    "Name": "Duration",
-                    "Value": 6,
-                    "Type": "duration"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -8976,6 +8878,10 @@
             "AbilityCooldown": {
                 "Name": "Cooldown",
                 "Value": 21.0
+            },
+            "AbilityDuration": {
+                "Name": "Duration",
+                "Value": 6
             }
         },
         "2": {
@@ -9616,11 +9522,6 @@
                 }
             ],
             "Duration": {
-                "AbilityDuration": {
-                    "Name": "Duration",
-                    "Value": 2.0,
-                    "Type": "duration"
-                },
                 "EnemyLiftDuration": {
                     "Name": "Lift Up Time",
                     "Value": 0.6,
@@ -9698,6 +9599,10 @@
             "AbilityCooldown": {
                 "Name": "Cooldown",
                 "Value": 32.0
+            },
+            "AbilityDuration": {
+                "Name": "Duration",
+                "Value": 2.0
             },
             "Radius": {
                 "Name": "Radius",

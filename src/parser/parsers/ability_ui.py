@@ -293,6 +293,7 @@ class AbilityUiParser:
                 'AbilityCooldown',
                 'AbilityCastDelay',
                 'AbilityCastRange',
+                'AbilityDuration',
                 'Radius',
             ]:
                 rest_of_data[prop] = data
