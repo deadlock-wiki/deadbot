@@ -6,7 +6,7 @@ if [ -f ".env" ]; then
 . .env # Retrieve env
 fi
 
-if [ "$SKIP_DECOMPILER" = false ]; then
+if [ "$DECOMPILE" = true ]; then
     cd src/parser/decompiler
     echo "Decompiling source files..."
     bash decompile.sh
@@ -15,7 +15,7 @@ else
     echo "! Skipping Decompiler !"
 fi
 
-if [ "$SKIP_PARSER" = false ]; then
+if [ "$PARSE" = true ]; then
     echo ""
     echo "Parsing decompiled files..."
     bash parser.sh
@@ -24,7 +24,7 @@ else
     echo "! Skipping Parser !"
 fi
 
-if [ "$SKIP_BOT" = "false" ]; then
+if [ "$BOT_PUSH" = true ]; then
     cd src
     echo "Running DeadBot..."
     python3 deadbot.py
@@ -34,7 +34,7 @@ else
 fi
 
 # cleanup
-if [ "$OUTPUT_DIR/decompiled-data" ]; then
+if [ "$CLEANUP" = true ]; then
     rm -rf $OUTPUT_DIR/decompiled-data
 fi
 

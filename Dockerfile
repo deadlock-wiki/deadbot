@@ -32,10 +32,11 @@ COPY . .
 RUN python3 -m poetry install
 
 # runtime config
-ENV SKIP_DECOMPILER=false
-ENV SKIP_PARSER=false
-ENV SKIP_BOT=true
+ENV DECOMPILE=true
+ENV PARSE=true
+ENV BOT_PUSH=false
 ENV BOT_WIKI_PASSWORD='hunter2'
+ENV CLEANUP=true
 
 ENV DEADLOCK_PATH="/data"
 ENV OUTPUT_DIR="/output"
