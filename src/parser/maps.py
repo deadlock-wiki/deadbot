@@ -117,7 +117,6 @@ LEVEL_MOD_MAP = {
     'MODIFIER_VALUE_BONUS_ATTACK_RANGE': 'BonusAttackRange',
 }
 
-
 def get_level_mod(value):
     if value not in LEVEL_MOD_MAP:
         raise Exception(f'{value} is not a valid level mod')
