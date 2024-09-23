@@ -11,11 +11,9 @@ from utils import json_utils
 class Parser:
     def __init__(self, language='english'):
         # constants
-        self.DATA_DIR = os.path.join(os.getenv('OUTPUT_DIR',"./decompiler"),'decompiled-data/')
+        self.DATA_DIR = os.getenv('OUTPUT_DIR',"./decompiled-data")
         self.language = language
         self.data = {'scripts': {}}
-        print("env:"+os.getenv('OUTPUT_DIR'))
-        print("ed2:"+self.DATA_DIR)
         self.localization_groups = os.listdir(os.path.join(self.DATA_DIR, 'localizations'))
         # Get all languages from localization_file i.e. citadel_attributes_english.json -> english
         self.languages = [

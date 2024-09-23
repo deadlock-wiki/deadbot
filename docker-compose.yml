@@ -10,10 +10,10 @@ services:
       DECOMPILE: true
       PARSE: true
       BOT_PUSH: false
-      OUTPUT_DIR: "/output"
       CLEANUP: true
-      # volumes:
-      # - 'C:\Program Files (x86)\Steam\steamapps\common\Deadlock':'/data:ro'
-      # - "/mnt/SteamLibrary/steamapps/common/Deadlock":"/data:ro"
-      #
-      # - "/path/output-data:/output"
+    volumes:
+      - "./decompiled-data:/work"
+      - "./output-data:/output"
+    #
+    # - 'C:\Program Files (x86)\Steam\steamapps\common\Deadlock':'/data:ro'
+    # - "/mnt/SteamLibrary/steamapps/common/Deadlock":"/data:ro"
