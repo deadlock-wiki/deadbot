@@ -35,7 +35,9 @@ class HeroParser:
 
                 # Change formatting on some numbers to match whats shown in game
                 hero_stats['StaminaCooldown'] = 1 / hero_stats['StaminaRegenPerSecond']
-                hero_stats['CritDamageReceivedScale'] = hero_stats['CritDamageReceivedScale'] - 1
+                hero_stats['CritDamageReceivedScale'] = (
+                    hero_stats['CritDamageReceivedScale'] - 1
+                ) * 100
                 hero_stats['TechRange'] = hero_stats['TechRange'] - 1
                 hero_stats['TechDuration'] = hero_stats['TechDuration'] - 1
                 hero_stats['ReloadSpeed'] = hero_stats['ReloadSpeed'] - 1
@@ -47,7 +49,7 @@ class HeroParser:
                 # Lore, Playstyle, and Role keys from localization
                 for key in ['Lore', 'Playstyle', 'Role']:
                     # i.e. hero_kelvin_lore which is a key in localization
-                    hero_stats[key] = hero_key + '_' + key.lower() 
+                    hero_stats[key] = hero_key + '_' + key.lower()
 
                 # Determine hero's ratio of heavy to light melee damage
                 hl_ratio = hero_stats['HeavyMeleeDamage'] / hero_stats['LightMeleeDamage']
