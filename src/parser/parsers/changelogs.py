@@ -12,7 +12,9 @@ import utils.json_utils as json_utils
 class ChangelogParser:
     def __init__(self):
         self.CHANGELOGS_DIR = os.path.join(os.path.dirname(__file__), '../raw-changelogs/')
-        self.OUTPUT_DIR = os.getenv('OUTPUT_DIR',os.path.join(os.path.dirname(__file__), '../../../output-data/'))
+        self.OUTPUT_DIR = os.getenv('OUTPUT_DIR',
+            os.path.join(os.path.dirname(__file__), '../../../output-data/')
+        )
         self.OUTPUT_CHANGELOGS = os.path.join(self.OUTPUT_DIR + 'changelogs/')
         self.resources = self._get_resources()
 
