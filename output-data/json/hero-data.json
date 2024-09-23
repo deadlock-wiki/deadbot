@@ -165,6 +165,7 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": true,
+        "IsDisabled": false,
         "LevelScaling": {
             "BulletDamage": 1.9,
             "Health": 33.0,
@@ -199,8 +200,7 @@
         "WeaponTypes": [
             "Attribute_EWeaponAttribute_MediumRange",
             "Attribute_EWeaponAttribute_HeavyHitter"
-        ],
-        "isDisabled": false
+        ]
     },
     "hero_atlas": {
         "AbilityResourceMax": 0,
@@ -339,6 +339,7 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": false,
+        "IsDisabled": false,
         "LevelScaling": {
             "BulletDamage": 0.32,
             "Health": 32.0,
@@ -373,8 +374,7 @@
         "WeaponTypes": [
             "Attribute_EWeaponAttribute_Spreadshot",
             "Attribute_EWeaponAttribute_CloseRange"
-        ],
-        "isDisabled": false
+        ]
     },
     "hero_bebop": {
         "AbilityResourceMax": 0,
@@ -534,6 +534,7 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": false,
+        "IsDisabled": false,
         "LevelScaling": {
             "BulletDamage": 0.373,
             "Health": 41.0,
@@ -570,8 +571,7 @@
         "WeaponTypes": [
             "Attribute_EWeaponAttribute_BeamWeapon",
             "Attribute_EWeaponAttribute_MediumRange"
-        ],
-        "isDisabled": false
+        ]
     },
     "hero_bomber": {
         "AbilityResourceMax": 0,
@@ -689,6 +689,7 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": true,
+        "IsDisabled": true,
         "LevelScaling": {
             "BulletDamage": 0.159,
             "Health": 41.0,
@@ -719,8 +720,7 @@
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_bomber_set",
         "WeaponName": "citadel_weapon_bomber_set",
-        "WeaponPowerScale": 1,
-        "isDisabled": true
+        "WeaponPowerScale": 1
     },
     "hero_cadence": {
         "AbilityResourceMax": 0,
@@ -856,6 +856,7 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": true,
+        "IsDisabled": true,
         "LevelScaling": {
             "Health": 41.0,
             "LightMeleeDamage": 3.4,
@@ -885,8 +886,7 @@
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_cadence_set",
         "WeaponName": "citadel_weapon_cadence_set",
-        "WeaponPowerScale": 1,
-        "isDisabled": true
+        "WeaponPowerScale": 1
     },
     "hero_chrono": {
         "AbilityResourceMax": 0,
@@ -1055,6 +1055,7 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": false,
+        "IsDisabled": false,
         "LevelScaling": {
             "BulletDamage": 0.42,
             "Health": 40.0,
@@ -1089,8 +1090,7 @@
         "WeaponTypes": [
             "Attribute_EWeaponAttribute_BurstFire",
             "Attribute_EWeaponAttribute_MediumRange"
-        ],
-        "isDisabled": false
+        ]
     },
     "hero_dynamo": {
         "AbilityResourceMax": 0,
@@ -1236,6 +1236,7 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": false,
+        "IsDisabled": false,
         "LevelScaling": {
             "BulletDamage": 0.9,
             "Health": 44.0,
@@ -1271,8 +1272,7 @@
             "Attribute_EWeaponAttribute_MediumRange",
             "Attribute_EWeaponAttribute_HeavyHitter",
             "Attribute_EWeaponAttribute_Projectile"
-        ],
-        "isDisabled": false
+        ]
     },
     "hero_forge": {
         "AbilityResourceMax": 0,
@@ -1447,6 +1447,7 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": false,
+        "IsDisabled": false,
         "LevelScaling": {
             "BulletDamage": 0.44,
             "Health": 41.0,
@@ -1482,8 +1483,7 @@
         "WeaponTypes": [
             "Attribute_EWeaponAttribute_RapidFire",
             "Attribute_EWeaponAttribute_MediumRange"
-        ],
-        "isDisabled": false
+        ]
     },
     "hero_genericperson": {
         "AbilityResourceMax": 0,
@@ -1598,6 +1598,7 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": true,
+        "IsDisabled": true,
         "LevelScaling": {
             "Health": 41.0,
             "LightMeleeDamage": 3.4,
@@ -1627,8 +1628,7 @@
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_genericperson_set",
         "WeaponName": "citadel_weapon_genericperson_set",
-        "WeaponPowerScale": 1,
-        "isDisabled": true
+        "WeaponPowerScale": 1
     },
     "hero_ghost": {
         "AbilityResourceMax": 0,
@@ -1778,6 +1778,7 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": false,
+        "IsDisabled": false,
         "LevelScaling": {
             "BulletDamage": 2.1,
             "Health": 41.0,
@@ -1812,8 +1813,7 @@
         "WeaponTypes": [
             "Attribute_EWeaponAttribute_MediumRange",
             "Attribute_EWeaponAttribute_HeavyHitter"
-        ],
-        "isDisabled": false
+        ]
     },
     "hero_gigawatt": {
         "AbilityResourceMax": 0,
@@ -1962,6 +1962,7 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": false,
+        "IsDisabled": false,
         "LevelScaling": {
             "BulletDamage": 0.76,
             "Health": 31.0,
@@ -1998,8 +1999,7 @@
         "WeaponTypes": [
             "Attribute_EWeaponAttribute_BurstFire",
             "Attribute_EWeaponAttribute_MediumRange"
-        ],
-        "isDisabled": false
+        ]
     },
     "hero_gunslinger": {
         "AbilityResourceMax": 0,
@@ -2084,6 +2084,7 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": true,
+        "IsDisabled": true,
         "LevelScaling": {
             "Health": 41.0,
             "LightMeleeDamage": 3.4,
@@ -2113,8 +2114,7 @@
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_gunslinger_set",
         "WeaponName": "citadel_weapon_gunslinger_set",
-        "WeaponPowerScale": 1,
-        "isDisabled": true
+        "WeaponPowerScale": 1
     },
     "hero_haze": {
         "AbilityResourceMax": 0,
@@ -2261,6 +2261,7 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": false,
+        "IsDisabled": false,
         "LevelScaling": {
             "BulletDamage": 0.285,
             "Health": 27.0,
@@ -2297,8 +2298,7 @@
         "WeaponTypes": [
             "Attribute_EWeaponAttribute_RapidFire",
             "Attribute_EWeaponAttribute_CloseRange"
-        ],
-        "isDisabled": false
+        ]
     },
     "hero_hornet": {
         "AbilityResourceMax": 0,
@@ -2451,6 +2451,7 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": false,
+        "IsDisabled": false,
         "LevelScaling": {
             "BulletDamage": 1.0,
             "Health": 20.0,
@@ -2485,8 +2486,7 @@
         "WeaponTypes": [
             "Attribute_EWeaponAttribute_RapidFire",
             "Attribute_EWeaponAttribute_LongRange"
-        ],
-        "isDisabled": false
+        ]
     },
     "hero_inferno": {
         "AbilityResourceMax": 0,
@@ -2639,6 +2639,7 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": false,
+        "IsDisabled": false,
         "LevelScaling": {
             "BulletDamage": 0.36,
             "Health": 33.0,
@@ -2673,8 +2674,7 @@
         "WeaponTypes": [
             "Attribute_EWeaponAttribute_RapidFire",
             "Attribute_EWeaponAttribute_MediumRange"
-        ],
-        "isDisabled": false
+        ]
     },
     "hero_kali": {
         "AbilityResourceMax": 0,
@@ -2835,6 +2835,7 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": false,
+        "IsDisabled": true,
         "LevelScaling": {
             "Health": 41.0,
             "LightMeleeDamage": 3.4,
@@ -2864,8 +2865,7 @@
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_kali_set",
         "WeaponName": "citadel_weapon_kali_set",
-        "WeaponPowerScale": 1,
-        "isDisabled": true
+        "WeaponPowerScale": 1
     },
     "hero_kelvin": {
         "AbilityResourceMax": 0,
@@ -3024,6 +3024,7 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": false,
+        "IsDisabled": false,
         "LevelScaling": {
             "BulletDamage": 1.2,
             "Health": 50.0,
@@ -3060,8 +3061,7 @@
             "Attribute_EWeaponAttribute_MediumRange",
             "Attribute_EWeaponAttribute_HeavyHitter",
             "Attribute_EWeaponAttribute_Projectile"
-        ],
-        "isDisabled": false
+        ]
     },
     "hero_krill": {
         "AbilityResourceMax": 0,
@@ -3205,6 +3205,7 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": false,
+        "IsDisabled": false,
         "LevelScaling": {
             "BulletDamage": 0.25,
             "Health": 44.0,
@@ -3239,8 +3240,7 @@
         "WeaponTypes": [
             "Attribute_EWeaponAttribute_RapidFire",
             "Attribute_EWeaponAttribute_Spreadshot"
-        ],
-        "isDisabled": false
+        ]
     },
     "hero_lash": {
         "AbilityResourceMax": 0,
@@ -3399,6 +3399,7 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": false,
+        "IsDisabled": false,
         "LevelScaling": {
             "BulletDamage": 0.9,
             "Health": 42.0,
@@ -3434,8 +3435,7 @@
         "WeaponTypes": [
             "Attribute_EWeaponAttribute_BurstFire",
             "Attribute_EWeaponAttribute_MediumRange"
-        ],
-        "isDisabled": false
+        ]
     },
     "hero_mirage": {
         "AbilityResourceMax": 0,
@@ -3592,6 +3592,7 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": true,
+        "IsDisabled": false,
         "LevelScaling": {
             "BulletDamage": 0.4,
             "Health": 41.0,
@@ -3626,8 +3627,7 @@
         "WeaponTypes": [
             "Attribute_EWeaponAttribute_MediumRange",
             "Attribute_EWeaponAttribute_HeavyHitter"
-        ],
-        "isDisabled": false
+        ]
     },
     "hero_nano": {
         "AbilityResourceMax": 0,
@@ -3801,6 +3801,7 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": true,
+        "IsDisabled": false,
         "LevelScaling": {
             "BulletDamage": 0.159,
             "Health": 41.0,
@@ -3831,8 +3832,7 @@
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_nano_set",
         "WeaponName": "citadel_weapon_nano_set",
-        "WeaponPowerScale": 1,
-        "isDisabled": false
+        "WeaponPowerScale": 1
     },
     "hero_orion": {
         "AbilityResourceMax": 0,
@@ -3981,6 +3981,7 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": false,
+        "IsDisabled": false,
         "LevelScaling": {
             "BulletDamage": 1.8,
             "Health": 27.0,
@@ -4020,8 +4021,7 @@
             "Attribute_EWeaponAttribute_MediumRange",
             "Attribute_EWeaponAttribute_HeavyHitter",
             "Attribute_EWeaponAttribute_Projectile"
-        ],
-        "isDisabled": false
+        ]
     },
     "hero_rutger": {
         "AbilityResourceMax": 0,
@@ -4170,6 +4170,7 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": true,
+        "IsDisabled": true,
         "LevelScaling": {
             "Health": 41.0,
             "LightMeleeDamage": 3.4,
@@ -4199,8 +4200,7 @@
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_rutger_set",
         "WeaponName": "citadel_weapon_rutger_set",
-        "WeaponPowerScale": 1,
-        "isDisabled": true
+        "WeaponPowerScale": 1
     },
     "hero_shiv": {
         "AbilityResourceMax": 0,
@@ -4362,6 +4362,7 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": false,
+        "IsDisabled": false,
         "LevelScaling": {
             "BulletDamage": 0.4,
             "Health": 35.0,
@@ -4396,8 +4397,7 @@
         "WeaponTypes": [
             "Attribute_EWeaponAttribute_Spreadshot",
             "Attribute_EWeaponAttribute_CloseRange"
-        ],
-        "isDisabled": false
+        ]
     },
     "hero_slork": {
         "AbilityResourceMax": 0,
@@ -4550,6 +4550,7 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": true,
+        "IsDisabled": true,
         "LevelScaling": {
             "BulletDamage": 0.73,
             "Health": 41.0,
@@ -4580,8 +4581,7 @@
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_slork_set",
         "WeaponName": "citadel_weapon_slork_set",
-        "WeaponPowerScale": 1,
-        "isDisabled": true
+        "WeaponPowerScale": 1
     },
     "hero_synth": {
         "AbilityResourceMax": 0,
@@ -4723,6 +4723,7 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": false,
+        "IsDisabled": false,
         "LevelScaling": {
             "BulletDamage": 0.4,
             "Health": 31.0,
@@ -4758,8 +4759,7 @@
         "WeaponTypes": [
             "Attribute_EWeaponAttribute_Spreadshot",
             "Attribute_EWeaponAttribute_CloseRange"
-        ],
-        "isDisabled": false
+        ]
     },
     "hero_targetdummy": {
         "AbilityResourceMax": 0,
@@ -4874,6 +4874,7 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": true,
+        "IsDisabled": true,
         "LevelScaling": {
             "Health": 41.0,
             "LightMeleeDamage": 3.4,
@@ -4903,8 +4904,7 @@
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_targetdummy_set",
         "WeaponName": "citadel_weapon_targetdummy_set",
-        "WeaponPowerScale": 1,
-        "isDisabled": true
+        "WeaponPowerScale": 1
     },
     "hero_tengu": {
         "AbilityResourceMax": 0,
@@ -5063,6 +5063,7 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": false,
+        "IsDisabled": false,
         "LevelScaling": {
             "BulletDamage": 0.5,
             "Health": 35.0,
@@ -5097,8 +5098,7 @@
         "WeaponTypes": [
             "Attribute_EWeaponAttribute_RapidFire",
             "Attribute_EWeaponAttribute_MediumRange"
-        ],
-        "isDisabled": false
+        ]
     },
     "hero_thumper": {
         "AbilityResourceMax": 0,
@@ -5250,6 +5250,7 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": true,
+        "IsDisabled": true,
         "LevelScaling": {
             "Health": 41.0,
             "LightMeleeDamage": 3.4,
@@ -5279,8 +5280,7 @@
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_thumper_set",
         "WeaponName": "citadel_weapon_thumper_set",
-        "WeaponPowerScale": 1,
-        "isDisabled": true
+        "WeaponPowerScale": 1
     },
     "hero_tokamak": {
         "AbilityResourceMax": 0,
@@ -5428,6 +5428,7 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": true,
+        "IsDisabled": true,
         "LevelScaling": {
             "BulletDamage": 0.8487,
             "Health": 41.0,
@@ -5458,8 +5459,7 @@
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_tokamak_set",
         "WeaponName": "citadel_weapon_tokamak_set",
-        "WeaponPowerScale": 1,
-        "isDisabled": true
+        "WeaponPowerScale": 1
     },
     "hero_viscous": {
         "AbilityResourceMax": 0,
@@ -5632,6 +5632,7 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": false,
+        "IsDisabled": false,
         "LevelScaling": {
             "BulletDamage": 1.1,
             "Health": 38.0,
@@ -5666,8 +5667,7 @@
         "WeaponTypes": [
             "Attribute_EWeaponAttribute_MediumRange",
             "Attribute_EWeaponAttribute_Projectile"
-        ],
-        "isDisabled": false
+        ]
     },
     "hero_warden": {
         "AbilityResourceMax": 0,
@@ -5806,6 +5806,7 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": false,
+        "IsDisabled": false,
         "LevelScaling": {
             "BulletDamage": 1.2,
             "Health": 45.0,
@@ -5843,8 +5844,7 @@
         "WeaponTypes": [
             "Attribute_EWeaponAttribute_MediumRange",
             "Attribute_EWeaponAttribute_Projectile"
-        ],
-        "isDisabled": false
+        ]
     },
     "hero_wraith": {
         "AbilityResourceMax": 0,
@@ -5986,6 +5986,7 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": false,
+        "IsDisabled": false,
         "LevelScaling": {
             "BulletDamage": 0.48,
             "Health": 31.0,
@@ -6022,8 +6023,7 @@
         "WeaponTypes": [
             "Attribute_EWeaponAttribute_RapidFire",
             "Attribute_EWeaponAttribute_MediumRange"
-        ],
-        "isDisabled": false
+        ]
     },
     "hero_wrecker": {
         "AbilityResourceMax": 0,
@@ -6162,6 +6162,7 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": true,
+        "IsDisabled": false,
         "LevelScaling": {
             "BulletDamage": 1.58,
             "Health": 41.0,
@@ -6196,8 +6197,7 @@
         "WeaponTypes": [
             "Attribute_EWeaponAttribute_MediumRange",
             "Attribute_EWeaponAttribute_HeavyHitter"
-        ],
-        "isDisabled": false
+        ]
     },
     "hero_yakuza": {
         "AbilityResourceMax": 0,
@@ -6334,6 +6334,7 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": true,
+        "IsDisabled": true,
         "LevelScaling": {
             "Health": 41.0,
             "LightMeleeDamage": 3.4,
@@ -6363,8 +6364,7 @@
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_yakuza_set",
         "WeaponName": "citadel_weapon_yakuza_set",
-        "WeaponPowerScale": 1,
-        "isDisabled": true
+        "WeaponPowerScale": 1
     },
     "hero_yamato": {
         "AbilityResourceMax": 0,
@@ -6506,6 +6506,7 @@
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 128,
         "InDevelopment": false,
+        "IsDisabled": false,
         "LevelScaling": {
             "BulletDamage": 0.5,
             "Health": 31.0,
@@ -6542,7 +6543,6 @@
         "WeaponTypes": [
             "Attribute_EWeaponAttribute_Spreadshot",
             "Attribute_EWeaponAttribute_CloseRange"
-        ],
-        "isDisabled": false
+        ]
     }
 }
