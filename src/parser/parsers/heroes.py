@@ -169,9 +169,17 @@ class HeroParser:
 
         # Calc sustained DPS
         if weapon_stats['ReloadSingle']:
+            # If reloading 1 bullet at a time, reload time is actually per bullet
             time_to_reload = weapon_stats['ReloadTime'] * weapon_stats['ClipSize']
         else:
             time_to_reload = weapon_stats['ReloadTime']
+
+        # All reload actions have ReloadDelay, but typically only single bullet reloads have a delay
+        # i.e. 
+        # ReloadDelay of .5, 
+        # ReloadTime of 1, 
+        # ClipSize of 10, 
+        # =time to reload 1 bullet is 1.5s, time to reload 10 bullets is 10.5s
         time_to_reload += weapon_stats['ReloadDelay']
         time_to_empty_clip = weapon_stats['ClipSize'] / weapon_stats['RoundsPerSecond']
         weapon_stats['SustainedDPS'] = weapon_stats['DPS'] * (time_to_empty_clip / (time_to_empty_clip + time_to_reload))
