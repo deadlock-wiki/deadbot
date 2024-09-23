@@ -3,13 +3,6 @@ if [ -f "../../../.env" ]; then
 . ../../../.env #Retrieve config paths
 fi
 
-# Windows vs. linux package
-if [ -f "$DECOMPILER_PATH/Decompiler.exe"  ]; then
-  DEC_CMD="$DECOMPILER_PATH/Decompiler.exe"
-  else
-  DEC_CMD="$DECOMPILER_PATH/Decompiler"
-fi
-
 # Define paths
 TMP_VDATA_DIR="$OUTPUT_DIR/decompiled-data"
 mkdir -p $TMP_VDATA_DIR
@@ -24,7 +17,7 @@ for FILE in "${FILES[@]}"; do
   INPUT_PATH="$DEADLOCK_PATH/game/citadel/pak01_dir.vpk"
   VPK_FILEPATH="${FILE}.vdata_c"
   # Run the decompiler
-  $DEC_CMD -i "$INPUT_PATH" --output "$TMP_VDATA_DIR/vdata" --vpk_filepath "$VPK_FILEPATH" -d
+  $DECOMPILER_CMD -i "$INPUT_PATH" --output "$TMP_VDATA_DIR/vdata" --vpk_filepath "$VPK_FILEPATH" -d
 
   # Remove subclass and convert to json
   python3 kv3_to_json.py "$TMP_VDATA_DIR/vdata/${FILE}.vdata" "$TMP_VDATA_DIR/${FILE}.json"
