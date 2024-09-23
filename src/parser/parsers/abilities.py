@@ -74,8 +74,7 @@ class AbilityParser:
                     formatted_ability_data[attr_key] = num_utils.remove_uom(attr_value)
 
             all_abilities[ability_key] = json_utils.sort_dict(formatted_ability_data)
-
-        json_utils.write(os.path.join(OUTPUT_DIR, 'json/ability-data.json'), 
+        json_utils.write(OUTPUT_DIR+'/json/ability-data.json', 
             json_utils.sort_dict(all_abilities)
         )
 

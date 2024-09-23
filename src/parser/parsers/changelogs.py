@@ -8,13 +8,13 @@ import datetime
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import utils.json_utils as json_utils
 
+from .constants import OUTPUT_DIR
+
 
 class ChangelogParser:
     def __init__(self):
         self.CHANGELOGS_DIR = os.path.join(os.path.dirname(__file__), '../raw-changelogs/')
-        self.OUTPUT_DIR = os.getenv('OUTPUT_DIR',
-            os.path.join(os.path.dirname(__file__), '../../../output-data/')
-        )
+        self.OUTPUT_DIR = OUTPUT_DIR
         self.OUTPUT_CHANGELOGS = self.OUTPUT_DIR+'/changelogs'
         self.resources = self._get_resources()
 
@@ -107,9 +107,9 @@ class ChangelogParser:
 
     def _get_resources(self):
         resources = {}
-        heroes = json_utils.read(os.path.join(self.OUTPUT_DIR, 'json')+'/hero-data.json')
-        items = json_utils.read(os.path.join(self.OUTPUT_DIR, 'json')+'/item-data.json')
-        abilities = json_utils.read(os.path.join(self.OUTPUT_DIR, 'json')+'/ability-data.json')
+        heroes = json_utils.read(self.OUTPUT_DIR+'/json/hero-data.json')
+        items = json_utils.read(self.OUTPUT_DIR+'/json/item-data.json')
+        abilities = json_utils.read(self.OUTPUT_DIR+'/json/ability-data.json')
 
         for key in heroes:
             heroes[key]['Type'] = 'Heroes'

@@ -94,7 +94,8 @@ class ItemParser:
 
             all_items[key] = parsed_item_data
 
-        json_utils.write(os.path.join(OUTPUT_DIR,'/json')+'/item-data.json',
+        print(OUTPUT_DIR+'/json')
+        json_utils.write(OUTPUT_DIR+'/json/item-data.json',
             json_utils.sort_dict(all_items)
         )
 
