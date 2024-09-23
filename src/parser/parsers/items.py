@@ -94,13 +94,13 @@ class ItemParser:
 
             all_items[key] = parsed_item_data
 
-        json_utils.write(os.path.join(OUTPUT_DIR,'json/item-data.json'),
+        json_utils.write(os.path.join(OUTPUT_DIR,'/json')+'/item-data.json',
             json_utils.sort_dict(all_items)
         )
 
         chart = MermaidDiagram(title='Items', nodes=self.nodes, links=self.links)
 
-        with open(os.path.join(OUTPUT_DIR,'/item-component-tree.txt'), 'w') as f:
+        with open(OUTPUT_DIR+ '/item-component-tree.txt', 'w') as f:
             f.write(str(chart))
 
     # Add items to mermaid tree

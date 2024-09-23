@@ -70,7 +70,7 @@ class HeroParser:
 
                 all_hero_stats[hero_key] = json_utils.sort_dict(hero_stats)
 
-        json_utils.write(os.path.join(OUTPUT_DIR,'json/hero-data.json'), 
+        json_utils.write(os.path.join(OUTPUT_DIR,'/json')+'/hero-data.json', 
             json_utils.sort_dict(all_hero_stats)
         )
         return all_hero_stats
