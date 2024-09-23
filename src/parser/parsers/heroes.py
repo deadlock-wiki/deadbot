@@ -76,7 +76,50 @@ class HeroParser:
                 all_hero_stats[hero_key] = json_utils.sort_dict(hero_stats)
 
         json_utils.write(OUTPUT_DIR + 'json/hero-data.json', json_utils.sort_dict(all_hero_stats))
+
+        # Write non-constant stats to json file
+        self._write_non_constants_stats(all_hero_stats)
+
         return all_hero_stats
+    
+    def _write_non_constants_stats(self, all_hero_stats):
+        """
+        Writes list of non-constant stats to json file.
+
+        Returns non_constants_stats dict, where elements are true if they are non-constant.
+
+        Non-constant stats are ones that will be displayed 
+        on the deadlocked.wiki/Hero_Comparison page, among others in the future.
+        """
+        # Using 'non_constant' instead of 'variable' as 'variable' may indicate something else
+        heroes_data = all_hero_stats.copy()
+        stats_previous_value = {}
+        non_constant_stats = {}
+
+        # Iterate heroes
+        for hero_key, hero_data in heroes_data.items():
+            # Iterate hero stats
+            for stat_key, stat_value in hero_data.items():
+                # Must not be a container type, nor a bool
+                stat_value_type = type(stat_value)
+                if stat_value_type not in [int, float, str]:
+                    continue
+
+                # Ensure the data isn't a localization key
+                if stat_value_type == str and (any(str_to_match in stat_value for str_to_match in ['hero_', 'weapon_']) or stat_key == 'Name'):
+                    continue
+
+                # Add the stat's value to the dict
+                if stat_key not in stats_previous_value:
+                    stats_previous_value[stat_key] = stat_value
+
+                # If its already tracked, and is different to current value, mark as non-constant
+                else:
+                    if stats_previous_value[stat_key] != stat_value:
+                        non_constant_stats[stat_key] = True
+
+        json_utils.write(OUTPUT_DIR + 'json/hero-non-constants.json', json_utils.sort_dict(non_constant_stats))
+        
 
     def _parse_hero_abilities(self, hero_value):
         bound_abilities = hero_value['m_mapBoundAbilities']
