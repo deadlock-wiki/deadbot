@@ -124,14 +124,14 @@ class HeroParser:
             'FalloffEndScale': w['m_flDamageFalloffEndScale'],
             'FalloffBias': w['m_flDamageFalloffBias'],
             'BulletGravityScale': w['m_flBulletGravityScale'],
-            'Bullets': w['m_iBullets'],
+            'BulletsPerShot': w['m_iBullets'],
             #'BulletRadius': w['m_flBulletRadius'] / ENGINE_UNITS_PER_METER,
         }
 
         weapon_stats['DPS'] = (
             weapon_stats['BulletDamage']
             * weapon_stats['RoundsPerSecond']
-            * weapon_stats.get('Bullets', 1)
+            * weapon_stats.get('BulletsPerShot', 1)
         )
 
         # Parse weapon types
