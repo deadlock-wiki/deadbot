@@ -92,6 +92,8 @@ class HeroParser:
         on the deadlocked.wiki/Hero_Comparison page, among others in the future.
         """
         # Using 'non_constant' instead of 'variable' as 'variable' may indicate something else
+        # Storing in dict with bool entry instead of list so its hashable on the frontend
+
         heroes_data = all_hero_stats.copy()
         stats_previous_value = {}
         non_constant_stats = {}
@@ -102,7 +104,7 @@ class HeroParser:
             for stat_key, stat_value in hero_data.items():
                 # Must not be a container type, nor a bool
                 stat_value_type = type(stat_value)
-                if stat_value_type not in [int, float, str]:
+                if stat_value_type not in [int, float, str, bool]:
                     continue
 
                 # Ensure the data isn't a localization key
@@ -160,9 +162,19 @@ class HeroParser:
             'FalloffBias': w['m_flDamageFalloffBias'],
             'BulletGravityScale': w['m_flBulletGravityScale'],
             #'BulletRadius': w['m_flBulletRadius'] / ENGINE_UNITS_PER_METER,
+            'BulletsPerShot': w['m_iBullets'],
         }
 
-        weapon_stats['DPS'] = weapon_stats['BulletDamage'] * weapon_stats['RoundsPerSecond']
+        weapon_stats['DPS'] = weapon_stats['BulletDamage'] * weapon_stats['RoundsPerSecond'] * weapon_stats['BulletsPerShot']
+
+        # Calc sustained DPS
+        if weapon_stats['ReloadSingle']:
+            time_to_reload = weapon_stats['ReloadTime'] * weapon_stats['ClipSize']
+        else:
+            time_to_reload = weapon_stats['ReloadTime']
+        time_to_reload += weapon_stats['ReloadDelay']
+        time_to_empty_clip = weapon_stats['ClipSize'] / weapon_stats['RoundsPerSecond']
+        weapon_stats['SustainedDPS'] = weapon_stats['DPS'] * (time_to_empty_clip / (time_to_empty_clip + time_to_reload))
 
         weapon_stats['WeaponName'] = weapon_prim_id
         # i.e. citadel_weapon_kelvin_set to citadel_weapon_hero_kelvin_set
