@@ -101,12 +101,6 @@ class AbilityParser:
                         'Type': maps.get_scale_type(scale_type),
                     }
 
-            # Add description key to be formatted in AbilityUiParser.
-            # Descriptions include t1, t2, and t3 denoting the tier
-            desc_key = f'{ability_data["Key"]}_t{index+1}_desc'
-            if desc_key in self.localizations:
-                parsed_upgrade_set['DescKey'] = desc_key
-
             parsed_upgrade_sets.append(parsed_upgrade_set)
 
         return parsed_upgrade_sets

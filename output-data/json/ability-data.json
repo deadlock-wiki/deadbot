@@ -12,8 +12,7 @@
         "TickRate": 0.5,
         "Upgrades": [
             {
-                "AfterburnSpiritDamageReduction": -30,
-                "DescKey": "ability_afterburn_t1_desc"
+                "AfterburnSpiritDamageReduction": -30
             },
             {
                 "BurnDuration": 1
@@ -38,8 +37,7 @@
         "Upgrades": [
             {
                 "SlowPercent": 15,
-                "SlowDurationPerStack": 1,
-                "DescKey": "ability_astro_rifle_t1_desc"
+                "SlowDurationPerStack": 1
             },
             {
                 "DamageAmplificationPerStack": 5
@@ -50,8 +48,7 @@
                     "Prop": "Damage",
                     "Value": 0.628992,
                     "Type": "spirit"
-                },
-                "DescKey": "ability_astro_rifle_t3_desc"
+                }
             }
         ]
     },
@@ -68,8 +65,7 @@
         "Upgrades": [
             {
                 "CloseRangeBonusWeaponPower": 20,
-                "CloseRangeBonusDamageRange": "7m",
-                "DescKey": "ability_astro_shotgun_toggle_t1_desc"
+                "CloseRangeBonusDamageRange": "7m"
             },
             {
                 "ClipSizeOverride": 2
@@ -102,8 +98,7 @@
             },
             {
                 "BloodSpillDPSPercent": 26,
-                "BloodSpillDuration": 6,
-                "DescKey": "ability_blood_bomb_t3_desc"
+                "BloodSpillDuration": 6
             }
         ]
     },
@@ -127,13 +122,11 @@
                 "AbilityCooldown": -2.75
             },
             {
-                "HealthToDamage": 40,
-                "DescKey": "ability_blood_shards_t2_desc"
+                "HealthToDamage": 40
             },
             {
                 "NumBloodShards": 6,
-                "SpreadAngleDegrees": 22,
-                "DescKey": "ability_blood_shards_t3_desc"
+                "SpreadAngleDegrees": 22
             }
         ],
         "VulnerabilityPerStack": 15
@@ -218,8 +211,7 @@
         "Upgrades": [
             {
                 "SpeedOnLand": "4m",
-                "SpeedOnLandDuration": 4,
-                "DescKey": "ability_bounce_pad_t1_desc"
+                "SpeedOnLandDuration": 4
             },
             {
                 "StompDamage": 100,
@@ -227,12 +219,10 @@
                     "Prop": "StompDamage",
                     "Value": 1.04832,
                     "Type": null
-                },
-                "DescKey": "ability_bounce_pad_t2_desc"
+                }
             },
             {
-                "StompStunDuration": 1.25,
-                "DescKey": "ability_bounce_pad_t3_desc"
+                "StompStunDuration": 1.25
             }
         ],
         "VerticalDifferenceTolerance": 60
@@ -284,18 +274,15 @@
         "UpForce": 250,
         "Upgrades": [
             {
-                "AbilityChannelTime": 3,
-                "DescKey": "ability_burrow_t1_desc"
+                "AbilityChannelTime": 3
             },
             {
                 "DPS": 140,
-                "Radius": "2m",
-                "DescKey": "ability_burrow_t2_desc"
+                "Radius": "2m"
             },
             {
                 "AbilityCooldown": -19.0,
-                "BonusMoveSpeed": "3m",
-                "DescKey": "ability_burrow_t3_desc"
+                "BonusMoveSpeed": "3m"
             }
         ]
     },
@@ -345,17 +332,14 @@
             {
                 "AbilityCharges": 1
             },
-            {
-                "DescKey": "ability_charged_shot_t2_desc"
-            },
+            {},
             {
                 "AbilityCooldownBetweenCharge": -3,
                 "Scale": {
                     "Prop": "Damage",
                     "Value": 0.91728,
                     "Type": "spirit"
-                },
-                "DescKey": "ability_charged_shot_t3_desc"
+                }
             }
         ]
     },
@@ -368,8 +352,7 @@
         "Name": "Death Tax",
         "Upgrades": [
             {
-                "CooldownReductionOnKill": 1,
-                "DescKey": "ability_death_tax_t1_desc"
+                "CooldownReductionOnKill": 1
             },
             {
                 "DeathTaxHeal": 30
@@ -377,8 +360,7 @@
             {
                 "TechPowerAmpBonus": 10,
                 "TechPowerAmpBonusDuration": 10,
-                "TechPowerAmpBonusMaxStacks": 10,
-                "DescKey": "ability_death_tax_t3_desc"
+                "TechPowerAmpBonusMaxStacks": 10
             }
         ]
     },
@@ -416,8 +398,7 @@
             {
                 "AbilityCooldown": -9.5,
                 "MinTimeBeforeDestroy": -1,
-                "ArmTime": -1,
-                "DescKey": "ability_explosive_barrel_t3_desc"
+                "ArmTime": -1
             }
         ]
     },
@@ -437,13 +418,11 @@
             },
             {
                 "StunDuration": 0.5,
-                "Radius": "4m",
-                "DescKey": "ability_fire_bomb_t2_desc"
+                "Radius": "4m"
             },
             {
                 "Damage": 115,
-                "LifeStealPercentOnHit": 100,
-                "DescKey": "ability_fire_bomb_t3_desc"
+                "LifeStealPercentOnHit": 100
             }
         ]
     },
@@ -470,8 +449,7 @@
         "Upgrades": [
             {
                 "FireRateSlow": 30,
-                "FlameDashDebuffDuration": 6,
-                "DescKey": "ability_flame_dash_t1_desc"
+                "FlameDashDebuffDuration": 6
             },
             {
                 "FlameAuraDPS": 45
@@ -509,8 +487,7 @@
             },
             {
                 "GrabExtraTargets": 1,
-                "ExtraTargetConeAngle": 60,
-                "DescKey": "ability_gravity_lasso_t3_desc"
+                "ExtraTargetConeAngle": 60
             }
         ]
     },
@@ -533,8 +510,7 @@
                 "AbilityCooldown": -47.0
             },
             {
-                "LowHealthEnemyThresholdPct": 22,
-                "DescKey": "ability_guided_arrow_t3_desc"
+                "LowHealthEnemyThresholdPct": 22
             }
         ]
     },
@@ -585,8 +561,7 @@
             {
                 "SelfBuffDuration": 8,
                 "TechResist": 40,
-                "BonusFireRate": 40,
-                "DescKey": "ability_health_swap_t3_desc"
+                "BonusFireRate": 40
             }
         ]
     },
@@ -606,8 +581,7 @@
         "SlowPercent": 35,
         "Upgrades": [
             {
-                "FireRateSlow": 40,
-                "DescKey": "ability_ice_dome_t1_desc"
+                "FireRateSlow": 40
             },
             {
                 "AbilityCooldown": -38.0
@@ -618,8 +592,7 @@
                     "Prop": "BonusHealthRegen",
                     "Value": 1.638,
                     "Type": "spirit"
-                },
-                "DescKey": "ability_ice_dome_t3_desc"
+                }
             }
         ]
     },
@@ -646,8 +619,7 @@
                     "Prop": "HealAmount",
                     "Value": 1.9656,
                     "Type": "spirit"
-                },
-                "DescKey": "ability_ice_grenade_t2_desc"
+                }
             },
             {
                 "Damage": 175
@@ -688,8 +660,7 @@
                     "Value": 1.0,
                     "Type": "range"
                 },
-                "BeamSplitCount": 2,
-                "DescKey": "ability_icebeam_t3_desc"
+                "BeamSplitCount": 2
             }
         ]
     },
@@ -725,8 +696,7 @@
             {
                 "BonusSpiritMeter": 1,
                 "BonusSpiritMax": 55,
-                "BonusSpiritLingerDuration": 6,
-                "DescKey": "ability_icepath_t3_desc"
+                "BonusSpiritLingerDuration": 6
             }
         ]
     },
@@ -756,8 +726,7 @@
             },
             {
                 "BulletVulnerbility": 30,
-                "DebuffDuration": 10,
-                "DescKey": "ability_immobilize_trap_t3_desc"
+                "DebuffDuration": 10
             }
         ]
     },
@@ -786,14 +755,12 @@
                 "AbilityCharges": 1
             },
             {
-                "LifestealPercentHero": 15,
-                "DescKey": "ability_incendiary_projectile_t2_desc"
+                "LifestealPercentHero": 15
             },
             {
                 "DamageAmplification": 15,
                 "HealAmpReceivePenaltyPercent": -40,
-                "HealAmpRegenPenaltyPercent": -40,
-                "DescKey": "ability_incendiary_projectile_t3_desc"
+                "HealAmpRegenPenaltyPercent": -40
             }
         ]
     },
@@ -818,8 +785,7 @@
             },
             {
                 "DamageBonus": 15,
-                "DebuffDuration": 16,
-                "DescKey": "ability_intimidate_t3_desc"
+                "DebuffDuration": 16
             }
         ]
     },
@@ -855,8 +821,7 @@
             },
             {
                 "AbilityDuration": 3,
-                "AbilityCooldown": -9.5,
-                "DescKey": "ability_kali_dust_storm_t3_desc"
+                "AbilityCooldown": -9.5
             }
         ]
     },
@@ -881,15 +846,13 @@
         "Upgrades": [
             {
                 "ReverseLifeLeech": 30,
-                "ReverseLifeLeechDuration": 8,
-                "DescKey": "ability_kali_trappers_bolo_t1_desc"
+                "ReverseLifeLeechDuration": 8
             },
             {
                 "AbilityCooldown": -47.0
             },
             {
-                "StunsTargets": 1,
-                "DescKey": "ability_kali_trappers_bolo_t3_desc"
+                "StunsTargets": 1
             }
         ]
     },
@@ -908,16 +871,14 @@
         "Upgrades": [
             {
                 "EnemySlowDuration": 3,
-                "EnemySlowPct": 35,
-                "DescKey": "ability_lash_flog_t1_desc"
+                "EnemySlowPct": 35
             },
             {
                 "AbilityCooldown": -14.0
             },
             {
                 "Damage": 105,
-                "FireRateSlow": 35,
-                "DescKey": "ability_lash_flog_t3_desc"
+                "FireRateSlow": 35
             }
         ]
     },
@@ -943,8 +904,7 @@
                 "AbilityDuration": 2.0
             },
             {
-                "SilenceOnDrain": 1,
-                "DescKey": "ability_life_drain_t3_desc"
+                "SilenceOnDrain": 1
             }
         ]
     },
@@ -972,18 +932,15 @@
         "SlowPercent": 30,
         "Upgrades": [
             {
-                "SlowDuration": 1,
-                "DescKey": "ability_nano_pounce_t1_desc"
+                "SlowDuration": 1
             },
             {
                 "FireRateSlow": 30,
-                "ExplodeRadius": "6m",
-                "DescKey": "ability_nano_pounce_t2_desc"
+                "ExplodeRadius": "6m"
             },
             {
                 "AbilityCharges": 1,
-                "ActiveReloadPercent": 25,
-                "DescKey": "ability_nano_pounce_t3_desc"
+                "ActiveReloadPercent": 25
             }
         ]
     },
@@ -1013,18 +970,15 @@
         "TickInterval": 0.1,
         "Upgrades": [
             {
-                "StatueHealth": 200,
-                "DescKey": "ability_nano_proximity_ritual_t1_desc"
+                "StatueHealth": 200
             },
             {
-                "DPS": 30,
-                "DescKey": "ability_nano_proximity_ritual_t2_desc"
+                "DPS": 30
             },
             {
                 "DamageAmplification": 35,
                 "HealAmpReceivePenaltyPercent": -30,
-                "HealAmpRegenPenaltyPercent": -30,
-                "DescKey": "ability_nano_proximity_ritual_t3_desc"
+                "HealAmpRegenPenaltyPercent": -30
             }
         ]
     },
@@ -1051,12 +1005,10 @@
                 "StaminaCooldownReduction": 30
             },
             {
-                "PurgeOnActivate": 1,
-                "DescKey": "ability_nano_ult_shadow_t2_desc"
+                "PurgeOnActivate": 1
             },
             {
-                "SilenceOnHeavyDuration": 3,
-                "DescKey": "ability_nano_ult_shadow_t3_desc"
+                "SilenceOnHeavyDuration": 3
             }
         ]
     },
@@ -1111,13 +1063,11 @@
             {
                 "WeaponDamageBonus": 5,
                 "SlowPercent": 40,
-                "SlowDuration": 1.5,
-                "DescKey": "ability_power_jump_t2_desc"
+                "SlowDuration": 1.5
             },
             {
                 "BulletLifestealPercent": 50,
-                "TechLifestealPercent": 50,
-                "DescKey": "ability_power_jump_t3_desc"
+                "TechLifestealPercent": 50
             }
         ],
         "WeaponDamageBonus": 4
@@ -1139,8 +1089,7 @@
         "Upgrades": [
             {
                 "TechResistDebuff": -15,
-                "DebuffDuration": 8,
-                "DescKey": "ability_power_surge_t1_desc"
+                "DebuffDuration": 8
             },
             {
                 "AbilityCooldown": -15.0
@@ -1153,8 +1102,7 @@
                     "Prop": "BonusPerChain",
                     "Value": 0.366912,
                     "Type": "spirit"
-                },
-                "DescKey": "ability_power_surge_t3_desc"
+                }
             }
         ]
     },
@@ -1204,16 +1152,14 @@
         "TickRate": 0.5,
         "Upgrades": [
             {
-                "StaminaReduction": 1,
-                "DescKey": "ability_sleep_dagger_t1_desc"
+                "StaminaReduction": 1
             },
             {
                 "AbilityCooldown": -12.0
             },
             {
                 "BulletResistReduction": -12,
-                "BulletResistReductionDuration": 6,
-                "DescKey": "ability_sleep_dagger_t3_desc"
+                "BulletResistReductionDuration": 6
             }
         ]
     },
@@ -1233,17 +1179,14 @@
         "SpottedRadius": 18,
         "Upgrades": [
             {
-                "AbilityCooldown": -14.0,
-                "DescKey": "ability_smoke_bomb_t1_desc"
+                "AbilityCooldown": -14.0
             },
             {
-                "InvisMoveSpeedMod": "6m",
-                "DescKey": "ability_smoke_bomb_t2_desc"
+                "InvisMoveSpeedMod": "6m"
             },
             {
                 "BulletLifesteal": 30,
-                "PostInvisBuffDuration": 8,
-                "DescKey": "ability_smoke_bomb_t3_desc"
+                "PostInvisBuffDuration": 8
             }
         ]
     },
@@ -1266,13 +1209,11 @@
                 },
                 "ProcDamageStackCount": 20,
                 "SlowPercent": 15,
-                "SlowDuration": 2,
-                "DescKey": "ability_stacking_damage_t1_desc"
+                "SlowDuration": 2
             },
             {
                 "AbilityDuration": 5,
-                "MaxStacks": 40,
-                "DescKey": "ability_stacking_damage_t2_desc"
+                "MaxStacks": 40
             },
             {
                 "DamageBonusFixedPerStack": 0.2
@@ -1300,8 +1241,7 @@
             },
             {
                 "BulletArmorReduction": -30,
-                "DebuffDuration": 6,
-                "DescKey": "ability_target_practice_t3_desc"
+                "DebuffDuration": 6
             }
         ]
     },
@@ -1325,8 +1265,7 @@
                 "AbilityCooldown": -19.0
             },
             {
-                "SlowPercent": 50,
-                "DescKey": "ability_throw_sand_t3_desc"
+                "SlowPercent": 50
             }
         ]
     },
@@ -1344,13 +1283,11 @@
                 "AbilityCooldown": -28.0
             },
             {
-                "AbilityChannelTime": 0.75,
-                "DescKey": "ability_ult_combo_t2_desc"
+                "AbilityChannelTime": 0.75
             },
             {
                 "DPS": 40,
-                "LifeStealPercentOnHit": 100,
-                "DescKey": "ability_ult_combo_t3_desc"
+                "LifeStealPercentOnHit": 100
             }
         ]
     },
@@ -1376,8 +1313,7 @@
             },
             {
                 "FireRateSlow": 35,
-                "AbilityCooldown": -6.5,
-                "DescKey": "ability_warden_crowd_control_t3_desc"
+                "AbilityCooldown": -6.5
             }
         ],
         "WeaponPowerDebuff": -30
@@ -1404,8 +1340,7 @@
                     "Prop": "TechShieldPoints",
                     "Value": 3.9312,
                     "Type": "spirit"
-                },
-                "DescKey": "ability_warden_high_alert_t3_desc"
+                }
             }
         ]
     },
@@ -1430,8 +1365,7 @@
             },
             {
                 "BulletArmorReduction": 20,
-                "BulletArmorReductionDuration": 6,
-                "DescKey": "ability_warden_lock_down_t3_desc"
+                "BulletArmorReductionDuration": 6
             }
         ]
     },
@@ -1476,8 +1410,7 @@
         "TickInterval": 0.25,
         "Upgrades": [
             {
-                "SalvageBonus_Health": 150,
-                "DescKey": "ability_wrecker_salvage_t1_desc"
+                "SalvageBonus_Health": 150
             },
             {
                 "DPS": 80
@@ -1538,8 +1471,7 @@
                 "AbilityCooldown": -38.0
             },
             {
-                "Invulnerable": 1,
-                "DescKey": "ability_wrecker_ultimate_t3_desc"
+                "Invulnerable": 1
             }
         ]
     },
@@ -1726,8 +1658,7 @@
             },
             {
                 "BeamLifesteal": 100,
-                "BeamLifestealNonHeroPercent": 33,
-                "DescKey": "citadel_ability_bebop_laser_beam_t3_desc"
+                "BeamLifestealNonHeroPercent": 33
             }
         ],
         "ZoomBias": 0.5,
@@ -1760,8 +1691,7 @@
             },
             {
                 "WeaponDamageBonus": 5.5,
-                "WeaponPowerIncreaseDuration": 8,
-                "DescKey": "citadel_ability_bull_charge_t3_desc"
+                "WeaponPowerIncreaseDuration": 8
             }
         ]
     },
@@ -1806,12 +1736,10 @@
             {
                 "BonusMaxHealthPerHero": 100,
                 "BonusFireRatePerHero": 15,
-                "LandingBonusesDuration": 25,
-                "DescKey": "citadel_ability_bull_leap_t2_desc"
+                "LandingBonusesDuration": 25
             },
             {
-                "ImmunityDuration": 3,
-                "DescKey": "citadel_ability_bull_leap_t3_desc"
+                "ImmunityDuration": 3
             }
         ]
     },
@@ -1865,8 +1793,7 @@
                 "Damage": 24
             },
             {
-                "MultiChain": 1,
-                "DescKey": "citadel_ability_chain_lightning_t3_desc"
+                "MultiChain": 1
             }
         ]
     },
@@ -1889,18 +1816,15 @@
         "Upgrades": [
             {
                 "Damage": 80,
-                "ChargeDistance": "10m",
-                "DescKey": "citadel_ability_charged_tackle_t1_desc"
+                "ChargeDistance": "10m"
             },
             {
                 "TechShield": 400,
-                "TechShieldDuration": 20,
-                "DescKey": "citadel_ability_charged_tackle_t2_desc"
+                "TechShieldDuration": 20
             },
             {
                 "AbilityCooldown": -9.5,
-                "PrepareTime": -0.6,
-                "DescKey": "citadel_ability_charged_tackle_t3_desc"
+                "PrepareTime": -0.6
             }
         ]
     },
@@ -1928,17 +1852,14 @@
         "TimeWarpRadius": 5,
         "Upgrades": [
             {
-                "MaxSlowDuration": 0.5,
-                "DescKey": "citadel_ability_chrono_kinetic_carbine_t1_desc"
+                "MaxSlowDuration": 0.5
             },
             {
                 "AbilityCooldown": -9.5,
-                "SpeedBoostDuration": 2,
-                "DescKey": "citadel_ability_chrono_kinetic_carbine_t2_desc"
+                "SpeedBoostDuration": 2
             },
             {
-                "MaxBonusBulletDamage": 50,
-                "DescKey": "citadel_ability_chrono_kinetic_carbine_t3_desc"
+                "MaxBonusBulletDamage": 50
             }
         ]
     },
@@ -2027,15 +1948,13 @@
         "Upgrades": [
             {
                 "TimeWallWidth": "2m",
-                "TimeWallHeight": "1m",
-                "DescKey": "citadel_ability_chrono_time_wall_t1_desc"
+                "TimeWallHeight": "1m"
             },
             {
                 "AbilityCharges": 1
             },
             {
-                "DebuffDuration": 3.0,
-                "DescKey": "citadel_ability_chrono_time_wall_t3_desc"
+                "DebuffDuration": 3.0
             }
         ]
     },
@@ -2060,15 +1979,13 @@
             {
                 "StaminaReduction": 1,
                 "BonusDamagePercent": 25,
-                "DebuffDuration": 7,
-                "DescKey": "citadel_ability_fissure_wall_t1_desc"
+                "DebuffDuration": 7
             },
             {
                 "AbilityCooldown": -14.0
             },
             {
-                "WallStunDuration": 1,
-                "DescKey": "citadel_ability_fissure_wall_t3_desc"
+                "WallStunDuration": 1
             }
         ],
         "WallImpactRange": 5
@@ -2093,8 +2010,7 @@
             },
             {
                 "WeaponDamageBonus": 6,
-                "WeaponPowerIncreaseDuration": 10,
-                "DescKey": "citadel_ability_flying_strike_t3_desc"
+                "WeaponPowerIncreaseDuration": 10
             }
         ]
     },
@@ -2140,8 +2056,7 @@
         "Upgrades": [
             {
                 "BulletAmp": 30,
-                "BulletAmpDuration": 10,
-                "DescKey": "citadel_ability_hook_t1_desc"
+                "BulletAmpDuration": 10
             },
             {
                 "AbilityCastRange": "30m"
@@ -2172,8 +2087,7 @@
                 "AbilityCooldown": -19.0
             },
             {
-                "HasDisarm": 1,
-                "DescKey": "citadel_ability_hornet_chain_t3_desc"
+                "HasDisarm": 1
             }
         ]
     },
@@ -2192,8 +2106,7 @@
         "Name": "Flight",
         "Upgrades": [
             {
-                "BonusClipSizePercent": 50,
-                "DescKey": "citadel_ability_hornet_leap_t1_desc"
+                "BonusClipSizePercent": 50
             },
             {
                 "AbilityCooldown": -14.0
@@ -2217,8 +2130,7 @@
                 "AbilityCastRange": 2500
             },
             {
-                "ChargeForKill": 1,
-                "DescKey": "citadel_ability_hornet_mark_t2_desc"
+                "ChargeForKill": 1
             },
             {
                 "AbilityCooldown": -33.0
@@ -2252,8 +2164,7 @@
                 "LowHealthEnemyDamageBonus": 140
             },
             {
-                "BonusGoldOnKill": 600,
-                "DescKey": "citadel_ability_hornet_snipe_t3_desc"
+                "BonusGoldOnKill": 600
             }
         ],
         "ViewPunch": 2.5,
@@ -2275,8 +2186,7 @@
         "Upgrades": [
             {
                 "TargetBounceRange": "15m",
-                "TargetBounceCount": 3,
-                "DescKey": "citadel_ability_hornet_sting_t1_desc"
+                "TargetBounceCount": 3
             },
             {
                 "AbilityCooldown": -16.0
@@ -2284,8 +2194,7 @@
             {
                 "DotHealthPercent": 3,
                 "HealAmpReceivePenaltyPercent": -40,
-                "HealAmpRegenPenaltyPercent": -40,
-                "DescKey": "citadel_ability_hornet_sting_t3_desc"
+                "HealAmpRegenPenaltyPercent": -40
             }
         ],
         "VisualSplashRadius": 1
@@ -2330,8 +2239,7 @@
                 "AbilityDuration": 2
             },
             {
-                "LifestealPercent": 30,
-                "DescKey": "citadel_ability_kali_disruptive_charge_t2_desc"
+                "LifestealPercent": 30
             },
             {
                 "BonusFireRate": 40
@@ -2362,16 +2270,13 @@
         "Upgrades": [
             {
                 "SlowPercent": 30,
-                "SlowDuration": 4,
-                "DescKey": "citadel_ability_kali_spinning_blade_t1_desc"
+                "SlowDuration": 4
             },
             {
-                "Damage": 40,
-                "DescKey": "citadel_ability_kali_spinning_blade_t2_desc"
+                "Damage": 40
             },
             {
-                "CooldownReductionOnHit": -7,
-                "DescKey": "citadel_ability_kali_spinning_blade_t3_desc"
+                "CooldownReductionOnHit": -7
             }
         ]
     },
@@ -2395,12 +2300,10 @@
             {
                 "AbilityCastRange": "20m",
                 "WeaponDamageBonus": 6,
-                "WeaponDamageBonusDuration": 10,
-                "DescKey": "citadel_ability_lash_t2_desc"
+                "WeaponDamageBonusDuration": 10
             },
             {
-                "WeaponFireRateBonus": 20,
-                "DescKey": "citadel_ability_lash_t3_desc"
+                "WeaponFireRateBonus": 20
             }
         ]
     },
@@ -2427,16 +2330,14 @@
             {
                 "EnemySlowPct": 50,
                 "SlowDuration": 3,
-                "StompBounceHeight": 400,
-                "DescKey": "citadel_ability_lash_down_strike_t2_desc"
+                "StompBounceHeight": 400
             },
             {
                 "Scale": {
                     "Prop": "StompDamagePerMeterSecondary",
                     "Value": 0.00875,
                     "Type": "spirit"
-                },
-                "DescKey": "citadel_ability_lash_down_strike_t3_desc"
+                }
             }
         ]
     },
@@ -2502,8 +2403,7 @@
                 "SlowPercent": 40
             },
             {
-                "DPS": 70,
-                "DescKey": "citadel_ability_lightning_ball_t3_desc"
+                "DPS": 70
             }
         ]
     },
@@ -2522,15 +2422,13 @@
         "TurretHealMult": 1.0,
         "Upgrades": [
             {
-                "AuraFireRateBonus": 35,
-                "DescKey": "citadel_ability_mobile_resupply_t1_desc"
+                "AuraFireRateBonus": 35
             },
             {
                 "AbilityCooldown": -17.0
             },
             {
-                "MaxHealthRegenPct": 5,
-                "DescKey": "citadel_ability_mobile_resupply_t3_desc"
+                "MaxHealthRegenPct": 5
             }
         ]
     },
@@ -2547,16 +2445,14 @@
         "Upgrades": [
             {
                 "MovementSpeedBonus": "4m",
-                "MovementSpeedBonusDuration": 8,
-                "DescKey": "citadel_ability_nikuman_t1_desc"
+                "MovementSpeedBonusDuration": 8
             },
             {
                 "AbilityCooldown": -14.0
             },
             {
                 "NoChannel": 1,
-                "HealMaxHealthPercent": 3.8,
-                "DescKey": "citadel_ability_nikuman_t3_desc"
+                "HealMaxHealthPercent": 3.8
             }
         ]
     },
@@ -2599,13 +2495,11 @@
         "SlashRadius": 41,
         "Upgrades": [
             {
-                "BulletResist": 60,
-                "DescKey": "citadel_ability_power_slash_t1_desc"
+                "BulletResist": 60
             },
             {
                 "SlowDuration": 3,
-                "SlowPercent": 40,
-                "DescKey": "citadel_ability_power_slash_t2_desc"
+                "SlowPercent": 40
             },
             {
                 "FullChargeDamage": 200
@@ -2633,8 +2527,7 @@
                     "Prop": "BulletShieldOnLand",
                     "Value": 2.6208,
                     "Type": "spirit"
-                },
-                "DescKey": "citadel_ability_projectmind_t2_desc"
+                }
             },
             {
                 "AbilityCooldown": -28.0
@@ -2668,8 +2561,7 @@
                 "AbilityCooldown": -19.0
             },
             {
-                "ShouldBounce": 1,
-                "DescKey": "citadel_ability_psychic_daggers_t3_desc"
+                "ShouldBounce": 1
             }
         ]
     },
@@ -2693,8 +2585,7 @@
                 "AbilityDuration": 0.5
             },
             {
-                "AbilityUnitTargetLimit": 5,
-                "DescKey": "citadel_ability_psychic_lift_t3_desc"
+                "AbilityUnitTargetLimit": 5
             }
         ]
     },
@@ -2744,15 +2635,13 @@
         "Upgrades": [
             {
                 "MoveSlowPercent": 35,
-                "MoveSlowDuration": 2.0,
-                "DescKey": "citadel_ability_rocket_barrage_t1_desc"
+                "MoveSlowDuration": 2.0
             },
             {
                 "AbilityCooldown": -47.0
             },
             {
-                "DamagePerRocket": 30,
-                "DescKey": "citadel_ability_rocket_barrage_t3_desc"
+                "DamagePerRocket": 30
             }
         ]
     },
@@ -2765,12 +2654,10 @@
         "Name": "Decoy",
         "Upgrades": [
             {
-                "MoveSpeedMod": "2m",
-                "DescKey": "citadel_ability_running_decoy_t1_desc"
+                "MoveSpeedMod": "2m"
             },
             {
-                "HealOnCloneDamage": 100,
-                "DescKey": "citadel_ability_running_decoy_t2_desc"
+                "HealOnCloneDamage": 100
             },
             {
                 "AbilityDuration": 6
@@ -2798,8 +2685,7 @@
                 "AbilityChannelTime": 0.75
             },
             {
-                "DamagePercentHealth": 3.8,
-                "DescKey": "citadel_ability_self_vacuum_t3_desc"
+                "DamagePercentHealth": 3.8
             }
         ],
         "VacuumRadius": 8
@@ -2836,13 +2722,11 @@
             {
                 "AbilityCharges": 1,
                 "MoveSlowPercent": 25,
-                "SlowDuration": 1.3,
-                "DescKey": "citadel_ability_shieldedsentry_t1_desc"
+                "SlowDuration": 1.3
             },
             {
                 "TurretAttackRange": "10m",
-                "AttackSpeedMult": 10,
-                "DescKey": "citadel_ability_shieldedsentry_t2_desc"
+                "AttackSpeedMult": 10
             },
             {
                 "TurretDPS": 45
@@ -2875,8 +2759,7 @@
             },
             {
                 "ImpactDamage": 40,
-                "BleedDPSPerStack": 5,
-                "DescKey": "citadel_ability_shiv_dagger_t3_desc"
+                "BleedDPSPerStack": 5
             }
         ]
     },
@@ -2907,8 +2790,7 @@
             {
                 "CooldownReductionOnHit": 2,
                 "CooldownReductionOnHitNonHero": 1,
-                "MaxCooldownReductionsFromHits": 6,
-                "DescKey": "citadel_ability_shiv_dash_t3_desc"
+                "MaxCooldownReductionsFromHits": 6
             }
         ]
     },
@@ -2963,17 +2845,14 @@
         "SlashRange": 80,
         "Upgrades": [
             {
-                "BonusMoveSpeed": "2m",
-                "DescKey": "citadel_ability_shiv_killing_blow_t1_desc"
+                "BonusMoveSpeed": "2m"
             },
             {
                 "EnemyHealthPercent": 8,
-                "BuffDamage": 5,
-                "DescKey": "citadel_ability_shiv_killing_blow_t2_desc"
+                "BuffDamage": 5
             },
             {
-                "ShortCooldown": 0.5,
-                "DescKey": "citadel_ability_shiv_killing_blow_t3_desc"
+                "ShortCooldown": 0.5
             }
         ]
     },
@@ -3021,8 +2900,7 @@
                 "Damage": 80
             },
             {
-                "DebuffDuration": 3.5,
-                "DescKey": "citadel_ability_sticky_bomb_t3_desc"
+                "DebuffDuration": 3.5
             }
         ]
     },
@@ -3048,13 +2926,11 @@
             {
                 "FireRateSlow": 25,
                 "SlowPercent": 35,
-                "SlowDuration": 4,
-                "DescKey": "citadel_ability_stomp_t1_desc"
+                "SlowDuration": 4
             },
             {
                 "BulletArmorReduction": 30,
-                "BulletArmorReductionDuration": 8,
-                "DescKey": "citadel_ability_stomp_t2_desc"
+                "BulletArmorReductionDuration": 8
             },
             {
                 "Damage": 125
@@ -3079,17 +2955,14 @@
         "Radius": 25,
         "Upgrades": [
             {
-                "BulletResistOnActive": 35,
-                "DescKey": "citadel_ability_storm_cloud_t1_desc"
+                "BulletResistOnActive": 35
             },
             {
                 "Radius": "10m",
-                "AbilityChannelTime": 7,
-                "DescKey": "citadel_ability_storm_cloud_t2_desc"
+                "AbilityChannelTime": 7
             },
             {
-                "DPS": 75,
-                "DescKey": "citadel_ability_storm_cloud_t3_desc"
+                "DPS": 75
             }
         ]
     },
@@ -3113,8 +2986,7 @@
                 "BonusFireRate": 10
             },
             {
-                "MoveSpeedBonus": "2.0m",
-                "DescKey": "citadel_ability_tangotether_t2_desc"
+                "MoveSpeedBonus": "2.0m"
             },
             {
                 "TotalTetherTargets": 1
@@ -3145,17 +3017,14 @@
         "Upgrades": [
             {
                 "BulletArmorReduction": -20,
-                "BulletArmorReductionDuration": 12,
-                "DescKey": "citadel_ability_tengu_airlift_t1_desc"
+                "BulletArmorReductionDuration": 12
             },
             {
                 "AirDropBulletShield": 300,
-                "OnLandDamageRadius": "5m",
-                "DescKey": "citadel_ability_tengu_airlift_t2_desc"
+                "OnLandDamageRadius": "5m"
             },
             {
-                "SilenceDuration": 4.5,
-                "DescKey": "citadel_ability_tengu_airlift_t3_desc"
+                "SilenceDuration": 4.5
             }
         ]
     },
@@ -3182,8 +3051,7 @@
             },
             {
                 "StunDuration": 0.5,
-                "Damage": 80,
-                "DescKey": "citadel_ability_tengu_stone_form_t2_desc"
+                "Damage": 80
             },
             {
                 "MaxHealthRegen": 20
@@ -3214,8 +3082,7 @@
                 "AbilityDuration": 2
             },
             {
-                "DPS": 60,
-                "DescKey": "citadel_ability_tengu_urn_t3_desc"
+                "DPS": 60
             }
         ]
     },
@@ -3240,13 +3107,11 @@
             },
             {
                 "UppercutBuffOnHit": 12,
-                "BuffBaseWeaponPct": 60,
-                "DescKey": "citadel_ability_uppercut_t2_desc"
+                "BuffBaseWeaponPct": 60
             },
             {
                 "RestoreHookCooldown": 1,
-                "ClipSizeBonus": 100,
-                "DescKey": "citadel_ability_uppercut_t3_desc"
+                "ClipSizeBonus": 100
             }
         ],
         "UppercutDamage": 0.01
@@ -3270,8 +3135,7 @@
                 "FireRateBonus": 25
             },
             {
-                "BonusClipSizePercent": 120,
-                "DescKey": "citadel_ability_void_sphere_t3_desc"
+                "BonusClipSizePercent": 120
             }
         ],
         "VoidTime": 1.4
@@ -3537,8 +3401,7 @@
             },
             {
                 "HealingFactor": 40,
-                "NonHeroHealingFactor": 15,
-                "DescKey": "mirage_fire_beetles_t2_desc"
+                "NonHeroHealingFactor": 15
             },
             {
                 "DPS": 40
@@ -3622,12 +3485,10 @@
                 "AbilityDuration": 2
             },
             {
-                "BonusMoveSpeed": 50,
-                "DescKey": "rutger_cheat_death_t2_desc"
+                "BonusMoveSpeed": 50
             },
             {
-                "BulletLifestealPercent": 100,
-                "DescKey": "rutger_cheat_death_t3_desc"
+                "BulletLifestealPercent": 100
             }
         ]
     },
@@ -3745,8 +3606,7 @@
                 "InvisMoveSpeedMod": "+2m"
             },
             {
-                "InvisFadeToDuration": -6,
-                "DescKey": "slork_ability_invis_t2_desc"
+                "InvisFadeToDuration": -6
             },
             {
                 "InvisRegen": 3
@@ -3775,12 +3635,10 @@
                 "AbilityCooldown": -10.5
             },
             {
-                "ChompHealPercent": 150,
-                "DescKey": "slork_chomp_t2_desc"
+                "ChompHealPercent": 150
             },
             {
-                "DamagePercentHealth": 6,
-                "DescKey": "slork_chomp_t3_desc"
+                "DamagePercentHealth": 6
             }
         ]
     },
@@ -3863,8 +3721,7 @@
             },
             {
                 "DPS": 24,
-                "ImpactDamage": 32,
-                "DescKey": "slork_riptide_t3_desc"
+                "ImpactDamage": 32
             }
         ]
     },
@@ -3884,16 +3741,14 @@
         "Upgrades": [
             {
                 "NumSegments": 4,
-                "SpreadDegrees": 16,
-                "DescKey": "slork_scald_t1_desc"
+                "SpreadDegrees": 16
             },
             {
                 "AbilityCooldown": -4.75
             },
             {
                 "DPS": 16,
-                "ImpactDamage": 32,
-                "DescKey": "slork_scald_t3_desc"
+                "ImpactDamage": 32
             }
         ]
     },
@@ -3915,12 +3770,10 @@
             },
             {
                 "HealAmpReceivePenaltyPercent": -60,
-                "HealAmpRegenPenaltyPercent": -60,
-                "DescKey": "synth_affliction_t2_desc"
+                "HealAmpRegenPenaltyPercent": -60
             },
             {
-                "DPS": 27,
-                "DescKey": "synth_affliction_t3_desc"
+                "DPS": 27
             }
         ]
     },
@@ -3972,16 +3825,14 @@
         "Upgrades": [
             {
                 "TechAmpPerBullet": 7,
-                "TechAmpLinger": 15,
-                "DescKey": "synth_blitz_t1_desc"
+                "TechAmpLinger": 15
             },
             {
                 "AbilityCooldown": -24.0
             },
             {
                 "FastFireBullets": 4,
-                "MaxStacks": 4,
-                "DescKey": "synth_blitz_t3_desc"
+                "MaxStacks": 4
             }
         ]
     },
@@ -4009,8 +3860,7 @@
             {
                 "LifestealPerSecond": 4,
                 "LifestealHealthMult": 100,
-                "LifestealTickRate": 0.25,
-                "DescKey": "synth_grasp_t3_desc"
+                "LifestealTickRate": 0.25
             }
         ]
     },
@@ -4034,8 +3884,7 @@
             },
             {
                 "WeaponDamageBonus": 7,
-                "WeaponDamageBonusDuration": 10,
-                "DescKey": "synth_plasma_flux_t3_desc"
+                "WeaponDamageBonusDuration": 10
             }
         ]
     },
@@ -4059,8 +3908,7 @@
             },
             {
                 "FireRateSlow": 40,
-                "DebuffDuration": 4.0,
-                "DescKey": "synth_pulse_t3_desc"
+                "DebuffDuration": 4.0
             }
         ]
     },
@@ -4271,16 +4119,13 @@
         "TechResist": 20,
         "Upgrades": [
             {
-                "AbilityCooldown": -14.0,
-                "DescKey": "tokamak_breach_t1_desc"
+                "AbilityCooldown": -14.0
             },
             {
-                "PurgeDebuffs": 1,
-                "DescKey": "tokamak_breach_t2_desc"
+                "PurgeDebuffs": 1
             },
             {
-                "EMPEnemies": 1,
-                "DescKey": "tokamak_breach_t3_desc"
+                "EMPEnemies": 1
             }
         ]
     },
@@ -4310,8 +4155,7 @@
                     "Prop": "Damage",
                     "Value": 1.57248,
                     "Type": "spirit"
-                },
-                "DescKey": "tokamak_crimson_cannon_t2_desc"
+                }
             },
             {
                 "AbilityCooldown": -47.0
@@ -4343,8 +4187,7 @@
                     "Value": 0.52416,
                     "Type": "spirit"
                 },
-                "Damage": 80,
-                "DescKey": "tokamak_dying_star_t3_desc"
+                "Damage": 80
             }
         ]
     },
@@ -4363,16 +4206,14 @@
         "TossSpeed": 400,
         "Upgrades": [
             {
-                "MeleeSpeedBonusPercentage": 30,
-                "DescKey": "tokamak_heat_sinks_t1_desc"
+                "MeleeSpeedBonusPercentage": 30
             },
             {
                 "WeaponDamagePerHeat": 1.0
             },
             {
                 "BaseHeatPower": 20.0,
-                "MaxHeatPower": 40.0,
-                "DescKey": "tokamak_heat_sinks_t3_desc"
+                "MaxHeatPower": 40.0
             }
         ],
         "WeaponDamagePerHeat": 1.0
@@ -4408,8 +4249,7 @@
                     "Type": "spirit"
                 },
                 "NormalDPS": 16,
-                "HotDPS": 48,
-                "DescKey": "tokamak_hot_shot_t3_desc"
+                "HotDPS": 48
             }
         ]
     },
@@ -4479,8 +4319,7 @@
                 "Damage": 120
             },
             {
-                "CastWhileRolling": 1,
-                "DescKey": "viscous_goo_bowling_ball_t3_desc"
+                "CastWhileRolling": 1
             }
         ]
     },
@@ -4506,12 +4345,10 @@
             },
             {
                 "Damage": 70,
-                "Radius": "1m",
-                "DescKey": "viscous_goo_grenade_t2_desc"
+                "Radius": "1m"
             },
             {
-                "MaxBounces": 2,
-                "DescKey": "viscous_goo_grenade_t3_desc"
+                "MaxBounces": 2
             }
         ]
     },
@@ -4535,8 +4372,7 @@
                 "AbilityCooldown": -28.0
             },
             {
-                "AbilityChannelTime": 0,
-                "DescKey": "viscous_goo_puddle_t3_desc"
+                "AbilityChannelTime": 0
             }
         ]
     },
@@ -4565,8 +4401,7 @@
             {
                 "BonusMoveSpeed": "2.5m",
                 "StaminaCooldownReduction": 30,
-                "PostCubeBuff": 1,
-                "DescKey": "viscous_restorative_goo_t1_desc"
+                "PostCubeBuff": 1
             },
             {
                 "AbilityCooldown": -21.0
@@ -4601,8 +4436,7 @@
             },
             {
                 "Damage": 35,
-                "SlowPercent": 20,
-                "DescKey": "viscous_telepunch_t2_desc"
+                "SlowPercent": 20
             },
             {
                 "AbilityCooldown": -11.5
@@ -4647,8 +4481,7 @@
         "Upgrades": [
             {
                 "WeaponRecoilReduction": 60,
-                "MoveWhileShootingSpeedPenaltyReductionPercent": 60,
-                "DescKey": "yakuza_protection_racket_t1_desc"
+                "MoveWhileShootingSpeedPenaltyReductionPercent": 60
             },
             {
                 "BonusCritDamagePercent": 40
@@ -4701,8 +4534,7 @@
                 "WeaponPowerDebuff": -30
             },
             {
-                "IgnoreChannelSlow": 1,
-                "DescKey": "yakuza_shakedown_target_t2_desc"
+                "IgnoreChannelSlow": 1
             },
             {
                 "ShareDamagePercent": 67

@@ -346,17 +346,19 @@ class AbilityUiParser:
 
     def _parse_upgrades(self, parsed_ability):
         parsed_upgrades = []
-        for upgrade in parsed_ability['Upgrades']:
+        for index, upgrade in enumerate(parsed_ability['Upgrades']):
+            # Description key includes t1, t2, and t3 denoting the upgrade tier
+            desc_key = f'{parsed_ability["Key"]}_t{index+1}_desc'
+
             # this key in particular is not accurate to the one in game
             ignore_desc_key = False
-            if upgrade.get('DescKey') == 'citadel_ability_chrono_kinetic_carbine_t1_desc':
-                del upgrade['DescKey']
+            if desc_key == 'citadel_ability_chrono_kinetic_carbine_t1_desc':
                 ignore_desc_key = True
 
-            if 'DescKey' not in upgrade or ignore_desc_key:
+            if desc_key not in self.localizations or ignore_desc_key:
                 description = self._create_description(upgrade)
             else:
-                upgrade_desc = self.localizations[upgrade['DescKey']]
+                upgrade_desc = self.localizations[desc_key]
                 # required variables to insert into the description
                 format_vars = (
                     upgrade,
@@ -367,7 +369,6 @@ class AbilityUiParser:
 
                 upgrade_desc = string_utils.format_description(upgrade_desc, *format_vars)
                 description = upgrade_desc
-                del upgrade['DescKey']
 
             upgrade['Description'] = description
             parsed_upgrades.append(upgrade)
