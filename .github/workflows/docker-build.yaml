@@ -14,6 +14,7 @@ on:
     branches: [ "master" ]
 
 env:
+  # matches docker-compose.yml
   # Use docker.io for Docker Hub if empty
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
