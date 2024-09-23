@@ -9,7 +9,7 @@ import utils.string_utils as string_utils
 
 class AbilityUiParser:
     """
-    Takes in parsed hero data (hero-data.json) and and for each hero, format their abilities for
+    Takes in parsed hero data (hero-data.json) and for each hero, format their abilities for
     display in the Wiki Ability Cards
     This is with the aim of matching the in-game layout
 
@@ -115,8 +115,11 @@ class AbilityUiParser:
 
             desc_key = info_section.get('m_strLocString')
             if desc_key is not None and desc_key != '':
-                # localization keys are prefixed with a "#"
-                desc_key = desc_key.replace('#', '')
+                # localization keys are prefixed with a "#", remove it
+                if desc_key.startswith('#'):
+                    desc_key = desc_key[len('#'):]
+                else:
+                    raise Exception(f'Invalid description key {desc_key}, expecting the # prefix')
                 if desc_key in self.localizations[self.language]:
                     # raise Exception(f'Missing description for key {desc_key}')
 
@@ -158,8 +161,12 @@ class AbilityUiParser:
             title = None
             title_key = props.get('m_strPropertiesTitleLocString')
             if title_key is not None:
-                # localization keys are prefixed with a "#"
-                title_key = title_key.replace('#', '')
+                # localization keys are prefixed with a "#", remove it
+                if title_key.startswith('#'):
+                    title_key = title_key[len('#'):]
+                else:
+                    # There are some cases of this
+                    title_key = title_key.replace('#', '')
                 if title_key != '':
                     # if title_key not in self.localizations[self.language]:
                     #     raise Exception(f'Missing title for key {title_key}')
