@@ -27,6 +27,8 @@ class HeroParser:
                 hero_stats = {
                     'Name': self.localizations.get(hero_key, None),
                     'BoundAbilities': self._parse_hero_abilities(hero_value),
+                    'InDevelopment': hero_value['m_bInDevelopment'],
+                    'IsDisabled': hero_value['m_bDisabled']
                 }
 
                 hero_stats.update(
@@ -35,7 +37,9 @@ class HeroParser:
 
                 # Change formatting on some numbers to match whats shown in game
                 hero_stats['StaminaCooldown'] = 1 / hero_stats['StaminaRegenPerSecond']
-                hero_stats['CritDamageReceivedScale'] = hero_stats['CritDamageReceivedScale'] - 1
+                hero_stats['CritDamageReceivedScale'] = (
+                    hero_stats['CritDamageReceivedScale'] - 1
+                ) * 100
                 hero_stats['TechRange'] = hero_stats['TechRange'] - 1
                 hero_stats['TechDuration'] = hero_stats['TechDuration'] - 1
                 hero_stats['ReloadSpeed'] = hero_stats['ReloadSpeed'] - 1
