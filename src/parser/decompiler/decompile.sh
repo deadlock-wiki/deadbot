@@ -4,23 +4,22 @@ if [ -f "../../../.env" ]; then
 fi
 
 # Define paths
-TMP_VDATA_DIR="$OUTPUT_DIR/decompiled-data"
-mkdir -p $TMP_VDATA_DIR
-cp "$DEADLOCK_PATH/game/citadel/steam.inf" "$TMP_VDATA_DIR/version.txt"
+mkdir -p $WORK_DIR
+cp "$DEADLOCK_PATH/game/citadel/steam.inf" "$WORK_DIR/version.txt"
 cp "$DEADLOCK_PATH/game/citadel/steam.inf" "$OUTPUT_DIR/version.txt"
 
 # Define files to be decompiled and processed
 FILES=("scripts/heroes" "scripts/abilities" "scripts/generic_data" "scripts/misc")
-mkdir -p "$TMP_VDATA_DIR/scripts"
+mkdir -p "$WORK_DIR/scripts"
 # Loop through files and run Decompiler.exe for each
 for FILE in "${FILES[@]}"; do
   INPUT_PATH="$DEADLOCK_PATH/game/citadel/pak01_dir.vpk"
   VPK_FILEPATH="${FILE}.vdata_c"
   # Run the decompiler
-  $DECOMPILER_CMD -i "$INPUT_PATH" --output "$TMP_VDATA_DIR/vdata" --vpk_filepath "$VPK_FILEPATH" -d
+  $DECOMPILER_CMD -i "$INPUT_PATH" --output "$WORK_DIR/vdata" --vpk_filepath "$VPK_FILEPATH" -d
 
   # Remove subclass and convert to json
-  python3 kv3_to_json.py "$TMP_VDATA_DIR/vdata/${FILE}.vdata" "$TMP_VDATA_DIR/${FILE}.json"
+  python3 kv3_to_json.py "$WORK_DIR/vdata/${FILE}.vdata" "$WORK_DIR/${FILE}.json"
 done
 
 # Define an array of folders to parse
@@ -34,7 +33,7 @@ for folder in "${folders[@]}"; do
     
     # Construct the destination path by replacing "citadel_" prefix with ""
     dest_folder_name="${folder#citadel_}"
-    dest_path="$TMP_VDATA_DIR/localizations/$dest_folder_name"
+    dest_path="$WORK_DIR/localizations/$dest_folder_name"
     mkdir -p $dest_path
 
     # Run the Python script to parse the folder

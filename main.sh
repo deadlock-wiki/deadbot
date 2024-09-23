@@ -35,7 +35,7 @@ fi
 
 # cleanup
 if [ "$CLEANUP" = true ]; then
-    rm -rf $OUTPUT_DIR/decompiled-data
+    rm -rf $WORKDIR
 fi
 
 
