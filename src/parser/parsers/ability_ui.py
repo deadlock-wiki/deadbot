@@ -5,7 +5,6 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 import maps as maps
 import utils.string_utils as string_utils
-import utils.num_utils as num_utils
 
 
 class AbilityUiParser:
@@ -365,9 +364,7 @@ class AbilityUiParser:
             if desc_key == 'citadel_ability_chrono_kinetic_carbine_t1_desc':
                 ignore_desc_key = True
 
-            if desc_key not in self.localizations[self.language] or ignore_desc_key:
-                upgrade_desc = self._create_description(upgrade)
-            else:
+            if desc_key in self.localizations[self.language] and not ignore_desc_key:
                 upgrade_desc = self._get_localized_string(desc_key)
                 # required variables to insert into the description
                 format_vars = (
@@ -381,8 +378,8 @@ class AbilityUiParser:
 
                 # update localization file with formatted description
                 self.localization_updates[desc_key] = upgrade_desc
+                upgrade['DescKey'] = desc_key
 
-            upgrade['DescKey'] = desc_key
             parsed_upgrades.append(upgrade)
 
         return parsed_upgrades
@@ -406,35 +403,6 @@ class AbilityUiParser:
                 }
 
         return None
-
-    def _create_description(self, upgrade):
-        """
-        Generate a description for the upgrade based on its attributes.
-
-        Example - {Damage: 45, Cooldown: -12} -> "+45 Damage and -12s Cooldown"
-        """
-        desc = ''
-        for attr, value in upgrade.items():
-            # Don't consider 'Scale' attr for use in the description
-            if attr == 'Scale':
-                continue
-            str_value = str(value)
-
-            uom = self._get_uom(attr, str_value)
-
-            # update data value to have no unit of measurement
-            num_value = num_utils.remove_uom(str_value)
-
-            prefix = ''
-            # attach "+" if the value is positive
-            if isinstance(value, str) or not value < 0:
-                prefix = '+'
-
-            desc += f'{prefix}{num_value}{uom} {self._get_ability_display_name(attr)} and '
-
-        # strip off extra "and" from description
-        desc = desc[: -len(' and ')]
-        return desc
 
     def _get_uom(self, attr, value):
         """
