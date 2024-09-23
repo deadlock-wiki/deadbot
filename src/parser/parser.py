@@ -11,7 +11,7 @@ from utils import json_utils
 class Parser:
     def __init__(self, language='english'):
         # constants
-        self.DATA_DIR = os.getenv('OUTPUT_DIR',"./decompiled-data")
+        self.DATA_DIR = os.getenv('WORK_DIR',"./decompiled-data")
         self.language = language
         self.data = {'scripts': {}}
         self.localization_groups = os.listdir(os.path.join(self.DATA_DIR, 'localizations'))
