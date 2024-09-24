@@ -29,7 +29,14 @@ Some data has been processed and formatted for google sheets:\
 
 ## Docker
 
-Build with `docker-compose build`
+```sh
+docker run \
+  -v "$DEADLOCK_PATH":/data
+  -v ./output-data:/output \
+  ghcr.io/deadlock_wiki/deadbot:latest
+```
+
+Build image with `docker-compose build`
 
 Run with `docker-compose up`
 
