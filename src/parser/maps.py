@@ -83,11 +83,8 @@ def get_hero_attr(value):
     if value in remaps:
         return remaps[value]
 
-    remaps = {
-        "WeaponPower": "BaseWeaponDamageIncrease",
-        "ClipSizeBonus": "ClipSize"
-        }
-    
+    remaps = {'WeaponPower': 'BaseWeaponDamageIncrease', 'ClipSizeBonus': 'ClipSize'}
+
     if value in remaps:
         return remaps[value]
 
@@ -119,7 +116,6 @@ LEVEL_MOD_MAP = {
     'MODIFIER_VALUE_BULLET_ARMOR_DAMAGE_RESIST': 'BulletResist',
     'MODIFIER_VALUE_BONUS_ATTACK_RANGE': 'BonusAttackRange',
 }
-
 
 def get_level_mod(value):
     if value not in LEVEL_MOD_MAP:

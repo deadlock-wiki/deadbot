@@ -27,6 +27,8 @@ class HeroParser:
                 hero_stats = {
                     'Name': self.localizations.get(hero_key, None),
                     'BoundAbilities': self._parse_hero_abilities(hero_value),
+                    'InDevelopment': hero_value['m_bInDevelopment'],
+                    'IsDisabled': hero_value['m_bDisabled']
                 }
 
                 hero_stats.update(
@@ -35,7 +37,9 @@ class HeroParser:
 
                 # Change formatting on some numbers to match whats shown in game
                 hero_stats['StaminaCooldown'] = 1 / hero_stats['StaminaRegenPerSecond']
-                hero_stats['CritDamageReceivedScale'] = hero_stats['CritDamageReceivedScale'] - 1
+                hero_stats['CritDamageReceivedScale'] = (
+                    hero_stats['CritDamageReceivedScale'] - 1
+                ) * 100
                 hero_stats['TechRange'] = hero_stats['TechRange'] - 1
                 hero_stats['TechDuration'] = hero_stats['TechDuration'] - 1
                 hero_stats['ReloadSpeed'] = hero_stats['ReloadSpeed'] - 1
@@ -47,7 +51,7 @@ class HeroParser:
                 # Lore, Playstyle, and Role keys from localization
                 for key in ['Lore', 'Playstyle', 'Role']:
                     # i.e. hero_kelvin_lore which is a key in localization
-                    hero_stats[key] = hero_key + '_' + key.lower() 
+                    hero_stats[key] = hero_key + '_' + key.lower()
 
                 # Determine hero's ratio of heavy to light melee damage
                 hl_ratio = hero_stats['HeavyMeleeDamage'] / hero_stats['LightMeleeDamage']
@@ -72,6 +76,10 @@ class HeroParser:
                     hero_stats['LevelScaling'] = {
                         k: v for k, v in hero_stats['LevelScaling'].items() if v != 0.0
                     }
+
+                hero_stats['WeaponName'] = 'citadel_weapon_'+hero_key+'_set'
+                # i.e. citadel_weapon_hero_kelvin_set
+                hero_stats['WeaponDescription'] = hero_stats['WeaponName']+'_desc'
 
                 all_hero_stats[hero_key] = json_utils.sort_dict(hero_stats)
 
