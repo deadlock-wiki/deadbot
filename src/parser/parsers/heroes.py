@@ -111,7 +111,7 @@ class HeroParser:
             # Iterate hero stats
             for stat_key, stat_value in hero_data.items():
                 # Must not be a container type, nor a bool
-                if (isinstance(stat_value, dict) or isinstance(stat_value, list)):
+                if isinstance(stat_value, dict) or isinstance(stat_value, list):
                     continue
 
                 # Ensure the data isn't a localization key
@@ -189,7 +189,8 @@ class HeroParser:
         else:
             time_to_reload = weapon_stats['ReloadTime']
 
-        # All reload actions have ReloadDelay played first, but typically only single bullet reloads have a non-zero delay
+        # All reload actions have ReloadDelay played first, 
+        # but typically only single bullet reloads have a non-zero delay
         # i.e.
         # ReloadDelay of .5,
         # ReloadTime of 1,
