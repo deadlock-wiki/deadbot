@@ -174,7 +174,7 @@ class HeroParser:
         else:
             time_to_reload = weapon_stats['ReloadTime']
 
-        # All reload actions have ReloadDelay, but typically only single bullet reloads have a delay
+        # All reload actions have ReloadDelay played first, but typically only single bullet reloads have a non-zero delay
         # i.e. 
         # ReloadDelay of .5, 
         # ReloadTime of 1, 
@@ -182,7 +182,8 @@ class HeroParser:
         # =time to reload 1 bullet is 1.5s, time to reload 10 bullets is 10.5s
         time_to_reload += weapon_stats['ReloadDelay']
         time_to_empty_clip = weapon_stats['ClipSize'] / weapon_stats['RoundsPerSecond']
-        weapon_stats['SustainedDPS'] = weapon_stats['DPS'] * (time_to_empty_clip / (time_to_empty_clip + time_to_reload))
+        damage_from_clip = weapon_stats['BulletDamage'] * weapon_stats['BulletsPerShot'] * weapon_stats['ClipSize']
+        weapon_stats['SustainedDPS'] = damage_from_clip / (time_to_empty_clip + time_to_reload)
 
         weapon_stats['WeaponName'] = weapon_prim_id
         # i.e. citadel_weapon_kelvin_set to citadel_weapon_hero_kelvin_set
