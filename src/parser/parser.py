@@ -11,7 +11,7 @@ from utils import json_utils
 class Parser:
     def __init__(self, language='english'):
         # constants
-        self.OUTPUT_DIR = os.getenv('OUTPUT_DIR','../../output-data/')
+        self.OUTPUT_DIR = os.getenv('OUTPUT_DIR','../../output-data')
         self.DATA_DIR = os.getenv('WORK_DIR',"./decompiled-data")
         self.language = language
         self.data = {'scripts': {}}
@@ -111,7 +111,7 @@ class Parser:
         ).run()
 
         json_utils.write(
-            self.OUTPUT_DIR + 'json/hero-data.json', json_utils.sort_dict(parsed_heroes)
+            self.OUTPUT_DIR + '/json/hero-data.json', json_utils.sort_dict(parsed_heroes)
         )
         return parsed_heroes
 
@@ -124,7 +124,7 @@ class Parser:
         ).run()
 
         json_utils.write(
-            self.OUTPUT_DIR + 'json/ability-data.json', json_utils.sort_dict(parsed_abilities)
+            self.OUTPUT_DIR + '/json/ability-data.json', json_utils.sort_dict(parsed_abilities)
         )
         return parsed_abilities
 
@@ -143,7 +143,7 @@ class Parser:
 
             # Only write to ability_ui.json for English
             if language == 'english':
-                json_utils.write(self.OUTPUT_DIR + 'json/ability_ui.json', parsed_ability_ui)
+                json_utils.write(self.OUTPUT_DIR + '/json/ability_ui.json', parsed_ability_ui)
 
     def _parse_items(self):
         print('Parsing Items...')
@@ -153,7 +153,7 @@ class Parser:
             self.localizations[self.language],
         ).run()
 
-        json_utils.write(self.OUTPUT_DIR + 'json/item-data.json', json_utils.sort_dict(parsed_items))
+        json_utils.write(self.OUTPUT_DIR + '/json/item-data.json', json_utils.sort_dict(parsed_items))
 
         with open(self.OUTPUT_DIR + '/item-component-tree.txt', 'w') as f:
             f.write(str(item_component_chart))
@@ -164,8 +164,8 @@ class Parser:
             self.data['scripts']['heroes'], self.localizations[self.language]
         ).run()
 
-        json_utils.write(self.OUTPUT_DIR + 'json/attribute-data.json', parsed_attributes)
-        json_utils.write(self.OUTPUT_DIR + 'json/stat-infobox-order.json', attribute_orders)
+        json_utils.write(self.OUTPUT_DIR + '/json/attribute-data.json', parsed_attributes)
+        json_utils.write(self.OUTPUT_DIR + '/json/stat-infobox-order.json', attribute_orders)
 
     def _parse_changelogs(self):
         print('Parsing Changelogs...')
