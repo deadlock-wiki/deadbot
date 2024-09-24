@@ -153,7 +153,9 @@ class Parser:
             self.localizations[self.language],
         ).run()
 
-        json_utils.write(self.OUTPUT_DIR + '/json/item-data.json', json_utils.sort_dict(parsed_items))
+        json_utils.write(
+            self.OUTPUT_DIR + '/json/item-data.json', json_utils.sort_dict(parsed_items)
+        )
 
         with open(self.OUTPUT_DIR + '/item-component-tree.txt', 'w') as f:
             f.write(str(item_component_chart))
