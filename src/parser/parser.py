@@ -169,7 +169,7 @@ class Parser:
         ).run()
 
         json_utils.write(self.OUTPUT_DIR + 'json/attribute-data.json', parsed_attributes)
-        json_utils.write(self.OUTPUT_DIR + 'json/stat-box-attrs.json', attribute_orders)
+        json_utils.write(self.OUTPUT_DIR + 'json/stat-infobox-order.json', attribute_orders)
 
     def _parse_changelogs(self):
         print('Parsing Changelogs...')

@@ -117,7 +117,7 @@ class AbilityUiParser:
             if desc_key is not None and desc_key != '':
                 # localization keys are prefixed with a "#", remove it
                 if desc_key.startswith('#'):
-                    desc_key = desc_key[len('#'):]
+                    desc_key = desc_key[len('#') :]
                 else:
                     raise Exception(f'Invalid description key {desc_key}, expecting the # prefix')
                 if desc_key in self.localizations[self.language]:
@@ -161,15 +161,8 @@ class AbilityUiParser:
             title = None
             title_key = props.get('m_strPropertiesTitleLocString')
             if title_key is not None:
-                # localization keys are prefixed with a "#", remove it
-                if title_key.startswith('#'):
-                    title_key = title_key[len('#'):]
-                else:
-                    # There are some cases of this
-                    title_key = title_key.replace('#', '')
+                title_key = title_key.replace('#', '')
                 if title_key != '':
-                    # if title_key not in self.localizations[self.language]:
-                    #     raise Exception(f'Missing title for key {title_key}')
                     title = self._get_localized_string(title_key)
 
             ability_props = props['m_vecAbilityProperties']
