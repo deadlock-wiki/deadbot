@@ -111,12 +111,11 @@ class HeroParser:
             # Iterate hero stats
             for stat_key, stat_value in hero_data.items():
                 # Must not be a container type, nor a bool
-                stat_value_type = type(stat_value)
-                if stat_value_type not in [int, float, str, bool]:
+                if (isinstance(stat_value, dict) or isinstance(stat_value, list)):
                     continue
 
                 # Ensure the data isn't a localization key
-                if stat_value_type == str and (
+                if isinstance(stat_value, str) and (
                     any(str_to_match in stat_value for str_to_match in ['hero_', 'weapon_'])
                     or stat_key == 'Name'
                 ):
