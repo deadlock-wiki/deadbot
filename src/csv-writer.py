@@ -13,7 +13,7 @@ def export_json_file_to_csv(file_name):
 
 def convert_array_to_string(value):
     if isinstance(value, list):
-        return ', '.join(value)
+        return ', '.join(str(value))
     return value
 
 

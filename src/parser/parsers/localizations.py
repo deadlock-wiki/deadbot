@@ -5,11 +5,11 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 import maps as maps
 import utils.json_utils as json_utils
-from .constants import OUTPUT_DIR
 
 
 class LocalizationParser:
-    def __init__(self, localization_data):
+    def __init__(self, localization_data, output_dir):
+        self.OUTPUT_DIR = output_dir
         self.localizations_data = localization_data
 
     def run(self):
