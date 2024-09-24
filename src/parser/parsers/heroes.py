@@ -28,7 +28,7 @@ class HeroParser:
                     'Name': self.localizations.get(hero_key, None),
                     'BoundAbilities': self._parse_hero_abilities(hero_value),
                     'InDevelopment': hero_value['m_bInDevelopment'],
-                    'IsDisabled': hero_value['m_bDisabled']
+                    'IsDisabled': hero_value['m_bDisabled'],
                 }
 
                 hero_stats.update(
@@ -77,9 +77,9 @@ class HeroParser:
                         k: v for k, v in hero_stats['LevelScaling'].items() if v != 0.0
                     }
 
-                hero_stats['WeaponName'] = 'citadel_weapon_'+hero_key+'_set'
+                hero_stats['WeaponName'] = 'citadel_weapon_' + hero_key + '_set'
                 # i.e. citadel_weapon_hero_kelvin_set
-                hero_stats['WeaponDescription'] = hero_stats['WeaponName']+'_desc'
+                hero_stats['WeaponDescription'] = hero_stats['WeaponName'] + '_desc'
 
                 all_hero_stats[hero_key] = json_utils.sort_dict(hero_stats)
 
@@ -89,14 +89,14 @@ class HeroParser:
         self._write_non_constants_stats(all_hero_stats)
 
         return all_hero_stats
-    
+
     def _write_non_constants_stats(self, all_hero_stats):
         """
         Writes list of non-constant stats to json file.
 
         Returns non_constants_stats dict, where elements are true if they are non-constant.
 
-        Non-constant stats are ones that will be displayed 
+        Non-constant stats are ones that will be displayed
         on the deadlocked.wiki/Hero_Comparison page, among others in the future.
         """
         # Using 'non_constant' instead of 'variable' as 'variable' may indicate something else
@@ -116,7 +116,10 @@ class HeroParser:
                     continue
 
                 # Ensure the data isn't a localization key
-                if stat_value_type == str and (any(str_to_match in stat_value for str_to_match in ['hero_', 'weapon_']) or stat_key == 'Name'):
+                if stat_value_type == str and (
+                    any(str_to_match in stat_value for str_to_match in ['hero_', 'weapon_'])
+                    or stat_key == 'Name'
+                ):
                     continue
 
                 # Add the stat's value to the dict
@@ -128,8 +131,9 @@ class HeroParser:
                     if stats_previous_value[stat_key] != stat_value:
                         non_constant_stats[stat_key] = True
 
-        json_utils.write(OUTPUT_DIR + 'json/hero-non-constants.json', json_utils.sort_dict(non_constant_stats))
-        
+        json_utils.write(
+            OUTPUT_DIR + 'json/hero-non-constants.json', json_utils.sort_dict(non_constant_stats)
+        )
 
     def _parse_hero_abilities(self, hero_value):
         bound_abilities = hero_value['m_mapBoundAbilities']
@@ -173,7 +177,11 @@ class HeroParser:
             'BulletsPerShot': w['m_iBullets'],
         }
 
-        weapon_stats['DPS'] = weapon_stats['BulletDamage'] * weapon_stats['RoundsPerSecond'] * weapon_stats['BulletsPerShot']
+        weapon_stats['DPS'] = (
+            weapon_stats['BulletDamage']
+            * weapon_stats['RoundsPerSecond']
+            * weapon_stats['BulletsPerShot']
+        )
 
         # Calc sustained DPS
         if weapon_stats['ReloadSingle']:
@@ -183,14 +191,16 @@ class HeroParser:
             time_to_reload = weapon_stats['ReloadTime']
 
         # All reload actions have ReloadDelay played first, but typically only single bullet reloads have a non-zero delay
-        # i.e. 
-        # ReloadDelay of .5, 
-        # ReloadTime of 1, 
-        # ClipSize of 10, 
+        # i.e.
+        # ReloadDelay of .5,
+        # ReloadTime of 1,
+        # ClipSize of 10,
         # =time to reload 1 bullet is 1.5s, time to reload 10 bullets is 10.5s
         time_to_reload += weapon_stats['ReloadDelay']
         time_to_empty_clip = weapon_stats['ClipSize'] / weapon_stats['RoundsPerSecond']
-        damage_from_clip = weapon_stats['BulletDamage'] * weapon_stats['BulletsPerShot'] * weapon_stats['ClipSize']
+        damage_from_clip = (
+            weapon_stats['BulletDamage'] * weapon_stats['BulletsPerShot'] * weapon_stats['ClipSize']
+        )
         weapon_stats['SustainedDPS'] = damage_from_clip / (time_to_empty_clip + time_to_reload)
 
         weapon_stats['WeaponName'] = weapon_prim_id

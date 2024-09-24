@@ -1,126 +1,27 @@
 {
-    "Vitality": {
-        "BaseHealthRegen": {
-            "label": "StatDesc_BaseHealthRegen"
-        },
-        "CritDamageReceivedScale": {
-            "label": "StatDesc_CritDamageReceivedScale",
-            "postfix": "StatDesc_CritDamageReceivedScale_postfix"
-        },
-        "MaxHealth": {
-            "label": "StatDesc_MaxHealth"
-        },
-        "MaxMoveSpeed": {
-            "label": "MoveSpeedMax_label",
-            "postfix": "MoveSpeedMax_postfix"
-        },
-        "Stamina": {
-            "label": "StatDesc_Stamina"
-        },
-        "SprintSpeed": {
-            "label": "StatDesc_SprintSpeed",
-            "postfix": "StatDesc_SprintSpeed_postfix"
-        },
-        "TechArmorDamageReduction": {
-            "label": "StatDesc_TechArmorDamageReduction",
-            "postfix": "StatDesc_TechArmorDamageReduction_postfix"
-        },
-        "BulletArmorDamageReduction": {
-            "label": "StatDesc_BulletArmorDamageReduction",
-            "postfix": "StatDesc_BulletArmorDamageReduction_postfix"
-        },
-        "attribute_order": [
-            "MaxHealth",
-            "BaseHealthRegen",
-            "BulletArmorDamageReduction",
-            "TechArmorDamageReduction",
-            "BulletShieldHealth",
-            "TechShieldHealth",
-            "HealingOutput",
-            "DebuffResist",
-            "CritDamageReceivedScale",
-            "MaxMoveSpeed",
-            "SprintSpeed",
-            "StaminaCooldown",
-            "StaminaRegenIncrease",
-            "Stamina"
-        ]
-    },
-    "Weapon": {
-        "BulletDamage": {
-            "label": "StatDesc_BulletDamage"
-        },
-        "BulletSpeed": {
-            "label": "StatDesc_BulletSpeed",
-            "postfix": "StatDesc_BulletSpeed_postfix"
-        },
-        "ClipSize": {
-            "label": "StatDesc_ClipSizeBonus"
-        },
-        "DPS": {
-            "label": "StatDesc_DPS",
-            "postfix": "DPS_postfix"
-        },
-        "ReloadTime": {
-            "label": "StatDesc_ReloadTime",
-            "postfix": "StatDesc_ReloadTime_postfix"
-        },
-        "RoundsPerSecond": {
-            "label": "StatDesc_RoundsPerSecond"
-        },
-        "HeavyMeleeDamage": {
-            "label": "StatDesc_HeavyMeleeDamage"
-        },
-        "LightMeleeDamage": {
-            "label": "StatDesc_LightMeleeDamage"
-        },
-        "SustainedDPS": {
-            "label": "DPS_label",
-            "postfix": "DPS_postfix"
-        },
-        "BulletsPerShot": {
-            "label": "Bullets Per Shot"
-        },
-        "FalloffEndRange": {
-            "label": "Falloff End Range",
-            "postfix": "StatDesc_WeaponRangeFalloffMax_postfix"
-        },
-        "ReloadDelay": {
-            "label": "StatDesc_ReloadTime",
-            "postfix": "StatDesc_ReloadTime_postfix"
-        },
-        "ReloadSingle": {
-            "label": "Reload Single"
-        },
-        "BulletGravityScale": {
-            "label": "Bullet Gravity Scale"
-        },
-        "FalloffStartRange": {
-            "label": "Falloff Start Range",
-            "postfix": "StatDesc_WeaponRangeFalloffMax_postfix"
-        },
-        "attribute_order": [
-            "DPS",
-            "SustainedDPS",
-            "BulletDamage",
-            "BaseWeaponDamageIncrease",
-            "RoundsPerSecond",
-            "FireRate",
-            "ClipSize",
-            "ClipSizeIncrease",
-            "ReloadTime",
-            "ReloadSpeed",
-            "BulletSpeed",
-            "BulletSpeedIncrease",
-            "BulletLifesteal",
-            "LightMeleeDamage",
-            "HeavyMeleeDamage",
-            "BulletsPerShot",
-            "FalloffEndRange",
-            "ReloadDelay",
-            "ReloadSingle",
-            "BulletGravityScale",
-            "FalloffStartRange"
-        ]
-    }
+    "BaseHealthRegen": true,
+    "BulletArmorDamageReduction": true,
+    "BulletDamage": true,
+    "BulletGravityScale": true,
+    "BulletSpeed": true,
+    "BulletsPerShot": true,
+    "ClipSize": true,
+    "CritDamageReceivedScale": true,
+    "DPS": true,
+    "FalloffEndRange": true,
+    "FalloffStartRange": true,
+    "HeavyMeleeDamage": true,
+    "InDevelopment": true,
+    "IsDisabled": true,
+    "LightMeleeDamage": true,
+    "MaxHealth": true,
+    "MaxMoveSpeed": true,
+    "ReloadDelay": true,
+    "ReloadSingle": true,
+    "ReloadTime": true,
+    "RoundsPerSecond": true,
+    "SprintSpeed": true,
+    "Stamina": true,
+    "SustainedDPS": true,
+    "TechArmorDamageReduction": true
 }
