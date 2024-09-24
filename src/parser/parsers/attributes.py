@@ -45,7 +45,6 @@ class AttributeParser:
             order_lists[category] = {}
             order_lists[category]['attribute_order'] = attributes_order
         order_lists['category_order'] = category_order
-        json_utils.write(OUTPUT_DIR + 'json/stat-box-attrs.json', order_lists)
 
         # Manually add DPS to the Weapon category
         all_attributes['Weapon']['DPS'] = {}
@@ -63,6 +62,8 @@ class AttributeParser:
 
         # Write the attributes to a json file
         json_utils.write(OUTPUT_DIR + 'json/attribute-data.json', all_attributes)
+
+        return all_attributes, order_lists
 
     def _map_to_unlocalized(self, all_attributes):
         """

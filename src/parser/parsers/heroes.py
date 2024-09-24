@@ -78,9 +78,9 @@ class HeroParser:
         json_utils.write(OUTPUT_DIR + 'json/hero-data.json', json_utils.sort_dict(all_hero_stats))
 
         # Write non-constant stats to json file
-        self._write_non_constants_stats(all_hero_stats)
+        non_constants_stats_list = self._write_non_constants_stats(all_hero_stats)
 
-        return all_hero_stats
+        return all_hero_stats, non_constants_stats_list
     
     def _write_non_constants_stats(self, all_hero_stats):
         """
@@ -92,7 +92,6 @@ class HeroParser:
         on the deadlocked.wiki/Hero_Comparison page, among others in the future.
         """
         # Using 'non_constant' instead of 'variable' as 'variable' may indicate something else
-        # Storing in dict with bool entry instead of list so its hashable on the frontend
 
         heroes_data = all_hero_stats.copy()
         stats_previous_value = {}
@@ -120,7 +119,10 @@ class HeroParser:
                     if stats_previous_value[stat_key] != stat_value:
                         non_constant_stats[stat_key] = True
 
-        json_utils.write(OUTPUT_DIR + 'json/hero-non-constants.json', json_utils.sort_dict(non_constant_stats))
+        # Convert dict to array
+        non_constant_stats_list = [stat for stat, is_non_constant in non_constant_stats.items() if is_non_constant]
+
+        return non_constant_stats_list
         
 
     def _parse_hero_abilities(self, hero_value):
