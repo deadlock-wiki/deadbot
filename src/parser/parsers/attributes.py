@@ -8,7 +8,8 @@ import maps as maps
 
 class AttributeParser:
     """
-    Output-data is used by https://deadlocked.wiki/Template:StatBoxes
+    Output-data is used by https://deadlocked.wiki/Template:Infobox_stat
+    and /Module:HeroData
     to display a hero's attributes on their hero page
     """
 
