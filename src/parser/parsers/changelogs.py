@@ -92,7 +92,7 @@ class ChangelogParser:
 
                         if resource_name not in log:
                             continue
-                        icon = f'{{AbilityIcon|Ability={resource_name}|Size=20}}'
+                        icon = "{{AbilityIcon|Ability="+resource_name+"|Size=20}}"
                         new_log = log.replace(resource_name, f'{icon} {resource_name}')
                         changelog[header][group_name][index] = new_log
 
