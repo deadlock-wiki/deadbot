@@ -84,12 +84,10 @@ class HeroParser:
 
                 all_hero_stats[hero_key] = json_utils.sort_dict(hero_stats)
 
-        json_utils.write(OUTPUT_DIR + 'json/hero-data.json', json_utils.sort_dict(all_hero_stats))
-
         # Write non-constant stats to json file
-        self._write_non_constants_stats(all_hero_stats)
+        non_constants = self._write_non_constants_stats(all_hero_stats)
 
-        return all_hero_stats
+        return all_hero_stats, non_constants
 
     def _write_non_constants_stats(self, all_hero_stats):
         """
@@ -131,18 +129,7 @@ class HeroParser:
                     if stats_previous_value[stat_key] != stat_value:
                         non_constant_stats[stat_key] = True
 
-        # Ensure it matches the current list of non-constants, and raise a warning if not
-        # File diff will also appear in git
-        if not json_utils.compare_json_file_to_dict(
-            OUTPUT_DIR + 'json/hero-non-constants.json', non_constant_stats
-        ):
-            print(
-                'Warning: Non-constant stats have changed. Please update [[Module:HeroData]]\'s write_hero_comparison_table lua function for the [[Hero Comparison]] page.'
-            )
-
-        json_utils.write(
-            OUTPUT_DIR + 'json/hero-non-constants.json', json_utils.sort_dict(non_constant_stats)
-        )
+        return non_constant_stats
 
     def _parse_hero_abilities(self, hero_value):
         bound_abilities = hero_value['m_mapBoundAbilities']

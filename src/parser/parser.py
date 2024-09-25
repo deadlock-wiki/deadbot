@@ -107,12 +107,25 @@ class Parser:
 
     def _parse_heroes(self, parsed_abilities):
         print('Parsing Heroes...')
-        parsed_heroes = heroes.HeroParser(
+        parsed_heroes, parsed_non_constants = heroes.HeroParser(
             self.data['scripts']['heroes'],
             self.data['scripts']['abilities'],
             parsed_abilities,
             self.localizations[self.language],
         ).run()
+
+        # Ensure it matches the current list of non-constants, and raise a warning if not
+        # File diff will also appear in git
+        if not json_utils.compare_json_file_to_dict(
+            self.OUTPUT_DIR + 'json/hero-non-constants.json', parsed_non_constants
+        ):
+            print(
+                'Warning: Non-constant stats have changed. Please update [[Module:HeroData]]\'s write_hero_comparison_table lua function for the [[Hero Comparison]] page.'
+            )
+
+        json_utils.write(
+            self.OUTPUT_DIR + 'json/hero-non-constants.json', json_utils.sort_dict(parsed_non_constants)
+        )
 
         json_utils.write(
             self.OUTPUT_DIR + 'json/hero-data.json', json_utils.sort_dict(parsed_heroes)
