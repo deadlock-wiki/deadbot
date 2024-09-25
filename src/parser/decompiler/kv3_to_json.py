@@ -56,5 +56,5 @@ if __name__ == '__main__':
     remove_subclass(sys.argv[1])
 
     data = kv3.read(sys.argv[1])
-    out_path = sys.argv[1].replace('/vdata', '').replace('.vdata', '.json')
+    out_path = sys.argv[2]
     kv3_to_json(data, out_path)

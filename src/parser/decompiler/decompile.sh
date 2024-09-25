@@ -1,31 +1,26 @@
-
+#!/bin/sh
+if [ -f "../../../.env" ]; then
 . ../../../.env #Retrieve config paths
+fi
+
 # Define paths
-OUTPUT_DIR="decompiled-data/vdata"
+mkdir -p $WORK_DIR
+cp "$DEADLOCK_PATH/game/citadel/steam.inf" "$WORK_DIR/version.txt"
+cp "$DEADLOCK_PATH/game/citadel/steam.inf" "$OUTPUT_DIR/version.txt"
 
 # Define files to be decompiled and processed
 FILES=("scripts/heroes" "scripts/abilities" "scripts/generic_data" "scripts/misc")
-
-cp "$DEADLOCK_PATH/game/citadel/steam.inf" "decompiled-data/version.txt"
-
+mkdir -p "$WORK_DIR/scripts"
 # Loop through files and run Decompiler.exe for each
 for FILE in "${FILES[@]}"; do
   INPUT_PATH="$DEADLOCK_PATH/game/citadel/pak01_dir.vpk"
   VPK_FILEPATH="${FILE}.vdata_c"
-  
   # Run the decompiler
-  "$DECOMPILER_PATH/Decompiler.exe" -i "$INPUT_PATH" --output "$OUTPUT_DIR" --vpk_filepath "$VPK_FILEPATH" -d
+  $DECOMPILER_CMD -i "$INPUT_PATH" --output "$WORK_DIR/vdata" --vpk_filepath "$VPK_FILEPATH" -d
 
   # Remove subclass and convert to json
-  VDATA_FILE="$OUTPUT_DIR/${FILE}.vdata"
-  python3 kv3_to_json.py "$VDATA_FILE"
+  python3 kv3_to_json.py "$WORK_DIR/vdata/${FILE}.vdata" "$WORK_DIR/${FILE}.json"
 done
-
-# Remove the vdata directory
-rm -rf "$OUTPUT_DIR"
-
-
-mkdir -p "decompiled-data\localizations"
 
 # Define an array of folders to parse
 #folders=("citadel_attributes" "citadel_dev" "citadel_gc" "citadel_generated_vo" "citadel_heroes" "citadel_main" "citadel_mods") # All folders
@@ -38,7 +33,7 @@ for folder in "${folders[@]}"; do
     
     # Construct the destination path by replacing "citadel_" prefix with ""
     dest_folder_name="${folder#citadel_}"
-    dest_path="decompiled-data/localizations/$dest_folder_name"
+    dest_path="$WORK_DIR/localizations/$dest_folder_name"
     mkdir -p $dest_path
 
     # Run the Python script to parse the folder
