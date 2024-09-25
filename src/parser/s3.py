@@ -1,6 +1,9 @@
 import os
 import boto3
 import glob
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 class S3:
