@@ -171,7 +171,6 @@ class HeroParser:
             'BulletGravityScale': w['m_flBulletGravityScale'],
             'BulletsPerShot': w['m_iBullets'],
             #'BulletRadius': w['m_flBulletRadius'] / ENGINE_UNITS_PER_METER,
-            'BulletsPerShot': w['m_iBullets'],
         }
 
         weapon_stats['DPS'] = (
