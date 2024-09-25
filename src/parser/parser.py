@@ -1,8 +1,10 @@
+from dotenv import load_dotenv
+load_dotenv()
+
 import os
 import sys
 
 from parsers import abilities, ability_ui, items, heroes, changelogs, localizations, attributes
-
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from utils import json_utils
@@ -13,6 +15,7 @@ class Parser:
         # constants
         self.OUTPUT_DIR = os.getenv('OUTPUT_DIR','../../output-data')
         self.DATA_DIR = os.getenv('WORK_DIR',"./decompiled-data")
+        
         self.language = language
         self.data = {'scripts': {}}
         self.localization_groups = os.listdir(os.path.join(self.DATA_DIR, 'localizations'))
@@ -171,7 +174,7 @@ class Parser:
 
     def _parse_changelogs(self):
         print('Parsing Changelogs...')
-        changelogs.ChangelogParser().run_all()
+        # changelogs.ChangelogParser().run_all()
 
 
 if __name__ == '__main__':
