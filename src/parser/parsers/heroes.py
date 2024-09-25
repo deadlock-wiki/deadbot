@@ -130,6 +130,15 @@ class HeroParser:
                     if stats_previous_value[stat_key] != stat_value:
                         non_constant_stats[stat_key] = True
 
+        # Ensure it matches the current list of non-constants, and raise a warning if not
+        # File diff will also appear in git
+        if not json_utils.compare_json_file_to_dict(
+            OUTPUT_DIR + 'json/hero-non-constants.json', non_constant_stats
+        ):
+            print(
+                'Warning: Non-constant stats have changed. Please update [[Module:HeroData]]\'s write_hero_comparison_table lua function for the [[Hero Comparison]] page.'
+            )
+
         json_utils.write(
             OUTPUT_DIR + 'json/hero-non-constants.json', json_utils.sort_dict(non_constant_stats)
         )
