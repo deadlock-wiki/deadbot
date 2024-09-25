@@ -120,11 +120,12 @@ class Parser:
             self.OUTPUT_DIR + 'json/hero-non-constants.json', parsed_non_constants
         ):
             print(
-                'Warning: Non-constant stats have changed. Please update [[Module:HeroData]]\'s write_hero_comparison_table lua function for the [[Hero Comparison]] page.'
+                "Warning: Non-constant stats have changed. Please update [[Module:HeroData]]'s write_hero_comparison_table lua function for the [[Hero Comparison]] page."
             )
 
         json_utils.write(
-            self.OUTPUT_DIR + 'json/hero-non-constants.json', json_utils.sort_dict(parsed_non_constants)
+            self.OUTPUT_DIR + 'json/hero-non-constants.json',
+            json_utils.sort_dict(parsed_non_constants),
         )
 
         json_utils.write(

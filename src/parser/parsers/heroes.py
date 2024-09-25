@@ -186,7 +186,7 @@ class HeroParser:
         else:
             time_to_reload = weapon_stats['ReloadTime']
 
-        # All reload actions have ReloadDelay played first, 
+        # All reload actions have ReloadDelay played first,
         # but typically only single bullet reloads have a non-zero delay
         # i.e.
         # ReloadDelay of .5,
