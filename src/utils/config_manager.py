@@ -1,10 +1,6 @@
 # Manages per-user configurations
 import os
 
-from dotenv import load_dotenv
-
-load_dotenv()
-
 
 # Retrieve a configuration key's associated value from .env
 def get_config_value(key):

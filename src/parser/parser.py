@@ -5,8 +5,6 @@ from parsers import abilities, ability_ui, items, heroes, changelogs, localizati
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from utils import json_utils
-from dotenv import load_dotenv
-load_dotenv()
 
 class Parser:
     def __init__(self, language='english'):
