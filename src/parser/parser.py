@@ -1,7 +1,7 @@
 import os
 import sys
 
-from parsers import abilities, items, heroes, changelogs, localizations, attributes
+from parsers import abilities, ability_ui, items, heroes, changelogs, localizations, attributes
 
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -11,6 +11,7 @@ from utils import json_utils
 class Parser:
     def __init__(self, language='english'):
         # constants
+        self.OUTPUT_DIR = '../../output-data/'
         self.DATA_DIR = './decompiler/decompiled-data/'
         self.language = language
         self.data = {'scripts': {}}
@@ -91,50 +92,84 @@ class Parser:
 
     def run(self):
         print('Parsing...')
-        self._parse_localizations()
         parsed_abilities = self._parse_abilities()
-        self._parse_heroes(parsed_abilities)
+        parsed_heroes = self._parse_heroes(parsed_abilities)
+        self._parsed_ability_ui(parsed_heroes)
         self._parse_items()
         self._parse_attributes()
         self._parse_changelogs()
+        self._parse_localizations()
         print('Done parsing')
 
     def _parse_localizations(self):
         print('Parsing Localizations...')
-
-        # TODO
-        return localizations.LocalizationParser(self.localizations).run()
+        return localizations.LocalizationParser(self.localizations, self.OUTPUT_DIR).run()
 
     def _parse_heroes(self, parsed_abilities):
         print('Parsing Heroes...')
-        return heroes.HeroParser(
+        parsed_heroes = heroes.HeroParser(
             self.data['scripts']['heroes'],
             self.data['scripts']['abilities'],
             parsed_abilities,
             self.localizations[self.language],
         ).run()
 
+        json_utils.write(
+            self.OUTPUT_DIR + 'json/hero-data.json', json_utils.sort_dict(parsed_heroes)
+        )
+        return parsed_heroes
+
     def _parse_abilities(self):
         print('Parsing Abilities...')
-        return abilities.AbilityParser(
+        parsed_abilities = abilities.AbilityParser(
             self.data['scripts']['abilities'],
             self.data['scripts']['heroes'],
             self.localizations[self.language],
         ).run()
 
+        json_utils.write(
+            self.OUTPUT_DIR + 'json/ability-data.json', json_utils.sort_dict(parsed_abilities)
+        )
+        return parsed_abilities
+
+    def _parsed_ability_ui(self, parsed_heroes):
+        print('Parsing Ability UI...')
+
+        for language in self.languages:
+            (parsed_ability_ui, changed_localizations) = ability_ui.AbilityUiParser(
+                self.data['scripts']['abilities'],
+                parsed_heroes,
+                language,
+                self.localizations,
+            ).run()
+
+            self.localizations[language].update(changed_localizations)
+
+            # Only write to ability_ui.json for English
+            if language == 'english':
+                json_utils.write(self.OUTPUT_DIR + 'json/ability_ui.json', parsed_ability_ui)
+
     def _parse_items(self):
         print('Parsing Items...')
-        items.ItemParser(
+        (parsed_items, item_component_chart) = items.ItemParser(
             self.data['scripts']['abilities'],
             self.data['scripts']['generic_data'],
             self.localizations[self.language],
         ).run()
 
+        json_utils.write(self.OUTPUT_DIR + 'json/item-data.json', json_utils.sort_dict(parsed_items))
+
+        with open(self.OUTPUT_DIR + '/item-component-tree.txt', 'w') as f:
+            f.write(str(item_component_chart))
+
     def _parse_attributes(self):
         print('Parsing Attributes...')
-        attributes.AttributeParser(
+        (parsed_attributes, attribute_orders) = attributes.AttributeParser(
             self.data['scripts']['heroes'], self.localizations[self.language]
         ).run()
+
+        json_utils.write(self.OUTPUT_DIR + 'json/attribute-data.json', parsed_attributes)
+        json_utils.write(self.OUTPUT_DIR + 'json/stat-infobox-order.json', attribute_orders)
 
     def _parse_changelogs(self):
         print('Parsing Changelogs...')
