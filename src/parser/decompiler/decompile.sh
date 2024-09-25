@@ -1,4 +1,4 @@
-!#/bin/sh
+#!/bin/sh
 if [ -f "../../../.env" ]; then
 . ../../../.env #Retrieve config paths
 fi
