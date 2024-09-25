@@ -5,7 +5,7 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 import maps as maps
 import utils.json_utils as json_utils
-from .constants import OUTPUT_DIR, ENGINE_UNITS_PER_METER
+from .constants import ENGINE_UNITS_PER_METER
 
 
 class HeroParser:
@@ -26,6 +26,7 @@ class HeroParser:
 
                 hero_stats = {
                     'Name': self.localizations.get(hero_key, None),
+                    'Disabled': hero_value['m_bDisabled'],
                     'BoundAbilities': self._parse_hero_abilities(hero_value),
                     'InDevelopment': hero_value['m_bInDevelopment'],
                     'IsDisabled': hero_value['m_bDisabled'],
@@ -181,6 +182,7 @@ class HeroParser:
             'FalloffEndScale': w['m_flDamageFalloffEndScale'],
             'FalloffBias': w['m_flDamageFalloffBias'],
             'BulletGravityScale': w['m_flBulletGravityScale'],
+            'BulletsPerShot': w['m_iBullets'],
             #'BulletRadius': w['m_flBulletRadius'] / ENGINE_UNITS_PER_METER,
             'BulletsPerShot': w['m_iBullets'],
         }

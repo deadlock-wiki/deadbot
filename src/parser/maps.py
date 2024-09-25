@@ -174,3 +174,23 @@ def override_localization(attr):
         return LOCALIZATION_OVERRIDE_MAP[attr]
     else:
         return attr
+
+
+SCALE_TYPE_MAP = {
+    'ETechPower': 'spirit',
+    'ELightMeleeDamage': 'melee',
+    'ETechRange': 'range',
+    'ETechCooldown': 'cooldown',
+    'EBulletDamage': 'damage',
+    'ETechDuration': 'duration',
+}
+
+
+def get_scale_type(scale):
+    if scale is None:
+        return scale
+
+    if scale not in SCALE_TYPE_MAP:
+        raise Exception(f'No scale map found for {scale}')
+
+    return SCALE_TYPE_MAP[scale]

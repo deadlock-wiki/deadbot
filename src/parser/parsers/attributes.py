@@ -3,8 +3,6 @@ import os
 
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
-from .constants import OUTPUT_DIR
-import utils.json_utils as json_utils
 import maps as maps
 
 
@@ -46,7 +44,6 @@ class AttributeParser:
             order_lists[category] = {}
             order_lists[category]['attribute_order'] = attributes_order
         order_lists['category_order'] = category_order
-        json_utils.write(OUTPUT_DIR + 'json/stat-infobox-order.json', order_lists)
 
         # Manually add DPS to the Weapon category
         all_attributes['Weapon']['DPS'] = {}
@@ -62,12 +59,10 @@ class AttributeParser:
             if category in all_attributes
         }
 
-        # Write the attributes to a json file
-        json_utils.write(OUTPUT_DIR + 'json/attribute-data.json', all_attributes)
+        return (all_attributes, order_lists)
 
     def _map_to_unlocalized(self, all_attributes):
         """
-        Maps the attributes to their unlocalized names,
         Maps the attributes to their unlocalized names,
         such as "BulletDamage" to their unlocalized names "StatDesc_BulletDamage"
         The unlocalized name will then be localized on the front end
