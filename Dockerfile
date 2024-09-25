@@ -21,7 +21,6 @@ WORKDIR /repo
 # Install build dependencies first
 COPY pyproject.toml poetry.lock ./
 RUN python3 -m poetry install --no-root && rm -rf $POETRY_CACHE_DIR
-#RUN python -m pre_commit install
 
 # Now install deadbot
 COPY . .
