@@ -16,12 +16,12 @@ Some data has been processed and formatted for google sheets:\
     1. Get <python_path> with `python -m site --user-base`
     2. Add to ~/.bash_profile - `export PATH="$PATH:<python_path>/Python311/Scripts"`
 
-3. `pip install poetry`
+3. `python -m pip install poetry`
 4. `python -m poetry install`
 5. `python -m pre_commit install`
 6. Download Decompiler.exe for your particular OS from https://github.com/ValveResourceFormat/ValveResourceFormat/releases 
-7. Extract decompiler into `Downloads/` folder
-8. Add the paths to Deadlock files and the Decompiler in `.env` using `.env.example` as an example
+   1. Extract decompiler into a folder and update `.env`
+7. Add the paths to Deadlock files and the Decompiler in `.env` using `.env.example` as an example
 
 ### Usage
 `bash main.sh` to run end-to-end decompilation, parsing and bot (bot is a WIP)\
@@ -47,15 +47,16 @@ service:
     deadbot:
         ...
         volumes:
+        # mount game files
         - "C:\Program Files (x86)\Steam\steamapps\common\Deadlock:/data"
-        # or
+          # or
         - "/mnt/SteamLibrary/steamapps/common/Deadlock:/data"
         # and an output dir
         - "./output-data:/output"
 ```
 
 ## Contributing
-DeadBot is currently early in its development and welcomes new contributers to get involved no matter what level experience you have.
+DeadBot is currently early in its development and welcomes new contributors to get involved no matter what level experience you have.
 
 Regularly discussed in the wiki channel on [the Discord server](https://discord.com/invite/jUyhZKwxSW). Ask for access on there if you are interested in contributing.
 
