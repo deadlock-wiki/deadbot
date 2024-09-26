@@ -107,7 +107,7 @@ class Parser:
 
     def _parse_heroes(self, parsed_abilities):
         print('Parsing Heroes...')
-        parsed_heroes, parsed_non_constants = heroes.HeroParser(
+        parsed_heroes, parsed_meaningful_stats = heroes.HeroParser(
             self.data['scripts']['heroes'],
             self.data['scripts']['abilities'],
             parsed_abilities,
@@ -117,7 +117,7 @@ class Parser:
         # Ensure it matches the current list of non-constants, and raise a warning if not
         # File diff will also appear in git
         if not json_utils.compare_json_file_to_dict(
-            self.OUTPUT_DIR + 'json/hero-non-constants.json', parsed_non_constants
+            self.OUTPUT_DIR + 'json/hero-meaningful-stats.json', parsed_meaningful_stats
         ):
             print(
                 "Warning: Non-constant stats have changed. " + 
@@ -127,7 +127,7 @@ class Parser:
 
         json_utils.write(
             self.OUTPUT_DIR + 'json/hero-meaningful-stats.json',
-            json_utils.sort_dict(parsed_non_constants),
+            json_utils.sort_dict(parsed_meaningful_stats),
         )
 
         json_utils.write(
