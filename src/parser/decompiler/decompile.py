@@ -11,13 +11,18 @@ os.system('cp "$DEADLOCK_PATH/game/citadel/steam.inf" "$WORK_DIR/version.txt"')
 os.system('cp "$DEADLOCK_PATH/game/citadel/steam.inf" "$OUTPUT_DIR/version.txt"')
 
 # Define files to be decompiled and processed
-FILES=("scripts/heroes" "scripts/abilities" "scripts/generic_data" "scripts/misc")
-mkdir -p "$WORK_DIR/scripts"
+files = [
+  "scripts/heroes",
+  "scripts/abilities",
+  "scripts/generic_data",
+  "scripts/misc"
+]
+
 os.makedirs(WORK_DIR+"/scripts")
 # Loop through files and run Decompiler.exe for each
-for FILE in "${FILES[@]}"; do
-  INPUT_PATH="$DEADLOCK_PATH/game/citadel/pak01_dir.vpk"
-  VPK_FILEPATH="${FILE}.vdata_c"
+for file in files:
+  input_path = DEADLOCK_PATH+"/game/citadel/pak01_dir.vpk" 
+  VPK_FILEPATH = file + ".vdata_c"
   # Run the decompiler
   $DECOMPILER_CMD -i "$INPUT_PATH" --output "$WORK_DIR/vdata" --vpk_filepath "$VPK_FILEPATH" -d
 
