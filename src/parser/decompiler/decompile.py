@@ -19,7 +19,6 @@ files = [
   "scripts/misc"
 ]
 
-print(str.join((str.split(file,'/')[:-1])))
 # Loop through files and run Decompiler.exe for each
 for file in files:
   # removes filename from the file path
