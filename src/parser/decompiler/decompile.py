@@ -8,8 +8,8 @@ OUTPUT_DIR=os.getenv("OUTPUT_DIR")
 
 # Define paths
 os.makedirs(WORK_DIR)
-os.system('cp "$DEADLOCK_PATH/game/citadel/steam.inf" "$WORK_DIR/version.txt"')
-os.system('cp "$DEADLOCK_PATH/game/citadel/steam.inf" "$OUTPUT_DIR/version.txt"')
+os.system(f'cp "{DEADLOCK_PATH}/game/citadel/steam.inf" "{WORK_DIR}/version.txt"')
+os.system(f'cp "{DEADLOCK_PATH}/game/citadel/steam.inf" "{OUTPUT_DIR}/version.txt"')
 
 # Define files to be decompiled and processed
 files = [
@@ -19,16 +19,20 @@ files = [
   "scripts/misc"
 ]
 
-os.makedirs(WORK_DIR+"/scripts")
+print(str.join((str.split(file,'/')[:-1])))
 # Loop through files and run Decompiler.exe for each
 for file in files:
+  # removes filename from the file path
+  folder_path = '/'.join(str.split(file,'/')[:-1])
+  os.makedirs(WORK_DIR+"/"+folder_path)
+
   input_path = DEADLOCK_PATH+"/game/citadel/pak01_dir.vpk" 
   VPK_FILEPATH = file + ".vdata_c"
   # Run the decompiler
   dec_cmd = f'{DECOMPILER_CMD} -i "{INPUT_PATH}" --output "{WORK_DIR}/vdata" --vpk_filepath "{VPK_FILEPATH}" -d'
   os.system(dec_cmd)
   # Remove subclass and convert to json
-  kv3_to_json.process_file(f"{WORK_DIR}/vdata/{FILE}.vdata", "{WORK_DIR}/{FILE}.json")
+  kv3_to_json.process_file(f"{WORK_DIR}/vdata/{FILE}.vdata", f"{WORK_DIR}/{FILE}.json")
 
 # Define an array of folders to parse
 #folders=("citadel_attributes" "citadel_dev" "citadel_gc" "citadel_generated_vo" "citadel_heroes" "citadel_main" "citadel_mods") # All folders
