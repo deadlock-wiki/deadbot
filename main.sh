@@ -9,7 +9,7 @@ fi
 if [ "$DECOMPILE" = true ]; then
     cd src/parser/decompiler
     echo "Decompiling source files..."
-    bash decompile.sh
+    python3 decompile.py
     cd ../../..
 else
     echo "! Skipping Decompiler !"
