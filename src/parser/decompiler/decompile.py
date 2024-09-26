@@ -29,13 +29,25 @@ for file in files:
   input_path = DEADLOCK_PATH+"/game/citadel/pak01_dir.vpk" 
   VPK_FILEPATH = file + ".vdata_c"
   # Run the decompiler
-  dec_cmd = f'{DECOMPILER_CMD} -i "{input_path}" --output "{WORK_DIR}/vdata" --vpk_filepath "{VPK_FILEPATH}" -d'
+  dec_cmd = ( DECOMPILER_CMD +
+    f' -i "{input_path}" --output "{WORK_DIR}/vdata" --vpk_filepath "{VPK_FILEPATH}" -d'
+  )
   os.system(dec_cmd)
   # Remove subclass and convert to json
   kv3_to_json.process_file(f"{WORK_DIR}/vdata/{file}.vdata", f"{WORK_DIR}/{file}.json")
 
 # Define an array of folders to parse
-#folders=("citadel_attributes" "citadel_dev" "citadel_gc" "citadel_generated_vo" "citadel_heroes" "citadel_main" "citadel_mods") # All folders
+# All folders (UNUSED)
+all_folders = [ 
+  "citadel_attributes",
+  "citadel_dev",
+  "citadel_gc",
+  "citadel_generated_vo",
+  "citadel_heroes",
+  "citadel_main",
+  "citadel_mods"
+] 
+
 # All folders but voice lines and dev for now
 folders = [
   "citadel_attributes",
