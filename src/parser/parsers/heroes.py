@@ -84,26 +84,24 @@ class HeroParser:
 
                 all_hero_stats[hero_key] = json_utils.sort_dict(hero_stats)
 
-        # Write non-constant stats to json file
-        non_constants = self._write_non_constants_stats(all_hero_stats)
+        # Write meaningful stats to json file
+        meaningful_stats = self._get_meaningful_stats(all_hero_stats)
 
-        return all_hero_stats, non_constants
+        return all_hero_stats, meaningful_stats
 
-    def _write_non_constants_stats(self, all_hero_stats):
+    def _get_meaningful_stats(self, all_hero_stats):
         """
-        Writes list of non-constant stats to json file.
+        Gets list of meaningful stats that are non-constant stats.
 
-        Returns non_constants_stats dict, where elements are true if they are non-constant.
+        Returns meaningful_stats dict, where elements are true if they are non-constant.
 
-        Non-constant stats are ones that will be displayed
-        on the deadlocked.wiki/Hero_Comparison page, among others in the future.
+        These are displayed on the deadlocked.wiki/Hero_Comparison page, among others in the future.
         """
-        # Using 'non_constant' instead of 'variable' as 'variable' may indicate something else
         # Storing in dict with bool entry instead of list so its hashable on the frontend
 
         heroes_data = all_hero_stats.copy()
         stats_previous_value = {}
-        non_constant_stats = {}
+        meaningful_stats = {}
 
         # Iterate heroes
         for hero_key, hero_data in heroes_data.items():
@@ -124,12 +122,12 @@ class HeroParser:
                 if stat_key not in stats_previous_value:
                     stats_previous_value[stat_key] = stat_value
 
-                # If its already tracked, and is different to current value, mark as non-constant
+                # If its already tracked, and is different to current value, mark as meaningful
                 else:
                     if stats_previous_value[stat_key] != stat_value:
-                        non_constant_stats[stat_key] = True
+                        meaningful_stats[stat_key] = True
 
-        return non_constant_stats
+        return meaningful_stats
 
     def _parse_hero_abilities(self, hero_value):
         bound_abilities = hero_value['m_mapBoundAbilities']
