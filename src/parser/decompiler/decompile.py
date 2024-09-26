@@ -1,5 +1,6 @@
 import os
 import kv3_to_json
+from localization import process_localization_files
 
 DEADLOCK_PATH=os.getenv("DEADLOCK_PATH")
 WORK_DIR=os.getenv("WORK_DIR")
@@ -27,23 +28,29 @@ for file in files:
   dec_cmd = f'{DECOMPILER_CMD} -i "{INPUT_PATH}" --output "{WORK_DIR}/vdata" --vpk_filepath "{VPK_FILEPATH}" -d'
   os.system(dec_cmd)
   # Remove subclass and convert to json
-  kv3_to_json.process_file(f"{WORK_DIR}/vdata/{FILE}.vdata", "{WORK_DIR}/{FILE}.json"
+  kv3_to_json.process_file(f"{WORK_DIR}/vdata/{FILE}.vdata", "{WORK_DIR}/{FILE}.json")
 
 # Define an array of folders to parse
 #folders=("citadel_attributes" "citadel_dev" "citadel_gc" "citadel_generated_vo" "citadel_heroes" "citadel_main" "citadel_mods") # All folders
-folders=("citadel_attributes" "citadel_gc" "citadel_heroes" "citadel_main" "citadel_mods") # All folders but voice lines and dev for now
+# All folders but voice lines and dev for now
+folders = [
+  "citadel_attributes",
+  "citadel_gc",
+  "citadel_heroes",
+  "citadel_main",
+  "citadel_mods"
+]
 
 # Loop through each folder in the array
-for folder in "${folders[@]}"; do
+for folder in folders:
     # Construct the source path using DEADLOCK_PATH and folder name
-    src_path="$DEADLOCK_PATH/game/citadel/resource/localization/$folder"
+    src_path = f"{DEADLOCK_PATH}/game/citadel/resource/localization/{folder}"
     
     # Construct the destination path by replacing "citadel_" prefix with ""
-    dest_folder_name="${folder#citadel_}"
-    dest_path="$WORK_DIR/localizations/$dest_folder_name"
-    mkdir -p $dest_path
+    dest_folder_name = str.replace(folder,"citadel_","")
+    dest_path = f"{WORK_DIR}/localizations/{dest_folder_name}"
+    os.makedirs(dest_path)
 
     # Run the Python script to parse the folder
-    python3 localization.py "$src_path" "$dest_path"
-    echo "Parsed $src_path to $dest_path"
-done
+    process_localization_files(src_path,dest_path)
+    print(f"Parsed {src_path} to {dest_path}")
