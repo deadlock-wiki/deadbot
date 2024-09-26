@@ -1,16 +1,19 @@
-#!/bin/sh
-if [ -f "../../../.env" ]; then
-. ../../../.env #Retrieve config paths
-fi
+import os
+import kv3_to_json
+
+DEADLOCK_PATH=os.getenv("DEADLOCK_PATH")
+WORK_DIR=os.getenv("WORK_DIR")
+OUTPUT_DIR=os.getenv("OUTPUT_DIR")
 
 # Define paths
-mkdir -p $WORK_DIR
-cp "$DEADLOCK_PATH/game/citadel/steam.inf" "$WORK_DIR/version.txt"
-cp "$DEADLOCK_PATH/game/citadel/steam.inf" "$OUTPUT_DIR/version.txt"
+os.makedirs(WORK_DIR)
+os.system('cp "$DEADLOCK_PATH/game/citadel/steam.inf" "$WORK_DIR/version.txt"')
+os.system('cp "$DEADLOCK_PATH/game/citadel/steam.inf" "$OUTPUT_DIR/version.txt"')
 
 # Define files to be decompiled and processed
 FILES=("scripts/heroes" "scripts/abilities" "scripts/generic_data" "scripts/misc")
 mkdir -p "$WORK_DIR/scripts"
+os.makedirs(WORK_DIR+"/scripts")
 # Loop through files and run Decompiler.exe for each
 for FILE in "${FILES[@]}"; do
   INPUT_PATH="$DEADLOCK_PATH/game/citadel/pak01_dir.vpk"
