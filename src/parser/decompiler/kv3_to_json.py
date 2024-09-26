@@ -51,10 +51,12 @@ def remove_subclass(path):
     with open(path, 'w') as f:
         f.write(content)
 
+# remove subclass and write to json file
+def process_file(path, out_path):
+    remove_subclass(path)
+    data = kv3.read(path)
+    kv3_to_json(data, out_path)
+
 
 if __name__ == '__main__':
-    remove_subclass(sys.argv[1])
-
-    data = kv3.read(sys.argv[1])
-    out_path = sys.argv[2]
-    kv3_to_json(data, out_path)
+    process_file(sys.argv[1], sys.argv[2])
