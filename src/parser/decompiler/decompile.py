@@ -5,9 +5,10 @@ from localization import process_localization_files
 DEADLOCK_PATH=os.getenv("DEADLOCK_PATH")
 WORK_DIR=os.getenv("WORK_DIR")
 OUTPUT_DIR=os.getenv("OUTPUT_DIR")
+DECOMPILER_CMD=os.getenv("DECOMPILER_CMD")
 
 # Define paths
-os.makedirs(WORK_DIR)
+os.makedirs(WORK_DIR, exist_ok=True)
 os.system(f'cp "{DEADLOCK_PATH}/game/citadel/steam.inf" "{WORK_DIR}/version.txt"')
 os.system(f'cp "{DEADLOCK_PATH}/game/citadel/steam.inf" "{OUTPUT_DIR}/version.txt"')
 
@@ -23,15 +24,15 @@ files = [
 for file in files:
   # removes filename from the file path
   folder_path = '/'.join(str.split(file,'/')[:-1])
-  os.makedirs(WORK_DIR+"/"+folder_path)
+  os.makedirs(WORK_DIR+"/"+folder_path,exist_ok=True)
 
   input_path = DEADLOCK_PATH+"/game/citadel/pak01_dir.vpk" 
   VPK_FILEPATH = file + ".vdata_c"
   # Run the decompiler
-  dec_cmd = f'{DECOMPILER_CMD} -i "{INPUT_PATH}" --output "{WORK_DIR}/vdata" --vpk_filepath "{VPK_FILEPATH}" -d'
+  dec_cmd = f'{DECOMPILER_CMD} -i "{input_path}" --output "{WORK_DIR}/vdata" --vpk_filepath "{VPK_FILEPATH}" -d'
   os.system(dec_cmd)
   # Remove subclass and convert to json
-  kv3_to_json.process_file(f"{WORK_DIR}/vdata/{FILE}.vdata", f"{WORK_DIR}/{FILE}.json")
+  kv3_to_json.process_file(f"{WORK_DIR}/vdata/{file}.vdata", f"{WORK_DIR}/{file}.json")
 
 # Define an array of folders to parse
 #folders=("citadel_attributes" "citadel_dev" "citadel_gc" "citadel_generated_vo" "citadel_heroes" "citadel_main" "citadel_mods") # All folders
@@ -52,7 +53,7 @@ for folder in folders:
     # Construct the destination path by replacing "citadel_" prefix with ""
     dest_folder_name = str.replace(folder,"citadel_","")
     dest_path = f"{WORK_DIR}/localizations/{dest_folder_name}"
-    os.makedirs(dest_path)
+    os.makedirs(dest_path,exist_ok=True)
 
     # Run the Python script to parse the folder
     process_localization_files(src_path,dest_path)
