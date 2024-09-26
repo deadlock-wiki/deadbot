@@ -26,7 +26,6 @@ class HeroParser:
 
                 hero_stats = {
                     'Name': self.localizations.get(hero_key, None),
-                    'Disabled': hero_value['m_bDisabled'],
                     'BoundAbilities': self._parse_hero_abilities(hero_value),
                     'InDevelopment': hero_value['m_bInDevelopment'],
                     'IsDisabled': hero_value['m_bDisabled'],
@@ -126,6 +125,13 @@ class HeroParser:
                 else:
                     if stats_previous_value[stat_key] != stat_value:
                         meaningful_stats[stat_key] = True
+
+            # If it has any scaling stats, mark them as meaningful
+            scaling_containers = ['LevelScaling', 'SpiritScaling']
+            for scaling_container in scaling_containers:
+                if scaling_container in hero_data:
+                    for level_key in hero_data[scaling_container].keys():
+                        meaningful_stats[level_key] = True
 
         return meaningful_stats
 
