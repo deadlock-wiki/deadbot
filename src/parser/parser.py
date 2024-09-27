@@ -64,9 +64,9 @@ class Parser:
                     + '.json'
                 )
 
-                self._merge_localizations(language, localization_data)
+                self._merge_localizations(language, localization_group, localization_data)
 
-    def _merge_localizations(self, language, data):
+    def _merge_localizations(self, language, group, data):
         """
         Assigns a set of localization data to self.localizations for use across the parser
 
@@ -80,10 +80,12 @@ class Parser:
             # that are not needed but shared across groups
             if key in ['Language']:
                 continue
-
             if key not in self.localizations[language]:
                 self.localizations[language][key] = value
-            else:
+
+            # 'heroes' group is storing extra English labels for each language, causing it to throw
+            # duplicate key error. This is a temporary measure to keep patch updates going
+            elif group != 'heroes':
                 current_value = self.localizations[language][key]
                 raise Exception(
                     f'Key {key} with value {value} already exists in {language} localization '
