@@ -282,7 +282,7 @@
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
-        "CastDelay": "0.3",
+        "CastDelay": "0",
         "ChannelTime": "0",
         "PostCastDuration": "0",
         "Charges": "0",
@@ -317,8 +317,8 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "TechResist": "8",
-        "BulletResist": "16"
+        "TechResist": "16",
+        "BulletResist": "8"
     },
     "upgrade_ablative_coat": {
         "Name": "Ablative Coat",
@@ -380,6 +380,7 @@
         "SpiritDamage": "50",
         "TechArmorDamageReduction": "-12",
         "TechShieldMaxHealth": "80",
+        "BonusHealthRegen": "0.8",
         "BonusMeleeDamagePercent": "12"
     },
     "upgrade_active_bullet_shield": {
@@ -479,7 +480,7 @@
     },
     "upgrade_ammo_scavenger": {
         "Name": "Ammo Scavenger",
-        "Description": "Any time you secure or deny a Soul from an entity you get ammo back and gain stacking Spirit Power.",
+        "Description": "Any time you secure or deny a Soul you get ammo back and gain stacking Spirit Power.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
@@ -491,7 +492,7 @@
             "ClipSize"
         ],
         "Cooldown": "0",
-        "Duration": "30",
+        "Duration": "35",
         "CastRange": "0",
         "UnitTargetLimit": "1",
         "CastDelay": "0",
@@ -504,10 +505,10 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "BonusClipSizePercent": "15",
-        "BonusHealth": "40",
+        "BonusHealth": "60",
         "AmmoPerSoul": "2",
         "SpiritPowerPerSoul": "2",
-        "MaxStacks": "10"
+        "MaxStacks": "12"
     },
     "upgrade_aoe_root": {
         "Name": "Vacuum Web",
@@ -927,7 +928,7 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "DamageDuration": "10",
-        "DamageToStack": "100",
+        "DamageToStack": "110",
         "WeaponPowerPerStack": "5",
         "MaxStacks": 10,
         "BonusClipSize": "4",
@@ -1005,7 +1006,7 @@
             "Melee",
             "Healing"
         ],
-        "Cooldown": 5,
+        "Cooldown": 5.25,
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -1053,7 +1054,7 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BulletResist": "25",
+        "BulletResist": "20",
         "BaseAttackDamagePercent": "6"
     },
     "upgrade_bullet_armor_2": {
@@ -1330,7 +1331,7 @@
             "MagicDamage",
             "FireRate"
         ],
-        "Cooldown": 0.4,
+        "Cooldown": 0.65,
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -1474,7 +1475,7 @@
         "HealthThreshold": "75",
         "BonusMoveSpeed": "2m",
         "BaseAttackDamagePercent": "25",
-        "BonusHealth": "300"
+        "BonusHealth": "275"
     },
     "upgrade_clip_size": {
         "Name": "Basic Magazine",
@@ -1643,7 +1644,7 @@
         "Cost": "6200",
         "Tier": "4",
         "Activation": "InstantCast",
-        "Slot": "Weapon",
+        "Slot": "Armor",
         "Components": null,
         "TargetTypes": null,
         "ShopFilters": [
@@ -1815,7 +1816,7 @@
         "TechResist": "40",
         "SlowPercent": "35",
         "GroundDashReductionPercent": "-25",
-        "Radius": "14m",
+        "Radius": "12m",
         "ModelScaleGrowth": "1.2"
     },
     "upgrade_combo_breaker": {
@@ -2165,7 +2166,7 @@
         "WeaponPower": "0",
         "AirJumps": "1",
         "AirJumpVerticalSpeedPercent": "75",
-        "InteruptCooldown": 4
+        "InteruptCooldown": 4.25
     },
     "upgrade_dps_aura": {
         "Name": "Heroic Aura",
@@ -2388,7 +2389,7 @@
         "LowHealthThreshold": "40",
         "FervorMovespeed": "4m",
         "FervorFireRate": "40",
-        "FervorBulletResist": "45",
+        "FervorTechResist": "45",
         "LingerDuration": "6"
     },
     "upgrade_fire_rate_aura": {
@@ -2631,13 +2632,13 @@
         "Activation": "Passive",
         "Slot": "Weapon",
         "Components": [
-            "upgrade_headshot_booster"
+            "upgrade_high_velocity_mag"
         ],
         "TargetTypes": null,
         "ShopFilters": [
             "WeaponDamage"
         ],
-        "Cooldown": "6",
+        "Cooldown": "0",
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -2650,13 +2651,14 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
+        "BonusBulletSpeedPercent": "50",
         "HeadShotBonusDamage": "140",
+        "HeadShotCooldown": "6",
         "BaseAttackDamagePercent": "15",
         "BulletShieldMaxHealth": "150",
         "HealPercentPerHeadshot": "8",
         "BonusMoveSpeed": "2m",
-        "MovementSpeedBonusDuration": "3",
-        "BonusFireRate": "5"
+        "MovementSpeedBonusDuration": "3"
     },
     "upgrade_headshot_booster": {
         "Name": "Headshot Booster",
@@ -2684,40 +2686,9 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BonusFireRate": "4",
+        "BonusFireRate": "5",
         "BulletShieldMaxHealth": "40",
         "HeadShotBonusDamage": "40"
-    },
-    "upgrade_heal_on_level": {
-        "Name": "Patron's Healing",
-        "Description": "When you receive a Boon, automatically heal.",
-        "Cost": "500",
-        "Tier": "1",
-        "Activation": "Passive",
-        "Slot": "Armor",
-        "Components": null,
-        "TargetTypes": null,
-        "ShopFilters": [
-            "Durability",
-            "Healing"
-        ],
-        "Cooldown": "0",
-        "Duration": "0",
-        "CastRange": "0",
-        "UnitTargetLimit": "1",
-        "CastDelay": "0",
-        "ChannelTime": "0",
-        "PostCastDuration": "0",
-        "Charges": "0",
-        "CooldownBetweenCharge": "0",
-        "ChannelMoveSpeed": "50",
-        "ResourceCost": "0",
-        "TechPower": "0",
-        "WeaponPower": "0",
-        "HealOnLevelHealAmount": "210",
-        "BonusHealth": "25",
-        "BonusHealthRegen": "2.0",
-        "AuraRadius": "15m"
     },
     "upgrade_healbane": {
         "Name": "Healbane",
@@ -2846,7 +2817,7 @@
         "HeroTargetBonus": "20",
         "RegenDuration": "2",
         "AuraRadius": "15m",
-        "BaseAttackDamagePercent": "12",
+        "BaseAttackDamagePercent": "10",
         "BonusHealth": "100"
     },
     "upgrade_health_regen_1": {
@@ -3042,7 +3013,7 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BonusBulletSpeedPercent": "25",
+        "BonusBulletSpeedPercent": "30",
         "BaseAttackDamagePercent": "12",
         "BulletShieldMaxHealth": "50"
     },
@@ -3076,7 +3047,7 @@
         "WeaponPower": "0",
         "LifeThreshold": "60",
         "BaseAttackDamagePercent": "22",
-        "TechShieldMaxHealth": "95"
+        "TechShieldMaxHealth": "85"
     },
     "upgrade_imbued_ability": {
         "Name": "Imbued Ability",
@@ -3170,7 +3141,7 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BulletResist": "50",
+        "BulletResist": "45",
         "BaseAttackDamagePercent": "10"
     },
     "upgrade_improved_spirit": {
@@ -3229,7 +3200,7 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "Stamina": "1",
-        "StaminaCooldownReduction": "14",
+        "StaminaCooldownReduction": "10",
         "BonusFireRate": "7"
     },
     "upgrade_infuser": {
@@ -3326,7 +3297,7 @@
         "BonusClipSizePercent": "25",
         "BaseAttackDamagePercent": "20",
         "ShootDurationForMax": "3.0",
-        "BaseAttackDamagePercentAtMaxDuration": "60"
+        "BaseAttackDamagePercentAtMaxDuration": "75"
     },
     "upgrade_kinetic_sash": {
         "Name": "Kinetic Dash",
@@ -3344,7 +3315,7 @@
             "Durability"
         ],
         "Cooldown": 10.5,
-        "Duration": "7",
+        "Duration": "8",
         "CastRange": "0",
         "UnitTargetLimit": "1",
         "CastDelay": "0",
@@ -3356,14 +3327,14 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BonusFireRate": "20",
+        "BonusFireRate": "25",
         "BonusClipSize": "5",
         "BonusHealth": "100",
         "BonusHealthRegen": "1.5"
     },
     "upgrade_lifestrike_gauntlets": {
         "Name": "Melee Lifesteal",
-        "Description": "Your Melee attacks heal you for 20% of the Melee Damage dealt plus 90. This heal is 30% effective vs non-heroes.",
+        "Description": "Your Melee attacks heal you for 20% of the Melee Damage dealt plus 90. This heal is 40% effective vs non-heroes.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
@@ -3390,11 +3361,11 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BonusMeleeDamagePercent": "12",
+        "BonusMeleeDamagePercent": "13",
         "LifestrikeHeal": "90",
         "LifestrikeHealPercent": "20",
         "BonusHealth": "75",
-        "NonHeroHealPct": "30"
+        "NonHeroHealPct": "40"
     },
     "upgrade_long_range": {
         "Name": "Long Range",
@@ -3553,42 +3524,6 @@
         "BonusSpiritWindow": "1",
         "BonusSpiritMin": "2"
     },
-    "upgrade_magic_missile": {
-        "Name": "Conjure Missiles",
-        "Description": null,
-        "Cost": "6200",
-        "Tier": "4",
-        "Activation": "Passive",
-        "Slot": "Weapon",
-        "Components": null,
-        "TargetTypes": null,
-        "ShopFilters": [
-            "WeaponDamage",
-            "ClipSize",
-            "FireRate"
-        ],
-        "Cooldown": "0",
-        "Duration": "0",
-        "CastRange": "0",
-        "UnitTargetLimit": "1",
-        "CastDelay": "0",
-        "ChannelTime": "0",
-        "PostCastDuration": "0",
-        "Charges": "0",
-        "CooldownBetweenCharge": "0",
-        "ChannelMoveSpeed": "50",
-        "ResourceCost": "0",
-        "TechPower": "0",
-        "WeaponPower": "0",
-        "BaseAttackDamagePercent": "70",
-        "MaxHealthLossPercent": "-15",
-        "BonusClipPerKill": "2",
-        "MaxClipBonus": "14",
-        "BonusFireRate": "10",
-        "BonusMoveSpeed": "1m",
-        "WeaponPowerPerKill": "10",
-        "MaxStacks": "5"
-    },
     "upgrade_magic_reach": {
         "Name": "Mystic Reach",
         "Description": "Increases the range and effect radius of your abilities and items.",
@@ -3612,9 +3547,9 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "TechRangeMultiplier": "18",
+        "TechRangeMultiplier": "16",
         "TechRadiusMultiplier": "16",
-        "BulletResist": "6"
+        "TechResist": "6"
     },
     "upgrade_magic_shield": {
         "Name": "Enchanter's Barrier",
@@ -3822,7 +3757,7 @@
             "WeaponDamage",
             "Healing"
         ],
-        "Cooldown": 5.5,
+        "Cooldown": 6.25,
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -3878,7 +3813,7 @@
     },
     "upgrade_melee_charge": {
         "Name": "Melee Charge",
-        "Description": "Your next Heavy Melee attack against an enemy deals increased damage and either reload your weapon instantly or give you up to +100% bonus ammo. <br>Only activates when Bonus Ammo is not full.",
+        "Description": "Your next Heavy Melee attack against an enemy deals increased damage and reloads your weapon instantly.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -3893,7 +3828,7 @@
         "ShopFilters": [
             "Melee"
         ],
-        "Cooldown": 10,
+        "Cooldown": 8.5,
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -4040,7 +3975,7 @@
         "NonPlayerBonusWeaponPower": "35",
         "BonusHealth": "50",
         "BonusHealthRegen": "1",
-        "NonPlayerBulletResist": "30"
+        "NonPlayerBulletResist": "35"
     },
     "upgrade_personal_rejuvenator": {
         "Name": "Rebirth",
@@ -4140,9 +4075,7 @@
         "Tier": "3",
         "Activation": "Passive",
         "Slot": "Weapon",
-        "Components": [
-            "upgrade_high_velocity_mag"
-        ],
+        "Components": null,
         "TargetTypes": [
             "AllEnemy"
         ],
@@ -4166,8 +4099,7 @@
         "EnemyLifeThreshold": "50",
         "BaseAttackDamagePercent": "25",
         "BaseAttackDamagePercentBonus": "25",
-        "TechResist": "12",
-        "BonusBulletSpeedPercent": "35"
+        "TechResist": "12"
     },
     "upgrade_proc_disarm": {
         "Name": "Disarming Bullets",
@@ -4286,7 +4218,7 @@
     },
     "upgrade_quick_silver": {
         "Name": "Quicksilver Reload",
-        "Description": "Imbue an ability with bonus Spirit Damage on the first hit.  When the ability is used, your weapon is reloaded and has a Fire Rate bonus for that clip.  <br>Only activates when Ammo is not full.",
+        "Description": "Imbue an ability with bonus Spirit Damage on the first hit.  When the ability is used, your weapon is reloaded and has a Fire Rate bonus for that clip.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -4342,9 +4274,9 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "CooldownBetweenChargeReduction": "65",
+        "CooldownBetweenChargeReduction": "55",
         "BonusAbilityCharges": "2",
-        "CooldownReductionOnChargedAbilities": "30",
+        "CooldownReductionOnChargedAbilities": "25",
         "BaseAttackDamagePercent": "12"
     },
     "upgrade_rapid_rounds": {
@@ -4399,7 +4331,6 @@
         "ResourceCost": "0",
         "TechPower": "12",
         "WeaponPower": "0",
-        "SpawnTimePenalty": "15",
         "RespawnDelay": "4",
         "RespawnHealthPercent": "50",
         "CooldownReduction": "15"
@@ -4463,9 +4394,9 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BulletShieldMaxHealth": "325",
-        "AttackDamageWhenShielded": "25",
-        "FireRateWhenShielded": "6"
+        "BulletShieldMaxHealth": "300",
+        "AttackDamageWhenShielded": "28",
+        "FireRateWhenShielded": "8"
     },
     "upgrade_regenerative_armor": {
         "Name": "Regenerative Armor",
@@ -4523,7 +4454,7 @@
         "BulletResistPerStack": "2",
         "BulletResistDuration": "20",
         "BaseAttackDamagePercent": "14",
-        "BonusFireRate": "12"
+        "BonusFireRate": "14"
     },
     "upgrade_reload_speed": {
         "Name": "Fast Reload",
@@ -4674,12 +4605,12 @@
         "CooldownBetweenCharge": "0",
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
-        "TechPower": "9",
+        "TechPower": "7",
         "WeaponPower": "0",
-        "BulletDamageReflectedPct": "60",
+        "BulletDamageReflectedPct": "70",
+        "BonusFireRate": "7",
         "BonusHealth": "125",
-        "SpiritDamageReflectedPct": "30",
-        "ReturnFireBulletResist": "25"
+        "SpiritDamageReflectedPct": "30"
     },
     "upgrade_ricochet": {
         "Name": "Ricochet",
@@ -4717,7 +4648,7 @@
         "BonusClipSizePercent": "35",
         "RicochetTargetsTooltipOnly": "2",
         "BonusHealth": "150",
-        "BonusFireRate": "10"
+        "BonusFireRate": "12"
     },
     "upgrade_rocket_booster": {
         "Name": "Majestic Leap",
@@ -4762,7 +4693,7 @@
     },
     "upgrade_rocket_boots": {
         "Name": "Majestic Leap - Disabled",
-        "Description": "Launch yourself high into the air. Cannot be used for 4s if damaged by enemy Hero.",
+        "Description": "Launch yourself high into the air. Cannot be used for 4.25s if damaged by enemy Hero.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "InstantCast",
@@ -4787,7 +4718,7 @@
         "TechPower": "8",
         "WeaponPower": "0",
         "JumpVelocityHidden": "22.5m",
-        "InteruptCooldown": 4,
+        "InteruptCooldown": 4.25,
         "AirControlPercent": "100",
         "BonusHealth": "75"
     },
@@ -4806,7 +4737,7 @@
             "MagicDamage",
             "Disruption"
         ],
-        "Cooldown": 45.0,
+        "Cooldown": 32.0,
         "Duration": "10",
         "CastRange": "15m",
         "UnitTargetLimit": "1",
@@ -4859,7 +4790,7 @@
         "TechRadiusMultiplier": "8",
         "BonusMoveSpeed": "2m",
         "BonusSprintSpeed": "1m",
-        "BonusHealth": "50"
+        "BonusHealth": "75"
     },
     "upgrade_self_bubble": {
         "Name": "Ethereal Shift",
@@ -4955,7 +4886,7 @@
         "CooldownBetweenCharge": "0",
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
-        "TechPower": "12",
+        "TechPower": "0",
         "WeaponPower": "0",
         "EMPDuration": "2",
         "BaseAttackDamagePercent": "20",
@@ -4968,7 +4899,7 @@
         "Cost": "6200",
         "Tier": "4",
         "Activation": "Passive",
-        "Slot": "Armor",
+        "Slot": "Weapon",
         "Components": null,
         "TargetTypes": [
             "HeroEnemy"
@@ -4990,7 +4921,7 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BulletResist": "18",
+        "BaseAttackDamagePercent": "28",
         "StealPerHit": "1",
         "StackLostPerDeath": "2",
         "MaxStacks": "99",
@@ -5135,41 +5066,11 @@
         "CooldownBetweenCharge": "0",
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
-        "TechPower": "23",
+        "TechPower": "21",
         "WeaponPower": "0",
         "BonusHealthRegen": "3",
         "BonusSprintSpeed": "1m",
         "BonusHealth": "100"
-    },
-    "upgrade_spellshield": {
-        "Name": "Hexafoil Ward",
-        "Description": "Block the next Spirit Damage or Debuff, preventing its effects. Only regenerates outside of combat.",
-        "Cost": "3000",
-        "Tier": "3",
-        "Activation": "Passive",
-        "Slot": "Armor",
-        "Components": null,
-        "TargetTypes": null,
-        "ShopFilters": [
-            "Durability"
-        ],
-        "Cooldown": "12",
-        "Duration": "0",
-        "CastRange": "0",
-        "UnitTargetLimit": "1",
-        "CastDelay": "0",
-        "ChannelTime": "0",
-        "PostCastDuration": "0",
-        "Charges": "0",
-        "CooldownBetweenCharge": "0",
-        "ChannelMoveSpeed": "50",
-        "ResourceCost": "0",
-        "TechPower": "0",
-        "WeaponPower": "0",
-        "TechResist": "15",
-        "BonusHealth": "25",
-        "SpellShieldLingerDuration": ".3",
-        "SpellShieldFlavorText": "asdasd"
     },
     "upgrade_sprint_booster": {
         "Name": "Sprint Boots",
@@ -5304,41 +5205,6 @@
         "LiftHeight": "120",
         "SlamdownSpeed": "500",
         "MoveSpeedMax": "4m"
-    },
-    "upgrade_superacolytes_glove": {
-        "Name": "Hex-Sealed Knuckles",
-        "Description": "After dealing an accumulated 200 spirit damage, your next Heavy Melee Attack deals an additional 200 spirit damage.",
-        "Cost": "3000",
-        "Tier": "3",
-        "Activation": "Passive",
-        "Slot": "Tech",
-        "Components": [
-            "upgrade_acolytes_glove"
-        ],
-        "TargetTypes": [
-            "HeroEnemy"
-        ],
-        "ShopFilters": [
-            "MagicDamage",
-            "Melee"
-        ],
-        "Cooldown": "3",
-        "Duration": "13",
-        "CastRange": "0",
-        "UnitTargetLimit": "1",
-        "CastDelay": "0",
-        "ChannelTime": "0",
-        "PostCastDuration": "0",
-        "Charges": "0",
-        "CooldownBetweenCharge": "0",
-        "ChannelMoveSpeed": "50",
-        "ResourceCost": "0",
-        "TechPower": "0",
-        "WeaponPower": "0",
-        "StoredSpiritDamage": "200",
-        "TechShieldMaxHealth": "100",
-        "BonusHealthRegen": "1",
-        "BonusMeleeDamagePercent": "30"
     },
     "upgrade_superior_stamina": {
         "Name": "Superior Stamina",
@@ -5618,7 +5484,7 @@
             "MagicDamage",
             "Durability"
         ],
-        "Cooldown": 1.5,
+        "Cooldown": 1.75,
         "Duration": "0",
         "CastRange": "0",
         "UnitTargetLimit": "1",
@@ -5631,7 +5497,7 @@
         "ResourceCost": "0",
         "TechPower": "6",
         "WeaponPower": "0",
-        "BonusHealth": "160",
+        "BonusHealth": "140",
         "DamagePulseAmount": "40",
         "DamagePulseRadius": "9m"
     },
@@ -5723,7 +5589,6 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "CooldownReduction": "15",
-        "BulletShieldMaxHealth": "225",
         "LifestealPercentHero": "10",
         "BonusFireRate": "20",
         "BonusSpirit": "45",
@@ -5772,8 +5637,7 @@
         ],
         "TargetTypes": null,
         "ShopFilters": [
-            "MagicDamage",
-            "Durability"
+            "MagicDamage"
         ],
         "Cooldown": "0",
         "Duration": "0",
@@ -5792,7 +5656,7 @@
         "NonImbuedTechRadiusMultiplier": "25",
         "ImbuedTechRangeMultiplier": "35",
         "ImbuedTechRadiusMultiplier": "35",
-        "BulletResist": "12"
+        "TechResist": "12"
     },
     "upgrade_thermal_detonator": {
         "Name": "Alchemical Fire",
@@ -5861,7 +5725,7 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BonusClipSizePercent": "120",
+        "BonusClipSizePercent": "100",
         "BaseAttackDamagePercent": "18",
         "BulletResist": "18"
     },
@@ -5933,7 +5797,7 @@
     },
     "upgrade_unstoppable": {
         "Name": "Unstoppable",
-        "Description": "Temporarily suppress negative status effects and become immune to Stun, Silence, Sleep, Root, and Disarm. <br>Cannot be used while Stunned or Slept.",
+        "Description": "Suppress negative status effects and become Immune to Stun, Silence, Sleep, Root, and Disarm.",
         "Cost": "6200",
         "Tier": "4",
         "Activation": "InstantCast",
@@ -5993,7 +5857,7 @@
     },
     "upgrade_veil_walker": {
         "Name": "Veil Walker",
-        "Description": "Walking through a cosmic veil grants you Stealth, increased Movement Speed and restores all Bullet and Spirit Shields.",
+        "Description": "Walking through a cosmic veil grants you Stealth, increased Movement Speed, restores all Bullet and Spirit Shields, and grants bonus Fire Rate for your next magazine.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -6028,6 +5892,7 @@
         "TechShieldMaxHealth": "200",
         "BonusClipSizePercent": "12",
         "BaseAttackDamagePercent": "10",
+        "BonusFireRate": "30",
         "BonusClipSize": "0",
         "InvisDuration": "5",
         "BonusMoveSpeed": "3m"
@@ -6257,7 +6122,7 @@
         ],
         "Cooldown": 26.0,
         "Duration": "4.5",
-        "CastRange": "30m",
+        "CastRange": "24m",
         "UnitTargetLimit": "1",
         "CastDelay": "0.1",
         "ChannelTime": "0",
@@ -6268,11 +6133,39 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "FireRateSlow": "45",
+        "FireRateSlow": "40",
         "BulletArmorReduction": "-14",
-        "SpiritPower": "6",
-        "BonusSprintSpeed": "1m",
+        "BonusFireRate": "8",
+        "SpiritPower": "4",
         "BonusHealth": "50"
+    },
+    "upgrade_zipine_mastery": {
+        "Name": "Zip Line Mastery",
+        "Description": "Zip line speed accelerates and allows you to use neutral zip lines and capture them while zip lining.  Provides a movement speed bonus when jumping off a zip line whose duration increases the longer you are on the zip line.",
+        "Cost": "3000",
+        "Tier": "3",
+        "Activation": "Passive",
+        "Slot": "Armor",
+        "Components": null,
+        "TargetTypes": null,
+        "ShopFilters": null,
+        "Cooldown": "0",
+        "Duration": "0",
+        "CastRange": "0",
+        "UnitTargetLimit": "1",
+        "CastDelay": "0",
+        "ChannelTime": "0",
+        "PostCastDuration": "0",
+        "Charges": "0",
+        "CooldownBetweenCharge": "0",
+        "ChannelMoveSpeed": "50",
+        "ResourceCost": "0",
+        "TechPower": "0",
+        "WeaponPower": "0",
+        "CollisionDamage": "10",
+        "ZiplineJumpBonusMoveSpeed": "2m",
+        "ZiplineJumpBonusTimeScale": "1.5",
+        "ZiplineJumpBonusDurationMax": "6"
     },
     "weapon_upgrade_base": {
         "Name": null,

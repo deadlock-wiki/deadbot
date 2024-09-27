@@ -148,7 +148,6 @@
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 71.55555555555557,
-        "Disabled": false,
         "FalloffBias": 0.5,
         "FalloffEndRange": 57.5056,
         "FalloffEndScale": 0.1,
@@ -158,10 +157,10 @@
         "InDevelopment": true,
         "IsDisabled": false,
         "LevelScaling": {
-            "BulletDamage": 1.492857,
+            "BulletDamage": 1.9,
             "Health": 33.0,
-            "LightMeleeDamage": 2.671429,
-            "HeavyMeleeDamage": 4.91882165079365
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_astro_lore",
@@ -183,6 +182,7 @@
         "Stamina": 2,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
+        "SustainedDPS": 44.41379310344828,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_astro_set_desc",
@@ -262,7 +262,7 @@
                 "Name": "Infernal Resilience",
                 "RegenDamageInterval": 1.0,
                 "RegenIncomingDamageDuration": 18,
-                "RegenIncomingDamagePercent": 15,
+                "RegenIncomingDamagePercent": 16,
                 "Upgrades": [
                     {
                         "BonusHealthRegen": 1.5
@@ -271,7 +271,7 @@
                         "BonusMaxHealth": 150
                     },
                     {
-                        "RegenIncomingDamagePercent": 8
+                        "RegenIncomingDamagePercent": 9
                     }
                 ]
             },
@@ -308,7 +308,6 @@
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 70.125,
-        "Disabled": false,
         "FalloffBias": 0.5,
         "FalloffEndRange": 45.72,
         "FalloffEndScale": 0.1,
@@ -318,10 +317,10 @@
         "InDevelopment": false,
         "IsDisabled": false,
         "LevelScaling": {
-            "BulletDamage": 0.251429,
+            "BulletDamage": 0.32,
             "Health": 32.0,
-            "LightMeleeDamage": 2.671429,
-            "HeavyMeleeDamage": 4.91882165079365
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_atlas_lore",
@@ -343,6 +342,7 @@
         "Stamina": 3,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
+        "SustainedDPS": 40.81649151172191,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_atlas_set_desc",
@@ -414,7 +414,7 @@
                 ]
             },
             "3": {
-                "AbilityCastRange": 25,
+                "AbilityCastRange": 30,
                 "AbilityCooldown": 23.0,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
@@ -489,7 +489,6 @@
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 66.25,
-        "Disabled": false,
         "FalloffBias": 0.5,
         "FalloffEndRange": 50.8,
         "FalloffEndScale": 0.1,
@@ -499,12 +498,12 @@
         "InDevelopment": false,
         "IsDisabled": false,
         "LevelScaling": {
-            "BulletDamage": 0.293071,
+            "BulletDamage": 0.373,
             "Health": 41.0,
-            "BulletResist": 1.257143,
-            "BonusAttackRange": 77.334084,
-            "LightMeleeDamage": 2.671429,
-            "HeavyMeleeDamage": 4.91882165079365
+            "BulletResist": 1.6,
+            "BonusAttackRange": 98.4252,
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_bebop_lore",
@@ -526,6 +525,7 @@
         "Stamina": 3,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
+        "SustainedDPS": 45.84534731323722,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_bebop_set_desc",
@@ -630,7 +630,6 @@
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 61.11111111111111,
-        "Disabled": true,
         "FalloffBias": 0.5,
         "FalloffEndRange": 57.5056,
         "FalloffEndScale": 0.1,
@@ -640,10 +639,10 @@
         "InDevelopment": true,
         "IsDisabled": true,
         "LevelScaling": {
-            "BulletDamage": 0.124929,
+            "BulletDamage": 0.159,
             "Health": 41.0,
-            "LightMeleeDamage": 2.671429,
-            "HeavyMeleeDamage": 4.91882165079365
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_bomber_lore",
@@ -665,6 +664,7 @@
         "Stamina": 3,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
+        "SustainedDPS": 31.73076923076923,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_bomber_set_desc",
@@ -783,7 +783,6 @@
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 16.333333333333336,
-        "Disabled": true,
         "FalloffBias": 0.5,
         "FalloffEndRange": 57.5056,
         "FalloffEndScale": 0.1,
@@ -794,8 +793,8 @@
         "IsDisabled": true,
         "LevelScaling": {
             "Health": 41.0,
-            "LightMeleeDamage": 2.671429,
-            "HeavyMeleeDamage": 4.91882165079365
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_cadence_lore",
@@ -817,6 +816,7 @@
         "Stamina": 3,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
+        "SustainedDPS": 12.782608695652176,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_cadence_set_desc",
@@ -854,8 +854,7 @@
                         "AbilityCooldown": -7.5
                     },
                     {
-                        "PulseDamage": 45,
-                        "DamageAmplificationPerStack": 2
+                        "PulseDamage": 45
                     }
                 ]
             },
@@ -969,7 +968,6 @@
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 25.71428571428571,
-        "Disabled": false,
         "FalloffBias": 0.5,
         "FalloffEndRange": 57.5056,
         "FalloffEndScale": 0.1,
@@ -979,10 +977,10 @@
         "InDevelopment": false,
         "IsDisabled": false,
         "LevelScaling": {
-            "BulletDamage": 0.33,
+            "BulletDamage": 0.42,
             "Health": 40.0,
-            "LightMeleeDamage": 2.671429,
-            "HeavyMeleeDamage": 4.91882165079365
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_chrono_lore",
@@ -1004,6 +1002,7 @@
         "Stamina": 3,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
+        "SustainedDPS": 20.89227421109902,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_chrono_set_desc",
@@ -1125,7 +1124,7 @@
                         "DamagePercentHealth": 3.8
                     }
                 ],
-                "VacuumRadius": 7
+                "VacuumRadius": 8
             }
         },
         "BulletDamage": 13.0,
@@ -1136,7 +1135,6 @@
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 52.0,
-        "Disabled": false,
         "FalloffBias": 0.5,
         "FalloffEndRange": 57.5056,
         "FalloffEndScale": 0.1,
@@ -1146,10 +1144,10 @@
         "InDevelopment": false,
         "IsDisabled": false,
         "LevelScaling": {
-            "BulletDamage": 0.707143,
+            "BulletDamage": 0.9,
             "Health": 44.0,
-            "LightMeleeDamage": 2.671429,
-            "HeavyMeleeDamage": 4.91882165079365
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_dynamo_lore",
@@ -1171,6 +1169,7 @@
         "Stamina": 3,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
+        "SustainedDPS": 34.16058394160584,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_dynamo_set_desc",
@@ -1333,7 +1332,6 @@
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 35.75,
-        "Disabled": false,
         "FalloffBias": 0.5,
         "FalloffEndRange": 57.5056,
         "FalloffEndScale": 0.1,
@@ -1343,10 +1341,10 @@
         "InDevelopment": false,
         "IsDisabled": false,
         "LevelScaling": {
-            "BulletDamage": 0.345714,
+            "BulletDamage": 0.44,
             "Health": 41.0,
-            "LightMeleeDamage": 2.671429,
-            "HeavyMeleeDamage": 4.91882165079365
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_forge_lore",
@@ -1368,6 +1366,7 @@
         "Stamina": 2,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
+        "SustainedDPS": 28.6173438447544,
         "TechArmorDamageReduction": 25.0,
         "TechDuration": 0,
         "TechRange": 0,
@@ -1470,7 +1469,6 @@
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 58.0,
-        "Disabled": true,
         "FalloffBias": 0.5,
         "FalloffEndRange": 57.5056,
         "FalloffEndScale": 0.1,
@@ -1481,8 +1479,8 @@
         "IsDisabled": true,
         "LevelScaling": {
             "Health": 41.0,
-            "LightMeleeDamage": 2.671429,
-            "HeavyMeleeDamage": 4.91882165079365
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_genericperson_lore",
@@ -1504,6 +1502,7 @@
         "Stamina": 3,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
+        "SustainedDPS": 34.8,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_genericperson_set_desc",
@@ -1546,7 +1545,7 @@
             "2": {
                 "AbilityCastDelay": 0.2,
                 "AbilityCastRange": 20,
-                "AbilityCooldown": 30.0,
+                "AbilityCooldown": 42.0,
                 "AbilityDuration": 2,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
@@ -1571,7 +1570,7 @@
             },
             "3": {
                 "AbilityCastDelay": 0.12,
-                "AbilityCooldown": 6,
+                "AbilityCooldown": 6.25,
                 "AbilityPostCastDuration": 0.3,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": -1,
@@ -1586,7 +1585,7 @@
                 "SpreadAngleDegrees": 6,
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -3
+                        "AbilityCooldown": -2.75
                     },
                     {
                         "HealthToDamage": 40
@@ -1636,7 +1635,6 @@
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 55.55555555555556,
-        "Disabled": false,
         "FalloffBias": 0.5,
         "FalloffEndRange": 57.5056,
         "FalloffEndScale": 0.1,
@@ -1646,10 +1644,10 @@
         "InDevelopment": false,
         "IsDisabled": false,
         "LevelScaling": {
-            "BulletDamage": 1.65,
+            "BulletDamage": 2.1,
             "Health": 41.0,
-            "LightMeleeDamage": 2.671429,
-            "HeavyMeleeDamage": 4.91882165079365
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_ghost_lore",
@@ -1667,10 +1665,11 @@
         "Role": "hero_ghost_role",
         "RoundsPerSecond": 2.2222222222222223,
         "SpiritScaling": {},
-        "SprintSpeed": 1.5,
+        "SprintSpeed": 1,
         "Stamina": 3,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
+        "SustainedDPS": 38.52993479549497,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_ghost_set_desc",
@@ -1711,8 +1710,7 @@
                         "SlowPercent": 40
                     },
                     {
-                        "DPS": 70,
-                        "ShockRadius": "1m"
+                        "DPS": 70
                     }
                 ]
             },
@@ -1726,8 +1724,8 @@
                 "Key": "citadel_ability_static_charge",
                 "Name": "Static Charge",
                 "ShockDelay": 3.5,
-                "ShockRadius": 5,
-                "StunDuration": 0.9,
+                "ShockRadius": 6,
+                "StunDuration": 1.1,
                 "Upgrades": [
                     {
                         "AbilityCooldown": -19.0
@@ -1736,7 +1734,7 @@
                         "ShockRadius": "8m"
                     },
                     {
-                        "StunDuration": 0.9
+                        "StunDuration": 1.1
                     }
                 ]
             },
@@ -1812,7 +1810,6 @@
         "CritDamageReceivedScale": -35.0,
         "CrouchSpeed": 4.75,
         "DPS": 46.0,
-        "Disabled": false,
         "FalloffBias": 0.5,
         "FalloffEndRange": 57.5056,
         "FalloffEndScale": 0.1,
@@ -1822,10 +1819,10 @@
         "InDevelopment": false,
         "IsDisabled": false,
         "LevelScaling": {
-            "BulletDamage": 0.597143,
+            "BulletDamage": 0.76,
             "Health": 31.0,
-            "LightMeleeDamage": 2.671429,
-            "HeavyMeleeDamage": 4.91882165079365
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_gigawatt_lore",
@@ -1849,6 +1846,7 @@
         "Stamina": 3,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
+        "SustainedDPS": 34.739583333333336,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_gigawatt_set_desc",
@@ -1932,7 +1930,6 @@
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 116.0,
-        "Disabled": true,
         "FalloffBias": 0.5,
         "FalloffEndRange": 57.5056,
         "FalloffEndScale": 0.1,
@@ -1943,8 +1940,8 @@
         "IsDisabled": true,
         "LevelScaling": {
             "Health": 41.0,
-            "LightMeleeDamage": 2.671429,
-            "HeavyMeleeDamage": 4.91882165079365
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_gunslinger_lore",
@@ -1966,6 +1963,7 @@
         "Stamina": 3,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
+        "SustainedDPS": 67.1578947368421,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_gunslinger_set_desc",
@@ -2071,12 +2069,11 @@
                 "AbilityChannelTime": 3.0,
                 "AbilityCooldown": 138.0,
                 "AbilityUnitTargetLimit": 1,
-                "BonusFireRate": 15,
+                "BonusFireRate": 25,
                 "ChannelMoveSpeed": 4,
-                "EvasionPercent": 25,
+                "EvasionPercent": 50,
                 "Key": "ability_bullet_flurry",
                 "Name": "Bullet Dance",
-                "OverrideBulletRadius": 10,
                 "Radius": 15,
                 "TargetsPerTick": 1,
                 "Upgrades": [
@@ -2101,7 +2098,6 @@
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 56.0,
-        "Disabled": false,
         "FalloffBias": 0.5,
         "FalloffEndRange": 45.9994,
         "FalloffEndScale": 0.1,
@@ -2111,10 +2107,10 @@
         "InDevelopment": false,
         "IsDisabled": false,
         "LevelScaling": {
-            "BulletDamage": 0.223929,
+            "BulletDamage": 0.285,
             "Health": 27.0,
-            "LightMeleeDamage": 2.671429,
-            "HeavyMeleeDamage": 4.91882165079365
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_haze_lore",
@@ -2138,6 +2134,7 @@
         "Stamina": 3,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
+        "SustainedDPS": 28.8659793814433,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_haze_set_desc",
@@ -2160,7 +2157,7 @@
                 "AbilityUnitTargetLimit": 1,
                 "CaptureRadius": 8,
                 "ChainDuration": 2.0,
-                "ChainLength": 8,
+                "ChainLength": 6,
                 "ChannelMoveSpeed": 50,
                 "Damage": 60,
                 "EnemyDragSpeed": 1000,
@@ -2241,7 +2238,7 @@
                 "AbilityUnitTargetLimit": 1,
                 "BonusGoldOnKill": 250,
                 "ChannelMoveSpeed": 50,
-                "Damage": 140,
+                "Damage": 160,
                 "HeadshotBonus": 20,
                 "Key": "citadel_ability_hornet_snipe",
                 "LowHealthEnemyDamageBonus": 145,
@@ -2251,7 +2248,7 @@
                 "Name": "Assassinate",
                 "Range": 1000,
                 "ShotRadius": 3.0,
-                "SnipeFOV": 30,
+                "SnipeFOV": 18,
                 "SnipeZoomDuration": 0.15,
                 "Upgrades": [
                     {
@@ -2269,17 +2266,16 @@
             }
         },
         "BulletArmorDamageReduction": -10.0,
-        "BulletDamage": 15,
+        "BulletDamage": 13,
         "BulletGravityScale": 0.8,
         "BulletSpeed": 889.0,
         "BulletsPerShot": 1,
         "ClipSize": 22,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
-        "DPS": 68.18181818181819,
-        "Disabled": false,
+        "DPS": 68.42105263157896,
         "FalloffBias": 0.5,
-        "FalloffEndRange": 44.99991,
+        "FalloffEndRange": 57.5056,
         "FalloffEndScale": 0.1,
         "FalloffStartRange": 21.996399999999998,
         "FalloffStartScale": 1.0,
@@ -2287,10 +2283,10 @@
         "InDevelopment": false,
         "IsDisabled": false,
         "LevelScaling": {
-            "BulletDamage": 0.785714,
+            "BulletDamage": 1.0,
             "Health": 20.0,
-            "LightMeleeDamage": 2.671429,
-            "HeavyMeleeDamage": 4.91882165079365
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_hornet_lore",
@@ -2306,12 +2302,13 @@
         "ReloadSpeed": 0,
         "ReloadTime": 2.914,
         "Role": "hero_hornet_role",
-        "RoundsPerSecond": 4.545454545454546,
+        "RoundsPerSecond": 5.2631578947368425,
         "SpiritScaling": {},
         "SprintSpeed": 0,
         "Stamina": 2,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
+        "SustainedDPS": 40.31575979701156,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_hornet_set_desc",
@@ -2451,7 +2448,6 @@
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 66.0,
-        "Disabled": false,
         "FalloffBias": 0.5,
         "FalloffEndRange": 57.5056,
         "FalloffEndScale": 0.1,
@@ -2461,10 +2457,10 @@
         "InDevelopment": false,
         "IsDisabled": false,
         "LevelScaling": {
-            "BulletDamage": 0.282857,
+            "BulletDamage": 0.36,
             "Health": 33.0,
-            "LightMeleeDamage": 2.671429,
-            "HeavyMeleeDamage": 4.91882165079365
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_inferno_lore",
@@ -2486,6 +2482,7 @@
         "Stamina": 3,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
+        "SustainedDPS": 34.32864573299941,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_inferno_set_desc",
@@ -2633,7 +2630,6 @@
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 108.16666666666667,
-        "Disabled": true,
         "FalloffBias": 0.5,
         "FalloffEndRange": 57.5056,
         "FalloffEndScale": 0.1,
@@ -2644,8 +2640,8 @@
         "IsDisabled": true,
         "LevelScaling": {
             "Health": 41.0,
-            "LightMeleeDamage": 2.671429,
-            "HeavyMeleeDamage": 4.91882165079365
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_kali_lore",
@@ -2667,6 +2663,7 @@
         "Stamina": 3,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
+        "SustainedDPS": 45.946902654867266,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_kali_set_desc",
@@ -2757,7 +2754,7 @@
                 "IceBeamBuildupProcDuration": 2,
                 "Key": "ability_icebeam",
                 "MaxFireRateSlowPercent": 40,
-                "MaxSlowPercent": 50,
+                "MaxSlowPercent": 70,
                 "MaxSlowTime": 2.0,
                 "MinSlowPercent": 30,
                 "Name": "Arctic Beam",
@@ -2823,7 +2820,6 @@
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 83.6,
-        "Disabled": false,
         "FalloffBias": 0.5,
         "FalloffEndRange": 57.5056,
         "FalloffEndScale": 0.1,
@@ -2833,10 +2829,10 @@
         "InDevelopment": false,
         "IsDisabled": false,
         "LevelScaling": {
-            "BulletDamage": 0.707,
+            "BulletDamage": 1.2,
             "Health": 50.0,
-            "LightMeleeDamage": 2.671429,
-            "HeavyMeleeDamage": 4.91882165079365
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_kelvin_lore",
@@ -2858,6 +2854,7 @@
         "Stamina": 3,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
+        "SustainedDPS": 49.48697711128651,
         "TechArmorDamageReduction": 10.0,
         "TechDuration": 0,
         "TechRange": 0,
@@ -2906,7 +2903,7 @@
                 "AbilityChannelTime": 5,
                 "AbilityCooldown": 37.0,
                 "AbilityUnitTargetLimit": 1,
-                "BonusMoveSpeed": 4,
+                "BonusMoveSpeed": 3,
                 "BulletResist": 80,
                 "ChannelMoveSpeed": -1,
                 "DPS": 80,
@@ -2931,13 +2928,13 @@
                     },
                     {
                         "AbilityCooldown": -19.0,
-                        "BonusMoveSpeed": "2m"
+                        "BonusMoveSpeed": "3m"
                     }
                 ]
             },
             "3": {
                 "AbilityCastDelay": 0.15,
-                "AbilityCastRange": 35,
+                "AbilityCastRange": 30,
                 "AbilityCooldown": 42.0,
                 "AbilityDuration": 3.5,
                 "AbilityUnitTargetLimit": 1,
@@ -2949,7 +2946,7 @@
                 "Name": "Sand Blast",
                 "Upgrades": [
                     {
-                        "AbilityDuration": 1
+                        "AbilityDuration": 1.5
                     },
                     {
                         "AbilityCooldown": -19.0
@@ -2961,7 +2958,7 @@
             },
             "4": {
                 "AbilityCastRange": 5,
-                "AbilityChannelTime": 2.5,
+                "AbilityChannelTime": 2.75,
                 "AbilityCooldown": 95.0,
                 "AbilityUnitTargetLimit": 1,
                 "BonusHealthOnKill": 30,
@@ -2990,7 +2987,6 @@
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 80.0,
-        "Disabled": false,
         "FalloffBias": 0.5,
         "FalloffEndRange": 57.5056,
         "FalloffEndScale": 0.1,
@@ -3000,10 +2996,10 @@
         "InDevelopment": false,
         "IsDisabled": false,
         "LevelScaling": {
-            "BulletDamage": 0.196429,
+            "BulletDamage": 0.25,
             "Health": 44.0,
-            "LightMeleeDamage": 2.671429,
-            "HeavyMeleeDamage": 4.91882165079365
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_krill_lore",
@@ -3025,6 +3021,7 @@
         "Stamina": 3,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
+        "SustainedDPS": 44.85981308411215,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_krill_set_desc",
@@ -3175,7 +3172,6 @@
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 40.0,
-        "Disabled": false,
         "FalloffBias": 0.5,
         "FalloffEndRange": 57.5056,
         "FalloffEndScale": 0.1,
@@ -3185,10 +3181,10 @@
         "InDevelopment": false,
         "IsDisabled": false,
         "LevelScaling": {
-            "BulletDamage": 0.707143,
+            "BulletDamage": 0.9,
             "Health": 42.0,
-            "LightMeleeDamage": 2.671429,
-            "HeavyMeleeDamage": 4.91882165079365
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_lash_lore",
@@ -3210,6 +3206,7 @@
         "Stamina": 3,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
+        "SustainedDPS": 30.208333333333336,
         "TechArmorDamageReduction": 15.0,
         "TechDuration": 0,
         "TechRange": 0,
@@ -3228,150 +3225,145 @@
         "BaseWeaponDamageIncrease": 0,
         "BoundAbilities": {
             "1": {
-                "AbilityCastDelay": 0.0,
+                "AbilityCastDelay": 0.3,
                 "AbilityCooldown": 32.0,
-                "AbilityDuration": 0.75,
+                "AbilityDuration": 2.0,
                 "AbilityUnitTargetLimit": 1,
                 "BossDamagePercent": 50,
                 "ChannelMoveSpeed": 20,
                 "ClimbHeight": 1,
-                "Damage": 70,
+                "Damage": 60,
                 "DampingFactor": 0.3,
                 "DistanceAboveGround": 2,
                 "DropDownRate": 10,
-                "EnemyLiftDuration": 0.3,
+                "EnemyLiftDuration": 0.6,
                 "ForwardOffset": 125,
-                "HoldInPlaceDuration": 1.5,
+                "HoldInPlaceDuration": 1.25,
                 "Key": "mirage_tornado",
                 "LiftHeight": 3,
                 "MaxDeltaMovementControl": 2,
                 "Name": "Tornado",
                 "OpenHeight": 8,
-                "ProjectileThinkInterval": 0.01,
                 "Radius": 3.5,
+                "TargetBulletEvasionChance": 100,
                 "TickRate": 0.25,
-                "TornadoSpeed": 1050,
+                "TornadoSpeed": 1200,
                 "Upgrades": [
                     {
-                        "HoldInPlaceDuration": 0.5
+                        "HoldInPlaceDuration": 0.75
                     },
                     {
                         "AbilityCooldown": -14.0
                     },
                     {
-                        "WhirlwindEvasionChance": 20
+                        "TechArmorDamageReduction": -15
                     }
-                ],
-                "WhirlwindDuration": 3.5,
-                "WhirlwindEvasionChance": 30
+                ]
             },
             "2": {
                 "AbilityCastDelay": 0.05,
-                "AbilityCharges": 4,
+                "AbilityCharges": 3,
                 "AbilityChargesConditionally": 1,
                 "AbilityCooldownBetweenCharge": 0.05,
                 "AbilityUnitTargetLimit": 1,
-                "BulletArmorReduction": -10,
                 "ChannelMoveSpeed": 50,
+                "DPS": 20,
                 "DamageInterval": 0.5,
-                "DebuffDuration": 14,
-                "HealthSteal": 90,
-                "HeroStack": 3,
+                "DebuffDuration": 4,
+                "HealingFactor": 40,
                 "Key": "mirage_fire_beetles",
-                "LaunchWindowCooldown": 32,
-                "LaunchWindowDuration": 5,
-                "MaxStacks": 1,
+                "LaunchWindowCooldown": 35,
+                "LaunchWindowDuration": 20,
                 "Name": "Fire Scarabs",
-                "NonHeroHealingFactor": 25,
-                "NonHeroStack": 1,
-                "Radius": 1,
-                "StealDuration": 14,
+                "NonHeroHealingFactor": 15,
+                "Radius": 4,
                 "Upgrades": [
                     {
-                        "LaunchWindowCooldown": -15
+                        "AbilityCharges": 2
                     },
                     {
-                        "BulletArmorReduction": -15
+                        "HealingFactor": 40,
+                        "NonHeroHealingFactor": 15
                     },
                     {
-                        "HealthSteal": 70
+                        "DPS": 40
                     }
                 ]
             },
             "3": {
                 "AbilityCastDelay": 0.0,
-                "AbilityCooldown": 2.5,
+                "AbilityCooldown": 37.0,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 200,
                 "Key": "mirage_sand_phantom",
-                "MaxStacks": 8,
-                "Name": "Djinn's Mark",
+                "MaxStacks": 5,
+                "Name": "Tempest Ward",
+                "ProcBonusMagicDamage": 20,
+                "ProcBonusMagicDamageEscalation": 15,
                 "ProcChance": 100,
-                "ProcCooldown": 2.5,
-                "ProcDamageBase": 16,
-                "RevealDuration": 2.0,
+                "ProcCooldown": 2,
+                "Radius": 10,
                 "Upgrades": [
                     {
-                        "MovementSpeedSlow": 80,
-                        "SlowDuration": 0.5
+                        "WhirlwindEvasionChance": 30
                     },
                     {
-                        "VictimStackDuration": 4.0,
-                        "ProcDamageBase": 10
+                        "ProcBonusMagicDamageEscalation": 10
                     },
                     {
-                        "MaxStacks": 4
+                        "AbilityCooldown": -19.0
                     }
                 ],
-                "VictimStackDuration": 4.5
+                "VictimStackDuration": 8.0,
+                "WhirlwindDuration": 3.5,
+                "WhirlwindEvasionChance": 50
             },
             "4": {
-                "AbilityCastDelay": 0.01,
-                "AbilityChannelTime": 2.5,
-                "AbilityCooldown": 130.0,
+                "AbilityCastDelay": 0.5,
+                "AbilityCooldown": 74.0,
                 "AbilityUnitTargetLimit": 1,
-                "BonusFireRate": 20,
-                "BonusMoveSpeed": 2,
-                "FireRateMaxDuration": 10,
-                "Key": "mirage_teleport",
-                "MovementSpeedBonusDuration": 4,
-                "Name": "Traveler",
-                "SearchRadius": 30,
+                "BombBonusDamagePerHero": 60,
+                "BossDamagePercent": 50,
+                "ChannelMoveSpeed": 50,
+                "Damage": 225,
+                "Key": "mirage_djinn_bomb",
+                "MaxProjectileLifetime": 8,
+                "Name": "Djinn Bomb",
+                "Radius": 11,
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -20.0
+                        "AbilityCooldown": -28.0
                     },
                     {
-                        "BonusMoveSpeed": "2m"
+                        "BombBonusDamagePerHero": 40
                     },
                     {
-                        "BonusFireRate": 20
+                        "Damage": 150
                     }
                 ]
             }
         },
-        "BulletDamage": 18,
+        "BulletDamage": 4.7,
         "BulletGravityScale": 0.8,
-        "BulletSpeed": 828.04,
-        "BulletsPerShot": 1,
-        "ClipSize": 16,
+        "BulletSpeed": 320.03999999999996,
+        "BulletsPerShot": 4,
+        "ClipSize": 14,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
-        "DPS": 51.42857142857143,
-        "Disabled": false,
+        "DPS": 69.62962962962962,
         "FalloffBias": 0.5,
         "FalloffEndRange": 57.5056,
         "FalloffEndScale": 0.1,
         "FalloffStartRange": 21.996399999999998,
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
-        "InDevelopment": false,
+        "InDevelopment": true,
         "IsDisabled": false,
         "LevelScaling": {
-            "BulletDamage": 1.0,
+            "BulletDamage": 0.4,
             "Health": 41.0,
-            "LightMeleeDamage": 2.671429,
-            "HeavyMeleeDamage": 4.91882165079365
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_mirage_lore",
@@ -3385,14 +3377,15 @@
         "ReloadMovespeed": 1.0,
         "ReloadSingle": false,
         "ReloadSpeed": 0,
-        "ReloadTime": 2.6,
+        "ReloadTime": 2.35,
         "Role": "hero_mirage_role",
-        "RoundsPerSecond": 2.857142857142857,
+        "RoundsPerSecond": 3.7037037037037033,
         "SpiritScaling": {},
         "SprintSpeed": 0,
         "Stamina": 3,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
+        "SustainedDPS": 42.936378466557905,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_mirage_set_desc",
@@ -3436,7 +3429,7 @@
                         "AbilityCooldown": -11.5
                     },
                     {
-                        "ExplosionDamage": 120
+                        "ExplosionDamage": 100
                     }
                 ]
             },
@@ -3478,7 +3471,7 @@
             },
             "3": {
                 "AbilityCastDelay": 0.2,
-                "AbilityCooldown": 60.0,
+                "AbilityCooldown": 64.0,
                 "AbilityUnitTargetLimit": 1,
                 "ActiveRadius": 20,
                 "CatActivateDuration": 1.5,
@@ -3489,10 +3482,10 @@
                 "HealAmpRegenPenaltyPercent": -20,
                 "InactiveRadius": 20,
                 "Key": "ability_nano_proximity_ritual",
-                "MinResummonCooldown": 5,
                 "Name": "Perched Predator",
-                "RecallCooldown": 8,
+                "RecallCooldown": 10.5,
                 "RecallRange": 5,
+                "SelfHealScale": 0.5,
                 "StatueArmTime": 1.0,
                 "StatueHealth": 200,
                 "StatueHeldRegen": 40,
@@ -3530,7 +3523,7 @@
                 "MeleeAttackSpeedBonus": 40,
                 "Name": "Queen of Shadows",
                 "RevealOnDamageDuration": 0.25,
-                "RevealOnSpottedDuration": 1.0,
+                "RevealOnSpottedDuration": 0.25,
                 "SpottedRadius": 15,
                 "Upgrades": [
                     {
@@ -3545,15 +3538,14 @@
                 ]
             }
         },
-        "BulletDamage": 3,
+        "BulletDamage": 3.0,
         "BulletGravityScale": 0.8,
         "BulletSpeed": 317.5,
         "BulletsPerShot": 5,
-        "ClipSize": 18,
+        "ClipSize": 16,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
-        "DPS": 75.0,
-        "Disabled": false,
+        "DPS": 60.0,
         "FalloffBias": 0.5,
         "FalloffEndRange": 57.5056,
         "FalloffEndScale": 0.1,
@@ -3563,10 +3555,10 @@
         "InDevelopment": true,
         "IsDisabled": false,
         "LevelScaling": {
-            "BulletDamage": 0.124929,
+            "BulletDamage": 0.159,
             "Health": 41.0,
-            "LightMeleeDamage": 2.671429,
-            "HeavyMeleeDamage": 4.91882165079365
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_nano_lore",
@@ -3582,12 +3574,13 @@
         "ReloadSpeed": 0,
         "ReloadTime": 3.5,
         "Role": "hero_nano_role",
-        "RoundsPerSecond": 5.0,
+        "RoundsPerSecond": 4.0,
         "SpiritScaling": {},
         "SprintSpeed": 0,
         "Stamina": 3,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
+        "SustainedDPS": 32.0,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_nano_set_desc",
@@ -3638,7 +3631,6 @@
                 "AbilityDuration": 7,
                 "AbilityUnitTargetLimit": 1,
                 "AirSpeedMax": 150,
-                "AltJumpSpeed": 10,
                 "BulletSplitShot": 5,
                 "FallSpeedMax": 30,
                 "FxRadius": 4,
@@ -3716,7 +3708,7 @@
                 ]
             }
         },
-        "BulletDamage": 24.75,
+        "BulletDamage": 22.0,
         "BulletGravityScale": 0.8,
         "BulletSpeed": 495.3,
         "BulletsPerShot": 1,
@@ -3724,7 +3716,6 @@
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 55.0,
-        "Disabled": false,
         "FalloffBias": 0.5,
         "FalloffEndRange": 57.5056,
         "FalloffEndScale": 0.1,
@@ -3734,10 +3725,10 @@
         "InDevelopment": false,
         "IsDisabled": false,
         "LevelScaling": {
-            "BulletDamage": 1.414286,
+            "BulletDamage": 1.8,
             "Health": 27.0,
-            "LightMeleeDamage": 2.671429,
-            "HeavyMeleeDamage": 4.91882165079365
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_orion_lore",
@@ -3753,7 +3744,7 @@
         "ReloadSpeed": 0,
         "ReloadTime": 2.35,
         "Role": "hero_orion_role",
-        "RoundsPerSecond": 2.2222222222222223,
+        "RoundsPerSecond": 2.5,
         "SpiritScaling": {
             "MaxMoveSpeed": 0.04,
             "RoundsPerSecond": 0.00625,
@@ -3763,6 +3754,7 @@
         "Stamina": 3,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
+        "SustainedDPS": 40.87431693989071,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_orion_set_desc",
@@ -3899,7 +3891,6 @@
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 72.0,
-        "Disabled": true,
         "FalloffBias": 0.5,
         "FalloffEndRange": 57.5056,
         "FalloffEndScale": 0.1,
@@ -3910,8 +3901,8 @@
         "IsDisabled": true,
         "LevelScaling": {
             "Health": 41.0,
-            "LightMeleeDamage": 2.671429,
-            "HeavyMeleeDamage": 4.91882165079365
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_rutger_lore",
@@ -3933,6 +3924,7 @@
         "Stamina": 3,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
+        "SustainedDPS": 36.8780487804878,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_rutger_set_desc",
@@ -3997,7 +3989,7 @@
                         "AbilityCooldown": -3.75
                     },
                     {
-                        "ImpactDamage": 75
+                        "ImpactDamage": 85
                     },
                     {
                         "CooldownReductionOnHit": 2,
@@ -4035,7 +4027,7 @@
                 "AbilityPostCastDuration": 0.25,
                 "AbilityUnitTargetLimit": 1,
                 "BonusAbilityResource": 10,
-                "BuffDamage": 15,
+                "BuffDamage": 20,
                 "CameraDistance": 400,
                 "ChannelMoveSpeed": 50,
                 "Damage": 200,
@@ -4049,10 +4041,10 @@
                 "NonPlayerRageScale": 0.2,
                 "PauseOnTargetTime": 0.66,
                 "RageDrainDelayDuration": 7,
-                "RageDrainRate": 0.35,
+                "RageDrainRate": 0.3,
                 "RagePerHeavyMelee": 3.5,
                 "RagePerLightMelee": 1.5,
-                "RagePerSpiritDamage": 0.013,
+                "RagePerSpiritDamage": 0.02,
                 "RagePerWeaponDamage": 0.015,
                 "SlashRange": 80,
                 "Upgrades": [
@@ -4061,7 +4053,7 @@
                     },
                     {
                         "EnemyHealthPercent": 8,
-                        "BuffDamage": 10
+                        "BuffDamage": 5
                     },
                     {
                         "ShortCooldown": 0.5
@@ -4077,7 +4069,6 @@
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 65.14285714285714,
-        "Disabled": false,
         "FalloffBias": 0.5,
         "FalloffEndRange": 41.147999999999996,
         "FalloffEndScale": 0.1,
@@ -4087,10 +4078,10 @@
         "InDevelopment": false,
         "IsDisabled": false,
         "LevelScaling": {
-            "BulletDamage": 0.314286,
+            "BulletDamage": 0.4,
             "Health": 35.0,
-            "LightMeleeDamage": 2.671429,
-            "HeavyMeleeDamage": 4.91882165079365
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_shiv_lore",
@@ -4112,6 +4103,7 @@
         "Stamina": 3,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
+        "SustainedDPS": 42.48447204968944,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_shiv_set_desc",
@@ -4251,7 +4243,6 @@
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 55.0,
-        "Disabled": true,
         "FalloffBias": 0.5,
         "FalloffEndRange": 57.5056,
         "FalloffEndScale": 0.1,
@@ -4261,10 +4252,10 @@
         "InDevelopment": true,
         "IsDisabled": true,
         "LevelScaling": {
-            "BulletDamage": 0.573571,
+            "BulletDamage": 0.73,
             "Health": 41.0,
-            "LightMeleeDamage": 2.671429,
-            "HeavyMeleeDamage": 4.91882165079365
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_slork_lore",
@@ -4286,6 +4277,7 @@
         "Stamina": 3,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
+        "SustainedDPS": 35.483870967741936,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_slork_set_desc",
@@ -4324,7 +4316,7 @@
                         "AbilityCooldown": -14.0
                     },
                     {
-                        "AmpPercentPerStack": 4
+                        "AmpPercentPerStack": 5
                     }
                 ]
             },
@@ -4410,7 +4402,6 @@
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 70.0,
-        "Disabled": false,
         "FalloffBias": 0.5,
         "FalloffEndRange": 45.72,
         "FalloffEndScale": 0.1,
@@ -4420,10 +4411,10 @@
         "InDevelopment": false,
         "IsDisabled": false,
         "LevelScaling": {
-            "BulletDamage": 0.314286,
+            "BulletDamage": 0.4,
             "Health": 31.0,
-            "LightMeleeDamage": 2.671429,
-            "HeavyMeleeDamage": 4.91882165079365
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_synth_lore",
@@ -4445,6 +4436,7 @@
         "Stamina": 3,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
+        "SustainedDPS": 46.27403846153846,
         "TechArmorDamageReduction": -15.0,
         "TechDuration": 0,
         "TechRange": 0,
@@ -4547,7 +4539,6 @@
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 58.0,
-        "Disabled": true,
         "FalloffBias": 0.5,
         "FalloffEndRange": 57.5056,
         "FalloffEndScale": 0.1,
@@ -4558,8 +4549,8 @@
         "IsDisabled": true,
         "LevelScaling": {
             "Health": 41.0,
-            "LightMeleeDamage": 2.671429,
-            "HeavyMeleeDamage": 4.91882165079365
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_targetdummy_lore",
@@ -4581,6 +4572,7 @@
         "Stamina": 3,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
+        "SustainedDPS": 34.8,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_targetdummy_set_desc",
@@ -4617,8 +4609,7 @@
                         "AbilityDuration": 2
                     },
                     {
-                        "DPS": 60,
-                        "Radius": "2m"
+                        "DPS": 60
                     }
                 ]
             },
@@ -4723,7 +4714,6 @@
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 64.28571428571428,
-        "Disabled": false,
         "FalloffBias": 0.5,
         "FalloffEndRange": 57.5056,
         "FalloffEndScale": 0.1,
@@ -4733,10 +4723,10 @@
         "InDevelopment": false,
         "IsDisabled": false,
         "LevelScaling": {
-            "BulletDamage": 0.392857,
+            "BulletDamage": 0.5,
             "Health": 35.0,
-            "LightMeleeDamage": 2.671429,
-            "HeavyMeleeDamage": 4.91882165079365
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_tengu_lore",
@@ -4758,6 +4748,7 @@
         "Stamina": 4,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
+        "SustainedDPS": 31.236853176272614,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_tengu_set_desc",
@@ -4896,7 +4887,6 @@
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 57.00000000000001,
-        "Disabled": true,
         "FalloffBias": 0.5,
         "FalloffEndRange": 57.5056,
         "FalloffEndScale": 0.1,
@@ -4907,8 +4897,8 @@
         "IsDisabled": true,
         "LevelScaling": {
             "Health": 41.0,
-            "LightMeleeDamage": 2.671429,
-            "HeavyMeleeDamage": 4.91882165079365
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_thumper_lore",
@@ -4930,6 +4920,7 @@
         "Stamina": 3,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
+        "SustainedDPS": 36.00000000000001,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_thumper_set_desc",
@@ -5080,7 +5071,6 @@
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 68.33333333333333,
-        "Disabled": true,
         "FalloffBias": 0.5,
         "FalloffEndRange": 57.5056,
         "FalloffEndScale": 0.1,
@@ -5090,10 +5080,10 @@
         "InDevelopment": true,
         "IsDisabled": true,
         "LevelScaling": {
-            "BulletDamage": 0.666836,
+            "BulletDamage": 0.8487,
             "Health": 41.0,
-            "LightMeleeDamage": 2.671429,
-            "HeavyMeleeDamage": 4.91882165079365
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_tokamak_lore",
@@ -5115,6 +5105,7 @@
         "Stamina": 3,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
+        "SustainedDPS": 40.99999999999999,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_tokamak_set_desc",
@@ -5130,7 +5121,7 @@
             "1": {
                 "AbilityCastDelay": 0.001,
                 "AbilityCooldown": 21.0,
-                "AbilityPostCastDuration": 0.2,
+                "AbilityPostCastDuration": 0.5,
                 "AbilityUnitTargetLimit": 1,
                 "BossDamagePercent": 50,
                 "ChannelMoveSpeed": 50,
@@ -5184,8 +5175,7 @@
                         "PostCubeBuff": 1
                     },
                     {
-                        "AbilityCooldown": -21.0,
-                        "PurgeDebuffs": 1
+                        "AbilityCooldown": -21.0
                     },
                     {
                         "BonusHealthRegen": 60
@@ -5263,15 +5253,14 @@
                 ]
             }
         },
-        "BulletDamage": 12.0,
+        "BulletDamage": 13.0,
         "BulletGravityScale": 0.0,
         "BulletSpeed": 254.0,
         "BulletsPerShot": 1,
         "ClipSize": 20,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
-        "DPS": 60.0,
-        "Disabled": false,
+        "DPS": 65.0,
         "FalloffBias": 0.5,
         "FalloffEndRange": 57.5056,
         "FalloffEndScale": 0.1,
@@ -5281,10 +5270,10 @@
         "InDevelopment": false,
         "IsDisabled": false,
         "LevelScaling": {
-            "BulletDamage": 0.864286,
+            "BulletDamage": 1.1,
             "Health": 38.0,
-            "LightMeleeDamage": 2.671429,
-            "HeavyMeleeDamage": 4.91882165079365
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_viscous_lore",
@@ -5306,6 +5295,7 @@
         "Stamina": 3,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
+        "SustainedDPS": 40.0,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_viscous_set_desc",
@@ -5382,8 +5372,8 @@
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
                 "Damage": 120,
-                "EscapeRange": 18.5,
-                "EscapeTime": 2.9,
+                "EscapeRange": 16,
+                "EscapeTime": 2.5,
                 "ImmobilizeDuration": 1.75,
                 "Key": "ability_warden_lock_down",
                 "Name": "Binding Word",
@@ -5436,7 +5426,6 @@
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 79.2,
-        "Disabled": false,
         "FalloffBias": 0.5,
         "FalloffEndRange": 57.5056,
         "FalloffEndScale": 0.1,
@@ -5446,10 +5435,10 @@
         "InDevelopment": false,
         "IsDisabled": false,
         "LevelScaling": {
-            "BulletDamage": 0.942857,
+            "BulletDamage": 1.2,
             "Health": 45.0,
-            "LightMeleeDamage": 2.671429,
-            "HeavyMeleeDamage": 4.91882165079365
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_warden_lore",
@@ -5474,6 +5463,7 @@
         "Stamina": 3,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
+        "SustainedDPS": 46.98492462311558,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_warden_set_desc",
@@ -5494,7 +5484,7 @@
                 "AbilityCastRange": 500,
                 "AbilityCharges": 1,
                 "AbilityChargesConditionally": 1,
-                "AbilityCooldown": 0.5,
+                "AbilityCooldown": 0.75,
                 "AbilityPostCastDuration": 0.2,
                 "AbilityUnitTargetLimit": 1,
                 "BonusAbilityResource": 100,
@@ -5607,7 +5597,6 @@
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 61.11111111111111,
-        "Disabled": false,
         "FalloffBias": 0.5,
         "FalloffEndRange": 57.5056,
         "FalloffEndScale": 0.1,
@@ -5617,10 +5606,10 @@
         "InDevelopment": false,
         "IsDisabled": false,
         "LevelScaling": {
-            "BulletDamage": 0.377143,
+            "BulletDamage": 0.48,
             "Health": 31.0,
-            "LightMeleeDamage": 2.671429,
-            "HeavyMeleeDamage": 4.91882165079365
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_wraith_lore",
@@ -5644,6 +5633,7 @@
         "Stamina": 3,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
+        "SustainedDPS": 38.13333333333333,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_wraith_set_desc",
@@ -5769,7 +5759,6 @@
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 71.42857142857143,
-        "Disabled": false,
         "FalloffBias": 0.5,
         "FalloffEndRange": 57.5056,
         "FalloffEndScale": 0.1,
@@ -5779,10 +5768,10 @@
         "InDevelopment": true,
         "IsDisabled": false,
         "LevelScaling": {
-            "BulletDamage": 1.241429,
+            "BulletDamage": 1.58,
             "Health": 41.0,
-            "LightMeleeDamage": 2.671429,
-            "HeavyMeleeDamage": 4.91882165079365
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_wrecker_lore",
@@ -5804,6 +5793,7 @@
         "Stamina": 3,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
+        "SustainedDPS": 40.0,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_wrecker_set_desc",
@@ -5927,7 +5917,6 @@
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 54.0,
-        "Disabled": true,
         "FalloffBias": 0.5,
         "FalloffEndRange": 57.5056,
         "FalloffEndScale": 0.1,
@@ -5938,8 +5927,8 @@
         "IsDisabled": true,
         "LevelScaling": {
             "Health": 41.0,
-            "LightMeleeDamage": 2.671429,
-            "HeavyMeleeDamage": 4.91882165079365
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.260317460317459
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_yakuza_lore",
@@ -5961,6 +5950,7 @@
         "Stamina": 3,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
+        "SustainedDPS": 30.0,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_yakuza_set_desc",
@@ -6033,7 +6023,7 @@
                 "AbilityUnitTargetLimit": 1,
                 "Damage": 60,
                 "DebuffDuration": 4,
-                "FireRateSlow": 20,
+                "FireRateSlow": 30,
                 "HealFixedHealth": 70,
                 "Key": "citadel_ability_healing_slash",
                 "Name": "Crimson Slash",
@@ -6053,14 +6043,16 @@
             "4": {
                 "AbilityChannelTime": 2,
                 "AbilityCooldown": 106.0,
-                "AbilityDuration": 4.5,
+                "AbilityDuration": 5,
                 "AbilityPostCastDuration": 0.6,
                 "AbilitySpeedPct": 60,
                 "AbilityUnitTargetLimit": 1,
                 "BonusMoveSpeed": 0,
+                "BuffDuration": 20,
                 "BulletResist": 40,
                 "Key": "citadel_ability_infinity_slash",
                 "Name": "Shadow Transformation",
+                "Radius": null,
                 "TechResist": 40,
                 "Upgrades": [
                     {
@@ -6070,7 +6062,7 @@
                         "BonusMoveSpeed": "4m"
                     },
                     {
-                        "AbilityDuration": 2.0
+                        "AbilityDuration": 1.5
                     }
                 ]
             }
@@ -6083,7 +6075,6 @@
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 70.625,
-        "Disabled": false,
         "FalloffBias": 0.5,
         "FalloffEndRange": 45.72,
         "FalloffEndScale": 0.1,
@@ -6093,10 +6084,10 @@
         "InDevelopment": false,
         "IsDisabled": false,
         "LevelScaling": {
-            "BulletDamage": 0.353,
+            "BulletDamage": 0.5,
             "Health": 31.0,
-            "LightMeleeDamage": 2.671429,
-            "HeavyMeleeDamage": 4.955694376811594
+            "LightMeleeDamage": 3.4,
+            "HeavyMeleeDamage": 6.3072463768115945
         },
         "LightMeleeDamage": 69,
         "Lore": "hero_yamato_lore",
@@ -6120,6 +6111,7 @@
         "Stamina": 3,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
+        "SustainedDPS": 46.79734953064605,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_yamato_set_desc",
