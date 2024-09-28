@@ -1,192 +1,37 @@
 {
     "Other": [],
-    "Heroes": [],
-    "Items": [],
-    "Abilities": [],
-    "General Change": [
+    "Heroes": [
         {
-            "Description": "- Voice/Text chat is now opt-in. There is a prompt pre-match for joining the chat, or you can control it at any time from the ESC menu during a match.",
+            "Description": "- Fixed some bugs with Pocket/channeling",
             "Tags": [
-                "General"
+                "Pocket"
             ]
         },
         {
-            "Description": "- You can now press ESC to mute individual players. Muted accounts will not be alerted, and mutes will persist across games.",
+            "Description": "- Heroes HP growth per boon increased by +5 (there are 11 instances of these). This is not done for Abrams or Dynamo.",
             "Tags": [
-                "General"
+                "Abrams",
+                "Dynamo"
             ]
         },
         {
-            "Description": "- Parties can now set their in-game chat mode to be Party-only, All Team or Chat Disabled (if using discord or other programs)",
+            "Description": "- Base health regen reduced from 2 to 1",
             "Tags": [
-                "General"
+                "Abrams"
             ]
         },
         {
-            "Description": "- Spirit stat has now been renamed to Spirit Power with updated icon",
+            "Description": "- HP Growth per boon reduced from 48 to 42",
             "Tags": [
-                "General"
+                "Mo & Krill"
             ]
-        },
-        {
-            "Description": "- Top bar now highlights your lane partner and lane enemies during the laning phase",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Increased difficulty for hard mode bots",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added sandbox option for spawning neutrals",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Improved the camera when using Dynamo's Quantum Entanglement",
-            "Tags": [
-                "Dynamo",
-                "Quantum Entanglement"
-            ]
-        },
+        }
+    ],
+    "Items": [
         {
             "Description": "- Added overhead number counter effect for opponents to see the stacks of Berserker",
             "Tags": [
                 "Berserker"
-            ]
-        },
-        {
-            "Description": "- Increased the range the enemy-candle-behind-wall indicator shows up from 25m to 35m",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Fixed ping wheel randomly coming up instantly instead of doing an in-world ping",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added ping indicator on the HUD indicating the direction the ping came from (enabled by default in settings)",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Ping Wheel context slot will now show nothing if there is no context currently",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added new UI indicating how many friends you have that are in the game",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Improved visibility of the edge of Dynamo's Singularity",
-            "Tags": [
-                "Dynamo",
-                "Singularity"
-            ]
-        },
-        {
-            "Description": "- Fixed various issues with bots getting stuck",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Fixed Build descriptions not showing up properly with the in-game tooltip version",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Moved HUD elements closer to center for ultra wide monitors",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added heal and kill events to the contextual ping wheel slot",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Fixed AP not showing when you have your hero selected",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Fixed TAB/ALT not bringing up your abilities when spectating the Patron",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added indicator for burrow damage radius for the local player",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Fixed Affliction sometimes becoming lethal when combined with Escalating Exposure",
-            "Tags": [
-                "Escalating Exposure"
-            ]
-        },
-        {
-            "Description": "- Fixed Yamato's Crimson Slash visual direction being wrong sometimes",
-            "Tags": [
-                "Yamato",
-                "Crimson Slash"
-            ]
-        },
-        {
-            "Description": "- Added Patron VO for when allied or enemy base guardians are destroyed",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Adjusted the builds drop down in-game to be more clear it can be changed there",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Fixed Dynamo's Singularity moving the Mid Boss",
-            "Tags": [
-                "Dynamo",
-                "Singularity"
-            ]
-        },
-        {
-            "Description": "- Fixed various bugs with Shifting Shroud",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added a new \"major damage\" sound effect to indicate large instances of damage to the local player",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Fixed Lash's Ground Strike T3 not being accurate in the tooltip",
-            "Tags": [
-                "Lash",
-                "Ground Strike"
             ]
         },
         {
@@ -202,34 +47,9 @@
             ]
         },
         {
-            "Description": "- Minor improvements to visibility of Pocket's Affliction cast",
-            "Tags": [
-                "Pocket",
-                "Affliction"
-            ]
-        },
-        {
             "Description": "- Updated effects to Alchemical Fire to make it less noisy",
             "Tags": [
                 "Alchemical Fire"
-            ]
-        },
-        {
-            "Description": "- Reload anims now play correctly in relation to the reload timer. Previously they would end prematurely if reloads were paused during dash/melee/abilities",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Fixed some bugs with Pocket/channeling",
-            "Tags": [
-                "Pocket"
-            ]
-        },
-        {
-            "Description": "- A few buildings are 2-3 stories taller",
-            "Tags": [
-                "General"
             ]
         },
         {
@@ -252,185 +72,11 @@
             ]
         },
         {
-            "Description": "- Added instructional text to the bottom of the ping wheel container reminding that they can customize it in settings",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Changed Ivy's True Form ability name to Stone Form",
-            "Tags": [
-                "Ivy",
-                "Stone Form"
-            ]
-        },
-        {
-            "Description": "- Fixed bugs that were keeping some heroes desperation ability use lines from playing correctly (casting an ability when you're below 10% should play different VO)",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Fixed several instances of ability use VO getting swallowed up by SFX",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Boosted volume of ult cast VO",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added various ambient sounds - walla, birds, drones - and overall mix tweaks",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Iterated on binding word sound effects",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
             "Description": "- Added Curse item selection start, loop, and end sounds",
             "Tags": [
                 "Curse"
             ]
         },
-        {
-            "Description": "- The Patrons no longer care about the well being of the Urn Runner, and so they will stop asking you to protect them (patrons will no longer call out the urn being picked up)",
-            "Tags": [
-                "General"
-            ]
-        }
-    ],
-    "Misc Gameplay": [
-        {
-            "Description": "- Added two new underground tunnels, one on each side of the map. The tunnels connect the underground shop to the Bodega area on Amber and the Theater area on Sapphire.",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added two new teleporters, one on each outer lane (behind the Chapel and behind the Firehouse)",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Urn reward now has a comeback component where it gives extra gold for the team that is behind based on the magnitude",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- A small share of the comeback portion of hero kill bounty is now given to each other player outside of just the kill/assist players. This also makes the amount the killer gets be more consistent, previously the amount could vary significantly based on how many people were involved. The killer and assist players still get the bigger shares.",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Kill assist window increased from 7s to 10s",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Rejuvenator is no longer area pick up and now requires someone to heavy melee it to pick it up after it's dropped to the ground",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Rejuvenator will no longer stop dropping if it touches player created geometry (like Ice Dome) and always goes down to the target position",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- You can air-dash downward by pressing CTRL+SHIFT while in the air",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Successful parry reduces the cooldown from 1s to 0.5s (unsuccessful parry cd is still 6s)",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Heroes HP growth per boon increased by +5 (there are 11 instances of these). This is not done for Abrams or Dynamo.",
-            "Tags": [
-                "Abrams",
-                "Dynamo"
-            ]
-        },
-        {
-            "Description": "- Post lane medic troopers will heal other troopers if a hero within range is full hp",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Post lane medic troopers' hero heal increased from 40 to 80",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Base zipline speed increased by 5%",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- If the Soul Urn is dropped it goes back to its original spot a little bit faster",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Healing/Spawn area in the base now has its defense damage go up over time",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Carrying the Soul Urn no longer causes you to get slowed briefly by 50% when you get shot",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Carrying the Soul Urn now always slows you by 15%",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Carrying the Soul Urn now also silences your items",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- The silence effect for Soul Urn now applies as you start channeling to pick it up (0.5s after touching it, to prevent accidental walk overs)",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Base side doors near the healing area now open a lot faster",
-            "Tags": [
-                "General"
-            ]
-        }
-    ],
-    "Item Gameplay": [
         {
             "Description": "- No longer grants +3 Spirit Power",
             "Tags": [
@@ -459,12 +105,6 @@
             "Description": "- Bonus headshot damage reduced from 50 to 45",
             "Tags": [
                 "Headshot Booster"
-            ]
-        },
-        {
-            "Description": "- Medic Bullets: Healing from heroes increased from 25 to 30",
-            "Tags": [
-                "General"
             ]
         },
         {
@@ -648,12 +288,6 @@
             ]
         },
         {
-            "Description": "- Richochet: Ammo increased from +25% to +30%",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
             "Description": "- Lifesteal increased from 70% to 80%",
             "Tags": [
                 "Vampiric Burst"
@@ -666,11 +300,61 @@
             ]
         }
     ],
-    "Hero Gameplay": [
+    "Abilities": [
         {
-            "Description": "- Base health regen reduced from 2 to 1",
+            "Description": "- Improved the camera when using Dynamo's Quantum Entanglement",
             "Tags": [
-                "Abrams"
+                "Dynamo",
+                "Quantum Entanglement"
+            ]
+        },
+        {
+            "Description": "- Improved visibility of the edge of Dynamo's Singularity",
+            "Tags": [
+                "Dynamo",
+                "Singularity"
+            ]
+        },
+        {
+            "Description": "- Fixed Affliction sometimes becoming lethal when combined with Escalating Exposure",
+            "Tags": [
+                "Escalating Exposure",
+                "Affliction"
+            ]
+        },
+        {
+            "Description": "- Fixed Yamato's Crimson Slash visual direction being wrong sometimes",
+            "Tags": [
+                "Yamato",
+                "Crimson Slash"
+            ]
+        },
+        {
+            "Description": "- Fixed Dynamo's Singularity moving the Mid Boss",
+            "Tags": [
+                "Dynamo",
+                "Singularity"
+            ]
+        },
+        {
+            "Description": "- Fixed Lash's Ground Strike T3 not being accurate in the tooltip",
+            "Tags": [
+                "Lash",
+                "Ground Strike"
+            ]
+        },
+        {
+            "Description": "- Minor improvements to visibility of Pocket's Affliction cast",
+            "Tags": [
+                "Pocket",
+                "Affliction"
+            ]
+        },
+        {
+            "Description": "- Changed Ivy's True Form ability name to Stone Form",
+            "Tags": [
+                "Ivy",
+                "Stone Form"
             ]
         },
         {
@@ -747,16 +431,16 @@
             "Description": "- Smoke Bomb T1 increased from +4 m/s Invis Sprint Speed to +5",
             "Tags": [
                 "Haze",
-                "Smoke Bomb",
-                "Smoke"
+                "Smoke",
+                "Smoke Bomb"
             ]
         },
         {
             "Description": "- Smoke Bomb causes your footsteps to be silent",
             "Tags": [
                 "Haze",
-                "Smoke Bomb",
-                "Smoke"
+                "Smoke",
+                "Smoke Bomb"
             ]
         },
         {
@@ -791,6 +475,7 @@
             "Description": "- Can now dismiss Frozen Shelter while channeling other abilities (Arctic Beam)",
             "Tags": [
                 "Kelvin",
+                "Frozen Shelter",
                 "Arctic Beam"
             ]
         },
@@ -826,21 +511,17 @@
             "Description": "- Fixed Echo Shard to be compatible with Spectral Wall again (Activating echo shard resets the ability so you can cast it again and not have to cancel your first one. After casting the 2nd, using cancel will remove the first wall first)",
             "Tags": [
                 "McGinnis",
-                "Spectral Wall",
-                "Echo Shard"
+                "Echo Shard",
+                "Spectral Wall"
             ]
         },
         {
             "Description": "- Can now dismiss Spectral Wall while channeling other abilities (Heavy Barrage)",
             "Tags": [
                 "McGinnis",
-                "Spectral Wall"
-            ]
-        },
-        {
-            "Description": "- HP Growth per boon reduced from 48 to 42",
-            "Tags": [
-                "Mo & Krill"
+                "Spectral Wall",
+                "Heavy Barrage",
+                "Barrage"
             ]
         },
         {
@@ -878,5 +559,330 @@
                 "Shadow Transformation"
             ]
         }
-    ]
+    ],
+    "General Change": [
+        {
+            "Description": "- Voice/Text chat is now opt-in. There is a prompt pre-match for joining the chat, or you can control it at any time from the ESC menu during a match.",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- You can now press ESC to mute individual players. Muted accounts will not be alerted, and mutes will persist across games.",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Parties can now set their in-game chat mode to be Party-only, All Team or Chat Disabled (if using discord or other programs)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Spirit stat has now been renamed to Spirit Power with updated icon",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Top bar now highlights your lane partner and lane enemies during the laning phase",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Increased difficulty for hard mode bots",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added sandbox option for spawning neutrals",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Increased the range the enemy-candle-behind-wall indicator shows up from 25m to 35m",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed ping wheel randomly coming up instantly instead of doing an in-world ping",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added ping indicator on the HUD indicating the direction the ping came from (enabled by default in settings)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Ping Wheel context slot will now show nothing if there is no context currently",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added new UI indicating how many friends you have that are in the game",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed various issues with bots getting stuck",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed Build descriptions not showing up properly with the in-game tooltip version",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Moved HUD elements closer to center for ultra wide monitors",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added heal and kill events to the contextual ping wheel slot",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed AP not showing when you have your hero selected",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed TAB/ALT not bringing up your abilities when spectating the Patron",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added indicator for burrow damage radius for the local player",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added Patron VO for when allied or enemy base guardians are destroyed",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Adjusted the builds drop down in-game to be more clear it can be changed there",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed various bugs with Shifting Shroud",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added a new \"major damage\" sound effect to indicate large instances of damage to the local player",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Reload anims now play correctly in relation to the reload timer. Previously they would end prematurely if reloads were paused during dash/melee/abilities",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- A few buildings are 2-3 stories taller",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added instructional text to the bottom of the ping wheel container reminding that they can customize it in settings",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed bugs that were keeping some heroes desperation ability use lines from playing correctly (casting an ability when you're below 10% should play different VO)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed several instances of ability use VO getting swallowed up by SFX",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Boosted volume of ult cast VO",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added various ambient sounds - walla, birds, drones - and overall mix tweaks",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Iterated on binding word sound effects",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- The Patrons no longer care about the well being of the Urn Runner, and so they will stop asking you to protect them (patrons will no longer call out the urn being picked up)",
+            "Tags": [
+                "General"
+            ]
+        }
+    ],
+    "Misc Gameplay": [
+        {
+            "Description": "- Added two new underground tunnels, one on each side of the map. The tunnels connect the underground shop to the Bodega area on Amber and the Theater area on Sapphire.",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added two new teleporters, one on each outer lane (behind the Chapel and behind the Firehouse)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Urn reward now has a comeback component where it gives extra gold for the team that is behind based on the magnitude",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- A small share of the comeback portion of hero kill bounty is now given to each other player outside of just the kill/assist players. This also makes the amount the killer gets be more consistent, previously the amount could vary significantly based on how many people were involved. The killer and assist players still get the bigger shares.",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Kill assist window increased from 7s to 10s",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Rejuvenator is no longer area pick up and now requires someone to heavy melee it to pick it up after it's dropped to the ground",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Rejuvenator will no longer stop dropping if it touches player created geometry (like Ice Dome) and always goes down to the target position",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- You can air-dash downward by pressing CTRL+SHIFT while in the air",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Successful parry reduces the cooldown from 1s to 0.5s (unsuccessful parry cd is still 6s)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Post lane medic troopers will heal other troopers if a hero within range is full hp",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Post lane medic troopers' hero heal increased from 40 to 80",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Base zipline speed increased by 5%",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- If the Soul Urn is dropped it goes back to its original spot a little bit faster",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Healing/Spawn area in the base now has its defense damage go up over time",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Carrying the Soul Urn no longer causes you to get slowed briefly by 50% when you get shot",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Carrying the Soul Urn now always slows you by 15%",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Carrying the Soul Urn now also silences your items",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- The silence effect for Soul Urn now applies as you start channeling to pick it up (0.5s after touching it, to prevent accidental walk overs)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Base side doors near the healing area now open a lot faster",
+            "Tags": [
+                "General"
+            ]
+        }
+    ],
+    "Item Gameplay": [
+        {
+            "Description": "- Medic Bullets: Healing from heroes increased from 25 to 30",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Richochet: Ammo increased from +25% to +30%",
+            "Tags": [
+                "General"
+            ]
+        }
+    ],
+    "Hero Gameplay": []
 }

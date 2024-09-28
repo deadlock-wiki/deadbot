@@ -1,8 +1,573 @@
 {
     "Other": [],
-    "Heroes": [],
-    "Items": [],
-    "Abilities": [],
+    "Heroes": [
+        {
+            "Description": "- Improved Grey Talon's trap visibility",
+            "Tags": [
+                "Grey Talon"
+            ]
+        },
+        {
+            "Description": "- Improved visuals for Kelvin's gun projectile",
+            "Tags": [
+                "Kelvin"
+            ]
+        },
+        {
+            "Description": "- Updated Pocket's Enchanted Satchel delay and explode sounds",
+            "Tags": [
+                "Pocket"
+            ]
+        },
+        {
+            "Description": "- Fixed training Ivy's True Form causing you to get healed",
+            "Tags": [
+                "Ivy"
+            ]
+        },
+        {
+            "Description": "- Base HP growth reduced from 36 to 32",
+            "Tags": [
+                "Abrams"
+            ]
+        },
+        {
+            "Description": "- Base HP growth reduced from 48 to 44",
+            "Tags": [
+                "Dynamo"
+            ]
+        },
+        {
+            "Description": "- Enchanted Satchel cast time reduced from 0.25s to 0.15s",
+            "Tags": [
+                "Pocket"
+            ]
+        },
+        {
+            "Description": "- Can no longer melee while flying for extra movement",
+            "Tags": [
+                "Vindicta"
+            ]
+        },
+        {
+            "Description": "- Base ammo increased from 14 to 16",
+            "Tags": [
+                "Warden"
+            ]
+        }
+    ],
+    "Items": [
+        {
+            "Description": "- Fire Rate powerup reduced from +20% to +15%",
+            "Tags": [
+                "Fire Rate"
+            ]
+        },
+        {
+            "Description": "- Fire Rate powerup duration increased from 25s to 35s",
+            "Tags": [
+                "Fire Rate"
+            ]
+        },
+        {
+            "Description": "- Health Regen powerup regen reduced from 1.5% to 1%",
+            "Tags": [
+                "Health Regen"
+            ]
+        },
+        {
+            "Description": "- Health Regen powerup duration increased from 15s to 25s",
+            "Tags": [
+                "Health Regen"
+            ]
+        },
+        {
+            "Description": "- Extra Stamina powerup duration increased from 60s to 80s",
+            "Tags": [
+                "Extra Stamina"
+            ]
+        },
+        {
+            "Description": "- Extra Stamina powerup amount reduced from 2 to 1",
+            "Tags": [
+                "Extra Stamina"
+            ]
+        },
+        {
+            "Description": "- Regen increased from 1.75 to 2",
+            "Tags": [
+                "Extra Regen"
+            ]
+        },
+        {
+            "Description": "- Spirit Lifesteal reduced from +10% to +8%",
+            "Tags": [
+                "Spirit Lifesteal",
+                "Enduring Spirit"
+            ]
+        },
+        {
+            "Description": "- Cooldown reduced from 35s to 25s",
+            "Tags": [
+                "Reactive Barrier"
+            ]
+        },
+        {
+            "Description": "- Decay changed from 2.2% of Max Health to 2.4% Current Health (less damage when the target is low, and non-lethal now)",
+            "Tags": [
+                "Decay"
+            ]
+        },
+        {
+            "Description": "- Healbane moved from Spirit tree to Vitality tree",
+            "Tags": [
+                "Healbane"
+            ]
+        },
+        {
+            "Description": "- Healbane now gives +50 Health",
+            "Tags": [
+                "Healbane"
+            ]
+        },
+        {
+            "Description": "- Reduced from +25% to +23%",
+            "Tags": [
+                "Spirit Lifesteal"
+            ]
+        },
+        {
+            "Description": "- Spirit Amp reduced from +12% to +10%",
+            "Tags": [
+                "Soul Shredder Bullets"
+            ]
+        },
+        {
+            "Description": "- cooldown reduced from 40s to 32s",
+            "Tags": [
+                "Cold Front"
+            ]
+        },
+        {
+            "Description": "- HP Regen reduced from 2 to 1.5",
+            "Tags": [
+                "Improved Cooldown"
+            ]
+        },
+        {
+            "Description": "- No longer provides +2 Sprint",
+            "Tags": [
+                "Knockdown"
+            ]
+        },
+        {
+            "Description": "- Now provides +1 Stamina",
+            "Tags": [
+                "Knockdown"
+            ]
+        },
+        {
+            "Description": "- Damage falloff bonus reduced from 20% to 15%",
+            "Tags": [
+                "Sharpshooter"
+            ]
+        },
+        {
+            "Description": "- Metal Skin duration reduced from 4s to 3s",
+            "Tags": [
+                "Metal Skin"
+            ]
+        },
+        {
+            "Description": "- Metal Skin cooldown increased from 25s to 30s",
+            "Tags": [
+                "Metal Skin"
+            ]
+        },
+        {
+            "Description": "- Time for Max Damage reduced from 4s to 3.5s",
+            "Tags": [
+                "Intensifying Magazine"
+            ]
+        },
+        {
+            "Description": "- Velocity increased from 22.5 to 27",
+            "Tags": [
+                "Majestic Leap"
+            ]
+        },
+        {
+            "Description": "- Spirit Lifesteal reduced from +35% to +33%",
+            "Tags": [
+                "Leech",
+                "Spirit Lifesteal"
+            ]
+        },
+        {
+            "Description": "- No longer has cast time (was 1s)",
+            "Tags": [
+                "Refresher"
+            ]
+        },
+        {
+            "Description": "- Fixed the damage being reduced by armor twice",
+            "Tags": [
+                "Mystic Reverb"
+            ]
+        },
+        {
+            "Description": "- Damage reduced from 35% to 30%",
+            "Tags": [
+                "Mystic Reverb"
+            ]
+        },
+        {
+            "Description": "- No longer prevents stamina usage",
+            "Tags": [
+                "Curse"
+            ]
+        },
+        {
+            "Description": "- Now also prevents item usage",
+            "Tags": [
+                "Curse"
+            ]
+        },
+        {
+            "Description": "- Duration reduced from 3.75s to 3.5s",
+            "Tags": [
+                "Curse"
+            ]
+        },
+        {
+            "Description": "- Spirit increased from 45 to 50",
+            "Tags": [
+                "Boundless Spirit"
+            ]
+        },
+        {
+            "Description": "- Spirit duration increased from 14s to 18s",
+            "Tags": [
+                "Spiritual Overflow"
+            ]
+        }
+    ],
+    "Abilities": [
+        {
+            "Description": "- Infernus's Afterburn now shows portraits of enemies that are burning for the full duration",
+            "Tags": [
+                "Infernus",
+                "Afterburn"
+            ]
+        },
+        {
+            "Description": "- Added Kinetic Carbine charge audio loop",
+            "Tags": [
+                "Kinetic Carbine"
+            ]
+        },
+        {
+            "Description": "- Updated Vindicta Flight sound effects",
+            "Tags": [
+                "Vindicta",
+                "Flight"
+            ]
+        },
+        {
+            "Description": "- Added Vindicta Assassinate sound effect for targeted players",
+            "Tags": [
+                "Vindicta",
+                "Assassinate"
+            ]
+        },
+        {
+            "Description": "- Fixed some visual issues with Ice Path",
+            "Tags": [
+                "Ice Path"
+            ]
+        },
+        {
+            "Description": "- Added AoE effect to Pocket's Barrage",
+            "Tags": [
+                "Pocket",
+                "Barrage"
+            ]
+        },
+        {
+            "Description": "- Updated weapon buff effect in Pocket's Flying Cloak upgrade",
+            "Tags": [
+                "Pocket",
+                "Flying Cloak"
+            ]
+        },
+        {
+            "Description": "- Fixed Power Slash sometimes getting stuck on nearby geometry",
+            "Tags": [
+                "Power Slash"
+            ]
+        },
+        {
+            "Description": "- Updated Pocket's Barrage cast and impact sounds",
+            "Tags": [
+                "Pocket",
+                "Barrage"
+            ]
+        },
+        {
+            "Description": "- Updated Warden's Binding Word delay and impact sounds",
+            "Tags": [
+                "Warden",
+                "Binding Word"
+            ]
+        },
+        {
+            "Description": "- Fixed Dynamo's Quantum Entanglement going through ceilings sometimes",
+            "Tags": [
+                "Dynamo",
+                "Quantum Entanglement"
+            ]
+        },
+        {
+            "Description": "- Fixed a bug with Malice firing slightly upward",
+            "Tags": [
+                "Malice"
+            ]
+        },
+        {
+            "Description": "- Interval improved from 2s to 1.5s",
+            "Tags": [
+                "Torment Pulse",
+                "Pulse"
+            ]
+        },
+        {
+            "Description": "- Damage per pulse reduced from 45 to 40 (total dps from 22.5 to 26.6)",
+            "Tags": [
+                "Torment Pulse",
+                "Pulse"
+            ]
+        },
+        {
+            "Description": "- HP bonus reduced from +150 to +125",
+            "Tags": [
+                "Torment Pulse",
+                "Pulse"
+            ]
+        },
+        {
+            "Description": "- Infernal Resilience T2 reduced from +200 Health to +150",
+            "Tags": [
+                "Abrams",
+                "Infernal Resilience"
+            ]
+        },
+        {
+            "Description": "- Seismic Impact personal brief busy state upon landing increased from 0.2s to 0.3s",
+            "Tags": [
+                "Abrams",
+                "Seismic Impact"
+            ]
+        },
+        {
+            "Description": "- Hyper Beam slow now affects stamina dashes",
+            "Tags": [
+                "Bebop",
+                "Hyper Beam"
+            ]
+        },
+        {
+            "Description": "- Quantum Entanglement fire rate bonus reduced from +30% to +25%",
+            "Tags": [
+                "Dynamo",
+                "Quantum Entanglement"
+            ]
+        },
+        {
+            "Description": "- Singularity base radius increased from 8m to 10m",
+            "Tags": [
+                "Dynamo",
+                "Singularity"
+            ]
+        },
+        {
+            "Description": "- Sleep Dagger T3 damage reduction on target improved from -30% to -40%",
+            "Tags": [
+                "Haze",
+                "Sleep Dagger"
+            ]
+        },
+        {
+            "Description": "- Smoke Bomb sprint speed now instantly kicks in after casting it",
+            "Tags": [
+                "Haze",
+                "Smoke",
+                "Smoke Bomb"
+            ]
+        },
+        {
+            "Description": "- Bullet Dance cooldown reduced from 160s to 130s",
+            "Tags": [
+                "Haze",
+                "Bullet Dance"
+            ]
+        },
+        {
+            "Description": "- Bullet Dance T2 changed to -40s Cooldown",
+            "Tags": [
+                "Haze",
+                "Bullet Dance"
+            ]
+        },
+        {
+            "Description": "- Bullet Dance T3 changed to +1 Targets Hit Per Shot",
+            "Tags": [
+                "Haze",
+                "Bullet Dance"
+            ]
+        },
+        {
+            "Description": "- Flame Dash cooldown increased from 30s to 38s",
+            "Tags": [
+                "Infernus",
+                "Flame Dash"
+            ]
+        },
+        {
+            "Description": "- Watcher's Covenant heal sharing reduced from 65% to 55%",
+            "Tags": [
+                "Ivy",
+                "Watcher's Covenant"
+            ]
+        },
+        {
+            "Description": "- Ice Path sprint speed increased from +1 to +2",
+            "Tags": [
+                "Kelvin",
+                "Ice Path"
+            ]
+        },
+        {
+            "Description": "- Ice Path trail duration increased from 12s to 15s",
+            "Tags": [
+                "Kelvin",
+                "Ice Path"
+            ]
+        },
+        {
+            "Description": "- Frozen Shelter T2 changed to -40s Cooldown",
+            "Tags": [
+                "Kelvin",
+                "Frozen Shelter"
+            ]
+        },
+        {
+            "Description": "- Frozen Shelter T3 changed to +70 Health Regen that scales with Spirit",
+            "Tags": [
+                "Kelvin",
+                "Health Regen",
+                "Frozen Shelter"
+            ]
+        },
+        {
+            "Description": "- Frozen Shelter can now be dismissed early",
+            "Tags": [
+                "Kelvin",
+                "Frozen Shelter"
+            ]
+        },
+        {
+            "Description": "- Spectral Wall can now be dismissed early",
+            "Tags": [
+                "McGinnis",
+                "Spectral Wall"
+            ]
+        },
+        {
+            "Description": "- Barrage channel can now be interrupted by casting your other abilities",
+            "Tags": [
+                "Pocket",
+                "Barrage"
+            ]
+        },
+        {
+            "Description": "- Barrage radius increased from 6m to 6.5m",
+            "Tags": [
+                "Pocket",
+                "Barrage"
+            ]
+        },
+        {
+            "Description": "- Storm Cloud T1 increased from +30% to +35% Bullet Resist",
+            "Tags": [
+                "Seven",
+                "Storm Cloud"
+            ]
+        },
+        {
+            "Description": "- Flight spirit bonus damage reduced from +12 to +10",
+            "Tags": [
+                "Vindicta",
+                "Flight"
+            ]
+        },
+        {
+            "Description": "- Flight no longer has +10% bonus range to damage falloff",
+            "Tags": [
+                "Vindicta",
+                "Flight"
+            ]
+        },
+        {
+            "Description": "- Flight cooldown increased from 35s to 50s",
+            "Tags": [
+                "Vindicta",
+                "Flight"
+            ]
+        },
+        {
+            "Description": "- Flight T2 changed from +12 Spirit Damage to -15s Cooldown",
+            "Tags": [
+                "Vindicta",
+                "Flight"
+            ]
+        },
+        {
+            "Description": "- Flight T3 changed from +3 m/s Bonus Air Speed to +12 Spirit Damage",
+            "Tags": [
+                "Vindicta",
+                "Flight"
+            ]
+        },
+        {
+            "Description": "- Assassinate now ramps up its total damage from 50% to 100% over 1 second of being zoomed (UI indication for this)",
+            "Tags": [
+                "Vindicta",
+                "Assassinate"
+            ]
+        },
+        {
+            "Description": "- Fixed being unable to move while scoped in with Assassinate",
+            "Tags": [
+                "Vindicta",
+                "Assassinate"
+            ]
+        },
+        {
+            "Description": "- Alchemical Flask T3 increased from +25% Fire Rate Slow to +35%",
+            "Tags": [
+                "Warden",
+                "Fire Rate",
+                "Alchemical Flask"
+            ]
+        },
+        {
+            "Description": "- Willpower T3 increased from +150 Spirit Shield to +200",
+            "Tags": [
+                "Warden",
+                "Willpower"
+            ]
+        }
+    ],
     "General": [
         {
             "Description": "- Reworked how friend invites work inside the client. You must now be Steam friends with a person to invite them. This has a friend recency requirement as well as your friend needing to not be a limited steam user. Previous requests do not need to be resubmitted.",
@@ -83,12 +648,6 @@
             ]
         },
         {
-            "Description": "- Improved Grey Talon's trap visibility",
-            "Tags": [
-                "Grey Talon"
-            ]
-        },
-        {
             "Description": "- Increased the speed of Guardian's melee attacks",
             "Tags": [
                 "General"
@@ -104,13 +663,6 @@
             "Description": "- Candle trooper health bars now stick around at 1% when they are in self destruct mode to make it more clear they can still be shot",
             "Tags": [
                 "General"
-            ]
-        },
-        {
-            "Description": "- Infernus's Afterburn now shows portraits of enemies that are burning for the full duration",
-            "Tags": [
-                "Infernus",
-                "Afterburn"
             ]
         },
         {
@@ -132,59 +684,7 @@
             ]
         },
         {
-            "Description": "- Added Kinetic Carbine charge audio loop",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Updated Vindicta Flight sound effects",
-            "Tags": [
-                "Vindicta",
-                "Flight"
-            ]
-        },
-        {
-            "Description": "- Added Vindicta Assassinate sound effect for targeted players",
-            "Tags": [
-                "Vindicta",
-                "Assassinate"
-            ]
-        },
-        {
-            "Description": "- Improved visuals for Kelvin's gun projectile",
-            "Tags": [
-                "Kelvin"
-            ]
-        },
-        {
-            "Description": "- Fixed some visual issues with Ice Path",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added AoE effect to Pocket's Barrage",
-            "Tags": [
-                "Pocket",
-                "Barrage"
-            ]
-        },
-        {
-            "Description": "- Updated weapon buff effect in Pocket's Flying Cloak upgrade",
-            "Tags": [
-                "Pocket",
-                "Flying Cloak"
-            ]
-        },
-        {
             "Description": "- Visual effects updates for melee lifesteal items",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Fixed Power Slash sometimes getting stuck on nearby geometry",
             "Tags": [
                 "General"
             ]
@@ -193,33 +693,6 @@
             "Description": "- Updated sound effects for the Sinner's Sacrifice",
             "Tags": [
                 "General"
-            ]
-        },
-        {
-            "Description": "- Updated Pocket's Enchanted Satchel delay and explode sounds",
-            "Tags": [
-                "Pocket"
-            ]
-        },
-        {
-            "Description": "- Updated Pocket's Barrage cast and impact sounds",
-            "Tags": [
-                "Pocket",
-                "Barrage"
-            ]
-        },
-        {
-            "Description": "- Updated Warden's Binding Word delay and impact sounds",
-            "Tags": [
-                "Warden",
-                "Binding Word"
-            ]
-        },
-        {
-            "Description": "- Fixed Dynamo's Quantum Entanglement going through ceilings sometimes",
-            "Tags": [
-                "Dynamo",
-                "Quantum Entanglement"
             ]
         },
         {
@@ -236,18 +709,6 @@
         },
         {
             "Description": "- Fixed moving active item slots causing the player to say \"[ITEM] is on cooldown\"",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Fixed training Ivy's True Form causing you to get healed",
-            "Tags": [
-                "Ivy"
-            ]
-        },
-        {
-            "Description": "- Fixed a bug with Malice firing slightly upward",
             "Tags": [
                 "General"
             ]
@@ -423,30 +884,6 @@
             ]
         },
         {
-            "Description": "- Fire Rate powerup reduced from +20% to +15%",
-            "Tags": [
-                "Fire Rate"
-            ]
-        },
-        {
-            "Description": "- Fire Rate powerup duration increased from 25s to 35s",
-            "Tags": [
-                "Fire Rate"
-            ]
-        },
-        {
-            "Description": "- Health Regen powerup regen reduced from 1.5% to 1%",
-            "Tags": [
-                "Health Regen"
-            ]
-        },
-        {
-            "Description": "- Health Regen powerup duration increased from 15s to 25s",
-            "Tags": [
-                "Health Regen"
-            ]
-        },
-        {
             "Description": "- Cooldown Reduction powerup reduced from 25% to 20%",
             "Tags": [
                 "General"
@@ -456,18 +893,6 @@
             "Description": "- Extra Clip powerup reduced from 4 clips to 3",
             "Tags": [
                 "General"
-            ]
-        },
-        {
-            "Description": "- Extra Stamina powerup duration increased from 60s to 80s",
-            "Tags": [
-                "Extra Stamina"
-            ]
-        },
-        {
-            "Description": "- Extra Stamina powerup amount reduced from 2 to 1",
-            "Tags": [
-                "Extra Stamina"
             ]
         },
         {
@@ -491,79 +916,6 @@
     ],
     "Item Gameplay": [
         {
-            "Description": "- Regen increased from 1.75 to 2",
-            "Tags": [
-                "Extra Regen"
-            ]
-        },
-        {
-            "Description": "- Spirit Lifesteal reduced from +10% to +8%",
-            "Tags": [
-                "Spirit Lifesteal",
-                "Enduring Spirit"
-            ]
-        },
-        {
-            "Description": "- Cooldown reduced from 35s to 25s",
-            "Tags": [
-                "Reactive Barrier"
-            ]
-        },
-        {
-            "Description": "- Decay changed from 2.2% of Max Health to 2.4% Current Health (less damage when the target is low, and non-lethal now)",
-            "Tags": [
-                "Decay"
-            ]
-        },
-        {
-            "Description": "- Healbane moved from Spirit tree to Vitality tree",
-            "Tags": [
-                "Healbane"
-            ]
-        },
-        {
-            "Description": "- Healbane now gives +50 Health",
-            "Tags": [
-                "Healbane"
-            ]
-        },
-        {
-            "Description": "- Reduced from +25% to +23%",
-            "Tags": [
-                "Spirit Lifesteal"
-            ]
-        },
-        {
-            "Description": "- Spirit Amp reduced from +12% to +10%",
-            "Tags": [
-                "Soul Shredder Bullets"
-            ]
-        },
-        {
-            "Description": "- cooldown reduced from 40s to 32s",
-            "Tags": [
-                "Cold Front"
-            ]
-        },
-        {
-            "Description": "- HP Regen reduced from 2 to 1.5",
-            "Tags": [
-                "Improved Cooldown"
-            ]
-        },
-        {
-            "Description": "- No longer provides +2 Sprint",
-            "Tags": [
-                "Knockdown"
-            ]
-        },
-        {
-            "Description": "- Now provides +1 Stamina",
-            "Tags": [
-                "Knockdown"
-            ]
-        },
-        {
             "Description": "- Shifting Shroud: Cooldown reduced from 45s to 35s",
             "Tags": [
                 "General"
@@ -576,358 +928,11 @@
             ]
         },
         {
-            "Description": "- Damage falloff bonus reduced from 20% to 15%",
-            "Tags": [
-                "Sharpshooter"
-            ]
-        },
-        {
-            "Description": "- Metal Skin duration reduced from 4s to 3s",
-            "Tags": [
-                "Metal Skin"
-            ]
-        },
-        {
-            "Description": "- Metal Skin cooldown increased from 25s to 30s",
-            "Tags": [
-                "Metal Skin"
-            ]
-        },
-        {
-            "Description": "- Time for Max Damage reduced from 4s to 3.5s",
-            "Tags": [
-                "Intensifying Magazine"
-            ]
-        },
-        {
-            "Description": "- Interval improved from 2s to 1.5s",
-            "Tags": [
-                "Torment Pulse"
-            ]
-        },
-        {
-            "Description": "- Damage per pulse reduced from 45 to 40 (total dps from 22.5 to 26.6)",
-            "Tags": [
-                "Torment Pulse"
-            ]
-        },
-        {
-            "Description": "- HP bonus reduced from +150 to +125",
-            "Tags": [
-                "Torment Pulse"
-            ]
-        },
-        {
-            "Description": "- Velocity increased from 22.5 to 27",
-            "Tags": [
-                "Majestic Leap"
-            ]
-        },
-        {
-            "Description": "- Spirit Lifesteal reduced from +35% to +33%",
-            "Tags": [
-                "Leech",
-                "Spirit Lifesteal"
-            ]
-        },
-        {
-            "Description": "- No longer has cast time (was 1s)",
-            "Tags": [
-                "Refresher"
-            ]
-        },
-        {
-            "Description": "- Fixed the damage being reduced by armor twice",
-            "Tags": [
-                "Mystic Reverb"
-            ]
-        },
-        {
-            "Description": "- Damage reduced from 35% to 30%",
-            "Tags": [
-                "Mystic Reverb"
-            ]
-        },
-        {
-            "Description": "- No longer prevents stamina usage",
-            "Tags": [
-                "Curse"
-            ]
-        },
-        {
-            "Description": "- Now also prevents item usage",
-            "Tags": [
-                "Curse"
-            ]
-        },
-        {
-            "Description": "- Duration reduced from 3.75s to 3.5s",
-            "Tags": [
-                "Curse"
-            ]
-        },
-        {
             "Description": "- Diviner's Kelvar: Bullet Shield increased from 700 to 1000",
             "Tags": [
                 "General"
             ]
-        },
-        {
-            "Description": "- Spirit increased from 45 to 50",
-            "Tags": [
-                "Boundless Spirit"
-            ]
-        },
-        {
-            "Description": "- Spirit duration increased from 14s to 18s",
-            "Tags": [
-                "Spiritual Overflow"
-            ]
         }
     ],
-    "Hero Gamepla": [
-        {
-            "Description": "- Base HP growth reduced from 36 to 32",
-            "Tags": [
-                "Abrams"
-            ]
-        },
-        {
-            "Description": "- Infernal Resilience T2 reduced from +200 Health to +150",
-            "Tags": [
-                "Abrams",
-                "Infernal Resilience"
-            ]
-        },
-        {
-            "Description": "- Seismic Impact personal brief busy state upon landing increased from 0.2s to 0.3s",
-            "Tags": [
-                "Abrams",
-                "Seismic Impact"
-            ]
-        },
-        {
-            "Description": "- Hyper Beam slow now affects stamina dashes",
-            "Tags": [
-                "Bebop",
-                "Hyper Beam"
-            ]
-        },
-        {
-            "Description": "- Base HP growth reduced from 48 to 44",
-            "Tags": [
-                "Dynamo"
-            ]
-        },
-        {
-            "Description": "- Quantum Entanglement fire rate bonus reduced from +30% to +25%",
-            "Tags": [
-                "Dynamo",
-                "Quantum Entanglement"
-            ]
-        },
-        {
-            "Description": "- Singularity base radius increased from 8m to 10m",
-            "Tags": [
-                "Dynamo",
-                "Singularity"
-            ]
-        },
-        {
-            "Description": "- Sleep Dagger T3 damage reduction on target improved from -30% to -40%",
-            "Tags": [
-                "Haze",
-                "Sleep Dagger"
-            ]
-        },
-        {
-            "Description": "- Smoke Bomb sprint speed now instantly kicks in after casting it",
-            "Tags": [
-                "Haze",
-                "Smoke Bomb",
-                "Smoke"
-            ]
-        },
-        {
-            "Description": "- Bullet Dance cooldown reduced from 160s to 130s",
-            "Tags": [
-                "Haze",
-                "Bullet Dance"
-            ]
-        },
-        {
-            "Description": "- Bullet Dance T2 changed to -40s Cooldown",
-            "Tags": [
-                "Haze",
-                "Bullet Dance"
-            ]
-        },
-        {
-            "Description": "- Bullet Dance T3 changed to +1 Targets Hit Per Shot",
-            "Tags": [
-                "Haze",
-                "Bullet Dance"
-            ]
-        },
-        {
-            "Description": "- Flame Dash cooldown increased from 30s to 38s",
-            "Tags": [
-                "Infernus",
-                "Flame Dash"
-            ]
-        },
-        {
-            "Description": "- Watcher's Covenant heal sharing reduced from 65% to 55%",
-            "Tags": [
-                "Ivy",
-                "Watcher's Covenant"
-            ]
-        },
-        {
-            "Description": "- Ice Path sprint speed increased from +1 to +2",
-            "Tags": [
-                "Kelvin",
-                "Ice Path"
-            ]
-        },
-        {
-            "Description": "- Ice Path trail duration increased from 12s to 15s",
-            "Tags": [
-                "Kelvin",
-                "Ice Path"
-            ]
-        },
-        {
-            "Description": "- Frozen Shelter T2 changed to -40s Cooldown",
-            "Tags": [
-                "Kelvin",
-                "Frozen Shelter"
-            ]
-        },
-        {
-            "Description": "- Frozen Shelter T3 changed to +70 Health Regen that scales with Spirit",
-            "Tags": [
-                "Kelvin",
-                "Frozen Shelter",
-                "Health Regen"
-            ]
-        },
-        {
-            "Description": "- Frozen Shelter can now be dismissed early",
-            "Tags": [
-                "Kelvin",
-                "Frozen Shelter"
-            ]
-        },
-        {
-            "Description": "- Spectral Wall can now be dismissed early",
-            "Tags": [
-                "McGinnis",
-                "Spectral Wall"
-            ]
-        },
-        {
-            "Description": "- Barrage channel can now be interrupted by casting your other abilities",
-            "Tags": [
-                "Pocket",
-                "Barrage"
-            ]
-        },
-        {
-            "Description": "- Barrage radius increased from 6m to 6.5m",
-            "Tags": [
-                "Pocket",
-                "Barrage"
-            ]
-        },
-        {
-            "Description": "- Enchanted Satchel cast time reduced from 0.25s to 0.15s",
-            "Tags": [
-                "Pocket"
-            ]
-        },
-        {
-            "Description": "- Storm Cloud T1 increased from +30% to +35% Bullet Resist",
-            "Tags": [
-                "Seven",
-                "Storm Cloud"
-            ]
-        },
-        {
-            "Description": "- Flight spirit bonus damage reduced from +12 to +10",
-            "Tags": [
-                "Vindicta",
-                "Flight"
-            ]
-        },
-        {
-            "Description": "- Flight no longer has +10% bonus range to damage falloff",
-            "Tags": [
-                "Vindicta",
-                "Flight"
-            ]
-        },
-        {
-            "Description": "- Flight cooldown increased from 35s to 50s",
-            "Tags": [
-                "Vindicta",
-                "Flight"
-            ]
-        },
-        {
-            "Description": "- Flight T2 changed from +12 Spirit Damage to -15s Cooldown",
-            "Tags": [
-                "Vindicta",
-                "Flight"
-            ]
-        },
-        {
-            "Description": "- Flight T3 changed from +3 m/s Bonus Air Speed to +12 Spirit Damage",
-            "Tags": [
-                "Vindicta",
-                "Flight"
-            ]
-        },
-        {
-            "Description": "- Can no longer melee while flying for extra movement",
-            "Tags": [
-                "Vindicta"
-            ]
-        },
-        {
-            "Description": "- Assassinate now ramps up its total damage from 50% to 100% over 1 second of being zoomed (UI indication for this)",
-            "Tags": [
-                "Vindicta",
-                "Assassinate"
-            ]
-        },
-        {
-            "Description": "- Fixed being unable to move while scoped in with Assassinate",
-            "Tags": [
-                "Vindicta",
-                "Assassinate"
-            ]
-        },
-        {
-            "Description": "- Base ammo increased from 14 to 16",
-            "Tags": [
-                "Warden"
-            ]
-        },
-        {
-            "Description": "- Alchemical Flask T3 increased from +25% Fire Rate Slow to +35%",
-            "Tags": [
-                "Warden",
-                "Alchemical Flask",
-                "Fire Rate"
-            ]
-        },
-        {
-            "Description": "- Willpower T3 increased from +150 Spirit Shield to +200",
-            "Tags": [
-                "Warden",
-                "Willpower"
-            ]
-        }
-    ]
+    "Hero Gamepla": []
 }

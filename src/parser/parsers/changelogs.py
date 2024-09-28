@@ -64,32 +64,14 @@ class ChangelogParser:
                 resource_type = resource['Type']
                 resource_name = resource['Name']
 
-                if resource_type == 'Abilities':
-                    continue  # skip abilities for now, may change format later
-
                 if resource_name is None:
                     continue
 
                 # Determine if the line is about this resource
                 # resource (i.e. hero) name in english is found in the line
                 if resource_name in line:
+                    group = resource_type
                     resource_tags.append(resource_name)
-
-                    # If its a Hero, check if any of their 4 abilities are mentioned
-                    if resource_type == 'Heroes':
-                        if 'BoundAbilities' not in resource:
-                            continue
-                        for index, ability in resource['BoundAbilities'].items():
-                            ability_key = ability['Key']
-                            ability_name = ability['Name']
-                            if ability_name is None:
-                                continue
-
-                            # ability name in english is found in the line
-                            if ability_name in line:
-                                include_tag = True
-                                resource_tags.append(ability_name)
-                                break
 
             # if no resource is found, assign to default group
             if len(resource_tags) == 0:

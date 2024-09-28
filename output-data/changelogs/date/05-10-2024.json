@@ -1,64 +1,6 @@
 {
     "Other": [],
-    "Heroes": [],
-    "Items": [],
-    "Abilities": [],
-    "General": [
-        {
-            "Description": "- Sandbox mode now supports entering it with your party",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Sandbox mode now has troopers spawning on the left side",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added Search By Match ID to the Watch Tab",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added Filter By Hero to the Watch Tab",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- You can now see an indicator for enemy troopers when near them if they are behind a wall or offscreen (primarly improves tracking their positions during the lane)",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Map is now precached while in the queue to improve loading times into matches",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Visual and Audio updates to the shop",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added a key for toggling replays being paused (defaults to P)",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Pocket Affliction visual and sound effects reworked",
-            "Tags": [
-                "Pocket",
-                "Affliction"
-            ]
-        },
+    "Heroes": [
         {
             "Description": "- Pocket Enchanter\u2019s Satchel visual effects updated",
             "Tags": [
@@ -72,77 +14,71 @@
             ]
         },
         {
-            "Description": "- Updated Divine Barrier sound effects",
-            "Tags": [
-                "Divine Barrier"
-            ]
-        },
-        {
-            "Description": "- Updated Dynamo VO for Quantum Entanglement and a few other missing lines",
-            "Tags": [
-                "Dynamo",
-                "Quantum Entanglement"
-            ]
-        },
-        {
-            "Description": "- Hero death voices are now broadcast more widely",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Fixed being unable to ping while casting or channeling",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Fixed various issues with hero abilities causing you to be stuck in walls",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Fixed players being able to kill themselves pre-match and run around in the map",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
             "Description": "- Fixed Ice Dome effects disappearing while still active if Kelvin dies during it",
             "Tags": [
                 "Kelvin"
             ]
         },
         {
-            "Description": "- Simplify some visuals with Seven\u2019s Storm Cloud radius indicator to help clarify the bounds",
+            "Description": "- Reduced chances that Leap gets stuck on geometry during the downward phase",
             "Tags": [
-                "Seven",
-                "Storm Cloud"
+                "Abrams"
             ]
         },
         {
-            "Description": "- Fixed Stamina not appearing to regenerate while spectating",
+            "Description": "- No longer has an innate +15% Spirit Resist",
             "Tags": [
-                "General"
+                "Bebop"
             ]
         },
         {
-            "Description": "- Improve the text display when a replay is still processing after a match",
+            "Description": "- Now has innate +20% Bullet Resist",
             "Tags": [
-                "General"
+                "Bebop"
             ]
         },
         {
-            "Description": "- Fixed Walker boss moving around while the game is paused",
+            "Description": "- Base stamina increased from 3 to 4",
             "Tags": [
-                "General"
+                "Ivy"
             ]
         },
         {
-            "Description": "- Fixed some controller input issues",
+            "Description": "- Bullet Damage growth increased from 0.76 to 1.0",
             "Tags": [
-                "General"
+                "Lash"
+            ]
+        },
+        {
+            "Description": "- Base HP increased from 650 to 700",
+            "Tags": [
+                "Mo & Krill"
+            ]
+        },
+        {
+            "Description": "- Gun damage per bullet reduced from 6 to 5.6",
+            "Tags": [
+                "Pocket"
+            ]
+        },
+        {
+            "Description": "- Shadow Explosion radius increased from 14m to 16m",
+            "Tags": [
+                "Yamato"
+            ]
+        },
+        {
+            "Description": "- Shadow Explosion T3 Spirit bonus increased from +10% to +15%",
+            "Tags": [
+                "Yamato"
+            ]
+        }
+    ],
+    "Items": [
+        {
+            "Description": "- Updated Divine Barrier sound effects",
+            "Tags": [
+                "Divine Barrier"
             ]
         },
         {
@@ -164,25 +100,11 @@
             ]
         },
         {
-            "Description": "- Fixed visual bug on Spirit Urn when dropping on the ground",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
             "Description": "- Fixed Restorative Locket Spirit Resist not working",
             "Tags": [
                 "Restorative Locket"
             ]
         },
-        {
-            "Description": "- Fixed items not updating in the UI when purchased from the shop while spectating a teammate",
-            "Tags": [
-                "General"
-            ]
-        }
-    ],
-    "Item Gameplay": [
         {
             "Description": "- Buff duration increased from 12s to 18s",
             "Tags": [
@@ -279,12 +201,6 @@
             "Description": "- Now provides +50 Health",
             "Tags": [
                 "Suppressor"
-            ]
-        },
-        {
-            "Description": "- Quicksilver: Now passively has a +10% reload time penalty",
-            "Tags": [
-                "General"
             ]
         },
         {
@@ -433,25 +349,54 @@
             "Tags": [
                 "Diviner's Kevlar"
             ]
+        },
+        {
+            "Description": "- Shadow Explosion Fire Rate and Spirit buff duration increased from 15s to 20s",
+            "Tags": [
+                "Yamato",
+                "Fire Rate"
+            ]
+        },
+        {
+            "Description": "- Shadow Explosion T3 Fire Rate bonus increased from +5% to +10%",
+            "Tags": [
+                "Yamato",
+                "Fire Rate"
+            ]
+        },
+        {
+            "Description": "- Crate Powerups: Increased Health Regen drop from 1.25% Regen to 1.5%",
+            "Tags": [
+                "Health Regen"
+            ]
+        },
+        {
+            "Description": "- Crate Powerups: Added Fire Rate drop, provides +20% Fire Rate for 25s",
+            "Tags": [
+                "Fire Rate"
+            ]
         }
     ],
-    "Hero Gameplay": [
+    "Abilities": [
         {
-            "Description": "- Reduced chances that Leap gets stuck on geometry during the downward phase",
+            "Description": "- Pocket Affliction visual and sound effects reworked",
             "Tags": [
-                "Abrams"
+                "Pocket",
+                "Affliction"
             ]
         },
         {
-            "Description": "- No longer has an innate +15% Spirit Resist",
+            "Description": "- Updated Dynamo VO for Quantum Entanglement and a few other missing lines",
             "Tags": [
-                "Bebop"
+                "Dynamo",
+                "Quantum Entanglement"
             ]
         },
         {
-            "Description": "- Now has innate +20% Bullet Resist",
+            "Description": "- Simplify some visuals with Seven\u2019s Storm Cloud radius indicator to help clarify the bounds",
             "Tags": [
-                "Bebop"
+                "Seven",
+                "Storm Cloud"
             ]
         },
         {
@@ -518,12 +463,6 @@
             ]
         },
         {
-            "Description": "- Base stamina increased from 3 to 4",
-            "Tags": [
-                "Ivy"
-            ]
-        },
-        {
             "Description": "- Ground Strike now additionally damages enemies within 2m of Lash on impact",
             "Tags": [
                 "Lash",
@@ -549,12 +488,6 @@
             "Tags": [
                 "Lash",
                 "Ground Strike"
-            ]
-        },
-        {
-            "Description": "- Bullet Damage growth increased from 0.76 to 1.0",
-            "Tags": [
-                "Lash"
             ]
         },
         {
@@ -596,13 +529,8 @@
             "Description": "- Fixed issues with Heavy Barrage not damaging units within the target area",
             "Tags": [
                 "McGinnis",
-                "Heavy Barrage"
-            ]
-        },
-        {
-            "Description": "- Base HP increased from 650 to 700",
-            "Tags": [
-                "Mo & Krill"
+                "Heavy Barrage",
+                "Barrage"
             ]
         },
         {
@@ -637,8 +565,8 @@
             "Description": "- Time Wall bullet freeze duration no longer increases with Spirit or Duration Extender",
             "Tags": [
                 "Paradox",
-                "Time Wall",
-                "Duration Extender"
+                "Duration Extender",
+                "Time Wall"
             ]
         },
         {
@@ -677,12 +605,6 @@
             ]
         },
         {
-            "Description": "- Gun damage per bullet reduced from 6 to 5.6",
-            "Tags": [
-                "Pocket"
-            ]
-        },
-        {
             "Description": "- Affliction DPS reduced from 30 to 26",
             "Tags": [
                 "Pocket",
@@ -716,34 +638,127 @@
                 "Yamato",
                 "Power Slash"
             ]
-        },
+        }
+    ],
+    "General": [
         {
-            "Description": "- Shadow Explosion radius increased from 14m to 16m",
+            "Description": "- Sandbox mode now supports entering it with your party",
             "Tags": [
-                "Yamato"
+                "General"
             ]
         },
         {
-            "Description": "- Shadow Explosion Fire Rate and Spirit buff duration increased from 15s to 20s",
+            "Description": "- Sandbox mode now has troopers spawning on the left side",
             "Tags": [
-                "Yamato",
-                "Fire Rate"
+                "General"
             ]
         },
         {
-            "Description": "- Shadow Explosion T3 Spirit bonus increased from +10% to +15%",
+            "Description": "- Added Search By Match ID to the Watch Tab",
             "Tags": [
-                "Yamato"
+                "General"
             ]
         },
         {
-            "Description": "- Shadow Explosion T3 Fire Rate bonus increased from +5% to +10%",
+            "Description": "- Added Filter By Hero to the Watch Tab",
             "Tags": [
-                "Yamato",
-                "Fire Rate"
+                "General"
+            ]
+        },
+        {
+            "Description": "- You can now see an indicator for enemy troopers when near them if they are behind a wall or offscreen (primarly improves tracking their positions during the lane)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Map is now precached while in the queue to improve loading times into matches",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Visual and Audio updates to the shop",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added a key for toggling replays being paused (defaults to P)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Hero death voices are now broadcast more widely",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed being unable to ping while casting or channeling",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed various issues with hero abilities causing you to be stuck in walls",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed players being able to kill themselves pre-match and run around in the map",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed Stamina not appearing to regenerate while spectating",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Improve the text display when a replay is still processing after a match",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed Walker boss moving around while the game is paused",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed some controller input issues",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed visual bug on Spirit Urn when dropping on the ground",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed items not updating in the UI when purchased from the shop while spectating a teammate",
+            "Tags": [
+                "General"
             ]
         }
     ],
+    "Item Gameplay": [
+        {
+            "Description": "- Quicksilver: Now passively has a +10% reload time penalty",
+            "Tags": [
+                "General"
+            ]
+        }
+    ],
+    "Hero Gameplay": [],
     "Misc Gameplay": [
         {
             "Description": "- Sprint is now always considered active as long as you are out of combat (haven\u2019t taken or dealt damage for 5s, healthbar is now a little transparent when out of combat).",
@@ -815,18 +830,6 @@
             "Description": "- Crate Powerups: Removed Zipline buff as a potential drop",
             "Tags": [
                 "General"
-            ]
-        },
-        {
-            "Description": "- Crate Powerups: Increased Health Regen drop from 1.25% Regen to 1.5%",
-            "Tags": [
-                "Health Regen"
-            ]
-        },
-        {
-            "Description": "- Crate Powerups: Added Fire Rate drop, provides +20% Fire Rate for 25s",
-            "Tags": [
-                "Fire Rate"
             ]
         },
         {

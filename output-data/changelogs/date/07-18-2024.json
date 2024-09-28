@@ -1,45 +1,6 @@
 {
     "Other": [],
-    "Heroes": [],
-    "Items": [],
-    "Abilities": [],
-    "General": [
-        {
-            "Description": "- Accounts that are banned for cheating will now have all their invited accounts banned as well",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- The Damage Report's Damage List now aggregates damage from all units, and displays both hero and ability icons",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- You can view per-hero damage in the Damage Report by hovering the damage type breakdown above each hero portrait",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added a 'Compact' Damage Report mode that shows less information but takes up less space. This is the default after dying.",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Clicking the top bar will now toggle the Damage Report between minimized, compact, and full view",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Opening the shop now always minimizes the Damage Report",
-            "Tags": [
-                "General"
-            ]
-        },
+    "Heroes": [
         {
             "Description": "- Updated effects on Pocket effects to improve visibility",
             "Tags": [
@@ -47,24 +8,134 @@
             ]
         },
         {
-            "Description": "- Added new cast effect for Grey Talon's Guided Owl",
+            "Description": "- Added additional voice lines for Abrams",
             "Tags": [
-                "Grey Talon",
-                "Guided Owl"
+                "Abrams"
             ]
         },
         {
-            "Description": "- Updated effects for heavy melee",
+            "Description": "- Base ammo increased by 5% (except for Haze and Wraith)",
             "Tags": [
-                "General"
+                "Haze",
+                "Wraith"
             ]
         },
         {
-            "Description": "- Updated bullet resist debuff effects",
+            "Description": "- Base HP regen increased from 1 to 2.5",
             "Tags": [
-                "General"
+                "Bebop"
             ]
         },
+        {
+            "Description": "- No longer has 24% base bullet resistance",
+            "Tags": [
+                "Bebop"
+            ]
+        },
+        {
+            "Description": "- Now gains +2% Bullet Resistance per boon (happens 11 times)",
+            "Tags": [
+                "Bebop"
+            ]
+        },
+        {
+            "Description": "- Uppercut horizontal distance knockback on enemy heroes is reduced from 25m to 20m",
+            "Tags": [
+                "Bebop"
+            ]
+        },
+        {
+            "Description": "- Fixed enemies being able to use heavy melee to cancel Uppercut's momentum",
+            "Tags": [
+                "Bebop"
+            ]
+        },
+        {
+            "Description": "- Hyperbeam is now very wide in the area right in front of the hero, then narrows into the current size a few meters away",
+            "Tags": [
+                "Bebop"
+            ]
+        },
+        {
+            "Description": "- Hyperbeam Spirit Power damage scaling increased from 1.96 to 2.2",
+            "Tags": [
+                "Bebop"
+            ]
+        },
+        {
+            "Description": "- Hyperbeam T2 increased from +120 to +140",
+            "Tags": [
+                "Bebop"
+            ]
+        },
+        {
+            "Description": "- Gun damage growth increased from 0.8 to 0.9",
+            "Tags": [
+                "Dynamo"
+            ]
+        },
+        {
+            "Description": "- Base damage reduced from 5.0 to 4.5",
+            "Tags": [
+                "Ivy"
+            ]
+        },
+        {
+            "Description": "- Base bullet damage reduced from 28 to 25",
+            "Tags": [
+                "Lady Geist"
+            ]
+        },
+        {
+            "Description": "- Bullet damage growth increased from 1.84 to 2.1",
+            "Tags": [
+                "Lady Geist"
+            ]
+        },
+        {
+            "Description": "- Base melee damage reduced by 20%",
+            "Tags": [
+                "McGinnis"
+            ]
+        },
+        {
+            "Description": "- Base bullet resistance improved from -20% to -15%",
+            "Tags": [
+                "Pocket"
+            ]
+        },
+        {
+            "Description": "- Base gun damage reduced from 5.6 to 5.0",
+            "Tags": [
+                "Pocket"
+            ]
+        },
+        {
+            "Description": "- Gun damage growth increased from 0.35 to 0.4",
+            "Tags": [
+                "Pocket"
+            ]
+        },
+        {
+            "Description": "- Base regen increased from 1 to 1.5",
+            "Tags": [
+                "Seven"
+            ]
+        },
+        {
+            "Description": "- Base bullet resistance reduced from 20% to 8%",
+            "Tags": [
+                "Seven"
+            ]
+        },
+        {
+            "Description": "- Now gains +1% Bullet Resistance per boon (happens 11 times)",
+            "Tags": [
+                "Seven"
+            ]
+        }
+    ],
+    "Items": [
         {
             "Description": "- Added new Cold Front visual effects",
             "Tags": [
@@ -89,328 +160,6 @@
                 "Knockdown"
             ]
         },
-        {
-            "Description": "- Added Warden Alchemical Flask cast, projectile, and impact sound effects",
-            "Tags": [
-                "Warden",
-                "Alchemical Flask"
-            ]
-        },
-        {
-            "Description": "- Raised volume of Wraith Card Trick charge up sound effect",
-            "Tags": [
-                "Wraith",
-                "Card Trick"
-            ]
-        },
-        {
-            "Description": "- Raised volume of party invite, join, and roster select sound effects",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Guardians now fade out from the world 10 seconds after dying",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Fixed a bug that allowed you to shoot through walls",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Fixed a bug where Infernus could get stuck in his Flame Dash pose",
-            "Tags": [
-                "Infernus",
-                "Flame Dash"
-            ]
-        },
-        {
-            "Description": "- Fixed a speed exploit with Infernus Flame Dash",
-            "Tags": [
-                "Infernus",
-                "Flame Dash"
-            ]
-        },
-        {
-            "Description": "- Fixed a bug that allowed your gun to be very accurate while holding tab",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Reverted a change from last update to Warden's Alchemical Flask \u2013 it now launches where the reticle is aiming at the end of the cast",
-            "Tags": [
-                "Warden",
-                "Alchemical Flask"
-            ]
-        },
-        {
-            "Description": "- Reworked building just outside Amber's base in the Yellow lane to match Sapphire Purple",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Started replacing older style rollup doors with new ones with larger dimensions",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Improved game startup time",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- ALT+SPACE can now be used to select the previous player when spectating",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Changed spectator camera to not force itself into roaming mode for up/down key pressed (forward/back/side only)",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added additional voice lines for Abrams",
-            "Tags": [
-                "Abrams"
-            ]
-        },
-        {
-            "Description": "- Removed voice lines / fixed text that referenced the urn being delivered to the temple",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added Midboss arrive, low health, and death sound effects",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Removed pause cooldown while in Sandbox",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added a small delay so kill lines play after death sound effects rather than under them",
-            "Tags": [
-                "General"
-            ]
-        }
-    ],
-    "Misc Gameplay": [
-        {
-            "Description": "- Reworked the mid temple area as well adding various different entrances to it",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Reworked the upper mid temple area and the drop down entrances to the bottom pit",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Changed the neutrals in the top mid temple area to a strong, a medium and a small creep (2 of these)",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- The bridges are now a bit wider and have higher side walls that reduce extended line of sight",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Base entrance window area can no longer be invaded from the outside by double jumping",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Reduced the front entrances to the two single story buildings from 2 to 1 (entrances are larger)",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added more juke spots",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Removed the long fx trail from unsecured souls on your hero so it doesn't give away your position when juking/hiding",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Sounds occluded by level geometry will now be quieter",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Powerup spawn locations moved to the bridges",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Powerup buff duration increased from 130s to 150s",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Golden Statues level 2 drops now happen at 15 minutes instead of 20",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Increased golden statue drop chance by 4%",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Guardian HP increased by 10%",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Guardian melee no longer does a double instant melee attack sometimes",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Guardian melee attack no longer has a splash range much larger than its visuals",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Walker in mid lanes health increased by 12%",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Walker stomp can no longer be dodged with double jump",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Walker stomp area increased a bit",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Weakened Patron health increased by 20%",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Mid Boss starting health increased from 4500 to 5000",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Mid Boss health gained per minute increased from 200 to 275",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Rejuv drop time reduced from 12.5s to 9s",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Midboss makes a global sound when at 35% hp",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Reworked comeback formula to be less weighted towards team vs team net worth and more towards the net worth of the dying hero compared to the average of your team (regardless if your team is leading or not)",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Base ammo increased by 5% (except for Haze and Wraith)",
-            "Tags": [
-                "Haze",
-                "Wraith"
-            ]
-        },
-        {
-            "Description": "- T2 items cost increased from 1200 to 1250",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- T4 Items cost reduced from 6500 to 6300",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Vitality base health bonus increased from 8/12/16/20% to 11/14/17/20%",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Can no longer use the Teleporter while carrying the Urn",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Teleporter now has the same damage rules as zipline (DoT no longer prevents usage)",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Cooldown reduction now stacks diminishingly",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Reduced the momentum coming off of the zipline a bit",
-            "Tags": [
-                "General"
-            ]
-        }
-    ],
-    "Weapon Items": [
         {
             "Description": "- Bullet Resist reduced from 8% to 7%",
             "Tags": [
@@ -550,9 +299,7 @@
             "Tags": [
                 "Vampiric Burst"
             ]
-        }
-    ],
-    "Vitality Items": [
+        },
         {
             "Description": "- Active now gives +2 Sprint",
             "Tags": [
@@ -758,9 +505,7 @@
                 "Rebirth",
                 "Soul Rebirth"
             ]
-        }
-    ],
-    "Spirit Items": [
+        },
         {
             "Description": "- Spirit Power Per Soul reduced from 3 to 2",
             "Tags": [
@@ -813,18 +558,6 @@
             "Description": "- Spirit Power increased from +18 to +21",
             "Tags": [
                 "Improved Spirit"
-            ]
-        },
-        {
-            "Description": "- Target count increased from 1 to 2",
-            "Tags": [
-                "Torment Pulse"
-            ]
-        },
-        {
-            "Description": "- Fixed sometimes waking up neutrals",
-            "Tags": [
-                "Torment Pulse"
             ]
         },
         {
@@ -900,12 +633,70 @@
             ]
         }
     ],
-    "Hero Gameplay": [
+    "Abilities": [
+        {
+            "Description": "- Added new cast effect for Grey Talon's Guided Owl",
+            "Tags": [
+                "Grey Talon",
+                "Guided Owl"
+            ]
+        },
+        {
+            "Description": "- Added Warden Alchemical Flask cast, projectile, and impact sound effects",
+            "Tags": [
+                "Warden",
+                "Alchemical Flask"
+            ]
+        },
+        {
+            "Description": "- Raised volume of Wraith Card Trick charge up sound effect",
+            "Tags": [
+                "Wraith",
+                "Card Trick"
+            ]
+        },
+        {
+            "Description": "- Fixed a bug where Infernus could get stuck in his Flame Dash pose",
+            "Tags": [
+                "Infernus",
+                "Flame Dash"
+            ]
+        },
+        {
+            "Description": "- Fixed a speed exploit with Infernus Flame Dash",
+            "Tags": [
+                "Infernus",
+                "Flame Dash"
+            ]
+        },
+        {
+            "Description": "- Reverted a change from last update to Warden's Alchemical Flask \u2013 it now launches where the reticle is aiming at the end of the cast",
+            "Tags": [
+                "Warden",
+                "Alchemical Flask"
+            ]
+        },
+        {
+            "Description": "- Target count increased from 1 to 2",
+            "Tags": [
+                "Torment Pulse",
+                "Pulse"
+            ]
+        },
+        {
+            "Description": "- Fixed sometimes waking up neutrals",
+            "Tags": [
+                "Torment Pulse",
+                "Pulse"
+            ]
+        },
         {
             "Description": "- Shoulder Charge now considers Spectral Wall and Frozen Shelter as walls",
             "Tags": [
                 "Abrams",
-                "Shoulder Charge"
+                "Frozen Shelter",
+                "Shoulder Charge",
+                "Spectral Wall"
             ]
         },
         {
@@ -961,26 +752,8 @@
             "Description": "- Seismic Impact T3 is now Gains Unstoppable while in air and 3s after landing",
             "Tags": [
                 "Abrams",
-                "Seismic Impact",
-                "Unstoppable"
-            ]
-        },
-        {
-            "Description": "- Base HP regen increased from 1 to 2.5",
-            "Tags": [
-                "Bebop"
-            ]
-        },
-        {
-            "Description": "- No longer has 24% base bullet resistance",
-            "Tags": [
-                "Bebop"
-            ]
-        },
-        {
-            "Description": "- Now gains +2% Bullet Resistance per boon (happens 11 times)",
-            "Tags": [
-                "Bebop"
+                "Unstoppable",
+                "Seismic Impact"
             ]
         },
         {
@@ -991,46 +764,11 @@
             ]
         },
         {
-            "Description": "- Uppercut horizontal distance knockback on enemy heroes is reduced from 25m to 20m",
-            "Tags": [
-                "Bebop"
-            ]
-        },
-        {
-            "Description": "- Fixed enemies being able to use heavy melee to cancel Uppercut's momentum",
-            "Tags": [
-                "Bebop"
-            ]
-        },
-        {
-            "Description": "- Hyperbeam is now very wide in the area right in front of the hero, then narrows into the current size a few meters away",
-            "Tags": [
-                "Bebop"
-            ]
-        },
-        {
-            "Description": "- Hyperbeam Spirit Power damage scaling increased from 1.96 to 2.2",
-            "Tags": [
-                "Bebop"
-            ]
-        },
-        {
-            "Description": "- Hyperbeam T2 increased from +120 to +140",
-            "Tags": [
-                "Bebop"
-            ]
-        },
-        {
-            "Description": "- Gun damage growth increased from 0.8 to 0.9",
-            "Tags": [
-                "Dynamo"
-            ]
-        },
-        {
             "Description": "- Kinetic Pulse spirit power scaling increased from 1.2 to 1.4",
             "Tags": [
                 "Dynamo",
-                "Kinetic Pulse"
+                "Kinetic Pulse",
+                "Pulse"
             ]
         },
         {
@@ -1104,12 +842,6 @@
             ]
         },
         {
-            "Description": "- Base damage reduced from 5.0 to 4.5",
-            "Tags": [
-                "Ivy"
-            ]
-        },
-        {
             "Description": "- Kudzu Bomb DPS spirit scaling increased from 0.4 to 0.6",
             "Tags": [
                 "Ivy",
@@ -1142,18 +874,6 @@
             "Tags": [
                 "Kelvin",
                 "Arctic Beam"
-            ]
-        },
-        {
-            "Description": "- Base bullet damage reduced from 28 to 25",
-            "Tags": [
-                "Lady Geist"
-            ]
-        },
-        {
-            "Description": "- Bullet damage growth increased from 1.84 to 2.1",
-            "Tags": [
-                "Lady Geist"
             ]
         },
         {
@@ -1234,12 +954,6 @@
             ]
         },
         {
-            "Description": "- Base melee damage reduced by 20%",
-            "Tags": [
-                "McGinnis"
-            ]
-        },
-        {
             "Description": "- Spectral Wall segments that are touching the Rejuv will be destroyed",
             "Tags": [
                 "McGinnis",
@@ -1257,7 +971,8 @@
             "Description": "- Pulse Grenade amp duration increased from 6s to 8s",
             "Tags": [
                 "Paradox",
-                "Pulse Grenade"
+                "Pulse Grenade",
+                "Pulse"
             ]
         },
         {
@@ -1268,47 +983,337 @@
             ]
         },
         {
-            "Description": "- Base bullet resistance improved from -20% to -15%",
-            "Tags": [
-                "Pocket"
-            ]
-        },
-        {
-            "Description": "- Base gun damage reduced from 5.6 to 5.0",
-            "Tags": [
-                "Pocket"
-            ]
-        },
-        {
-            "Description": "- Gun damage growth increased from 0.35 to 0.4",
-            "Tags": [
-                "Pocket"
-            ]
-        },
-        {
-            "Description": "- Base regen increased from 1 to 1.5",
-            "Tags": [
-                "Seven"
-            ]
-        },
-        {
-            "Description": "- Base bullet resistance reduced from 20% to 8%",
-            "Tags": [
-                "Seven"
-            ]
-        },
-        {
-            "Description": "- Now gains +1% Bullet Resistance per boon (happens 11 times)",
-            "Tags": [
-                "Seven"
-            ]
-        },
-        {
             "Description": "- Power Surge scaling reduced from 0.2 to 0.16",
             "Tags": [
                 "Seven",
                 "Power Surge"
             ]
         }
-    ]
+    ],
+    "General": [
+        {
+            "Description": "- Accounts that are banned for cheating will now have all their invited accounts banned as well",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- The Damage Report's Damage List now aggregates damage from all units, and displays both hero and ability icons",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- You can view per-hero damage in the Damage Report by hovering the damage type breakdown above each hero portrait",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added a 'Compact' Damage Report mode that shows less information but takes up less space. This is the default after dying.",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Clicking the top bar will now toggle the Damage Report between minimized, compact, and full view",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Opening the shop now always minimizes the Damage Report",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Updated effects for heavy melee",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Updated bullet resist debuff effects",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Raised volume of party invite, join, and roster select sound effects",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Guardians now fade out from the world 10 seconds after dying",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed a bug that allowed you to shoot through walls",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed a bug that allowed your gun to be very accurate while holding tab",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Reworked building just outside Amber's base in the Yellow lane to match Sapphire Purple",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Started replacing older style rollup doors with new ones with larger dimensions",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Improved game startup time",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- ALT+SPACE can now be used to select the previous player when spectating",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Changed spectator camera to not force itself into roaming mode for up/down key pressed (forward/back/side only)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Removed voice lines / fixed text that referenced the urn being delivered to the temple",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added Midboss arrive, low health, and death sound effects",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Removed pause cooldown while in Sandbox",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added a small delay so kill lines play after death sound effects rather than under them",
+            "Tags": [
+                "General"
+            ]
+        }
+    ],
+    "Misc Gameplay": [
+        {
+            "Description": "- Reworked the mid temple area as well adding various different entrances to it",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Reworked the upper mid temple area and the drop down entrances to the bottom pit",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Changed the neutrals in the top mid temple area to a strong, a medium and a small creep (2 of these)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- The bridges are now a bit wider and have higher side walls that reduce extended line of sight",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Base entrance window area can no longer be invaded from the outside by double jumping",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Reduced the front entrances to the two single story buildings from 2 to 1 (entrances are larger)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added more juke spots",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Removed the long fx trail from unsecured souls on your hero so it doesn't give away your position when juking/hiding",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Sounds occluded by level geometry will now be quieter",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Powerup spawn locations moved to the bridges",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Powerup buff duration increased from 130s to 150s",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Golden Statues level 2 drops now happen at 15 minutes instead of 20",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Increased golden statue drop chance by 4%",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Guardian HP increased by 10%",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Guardian melee no longer does a double instant melee attack sometimes",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Guardian melee attack no longer has a splash range much larger than its visuals",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Walker in mid lanes health increased by 12%",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Walker stomp can no longer be dodged with double jump",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Walker stomp area increased a bit",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Weakened Patron health increased by 20%",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Mid Boss starting health increased from 4500 to 5000",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Mid Boss health gained per minute increased from 200 to 275",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Rejuv drop time reduced from 12.5s to 9s",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Midboss makes a global sound when at 35% hp",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Reworked comeback formula to be less weighted towards team vs team net worth and more towards the net worth of the dying hero compared to the average of your team (regardless if your team is leading or not)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- T2 items cost increased from 1200 to 1250",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- T4 Items cost reduced from 6500 to 6300",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Vitality base health bonus increased from 8/12/16/20% to 11/14/17/20%",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Can no longer use the Teleporter while carrying the Urn",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Teleporter now has the same damage rules as zipline (DoT no longer prevents usage)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Cooldown reduction now stacks diminishingly",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Reduced the momentum coming off of the zipline a bit",
+            "Tags": [
+                "General"
+            ]
+        }
+    ],
+    "Weapon Items": [],
+    "Vitality Items": [],
+    "Spirit Items": [],
+    "Hero Gameplay": []
 }

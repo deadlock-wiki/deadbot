@@ -1,57 +1,6 @@
 {
     "Other": [],
-    "Heroes": [],
-    "Items": [],
-    "Abilities": [],
-    "General": [
-        {
-            "Description": "- Added a hero based mmr system, so when you join a match with a specific hero the matchmaker adjusts the skill level it assumes you are at by a percentage up or down based on your experience and performance levels with that hero.",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added settings option to allow weapon zoom to be a toggle",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added a game volume slider which will control volume independently from voice chat (VoIP)",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- General improvements to voice chat quality",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Non-matchmaking lobbies are now considered safe to abandon",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Crates now show the amount of souls they have in the tooltip",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Greater contrast between team and enemy sounds",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Updated headshot hit indicator",
-            "Tags": [
-                "General"
-            ]
-        },
+    "Heroes": [
         {
             "Description": "- Updated McGinnis weapon sounds",
             "Tags": [
@@ -71,60 +20,9 @@
             ]
         },
         {
-            "Description": "- Fixed a bug where pinging Bebop's Hook and Sticky Bomb abilities would call the wrong ability name",
-            "Tags": [
-                "Bebop",
-                "Sticky Bomb"
-            ]
-        },
-        {
-            "Description": "- Fixed a recent bug with Metal Skin that caused you to do zero bullet damage",
-            "Tags": [
-                "Metal Skin"
-            ]
-        },
-        {
             "Description": "- Fixed a bug with releasing Grey Talon's Owl early",
             "Tags": [
                 "Grey Talon"
-            ]
-        },
-        {
-            "Description": "- Updated Dynamo's animation while using Rejuvenating Aurora",
-            "Tags": [
-                "Dynamo",
-                "Rejuvenating Aurora"
-            ]
-        },
-        {
-            "Description": "- Fixed a bug that could allow Grey Talon to hit the same target multiple times when close during Rain of Arrows",
-            "Tags": [
-                "Grey Talon",
-                "Rain of Arrows"
-            ]
-        },
-        {
-            "Description": "- Fixed a bug that could cause button input detection to malfunction",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Fixed an issue where the Rejuvenator being stolen was firing incorrectly",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Fixed a bug introduced in last week's update that caused gun spreads to not work properly",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added an effect at the bottom of a player's screen whenever they are standing on something that causes damage",
-            "Tags": [
-                "General"
             ]
         },
         {
@@ -132,37 +30,61 @@
             "Tags": [
                 "Abrams"
             ]
+        },
+        {
+            "Description": "- Fixed her gun having a recent regression that caused it to not have any spread",
+            "Tags": [
+                "McGinnis"
+            ]
+        },
+        {
+            "Description": "- Medicinal Spectre can no longer be attacked",
+            "Tags": [
+                "McGinnis"
+            ]
+        },
+        {
+            "Description": "- Base HP regen increased from 2.5 to 3",
+            "Tags": [
+                "Mo & Krill"
+            ]
+        },
+        {
+            "Description": "- Base movement speed reduced from 7 to 6.5",
+            "Tags": [
+                "Paradox"
+            ]
+        },
+        {
+            "Description": "- No longer has base +15% Spirit Resistance",
+            "Tags": [
+                "Seven"
+            ]
+        },
+        {
+            "Description": "- Now has base +20% Bullet Resistance",
+            "Tags": [
+                "Seven"
+            ]
+        },
+        {
+            "Description": "- Base health regen reduced from 2 to 1",
+            "Tags": [
+                "Seven"
+            ]
+        },
+        {
+            "Description": "- Base movement speed increased from 7 to 8",
+            "Tags": [
+                "Vindicta"
+            ]
         }
     ],
-    "Misc Gameplay": [
+    "Items": [
         {
-            "Description": "- Flex slot removed from killing the Patron and added to killing all Walkers",
+            "Description": "- Fixed a recent bug with Metal Skin that caused you to do zero bullet damage",
             "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Urn now spawns on both sides of the map. Bounty for each is reduced by 40%",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Rejuvenator now reduces players' next respawn time by 75% instead of giving a 3s respawn time",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Golden Statues no longer drop powerups (time duration buffs). Instead they now drop small permanent bonuses. These stack and do not decay with time or death. Drop rates rebalanced.",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "+2 Spirit",
-            "Tags": [
-                "General"
+                "Metal Skin"
             ]
         },
         {
@@ -172,181 +94,11 @@
             ]
         },
         {
-            "Description": "+3% Ammo",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "+15 Max HP (this has slightly higher odds of dropping than the others)",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "+0.5% Cooldown Reduction",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "+2% Weapon Damage",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- At defined locations around the map, powerups now spawn starting 10 minutes (and every 5 minutes after). There are 6 spots where they spawn and they are indicated on the minimap when they are up.",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Movement powerup duration increased from 30s to 50s",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
             "Description": "- Fire Rate powerup duration increased from 35s to 45s and +15% Fire Rate to +18%",
             "Tags": [
                 "Fire Rate"
             ]
         },
-        {
-            "Description": "- Regeneration powerup duration increased from 25s to 45s",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Stamina powerup duration increased from 80s to 120s",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Cooldown powerup is unchanged",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Clip powerup is unchanged",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Breakables initial spawn time increased from 2 min to 3 min",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Fixed being able to hide inside the Guardian's head",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Jumping after a dash jump no longer causes your hero to sometimes jump in place",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Breakables souls base value reduced by 30%. Increases to +15% of current values over 30 minutes. (so -30% to +15% from start to 30 min)",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- All hero guns' reload time reduced by 5%",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Zipline Boost ability cooldown reduced from 380s to 340s",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Medic Trooper heal now bounces to up to one other allied hero within 25m from the hero",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Trooper gold sharing radius from the location of the allied hero reduced from 50m to 40m",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Creep waves now land at their lane destinations at the same time as each other",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added connection hallway between outer lane Shop and crate room",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Opened up Authority Building and Jazz Club to the Guardian side",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added intermediate cover in front of Amber Orange Guardian and Sapphire Blue Guardian",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added Veils to entrances to base fountain",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Extended cover near Sapphire Orange Guardian to match Amber Blue",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Extended alcove on outer lane cover position in front of the Shop",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Underground tunnels have more light",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Removed underground tunnel alcoves",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added signs for entrance to the underground tunnel from the warehouse side",
-            "Tags": [
-                "General"
-            ]
-        }
-    ],
-    "Item Gameplay": [
         {
             "Description": "- CD reduction increased from +7% to +8%",
             "Tags": [
@@ -697,13 +449,35 @@
             ]
         }
     ],
-    "Hero Gameplay": [
+    "Abilities": [
+        {
+            "Description": "- Fixed a bug where pinging Bebop's Hook and Sticky Bomb abilities would call the wrong ability name",
+            "Tags": [
+                "Bebop",
+                "Hook",
+                "Sticky Bomb"
+            ]
+        },
+        {
+            "Description": "- Updated Dynamo's animation while using Rejuvenating Aurora",
+            "Tags": [
+                "Dynamo",
+                "Rejuvenating Aurora"
+            ]
+        },
+        {
+            "Description": "- Fixed a bug that could allow Grey Talon to hit the same target multiple times when close during Rain of Arrows",
+            "Tags": [
+                "Grey Talon",
+                "Rain of Arrows"
+            ]
+        },
         {
             "Description": "- Quantum Entanglement is prevented from being cast when Dynamo is rooted or movement-silenced (such as by Slowing Hex)",
             "Tags": [
                 "Dynamo",
-                "Quantum Entanglement",
-                "Slowing Hex"
+                "Slowing Hex",
+                "Quantum Entanglement"
             ]
         },
         {
@@ -770,12 +544,6 @@
             ]
         },
         {
-            "Description": "- Fixed her gun having a recent regression that caused it to not have any spread",
-            "Tags": [
-                "McGinnis"
-            ]
-        },
-        {
             "Description": "- Mini Turret damage reduced by up to 30% at 35m (now has bullet falloff from 20m to 35m)",
             "Tags": [
                 "McGinnis",
@@ -794,12 +562,6 @@
             "Tags": [
                 "McGinnis",
                 "Mini Turret"
-            ]
-        },
-        {
-            "Description": "- Medicinal Spectre can no longer be attacked",
-            "Tags": [
-                "McGinnis"
             ]
         },
         {
@@ -824,12 +586,6 @@
             ]
         },
         {
-            "Description": "- Base HP regen increased from 2.5 to 3",
-            "Tags": [
-                "Mo & Krill"
-            ]
-        },
-        {
             "Description": "- Scorn damage increased from 50 to 60",
             "Tags": [
                 "Mo & Krill",
@@ -840,8 +596,8 @@
             "Description": "- Fixed Scorn not healing for more with things like Mystic Burst",
             "Tags": [
                 "Mo & Krill",
-                "Scorn",
-                "Mystic Burst"
+                "Mystic Burst",
+                "Scorn"
             ]
         },
         {
@@ -855,8 +611,8 @@
             "Description": "- Fixed Healing Booster not applying to Scorn's 2x heal multiplier on heroes",
             "Tags": [
                 "Mo & Krill",
-                "Scorn",
-                "Healing Booster"
+                "Healing Booster",
+                "Scorn"
             ]
         },
         {
@@ -864,12 +620,6 @@
             "Tags": [
                 "Mo & Krill",
                 "Combo"
-            ]
-        },
-        {
-            "Description": "- Base movement speed reduced from 7 to 6.5",
-            "Tags": [
-                "Paradox"
             ]
         },
         {
@@ -925,26 +675,8 @@
             "Description": "- Fixed Return Fire working with Power Surge",
             "Tags": [
                 "Seven",
-                "Power Surge",
-                "Return Fire"
-            ]
-        },
-        {
-            "Description": "- No longer has base +15% Spirit Resistance",
-            "Tags": [
-                "Seven"
-            ]
-        },
-        {
-            "Description": "- Now has base +20% Bullet Resistance",
-            "Tags": [
-                "Seven"
-            ]
-        },
-        {
-            "Description": "- Base health regen reduced from 2 to 1",
-            "Tags": [
-                "Seven"
+                "Return Fire",
+                "Power Surge"
             ]
         },
         {
@@ -952,12 +684,6 @@
             "Tags": [
                 "Seven",
                 "Static Charge"
-            ]
-        },
-        {
-            "Description": "- Base movement speed increased from 7 to 8",
-            "Tags": [
-                "Vindicta"
             ]
         },
         {
@@ -992,7 +718,8 @@
             "Description": "- The Royal Flush ability has been replaced with Card Trick. Card Trick enables Wraith's weapon damage to summon playing cards. Activating the ability throws one of the cards, which will fly towards the enemy or point under the crosshair and explode on impact.",
             "Tags": [
                 "Wraith",
-                "Card Trick"
+                "Card Trick",
+                "Royal Flush"
             ]
         },
         {
@@ -1023,5 +750,281 @@
                 "Shadow Transformation"
             ]
         }
-    ]
+    ],
+    "General": [
+        {
+            "Description": "- Added a hero based mmr system, so when you join a match with a specific hero the matchmaker adjusts the skill level it assumes you are at by a percentage up or down based on your experience and performance levels with that hero.",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added settings option to allow weapon zoom to be a toggle",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added a game volume slider which will control volume independently from voice chat (VoIP)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- General improvements to voice chat quality",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Non-matchmaking lobbies are now considered safe to abandon",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Crates now show the amount of souls they have in the tooltip",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Greater contrast between team and enemy sounds",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Updated headshot hit indicator",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed a bug that could cause button input detection to malfunction",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed an issue where the Rejuvenator being stolen was firing incorrectly",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed a bug introduced in last week's update that caused gun spreads to not work properly",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added an effect at the bottom of a player's screen whenever they are standing on something that causes damage",
+            "Tags": [
+                "General"
+            ]
+        }
+    ],
+    "Misc Gameplay": [
+        {
+            "Description": "- Flex slot removed from killing the Patron and added to killing all Walkers",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Urn now spawns on both sides of the map. Bounty for each is reduced by 40%",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Rejuvenator now reduces players' next respawn time by 75% instead of giving a 3s respawn time",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Golden Statues no longer drop powerups (time duration buffs). Instead they now drop small permanent bonuses. These stack and do not decay with time or death. Drop rates rebalanced.",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "+2 Spirit",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "+3% Ammo",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "+15 Max HP (this has slightly higher odds of dropping than the others)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "+0.5% Cooldown Reduction",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "+2% Weapon Damage",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- At defined locations around the map, powerups now spawn starting 10 minutes (and every 5 minutes after). There are 6 spots where they spawn and they are indicated on the minimap when they are up.",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Movement powerup duration increased from 30s to 50s",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Regeneration powerup duration increased from 25s to 45s",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Stamina powerup duration increased from 80s to 120s",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Cooldown powerup is unchanged",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Clip powerup is unchanged",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Breakables initial spawn time increased from 2 min to 3 min",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed being able to hide inside the Guardian's head",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Jumping after a dash jump no longer causes your hero to sometimes jump in place",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Breakables souls base value reduced by 30%. Increases to +15% of current values over 30 minutes. (so -30% to +15% from start to 30 min)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- All hero guns' reload time reduced by 5%",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Zipline Boost ability cooldown reduced from 380s to 340s",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Medic Trooper heal now bounces to up to one other allied hero within 25m from the hero",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Trooper gold sharing radius from the location of the allied hero reduced from 50m to 40m",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Creep waves now land at their lane destinations at the same time as each other",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added connection hallway between outer lane Shop and crate room",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Opened up Authority Building and Jazz Club to the Guardian side",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added intermediate cover in front of Amber Orange Guardian and Sapphire Blue Guardian",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added Veils to entrances to base fountain",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Extended cover near Sapphire Orange Guardian to match Amber Blue",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Extended alcove on outer lane cover position in front of the Shop",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Underground tunnels have more light",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Removed underground tunnel alcoves",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added signs for entrance to the underground tunnel from the warehouse side",
+            "Tags": [
+                "General"
+            ]
+        }
+    ],
+    "Item Gameplay": [],
+    "Hero Gameplay": []
 }

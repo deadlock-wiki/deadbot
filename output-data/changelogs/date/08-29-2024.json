@@ -2,16 +2,800 @@
     "Other": [],
     "Heroes": [
         {
+            "Description": "- Now does pull ups on the zipline once again (this is a buff)",
+            "Tags": [
+                "Abrams"
+            ]
+        },
+        {
+            "Description": "- Gun range increased from 30m to 32m",
+            "Tags": [
+                "Bebop"
+            ]
+        },
+        {
+            "Description": "- Gun damage reduced from 15 to 13",
+            "Tags": [
+                "Dynamo"
+            ]
+        },
+        {
+            "Description": "- Can now use multiple air dashes while using Rain of Fire",
+            "Tags": [
+                "Grey Talon"
+            ]
+        },
+        {
+            "Description": "- Base bullet damage increased from 5.3 to 5.6",
+            "Tags": [
+                "Haze"
+            ]
+        },
+        {
+            "Description": "- Bullet damage growth per boon reduced from 0.55 to 0.5",
+            "Tags": [
+                "Ivy"
+            ]
+        },
+        {
+            "Description": "- Health growth per boon reduced from +41 to +35",
+            "Tags": [
+                "Ivy"
+            ]
+        },
+        {
+            "Description": "- Bullet radius increased from 5 to 6",
+            "Tags": [
+                "Kelvin"
+            ]
+        },
+        {
+            "Description": "- Base health growth per boon increased from +45 to +50",
+            "Tags": [
+                "Kelvin"
+            ]
+        },
+        {
+            "Description": "- Improved firing arm position to be a little bit more out of the way from the reticle",
+            "Tags": [
+                "Lash"
+            ]
+        },
+        {
+            "Description": "- Bullet damage growth per boon reduced from 0.5 to 0.4",
+            "Tags": [
+                "Shiv"
+            ]
+        },
+        {
+            "Description": "- Gun falloff range reduced by 10%",
+            "Tags": [
+                "Shiv"
+            ]
+        },
+        {
+            "Description": "- Health growth per boon reduced from +41 to +35",
+            "Tags": [
+                "Shiv"
+            ]
+        },
+        {
+            "Description": "- Fixed left clicks sometimes deselecting the ability when charges aren't ready",
+            "Tags": [
+                "Vindicta"
+            ]
+        },
+        {
+            "Description": "- Primary Fire redesigned to make it more usable and have improved damage and scaling",
+            "Tags": [
+                "Viscous"
+            ]
+        },
+        {
+            "Description": "- Now has an Alt Fire that has limited range, but deals AOE damage that cannot headshot",
+            "Tags": [
+                "Viscous"
+            ]
+        },
+        {
+            "Description": "- Base movement speed reduced from 6.5 to 6",
+            "Tags": [
+                "Warden"
+            ]
+        }
+    ],
+    "Items": [
+        {
+            "Description": "- Fixed selling an item not removing charges correctly. Now you can't buy Extra Charge and immediately sell it and keep that readied charge.",
+            "Tags": [
+                "Extra Charge"
+            ]
+        },
+        {
+            "Description": "- Fixed Sharpshooter showing up in stats for bullet velocity even though it doesn't increase your bullet velocity",
+            "Tags": [
+                "Sharpshooter"
+            ]
+        },
+        {
+            "Description": "- Added new effects for Withering Whip",
+            "Tags": [
+                "Withering Whip"
+            ]
+        },
+        {
+            "Description": "- Updated Ethereal Shift effects",
+            "Tags": [
+                "Ethereal Shift"
+            ]
+        },
+        {
+            "Description": "- Added Decay impact sound",
+            "Tags": [
+                "Decay"
+            ]
+        },
+        {
+            "Description": "- Updated Majestic Leap sound",
+            "Tags": [
+                "Majestic Leap"
+            ]
+        },
+        {
+            "Description": "- Added Shadow Weave cast and ambush sounds",
+            "Tags": [
+                "Shadow Weave"
+            ]
+        },
+        {
+            "Description": "- Bullet Resist vs NPC increased from 30% to 35%",
+            "Tags": [
+                "Monster Rounds"
+            ]
+        },
+        {
+            "Description": "- Heal from heroes increased from 30 to 35",
+            "Tags": [
+                "Restorative Shot"
+            ]
+        },
+        {
+            "Description": "- Bullet Velocity reduced from +35% to +30% (now has an upgrade)",
+            "Tags": [
+                "High-Velocity Mag"
+            ]
+        },
+        {
+            "Description": "- Lifesteal reduced from 30% to 22%",
+            "Tags": [
+                "Active Reload"
+            ]
+        },
+        {
+            "Description": "- Buff duration reduced from 8s to 7s",
+            "Tags": [
+                "Active Reload"
+            ]
+        },
+        {
+            "Description": "- Active Fire Rate reduced from 30% to 25%",
+            "Tags": [
+                "Fire Rate",
+                "Kinetic Dash"
+            ]
+        },
+        {
+            "Description": "- Now grants +90 Bullet Shield",
+            "Tags": [
+                "Long Range"
+            ]
+        },
+        {
+            "Description": "- Now grants +1 HP regen",
+            "Tags": [
+                "Melee Charge"
+            ]
+        },
+        {
+            "Description": "- Now grants +10% Ammo",
+            "Tags": [
+                "Swift Striker"
+            ]
+        },
+        {
+            "Description": "- Bullet Armor increased from 10% to 15%",
+            "Tags": [
+                "Bullet Armor",
+                "Titanic Magazine"
+            ]
+        },
+        {
+            "Description": "- Heal Reduction increased from -55% to -65%",
+            "Tags": [
+                "Toxic Bullets"
+            ]
+        },
+        {
+            "Description": "- Bleed damage reduced from 6% to 5%",
+            "Tags": [
+                "Toxic Bullets"
+            ]
+        },
+        {
+            "Description": "- Now grants +100 Health",
+            "Tags": [
+                "Toxic Bullets"
+            ]
+        },
+        {
+            "Description": "- Now steadily ramps back down to 0% when you stop shooting rather than instantly emptying",
+            "Tags": [
+                "Intensifying Magazine"
+            ]
+        },
+        {
+            "Description": "- Active Bullet Resistance reduced from 40% to 30%",
+            "Tags": [
+                "Warp Stone"
+            ]
+        },
+        {
+            "Description": "- Now grants +175 Bullet Shield",
+            "Tags": [
+                "Sharpshooter"
+            ]
+        },
+        {
+            "Description": "- No longer provides bonus headshot damage",
+            "Tags": [
+                "Sharpshooter"
+            ]
+        },
+        {
+            "Description": "- Weapon damage increased from 60% to 70%",
+            "Tags": [
+                "Sharpshooter"
+            ]
+        },
+        {
+            "Description": "- Active duration increased from 3s to 4s",
+            "Tags": [
+                "Burst Fire"
+            ]
+        },
+        {
+            "Description": "- Max Bullet Resist increased from 36% to 40%",
+            "Tags": [
+                "Escalating Resilience"
+            ]
+        },
+        {
+            "Description": "- Cooldown reduced from 28s to 26s",
+            "Tags": [
+                "Alchemical Fire"
+            ]
+        },
+        {
+            "Description": "- Active duration increased from 5s to 6s",
+            "Tags": [
+                "Heroic Aura"
+            ]
+        },
+        {
+            "Description": "- Added new T3 Weapon Item, Headhunter: Requires High-Velocity Mag. Grants +50% Bullet Velocity, +15% Weapon Damage and +150 Bullet Shield. Passive cooldown: Landing a headshot on heroes deals bonus +140 Damage, heals you for +8% Max HP and grants +2 m/s for 3 seconds. Cooldown: 6 seconds.",
+            "Tags": [
+                "Headhunter",
+                "High-Velocity Mag"
+            ]
+        },
+        {
+            "Description": "- Weapon Damage reduced from 40% to 28%",
+            "Tags": [
+                "Siphon Bullets"
+            ]
+        },
+        {
+            "Description": "- Ammo increased from +9 to +12",
+            "Tags": [
+                "Frenzy"
+            ]
+        },
+        {
+            "Description": "- Proc chance increased from 30% to 35%",
+            "Tags": [
+                "Lucky Shot"
+            ]
+        },
+        {
+            "Description": "- Bounce damage increased from 50% to 60%",
+            "Tags": [
+                "Ricochet"
+            ]
+        },
+        {
+            "Description": "- Fixed not applying spirit bonus damage from Vindicta and Wraith abilities",
+            "Tags": [
+                "Vindicta",
+                "Wraith",
+                "Ricochet"
+            ]
+        },
+        {
+            "Description": "- Effectiveness vs non-heroes increased from 35% to 40%",
+            "Tags": [
+                "Melee Lifesteal"
+            ]
+        },
+        {
+            "Description": "- Cooldown reduced from 65s to 60s",
+            "Tags": [
+                "Healing Rite"
+            ]
+        },
+        {
+            "Description": "- No longer grants +7% Bullet Resist",
+            "Tags": [
+                "Divine Barrier"
+            ]
+        },
+        {
+            "Description": "- No longer grants +1.5 Health Regen",
+            "Tags": [
+                "Health Regen",
+                "Divine Barrier"
+            ]
+        },
+        {
+            "Description": "- Now grants +1 Sprint",
+            "Tags": [
+                "Divine Barrier"
+            ]
+        },
+        {
+            "Description": "- Now grants +75 Health",
+            "Tags": [
+                "Divine Barrier"
+            ]
+        },
+        {
+            "Description": "- Now grants +8% Ability Range",
+            "Tags": [
+                "Divine Barrier"
+            ]
+        },
+        {
+            "Description": "- Now also grants +8% Fire Rate while active",
+            "Tags": [
+                "Fire Rate",
+                "Combat Barrier"
+            ]
+        },
+        {
+            "Description": "- Duration reduced from 13s to 9s",
+            "Tags": [
+                "Reactive Barrier"
+            ]
+        },
+        {
+            "Description": "- Now has also 15% Heal Reduction Resist (Leech no longer has it)",
+            "Tags": [
+                "Leech",
+                "Healing Booster"
+            ]
+        },
+        {
+            "Description": "- No longer has +6% Bullet Resist",
+            "Tags": [
+                "Healing Booster"
+            ]
+        },
+        {
+            "Description": "- Air Jump/Dash Distance reduced from +40% to +30%",
+            "Tags": [
+                "Superior Stamina"
+            ]
+        },
+        {
+            "Description": "- Cooldown reduced from 25s to 22s",
+            "Tags": [
+                "Metal Skin"
+            ]
+        },
+        {
+            "Description": "- Channel duration reduced from 3s to 2.5s",
+            "Tags": [
+                "Rescue Beam"
+            ]
+        },
+        {
+            "Description": "- Effectiveness vs non-heroes increased from 35% to 40%",
+            "Tags": [
+                "Lifestrike"
+            ]
+        },
+        {
+            "Description": "- Damage taken duration threshold reduced from 12s to 11s",
+            "Tags": [
+                "Fortitude"
+            ]
+        },
+        {
+            "Description": "- Cooldown reduced from 18s to 17s",
+            "Tags": [
+                "Veil Walker"
+            ]
+        },
+        {
+            "Description": "- Cooldown reduced from 26s to 24s",
+            "Tags": [
+                "Majestic Leap"
+            ]
+        },
+        {
+            "Description": "- No longer has 30% Heal Reduction Resist",
+            "Tags": [
+                "Leech"
+            ]
+        },
+        {
+            "Description": "- Can now be cast while channeling",
+            "Tags": [
+                "Unstoppable"
+            ]
+        },
+        {
+            "Description": "- Cooldown reduced from 65s to 60s",
+            "Tags": [
+                "Unstoppable"
+            ]
+        },
+        {
+            "Description": "- Cooldown reduction increased from +15% to +18%",
+            "Tags": [
+                "Rebirth",
+                "Soul Rebirth"
+            ]
+        },
+        {
+            "Description": "- Now grants +12 Spirit",
+            "Tags": [
+                "Rebirth",
+                "Soul Rebirth"
+            ]
+        },
+        {
+            "Description": "- Fixed being able to purchase globally during its brief respawn period",
+            "Tags": [
+                "Rebirth",
+                "Soul Rebirth"
+            ]
+        },
+        {
+            "Description": "- Fixed the camera moving away from the player if you will respawn, rather than following the ragdoll",
+            "Tags": [
+                "Rebirth",
+                "Soul Rebirth"
+            ]
+        },
+        {
+            "Description": "- Slow increased from 25% to 35%",
+            "Tags": [
+                "Colossus"
+            ]
+        },
+        {
+            "Description": "- Spirit Shield health increased from +200 to +300",
+            "Tags": [
+                "Shadow Weave"
+            ]
+        },
+        {
+            "Description": "- Spot radius reduced from 20m to 18m",
+            "Tags": [
+                "Shadow Weave"
+            ]
+        },
+        {
+            "Description": "- Cast range reduced from 30m to 25m",
+            "Tags": [
+                "Phantom Strike"
+            ]
+        },
+        {
+            "Description": "- Health increased from +50 to +60",
+            "Tags": [
+                "Ammo Scavenger"
+            ]
+        },
+        {
+            "Description": "- Cooldown reduction increased from +8% to +10%",
+            "Tags": [
+                "Extra Charge"
+            ]
+        },
+        {
+            "Description": "- Debuff duration increased from 8s to 13s",
+            "Tags": [
+                "Spirit Strike"
+            ]
+        },
+        {
+            "Description": "- Spirit Shield increased from +85 to +100",
+            "Tags": [
+                "Spirit Strike"
+            ]
+        },
+        {
+            "Description": "- Health increased from +25 to +35",
+            "Tags": [
+                "Extra Spirit"
+            ]
+        },
+        {
+            "Description": "- No longer grants +20% Ammo",
+            "Tags": [
+                "Withering Whip"
+            ]
+        },
+        {
+            "Description": "- Now grants +8% Fire Rate",
+            "Tags": [
+                "Fire Rate",
+                "Withering Whip"
+            ]
+        },
+        {
+            "Description": "- Fire Rate slow reduced from -40% to -30%",
+            "Tags": [
+                "Fire Rate",
+                "Withering Whip"
+            ]
+        },
+        {
+            "Description": "- Cooldown reduced from 40s to 25s",
+            "Tags": [
+                "Withering Whip"
+            ]
+        },
+        {
+            "Description": "- Health regen reduced from 3 to 2.5",
+            "Tags": [
+                "Suppressor"
+            ]
+        },
+        {
+            "Description": "- Fire Rate reduction reduced from -30% to -25%",
+            "Tags": [
+                "Fire Rate",
+                "Suppressor"
+            ]
+        },
+        {
+            "Description": "- Cooldown Reduction increased from 15% to 16%",
+            "Tags": [
+                "Improved Cooldown"
+            ]
+        },
+        {
+            "Description": "- Health regen increased from 1.5 to 1.75",
+            "Tags": [
+                "Duration Extender"
+            ]
+        },
+        {
+            "Description": "- Projectile speed increased by 30%",
+            "Tags": [
+                "Slowing Hex"
+            ]
+        },
+        {
+            "Description": "- Cooldown reduced from 27s to 25s",
+            "Tags": [
+                "Slowing Hex"
+            ]
+        },
+        {
+            "Description": "- Charge count reduced from +3 to +2",
+            "Tags": [
+                "Rapid Recharge"
+            ]
+        },
+        {
+            "Description": "- Faster Time Between Charges increased from +40% to +55%",
+            "Tags": [
+                "Rapid Recharge"
+            ]
+        },
+        {
+            "Description": "- Cooldown for charged abilities increased from +20% to +25%",
+            "Tags": [
+                "Rapid Recharge"
+            ]
+        },
+        {
+            "Description": "- Delay reduced from 3s to 2s",
+            "Tags": [
+                "Knockdown"
+            ]
+        },
+        {
+            "Description": "- Stun reduced from 1.25s to 0.9s",
+            "Tags": [
+                "Knockdown"
+            ]
+        },
+        {
+            "Description": "- Cast range increased from 35m to 45m",
+            "Tags": [
+                "Knockdown"
+            ]
+        },
+        {
+            "Description": "- Duration reduced from 3.5s to 3s",
+            "Tags": [
+                "Silence Glyph"
+            ]
+        },
+        {
+            "Description": "- Imbued Ability Spirit Power increased from +28 to +34",
+            "Tags": [
+                "Imbued Ability",
+                "Surge of Power"
+            ]
+        },
+        {
+            "Description": "- Non-Imbued duration increased from +24% to +26%",
+            "Tags": [
+                "Superior Duration"
+            ]
+        },
+        {
+            "Description": "- Health Regen increased from 2 to 3",
+            "Tags": [
+                "Health Regen",
+                "Improved Spirit"
+            ]
+        },
+        {
+            "Description": "- Health increased from +75 to +100",
+            "Tags": [
+                "Improved Spirit"
+            ]
+        },
+        {
+            "Description": "- Spirit Resist increased from +10% to +12%",
+            "Tags": [
+                "Improved Reach"
+            ]
+        },
+        {
+            "Description": "- Duration reduced from 3.5 to 3.25",
+            "Tags": [
+                "Curse"
+            ]
+        },
+        {
+            "Description": "- You are now unslowable while on the Magic Carpet",
+            "Tags": [
+                "Magic Carpet"
+            ]
+        },
+        {
+            "Description": "- Cooldown reduced from 40s to 30s",
+            "Tags": [
+                "Magic Carpet"
+            ]
+        },
+        {
+            "Description": "- Barriers now last for 16s",
+            "Tags": [
+                "Magic Carpet"
+            ]
+        },
+        {
+            "Description": "- Now grants +8 Spirit Power",
+            "Tags": [
+                "Echo Shard"
+            ]
+        },
+        {
+            "Description": "- Base Spirit Resist reduction increased from -12% to -15%",
+            "Tags": [
+                "Escalating Exposure"
+            ]
+        },
+        {
+            "Description": "- Now grants +8% Bullet Resist",
+            "Tags": [
+                "Refresher"
+            ]
+        },
+        {
+            "Description": "- Sprint reduced from +4 to +3",
+            "Tags": [
+                "Boundless Spirit"
+            ]
+        },
+        {
+            "Description": "- Now grants +25% Weapon Damage",
+            "Tags": [
+                "Boundless Spirit"
+            ]
+        },
+        {
+            "Description": "- Fire Rate now scales with Spirit (0.25)",
+            "Tags": [
+                "Grey Talon",
+                "Fire Rate"
+            ]
+        },
+        {
+            "Description": "- Fire Rate scaling with spirit reduced from 0.375 Fire Rate per Spirit to 0.3",
+            "Tags": [
+                "Warden",
+                "Fire Rate"
+            ]
+        }
+    ],
+    "Abilities": [
+        {
+            "Description": "- Fixed bug with Lash not hearing his own Ground Strike impact explosion sound",
+            "Tags": [
+                "Lash",
+                "Ground Strike"
+            ]
+        },
+        {
+            "Description": "- Added custom effects for Abram's Seismic Impact T3 buff",
+            "Tags": [
+                "Seismic Impact"
+            ]
+        },
+        {
+            "Description": "- Updated Lash Grapple cast sound",
+            "Tags": [
+                "Lash",
+                "Grapple"
+            ]
+        },
+        {
+            "Description": "- Added hit confirm audio functionality to Warden's Alchemical Flask",
+            "Tags": [
+                "Warden",
+                "Alchemical Flask"
+            ]
+        },
+        {
+            "Description": "- Improved some Binding Word effects to be less noisy",
+            "Tags": [
+                "Binding Word"
+            ]
+        },
+        {
+            "Description": "- Improved clarity of Dynamo Singularity sound for team and opponents",
+            "Tags": [
+                "Dynamo",
+                "Singularity"
+            ]
+        },
+        {
+            "Description": "- Updated Alchemical Flask projectile effect",
+            "Tags": [
+                "Alchemical Flask"
+            ]
+        },
+        {
+            "Description": "- Spirit damage scaling increased from 0.2 to 0.24",
+            "Tags": [
+                "Torment Pulse",
+                "Pulse"
+            ]
+        },
+        {
             "Description": "- Infernal Resilience Regeneration Time increased from 16s to 18s (this is a nerf)",
             "Tags": [
                 "Abrams",
                 "Infernal Resilience"
-            ]
-        },
-        {
-            "Description": "- Now does pull ups on the zipline once again (this is a buff)",
-            "Tags": [
-                "Abrams"
             ]
         },
         {
@@ -26,12 +810,6 @@
             "Tags": [
                 "Abrams",
                 "Seismic Impact"
-            ]
-        },
-        {
-            "Description": "- Gun range increased from 30m to 32m",
-            "Tags": [
-                "Bebop"
             ]
         },
         {
@@ -59,13 +837,8 @@
             "Description": "- Fixed Kinetic Pulse not traveling properly when cast near corners",
             "Tags": [
                 "Dynamo",
-                "Kinetic Pulse"
-            ]
-        },
-        {
-            "Description": "- Gun damage reduced from 15 to 13",
-            "Tags": [
-                "Dynamo"
+                "Kinetic Pulse",
+                "Pulse"
             ]
         },
         {
@@ -104,19 +877,6 @@
             ]
         },
         {
-            "Description": "- Fire Rate now scales with Spirit (0.25)",
-            "Tags": [
-                "Grey Talon",
-                "Fire Rate"
-            ]
-        },
-        {
-            "Description": "- Can now use multiple air dashes while using Rain of Fire",
-            "Tags": [
-                "Grey Talon"
-            ]
-        },
-        {
             "Description": "- Immobilizing Trap root duration reduced from 2s to 1.25s",
             "Tags": [
                 "Grey Talon",
@@ -135,12 +895,6 @@
             "Tags": [
                 "Grey Talon",
                 "Immobilizing Trap"
-            ]
-        },
-        {
-            "Description": "- Base bullet damage increased from 5.3 to 5.6",
-            "Tags": [
-                "Haze"
             ]
         },
         {
@@ -168,8 +922,8 @@
             "Description": "- Smoke Bomb radius reduced from 20m to 18m",
             "Tags": [
                 "Haze",
-                "Smoke Bomb",
-                "Smoke"
+                "Smoke",
+                "Smoke Bomb"
             ]
         },
         {
@@ -236,18 +990,6 @@
             ]
         },
         {
-            "Description": "- Bullet damage growth per boon reduced from 0.55 to 0.5",
-            "Tags": [
-                "Ivy"
-            ]
-        },
-        {
-            "Description": "- Health growth per boon reduced from +41 to +35",
-            "Tags": [
-                "Ivy"
-            ]
-        },
-        {
             "Description": "- Watcher's Covenant T2 reduced from +3 m/s to +2",
             "Tags": [
                 "Ivy",
@@ -311,18 +1053,6 @@
             ]
         },
         {
-            "Description": "- Bullet radius increased from 5 to 6",
-            "Tags": [
-                "Kelvin"
-            ]
-        },
-        {
-            "Description": "- Base health growth per boon increased from +45 to +50",
-            "Tags": [
-                "Kelvin"
-            ]
-        },
-        {
             "Description": "- Arctic Beam max slow increased from 60% to 80%",
             "Tags": [
                 "Kelvin",
@@ -355,12 +1085,6 @@
             "Tags": [
                 "Kelvin",
                 "Frost Grenade"
-            ]
-        },
-        {
-            "Description": "- Improved firing arm position to be a little bit more out of the way from the reticle",
-            "Tags": [
-                "Lash"
             ]
         },
         {
@@ -427,24 +1151,6 @@
             ]
         },
         {
-            "Description": "- Bullet damage growth per boon reduced from 0.5 to 0.4",
-            "Tags": [
-                "Shiv"
-            ]
-        },
-        {
-            "Description": "- Gun falloff range reduced by 10%",
-            "Tags": [
-                "Shiv"
-            ]
-        },
-        {
-            "Description": "- Health growth per boon reduced from +41 to +35",
-            "Tags": [
-                "Shiv"
-            ]
-        },
-        {
             "Description": "- Slice and Dice T2 reduced from +100 to +85",
             "Tags": [
                 "Shiv",
@@ -484,24 +1190,6 @@
             "Tags": [
                 "Vindicta",
                 "Crow Familiar"
-            ]
-        },
-        {
-            "Description": "- Fixed left clicks sometimes deselecting the ability when charges aren't ready",
-            "Tags": [
-                "Vindicta"
-            ]
-        },
-        {
-            "Description": "- Primary Fire redesigned to make it more usable and have improved damage and scaling",
-            "Tags": [
-                "Viscous"
-            ]
-        },
-        {
-            "Description": "- Now has an Alt Fire that has limited range, but deals AOE damage that cannot headshot",
-            "Tags": [
-                "Viscous"
             ]
         },
         {
@@ -575,19 +1263,6 @@
             ]
         },
         {
-            "Description": "- Base movement speed reduced from 6.5 to 6",
-            "Tags": [
-                "Warden"
-            ]
-        },
-        {
-            "Description": "- Fire Rate scaling with spirit reduced from 0.375 Fire Rate per Spirit to 0.3",
-            "Tags": [
-                "Warden",
-                "Fire Rate"
-            ]
-        },
-        {
             "Description": "- Power Slash max damage time requirement reduced from 1.5s to 1.4s",
             "Tags": [
                 "Yamato",
@@ -631,8 +1306,6 @@
             ]
         }
     ],
-    "Items": [],
-    "Abilities": [],
     "General": [
         {
             "Description": "- Added a new Profile page that displays a breakdown of recent matches and all-time player and hero statistics (Note: the newly added stats 'Souls Collected' and 'Healing' are starting at 0 for all players)",
@@ -833,21 +1506,9 @@
             ]
         },
         {
-            "Description": "- Fixed selling an item not removing charges correctly. Now you can't buy Extra Charge and immediately sell it and keep that readied charge.",
-            "Tags": [
-                "Extra Charge"
-            ]
-        },
-        {
             "Description": "- Fixed some tooltips not showing golden statue bonuses if it wasn't the direct stat (i.e. you got fire rate but bullets per second didn't show the golden statue)",
             "Tags": [
                 "General"
-            ]
-        },
-        {
-            "Description": "- Fixed Sharpshooter showing up in stats for bullet velocity even though it doesn't increase your bullet velocity",
-            "Tags": [
-                "Sharpshooter"
             ]
         },
         {
@@ -857,34 +1518,9 @@
             ]
         },
         {
-            "Description": "- Fixed bug with Lash not hearing his own Ground Strike impact explosion sound",
-            "Tags": [
-                "Lash",
-                "Ground Strike"
-            ]
-        },
-        {
-            "Description": "- Added new effects for Withering Whip",
-            "Tags": [
-                "Withering Whip"
-            ]
-        },
-        {
-            "Description": "- Updated Ethereal Shift effects",
-            "Tags": [
-                "Ethereal Shift"
-            ]
-        },
-        {
             "Description": "- Fixed the disarmed spinner not showing up on your crosshair when you get disarmed",
             "Tags": [
                 "General"
-            ]
-        },
-        {
-            "Description": "- Fixed parts of Shiv's coat being considered a headshot",
-            "Tags": [
-                "Shiv"
             ]
         },
         {
@@ -906,28 +1542,9 @@
             ]
         },
         {
-            "Description": "- Added custom effects for Abram's Seismic Impact T3 buff",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
             "Description": "- Fixed a bug where someone could be holding down M1 and still be attacking when the magic carpet arrives",
             "Tags": [
                 "General"
-            ]
-        },
-        {
-            "Description": "- Updated Lash Grapple cast sound",
-            "Tags": [
-                "Lash",
-                "Grapple"
-            ]
-        },
-        {
-            "Description": "- Added Decay impact sound",
-            "Tags": [
-                "Decay"
             ]
         },
         {
@@ -961,26 +1578,7 @@
             ]
         },
         {
-            "Description": "- Added hit confirm audio functionality to Warden's Alchemical Flask",
-            "Tags": [
-                "Warden",
-                "Alchemical Flask"
-            ]
-        },
-        {
-            "Description": "- Updated Majestic Leap sound",
-            "Tags": [
-                "Majestic Leap"
-            ]
-        },
-        {
             "Description": "- Updated bounce pad sound",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Improved some Binding Word effects to be less noisy",
             "Tags": [
                 "General"
             ]
@@ -995,19 +1593,6 @@
             "Description": "- Reduced likelihood of irrelevant announcer and hero dialog lines playing during combat exchanges",
             "Tags": [
                 "General"
-            ]
-        },
-        {
-            "Description": "- Improved clarity of Dynamo Singularity sound for team and opponents",
-            "Tags": [
-                "Dynamo",
-                "Singularity"
-            ]
-        },
-        {
-            "Description": "- Updated Viscous primary fire sound",
-            "Tags": [
-                "Viscous"
             ]
         },
         {
@@ -1026,31 +1611,6 @@
             "Description": "- Teleporter model and effect updated",
             "Tags": [
                 "General"
-            ]
-        },
-        {
-            "Description": "- Updated Alchemical Flask projectile effect",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Fixed Bebop being able to sprint while his gun is spun up",
-            "Tags": [
-                "Bebop"
-            ]
-        },
-        {
-            "Description": "- Added new voice content for Seven and Lash",
-            "Tags": [
-                "Seven",
-                "Lash"
-            ]
-        },
-        {
-            "Description": "- Added Shadow Weave cast and ambush sounds",
-            "Tags": [
-                "Shadow Weave"
             ]
         },
         {
@@ -1298,606 +1858,25 @@
     ],
     "Weapon Items": [
         {
-            "Description": "- Bullet Resist vs NPC increased from 30% to 35%",
-            "Tags": [
-                "Monster Rounds"
-            ]
-        },
-        {
             "Description": "- Hollow Point Rounds: Spirit Shield increased from +80 to +85",
             "Tags": [
                 "General"
-            ]
-        },
-        {
-            "Description": "- Heal from heroes increased from 30 to 35",
-            "Tags": [
-                "Restorative Shot"
-            ]
-        },
-        {
-            "Description": "- Bullet Velocity reduced from +35% to +30% (now has an upgrade)",
-            "Tags": [
-                "High-Velocity Mag"
-            ]
-        },
-        {
-            "Description": "- Lifesteal reduced from 30% to 22%",
-            "Tags": [
-                "Active Reload"
-            ]
-        },
-        {
-            "Description": "- Buff duration reduced from 8s to 7s",
-            "Tags": [
-                "Active Reload"
-            ]
-        },
-        {
-            "Description": "- Active Fire Rate reduced from 30% to 25%",
-            "Tags": [
-                "Fire Rate",
-                "Kinetic Dash"
-            ]
-        },
-        {
-            "Description": "- Now grants +90 Bullet Shield",
-            "Tags": [
-                "Long Range"
-            ]
-        },
-        {
-            "Description": "- Now grants +1 HP regen",
-            "Tags": [
-                "Melee Charge"
-            ]
-        },
-        {
-            "Description": "- Now grants +10% Ammo",
-            "Tags": [
-                "Swift Striker"
-            ]
-        },
-        {
-            "Description": "- Bullet Armor increased from 10% to 15%",
-            "Tags": [
-                "Bullet Armor",
-                "Titanic Magazine"
-            ]
-        },
-        {
-            "Description": "- Heal Reduction increased from -55% to -65%",
-            "Tags": [
-                "Toxic Bullets"
-            ]
-        },
-        {
-            "Description": "- Bleed damage reduced from 6% to 5%",
-            "Tags": [
-                "Toxic Bullets"
-            ]
-        },
-        {
-            "Description": "- Now grants +100 Health",
-            "Tags": [
-                "Toxic Bullets"
-            ]
-        },
-        {
-            "Description": "- Now steadily ramps back down to 0% when you stop shooting rather than instantly emptying",
-            "Tags": [
-                "Intensifying Magazine"
-            ]
-        },
-        {
-            "Description": "- Active Bullet Resistance reduced from 40% to 30%",
-            "Tags": [
-                "Warp Stone"
-            ]
-        },
-        {
-            "Description": "- Now grants +175 Bullet Shield",
-            "Tags": [
-                "Sharpshooter"
-            ]
-        },
-        {
-            "Description": "- No longer provides bonus headshot damage",
-            "Tags": [
-                "Sharpshooter"
-            ]
-        },
-        {
-            "Description": "- Weapon damage increased from 60% to 70%",
-            "Tags": [
-                "Sharpshooter"
-            ]
-        },
-        {
-            "Description": "- Active duration increased from 3s to 4s",
-            "Tags": [
-                "Burst Fire"
-            ]
-        },
-        {
-            "Description": "- Max Bullet Resist increased from 36% to 40%",
-            "Tags": [
-                "Escalating Resilience"
-            ]
-        },
-        {
-            "Description": "- Cooldown reduced from 28s to 26s",
-            "Tags": [
-                "Alchemical Fire"
-            ]
-        },
-        {
-            "Description": "- Active duration increased from 5s to 6s",
-            "Tags": [
-                "Heroic Aura"
-            ]
-        },
-        {
-            "Description": "- Added new T3 Weapon Item, Headhunter: Requires High-Velocity Mag. Grants +50% Bullet Velocity, +15% Weapon Damage and +150 Bullet Shield. Passive cooldown: Landing a headshot on heroes deals bonus +140 Damage, heals you for +8% Max HP and grants +2 m/s for 3 seconds. Cooldown: 6 seconds.",
-            "Tags": [
-                "Headhunter",
-                "High-Velocity Mag"
-            ]
-        },
-        {
-            "Description": "- Weapon Damage reduced from 40% to 28%",
-            "Tags": [
-                "Siphon Bullets"
-            ]
-        },
-        {
-            "Description": "- Ammo increased from +9 to +12",
-            "Tags": [
-                "Frenzy"
-            ]
-        },
-        {
-            "Description": "- Proc chance increased from 30% to 35%",
-            "Tags": [
-                "Lucky Shot"
-            ]
-        },
-        {
-            "Description": "- Bounce damage increased from 50% to 60%",
-            "Tags": [
-                "Ricochet"
-            ]
-        },
-        {
-            "Description": "- Fixed not applying spirit bonus damage from Vindicta and Wraith abilities",
-            "Tags": [
-                "Vindicta",
-                "Wraith",
-                "Ricochet"
             ]
         }
     ],
     "Vitality Items": [
         {
-            "Description": "- Effectiveness vs non-heroes increased from 35% to 40%",
-            "Tags": [
-                "Melee Lifesteal"
-            ]
-        },
-        {
-            "Description": "- Cooldown reduced from 65s to 60s",
-            "Tags": [
-                "Healing Rite"
-            ]
-        },
-        {
-            "Description": "- No longer grants +7% Bullet Resist",
-            "Tags": [
-                "Divine Barrier"
-            ]
-        },
-        {
-            "Description": "- No longer grants +1.5 Health Regen",
-            "Tags": [
-                "Health Regen",
-                "Divine Barrier"
-            ]
-        },
-        {
-            "Description": "- Now grants +1 Sprint",
-            "Tags": [
-                "Divine Barrier"
-            ]
-        },
-        {
-            "Description": "- Now grants +75 Health",
-            "Tags": [
-                "Divine Barrier"
-            ]
-        },
-        {
-            "Description": "- Now grants +8% Ability Range",
-            "Tags": [
-                "Divine Barrier"
-            ]
-        },
-        {
-            "Description": "- Now also grants +8% Fire Rate while active",
-            "Tags": [
-                "Fire Rate",
-                "Combat Barrier"
-            ]
-        },
-        {
             "Description": "- Enchanter's Barrer: Now also grants +8% Cooldown Reduction while active",
             "Tags": [
                 "General"
-            ]
-        },
-        {
-            "Description": "- Duration reduced from 13s to 9s",
-            "Tags": [
-                "Reactive Barrier"
-            ]
-        },
-        {
-            "Description": "- Now has also 15% Heal Reduction Resist (Leech no longer has it)",
-            "Tags": [
-                "Leech",
-                "Healing Booster"
-            ]
-        },
-        {
-            "Description": "- No longer has +6% Bullet Resist",
-            "Tags": [
-                "Healing Booster"
-            ]
-        },
-        {
-            "Description": "- Air Jump/Dash Distance reduced from +40% to +30%",
-            "Tags": [
-                "Superior Stamina"
-            ]
-        },
-        {
-            "Description": "- Cooldown reduced from 25s to 22s",
-            "Tags": [
-                "Metal Skin"
-            ]
-        },
-        {
-            "Description": "- Channel duration reduced from 3s to 2.5s",
-            "Tags": [
-                "Rescue Beam"
-            ]
-        },
-        {
-            "Description": "- Effectiveness vs non-heroes increased from 35% to 40%",
-            "Tags": [
-                "Lifestrike"
-            ]
-        },
-        {
-            "Description": "- Damage taken duration threshold reduced from 12s to 11s",
-            "Tags": [
-                "Fortitude"
-            ]
-        },
-        {
-            "Description": "- Cooldown reduced from 18s to 17s",
-            "Tags": [
-                "Veil Walker"
-            ]
-        },
-        {
-            "Description": "- Cooldown reduced from 26s to 24s",
-            "Tags": [
-                "Majestic Leap"
-            ]
-        },
-        {
-            "Description": "- No longer has 30% Heal Reduction Resist",
-            "Tags": [
-                "Leech"
-            ]
-        },
-        {
-            "Description": "- Can now be cast while channeling",
-            "Tags": [
-                "Unstoppable"
-            ]
-        },
-        {
-            "Description": "- Cooldown reduced from 65s to 60s",
-            "Tags": [
-                "Unstoppable"
-            ]
-        },
-        {
-            "Description": "- Cooldown reduction increased from +15% to +18%",
-            "Tags": [
-                "Rebirth",
-                "Soul Rebirth"
-            ]
-        },
-        {
-            "Description": "- Now grants +12 Spirit",
-            "Tags": [
-                "Rebirth",
-                "Soul Rebirth"
-            ]
-        },
-        {
-            "Description": "- Fixed being able to purchase globally during its brief respawn period",
-            "Tags": [
-                "Rebirth",
-                "Soul Rebirth"
-            ]
-        },
-        {
-            "Description": "- Fixed the camera moving away from the player if you will respawn, rather than following the ragdoll",
-            "Tags": [
-                "Rebirth",
-                "Soul Rebirth"
-            ]
-        },
-        {
-            "Description": "- Slow increased from 25% to 35%",
-            "Tags": [
-                "Colossus"
-            ]
-        },
-        {
-            "Description": "- Spirit Shield health increased from +200 to +300",
-            "Tags": [
-                "Shadow Weave"
-            ]
-        },
-        {
-            "Description": "- Spot radius reduced from 20m to 18m",
-            "Tags": [
-                "Shadow Weave"
-            ]
-        },
-        {
-            "Description": "- Cast range reduced from 30m to 25m",
-            "Tags": [
-                "Phantom Strike"
             ]
         }
     ],
     "Spirit Items": [
         {
-            "Description": "- Health increased from +50 to +60",
-            "Tags": [
-                "Ammo Scavenger"
-            ]
-        },
-        {
-            "Description": "- Cooldown reduction increased from +8% to +10%",
-            "Tags": [
-                "Extra Charge"
-            ]
-        },
-        {
-            "Description": "- Debuff duration increased from 8s to 13s",
-            "Tags": [
-                "Spirit Strike"
-            ]
-        },
-        {
-            "Description": "- Spirit Shield increased from +85 to +100",
-            "Tags": [
-                "Spirit Strike"
-            ]
-        },
-        {
-            "Description": "- Health increased from +25 to +35",
-            "Tags": [
-                "Extra Spirit"
-            ]
-        },
-        {
-            "Description": "- No longer grants +20% Ammo",
-            "Tags": [
-                "Withering Whip"
-            ]
-        },
-        {
-            "Description": "- Now grants +8% Fire Rate",
-            "Tags": [
-                "Fire Rate",
-                "Withering Whip"
-            ]
-        },
-        {
-            "Description": "- Fire Rate slow reduced from -40% to -30%",
-            "Tags": [
-                "Fire Rate",
-                "Withering Whip"
-            ]
-        },
-        {
-            "Description": "- Cooldown reduced from 40s to 25s",
-            "Tags": [
-                "Withering Whip"
-            ]
-        },
-        {
             "Description": "- Quicksilver: No longer has +10% Reload Time",
             "Tags": [
                 "General"
-            ]
-        },
-        {
-            "Description": "- Health regen reduced from 3 to 2.5",
-            "Tags": [
-                "Suppressor"
-            ]
-        },
-        {
-            "Description": "- Fire Rate reduction reduced from -30% to -25%",
-            "Tags": [
-                "Fire Rate",
-                "Suppressor"
-            ]
-        },
-        {
-            "Description": "- Cooldown Reduction increased from 15% to 16%",
-            "Tags": [
-                "Improved Cooldown"
-            ]
-        },
-        {
-            "Description": "- Health regen increased from 1.5 to 1.75",
-            "Tags": [
-                "Duration Extender"
-            ]
-        },
-        {
-            "Description": "- Projectile speed increased by 30%",
-            "Tags": [
-                "Slowing Hex"
-            ]
-        },
-        {
-            "Description": "- Cooldown reduced from 27s to 25s",
-            "Tags": [
-                "Slowing Hex"
-            ]
-        },
-        {
-            "Description": "- Charge count reduced from +3 to +2",
-            "Tags": [
-                "Rapid Recharge"
-            ]
-        },
-        {
-            "Description": "- Faster Time Between Charges increased from +40% to +55%",
-            "Tags": [
-                "Rapid Recharge"
-            ]
-        },
-        {
-            "Description": "- Cooldown for charged abilities increased from +20% to +25%",
-            "Tags": [
-                "Rapid Recharge"
-            ]
-        },
-        {
-            "Description": "- Delay reduced from 3s to 2s",
-            "Tags": [
-                "Knockdown"
-            ]
-        },
-        {
-            "Description": "- Stun reduced from 1.25s to 0.9s",
-            "Tags": [
-                "Knockdown"
-            ]
-        },
-        {
-            "Description": "- Cast range increased from 35m to 45m",
-            "Tags": [
-                "Knockdown"
-            ]
-        },
-        {
-            "Description": "- Duration reduced from 3.5s to 3s",
-            "Tags": [
-                "Silence Glyph"
-            ]
-        },
-        {
-            "Description": "- Spirit damage scaling increased from 0.2 to 0.24",
-            "Tags": [
-                "Torment Pulse"
-            ]
-        },
-        {
-            "Description": "- Imbued Ability Spirit Power increased from +28 to +34",
-            "Tags": [
-                "Imbued Ability",
-                "Surge of Power"
-            ]
-        },
-        {
-            "Description": "- Non-Imbued duration increased from +24% to +26%",
-            "Tags": [
-                "Superior Duration"
-            ]
-        },
-        {
-            "Description": "- Health Regen increased from 2 to 3",
-            "Tags": [
-                "Health Regen",
-                "Improved Spirit"
-            ]
-        },
-        {
-            "Description": "- Health increased from +75 to +100",
-            "Tags": [
-                "Improved Spirit"
-            ]
-        },
-        {
-            "Description": "- Spirit Resist increased from +10% to +12%",
-            "Tags": [
-                "Improved Reach"
-            ]
-        },
-        {
-            "Description": "- Duration reduced from 3.5 to 3.25",
-            "Tags": [
-                "Curse"
-            ]
-        },
-        {
-            "Description": "- You are now unslowable while on the Magic Carpet",
-            "Tags": [
-                "Magic Carpet"
-            ]
-        },
-        {
-            "Description": "- Cooldown reduced from 40s to 30s",
-            "Tags": [
-                "Magic Carpet"
-            ]
-        },
-        {
-            "Description": "- Barriers now last for 16s",
-            "Tags": [
-                "Magic Carpet"
-            ]
-        },
-        {
-            "Description": "- Now grants +8 Spirit Power",
-            "Tags": [
-                "Echo Shard"
-            ]
-        },
-        {
-            "Description": "- Base Spirit Resist reduction increased from -12% to -15%",
-            "Tags": [
-                "Escalating Exposure"
-            ]
-        },
-        {
-            "Description": "- Now grants +8% Bullet Resist",
-            "Tags": [
-                "Refresher"
-            ]
-        },
-        {
-            "Description": "- Sprint reduced from +4 to +3",
-            "Tags": [
-                "Boundless Spirit"
-            ]
-        },
-        {
-            "Description": "- Now grants +25% Weapon Damage",
-            "Tags": [
-                "Boundless Spirit"
             ]
         }
     ]

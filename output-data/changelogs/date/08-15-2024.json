@@ -1,175 +1,10 @@
 {
     "Other": [],
-    "Heroes": [],
-    "Items": [],
-    "Abilities": [],
-    "General": [
+    "Heroes": [
         {
             "Description": "- Added a new hero, Shiv",
             "Tags": [
                 "Shiv"
-            ]
-        },
-        {
-            "Description": "- Games can now be watched by an unlimited number of spectators",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Spectator games now have 1 minute delay",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added localization for Simplified Chinese, Russian, Brazilian Portuguese, Spanish (Spain), Spanish (Latin America), Turkish, Ukrainian, Czech, and French. These are currently a work-in-progress.",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Language can be selected from the settings menu",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Matchmaking windows are now open 1 hour earlier in all regions",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- You can now prioritize your roster into three groups to indicate your preference ordering to the matchmaker: Selected, Priority, High Priority",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added customization options for your crosshair",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Builds: You can now author a suggested ordering of Ability Upgrades",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Builds: You can now add per-item author comments by right clicking on items while editing builds that will show up in the item tooltip for users of the build",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Fixed a bug that allowed published build data to overwrite local changes to a published build",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Fixed a bug that prevented the last used hero build from loading when it was not a favorited build",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Hovering items in the shop will now highlight their components, or which item they are components of",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Reworked the Hero Stats UI in the shop",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Hero Stats in the shop have been expanded and are now broken up by Weapon, Vitality, and Spirit. Various additional stats that were previously hidden have been added here.",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Individual stats can now be hovered over to see a breakdown of all the bonuses contributing to a value, including things like golden statues",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added descriptive gun information to each hero",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added Spirit Power Impact panel that displays the effect of Spirit Power on your Abilities and Items",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added Outgoing Damage as a UI display mode that you can toggle through",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added a setting to let you customize the ability cancel hotkey (default is spacebar)",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added a \"Friends Only\" checkbox to filter the watch tab",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added an option to control zoom sensitivity",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Fixed Candle Troopers sometimes instantly disappearing on death rather than going into their death flash state",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Using an active item or ability removes the undo option for the item/AP",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Fixed some abuse cases with undoing AP cooldown reductions",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added a video setting to reduce flashing effects",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Unpause hotkey is now displayed when the game is paused",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Pause cooldown per player increased from 10 minutes to 15 minutes",
-            "Tags": [
-                "General"
             ]
         },
         {
@@ -179,155 +14,9 @@
             ]
         },
         {
-            "Description": "- Replaced the Urn drop parachute with new effects",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Fixed some cases where the comeback souls would be higher than intended in the early game",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Fixed being unable to ping while dead",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Fixed Bebop's Sticky Bomb sometimes misfiring",
-            "Tags": [
-                "Bebop",
-                "Sticky Bomb"
-            ]
-        },
-        {
-            "Description": "- Improved smoothing of spectator camera position and angles",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Fixed a bug that allowed teleporters to be used while carrying the Soul Urn",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
             "Description": "- Fixed targeting previews that draw a model (like McGinnis's turrets) to update every frame, instead of being fixed at 60hz",
             "Tags": [
                 "McGinnis"
-            ]
-        },
-        {
-            "Description": "- Fixed stuns resetting their duration if you were on the ground and became airborne",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Fixed some cases where Lash's Ground Strike would cause your hero to be stuck",
-            "Tags": [
-                "Lash",
-                "Ground Strike"
-            ]
-        },
-        {
-            "Description": "- Fixed Ricochet sometimes shooting the extra bullet from your gun rather than the target",
-            "Tags": [
-                "Ricochet"
-            ]
-        },
-        {
-            "Description": "- Fixed Arctic Beam T3 range not being calculated correctly when you have range increase items",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Fixed ESC not working to close Settings popup sometimes",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Various visual adjustments on highlight and strobe effects being too loud in some cases",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Holding M1 down while Flame Dash ends will now cause you to fire your gun instead of requiring you to let go and press again",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added popup to bot games to indicate that they tend to be much longer games than normal ones",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Improved Abrams Siphon and Seismic Impact visuals to not obstruct player view as much",
-            "Tags": [
-                "Abrams",
-                "Seismic Impact"
-            ]
-        },
-        {
-            "Description": "- Added new Silence status effect sound",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Updated bullet whizby sounds for nearly all characters",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Updated Haze Sleep Dagger cast, projectile loop and whizby",
-            "Tags": [
-                "Haze",
-                "Sleep Dagger"
-            ]
-        },
-        {
-            "Description": "- Updated Haze Smoke Bomb sound",
-            "Tags": [
-                "Haze",
-                "Smoke Bomb",
-                "Smoke"
-            ]
-        },
-        {
-            "Description": "- Removed Haze Smoke Bomb voice line for everyone except the casting player and spectators",
-            "Tags": [
-                "Haze",
-                "Smoke Bomb",
-                "Smoke"
-            ]
-        },
-        {
-            "Description": "- Fixed some spectator/replay sound and music bugs",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Various sound related performance improvements",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- More impactful damage indication sound for attackers",
-            "Tags": [
-                "General"
             ]
         },
         {
@@ -339,29 +28,9 @@
             ]
         },
         {
-            "Description": "- Improved lighting performance around shop",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
             "Description": "- Improved Wraith tracers to feel more connected to their bullet",
             "Tags": [
                 "Wraith"
-            ]
-        },
-        {
-            "Description": "- Improved visibility of AOE around Bebop while casting Hyper Beam",
-            "Tags": [
-                "Bebop",
-                "Hyper Beam"
-            ]
-        },
-        {
-            "Description": "- Improved effects around Lady Geist Soul Exchange to help with clarity",
-            "Tags": [
-                "Lady Geist",
-                "Soul Exchange"
             ]
         },
         {
@@ -371,9 +40,101 @@
             ]
         },
         {
-            "Description": "- Fixed Mimic options in sandbox not working properly",
+            "Description": "- Gun range reduced from 50m to 30m + 2.5m/boon (max of 58m)",
             "Tags": [
-                "General"
+                "Bebop"
+            ]
+        },
+        {
+            "Description": "- Speed while shooting increased from 55% to 70%",
+            "Tags": [
+                "Bebop"
+            ]
+        },
+        {
+            "Description": "- Base regen increased from 2.5 to 3",
+            "Tags": [
+                "Bebop"
+            ]
+        },
+        {
+            "Description": "- Base Bullet Resist increased from 0% to 10%",
+            "Tags": [
+                "Bebop"
+            ]
+        },
+        {
+            "Description": "- Bullet Resist per boon reduced from 2.5% to 1.6% (same overall bullet resist at max)",
+            "Tags": [
+                "Bebop"
+            ]
+        },
+        {
+            "Description": "- Fixed hooking through veils sometimes not working",
+            "Tags": [
+                "Bebop"
+            ]
+        },
+        {
+            "Description": "- Health per boon increased from 37 to 42",
+            "Tags": [
+                "Lash"
+            ]
+        },
+        {
+            "Description": "- Base spirit resist increased from 8% to 15%",
+            "Tags": [
+                "Lash"
+            ]
+        },
+        {
+            "Description": "- Speed while shooting increased from 55% to 70%",
+            "Tags": [
+                "McGinnis"
+            ]
+        },
+        {
+            "Description": "- Base ammo reduced from 45 to 40",
+            "Tags": [
+                "Paradox"
+            ]
+        },
+        {
+            "Description": "- Base Bullet Resist increased from -15% to 0%",
+            "Tags": [
+                "Pocket"
+            ]
+        },
+        {
+            "Description": "- Base Spirit Resist reduced from 0% to -15%",
+            "Tags": [
+                "Pocket"
+            ]
+        },
+        {
+            "Description": "- Fixed the camera moving too slowly after teleporting with Cloak",
+            "Tags": [
+                "Pocket"
+            ]
+        },
+        {
+            "Description": "- Stunning or immobilizing Viscous now stops the ball from moving, and prevents him from doing damage and stunning",
+            "Tags": [
+                "Viscous"
+            ]
+        },
+        {
+            "Description": "- Base melee damage increased by 10%",
+            "Tags": [
+                "Yamato"
+            ]
+        }
+    ],
+    "Items": [
+        {
+            "Description": "- Fixed Ricochet sometimes shooting the extra bullet from your gun rather than the target",
+            "Tags": [
+                "Ricochet"
             ]
         },
         {
@@ -384,323 +145,11 @@
             ]
         },
         {
-            "Description": "- Revised sounds for Pocket Flying Cloak duration and warp",
-            "Tags": [
-                "Pocket",
-                "Flying Cloak"
-            ]
-        },
-        {
-            "Description": "- Clarified Vindicta Flight T1 tooltip",
-            "Tags": [
-                "Vindicta",
-                "Flight"
-            ]
-        },
-        {
-            "Description": "- Added alternate shop music",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
             "Description": "- Added Refresher cast sound",
             "Tags": [
                 "Refresher"
             ]
-        }
-    ],
-    "Misc Gameplay": [
-        {
-            "Description": "- Teleporter activation no longer gets canceled on incoming damage.",
-            "Tags": [
-                "General"
-            ]
         },
-        {
-            "Description": "- Teleporter channel time increased from 4s to 5s",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Walkers now require you to be within 30m to deal damage to them",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Walker Health increased by 15%",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Base Guardian Health increased by 20%",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Patron damage increased by 30% after it is vulnerable",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Weakened Patron Health increased by 15%",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Weakened Patron now has a Torment Pulse style effect, hitting up to 2 enemies in the pit for 75 damage per second",
-            "Tags": [
-                "Torment Pulse"
-            ]
-        },
-        {
-            "Description": "- You can now use melee hotkey while zoomed to exit zoom and perform a melee",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added Bounce Pads in various areas of the map that launch you in a defined direction",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "bounce_pad_locations.jpg",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added one-way defender exits beside each outer lane entrance",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added Speed Boost Volumes in the defender passages on the outsides of the base",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "base_speed_boost.jpg",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Firehouse (building next to Sapphire Yellow Guardian) has been reworked to match the layout of the Chapel",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Low roof buildings beside Amber Purple Guardian and Sapphire Yellow Guardian are now valid play spaces",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Removed zap triggers",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added truck on the back side of those buildings to allow climbing up",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Removed rooftop props for those buildings",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added billboards to the edge closest to the lane",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Low roof buildings between inner lane Walker arenas are now valid play spaces",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Removed zap triggers",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Expanded rooftop size",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added fire escape stairs to allow access from the upper level from the Mid",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "rooftop_locations_large.jpg",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Walker Arena - Amber Yellow/Sapphire Purple:",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added catwalks from high ground defender area to building across the street",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added passage through building and stairs up to a peek spot toward the Guardian",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Replaced upper floor juke spot with a connection through building across from new peek spot",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "amber_yellow_walker_arena.jpg",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Walker Arena - Amber Orange/Sapphire Blue:",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added catwalk from the low roof building to the building across the street",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Replaced juke spot in the courtyard with passage connecting to the new catwalk",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Widened hallway above Underground Shop",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Removed railing and added stairs in the passage toward the Guardian",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Courtyard floor opening to the Underground Shop moved closer to above the shop",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Bounce Pad added to allow easier navigation from the Underground Shop to the upper courtyard. Replaces a juke spot.",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "amber_orange_walker_arena.jpg",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Walker Arena - Amber Blue/Sapphire Orange:",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added interior shaft with Bounce Pad to an upper level balcony from defender side to face the Guardian",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added a Bounce Pad on the ground floor of the Police Station/Garment Building to the upper floor",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added a juke spot inside the Police Station/Garment Building",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added a juke spot down the stairs from the Guardian to the left",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "amber_blue_walker_arena.jpg",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Walker Arena - Amber Purple/Sapphire Yellow:",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added an interior corridor through the building between the base and the Walker",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added a balcony that borders the arena on the back side of the Walker",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "amber_purple_walker_arena.jpg",
-            "Tags": [
-                "General"
-            ]
-        }
-    ],
-    "Weapon Items": [
         {
             "Description": "- No longer has +40 Bonus Health",
             "Tags": [
@@ -913,9 +362,7 @@
             "Tags": [
                 "Glass Cannon"
             ]
-        }
-    ],
-    "Vitality Items": [
+        },
         {
             "Description": "- Heal effectiveness vs non-heroes increased from 25% to 35%",
             "Tags": [
@@ -1104,9 +551,7 @@
             "Tags": [
                 "Phantom Strike"
             ]
-        }
-    ],
-    "Spirit Items": [
+        },
         {
             "Description": "- No longer gives +7% Spirit Resist",
             "Tags": [
@@ -1331,35 +776,130 @@
             "Tags": [
                 "Curse"
             ]
-        }
-    ],
-    "New Items": [
-        {
-            "Description": "- Added a new T1 Weapon item. Grants +35% Bullet Projectile Speed, +14% Weapon Damage and +50 Bullet Shield.",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "Inspired by: https://forums.playdeadlock.com/threads/projectile-speed-increase-item.1539/",
-            "Tags": [
-                "General"
-            ]
         },
         {
             "Description": "- Added a new T4 Spirit item, Magic Carpet: Active - After a 1.3s delay, a magic carpet arrives to pick you up. You gain full flight controls and have +6 m/s movement speed. Lasts 7 seconds. If you cast abilities or use your gun, the carpet disappears. While on the Magic Carpet you gain +400 Bullet and +400 Spirit Shields. Passively grants +150 Health, +10% Ability Duration, and +15 Spirit Power. Cooldown: 40s",
             "Tags": [
                 "Magic Carpet"
             ]
-        },
-        {
-            "Description": "Inspired by: https://forums.playdeadlock.com/threads/a-bunch-of-loose-item-ideas.11618/",
-            "Tags": [
-                "General"
-            ]
         }
     ],
-    "Hero Gameplay": [
+    "Abilities": [
+        {
+            "Description": "- Fixed Bebop's Sticky Bomb sometimes misfiring",
+            "Tags": [
+                "Bebop",
+                "Sticky Bomb"
+            ]
+        },
+        {
+            "Description": "- Fixed some cases where Lash's Ground Strike would cause your hero to be stuck",
+            "Tags": [
+                "Lash",
+                "Ground Strike"
+            ]
+        },
+        {
+            "Description": "- Fixed Arctic Beam T3 range not being calculated correctly when you have range increase items",
+            "Tags": [
+                "Arctic Beam"
+            ]
+        },
+        {
+            "Description": "- Holding M1 down while Flame Dash ends will now cause you to fire your gun instead of requiring you to let go and press again",
+            "Tags": [
+                "Flame Dash"
+            ]
+        },
+        {
+            "Description": "- Improved Abrams Siphon and Seismic Impact visuals to not obstruct player view as much",
+            "Tags": [
+                "Abrams",
+                "Seismic Impact"
+            ]
+        },
+        {
+            "Description": "- Updated Haze Sleep Dagger cast, projectile loop and whizby",
+            "Tags": [
+                "Haze",
+                "Sleep Dagger"
+            ]
+        },
+        {
+            "Description": "- Updated Haze Smoke Bomb sound",
+            "Tags": [
+                "Haze",
+                "Smoke",
+                "Smoke Bomb"
+            ]
+        },
+        {
+            "Description": "- Removed Haze Smoke Bomb voice line for everyone except the casting player and spectators",
+            "Tags": [
+                "Haze",
+                "Smoke",
+                "Smoke Bomb"
+            ]
+        },
+        {
+            "Description": "- Improved visibility of AOE around Bebop while casting Hyper Beam",
+            "Tags": [
+                "Bebop",
+                "Hyper Beam"
+            ]
+        },
+        {
+            "Description": "- Improved effects around Lady Geist Soul Exchange to help with clarity",
+            "Tags": [
+                "Lady Geist",
+                "Soul Exchange"
+            ]
+        },
+        {
+            "Description": "- Revised sounds for Pocket Flying Cloak duration and warp",
+            "Tags": [
+                "Pocket",
+                "Flying Cloak"
+            ]
+        },
+        {
+            "Description": "- Clarified Vindicta Flight T1 tooltip",
+            "Tags": [
+                "Vindicta",
+                "Flight"
+            ]
+        },
+        {
+            "Description": "- Weakened Patron now has a Torment Pulse style effect, hitting up to 2 enemies in the pit for 75 damage per second",
+            "Tags": [
+                "Torment Pulse",
+                "Pulse"
+            ]
+        },
+        {
+            "Description": "- Added Bounce Pads in various areas of the map that launch you in a defined direction",
+            "Tags": [
+                "Bounce Pad"
+            ]
+        },
+        {
+            "Description": "- Bounce Pad added to allow easier navigation from the Underground Shop to the upper courtyard. Replaces a juke spot.",
+            "Tags": [
+                "Bounce Pad"
+            ]
+        },
+        {
+            "Description": "- Added interior shaft with Bounce Pad to an upper level balcony from defender side to face the Guardian",
+            "Tags": [
+                "Bounce Pad"
+            ]
+        },
+        {
+            "Description": "- Added a Bounce Pad on the ground floor of the Police Station/Garment Building to the upper floor",
+            "Tags": [
+                "Bounce Pad"
+            ]
+        },
         {
             "Description": "- Fixed Seismic Impact often not dragging enemies in the air along with you when you are slamming down",
             "Tags": [
@@ -1379,36 +919,6 @@
             "Tags": [
                 "Abrams",
                 "Seismic Impact"
-            ]
-        },
-        {
-            "Description": "- Gun range reduced from 50m to 30m + 2.5m/boon (max of 58m)",
-            "Tags": [
-                "Bebop"
-            ]
-        },
-        {
-            "Description": "- Speed while shooting increased from 55% to 70%",
-            "Tags": [
-                "Bebop"
-            ]
-        },
-        {
-            "Description": "- Base regen increased from 2.5 to 3",
-            "Tags": [
-                "Bebop"
-            ]
-        },
-        {
-            "Description": "- Base Bullet Resist increased from 0% to 10%",
-            "Tags": [
-                "Bebop"
-            ]
-        },
-        {
-            "Description": "- Bullet Resist per boon reduced from 2.5% to 1.6% (same overall bullet resist at max)",
-            "Tags": [
-                "Bebop"
             ]
         },
         {
@@ -1444,12 +954,6 @@
             "Tags": [
                 "Bebop",
                 "Exploding Uppercut"
-            ]
-        },
-        {
-            "Description": "- Fixed hooking through veils sometimes not working",
-            "Tags": [
-                "Bebop"
             ]
         },
         {
@@ -1512,7 +1016,8 @@
             "Description": "- Fixed Kinetic Pulse sometimes getting caught on stairs",
             "Tags": [
                 "Dynamo",
-                "Kinetic Pulse"
+                "Kinetic Pulse",
+                "Pulse"
             ]
         },
         {
@@ -1526,14 +1031,16 @@
             "Description": "- Kinetic Pulse width increased from 4.5m to 5m",
             "Tags": [
                 "Dynamo",
-                "Kinetic Pulse"
+                "Kinetic Pulse",
+                "Pulse"
             ]
         },
         {
             "Description": "- Kinetic Pulse T3 increased from +115 Damage to +125",
             "Tags": [
                 "Dynamo",
-                "Kinetic Pulse"
+                "Kinetic Pulse",
+                "Pulse"
             ]
         },
         {
@@ -1547,8 +1054,8 @@
             "Description": "- Fixed T3 Guided Owl not triggering correctly sometimes when the target has Spirit Armor",
             "Tags": [
                 "Grey Talon",
-                "Guided Owl",
-                "Spirit Armor"
+                "Spirit Armor",
+                "Guided Owl"
             ]
         },
         {
@@ -1597,8 +1104,8 @@
             "Description": "- Watcher's Covenant T1 reduced from +15% Fire Rate to +10%",
             "Tags": [
                 "Ivy",
-                "Watcher's Covenant",
-                "Fire Rate"
+                "Fire Rate",
+                "Watcher's Covenant"
             ]
         },
         {
@@ -1619,8 +1126,8 @@
             "Description": "- Arctic Beam now slows Fire Rate (same values as slow)",
             "Tags": [
                 "Kelvin",
-                "Arctic Beam",
-                "Fire Rate"
+                "Fire Rate",
+                "Arctic Beam"
             ]
         },
         {
@@ -1641,19 +1148,8 @@
             "Description": "- Frozen Shelter can now be cast while using Arctic Beam",
             "Tags": [
                 "Kelvin",
+                "Frozen Shelter",
                 "Arctic Beam"
-            ]
-        },
-        {
-            "Description": "- Health per boon increased from 37 to 42",
-            "Tags": [
-                "Lash"
-            ]
-        },
-        {
-            "Description": "- Base spirit resist increased from 8% to 15%",
-            "Tags": [
-                "Lash"
             ]
         },
         {
@@ -1667,14 +1163,8 @@
             "Description": "- Flog T3 now also reduces Fire Rate by 35%",
             "Tags": [
                 "Lash",
-                "Flog",
-                "Fire Rate"
-            ]
-        },
-        {
-            "Description": "- Speed while shooting increased from 55% to 70%",
-            "Tags": [
-                "McGinnis"
+                "Fire Rate",
+                "Flog"
             ]
         },
         {
@@ -1695,7 +1185,8 @@
             "Description": "- Heavy Barrage T1 changed to Rockets apply 35% slow",
             "Tags": [
                 "McGinnis",
-                "Heavy Barrage"
+                "Heavy Barrage",
+                "Barrage"
             ]
         },
         {
@@ -1703,12 +1194,6 @@
             "Tags": [
                 "Mo & Krill",
                 "Scorn"
-            ]
-        },
-        {
-            "Description": "- Base ammo reduced from 45 to 40",
-            "Tags": [
-                "Paradox"
             ]
         },
         {
@@ -1736,8 +1221,8 @@
             "Description": "- Kinetic Carbine no longer affects channels, cast times or things like Lash's Death Slam",
             "Tags": [
                 "Paradox",
-                "Kinetic Carbine",
                 "Lash",
+                "Kinetic Carbine",
                 "Death Slam"
             ]
         },
@@ -1784,18 +1269,6 @@
             ]
         },
         {
-            "Description": "- Base Bullet Resist increased from -15% to 0%",
-            "Tags": [
-                "Pocket"
-            ]
-        },
-        {
-            "Description": "- Base Spirit Resist reduced from 0% to -15%",
-            "Tags": [
-                "Pocket"
-            ]
-        },
-        {
             "Description": "- Barrage Amp per stack reduced from 10% to 8%",
             "Tags": [
                 "Pocket",
@@ -1807,12 +1280,6 @@
             "Tags": [
                 "Pocket",
                 "Barrage"
-            ]
-        },
-        {
-            "Description": "- Fixed the camera moving too slowly after teleporting with Cloak",
-            "Tags": [
-                "Pocket"
             ]
         },
         {
@@ -1861,8 +1328,8 @@
             "Description": "- Fix Damage prevention after being hit by Viscous' Goo Ball being reduced by Debuff Reducer",
             "Tags": [
                 "Viscous",
-                "Goo Ball",
-                "Debuff Reducer"
+                "Debuff Reducer",
+                "Goo Ball"
             ]
         },
         {
@@ -1950,12 +1417,6 @@
             ]
         },
         {
-            "Description": "- Stunning or immobilizing Viscous now stops the ball from moving, and prevents him from doing damage and stunning",
-            "Tags": [
-                "Viscous"
-            ]
-        },
-        {
             "Description": "- Binding Word no longer drains 1 stamina",
             "Tags": [
                 "Warden",
@@ -1994,7 +1455,8 @@
             "Description": "- Binding Word now has a quick cast behavior (same as Static Charge)",
             "Tags": [
                 "Warden",
-                "Binding Word"
+                "Binding Word",
+                "Static Charge"
             ]
         },
         {
@@ -2026,17 +1488,561 @@
             ]
         },
         {
-            "Description": "- Base melee damage increased by 10%",
-            "Tags": [
-                "Yamato"
-            ]
-        },
-        {
             "Description": "- Flying Strike T3 now procs after the ability ends, rather than when connecting to the target",
             "Tags": [
                 "Yamato",
                 "Flying Strike"
             ]
         }
-    ]
+    ],
+    "General": [
+        {
+            "Description": "- Games can now be watched by an unlimited number of spectators",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Spectator games now have 1 minute delay",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added localization for Simplified Chinese, Russian, Brazilian Portuguese, Spanish (Spain), Spanish (Latin America), Turkish, Ukrainian, Czech, and French. These are currently a work-in-progress.",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Language can be selected from the settings menu",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Matchmaking windows are now open 1 hour earlier in all regions",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- You can now prioritize your roster into three groups to indicate your preference ordering to the matchmaker: Selected, Priority, High Priority",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added customization options for your crosshair",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Builds: You can now author a suggested ordering of Ability Upgrades",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Builds: You can now add per-item author comments by right clicking on items while editing builds that will show up in the item tooltip for users of the build",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed a bug that allowed published build data to overwrite local changes to a published build",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed a bug that prevented the last used hero build from loading when it was not a favorited build",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Hovering items in the shop will now highlight their components, or which item they are components of",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Reworked the Hero Stats UI in the shop",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Hero Stats in the shop have been expanded and are now broken up by Weapon, Vitality, and Spirit. Various additional stats that were previously hidden have been added here.",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Individual stats can now be hovered over to see a breakdown of all the bonuses contributing to a value, including things like golden statues",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added descriptive gun information to each hero",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added Spirit Power Impact panel that displays the effect of Spirit Power on your Abilities and Items",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added Outgoing Damage as a UI display mode that you can toggle through",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added a setting to let you customize the ability cancel hotkey (default is spacebar)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added a \"Friends Only\" checkbox to filter the watch tab",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added an option to control zoom sensitivity",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed Candle Troopers sometimes instantly disappearing on death rather than going into their death flash state",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Using an active item or ability removes the undo option for the item/AP",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed some abuse cases with undoing AP cooldown reductions",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added a video setting to reduce flashing effects",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Unpause hotkey is now displayed when the game is paused",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Pause cooldown per player increased from 10 minutes to 15 minutes",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Replaced the Urn drop parachute with new effects",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed some cases where the comeback souls would be higher than intended in the early game",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed being unable to ping while dead",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Improved smoothing of spectator camera position and angles",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed a bug that allowed teleporters to be used while carrying the Soul Urn",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed stuns resetting their duration if you were on the ground and became airborne",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed ESC not working to close Settings popup sometimes",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Various visual adjustments on highlight and strobe effects being too loud in some cases",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added popup to bot games to indicate that they tend to be much longer games than normal ones",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added new Silence status effect sound",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Updated bullet whizby sounds for nearly all characters",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed some spectator/replay sound and music bugs",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Various sound related performance improvements",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- More impactful damage indication sound for attackers",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Improved lighting performance around shop",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed Mimic options in sandbox not working properly",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added alternate shop music",
+            "Tags": [
+                "General"
+            ]
+        }
+    ],
+    "Misc Gameplay": [
+        {
+            "Description": "- Teleporter activation no longer gets canceled on incoming damage.",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Teleporter channel time increased from 4s to 5s",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Walkers now require you to be within 30m to deal damage to them",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Walker Health increased by 15%",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Base Guardian Health increased by 20%",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Patron damage increased by 30% after it is vulnerable",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Weakened Patron Health increased by 15%",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- You can now use melee hotkey while zoomed to exit zoom and perform a melee",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "bounce_pad_locations.jpg",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added one-way defender exits beside each outer lane entrance",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added Speed Boost Volumes in the defender passages on the outsides of the base",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "base_speed_boost.jpg",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Firehouse (building next to Sapphire Yellow Guardian) has been reworked to match the layout of the Chapel",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Low roof buildings beside Amber Purple Guardian and Sapphire Yellow Guardian are now valid play spaces",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Removed zap triggers",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added truck on the back side of those buildings to allow climbing up",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Removed rooftop props for those buildings",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added billboards to the edge closest to the lane",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Low roof buildings between inner lane Walker arenas are now valid play spaces",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Removed zap triggers",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Expanded rooftop size",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added fire escape stairs to allow access from the upper level from the Mid",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "rooftop_locations_large.jpg",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Walker Arena - Amber Yellow/Sapphire Purple:",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added catwalks from high ground defender area to building across the street",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added passage through building and stairs up to a peek spot toward the Guardian",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Replaced upper floor juke spot with a connection through building across from new peek spot",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "amber_yellow_walker_arena.jpg",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Walker Arena - Amber Orange/Sapphire Blue:",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added catwalk from the low roof building to the building across the street",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Replaced juke spot in the courtyard with passage connecting to the new catwalk",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Widened hallway above Underground Shop",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Removed railing and added stairs in the passage toward the Guardian",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Courtyard floor opening to the Underground Shop moved closer to above the shop",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "amber_orange_walker_arena.jpg",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Walker Arena - Amber Blue/Sapphire Orange:",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added a juke spot inside the Police Station/Garment Building",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added a juke spot down the stairs from the Guardian to the left",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "amber_blue_walker_arena.jpg",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Walker Arena - Amber Purple/Sapphire Yellow:",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added an interior corridor through the building between the base and the Walker",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added a balcony that borders the arena on the back side of the Walker",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "amber_purple_walker_arena.jpg",
+            "Tags": [
+                "General"
+            ]
+        }
+    ],
+    "Weapon Items": [],
+    "Vitality Items": [],
+    "Spirit Items": [],
+    "New Items": [
+        {
+            "Description": "- Added a new T1 Weapon item. Grants +35% Bullet Projectile Speed, +14% Weapon Damage and +50 Bullet Shield.",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "Inspired by: https://forums.playdeadlock.com/threads/projectile-speed-increase-item.1539/",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "Inspired by: https://forums.playdeadlock.com/threads/a-bunch-of-loose-item-ideas.11618/",
+            "Tags": [
+                "General"
+            ]
+        }
+    ],
+    "Hero Gameplay": []
 }

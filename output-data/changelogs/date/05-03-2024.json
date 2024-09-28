@@ -127,24 +127,6 @@
             ]
         },
         {
-            "Description": "- Fixed Flying Cloak teleporting players into geometry or out of the world",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Fixed Warp Stone teleporting you through geometry",
-            "Tags": [
-                "Warp Stone"
-            ]
-        },
-        {
-            "Description": "- Fixed Fixation decimal point display",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
             "Description": "- Fixed Parry animation not playing",
             "Tags": [
                 "General"
@@ -154,12 +136,6 @@
             "Description": "- Fixed various issues with the spectate UI display",
             "Tags": [
                 "General"
-            ]
-        },
-        {
-            "Description": "- Removed the slow climbing vertical recoil on Yamato's alt fire",
-            "Tags": [
-                "Yamato"
             ]
         },
         {
@@ -215,6 +191,14 @@
             "Tags": [
                 "General"
             ]
+        }
+    ],
+    "Heroes": [
+        {
+            "Description": "- Removed the slow climbing vertical recoil on Yamato's alt fire",
+            "Tags": [
+                "Yamato"
+            ]
         },
         {
             "Description": "- Base Health increased from 550 to 600",
@@ -235,6 +219,101 @@
             ]
         },
         {
+            "Description": "- Charge Shot damage increased from 95 to 105",
+            "Tags": [
+                "Grey Talon"
+            ]
+        },
+        {
+            "Description": "- Charge Shot T2 damage reduced from 80 to 70",
+            "Tags": [
+                "Grey Talon"
+            ]
+        },
+        {
+            "Description": "- Blood Bomb damage increased from 80 to 100",
+            "Tags": [
+                "Lady Geist"
+            ]
+        },
+        {
+            "Description": "- Blood Bomb T2 damage increased from +65 to +70",
+            "Tags": [
+                "Lady Geist"
+            ]
+        },
+        {
+            "Description": "- Blood Bomb tooltip fixed to reference the correct self damage type and that it can be reduced with armor",
+            "Tags": [
+                "Lady Geist"
+            ]
+        },
+        {
+            "Description": "- No longer listed as a recommended new player hero",
+            "Tags": [
+                "Mo & Krill"
+            ]
+        },
+        {
+            "Description": "- Base Bullet Damage reduced from 15 to 14",
+            "Tags": [
+                "Vindicta"
+            ]
+        },
+        {
+            "Description": "- Bullet Damage gained per boon reduced from 0.88 to 0.7 (these are gained occasionally as you earn souls, up to 11 times)",
+            "Tags": [
+                "Vindicta"
+            ]
+        },
+        {
+            "Description": "- Is now a recommended hero for new players",
+            "Tags": [
+                "Vindicta"
+            ]
+        },
+        {
+            "Description": "- Shadow Explosion bonus Spirit per victim increased from 10 to 15",
+            "Tags": [
+                "Yamato"
+            ]
+        },
+        {
+            "Description": "- Shadow Explosion buff duration increased from 8s to 15s",
+            "Tags": [
+                "Yamato"
+            ]
+        }
+    ],
+    "Items": [
+        {
+            "Description": "- Fixed Warp Stone teleporting you through geometry",
+            "Tags": [
+                "Warp Stone"
+            ]
+        },
+        {
+            "Description": "- Shadow Explosion bonus Fire Rate per victim increased from 5 to 10",
+            "Tags": [
+                "Yamato",
+                "Fire Rate"
+            ]
+        }
+    ],
+    "Abilities": [
+        {
+            "Description": "- Fixed Flying Cloak teleporting players into geometry or out of the world",
+            "Tags": [
+                "Flying Cloak"
+            ]
+        },
+        {
+            "Description": "- Fixed Fixation decimal point display",
+            "Tags": [
+                "Fixation"
+            ]
+        },
+        {
             "Description": "- Singularity DPS increased from 48 to 60",
             "Tags": [
                 "Dynamo",
@@ -249,18 +328,6 @@
             ]
         },
         {
-            "Description": "- Charge Shot damage increased from 95 to 105",
-            "Tags": [
-                "Grey Talon"
-            ]
-        },
-        {
-            "Description": "- Charge Shot T2 damage reduced from 80 to 70",
-            "Tags": [
-                "Grey Talon"
-            ]
-        },
-        {
             "Description": "- Guided Owl damage increased from 200 to 300",
             "Tags": [
                 "Grey Talon",
@@ -271,16 +338,16 @@
             "Description": "- Bullet Dance bonus Fire Rate reduced from +30 to +20",
             "Tags": [
                 "Haze",
-                "Bullet Dance",
-                "Fire Rate"
+                "Fire Rate",
+                "Bullet Dance"
             ]
         },
         {
             "Description": "- Smoke Bomb duration scaling from Spirit improved from 0.2 to 0.3",
             "Tags": [
                 "Haze",
-                "Smoke Bomb",
-                "Smoke"
+                "Smoke",
+                "Smoke Bomb"
             ]
         },
         {
@@ -302,24 +369,6 @@
             "Tags": [
                 "Kelvin",
                 "Frost Grenade"
-            ]
-        },
-        {
-            "Description": "- Blood Bomb damage increased from 80 to 100",
-            "Tags": [
-                "Lady Geist"
-            ]
-        },
-        {
-            "Description": "- Blood Bomb T2 damage increased from +65 to +70",
-            "Tags": [
-                "Lady Geist"
-            ]
-        },
-        {
-            "Description": "- Blood Bomb tooltip fixed to reference the correct self damage type and that it can be reduced with armor",
-            "Tags": [
-                "Lady Geist"
             ]
         },
         {
@@ -382,15 +431,17 @@
             "Description": "- Heavy Barrage now reduces your speed rather than setting it to a low cap (by itself this change isn't a buff or a nerf, but it allows you to buy items to move faster during the ultimate)",
             "Tags": [
                 "McGinnis",
-                "Heavy Barrage"
+                "Heavy Barrage",
+                "Barrage"
             ]
         },
         {
             "Description": "- Heavy Barrage camera interaction with Fleetfoot Boots has been fixed",
             "Tags": [
                 "McGinnis",
+                "Fleetfoot",
                 "Heavy Barrage",
-                "Fleetfoot"
+                "Barrage"
             ]
         },
         {
@@ -436,34 +487,10 @@
             ]
         },
         {
-            "Description": "- No longer listed as a recommended new player hero",
-            "Tags": [
-                "Mo & Krill"
-            ]
-        },
-        {
-            "Description": "- Base Bullet Damage reduced from 15 to 14",
-            "Tags": [
-                "Vindicta"
-            ]
-        },
-        {
-            "Description": "- Bullet Damage gained per boon reduced from 0.88 to 0.7 (these are gained occasionally as you earn souls, up to 11 times)",
-            "Tags": [
-                "Vindicta"
-            ]
-        },
-        {
             "Description": "- Stake T1 bonus duration reduced from +1.5s to +1.0s",
             "Tags": [
                 "Vindicta",
                 "Stake"
-            ]
-        },
-        {
-            "Description": "- Is now a recommended hero for new players",
-            "Tags": [
-                "Vindicta"
             ]
         },
         {
@@ -521,28 +548,6 @@
                 "Yamato",
                 "Flying Strike"
             ]
-        },
-        {
-            "Description": "- Shadow Explosion bonus Spirit per victim increased from 10 to 15",
-            "Tags": [
-                "Yamato"
-            ]
-        },
-        {
-            "Description": "- Shadow Explosion bonus Fire Rate per victim increased from 5 to 10",
-            "Tags": [
-                "Yamato",
-                "Fire Rate"
-            ]
-        },
-        {
-            "Description": "- Shadow Explosion buff duration increased from 8s to 15s",
-            "Tags": [
-                "Yamato"
-            ]
         }
-    ],
-    "Heroes": [],
-    "Items": [],
-    "Abilities": []
+    ]
 }

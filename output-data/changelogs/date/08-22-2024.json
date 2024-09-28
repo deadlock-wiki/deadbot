@@ -1,6 +1,21 @@
 {
     "Other": [
         {
+            "Description": "- Fixed shotgun heroes applying buildup effects like toxic bullets instantly on ricocheted enemies",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Parrying a Guardian now causes it to stop trying to repeatedly melee (and get parried over and over), and instead causes the boss to start shooting shortly there after",
+            "Tags": [
+                "General"
+            ]
+        }
+    ],
+    "Heroes": [],
+    "Items": [
+        {
             "Description": "- Fixed High-Velocity Mag affecting some abilities",
             "Tags": [
                 "High-Velocity Mag"
@@ -59,7 +74,9 @@
             "Tags": [
                 "Siphon Bullets"
             ]
-        },
+        }
+    ],
+    "Abilities": [
         {
             "Description": "- Air Drop now silences the ally being carried until they are released",
             "Tags": [
@@ -73,21 +90,6 @@
                 "Shiv",
                 "Bloodletting"
             ]
-        },
-        {
-            "Description": "- Fixed shotgun heroes applying buildup effects like toxic bullets instantly on ricocheted enemies",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Parrying a Guardian now causes it to stop trying to repeatedly melee (and get parried over and over), and instead causes the boss to start shooting shortly there after",
-            "Tags": [
-                "General"
-            ]
         }
-    ],
-    "Heroes": [],
-    "Items": [],
-    "Abilities": []
+    ]
 }

@@ -1,93 +1,12 @@
 {
     "Other": [],
-    "Heroes": [],
-    "Items": [],
-    "Abilities": [],
-    "General": [
-        {
-            "Description": "- Added EU servers and matchmaking region. EU testing times are Mon-Thur 5PM to 3AM and Fri-Sun 3PM to 3AM. Times listed are Central European Summer Time (GMT+2).",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Removed the invite requirement of Steam friends having been on your list for a number of days (affected normal user cases often where friends weren't on the Steam list, and we have other metrics and tools on the backend now that we can use to filter for other cases)",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added search functionality to the shop. You can now search by item name or by individual stat such as 'Ammo', 'Lifesteal', or 'Spirit Power'.",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- The game will now let you know when it is safe to abandon (usually if one person has been disconnected for a while)",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Your personal builds are now always sorted to the top of the in-game Builds dropdown",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Various network related improvements when there is packet loss",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Preferred heroes in your roster are now remember on the client across sessions",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Fixed chat wheel not working during the post-game sequence",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Updated the entrance to the underground tunnels from the outer lanes to look more like a subway entrance",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Re-enabled ultra wide UI mode",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added street names and symbols to the Zipline UI",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Updated Sleep Dagger and Silence Glyph tooltips to clarify that they do not cancel channeling abilities",
-            "Tags": [
-                "Silence Glyph"
-            ]
-        },
+    "Heroes": [
         {
             "Description": "- Updated reload animations for Warden, Dynamo, and Ivy",
             "Tags": [
                 "Dynamo",
                 "Ivy",
                 "Warden"
-            ]
-        },
-        {
-            "Description": "- Improved visibility of Inferno's Concussive Combustion",
-            "Tags": [
-                "General"
             ]
         },
         {
@@ -98,53 +17,47 @@
             ]
         },
         {
-            "Description": "- Fixed the unit target UI not showing the activation button hint",
+            "Description": "- Turret range reduced from 30m to 25m",
             "Tags": [
-                "General"
+                "McGinnis"
             ]
         },
         {
-            "Description": "- Added a Cosmic Veil to the hero demo map",
+            "Description": "- Turret HP scaling reduced from 40% to 30% (affects initial HP too)",
             "Tags": [
-                "General"
+                "McGinnis"
             ]
         },
+        {
+            "Description": "- Turret cooldown reduced from 35s to 30s",
+            "Tags": [
+                "McGinnis"
+            ]
+        },
+        {
+            "Description": "- Turret Charge Time reduced from 8s to 6s",
+            "Tags": [
+                "McGinnis"
+            ]
+        },
+        {
+            "Description": "- Base Spirit Resist increased from 20% to 25%",
+            "Tags": [
+                "McGinnis"
+            ]
+        },
+        {
+            "Description": "- Base Regen increased from 1 to 2",
+            "Tags": [
+                "McGinnis"
+            ]
+        }
+    ],
+    "Items": [
         {
             "Description": "- Added Ethereal Shift sounds",
             "Tags": [
                 "Ethereal Shift"
-            ]
-        },
-        {
-            "Description": "- Added wind sound when on the Zipline",
-            "Tags": [
-                "General"
-            ]
-        }
-    ],
-    "Misc Gameplay": [
-        {
-            "Description": "- Rejuv buff is now only granted to the players that are alive. Players that are dead will have their respawn times cut in half from their current values.",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Footsteps are now quieter when obstructed by level geometry",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Dash-Down is now double tap CTRL instead of CTRL+SHIFT",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Vault bounty increased from 300 to 330",
-            "Tags": [
-                "General"
             ]
         },
         {
@@ -155,53 +68,9 @@
             ]
         },
         {
-            "Description": "- Added another entrance/exit to the underground tunnels from the warehouse interiors",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Enclosed the exterior Medium Neutral Camp with fencing in front of the Theater to match the Amber side Cab Stand",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added two more veils on each side:",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "1) Between the Drug Store and the Market on Amber, between the Hotel and Pharmacy on Sapphire",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "2) Between the exterior Strong Neutral Camps and the outer lane near the T2",
-            "Tags": [
-                "General"
-            ]
-        }
-    ],
-    "Item Gameplay": [
-        {
             "Description": "- Added a new T1 Spirit item, Infuser",
             "Tags": [
                 "Infuser"
-            ]
-        },
-        {
-            "Description": "+8% Spirit Resist",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "+10% Ammo",
-            "Tags": [
-                "General"
             ]
         },
         {
@@ -217,18 +86,6 @@
             ]
         },
         {
-            "Description": "+20% Ammo",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "+50 Health",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
             "Description": "Passive: Anytime you secure or deny a Soul, you get 2 ammo back and have +20% Fire Rate for 4 seconds.",
             "Tags": [
                 "Fire Rate"
@@ -241,18 +98,6 @@
             ]
         },
         {
-            "Description": "-20% Reload Time",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "+8% Weapon Damage",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
             "Description": "Passive: Pressing the reload key during the halfway point of a reload will cause you to instantly regain your magazine and grant you +30% Bullet Lifesteal and +15% Fire Rate for 6s. The reload UI has an indicator for the trigger window. Cooldown: 25s",
             "Tags": [
                 "Fire Rate",
@@ -260,33 +105,9 @@
             ]
         },
         {
-            "Description": "Inspired by https://project8.dev/threads/item-idea-trick-reload.2652/",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
             "Description": "- Added a new T2 Weapon item, Veil Walker",
             "Tags": [
                 "Veil Walker"
-            ]
-        },
-        {
-            "Description": "+15% Ammo",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "+8% Weapon Damage",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "+200 Bullet Shield",
-            "Tags": [
-                "General"
             ]
         },
         {
@@ -302,69 +123,9 @@
             ]
         },
         {
-            "Description": "+15% Melee Damage",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "+10% Weapon Power",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "+75 Health",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "Passive: Hitting an enemy with a heavy melee reloads your weapon",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "Passive: Increases your heavy melee charge distance by 40%",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "Inspired by https://project8.dev/threads/bayonet.5372/ and https://project8.dev/threads/comple...-category-item-that-buffs-charged-melee.5957/",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
             "Description": "- Added a new T4 Vitality item, Colossus",
             "Tags": [
                 "Colossus"
-            ]
-        },
-        {
-            "Description": "+500 HP",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "+20% Melee Damage",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "+20% Weapon Damage",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "Active: Gain 40% Bullet and Spirit Resist and apply 20% movement slow to enemies within 10m. Your model size grows by 10%. Lasts 7 seconds. Cooldown: 65s",
-            "Tags": [
-                "General"
             ]
         },
         {
@@ -567,12 +328,6 @@
             ]
         },
         {
-            "Description": "- Tesla: Bounce radius increased from 7m to 9m",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
             "Description": "- Now increases your slide distance and duration by 25%",
             "Tags": [
                 "Burst Fire"
@@ -738,7 +493,20 @@
             ]
         }
     ],
-    "Hero Gameplay": [
+    "Abilities": [
+        {
+            "Description": "- Updated Sleep Dagger and Silence Glyph tooltips to clarify that they do not cancel channeling abilities",
+            "Tags": [
+                "Silence Glyph",
+                "Sleep Dagger"
+            ]
+        },
+        {
+            "Description": "- Improved visibility of Inferno's Concussive Combustion",
+            "Tags": [
+                "Concussive Combustion"
+            ]
+        },
         {
             "Description": "- Improved misc issues with Seismic Impact collision",
             "Tags": [
@@ -785,16 +553,16 @@
             "Description": "- Singularity falls 70% slower when Majestic Leap down is used (similar to the hero falling slower normally when casting the ability from an elevation)",
             "Tags": [
                 "Dynamo",
-                "Singularity",
-                "Majestic Leap"
+                "Majestic Leap",
+                "Singularity"
             ]
         },
         {
             "Description": "- Fixed Charged Shot being evaded by Haze's Bullet Dance",
             "Tags": [
                 "Haze",
-                "Bullet Dance",
                 "Grey Talon",
+                "Bullet Dance",
                 "Charged Shot"
             ]
         },
@@ -830,8 +598,8 @@
             "Description": "- Smoke Bomb T2 changed to \"Replenishes stamina on cast and grants +40% Stamina Regen\"",
             "Tags": [
                 "Haze",
-                "Smoke Bomb",
-                "Smoke"
+                "Smoke",
+                "Smoke Bomb"
             ]
         },
         {
@@ -873,8 +641,8 @@
             "Description": "- Arctic Beam movespeed limit is now applied via a reduction rather than a speed cap (to allow items to be combined for faster movement like Surge of Power)",
             "Tags": [
                 "Kelvin",
-                "Arctic Beam",
-                "Surge of Power"
+                "Surge of Power",
+                "Arctic Beam"
             ]
         },
         {
@@ -895,8 +663,8 @@
             "Description": "- Soul Exchange T3 changed to \"After swap gain +40% Fire Rate and +40% Spirit Resistance for 8s\"",
             "Tags": [
                 "Lady Geist",
-                "Soul Exchange",
-                "Fire Rate"
+                "Fire Rate",
+                "Soul Exchange"
             ]
         },
         {
@@ -904,42 +672,6 @@
             "Tags": [
                 "Lash",
                 "Death Slam"
-            ]
-        },
-        {
-            "Description": "- Turret range reduced from 30m to 25m",
-            "Tags": [
-                "McGinnis"
-            ]
-        },
-        {
-            "Description": "- Turret HP scaling reduced from 40% to 30% (affects initial HP too)",
-            "Tags": [
-                "McGinnis"
-            ]
-        },
-        {
-            "Description": "- Turret cooldown reduced from 35s to 30s",
-            "Tags": [
-                "McGinnis"
-            ]
-        },
-        {
-            "Description": "- Turret Charge Time reduced from 8s to 6s",
-            "Tags": [
-                "McGinnis"
-            ]
-        },
-        {
-            "Description": "- Base Spirit Resist increased from 20% to 25%",
-            "Tags": [
-                "McGinnis"
-            ]
-        },
-        {
-            "Description": "- Base Regen increased from 1 to 2",
-            "Tags": [
-                "McGinnis"
             ]
         },
         {
@@ -953,13 +685,15 @@
             "Description": "- Heavy Barrage cooldown reduced from 110s to 100s",
             "Tags": [
                 "McGinnis",
-                "Heavy Barrage"
+                "Heavy Barrage",
+                "Barrage"
             ]
         },
         {
             "Description": "- You can now cast items and Scorn while spinning out of Burrow",
             "Tags": [
                 "Mo & Krill",
+                "Burrow",
                 "Scorn"
             ]
         },
@@ -1002,7 +736,8 @@
             "Description": "- Fixed a recent change causing Enchanter's Satchel to not play damage at the destination when teleporting with Flying Cloak",
             "Tags": [
                 "Pocket",
-                "Flying Cloak"
+                "Flying Cloak",
+                "Enchanter's Satchel"
             ]
         },
         {
@@ -1055,5 +790,276 @@
                 "Shadow Transformation"
             ]
         }
-    ]
+    ],
+    "General": [
+        {
+            "Description": "- Added EU servers and matchmaking region. EU testing times are Mon-Thur 5PM to 3AM and Fri-Sun 3PM to 3AM. Times listed are Central European Summer Time (GMT+2).",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Removed the invite requirement of Steam friends having been on your list for a number of days (affected normal user cases often where friends weren't on the Steam list, and we have other metrics and tools on the backend now that we can use to filter for other cases)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added search functionality to the shop. You can now search by item name or by individual stat such as 'Ammo', 'Lifesteal', or 'Spirit Power'.",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- The game will now let you know when it is safe to abandon (usually if one person has been disconnected for a while)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Your personal builds are now always sorted to the top of the in-game Builds dropdown",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Various network related improvements when there is packet loss",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Preferred heroes in your roster are now remember on the client across sessions",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed chat wheel not working during the post-game sequence",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Updated the entrance to the underground tunnels from the outer lanes to look more like a subway entrance",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Re-enabled ultra wide UI mode",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added street names and symbols to the Zipline UI",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed the unit target UI not showing the activation button hint",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added a Cosmic Veil to the hero demo map",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added wind sound when on the Zipline",
+            "Tags": [
+                "General"
+            ]
+        }
+    ],
+    "Misc Gameplay": [
+        {
+            "Description": "- Rejuv buff is now only granted to the players that are alive. Players that are dead will have their respawn times cut in half from their current values.",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Footsteps are now quieter when obstructed by level geometry",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Dash-Down is now double tap CTRL instead of CTRL+SHIFT",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Vault bounty increased from 300 to 330",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added another entrance/exit to the underground tunnels from the warehouse interiors",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Enclosed the exterior Medium Neutral Camp with fencing in front of the Theater to match the Amber side Cab Stand",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added two more veils on each side:",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "1) Between the Drug Store and the Market on Amber, between the Hotel and Pharmacy on Sapphire",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "2) Between the exterior Strong Neutral Camps and the outer lane near the T2",
+            "Tags": [
+                "General"
+            ]
+        }
+    ],
+    "Item Gameplay": [
+        {
+            "Description": "+8% Spirit Resist",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "+10% Ammo",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "+20% Ammo",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "+50 Health",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "-20% Reload Time",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "+8% Weapon Damage",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "Inspired by https://project8.dev/threads/item-idea-trick-reload.2652/",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "+15% Ammo",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "+8% Weapon Damage",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "+200 Bullet Shield",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "+15% Melee Damage",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "+10% Weapon Power",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "+75 Health",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "Passive: Hitting an enemy with a heavy melee reloads your weapon",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "Passive: Increases your heavy melee charge distance by 40%",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "Inspired by https://project8.dev/threads/bayonet.5372/ and https://project8.dev/threads/comple...-category-item-that-buffs-charged-melee.5957/",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "+500 HP",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "+20% Melee Damage",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "+20% Weapon Damage",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "Active: Gain 40% Bullet and Spirit Resist and apply 20% movement slow to enemies within 10m. Your model size grows by 10%. Lasts 7 seconds. Cooldown: 65s",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Tesla: Bounce radius increased from 7m to 9m",
+            "Tags": [
+                "General"
+            ]
+        }
+    ],
+    "Hero Gameplay": []
 }

@@ -1,106 +1,10 @@
 {
     "Other": [],
-    "Heroes": [],
-    "Items": [],
-    "Abilities": [],
-    "General": [
-        {
-            "Description": "- Playtesting times are now starting 1 hour earlier. Weekdays are 6PM PDT and weekends are 4PM PDT.",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Redesigned the Walker model and visuals",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added ambient sound effects",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added jar smash sound effects",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Updated Cold Front sound effects",
-            "Tags": [
-                "Cold Front"
-            ]
-        },
-        {
-            "Description": "- Improved NPC/minion weapon fire audio feedback for victims",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Improved player damage received audio feedback",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Updated Lash Death Slam sound effects",
-            "Tags": [
-                "Lash",
-                "Death Slam"
-            ]
-        },
-        {
-            "Description": "- Various minor fixes to Ground Strike and Death Slam effects",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Warden's Last Stand has improved visual effects",
-            "Tags": [
-                "Warden",
-                "Last Stand"
-            ]
-        },
-        {
-            "Description": "- Fixed a bug where the shopping book visuals could get stuck on your hero",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Vindicta's Crow Familiar projectile effect indicates the radius more accurately now",
-            "Tags": [
-                "Vindicta",
-                "Crow Familiar"
-            ]
-        },
+    "Heroes": [
         {
             "Description": "- New voice for Warden (in advance of upcoming model swap)",
             "Tags": [
                 "Warden"
-            ]
-        },
-        {
-            "Description": "- Patrons will now play a voice warning when Rejuvenator time is close to expiring as well as when it's expired",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Updated VO for Amber Hand's Patron",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Increased the duration of the item-used popup text a bit",
-            "Tags": [
-                "General"
             ]
         },
         {
@@ -110,39 +14,9 @@
             ]
         },
         {
-            "Description": "- Fixed Time Wall damaging units that don't move multiple times instead of once per walk through",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added a short wall between Shrines level of the base and the Weakened Patron level",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Moved the taxi back into the street to fix players getting stuck between the front and the building corner",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
             "Description": "- Moved a truck away from the garage to give wide enough path for Mo & Krill",
             "Tags": [
                 "Mo & Krill"
-            ]
-        },
-        {
-            "Description": "- Added clips to both sides of the overpass on outer lanes to keep from hitting your head on the ledge when climbing",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Added clips at outer lane T1 stairs where you could get stuck doing a roll slide",
-            "Tags": [
-                "General"
             ]
         },
         {
@@ -152,105 +26,31 @@
             ]
         },
         {
-            "Description": "- Fixed gaps where you could climb outside of the map",
+            "Description": "- Now has +10% Base Spirit Resistance",
             "Tags": [
-                "General"
+                "Kelvin"
             ]
         },
         {
-            "Description": "- Added a wall between the T1 shop and the hallway on the outer lanes by the Fire House and the Chapel to prevent attackers from shooting the T1 without taking damage",
+            "Description": "- True Form cooldown reduced from 50s to 40s",
             "Tags": [
-                "General"
+                "Ivy"
             ]
         },
         {
-            "Description": "- Fixed a couple of spots where Mo could get stuck between a truck and wall",
+            "Description": "- Shadow Explosion cooldown reduced from 120s to 90s",
             "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Replaced news stand that was close to the T1 with different cover kiosk building to avoid shop confusion",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Fixed no collision on water tower on the garage roof.",
-            "Tags": [
-                "General"
+                "Yamato"
             ]
         }
     ],
-    "Misc Gameplay": [
+    "Items": [
         {
-            "Description": "- Medium and Hard neutrals now spawn at 7 minutes",
+            "Description": "- Updated Cold Front sound effects",
             "Tags": [
-                "General"
+                "Cold Front"
             ]
         },
-        {
-            "Description": "- Neutrals now have 20% Spirit Resist",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Basement neutrals now have +2 Medium neutrals and -4 Small neutrals",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Basement neutrals are now classified as a Medium camp instead of a Small camp (for the purposes of spawn time)",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Fixed various abuses where you can shoot neutrals without them being able to shoot back. Neutrals now become invulnerable when they have no line of sight of you for 2 seconds.",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Spirit scaling reduced by ~19% (the total effective Spirit damage is reduced by less than this, this is just the Spirit multiplier scaling portion and has largest impact on late game burst)",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Respawn curve adjusted slightly (results in a few seconds of increased respawn time in the mid phase, same overall max respawn time)",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Zipline Boost ability is now available at the start of the game (used to start on cooldown)",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Shield break cooldown reduced from 80s to 60s",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Troopers run speed increased from 10 m/s to 11 m/s",
-            "Tags": [
-                "General"
-            ]
-        },
-        {
-            "Description": "- Medic Trooper health increased from 200 to 240",
-            "Tags": [
-                "General"
-            ]
-        }
-    ],
-    "Item Gameplay": [
         {
             "Description": "- Added a new T3 Spirit Item, Shifting Shroud. Innate: +10% Fire Rate. Active: You become invulnerable for 2.5s, during which you cannot move or perform any actions. When your invulnerability expires, your gun is instantly reloaded and you gain 14 bonus Spirit for 6s. Cooldown: 70s.",
             "Tags": [
@@ -261,12 +61,6 @@
             "Description": "- Bonus damage reduced from +40 to +35",
             "Tags": [
                 "Mystic Burst"
-            ]
-        },
-        {
-            "Description": "- Medic Bullets: Cooldown reduced from 5s to 4s",
-            "Tags": [
-                "General"
             ]
         },
         {
@@ -483,7 +277,41 @@
             ]
         }
     ],
-    "Hero Gameplay": [
+    "Abilities": [
+        {
+            "Description": "- Updated Lash Death Slam sound effects",
+            "Tags": [
+                "Lash",
+                "Death Slam"
+            ]
+        },
+        {
+            "Description": "- Various minor fixes to Ground Strike and Death Slam effects",
+            "Tags": [
+                "Ground Strike",
+                "Death Slam"
+            ]
+        },
+        {
+            "Description": "- Warden's Last Stand has improved visual effects",
+            "Tags": [
+                "Warden",
+                "Last Stand"
+            ]
+        },
+        {
+            "Description": "- Vindicta's Crow Familiar projectile effect indicates the radius more accurately now",
+            "Tags": [
+                "Vindicta",
+                "Crow Familiar"
+            ]
+        },
+        {
+            "Description": "- Fixed Time Wall damaging units that don't move multiple times instead of once per walk through",
+            "Tags": [
+                "Time Wall"
+            ]
+        },
         {
             "Description": "- Sticky Bomb T3 now applies the silence on cast instead of detonation",
             "Tags": [
@@ -506,17 +334,11 @@
             ]
         },
         {
-            "Description": "- Now has +10% Base Spirit Resistance",
-            "Tags": [
-                "Kelvin"
-            ]
-        },
-        {
             "Description": "- Frozen Shelter T1 increased from +35% to +40% Fire Rate Slow",
             "Tags": [
                 "Kelvin",
-                "Frozen Shelter",
-                "Fire Rate"
+                "Fire Rate",
+                "Frozen Shelter"
             ]
         },
         {
@@ -544,24 +366,24 @@
             "Description": "- Smoke Bomb cooldown reduced from 45s to 35s",
             "Tags": [
                 "Haze",
-                "Smoke Bomb",
-                "Smoke"
+                "Smoke",
+                "Smoke Bomb"
             ]
         },
         {
             "Description": "- Smoke Bomb T1 changed to +4 Invis Sprint",
             "Tags": [
                 "Haze",
-                "Smoke Bomb",
-                "Smoke"
+                "Smoke",
+                "Smoke Bomb"
             ]
         },
         {
             "Description": "- Smoke Bomb T2 is now -20s Cooldown",
             "Tags": [
                 "Haze",
-                "Smoke Bomb",
-                "Smoke"
+                "Smoke",
+                "Smoke Bomb"
             ]
         },
         {
@@ -569,12 +391,6 @@
             "Tags": [
                 "Infernus",
                 "Afterburn"
-            ]
-        },
-        {
-            "Description": "- True Form cooldown reduced from 50s to 40s",
-            "Tags": [
-                "Ivy"
             ]
         },
         {
@@ -623,8 +439,8 @@
             "Description": "- Mini Turret T2 is now +10m Attack Range and +10% Fire Rate",
             "Tags": [
                 "McGinnis",
-                "Mini Turret",
-                "Fire Rate"
+                "Fire Rate",
+                "Mini Turret"
             ]
         },
         {
@@ -675,12 +491,199 @@
                 "Warden",
                 "Last Stand"
             ]
+        }
+    ],
+    "General": [
+        {
+            "Description": "- Playtesting times are now starting 1 hour earlier. Weekdays are 6PM PDT and weekends are 4PM PDT.",
+            "Tags": [
+                "General"
+            ]
         },
         {
-            "Description": "- Shadow Explosion cooldown reduced from 120s to 90s",
+            "Description": "- Redesigned the Walker model and visuals",
             "Tags": [
-                "Yamato"
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added ambient sound effects",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added jar smash sound effects",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Improved NPC/minion weapon fire audio feedback for victims",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Improved player damage received audio feedback",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed a bug where the shopping book visuals could get stuck on your hero",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Patrons will now play a voice warning when Rejuvenator time is close to expiring as well as when it's expired",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Updated VO for Amber Hand's Patron",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Increased the duration of the item-used popup text a bit",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added a short wall between Shrines level of the base and the Weakened Patron level",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Moved the taxi back into the street to fix players getting stuck between the front and the building corner",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added clips to both sides of the overpass on outer lanes to keep from hitting your head on the ledge when climbing",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added clips at outer lane T1 stairs where you could get stuck doing a roll slide",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed gaps where you could climb outside of the map",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added a wall between the T1 shop and the hallway on the outer lanes by the Fire House and the Chapel to prevent attackers from shooting the T1 without taking damage",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed a couple of spots where Mo could get stuck between a truck and wall",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Replaced news stand that was close to the T1 with different cover kiosk building to avoid shop confusion",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed no collision on water tower on the garage roof.",
+            "Tags": [
+                "General"
             ]
         }
-    ]
+    ],
+    "Misc Gameplay": [
+        {
+            "Description": "- Medium and Hard neutrals now spawn at 7 minutes",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Neutrals now have 20% Spirit Resist",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Basement neutrals now have +2 Medium neutrals and -4 Small neutrals",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Basement neutrals are now classified as a Medium camp instead of a Small camp (for the purposes of spawn time)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed various abuses where you can shoot neutrals without them being able to shoot back. Neutrals now become invulnerable when they have no line of sight of you for 2 seconds.",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Spirit scaling reduced by ~19% (the total effective Spirit damage is reduced by less than this, this is just the Spirit multiplier scaling portion and has largest impact on late game burst)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Respawn curve adjusted slightly (results in a few seconds of increased respawn time in the mid phase, same overall max respawn time)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Zipline Boost ability is now available at the start of the game (used to start on cooldown)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Shield break cooldown reduced from 80s to 60s",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Troopers run speed increased from 10 m/s to 11 m/s",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Medic Trooper health increased from 200 to 240",
+            "Tags": [
+                "General"
+            ]
+        }
+    ],
+    "Item Gameplay": [
+        {
+            "Description": "- Medic Bullets: Cooldown reduced from 5s to 4s",
+            "Tags": [
+                "General"
+            ]
+        }
+    ],
+    "Hero Gameplay": []
 }
