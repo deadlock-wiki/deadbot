@@ -5,22 +5,22 @@
     "Heroes": {
         "General": [],
         "Abrams": [
-            "- Added new sprint animations for {{AbilityIcon|Ability=Abrams|Size=20}} Abrams",
+            "- Added new sprint animations for {{HeroIcon|Hero=Abrams|Size=20}} Abrams",
             "- {{AbilityIcon|Ability=Seismic Impact|Size=20}} Seismic Impact is now faster to play out",
             "- {{AbilityIcon|Ability=Seismic Impact|Size=20}} Seismic Impact now has a very brief busy state upon landing"
         ],
         "Lash": [
-            "- Various fixes to Lash's {{AbilityIcon|Ability=Ground Strike|Size=20}} Ground Strike visual effects"
+            "- Various fixes to {{HeroIcon|Hero=Lash|Size=20}} Lash's {{AbilityIcon|Ability=Ground Strike|Size=20}} Ground Strike visual effects"
         ],
         "Grey Talon": [
-            "- Grey Talon's {{AbilityIcon|Ability=Charged Shot|Size=20}} Charged Shot effect matches the damage radius better",
+            "- {{HeroIcon|Hero=Grey Talon|Size=20}} Grey Talon's {{AbilityIcon|Ability=Charged Shot|Size=20}} Charged Shot effect matches the damage radius better",
             "- Charge Shot spirit scaling improved from 1 to 1.3",
             "- {{AbilityIcon|Ability=Guided Owl|Size=20}} Guided Owl duration increased from 13s to 14s",
             "- {{AbilityIcon|Ability=Guided Owl|Size=20}} Guided Owl T3 increased from 20% to 22%",
             "- {{AbilityIcon|Ability=Guided Owl|Size=20}} Guided Owl player collision sized increased to regular sizes for these kind of projectiles"
         ],
         "McGinnis": [
-            "- Fixed some bugs that could cause {{AbilityIcon|Ability=McGinnis|Size=20}} McGinnis gun to be stuck",
+            "- Fixed some bugs that could cause {{HeroIcon|Hero=McGinnis|Size=20}} McGinnis gun to be stuck",
             "- Rocket {{AbilityIcon|Ability=Barrage|Size=20}} Barrage now does less damage to objectives similar to other ability damage"
         ],
         "Bebop": [
@@ -34,13 +34,13 @@
         "Haze": [
             "- {{AbilityIcon|Ability=Sleep Dagger|Size=20}} Sleep Dagger cooldown increased from 27 to 29",
             "- {{AbilityIcon|Ability=Sleep Dagger|Size=20}} Sleep Dagger spirit scaling increased from 2.2 to 2.5",
-            "- {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb T2 and T3 swapped",
-            "- {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb T3 cooldown improved from -20s to -25s"
+            "- {{ItemIcon|Item=Smoke|Size=20}} {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb T2 and T3 swapped",
+            "- {{ItemIcon|Item=Smoke|Size=20}} {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb T3 cooldown improved from -20s to -25s"
         ],
         "Infernus": [
             "- {{AbilityIcon|Ability=Afterburn|Size=20}} Afterburn T3 reduced from +40 dps to +35",
             "- {{AbilityIcon|Ability=Flame Dash|Size=20}} Flame Dash T1 duration reduced from 8s to 7s",
-            "- {{AbilityIcon|Ability=Flame Dash|Size=20}} Flame Dash T1 Fire Rate slow increased from +30% to +35%",
+            "- {{AbilityIcon|Ability=Flame Dash|Size=20}} Flame Dash T1 {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate slow increased from +30% to +35%",
             "- {{AbilityIcon|Ability=Flame Dash|Size=20}} Flame Dash T2 increased from +40 DPS to +45",
             "- {{AbilityIcon|Ability=Flame Dash|Size=20}} Flame Dash T3 increased from -15s to -20s"
         ],
@@ -65,8 +65,8 @@
             "- Bullet base damage reduced from 8 to 7.2 (indirectly affects {{AbilityIcon|Ability=Kinetic Carbine|Size=20}} Kinetic Carbine)",
             "- Bullet growth reduced from 0.48 to 0.42 (indirectly affects {{AbilityIcon|Ability=Kinetic Carbine|Size=20}} Kinetic Carbine)",
             "- {{AbilityIcon|Ability=Kinetic Carbine|Size=20}} Kinetic Carbine damage reduced from +100% to +85%",
-            "- {{AbilityIcon|Ability=Paradoxical Swap|Size=20}} Paradoxical Swap range reduced from 40m to 35m",
-            "- Fixed {{AbilityIcon|Ability=Paradoxical Swap|Size=20}} Paradoxical Swap being able to grab multiple heroes if they were really close to each other"
+            "- {{HeroIcon|Hero=Paradox|Size=20}} {{AbilityIcon|Ability=Paradoxical Swap|Size=20}} Paradoxical Swap range reduced from 40m to 35m",
+            "- Fixed {{HeroIcon|Hero=Paradox|Size=20}} {{AbilityIcon|Ability=Paradoxical Swap|Size=20}} Paradoxical Swap being able to grab multiple heroes if they were really close to each other"
         ],
         "Pocket": [
             "- {{AbilityIcon|Ability=Barrage|Size=20}} Barrage radius increased from 5m to 6m",
@@ -79,7 +79,7 @@
             "- Now has -10% Base Bullet Resist",
             "- {{AbilityIcon|Ability=Flight|Size=20}} Flight no longer grants +1 bonus air speed",
             "- {{AbilityIcon|Ability=Flight|Size=20}} Flight falloff damage increase reduced from +20% to +10%",
-            "- Fixed flight spirit damage being able to pierce {{AbilityIcon|Ability=Metal Skin|Size=20}} Metal Skin"
+            "- Fixed flight spirit damage being able to pierce {{ItemIcon|Item=Metal Skin|Size=20}} Metal Skin"
         ],
         "Warden": [
             "- {{AbilityIcon|Ability=Willpower|Size=20}} Willpower T1 improved from +15% to +20%",
@@ -91,7 +91,7 @@
         "Yamato": [
             "- {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash spirit scaling improved from 1.6 to 2.0",
             "- {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash no longer does a very minor movement on enemies hit",
-            "- Fixed {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash sometimes not being a full charge when channeled fully during the Shadow Transformation",
+            "- Fixed {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash sometimes not being a full charge when channeled fully during the {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation",
             "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation's ability speedup now affects the post-cast durations as well",
             "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation's ability speedup now improves the visual animations (cosmetic only change)"
         ]
@@ -99,10 +99,10 @@
     "Items": {
         "General": [],
         "Mystic Vulnerability": [
-            "- Fixed Turrets not proccing things like {{AbilityIcon|Ability=Mystic Vulnerability|Size=20}} Mystic Vulnerability"
+            "- Fixed Turrets not proccing things like {{ItemIcon|Item=Mystic Vulnerability|Size=20}} Mystic Vulnerability"
         ],
         "Unstoppable": [
-            "- Fixed an edge case with {{AbilityIcon|Ability=Unstoppable|Size=20}} Unstoppable and a debuff being applied on the same frame"
+            "- Fixed an edge case with {{ItemIcon|Item=Unstoppable|Size=20}} Unstoppable and a debuff being applied on the same frame"
         ],
         "Basic Magazine": [
             "- Ammo reduced from +16% to +15%",
@@ -112,17 +112,17 @@
             "- Cooldown reduced from 9s to 5s"
         ],
         "Spirit Strike": [
-            "- {{AbilityIcon|Ability=Health Regen|Size=20}} Health Regen increased from 0.7 to 1"
+            "- {{ItemIcon|Item=Health Regen|Size=20}} Health Regen increased from 0.7 to 1"
         ],
         "Health Regen": [
-            "- {{AbilityIcon|Ability=Health Regen|Size=20}} Health Regen increased from 0.7 to 1"
+            "- {{ItemIcon|Item=Health Regen|Size=20}} Health Regen increased from 0.7 to 1"
         ],
         "Enduring Spirit": [
             "- No longer provides +1 Sprint",
-            "- +10% {{AbilityIcon|Ability=Spirit Lifesteal|Size=20}} Spirit Lifesteal"
+            "- +10% {{ItemIcon|Item=Spirit Lifesteal|Size=20}} Spirit Lifesteal"
         ],
         "Spirit Lifesteal": [
-            "- {{AbilityIcon|Ability=Enduring Spirit|Size=20}} Enduring Spirit: +10% Spirit Lifesteal"
+            "- {{ItemIcon|Item=Enduring Spirit|Size=20}} Enduring Spirit: +10% {{ItemIcon|Item=Spirit Lifesteal|Size=20}} Spirit Lifesteal"
         ],
         "Soul Shredder Bullets": [
             "- Spirit Amp reduced from 14% to 12%"
@@ -194,14 +194,14 @@
             "- Spirit increased from +40 to +45"
         ],
         "Smoke": [
-            "- {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb T2 and T3 swapped",
-            "- {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb T3 cooldown improved from -20s to -25s"
+            "- {{ItemIcon|Item=Smoke|Size=20}} {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb T2 and T3 swapped",
+            "- {{ItemIcon|Item=Smoke|Size=20}} {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb T3 cooldown improved from -20s to -25s"
         ],
         "Fire Rate": [
-            "- {{AbilityIcon|Ability=Flame Dash|Size=20}} Flame Dash T1 Fire Rate slow increased from +30% to +35%"
+            "- {{AbilityIcon|Ability=Flame Dash|Size=20}} Flame Dash T1 {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate slow increased from +30% to +35%"
         ],
         "Metal Skin": [
-            "- Fixed flight spirit damage being able to pierce {{AbilityIcon|Ability=Metal Skin|Size=20}} Metal Skin"
+            "- Fixed flight spirit damage being able to pierce {{ItemIcon|Item=Metal Skin|Size=20}} Metal Skin"
         ]
     },
     "Abilities": {
@@ -213,16 +213,16 @@
             "- {{AbilityIcon|Ability=Guided Owl|Size=20}} Guided Owl player collision sized increased to regular sizes for these kind of projectiles"
         ],
         "Pulse Grenade": [
-            "- Fixed some sound issues with {{AbilityIcon|Ability=Pulse|Size=20}} Pulse Grenade"
+            "- Fixed some sound issues with {{AbilityIcon|Ability={{AbilityIcon|Ability=Pulse|Size=20}} Pulse Grenade|Size=20}} {{AbilityIcon|Ability=Pulse|Size=20}} Pulse Grenade"
         ],
         "Pulse": [
-            "- Fixed some sound issues with {{AbilityIcon|Ability=Pulse|Size=20}} Pulse Grenade"
+            "- Fixed some sound issues with {{AbilityIcon|Ability={{AbilityIcon|Ability=Pulse|Size=20}} Pulse Grenade|Size=20}} {{AbilityIcon|Ability=Pulse|Size=20}} Pulse Grenade"
         ],
         "Ground Strike": [
-            "- Various fixes to Lash's {{AbilityIcon|Ability=Ground Strike|Size=20}} Ground Strike visual effects"
+            "- Various fixes to {{HeroIcon|Hero=Lash|Size=20}} Lash's {{AbilityIcon|Ability=Ground Strike|Size=20}} Ground Strike visual effects"
         ],
         "Charged Shot": [
-            "- Grey Talon's {{AbilityIcon|Ability=Charged Shot|Size=20}} Charged Shot effect matches the damage radius better"
+            "- {{HeroIcon|Hero=Grey Talon|Size=20}} Grey Talon's {{AbilityIcon|Ability=Charged Shot|Size=20}} Charged Shot effect matches the damage radius better"
         ],
         "Assassinate": [
             "- Added visual tell for when {{AbilityIcon|Ability=Assassinate|Size=20}} Assassinate is active"
@@ -242,15 +242,15 @@
             "- {{AbilityIcon|Ability=Sleep Dagger|Size=20}} Sleep Dagger spirit scaling increased from 2.2 to 2.5"
         ],
         "Smoke Bomb": [
-            "- {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb T2 and T3 swapped",
-            "- {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb T3 cooldown improved from -20s to -25s"
+            "- {{ItemIcon|Item=Smoke|Size=20}} {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb T2 and T3 swapped",
+            "- {{ItemIcon|Item=Smoke|Size=20}} {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb T3 cooldown improved from -20s to -25s"
         ],
         "Afterburn": [
             "- {{AbilityIcon|Ability=Afterburn|Size=20}} Afterburn T3 reduced from +40 dps to +35"
         ],
         "Flame Dash": [
             "- {{AbilityIcon|Ability=Flame Dash|Size=20}} Flame Dash T1 duration reduced from 8s to 7s",
-            "- {{AbilityIcon|Ability=Flame Dash|Size=20}} Flame Dash T1 Fire Rate slow increased from +30% to +35%",
+            "- {{AbilityIcon|Ability=Flame Dash|Size=20}} Flame Dash T1 {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate slow increased from +30% to +35%",
             "- {{AbilityIcon|Ability=Flame Dash|Size=20}} Flame Dash T2 increased from +40 DPS to +45",
             "- {{AbilityIcon|Ability=Flame Dash|Size=20}} Flame Dash T3 increased from -15s to -20s"
         ],
@@ -284,8 +284,8 @@
             "- {{AbilityIcon|Ability=Kinetic Carbine|Size=20}} Kinetic Carbine damage reduced from +100% to +85%"
         ],
         "Paradoxical Swap": [
-            "- {{AbilityIcon|Ability=Paradoxical Swap|Size=20}} Paradoxical Swap range reduced from 40m to 35m",
-            "- Fixed {{AbilityIcon|Ability=Paradoxical Swap|Size=20}} Paradoxical Swap being able to grab multiple heroes if they were really close to each other"
+            "- {{HeroIcon|Hero=Paradox|Size=20}} {{AbilityIcon|Ability=Paradoxical Swap|Size=20}} Paradoxical Swap range reduced from 40m to 35m",
+            "- Fixed {{HeroIcon|Hero=Paradox|Size=20}} {{AbilityIcon|Ability=Paradoxical Swap|Size=20}} Paradoxical Swap being able to grab multiple heroes if they were really close to each other"
         ],
         "Flying Cloak": [
             "- {{AbilityIcon|Ability=Flying Cloak|Size=20}} Flying Cloak speed increased by 7%",
@@ -307,10 +307,10 @@
         "Power Slash": [
             "- {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash spirit scaling improved from 1.6 to 2.0",
             "- {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash no longer does a very minor movement on enemies hit",
-            "- Fixed {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash sometimes not being a full charge when channeled fully during the Shadow Transformation"
+            "- Fixed {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash sometimes not being a full charge when channeled fully during the {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation"
         ],
         "Shadow Transformation": [
-            "- Fixed {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash sometimes not being a full charge when channeled fully during the Shadow Transformation",
+            "- Fixed {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash sometimes not being a full charge when channeled fully during the {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation",
             "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation's ability speedup now affects the post-cast durations as well",
             "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation's ability speedup now improves the visual animations (cosmetic only change)"
         ]

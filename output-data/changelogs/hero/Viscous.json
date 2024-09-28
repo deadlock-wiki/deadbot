@@ -1,13 +1,13 @@
 {
     "09-12-2024": [
-        "- {{AbilityIcon|Ability=Puddle Punch|Size=20}} Puddle Punch now correctly knocks people in The Cube up in the air",
+        "- {{AbilityIcon|Ability=Puddle Punch|Size=20}} Puddle Punch now correctly knocks people in {{AbilityIcon|Ability=The Cube|Size=20}} The Cube up in the air",
         "- Improved various issues with the camera",
         "- Puddle punch now telegraphs an effect before it forms",
         "- Base bullet damage reduced from 14 to 13",
         "- {{AbilityIcon|Ability=Splatter|Size=20}} Splatter damage reduced from 110 to 100",
         "- {{AbilityIcon|Ability=Goo Ball|Size=20}} Goo Ball turn rate improved a bit",
         "- {{AbilityIcon|Ability=Goo Ball|Size=20}} Goo Ball stun frequency cooldown improved from 1.5s to 1.25s",
-        "- Fixed {{AbilityIcon|Ability=Puddle Punch|Size=20}} Puddle Punch piercing Unstoppable"
+        "- Fixed {{AbilityIcon|Ability=Puddle Punch|Size=20}} Puddle Punch piercing {{ItemIcon|Item=Unstoppable|Size=20}} Unstoppable"
     ],
     "09-01-2024": [
         "- {{AbilityIcon|Ability=Puddle Punch|Size=20}} Puddle Punch base cast range from 60m to 40m",
@@ -32,7 +32,7 @@
     ],
     "08-15-2024": [
         "- Fixed {{AbilityIcon|Ability=Splatter|Size=20}} Splatter direct hits counting as the second hit",
-        "- Fix Damage prevention after being hit by Viscous' {{AbilityIcon|Ability=Goo Ball|Size=20}} Goo Ball being reduced by Debuff Reducer",
+        "- Fix Damage prevention after being hit by {{HeroIcon|Hero=Viscous|Size=20}} Viscous' {{AbilityIcon|Ability=Goo Ball|Size=20}} Goo Ball being reduced by {{ItemIcon|Item=Debuff Reducer|Size=20}} Debuff Reducer",
         "- {{AbilityIcon|Ability=The Cube|Size=20}} The Cube cast range increased from 25m to 30m",
         "- {{AbilityIcon|Ability=The Cube|Size=20}} The Cube T2 cooldown reduced from -25s to -22s",
         "- {{AbilityIcon|Ability=Puddle Punch|Size=20}} Puddle Punch now deals light melee damage and is affected by melee items",
@@ -45,12 +45,12 @@
         "- {{AbilityIcon|Ability=Goo Ball|Size=20}} Goo Ball bullet resist reduced from 70% to 60%",
         "- {{AbilityIcon|Ability=Goo Ball|Size=20}} Goo Ball can now only stun and damage a target once every 1.5s, up from once every 1.0s",
         "- {{AbilityIcon|Ability=Goo Ball|Size=20}} Goo Ball acceleration lowered a bit",
-        "- Stunning or immobilizing {{AbilityIcon|Ability=Viscous|Size=20}} Viscous now stops the ball from moving, and prevents him from doing damage and stunning"
+        "- Stunning or immobilizing {{HeroIcon|Hero=Viscous|Size=20}} Viscous now stops the ball from moving, and prevents him from doing damage and stunning"
     ],
     "08-06-2024": [
-        "- Added a directional arrow particle effect to {{AbilityIcon|Ability=Goo Ball|Size=20}} Goo Ball for Viscous",
+        "- Added a directional arrow particle effect to {{AbilityIcon|Ability=Goo Ball|Size=20}} Goo Ball for {{HeroIcon|Hero=Viscous|Size=20}} Viscous",
         "- Added additional particles while using {{AbilityIcon|Ability=Goo Ball|Size=20}} Goo Ball",
-        "- Fixed hit detection on {{AbilityIcon|Ability=Puddle Punch|Size=20}} Puddle Punch and Goo Ball",
+        "- Fixed hit detection on {{AbilityIcon|Ability=Puddle Punch|Size=20}} Puddle Punch and {{AbilityIcon|Ability=Goo Ball|Size=20}} Goo Ball",
         "- Fixed {{AbilityIcon|Ability=Puddle Punch|Size=20}} Puddle Punch having 2x the range of the tooltip.",
         "- Fixed {{AbilityIcon|Ability=Puddle Punch|Size=20}} Puddle Punch being able to target behind puddle",
         "- Fixed {{AbilityIcon|Ability=Puddle Punch|Size=20}} Puddle Punch using Guardians as a surface to punch from",
@@ -60,6 +60,6 @@
         "- {{AbilityIcon|Ability=Splatter|Size=20}} Splatter Base Damage from 120 to 110"
     ],
     "08-01-2024": [
-        "- Added a new hero, {{AbilityIcon|Ability=Viscous|Size=20}} Viscous. He's green."
+        "- Added a new hero, {{HeroIcon|Hero=Viscous|Size=20}} Viscous. He's green."
     ]
 }

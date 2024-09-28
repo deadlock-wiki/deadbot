@@ -17,7 +17,7 @@
         ],
         "Dynamo": [
             "- {{AbilityIcon|Ability=Rejuvenating Aurora|Size=20}} Rejuvenating Aurora can now be canceled by using Parry",
-            "- Fixed Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse not traveling properly when cast near corners",
+            "- Fixed {{AbilityIcon|Ability=Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse|Size=20}} Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse not traveling properly when cast near corners",
             "- Gun damage reduced from 15 to 13",
             "- {{AbilityIcon|Ability=Singularity|Size=20}} Singularity cast time increased from 0.1 to 0.2",
             "- {{AbilityIcon|Ability=Singularity|Size=20}} Singularity range reduced from 9m to 8m"
@@ -26,19 +26,19 @@
             "- {{AbilityIcon|Ability=Charged Shot|Size=20}} Charged Shot collision size reduced by 8%",
             "- {{AbilityIcon|Ability=Charged Shot|Size=20}} Charged Shot base damage reduced from 105 to 100",
             "- {{AbilityIcon|Ability=Charged Shot|Size=20}} Charged Shot T2 reduced from +70 to +65",
-            "- {{AbilityIcon|Ability=Fire Rate|Size=20}} Fire Rate now scales with Spirit (0.25)",
+            "- {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate now scales with Spirit (0.25)",
             "- Can now use multiple air dashes while using Rain of Fire",
             "- {{AbilityIcon|Ability=Immobilizing Trap|Size=20}} Immobilizing Trap root duration reduced from 2s to 1.25s",
             "- {{AbilityIcon|Ability=Immobilizing Trap|Size=20}} Immobilizing Trap now applies a 50% movement slow for 1 seconds after the root",
             "- {{AbilityIcon|Ability=Immobilizing Trap|Size=20}} Immobilizing Trap T2 changed from +1s Root to +2s Slow",
-            "- Yamato: Fixed being able to die during {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation if hit by Grey Talon's Owl"
+            "- {{HeroIcon|Hero=Yamato|Size=20}} Yamato: Fixed being able to die during {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation if hit by {{HeroIcon|Hero=Grey Talon|Size=20}} Grey Talon's Owl"
         ],
         "Haze": [
             "- Base bullet damage increased from 5.3 to 5.6",
             "- {{AbilityIcon|Ability=Sleep Dagger|Size=20}} Sleep Dagger impact damage happens immediately, rather than after the brief drowsy period",
             "- {{AbilityIcon|Ability=Sleep Dagger|Size=20}} Sleep Dagger drowsy period before sleep kicks in increased from 0.25 to 0.35",
             "- {{AbilityIcon|Ability=Sleep Dagger|Size=20}} Sleep Dagger cooldown reduced from 27s to 25s",
-            "- {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb radius reduced from 20m to 18m",
+            "- {{ItemIcon|Item=Smoke|Size=20}} {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb radius reduced from 20m to 18m",
             "- {{AbilityIcon|Ability=Fixation|Size=20}} Fixation T2 max stacks increased from +30 to +40",
             "- {{AbilityIcon|Ability=Bullet Dance|Size=20}} Bullet Dance now provides +2 Weapon Damage in the base ability (similar to the T1)"
         ],
@@ -78,7 +78,7 @@
             "- {{AbilityIcon|Ability=Grapple|Size=20}} Grapple no longer gives a stamina charge on use"
         ],
         "Paradox": [
-            "- Fixed {{AbilityIcon|Ability=Paradoxical Swap|Size=20}} Paradoxical Swap still going through even if Paradox dies during it"
+            "- Fixed {{HeroIcon|Hero=Paradox|Size=20}} {{AbilityIcon|Ability=Paradoxical Swap|Size=20}} Paradoxical Swap still going through even if {{HeroIcon|Hero=Paradox|Size=20}} Paradox dies during it"
         ],
         "Pocket": [
             "- {{AbilityIcon|Ability=Barrage|Size=20}} Barrage amp reduced from 8% to 7% per stack",
@@ -98,7 +98,7 @@
             "- {{AbilityIcon|Ability=Slice and Dice|Size=20}} Slice and Dice T2 reduced from +100 to +85",
             "- {{AbilityIcon|Ability=Slice and Dice|Size=20}} Slice and Dice T3 now considers creeps for only half value",
             "- {{AbilityIcon|Ability=Bloodletting|Size=20}} Bloodletting deferred damage reduced from 35% to 30%",
-            "- The targeting UI for Shiv's {{AbilityIcon|Ability=Killing Blow|Size=20}} Killing Blow is now more clear about when the target will be killed"
+            "- The targeting UI for {{HeroIcon|Hero=Shiv|Size=20}} Shiv's {{AbilityIcon|Ability=Killing Blow|Size=20}} Killing Blow is now more clear about when the target will be killed"
         ],
         "Vindicta": [
             "- {{AbilityIcon|Ability=Stake|Size=20}} Stake duration reduced from 2.25s to 2s",
@@ -121,13 +121,13 @@
         ],
         "Warden": [
             "- Base movement speed reduced from 6.5 to 6",
-            "- {{AbilityIcon|Ability=Fire Rate|Size=20}} Fire Rate scaling with spirit reduced from 0.375 {{AbilityIcon|Ability=Fire Rate|Size=20}} Fire Rate per Spirit to 0.3"
+            "- {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate scaling with spirit reduced from 0.375 {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate per Spirit to 0.3"
         ],
         "Yamato": [
             "- {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash max damage time requirement reduced from 1.5s to 1.4s",
             "- {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash collision radius reduced by 8%",
             "- {{AbilityIcon|Ability=Crimson Slash|Size=20}} Crimson Slash radius increased from 12m to 13m",
-            "- Fixed being able to die during {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation if hit by Grey Talon's Owl",
+            "- Fixed being able to die during {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation if hit by {{HeroIcon|Hero=Grey Talon|Size=20}} Grey Talon's Owl",
             "- Fixed some cases where {{AbilityIcon|Ability=Flying Strike|Size=20}} Flying Strike could get into a stuck state",
             "- Fixed some cases where {{AbilityIcon|Ability=Crimson Slash|Size=20}} Crimson Slash would appear to be cast when it wasn't"
         ]
@@ -135,34 +135,34 @@
     "Items": {
         "General": [],
         "Extra Charge": [
-            "- Fixed selling an item not removing charges correctly. Now you can't buy {{AbilityIcon|Ability=Extra Charge|Size=20}} Extra Charge and immediately sell it and keep that readied charge.",
+            "- Fixed selling an item not removing charges correctly. Now you can't buy {{ItemIcon|Item=Extra Charge|Size=20}} Extra Charge and immediately sell it and keep that readied charge.",
             "- Cooldown reduction increased from +8% to +10%"
         ],
         "Sharpshooter": [
-            "- Fixed {{AbilityIcon|Ability=Sharpshooter|Size=20}} Sharpshooter showing up in stats for bullet velocity even though it doesn't increase your bullet velocity",
+            "- Fixed {{ItemIcon|Item=Sharpshooter|Size=20}} Sharpshooter showing up in stats for bullet velocity even though it doesn't increase your bullet velocity",
             "- Now grants +175 Bullet Shield",
             "- No longer provides bonus headshot damage",
             "- Weapon damage increased from 60% to 70%"
         ],
         "Withering Whip": [
-            "- Added new effects for {{AbilityIcon|Ability=Withering Whip|Size=20}} Withering Whip",
+            "- Added new effects for {{ItemIcon|Item=Withering Whip|Size=20}} Withering Whip",
             "- No longer grants +20% Ammo",
-            "- Now grants +8% {{AbilityIcon|Ability=Fire Rate|Size=20}} Fire Rate",
-            "- {{AbilityIcon|Ability=Fire Rate|Size=20}} Fire Rate slow reduced from -40% to -30%",
+            "- Now grants +8% {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate",
+            "- {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate slow reduced from -40% to -30%",
             "- Cooldown reduced from 40s to 25s"
         ],
         "Ethereal Shift": [
-            "- Updated {{AbilityIcon|Ability=Ethereal Shift|Size=20}} Ethereal Shift effects"
+            "- Updated {{ItemIcon|Item=Ethereal Shift|Size=20}} Ethereal Shift effects"
         ],
         "Decay": [
-            "- Added {{AbilityIcon|Ability=Decay|Size=20}} Decay impact sound"
+            "- Added {{ItemIcon|Item=Decay|Size=20}} Decay impact sound"
         ],
         "Majestic Leap": [
-            "- Updated {{AbilityIcon|Ability=Majestic Leap|Size=20}} Majestic Leap sound",
+            "- Updated {{ItemIcon|Item=Majestic Leap|Size=20}} Majestic Leap sound",
             "- Cooldown reduced from 26s to 24s"
         ],
         "Shadow Weave": [
-            "- Added {{AbilityIcon|Ability=Shadow Weave|Size=20}} Shadow Weave cast and ambush sounds",
+            "- Added {{ItemIcon|Item=Shadow Weave|Size=20}} Shadow Weave cast and ambush sounds",
             "- Spirit Shield health increased from +200 to +300",
             "- Spot radius reduced from 20m to 18m"
         ],
@@ -174,23 +174,23 @@
         ],
         "High-Velocity Mag": [
             "- Bullet Velocity reduced from +35% to +30% (now has an upgrade)",
-            "- Added new T3 Weapon Item, Headhunter: Requires {{AbilityIcon|Ability=High-Velocity Mag|Size=20}} High-Velocity Mag. Grants +50% Bullet Velocity, +15% Weapon Damage and +150 Bullet Shield. Passive cooldown: Landing a headshot on heroes deals bonus +140 Damage, heals you for +8% Max HP and grants +2 m/s for 3 seconds. Cooldown: 6 seconds."
+            "- Added new T3 Weapon Item, {{ItemIcon|Item=Headhunter|Size=20}} Headhunter: Requires {{ItemIcon|Item=High-Velocity Mag|Size=20}} High-Velocity Mag. Grants +50% Bullet Velocity, +15% Weapon Damage and +150 Bullet Shield. Passive cooldown: Landing a headshot on heroes deals bonus +140 Damage, heals you for +8% Max HP and grants +2 m/s for 3 seconds. Cooldown: 6 seconds."
         ],
         "Active Reload": [
             "- Lifesteal reduced from 30% to 22%",
             "- Buff duration reduced from 8s to 7s"
         ],
         "Fire Rate": [
-            "- {{AbilityIcon|Ability=Kinetic Dash|Size=20}} Kinetic Dash: Active Fire Rate reduced from 30% to 25%",
-            "- {{AbilityIcon|Ability=Combat Barrier|Size=20}} Combat Barrier: Now also grants +8% Fire Rate while active",
-            "- {{AbilityIcon|Ability=Withering Whip|Size=20}} Withering Whip: Now grants +8% Fire Rate",
-            "- {{AbilityIcon|Ability=Withering Whip|Size=20}} Withering Whip: Fire Rate slow reduced from -40% to -30%",
-            "- {{AbilityIcon|Ability=Suppressor|Size=20}} Suppressor: Fire Rate reduction reduced from -30% to -25%",
-            "- {{AbilityIcon|Ability=Fire Rate|Size=20}} Fire Rate now scales with Spirit (0.25)",
-            "- {{AbilityIcon|Ability=Fire Rate|Size=20}} Fire Rate scaling with spirit reduced from 0.375 {{AbilityIcon|Ability=Fire Rate|Size=20}} Fire Rate per Spirit to 0.3"
+            "- {{ItemIcon|Item=Kinetic Dash|Size=20}} Kinetic Dash: Active {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate reduced from 30% to 25%",
+            "- {{ItemIcon|Item=Combat Barrier|Size=20}} Combat Barrier: Now also grants +8% {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate while active",
+            "- {{ItemIcon|Item=Withering Whip|Size=20}} Withering Whip: Now grants +8% {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate",
+            "- {{ItemIcon|Item=Withering Whip|Size=20}} Withering Whip: {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate slow reduced from -40% to -30%",
+            "- {{ItemIcon|Item=Suppressor|Size=20}} Suppressor: {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate reduction reduced from -30% to -25%",
+            "- {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate now scales with Spirit (0.25)",
+            "- {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate scaling with spirit reduced from 0.375 {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate per Spirit to 0.3"
         ],
         "Kinetic Dash": [
-            "- Active {{AbilityIcon|Ability=Fire Rate|Size=20}} Fire Rate reduced from 30% to 25%"
+            "- Active {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate reduced from 30% to 25%"
         ],
         "Long Range": [
             "- Now grants +90 Bullet Shield"
@@ -202,10 +202,10 @@
             "- Now grants +10% Ammo"
         ],
         "Bullet Armor": [
-            "- {{AbilityIcon|Ability=Titanic Magazine|Size=20}} Titanic Magazine: Bullet Armor increased from 10% to 15%"
+            "- {{ItemIcon|Item=Titanic Magazine|Size=20}} Titanic Magazine: {{ItemIcon|Item=Bullet Armor|Size=20}} Bullet Armor increased from 10% to 15%"
         ],
         "Titanic Magazine": [
-            "- {{AbilityIcon|Ability=Bullet Armor|Size=20}} Bullet Armor increased from 10% to 15%"
+            "- {{ItemIcon|Item=Bullet Armor|Size=20}} Bullet Armor increased from 10% to 15%"
         ],
         "Toxic Bullets": [
             "- Heal Reduction increased from -55% to -65%",
@@ -231,7 +231,7 @@
             "- Active duration increased from 5s to 6s"
         ],
         "Headhunter": [
-            "- Added new T3 Weapon Item, Headhunter: Requires {{AbilityIcon|Ability=High-Velocity Mag|Size=20}} High-Velocity Mag. Grants +50% Bullet Velocity, +15% Weapon Damage and +150 Bullet Shield. Passive cooldown: Landing a headshot on heroes deals bonus +140 Damage, heals you for +8% Max HP and grants +2 m/s for 3 seconds. Cooldown: 6 seconds."
+            "- Added new T3 Weapon Item, {{ItemIcon|Item=Headhunter|Size=20}} Headhunter: Requires {{ItemIcon|Item=High-Velocity Mag|Size=20}} High-Velocity Mag. Grants +50% Bullet Velocity, +15% Weapon Damage and +150 Bullet Shield. Passive cooldown: Landing a headshot on heroes deals bonus +140 Damage, heals you for +8% Max HP and grants +2 m/s for 3 seconds. Cooldown: 6 seconds."
         ],
         "Siphon Bullets": [
             "- Weapon Damage reduced from 40% to 28%"
@@ -244,7 +244,7 @@
         ],
         "Ricochet": [
             "- Bounce damage increased from 50% to 60%",
-            "- Fixed not applying spirit bonus damage from Vindicta and {{AbilityIcon|Ability=Wraith|Size=20}} Wraith abilities"
+            "- Fixed not applying spirit bonus damage from {{HeroIcon|Hero=Vindicta|Size=20}} Vindicta and {{HeroIcon|Hero=Wraith|Size=20}} Wraith abilities"
         ],
         "Melee Lifesteal": [
             "- Effectiveness vs non-heroes increased from 35% to 40%"
@@ -254,27 +254,27 @@
         ],
         "Divine Barrier": [
             "- No longer grants +7% Bullet Resist",
-            "- No longer grants +1.5 {{AbilityIcon|Ability=Health Regen|Size=20}} Health Regen",
+            "- No longer grants +1.5 {{ItemIcon|Item=Health Regen|Size=20}} Health Regen",
             "- Now grants +1 Sprint",
             "- Now grants +75 Health",
             "- Now grants +8% Ability Range"
         ],
         "Health Regen": [
-            "- {{AbilityIcon|Ability=Divine Barrier|Size=20}} Divine Barrier: No longer grants +1.5 Health Regen",
-            "- {{AbilityIcon|Ability=Improved Spirit|Size=20}} Improved Spirit: Health Regen increased from 2 to 3"
+            "- {{ItemIcon|Item=Divine Barrier|Size=20}} Divine Barrier: No longer grants +1.5 {{ItemIcon|Item=Health Regen|Size=20}} Health Regen",
+            "- {{ItemIcon|Item=Improved Spirit|Size=20}} Improved Spirit: {{ItemIcon|Item=Health Regen|Size=20}} Health Regen increased from 2 to 3"
         ],
         "Combat Barrier": [
-            "- Now also grants +8% {{AbilityIcon|Ability=Fire Rate|Size=20}} Fire Rate while active"
+            "- Now also grants +8% {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate while active"
         ],
         "Reactive Barrier": [
             "- Duration reduced from 13s to 9s"
         ],
         "Leech": [
-            "- {{AbilityIcon|Ability=Healing Booster|Size=20}} Healing Booster: Now has also 15% Heal Reduction Resist (Leech no longer has it)",
+            "- {{ItemIcon|Item=Healing Booster|Size=20}} Healing Booster: Now has also 15% Heal Reduction Resist ({{ItemIcon|Item=Leech|Size=20}} Leech no longer has it)",
             "- No longer has 30% Heal Reduction Resist"
         ],
         "Healing Booster": [
-            "- Now has also 15% Heal Reduction Resist ({{AbilityIcon|Ability=Leech|Size=20}} Leech no longer has it)",
+            "- Now has also 15% Heal Reduction Resist ({{ItemIcon|Item=Leech|Size=20}} Leech no longer has it)",
             "- No longer has +6% Bullet Resist"
         ],
         "Superior Stamina": [
@@ -300,10 +300,10 @@
             "- Cooldown reduced from 65s to 60s"
         ],
         "Rebirth": [
-            "- {{AbilityIcon|Ability=Soul Rebirth|Size=20}} Soul Rebirth: Cooldown reduction increased from +15% to +18%",
-            "- {{AbilityIcon|Ability=Soul Rebirth|Size=20}} Soul Rebirth: Now grants +12 Spirit",
-            "- {{AbilityIcon|Ability=Soul Rebirth|Size=20}} Soul Rebirth: Fixed being able to purchase globally during its brief respawn period",
-            "- {{AbilityIcon|Ability=Soul Rebirth|Size=20}} Soul Rebirth: Fixed the camera moving away from the player if you will respawn, rather than following the ragdoll"
+            "- Soul {{ItemIcon|Item=Rebirth|Size=20}} Rebirth: Cooldown reduction increased from +15% to +18%",
+            "- Soul {{ItemIcon|Item=Rebirth|Size=20}} Rebirth: Now grants +12 Spirit",
+            "- Soul {{ItemIcon|Item=Rebirth|Size=20}} Rebirth: Fixed being able to purchase globally during its brief respawn period",
+            "- Soul {{ItemIcon|Item=Rebirth|Size=20}} Rebirth: Fixed the camera moving away from the player if you will respawn, rather than following the ragdoll"
         ],
         "Soul Rebirth": [
             "- Cooldown reduction increased from +15% to +18%",
@@ -329,7 +329,7 @@
         ],
         "Suppressor": [
             "- Health regen reduced from 3 to 2.5",
-            "- {{AbilityIcon|Ability=Fire Rate|Size=20}} Fire Rate reduction reduced from -30% to -25%"
+            "- {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate reduction reduced from -30% to -25%"
         ],
         "Improved Cooldown": [
             "- Cooldown Reduction increased from 15% to 16%"
@@ -358,16 +358,16 @@
             "- Spirit damage scaling increased from 0.2 to 0.24"
         ],
         "Imbued Ability": [
-            "- {{AbilityIcon|Ability=Surge of Power|Size=20}} Surge of Power: Imbued Ability Spirit Power increased from +28 to +34"
+            "- {{ItemIcon|Item=Surge of Power|Size=20}} Surge of Power: {{ItemIcon|Item=Imbued Ability|Size=20}} Imbued Ability Spirit Power increased from +28 to +34"
         ],
         "Surge of Power": [
-            "- {{AbilityIcon|Ability=Imbued Ability|Size=20}} Imbued Ability Spirit Power increased from +28 to +34"
+            "- {{ItemIcon|Item=Imbued Ability|Size=20}} Imbued Ability Spirit Power increased from +28 to +34"
         ],
         "Superior Duration": [
             "- Non-Imbued duration increased from +24% to +26%"
         ],
         "Improved Spirit": [
-            "- {{AbilityIcon|Ability=Health Regen|Size=20}} Health Regen increased from 2 to 3",
+            "- {{ItemIcon|Item=Health Regen|Size=20}} Health Regen increased from 2 to 3",
             "- Health increased from +75 to +100"
         ],
         "Improved Reach": [
@@ -377,7 +377,7 @@
             "- Duration reduced from 3.5 to 3.25"
         ],
         "Magic Carpet": [
-            "- You are now unslowable while on the {{AbilityIcon|Ability=Magic Carpet|Size=20}} Magic Carpet",
+            "- You are now unslowable while on the {{ItemIcon|Item=Magic Carpet|Size=20}} Magic Carpet",
             "- Cooldown reduced from 40s to 30s",
             "- Barriers now last for 16s"
         ],
@@ -395,31 +395,31 @@
             "- Now grants +25% Weapon Damage"
         ],
         "Smoke": [
-            "- {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb radius reduced from 20m to 18m"
+            "- {{ItemIcon|Item=Smoke|Size=20}} {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb radius reduced from 20m to 18m"
         ]
     },
     "Abilities": {
         "General": [],
         "Ground Strike": [
-            "- Fixed bug with Lash not hearing his own {{AbilityIcon|Ability=Ground Strike|Size=20}} Ground Strike impact explosion sound"
+            "- Fixed bug with {{HeroIcon|Hero=Lash|Size=20}} Lash not hearing his own {{AbilityIcon|Ability=Ground Strike|Size=20}} Ground Strike impact explosion sound"
         ],
         "Seismic Impact": [
             "- Added custom effects for Abram's {{AbilityIcon|Ability=Seismic Impact|Size=20}} Seismic Impact T3 buff",
             "- Fixed {{AbilityIcon|Ability=Seismic Impact|Size=20}} Seismic Impact sometimes not going to the area selected"
         ],
         "Grapple": [
-            "- Updated Lash {{AbilityIcon|Ability=Grapple|Size=20}} Grapple cast sound",
+            "- Updated {{HeroIcon|Hero=Lash|Size=20}} Lash {{AbilityIcon|Ability=Grapple|Size=20}} Grapple cast sound",
             "- {{AbilityIcon|Ability=Grapple|Size=20}} Grapple no longer gives a stamina charge on use"
         ],
         "Alchemical Flask": [
-            "- Added hit confirm audio functionality to Warden's {{AbilityIcon|Ability=Alchemical Flask|Size=20}} Alchemical Flask",
+            "- Added hit confirm audio functionality to {{HeroIcon|Hero=Warden|Size=20}} Warden's {{AbilityIcon|Ability=Alchemical Flask|Size=20}} Alchemical Flask",
             "- Updated {{AbilityIcon|Ability=Alchemical Flask|Size=20}} Alchemical Flask projectile effect"
         ],
         "Binding Word": [
             "- Improved some {{AbilityIcon|Ability=Binding Word|Size=20}} Binding Word effects to be less noisy"
         ],
         "Singularity": [
-            "- Improved clarity of Dynamo {{AbilityIcon|Ability=Singularity|Size=20}} Singularity sound for team and opponents",
+            "- Improved clarity of {{HeroIcon|Hero=Dynamo|Size=20}} Dynamo {{AbilityIcon|Ability=Singularity|Size=20}} Singularity sound for team and opponents",
             "- {{AbilityIcon|Ability=Singularity|Size=20}} Singularity cast time increased from 0.1 to 0.2",
             "- {{AbilityIcon|Ability=Singularity|Size=20}} Singularity range reduced from 9m to 8m"
         ],
@@ -439,10 +439,10 @@
             "- {{AbilityIcon|Ability=Rejuvenating Aurora|Size=20}} Rejuvenating Aurora can now be canceled by using Parry"
         ],
         "Kinetic Pulse": [
-            "- Fixed Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse not traveling properly when cast near corners"
+            "- Fixed {{AbilityIcon|Ability=Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse|Size=20}} Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse not traveling properly when cast near corners"
         ],
         "Pulse": [
-            "- Fixed Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse not traveling properly when cast near corners"
+            "- Fixed {{AbilityIcon|Ability=Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse|Size=20}} Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse not traveling properly when cast near corners"
         ],
         "Charged Shot": [
             "- {{AbilityIcon|Ability=Charged Shot|Size=20}} Charged Shot collision size reduced by 8%",
@@ -460,7 +460,7 @@
             "- {{AbilityIcon|Ability=Sleep Dagger|Size=20}} Sleep Dagger cooldown reduced from 27s to 25s"
         ],
         "Smoke Bomb": [
-            "- {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb radius reduced from 20m to 18m"
+            "- {{ItemIcon|Item=Smoke|Size=20}} {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb radius reduced from 20m to 18m"
         ],
         "Fixation": [
             "- {{AbilityIcon|Ability=Fixation|Size=20}} Fixation T2 max stacks increased from +30 to +40"
@@ -504,7 +504,7 @@
             "- {{AbilityIcon|Ability=Frost Grenade|Size=20}} Frost Grenade T2 Heal increased from 135 to 145"
         ],
         "Paradoxical Swap": [
-            "- Fixed {{AbilityIcon|Ability=Paradoxical Swap|Size=20}} Paradoxical Swap still going through even if Paradox dies during it"
+            "- Fixed {{HeroIcon|Hero=Paradox|Size=20}} {{AbilityIcon|Ability=Paradoxical Swap|Size=20}} Paradoxical Swap still going through even if {{HeroIcon|Hero=Paradox|Size=20}} Paradox dies during it"
         ],
         "Barrage": [
             "- {{AbilityIcon|Ability=Barrage|Size=20}} Barrage amp reduced from 8% to 7% per stack",
@@ -527,7 +527,7 @@
             "- {{AbilityIcon|Ability=Bloodletting|Size=20}} Bloodletting deferred damage reduced from 35% to 30%"
         ],
         "Killing Blow": [
-            "- The targeting UI for Shiv's {{AbilityIcon|Ability=Killing Blow|Size=20}} Killing Blow is now more clear about when the target will be killed"
+            "- The targeting UI for {{HeroIcon|Hero=Shiv|Size=20}} Shiv's {{AbilityIcon|Ability=Killing Blow|Size=20}} Killing Blow is now more clear about when the target will be killed"
         ],
         "Stake": [
             "- {{AbilityIcon|Ability=Stake|Size=20}} Stake duration reduced from 2.25s to 2s"
@@ -560,7 +560,7 @@
             "- Fixed some cases where {{AbilityIcon|Ability=Crimson Slash|Size=20}} Crimson Slash would appear to be cast when it wasn't"
         ],
         "Shadow Transformation": [
-            "- Fixed being able to die during {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation if hit by Grey Talon's Owl"
+            "- Fixed being able to die during {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation if hit by {{HeroIcon|Hero=Grey Talon|Size=20}} Grey Talon's Owl"
         ],
         "Flying Strike": [
             "- Fixed some cases where {{AbilityIcon|Ability=Flying Strike|Size=20}} Flying Strike could get into a stuck state"

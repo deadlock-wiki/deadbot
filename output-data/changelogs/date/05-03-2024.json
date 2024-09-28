@@ -38,7 +38,7 @@
     "Heroes": {
         "General": [],
         "Yamato": [
-            "- Removed the slow climbing vertical recoil on {{AbilityIcon|Ability=Yamato|Size=20}} Yamato's alt fire",
+            "- Removed the slow climbing vertical recoil on {{HeroIcon|Hero=Yamato|Size=20}} Yamato's alt fire",
             "- {{AbilityIcon|Ability=Crimson Slash|Size=20}} Crimson Slash radius increased from 11m to 12m",
             "- {{AbilityIcon|Ability=Crimson Slash|Size=20}} Crimson Slash fire rate debuff duration increased from 3s to 4s",
             "- {{AbilityIcon|Ability=Crimson Slash|Size=20}} Crimson Slash T2 changed from \"-5s Cooldown\" to \"10% Max Health heal on hero hit\"",
@@ -48,7 +48,7 @@
             "- {{AbilityIcon|Ability=Flying Strike|Size=20}} Flying Strike T2 changed from \"-15s Cooldown\" to \"+20 Cast Range\"",
             "- {{AbilityIcon|Ability=Flying Strike|Size=20}} Flying Strike range no longer scales with Spirit",
             "- Shadow Explosion bonus Spirit per victim increased from 10 to 15",
-            "- Shadow Explosion bonus {{AbilityIcon|Ability=Fire Rate|Size=20}} Fire Rate per victim increased from 5 to 10",
+            "- Shadow Explosion bonus {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate per victim increased from 5 to 10",
             "- Shadow Explosion buff duration increased from 8s to 15s"
         ],
         "Abrams": [
@@ -68,20 +68,20 @@
             "- {{AbilityIcon|Ability=Guided Owl|Size=20}} Guided Owl damage increased from 200 to 300"
         ],
         "Haze": [
-            "- {{AbilityIcon|Ability=Bullet Dance|Size=20}} Bullet Dance bonus Fire Rate reduced from +30 to +20",
-            "- {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb duration scaling from Spirit improved from 0.2 to 0.3"
+            "- {{AbilityIcon|Ability=Bullet Dance|Size=20}} Bullet Dance bonus {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate reduced from +30 to +20",
+            "- {{ItemIcon|Item=Smoke|Size=20}} {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb duration scaling from Spirit improved from 0.2 to 0.3"
         ],
         "Infernus": [
-            "- {{AbilityIcon|Ability=Catalyst|Size=20}} Catalyst no longer slows Infernus to 1.3 m/s during the cast delay",
+            "- {{AbilityIcon|Ability=Catalyst|Size=20}} Catalyst no longer slows {{HeroIcon|Hero=Infernus|Size=20}} Infernus to 1.3 m/s during the cast delay",
             "- {{AbilityIcon|Ability=Concussive Combustion|Size=20}} Concussive Combustion damage increased from 130 to 160"
         ],
         "Kelvin": [
             "- {{AbilityIcon|Ability=Frost Grenade|Size=20}} Frost Grenade T3 bonus damage increased from +100 to +175"
         ],
         "Lady Geist": [
-            "- Blood Bomb damage increased from 80 to 100",
-            "- Blood Bomb T2 damage increased from +65 to +70",
-            "- Blood Bomb tooltip fixed to reference the correct self damage type and that it can be reduced with armor",
+            "- {{AbilityIcon|Ability=Blood Bomb|Size=20}} Blood Bomb damage increased from 80 to 100",
+            "- {{AbilityIcon|Ability=Blood Bomb|Size=20}} Blood Bomb T2 damage increased from +65 to +70",
+            "- {{AbilityIcon|Ability=Blood Bomb|Size=20}} Blood Bomb tooltip fixed to reference the correct self damage type and that it can be reduced with armor",
             "- {{AbilityIcon|Ability=Malice|Size=20}} Malice damage amp per shard increased from 10% to 15%"
         ],
         "Lash": [
@@ -94,8 +94,8 @@
             "- Fixed {{AbilityIcon|Ability=Death Slam|Size=20}} Death Slam to only target enemies who stay in the targeting cone"
         ],
         "McGinnis": [
-            "- Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage now reduces your speed rather than setting it to a low cap (by itself this change isn't a buff or a nerf, but it allows you to buy items to move faster during the ultimate)",
-            "- Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage camera interaction with Fleetfoot Boots has been fixed"
+            "- {{AbilityIcon|Ability=Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage|Size=20}} Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage now reduces your speed rather than setting it to a low cap (by itself this change isn't a buff or a nerf, but it allows you to buy items to move faster during the ultimate)",
+            "- {{AbilityIcon|Ability=Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage|Size=20}} Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage camera interaction with {{ItemIcon|Item=Fleetfoot|Size=20}} Fleetfoot Boots has been fixed"
         ],
         "Mo & Krill": [
             "- {{AbilityIcon|Ability=Sand Blast|Size=20}} Sand Blast range increased from 25m to 30m",
@@ -116,17 +116,17 @@
     "Items": {
         "General": [],
         "Warp Stone": [
-            "- Fixed {{AbilityIcon|Ability=Warp Stone|Size=20}} Warp Stone teleporting you through geometry"
+            "- Fixed {{ItemIcon|Item=Warp Stone|Size=20}} Warp Stone teleporting you through geometry"
         ],
         "Fire Rate": [
-            "- {{AbilityIcon|Ability=Bullet Dance|Size=20}} Bullet Dance bonus Fire Rate reduced from +30 to +20",
-            "- Shadow Explosion bonus {{AbilityIcon|Ability=Fire Rate|Size=20}} Fire Rate per victim increased from 5 to 10"
+            "- {{AbilityIcon|Ability=Bullet Dance|Size=20}} Bullet Dance bonus {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate reduced from +30 to +20",
+            "- Shadow Explosion bonus {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate per victim increased from 5 to 10"
         ],
         "Smoke": [
-            "- {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb duration scaling from Spirit improved from 0.2 to 0.3"
+            "- {{ItemIcon|Item=Smoke|Size=20}} {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb duration scaling from Spirit improved from 0.2 to 0.3"
         ],
         "Fleetfoot": [
-            "- Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage camera interaction with Fleetfoot Boots has been fixed"
+            "- {{AbilityIcon|Ability=Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage|Size=20}} Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage camera interaction with {{ItemIcon|Item=Fleetfoot|Size=20}} Fleetfoot Boots has been fixed"
         ]
     },
     "Abilities": {
@@ -145,13 +145,13 @@
             "- {{AbilityIcon|Ability=Guided Owl|Size=20}} Guided Owl damage increased from 200 to 300"
         ],
         "Bullet Dance": [
-            "- {{AbilityIcon|Ability=Bullet Dance|Size=20}} Bullet Dance bonus Fire Rate reduced from +30 to +20"
+            "- {{AbilityIcon|Ability=Bullet Dance|Size=20}} Bullet Dance bonus {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate reduced from +30 to +20"
         ],
         "Smoke Bomb": [
-            "- {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb duration scaling from Spirit improved from 0.2 to 0.3"
+            "- {{ItemIcon|Item=Smoke|Size=20}} {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb duration scaling from Spirit improved from 0.2 to 0.3"
         ],
         "Catalyst": [
-            "- {{AbilityIcon|Ability=Catalyst|Size=20}} Catalyst no longer slows Infernus to 1.3 m/s during the cast delay"
+            "- {{AbilityIcon|Ability=Catalyst|Size=20}} Catalyst no longer slows {{HeroIcon|Hero=Infernus|Size=20}} Infernus to 1.3 m/s during the cast delay"
         ],
         "Concussive Combustion": [
             "- {{AbilityIcon|Ability=Concussive Combustion|Size=20}} Concussive Combustion damage increased from 130 to 160"
@@ -176,12 +176,12 @@
             "- Fixed {{AbilityIcon|Ability=Death Slam|Size=20}} Death Slam to only target enemies who stay in the targeting cone"
         ],
         "Heavy Barrage": [
-            "- Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage now reduces your speed rather than setting it to a low cap (by itself this change isn't a buff or a nerf, but it allows you to buy items to move faster during the ultimate)",
-            "- Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage camera interaction with Fleetfoot Boots has been fixed"
+            "- {{AbilityIcon|Ability=Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage|Size=20}} Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage now reduces your speed rather than setting it to a low cap (by itself this change isn't a buff or a nerf, but it allows you to buy items to move faster during the ultimate)",
+            "- {{AbilityIcon|Ability=Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage|Size=20}} Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage camera interaction with {{ItemIcon|Item=Fleetfoot|Size=20}} Fleetfoot Boots has been fixed"
         ],
         "Barrage": [
-            "- Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage now reduces your speed rather than setting it to a low cap (by itself this change isn't a buff or a nerf, but it allows you to buy items to move faster during the ultimate)",
-            "- Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage camera interaction with Fleetfoot Boots has been fixed"
+            "- {{AbilityIcon|Ability=Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage|Size=20}} Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage now reduces your speed rather than setting it to a low cap (by itself this change isn't a buff or a nerf, but it allows you to buy items to move faster during the ultimate)",
+            "- {{AbilityIcon|Ability=Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage|Size=20}} Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage camera interaction with {{ItemIcon|Item=Fleetfoot|Size=20}} Fleetfoot Boots has been fixed"
         ],
         "Sand Blast": [
             "- {{AbilityIcon|Ability=Sand Blast|Size=20}} Sand Blast range increased from 25m to 30m",

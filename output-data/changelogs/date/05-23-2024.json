@@ -5,8 +5,8 @@
     "Heroes": {
         "General": [],
         "Haze": [
-            "- Added unique {{AbilityIcon|Ability=Haze|Size=20}} Haze footstep sound effects",
-            "- Improved visibility of {{AbilityIcon|Ability=Haze|Size=20}} Haze\u2019s bullet and travel path",
+            "- Added unique {{HeroIcon|Hero=Haze|Size=20}} Haze footstep sound effects",
+            "- Improved visibility of {{HeroIcon|Hero=Haze|Size=20}} Haze\u2019s bullet and travel path",
             "- {{AbilityIcon|Ability=Sleep Dagger|Size=20}} Sleep Dagger no longer breaks invisibility when cast (previously was part of the T3)",
             "- {{AbilityIcon|Ability=Sleep Dagger|Size=20}} Sleep Dagger Spirit scaling increased from 2.3 to 2.6",
             "- {{AbilityIcon|Ability=Sleep Dagger|Size=20}} Sleep Dagger no longer gets +140 damage with the T3",
@@ -15,13 +15,13 @@
             "- {{AbilityIcon|Ability=Bullet Dance|Size=20}} Bullet Dance evasion from 70% to 50%"
         ],
         "Bebop": [
-            "- Fixed a few unit target abilities that could sometimes select a target behind a nearby wall (e.g. Bebop {{AbilityIcon|Ability=Sticky Bomb|Size=20}} Sticky Bomb)",
+            "- Fixed a few unit target abilities that could sometimes select a target behind a nearby wall (e.g. {{HeroIcon|Hero=Bebop|Size=20}} Bebop {{AbilityIcon|Ability=Sticky Bomb|Size=20}} Sticky Bomb)",
             "- {{AbilityIcon|Ability=Sticky Bomb|Size=20}} Sticky Bomb T3 changed from Silence to Disarm",
             "- Improved {{AbilityIcon|Ability=Hook|Size=20}} Hook hitbox detection to not grab targets that are behind cover",
             "- Hyperbeam width increased from 2.5m to 2.7m"
         ],
         "Lash": [
-            "- Added some additional visual tells for the receiving end of Lash\u2019s {{AbilityIcon|Ability=Death Slam|Size=20}} Death Slam",
+            "- Added some additional visual tells for the receiving end of {{HeroIcon|Hero=Lash|Size=20}} Lash\u2019s {{AbilityIcon|Ability=Death Slam|Size=20}} Death Slam",
             "- Base Stamina increased from 2 to 3",
             "- {{AbilityIcon|Ability=Ground Strike|Size=20}} Ground Strike base Damage Per Meter reduced from 8 to 6",
             "- Fixed some cases with {{AbilityIcon|Ability=Ground Strike|Size=20}} Ground Strike not hitting units positioned just below the impact zone",
@@ -29,65 +29,65 @@
             "- {{AbilityIcon|Ability=Flog|Size=20}} Flog cooldown reduced from 35s to 30s"
         ],
         "Ivy": [
-            "- Fixed various movement stuck bugs with {{AbilityIcon|Ability=Ivy|Size=20}} Ivy",
+            "- Fixed various movement stuck bugs with {{HeroIcon|Hero=Ivy|Size=20}} Ivy",
             "- {{AbilityIcon|Ability=Kudzu Bomb|Size=20}} Kudzu Bomb duration increased from 3.5s to 4s",
             "- {{AbilityIcon|Ability=Kudzu Bomb|Size=20}} Kudzu Bomb T2 duration increased from +1.5s to +2s",
             "- {{AbilityIcon|Ability=Watcher's Covenant|Size=20}} Watcher's Covenant Replicated Healing increased from 50% to 65%",
-            "- {{AbilityIcon|Ability=Watcher's Covenant|Size=20}} Watcher's Covenant Fire Rate reduced from 20% to 15%",
+            "- {{AbilityIcon|Ability=Watcher's Covenant|Size=20}} Watcher's Covenant {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate reduced from 20% to 15%",
             "- {{AbilityIcon|Ability=Watcher's Covenant|Size=20}} Watcher's Covenant T1 changed to +15% Rate"
         ],
         "Vindicta": [
-            "- Improved Vindicta\u2019s {{AbilityIcon|Ability=Stake|Size=20}} Stake effects to make it a little clearer when you are affected",
+            "- Improved {{HeroIcon|Hero=Vindicta|Size=20}} Vindicta\u2019s {{AbilityIcon|Ability=Stake|Size=20}} Stake effects to make it a little clearer when you are affected",
             "- {{AbilityIcon|Ability=Flight|Size=20}} Flight T3 reduced from +4m/s to +3m/s",
             "- {{AbilityIcon|Ability=Crow Familiar|Size=20}} Crow Familiar T3 improved from -30% Healing Suppression to -40%"
         ],
         "McGinnis": [
-            "- Fixed upgrading McGinnis\u2019s {{AbilityIcon|Ability=Medicinal Specter|Size=20}} Medicinal Specter to T3 while active causing it to heal everyone to full instantly",
+            "- Fixed upgrading {{HeroIcon|Hero=McGinnis|Size=20}} McGinnis\u2019s {{AbilityIcon|Ability=Medicinal Specter|Size=20}} Medicinal Specter to T3 while active causing it to heal everyone to full instantly",
             "- Fixed certain rooftops allowing turrets to be built on them"
         ],
         "Paradox": [
-            "- Fixed a bug that could cause all of Paradox {{AbilityIcon|Ability=Pulse|Size=20}} Pulse Grenade\u2019s pulses to go off at once",
-            "- Improved visibility of {{AbilityIcon|Ability=Paradox|Size=20}} Paradox\u2019s bullet and travel path",
-            "- Added custom tracer and muzzle flash for {{AbilityIcon|Ability=Paradox|Size=20}} Paradox\u2019s gun",
+            "- Fixed a bug that could cause all of {{HeroIcon|Hero=Paradox|Size=20}} Paradox {{AbilityIcon|Ability={{AbilityIcon|Ability=Pulse|Size=20}} Pulse Grenade|Size=20}} {{AbilityIcon|Ability=Pulse|Size=20}} Pulse Grenade\u2019s pulses to go off at once",
+            "- Improved visibility of {{HeroIcon|Hero=Paradox|Size=20}} Paradox\u2019s bullet and travel path",
+            "- Added custom tracer and muzzle flash for {{HeroIcon|Hero=Paradox|Size=20}} Paradox\u2019s gun",
             "- {{AbilityIcon|Ability=Kinetic Carbine|Size=20}} Kinetic Carbine Max Damage Amp reduced from 125% to 100%",
-            "- {{AbilityIcon|Ability=Paradoxical Swap|Size=20}} Paradoxical Swap range reduced from 45m to 40m"
+            "- {{HeroIcon|Hero=Paradox|Size=20}} {{AbilityIcon|Ability=Paradoxical Swap|Size=20}} Paradoxical Swap range reduced from 45m to 40m"
         ],
         "Kelvin": [
-            "- Fixed {{AbilityIcon|Ability=Kelvin|Size=20}} Kelvin\u2019s Ice Beam sometimes not hitting Neutrals",
+            "- Fixed {{HeroIcon|Hero=Kelvin|Size=20}} Kelvin\u2019s Ice Beam sometimes not hitting Neutrals",
             "- {{AbilityIcon|Ability=Frost Grenade|Size=20}} Frost Grenade cooldown reduced from 26s to 23s",
             "- While {{AbilityIcon|Ability=Ice Path|Size=20}} Ice Pathing you no longer slow down when you shoot your gun",
             "- {{AbilityIcon|Ability=Arctic Beam|Size=20}} Arctic Beam Channel move speed increased from 4 to 6",
             "- {{AbilityIcon|Ability=Arctic Beam|Size=20}} Arctic Beam T1 changed from \"+2 Channel Move Speed\" to -8s Cooldown"
         ],
         "Abrams": [
-            "- Fixed {{AbilityIcon|Ability=Abrams|Size=20}} Abrams getting stuck on department store facade when using his ult",
-            "- Adjusted timing of select {{AbilityIcon|Ability=Abrams|Size=20}} Abrams impact lines to time with either the rise of his leap or the descent accordingly",
+            "- Fixed {{HeroIcon|Hero=Abrams|Size=20}} Abrams getting stuck on department store facade when using his ult",
+            "- Adjusted timing of select {{HeroIcon|Hero=Abrams|Size=20}} Abrams impact lines to time with either the rise of his leap or the descent accordingly",
             "- {{AbilityIcon|Ability=Siphon Life|Size=20}} Siphon Life T1 and T2 swapped",
             "- Shoulder charge now allows for a bit more steering control"
         ],
         "Wraith": [
-            "- Added new slide and reload animation for {{AbilityIcon|Ability=Wraith|Size=20}} Wraith",
-            "- Improved visibility of {{AbilityIcon|Ability=Wraith|Size=20}} Wraith\u2019s bullet and travel path",
-            "- Added custom tracer and muzzle flash for {{AbilityIcon|Ability=Wraith|Size=20}} Wraith\u2019s gun",
+            "- Added new slide and reload animation for {{HeroIcon|Hero=Wraith|Size=20}} Wraith",
+            "- Improved visibility of {{HeroIcon|Hero=Wraith|Size=20}} Wraith\u2019s bullet and travel path",
+            "- Added custom tracer and muzzle flash for {{HeroIcon|Hero=Wraith|Size=20}} Wraith\u2019s gun",
             "- {{AbilityIcon|Ability=Royal Flush|Size=20}} Royal Flush no longer has a cast delay",
             "- {{AbilityIcon|Ability=Royal Flush|Size=20}} Royal Flush time to spawn cards increased from 0.4s to 0.6s",
             "- {{AbilityIcon|Ability=Telekinesis|Size=20}} Telekinesis no longer allows the victim to shoot back"
         ],
         "Yamato": [
-            "- Fixed missing VO for {{AbilityIcon|Ability=Yamato|Size=20}} Yamato ability use/upgrades",
+            "- Fixed missing VO for {{HeroIcon|Hero=Yamato|Size=20}} Yamato ability use/upgrades",
             "- Shadow Explosion renamed to {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation and reworked into a new ability",
             "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation no longer has radius impact behavior",
-            "- Shadow Transformation now gives you 4.5s of invulnerability after the initial 2s invulnerable channel period. You transform and refresh your abilities, improving ability speeds by 60% and gaining unlimited ammo. \"Ability Speeds\" affects {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash cast time, Flying Strike flying time, and Crimson Slash cast time.",
+            "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation now gives you 4.5s of invulnerability after the initial 2s invulnerable channel period. You transform and refresh your abilities, improving ability speeds by 60% and gaining unlimited ammo. \"Ability Speeds\" affects {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash cast time, {{AbilityIcon|Ability=Flying Strike|Size=20}} Flying Strike flying time, and {{AbilityIcon|Ability=Crimson Slash|Size=20}} Crimson Slash cast time.",
             "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation cooldown increased from 90s to 100s",
             "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation T2 is now +4 m/s during Shadow Form",
             "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation T3 is now +1s duration"
         ],
         "Seven": [
-            "- Improved visibility of {{AbilityIcon|Ability=Seven|Size=20}} Seven\u2019s bullet and travel path",
-            "- Added custom tracer and muzzle flash for {{AbilityIcon|Ability=Seven|Size=20}} Seven\u2019s gun"
+            "- Improved visibility of {{HeroIcon|Hero=Seven|Size=20}} Seven\u2019s bullet and travel path",
+            "- Added custom tracer and muzzle flash for {{HeroIcon|Hero=Seven|Size=20}} Seven\u2019s gun"
         ],
         "Lady Geist": [
-            "- Improved visibility of {{AbilityIcon|Ability=Lady Geist|Size=20}} Lady Geist\u2019s bullet and travel path",
+            "- Improved visibility of {{HeroIcon|Hero=Lady Geist|Size=20}} Lady Geist\u2019s bullet and travel path",
             "- {{AbilityIcon|Ability=Soul Exchange|Size=20}} Soul Exchange cast time reduced from 0.65s to 0.5s",
             "- Fixed {{AbilityIcon|Ability=Malice|Size=20}} Malice clipping aggressively against map geometry edges"
         ],
@@ -104,7 +104,7 @@
             "- Sandblast no longer prevents enemies from reloading while disarmed"
         ],
         "Pocket": [
-            "- {{AbilityIcon|Ability=Barrage|Size=20}} Barrage T3 added, now heals Pocket for 100% of its damage (33% vs non-heroes)",
+            "- {{AbilityIcon|Ability=Barrage|Size=20}} Barrage T3 added, now heals {{HeroIcon|Hero=Pocket|Size=20}} Pocket for 100% of its damage (33% vs non-heroes)",
             "- Fixed some issues with {{AbilityIcon|Ability=Barrage|Size=20}} Barrage projectiles getting caught on map geometry",
             "- {{AbilityIcon|Ability=Flying Cloak|Size=20}} Flying Cloak pathing improved, it will no longer bounce erratically off map geometry"
         ],
@@ -189,11 +189,11 @@
             "- Now grants +10% Spirit Resist"
         ],
         "Fire Rate": [
-            "- {{AbilityIcon|Ability=Glass Cannon|Size=20}} Glass Cannon: Fire Rate reduced from 15% to 10%",
-            "- {{AbilityIcon|Ability=Watcher's Covenant|Size=20}} Watcher's Covenant Fire Rate reduced from 20% to 15%"
+            "- {{ItemIcon|Item=Glass Cannon|Size=20}} Glass Cannon: {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate reduced from 15% to 10%",
+            "- {{AbilityIcon|Ability=Watcher's Covenant|Size=20}} Watcher's Covenant {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate reduced from 20% to 15%"
         ],
         "Glass Cannon": [
-            "- {{AbilityIcon|Ability=Fire Rate|Size=20}} Fire Rate reduced from 15% to 10%"
+            "- {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate reduced from 15% to 10%"
         ],
         "Silencer": [
             "- Now provides 15% Ammo"
@@ -208,23 +208,23 @@
     "Abilities": {
         "General": [],
         "Sticky Bomb": [
-            "- Fixed a few unit target abilities that could sometimes select a target behind a nearby wall (e.g. Bebop {{AbilityIcon|Ability=Sticky Bomb|Size=20}} Sticky Bomb)",
+            "- Fixed a few unit target abilities that could sometimes select a target behind a nearby wall (e.g. {{HeroIcon|Hero=Bebop|Size=20}} Bebop {{AbilityIcon|Ability=Sticky Bomb|Size=20}} Sticky Bomb)",
             "- {{AbilityIcon|Ability=Sticky Bomb|Size=20}} Sticky Bomb T3 changed from Silence to Disarm"
         ],
         "Death Slam": [
-            "- Added some additional visual tells for the receiving end of Lash\u2019s {{AbilityIcon|Ability=Death Slam|Size=20}} Death Slam"
+            "- Added some additional visual tells for the receiving end of {{HeroIcon|Hero=Lash|Size=20}} Lash\u2019s {{AbilityIcon|Ability=Death Slam|Size=20}} Death Slam"
         ],
         "Stake": [
-            "- Improved Vindicta\u2019s {{AbilityIcon|Ability=Stake|Size=20}} Stake effects to make it a little clearer when you are affected"
+            "- Improved {{HeroIcon|Hero=Vindicta|Size=20}} Vindicta\u2019s {{AbilityIcon|Ability=Stake|Size=20}} Stake effects to make it a little clearer when you are affected"
         ],
         "Medicinal Specter": [
-            "- Fixed upgrading McGinnis\u2019s {{AbilityIcon|Ability=Medicinal Specter|Size=20}} Medicinal Specter to T3 while active causing it to heal everyone to full instantly"
+            "- Fixed upgrading {{HeroIcon|Hero=McGinnis|Size=20}} McGinnis\u2019s {{AbilityIcon|Ability=Medicinal Specter|Size=20}} Medicinal Specter to T3 while active causing it to heal everyone to full instantly"
         ],
         "Pulse Grenade": [
-            "- Fixed a bug that could cause all of Paradox {{AbilityIcon|Ability=Pulse|Size=20}} Pulse Grenade\u2019s pulses to go off at once"
+            "- Fixed a bug that could cause all of {{HeroIcon|Hero=Paradox|Size=20}} Paradox {{AbilityIcon|Ability={{AbilityIcon|Ability=Pulse|Size=20}} Pulse Grenade|Size=20}} {{AbilityIcon|Ability=Pulse|Size=20}} Pulse Grenade\u2019s pulses to go off at once"
         ],
         "Pulse": [
-            "- Fixed a bug that could cause all of Paradox {{AbilityIcon|Ability=Pulse|Size=20}} Pulse Grenade\u2019s pulses to go off at once"
+            "- Fixed a bug that could cause all of {{HeroIcon|Hero=Paradox|Size=20}} Paradox {{AbilityIcon|Ability={{AbilityIcon|Ability=Pulse|Size=20}} Pulse Grenade|Size=20}} {{AbilityIcon|Ability=Pulse|Size=20}} Pulse Grenade\u2019s pulses to go off at once"
         ],
         "Storm Cloud": [
             "- Allies now compliment teammates when they see impressive use of channeled abilities (for instance, Gigawatt killing three people with {{AbilityIcon|Ability=Storm Cloud|Size=20}} Storm Cloud)"
@@ -255,7 +255,7 @@
         ],
         "Watcher's Covenant": [
             "- {{AbilityIcon|Ability=Watcher's Covenant|Size=20}} Watcher's Covenant Replicated Healing increased from 50% to 65%",
-            "- {{AbilityIcon|Ability=Watcher's Covenant|Size=20}} Watcher's Covenant Fire Rate reduced from 20% to 15%",
+            "- {{AbilityIcon|Ability=Watcher's Covenant|Size=20}} Watcher's Covenant {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate reduced from 20% to 15%",
             "- {{AbilityIcon|Ability=Watcher's Covenant|Size=20}} Watcher's Covenant T1 changed to +15% Rate"
         ],
         "Frost Grenade": [
@@ -289,10 +289,10 @@
             "- {{AbilityIcon|Ability=Kinetic Carbine|Size=20}} Kinetic Carbine Max Damage Amp reduced from 125% to 100%"
         ],
         "Paradoxical Swap": [
-            "- {{AbilityIcon|Ability=Paradoxical Swap|Size=20}} Paradoxical Swap range reduced from 45m to 40m"
+            "- {{HeroIcon|Hero=Paradox|Size=20}} {{AbilityIcon|Ability=Paradoxical Swap|Size=20}} Paradoxical Swap range reduced from 45m to 40m"
         ],
         "Barrage": [
-            "- {{AbilityIcon|Ability=Barrage|Size=20}} Barrage T3 added, now heals Pocket for 100% of its damage (33% vs non-heroes)",
+            "- {{AbilityIcon|Ability=Barrage|Size=20}} Barrage T3 added, now heals {{HeroIcon|Hero=Pocket|Size=20}} Pocket for 100% of its damage (33% vs non-heroes)",
             "- Fixed some issues with {{AbilityIcon|Ability=Barrage|Size=20}} Barrage projectiles getting caught on map geometry"
         ],
         "Flying Cloak": [
@@ -317,19 +317,19 @@
         "Shadow Transformation": [
             "- Shadow Explosion renamed to {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation and reworked into a new ability",
             "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation no longer has radius impact behavior",
-            "- Shadow Transformation now gives you 4.5s of invulnerability after the initial 2s invulnerable channel period. You transform and refresh your abilities, improving ability speeds by 60% and gaining unlimited ammo. \"Ability Speeds\" affects {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash cast time, Flying Strike flying time, and Crimson Slash cast time.",
+            "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation now gives you 4.5s of invulnerability after the initial 2s invulnerable channel period. You transform and refresh your abilities, improving ability speeds by 60% and gaining unlimited ammo. \"Ability Speeds\" affects {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash cast time, {{AbilityIcon|Ability=Flying Strike|Size=20}} Flying Strike flying time, and {{AbilityIcon|Ability=Crimson Slash|Size=20}} Crimson Slash cast time.",
             "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation cooldown increased from 90s to 100s",
             "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation T2 is now +4 m/s during Shadow Form",
             "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation T3 is now +1s duration"
         ],
         "Flying Strike": [
-            "- Shadow Transformation now gives you 4.5s of invulnerability after the initial 2s invulnerable channel period. You transform and refresh your abilities, improving ability speeds by 60% and gaining unlimited ammo. \"Ability Speeds\" affects {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash cast time, Flying Strike flying time, and Crimson Slash cast time."
+            "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation now gives you 4.5s of invulnerability after the initial 2s invulnerable channel period. You transform and refresh your abilities, improving ability speeds by 60% and gaining unlimited ammo. \"Ability Speeds\" affects {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash cast time, {{AbilityIcon|Ability=Flying Strike|Size=20}} Flying Strike flying time, and {{AbilityIcon|Ability=Crimson Slash|Size=20}} Crimson Slash cast time."
         ],
         "Crimson Slash": [
-            "- Shadow Transformation now gives you 4.5s of invulnerability after the initial 2s invulnerable channel period. You transform and refresh your abilities, improving ability speeds by 60% and gaining unlimited ammo. \"Ability Speeds\" affects {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash cast time, Flying Strike flying time, and Crimson Slash cast time."
+            "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation now gives you 4.5s of invulnerability after the initial 2s invulnerable channel period. You transform and refresh your abilities, improving ability speeds by 60% and gaining unlimited ammo. \"Ability Speeds\" affects {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash cast time, {{AbilityIcon|Ability=Flying Strike|Size=20}} Flying Strike flying time, and {{AbilityIcon|Ability=Crimson Slash|Size=20}} Crimson Slash cast time."
         ],
         "Power Slash": [
-            "- Shadow Transformation now gives you 4.5s of invulnerability after the initial 2s invulnerable channel period. You transform and refresh your abilities, improving ability speeds by 60% and gaining unlimited ammo. \"Ability Speeds\" affects {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash cast time, Flying Strike flying time, and Crimson Slash cast time."
+            "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation now gives you 4.5s of invulnerability after the initial 2s invulnerable channel period. You transform and refresh your abilities, improving ability speeds by 60% and gaining unlimited ammo. \"Ability Speeds\" affects {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash cast time, {{AbilityIcon|Ability=Flying Strike|Size=20}} Flying Strike flying time, and {{AbilityIcon|Ability=Crimson Slash|Size=20}} Crimson Slash cast time."
         ]
     },
     "General Changes": {

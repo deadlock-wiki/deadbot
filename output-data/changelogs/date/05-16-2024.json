@@ -5,33 +5,33 @@
     "Heroes": {
         "General": [],
         "Lash": [
-            "- Updated Lash {{AbilityIcon|Ability=Death Slam|Size=20}} Death Slam sound effects",
+            "- Updated {{HeroIcon|Hero=Lash|Size=20}} Lash {{AbilityIcon|Ability=Death Slam|Size=20}} Death Slam sound effects",
             "- {{AbilityIcon|Ability=Ground Strike|Size=20}} Ground Strike Stomp Damage reduced from 125 to 110",
             "- {{AbilityIcon|Ability=Death Slam|Size=20}} Death Slam cooldown increased from 110s to 130s",
             "- {{AbilityIcon|Ability=Grapple|Size=20}} Grapple Bullet Damage bonus increased from +4 to +6",
             "- {{AbilityIcon|Ability=Grapple|Size=20}} Grapple cooldown decreased from 45s to 40s"
         ],
         "Warden": [
-            "- Warden's {{AbilityIcon|Ability=Last Stand|Size=20}} Last Stand has improved visual effects",
-            "- New voice for {{AbilityIcon|Ability=Warden|Size=20}} Warden (in advance of upcoming model swap)",
-            "- Fixed a bug where {{AbilityIcon|Ability=Warden|Size=20}} Warden's second and third abilities were swapped VO wise",
+            "- {{HeroIcon|Hero=Warden|Size=20}} Warden's {{AbilityIcon|Ability=Last Stand|Size=20}} Last Stand has improved visual effects",
+            "- New voice for {{HeroIcon|Hero=Warden|Size=20}} Warden (in advance of upcoming model swap)",
+            "- Fixed a bug where {{HeroIcon|Hero=Warden|Size=20}} Warden's second and third abilities were swapped VO wise",
             "- {{AbilityIcon|Ability=Last Stand|Size=20}} Last Stand no longer goes on cooldown when it is interrupted during its initial cast delay"
         ],
         "Vindicta": [
-            "- Vindicta's {{AbilityIcon|Ability=Crow Familiar|Size=20}} Crow Familiar projectile effect indicates the radius more accurately now",
-            "- Fixed {{AbilityIcon|Ability=Vindicta|Size=20}} Vindicta being able to shoot above the base wall",
+            "- {{HeroIcon|Hero=Vindicta|Size=20}} Vindicta's {{AbilityIcon|Ability=Crow Familiar|Size=20}} Crow Familiar projectile effect indicates the radius more accurately now",
+            "- Fixed {{HeroIcon|Hero=Vindicta|Size=20}} Vindicta being able to shoot above the base wall",
             "- {{AbilityIcon|Ability=Flight|Size=20}} Flight spirit bullet damage now has range effectiveness (previously the magic bullets did max damage from any range)",
             "- {{AbilityIcon|Ability=Flight|Size=20}} Flight spirit damage per bullet increased from 8 to 12",
             "- {{AbilityIcon|Ability=Flight|Size=20}} Flight T2 bonus spirit damage per bullet increased from 8 to 12"
         ],
         "Mo & Krill": [
-            "- Moved a truck away from the garage to give wide enough path for {{AbilityIcon|Ability=Mo & Krill|Size=20}} Mo & Krill",
+            "- Moved a truck away from the garage to give wide enough path for {{HeroIcon|Hero=Mo & Krill|Size=20}} Mo & Krill",
             "- {{AbilityIcon|Ability=Combo|Size=20}} Combo now uses a new instant cast mechanism. When you are in range there is a valid target indicator."
         ],
         "McGinnis": [
-            "- {{AbilityIcon|Ability=Return Fire|Size=20}} Return Fire: Fixed not returning fire to McGinnis' sentries",
+            "- {{ItemIcon|Item=Return Fire|Size=20}} Return Fire: Fixed not returning fire to {{HeroIcon|Hero=McGinnis|Size=20}} McGinnis' sentries",
             "- {{AbilityIcon|Ability=Mini Turret|Size=20}} Mini Turret T1 is now +1 Charge and +25% Movement Slow",
-            "- {{AbilityIcon|Ability=Mini Turret|Size=20}} Mini Turret T2 is now +10m Attack Range and +10% Fire Rate",
+            "- {{AbilityIcon|Ability=Mini Turret|Size=20}} Mini Turret T2 is now +10m Attack Range and +10% {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate",
             "- {{AbilityIcon|Ability=Spectral Wall|Size=20}} Spectral Wall cooldown reduced from 40s to 35s"
         ],
         "Bebop": [
@@ -41,7 +41,7 @@
         ],
         "Kelvin": [
             "- Now has +10% Base Spirit Resistance",
-            "- {{AbilityIcon|Ability=Frozen Shelter|Size=20}} Frozen Shelter T1 increased from +35% to +40% Fire Rate Slow",
+            "- {{AbilityIcon|Ability=Frozen Shelter|Size=20}} Frozen Shelter T1 increased from +35% to +40% {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate Slow",
             "- {{AbilityIcon|Ability=Ice Path|Size=20}} Ice Path T3 Now gains 1 Spirit per meter of {{AbilityIcon|Ability=Ice Path|Size=20}} Ice Path trail created. Max of 40 Spirit."
         ],
         "Grey Talon": [
@@ -49,9 +49,9 @@
         ],
         "Haze": [
             "- {{AbilityIcon|Ability=Sleep Dagger|Size=20}} Sleep Dagger cooldown increased from 25s to 27s",
-            "- {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb cooldown reduced from 45s to 35s",
-            "- {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb T1 changed to +4 Invis Sprint",
-            "- {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb T2 is now -20s Cooldown"
+            "- {{ItemIcon|Item=Smoke|Size=20}} {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb cooldown reduced from 45s to 35s",
+            "- {{ItemIcon|Item=Smoke|Size=20}} {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb T1 changed to +4 Invis Sprint",
+            "- {{ItemIcon|Item=Smoke|Size=20}} {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb T2 is now -20s Cooldown"
         ],
         "Infernus": [
             "- {{AbilityIcon|Ability=Afterburn|Size=20}} Afterburn T2 now reduces enemy Spirit damage by 30%"
@@ -72,13 +72,13 @@
     "Items": {
         "General": [],
         "Cold Front": [
-            "- Updated {{AbilityIcon|Ability=Cold Front|Size=20}} Cold Front sound effects"
+            "- Updated {{ItemIcon|Item=Cold Front|Size=20}} Cold Front sound effects"
         ],
         "Fire Rate": [
-            "- Added a new T3 Spirit Item, Shifting Shroud. Innate: +10% {{AbilityIcon|Ability=Fire Rate|Size=20}} Fire Rate. Active: You become invulnerable for 2.5s, during which you cannot move or perform any actions. When your invulnerability expires, your gun is instantly reloaded and you gain 14 bonus Spirit for 6s. Cooldown: 70s.",
-            "- {{AbilityIcon|Ability=Mystic Slow|Size=20}} Mystic Slow: Fire Rate slow increased from 20% to 35%",
-            "- {{AbilityIcon|Ability=Frozen Shelter|Size=20}} Frozen Shelter T1 increased from +35% to +40% Fire Rate Slow",
-            "- {{AbilityIcon|Ability=Mini Turret|Size=20}} Mini Turret T2 is now +10m Attack Range and +10% Fire Rate"
+            "- Added a new T3 Spirit Item, Shifting Shroud. Innate: +10% {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate. Active: You become invulnerable for 2.5s, during which you cannot move or perform any actions. When your invulnerability expires, your gun is instantly reloaded and you gain 14 bonus Spirit for 6s. Cooldown: 70s.",
+            "- {{ItemIcon|Item=Mystic Slow|Size=20}} Mystic Slow: {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate slow increased from 20% to 35%",
+            "- {{AbilityIcon|Ability=Frozen Shelter|Size=20}} Frozen Shelter T1 increased from +35% to +40% {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate Slow",
+            "- {{AbilityIcon|Ability=Mini Turret|Size=20}} Mini Turret T2 is now +10m Attack Range and +10% {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate"
         ],
         "Mystic Burst": [
             "- Bonus damage reduced from +40 to +35"
@@ -112,7 +112,7 @@
         "Return Fire": [
             "- Now also reflects 30% of Spirit damage (requires line of sight)",
             "- Bullet damage returned reduced from 75% to 60%",
-            "- Fixed not returning fire to {{AbilityIcon|Ability=McGinnis|Size=20}} McGinnis' sentries"
+            "- Fixed not returning fire to {{HeroIcon|Hero=McGinnis|Size=20}} McGinnis' sentries"
         ],
         "Silence Glyph": [
             "- Now applies 8% Spirit Amp instead of -15% Bullet Resist",
@@ -140,12 +140,12 @@
             "- Cast range increased from 40m to 50m"
         ],
         "Mystic Slow": [
-            "- Now requires {{AbilityIcon|Ability=Suppressor|Size=20}} Suppressor as a component",
+            "- Now requires {{ItemIcon|Item=Suppressor|Size=20}} Suppressor as a component",
             "- Now provides +75 Health, +3 Regen and +6 spirit",
-            "- {{AbilityIcon|Ability=Fire Rate|Size=20}} Fire Rate slow increased from 20% to 35%"
+            "- {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate slow increased from 20% to 35%"
         ],
         "Suppressor": [
-            "- Now requires {{AbilityIcon|Ability=Suppressor|Size=20}} Suppressor as a component"
+            "- Now requires {{ItemIcon|Item=Suppressor|Size=20}} Suppressor as a component"
         ],
         "Lifestrike": [
             "- Cooldown reduced from 8s to 5s"
@@ -170,28 +170,28 @@
             "- Bonus health increased from +150 to +200"
         ],
         "Smoke": [
-            "- {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb cooldown reduced from 45s to 35s",
-            "- {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb T1 changed to +4 Invis Sprint",
-            "- {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb T2 is now -20s Cooldown"
+            "- {{ItemIcon|Item=Smoke|Size=20}} {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb cooldown reduced from 45s to 35s",
+            "- {{ItemIcon|Item=Smoke|Size=20}} {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb T1 changed to +4 Invis Sprint",
+            "- {{ItemIcon|Item=Smoke|Size=20}} {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb T2 is now -20s Cooldown"
         ]
     },
     "Abilities": {
         "General": [],
         "Death Slam": [
-            "- Updated Lash {{AbilityIcon|Ability=Death Slam|Size=20}} Death Slam sound effects",
-            "- Various minor fixes to Ground Strike and {{AbilityIcon|Ability=Death Slam|Size=20}} Death Slam effects",
+            "- Updated {{HeroIcon|Hero=Lash|Size=20}} Lash {{AbilityIcon|Ability=Death Slam|Size=20}} Death Slam sound effects",
+            "- Various minor fixes to {{AbilityIcon|Ability=Ground Strike|Size=20}} Ground Strike and {{AbilityIcon|Ability=Death Slam|Size=20}} Death Slam effects",
             "- {{AbilityIcon|Ability=Death Slam|Size=20}} Death Slam cooldown increased from 110s to 130s"
         ],
         "Ground Strike": [
-            "- Various minor fixes to Ground Strike and {{AbilityIcon|Ability=Death Slam|Size=20}} Death Slam effects",
+            "- Various minor fixes to {{AbilityIcon|Ability=Ground Strike|Size=20}} Ground Strike and {{AbilityIcon|Ability=Death Slam|Size=20}} Death Slam effects",
             "- {{AbilityIcon|Ability=Ground Strike|Size=20}} Ground Strike Stomp Damage reduced from 125 to 110"
         ],
         "Last Stand": [
-            "- Warden's {{AbilityIcon|Ability=Last Stand|Size=20}} Last Stand has improved visual effects",
+            "- {{HeroIcon|Hero=Warden|Size=20}} Warden's {{AbilityIcon|Ability=Last Stand|Size=20}} Last Stand has improved visual effects",
             "- {{AbilityIcon|Ability=Last Stand|Size=20}} Last Stand no longer goes on cooldown when it is interrupted during its initial cast delay"
         ],
         "Crow Familiar": [
-            "- Vindicta's {{AbilityIcon|Ability=Crow Familiar|Size=20}} Crow Familiar projectile effect indicates the radius more accurately now"
+            "- {{HeroIcon|Hero=Vindicta|Size=20}} Vindicta's {{AbilityIcon|Ability=Crow Familiar|Size=20}} Crow Familiar projectile effect indicates the radius more accurately now"
         ],
         "Time Wall": [
             "- Fixed {{AbilityIcon|Ability=Time Wall|Size=20}} Time Wall damaging units that don't move multiple times instead of once per walk through"
@@ -202,7 +202,7 @@
             "- {{AbilityIcon|Ability=Sticky Bomb|Size=20}} Sticky Bomb now uses a new instant cast mechanism. When you are in range there is a valid target indicator."
         ],
         "Frozen Shelter": [
-            "- {{AbilityIcon|Ability=Frozen Shelter|Size=20}} Frozen Shelter T1 increased from +35% to +40% Fire Rate Slow"
+            "- {{AbilityIcon|Ability=Frozen Shelter|Size=20}} Frozen Shelter T1 increased from +35% to +40% {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate Slow"
         ],
         "Ice Path": [
             "- {{AbilityIcon|Ability=Ice Path|Size=20}} Ice Path T3 Now gains 1 Spirit per meter of {{AbilityIcon|Ability=Ice Path|Size=20}} Ice Path trail created. Max of 40 Spirit."
@@ -214,9 +214,9 @@
             "- {{AbilityIcon|Ability=Sleep Dagger|Size=20}} Sleep Dagger cooldown increased from 25s to 27s"
         ],
         "Smoke Bomb": [
-            "- {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb cooldown reduced from 45s to 35s",
-            "- {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb T1 changed to +4 Invis Sprint",
-            "- {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb T2 is now -20s Cooldown"
+            "- {{ItemIcon|Item=Smoke|Size=20}} {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb cooldown reduced from 45s to 35s",
+            "- {{ItemIcon|Item=Smoke|Size=20}} {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb T1 changed to +4 Invis Sprint",
+            "- {{ItemIcon|Item=Smoke|Size=20}} {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb T2 is now -20s Cooldown"
         ],
         "Afterburn": [
             "- {{AbilityIcon|Ability=Afterburn|Size=20}} Afterburn T2 now reduces enemy Spirit damage by 30%"
@@ -230,7 +230,7 @@
         ],
         "Mini Turret": [
             "- {{AbilityIcon|Ability=Mini Turret|Size=20}} Mini Turret T1 is now +1 Charge and +25% Movement Slow",
-            "- {{AbilityIcon|Ability=Mini Turret|Size=20}} Mini Turret T2 is now +10m Attack Range and +10% Fire Rate"
+            "- {{AbilityIcon|Ability=Mini Turret|Size=20}} Mini Turret T2 is now +10m Attack Range and +10% {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate"
         ],
         "Spectral Wall": [
             "- {{AbilityIcon|Ability=Spectral Wall|Size=20}} Spectral Wall cooldown reduced from 40s to 35s"

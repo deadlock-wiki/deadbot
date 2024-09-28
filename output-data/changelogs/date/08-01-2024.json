@@ -5,69 +5,69 @@
     "Heroes": {
         "General": [],
         "Viscous": [
-            "- Added a new hero, {{AbilityIcon|Ability=Viscous|Size=20}} Viscous. He's green."
+            "- Added a new hero, {{HeroIcon|Hero=Viscous|Size=20}} Viscous. He's green."
         ],
         "Paradox": [
-            "- Fixed {{AbilityIcon|Ability=Paradox|Size=20}} Paradox Swap sometimes putting players behind walls",
+            "- Fixed {{HeroIcon|Hero=Paradox|Size=20}} Paradox Swap sometimes putting players behind walls",
             "- {{AbilityIcon|Ability=Kinetic Carbine|Size=20}} Kinetic Carbine Time Slowed targets that were moving before the time slow will now resume their momentum when time slow wears off",
             "- Bullet (and {{AbilityIcon|Ability=Kinetic Carbine|Size=20}} Kinetic Carbine) projectile speed reduced by 10%",
             "- Ammo count reduced from 54 to 45"
         ],
         "Lash": [
-            "- Fixed Lash's {{AbilityIcon|Ability=Ground Strike|Size=20}} Ground Strike sometimes causing the hero to be stuck for the rest of the match",
-            "- Added new visual effects for Lash's {{AbilityIcon|Ability=Ground Strike|Size=20}} Ground Strike",
+            "- Fixed {{HeroIcon|Hero=Lash|Size=20}} Lash's {{AbilityIcon|Ability=Ground Strike|Size=20}} Ground Strike sometimes causing the hero to be stuck for the rest of the match",
+            "- Added new visual effects for {{HeroIcon|Hero=Lash|Size=20}} Lash's {{AbilityIcon|Ability=Ground Strike|Size=20}} Ground Strike",
             "- Base sprint reduced from 3 to 1",
             "- {{AbilityIcon|Ability=Ground Strike|Size=20}} Ground Strike Damage Per Meter reduced from 6.3 to 6.0"
         ],
         "Abrams": [
-            "- Fixed {{AbilityIcon|Ability=Abrams|Size=20}} Abrams' Charge and Siphon pings not playing the correct VO",
-            "- Fixed {{AbilityIcon|Ability=Shoulder Charge|Size=20}} Shoulder Charge not stunning the target when colliding with Kelvin's Ice Dome",
+            "- Fixed {{HeroIcon|Hero=Abrams|Size=20}} Abrams' Charge and Siphon pings not playing the correct VO",
+            "- Fixed {{AbilityIcon|Ability=Shoulder Charge|Size=20}} Shoulder Charge not stunning the target when colliding with {{HeroIcon|Hero=Kelvin|Size=20}} Kelvin's {{AbilityIcon|Ability=Ice Dome|Size=20}} Ice Dome",
             "- Fixed some cases where {{AbilityIcon|Ability=Shoulder Charge|Size=20}} Shoulder Charge did not stun when hitting a wall",
             "- Fixed enemies being able to double jump out of {{AbilityIcon|Ability=Seismic Impact|Size=20}} Seismic Impact",
             "- {{AbilityIcon|Ability=Shoulder Charge|Size=20}} Shoulder Charge T3 reduced from +6.5 to +5.5 Weapon Damage",
             "- {{AbilityIcon|Ability=Seismic Impact|Size=20}} Seismic Impact damage reduced from 200 to 175"
         ],
         "Infernus": [
-            "- Fixed various bugs with {{AbilityIcon|Ability=Infernus|Size=20}} Infernus that caused significant lag",
-            "- Fixed Infernus being unable to slide out of {{AbilityIcon|Ability=Flame Dash|Size=20}} Flame Dash",
+            "- Fixed various bugs with {{HeroIcon|Hero=Infernus|Size=20}} Infernus that caused significant lag",
+            "- Fixed {{HeroIcon|Hero=Infernus|Size=20}} Infernus being unable to slide out of {{AbilityIcon|Ability=Flame Dash|Size=20}} Flame Dash",
             "- {{AbilityIcon|Ability=Afterburn|Size=20}} Afterburn T1 and T2 Swapped",
             "- {{AbilityIcon|Ability=Afterburn|Size=20}} Afterburn base DPS reduced from 18 to 15",
             "- {{AbilityIcon|Ability=Afterburn|Size=20}} Afterburn T3 DPS reduced from 33 to 30",
             "- {{AbilityIcon|Ability=Afterburn|Size=20}} Afterburn spirit scaling increased from 0.4 to 0.5"
         ],
         "Yamato": [
-            "- Fixed crosshair sometimes being stuck hidden for Yamato after {{AbilityIcon|Ability=Flying Strike|Size=20}} Flying Strike was interrupted",
+            "- Fixed crosshair sometimes being stuck hidden for {{HeroIcon|Hero=Yamato|Size=20}} Yamato after {{AbilityIcon|Ability=Flying Strike|Size=20}} Flying Strike was interrupted",
             "- {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash collision size reduced by 10%",
             "- Bullet damage growth increased from 0.4 to 0.5"
         ],
         "Ivy": [
-            "- Added a bunch of new {{AbilityIcon|Ability=Ivy|Size=20}} Ivy lines including updated pings, kill lines, etc",
-            "- Improved ground impact effects for {{AbilityIcon|Ability=Ivy|Size=20}} Ivy's True Form"
+            "- Added a bunch of new {{HeroIcon|Hero=Ivy|Size=20}} Ivy lines including updated pings, kill lines, etc",
+            "- Improved ground impact effects for {{HeroIcon|Hero=Ivy|Size=20}} Ivy's True Form"
         ],
         "Pocket": [
-            "- Updated {{AbilityIcon|Ability=Pocket|Size=20}} Pocket animations: New crouch walk and aim, updated slide animation, and new firing from slide animation.",
-            "- Updated {{AbilityIcon|Ability=Pocket|Size=20}} Pocket Enchanted Satchel cast and delay sounds",
-            "- Fixed {{AbilityIcon|Ability=Pocket|Size=20}} Pocket's Cloak being able to tunnel through some ceilings and out of the world",
+            "- Updated {{HeroIcon|Hero=Pocket|Size=20}} Pocket animations: New crouch walk and aim, updated slide animation, and new firing from slide animation.",
+            "- Updated {{HeroIcon|Hero=Pocket|Size=20}} Pocket Enchanted Satchel cast and delay sounds",
+            "- Fixed {{HeroIcon|Hero=Pocket|Size=20}} Pocket's Cloak being able to tunnel through some ceilings and out of the world",
             "- {{AbilityIcon|Ability=Affliction|Size=20}} Affliction damage is dealt over 18s instead of 16s (same total damage, lower DPS)",
-            "- {{AbilityIcon|Ability=Enchanter's Satchel|Size=20}} Enchanter's Satchel T3 changed from Disarms for 2.5s to Applies -40% Fire Rate for 4s"
+            "- {{AbilityIcon|Ability=Enchanter's Satchel|Size=20}} Enchanter's Satchel T3 changed from Disarms for 2.5s to Applies -40% {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate for 4s"
         ],
         "Mo & Krill": [
-            "- Updated Mo & Krill {{AbilityIcon|Ability=Burrow|Size=20}} Burrow start, duration, and end sounds",
-            "- Updated Mo & Krill {{AbilityIcon|Ability=Combo|Size=20}} Combo sound",
-            "- Updated Mo & Krill {{AbilityIcon|Ability=Sand Blast|Size=20}} Sand Blast cast sound mix",
+            "- Updated {{HeroIcon|Hero=Mo & Krill|Size=20}} Mo & Krill {{AbilityIcon|Ability=Burrow|Size=20}} Burrow start, duration, and end sounds",
+            "- Updated {{HeroIcon|Hero=Mo & Krill|Size=20}} Mo & Krill {{AbilityIcon|Ability=Combo|Size=20}} Combo sound",
+            "- Updated {{HeroIcon|Hero=Mo & Krill|Size=20}} Mo & Krill {{AbilityIcon|Ability=Sand Blast|Size=20}} Sand Blast cast sound mix",
             "- Can now reload while burrowed"
         ],
         "Warden": [
-            "- Updated Warden {{AbilityIcon|Ability=Alchemical Flask|Size=20}} Alchemical Flask impact sounds",
-            "- Updated Warden {{AbilityIcon|Ability=Binding Word|Size=20}} Binding Word sound mix for teammates"
+            "- Updated {{HeroIcon|Hero=Warden|Size=20}} Warden {{AbilityIcon|Ability=Alchemical Flask|Size=20}} Alchemical Flask impact sounds",
+            "- Updated {{HeroIcon|Hero=Warden|Size=20}} Warden {{AbilityIcon|Ability=Binding Word|Size=20}} Binding Word sound mix for teammates"
         ],
         "Wraith": [
-            "- Updated {{AbilityIcon|Ability=Wraith|Size=20}} Wraith zipline animations",
+            "- Updated {{HeroIcon|Hero=Wraith|Size=20}} Wraith zipline animations",
             "- {{AbilityIcon|Ability=Card Trick|Size=20}} Card Trick post cast time reduced from 0.5s to 0.2s",
             "- Fixed some issues {{AbilityIcon|Ability=Card Trick|Size=20}} Card Trick tracking that could cause it to orb players or go to the wrong spot"
         ],
         "Kelvin": [
-            "- Fixed {{AbilityIcon|Ability=Shoulder Charge|Size=20}} Shoulder Charge not stunning the target when colliding with Kelvin's Ice Dome",
+            "- Fixed {{AbilityIcon|Ability=Shoulder Charge|Size=20}} Shoulder Charge not stunning the target when colliding with {{HeroIcon|Hero=Kelvin|Size=20}} Kelvin's {{AbilityIcon|Ability=Ice Dome|Size=20}} Ice Dome",
             "- Fixed {{AbilityIcon|Ability=Arctic Beam|Size=20}} Arctic Beam not having proper lag compensation",
             "- Fixed some cases where {{AbilityIcon|Ability=Frost Grenade|Size=20}} Frost Grenade would explode and not hit anyone",
             "- {{AbilityIcon|Ability=Arctic Beam|Size=20}} Arctic Beam can now be canceled directly by using parry",
@@ -82,8 +82,8 @@
             "- {{AbilityIcon|Ability=Hyper Beam|Size=20}} Hyper Beam spirit scaling increased from 2.2 to 2.4"
         ],
         "Dynamo": [
-            "- Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse width increased from 4m to 4.5m",
-            "- Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse recharge time reduced from 6s to 5s",
+            "- {{AbilityIcon|Ability=Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse|Size=20}} Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse width increased from 4m to 4.5m",
+            "- {{AbilityIcon|Ability=Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse|Size=20}} Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse recharge time reduced from 6s to 5s",
             "- {{AbilityIcon|Ability=Rejuvenating Aurora|Size=20}} Rejuvenating Aurora regen Spirit Power scaling increased from 0.4 to 0.5"
         ],
         "Grey Talon": [
@@ -93,16 +93,16 @@
         ],
         "Haze": [
             "- Bullet damage falloff is now 20% more falloff than default",
-            "- Can now cast {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb while on zipline"
+            "- Can now cast {{ItemIcon|Item=Smoke|Size=20}} {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb while on zipline"
         ],
         "Lady Geist": [
             "- Base sprint reduced from 2 to 1"
         ],
         "McGinnis": [
             "- {{AbilityIcon|Ability=Mini Turret|Size=20}} Mini Turrets no longer target immune structures",
-            "- Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage cast/aim behavior improved for indoors and close range",
+            "- {{AbilityIcon|Ability=Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage|Size=20}} Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage cast/aim behavior improved for indoors and close range",
             "- Reverted recent melee damage reduction",
-            "- Fixed Health Nova not working on {{AbilityIcon|Ability=Mini Turret|Size=20}} Mini Turrets (when Health Nova was cast by McGinnis)",
+            "- Fixed {{ItemIcon|Item=Health Nova|Size=20}} Health Nova not working on {{AbilityIcon|Ability=Mini Turret|Size=20}} Mini Turrets (when {{ItemIcon|Item=Health Nova|Size=20}} Health Nova was cast by {{HeroIcon|Hero=McGinnis|Size=20}} McGinnis)",
             "- {{AbilityIcon|Ability=Mini Turret|Size=20}} Mini Turret base HP increased from +50 to +75"
         ],
         "Seven": [
@@ -119,7 +119,7 @@
     "Items": {
         "General": [],
         "Discord": [
-            "- Reworked the invite system in the client to streamline the process. Emails are no longer required, the users will now receive access directly through Steam and {{AbilityIcon|Ability=Discord|Size=20}} Discord/Forum access will be available through the client. The UI will now also group users into three categories: available to invite, already invited, and already have access. This new system will result in less invitations stuck in limbo, and any previous invites that have not already claimed the game will be granted through this system as well."
+            "- Reworked the invite system in the client to streamline the process. Emails are no longer required, the users will now receive access directly through Steam and {{ItemIcon|Item=Discord|Size=20}} Discord/Forum access will be available through the client. The UI will now also group users into three categories: available to invite, already invited, and already have access. This new system will result in less invitations stuck in limbo, and any previous invites that have not already claimed the game will be granted through this system as well."
         ],
         "Hollow Point Ward": [
             "- Bonus damage reduced from 25% to 20%"
@@ -143,10 +143,10 @@
             "- Weapon Damage increased from 14% to 16%"
         ],
         "Pristine Emblem": [
-            "- Added a new T3 Weapon Item, Pristine Emblem: Gives +25% Weapon Damage, +12 Spirit Power, and +12% {{AbilityIcon|Ability=Spirit Armor|Size=20}} Spirit Armor. When an enemy is above 50% HP, you deal an additional +25% Weapon Damage."
+            "- Added a new T3 Weapon Item, {{ItemIcon|Item=Pristine Emblem|Size=20}} Pristine Emblem: Gives +25% Weapon Damage, +12 Spirit Power, and +12% {{ItemIcon|Item=Spirit Armor|Size=20}} Spirit Armor. When an enemy is above 50% HP, you deal an additional +25% Weapon Damage."
         ],
         "Spirit Armor": [
-            "- Added a new T3 Weapon Item, Pristine Emblem: Gives +25% Weapon Damage, +12 Spirit Power, and +12% {{AbilityIcon|Ability=Spirit Armor|Size=20}} Spirit Armor. When an enemy is above 50% HP, you deal an additional +25% Weapon Damage."
+            "- Added a new T3 Weapon Item, {{ItemIcon|Item=Pristine Emblem|Size=20}} Pristine Emblem: Gives +25% Weapon Damage, +12 Spirit Power, and +12% {{ItemIcon|Item=Spirit Armor|Size=20}} Spirit Armor. When an enemy is above 50% HP, you deal an additional +25% Weapon Damage."
         ],
         "Hunter's Aura": [
             "- No longer grants +16% Ammo",
@@ -167,12 +167,12 @@
         ],
         "Ricochet": [
             "- Bonus Health increased from 100 to 125",
-            "- Now gives +8% {{AbilityIcon|Ability=Fire Rate|Size=20}} Fire Rate"
+            "- Now gives +8% {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate"
         ],
         "Fire Rate": [
-            "- {{AbilityIcon|Ability=Ricochet|Size=20}} Ricochet: Now gives +8% Fire Rate",
-            "- {{AbilityIcon|Ability=Superior Stamina|Size=20}} Superior Stamina: Fire Rate reduced from 15% to 10%",
-            "- {{AbilityIcon|Ability=Enchanter's Satchel|Size=20}} Enchanter's Satchel T3 changed from Disarms for 2.5s to Applies -40% Fire Rate for 4s"
+            "- {{ItemIcon|Item=Ricochet|Size=20}} Ricochet: Now gives +8% {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate",
+            "- {{ItemIcon|Item=Superior Stamina|Size=20}} Superior Stamina: {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate reduced from 15% to 10%",
+            "- {{AbilityIcon|Ability=Enchanter's Satchel|Size=20}} Enchanter's Satchel T3 changed from Disarms for 2.5s to Applies -40% {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate for 4s"
         ],
         "Glass Cannon": [
             "- Weapon Damage increased from 70% to 75%"
@@ -184,10 +184,10 @@
             "- Weapon damage is no longer conditional on 15m, now always gives +40% Weapon Damage (previously gave +45% when close)"
         ],
         "Spirit Lifesteal": [
-            "- {{AbilityIcon|Ability=Spiritual Overflow|Size=20}} Spiritual Overflow: Now grants +10% Spirit Lifesteal"
+            "- {{ItemIcon|Item=Spiritual Overflow|Size=20}} Spiritual Overflow: Now grants +10% {{ItemIcon|Item=Spirit Lifesteal|Size=20}} Spirit Lifesteal"
         ],
         "Spiritual Overflow": [
-            "- Now grants +10% {{AbilityIcon|Ability=Spirit Lifesteal|Size=20}} Spirit Lifesteal"
+            "- Now grants +10% {{ItemIcon|Item=Spirit Lifesteal|Size=20}} Spirit Lifesteal"
         ],
         "Extra Regen": [
             "- Regen increased from 2.5 to 2.7"
@@ -208,7 +208,7 @@
         ],
         "Health Nova": [
             "- Bonus HP increased from +50 to +75",
-            "- Fixed Health Nova not working on {{AbilityIcon|Ability=Mini Turret|Size=20}} Mini Turrets (when Health Nova was cast by McGinnis)"
+            "- Fixed {{ItemIcon|Item=Health Nova|Size=20}} Health Nova not working on {{AbilityIcon|Ability=Mini Turret|Size=20}} Mini Turrets (when {{ItemIcon|Item=Health Nova|Size=20}} Health Nova was cast by {{HeroIcon|Hero=McGinnis|Size=20}} McGinnis)"
         ],
         "Reactive Barrier": [
             "- Now grants +75 HP"
@@ -230,13 +230,13 @@
             "- Weapon Damage increased from 6% to 10%"
         ],
         "Superior Stamina": [
-            "- {{AbilityIcon|Ability=Fire Rate|Size=20}} Fire Rate reduced from 15% to 10%"
+            "- {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate reduced from 15% to 10%"
         ],
         "Colossus": [
             "- Bonus HP increased from 500 to 600"
         ],
         "Rebirth": [
-            "- {{AbilityIcon|Ability=Soul Rebirth|Size=20}} Soul Rebirth: Cooldown reduction increased from 10% to 15%"
+            "- Soul {{ItemIcon|Item=Rebirth|Size=20}} Rebirth: Cooldown reduction increased from 10% to 15%"
         ],
         "Soul Rebirth": [
             "- Cooldown reduction increased from 10% to 15%"
@@ -287,28 +287,28 @@
             "- Buff duration increased from 12s to 15s"
         ],
         "Smoke": [
-            "- Can now cast {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb while on zipline"
+            "- Can now cast {{ItemIcon|Item=Smoke|Size=20}} {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb while on zipline"
         ]
     },
     "Abilities": {
         "General": [],
         "Mini Turret": [
-            "- Fixed various abilities not showing the cast preview correctly on the first use (Mini Turrets, {{AbilityIcon|Ability=Quantum Entanglement|Size=20}} Quantum Entanglement, etc)",
+            "- Fixed various abilities not showing the cast preview correctly on the first use ({{AbilityIcon|Ability=Mini Turret|Size=20}} Mini Turrets, {{AbilityIcon|Ability=Quantum Entanglement|Size=20}} Quantum Entanglement, etc)",
             "- {{AbilityIcon|Ability=Mini Turret|Size=20}} Mini Turrets no longer target immune structures",
-            "- Fixed Health Nova not working on {{AbilityIcon|Ability=Mini Turret|Size=20}} Mini Turrets (when Health Nova was cast by McGinnis)",
+            "- Fixed {{ItemIcon|Item=Health Nova|Size=20}} Health Nova not working on {{AbilityIcon|Ability=Mini Turret|Size=20}} Mini Turrets (when {{ItemIcon|Item=Health Nova|Size=20}} Health Nova was cast by {{HeroIcon|Hero=McGinnis|Size=20}} McGinnis)",
             "- {{AbilityIcon|Ability=Mini Turret|Size=20}} Mini Turret base HP increased from +50 to +75"
         ],
         "Quantum Entanglement": [
-            "- Fixed various abilities not showing the cast preview correctly on the first use (Mini Turrets, {{AbilityIcon|Ability=Quantum Entanglement|Size=20}} Quantum Entanglement, etc)"
+            "- Fixed various abilities not showing the cast preview correctly on the first use ({{AbilityIcon|Ability=Mini Turret|Size=20}} Mini Turrets, {{AbilityIcon|Ability=Quantum Entanglement|Size=20}} Quantum Entanglement, etc)"
         ],
         "Ground Strike": [
-            "- Fixed Lash's {{AbilityIcon|Ability=Ground Strike|Size=20}} Ground Strike sometimes causing the hero to be stuck for the rest of the match",
-            "- Added new visual effects for Lash's {{AbilityIcon|Ability=Ground Strike|Size=20}} Ground Strike",
+            "- Fixed {{HeroIcon|Hero=Lash|Size=20}} Lash's {{AbilityIcon|Ability=Ground Strike|Size=20}} Ground Strike sometimes causing the hero to be stuck for the rest of the match",
+            "- Added new visual effects for {{HeroIcon|Hero=Lash|Size=20}} Lash's {{AbilityIcon|Ability=Ground Strike|Size=20}} Ground Strike",
             "- {{AbilityIcon|Ability=Ground Strike|Size=20}} Ground Strike Damage Per Meter reduced from 6.3 to 6.0"
         ],
         "Barrage": [
             "- Fixed Walkers having a pause at the end of their Rocket {{AbilityIcon|Ability=Barrage|Size=20}} Barrage",
-            "- Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage cast/aim behavior improved for indoors and close range"
+            "- {{AbilityIcon|Ability=Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage|Size=20}} Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage cast/aim behavior improved for indoors and close range"
         ],
         "Killing Blow": [
             "- Fixed multiple instances of \"{{AbilityIcon|Ability=Killing Blow|Size=20}} Killing Blow\" in the Damage Report"
@@ -317,25 +317,25 @@
             "- Fixed {{AbilityIcon|Ability=Spectral Wall|Size=20}} Spectral Wall forcing itself into the first ability slot if its cooldown is refreshed"
         ],
         "Flying Strike": [
-            "- Fixed crosshair sometimes being stuck hidden for Yamato after {{AbilityIcon|Ability=Flying Strike|Size=20}} Flying Strike was interrupted"
+            "- Fixed crosshair sometimes being stuck hidden for {{HeroIcon|Hero=Yamato|Size=20}} Yamato after {{AbilityIcon|Ability=Flying Strike|Size=20}} Flying Strike was interrupted"
         ],
         "Burrow": [
-            "- Updated Mo & Krill {{AbilityIcon|Ability=Burrow|Size=20}} Burrow start, duration, and end sounds"
+            "- Updated {{HeroIcon|Hero=Mo & Krill|Size=20}} Mo & Krill {{AbilityIcon|Ability=Burrow|Size=20}} Burrow start, duration, and end sounds"
         ],
         "Combo": [
-            "- Updated Mo & Krill {{AbilityIcon|Ability=Combo|Size=20}} Combo sound"
+            "- Updated {{HeroIcon|Hero=Mo & Krill|Size=20}} Mo & Krill {{AbilityIcon|Ability=Combo|Size=20}} Combo sound"
         ],
         "Sand Blast": [
-            "- Updated Mo & Krill {{AbilityIcon|Ability=Sand Blast|Size=20}} Sand Blast cast sound mix"
+            "- Updated {{HeroIcon|Hero=Mo & Krill|Size=20}} Mo & Krill {{AbilityIcon|Ability=Sand Blast|Size=20}} Sand Blast cast sound mix"
         ],
         "Alchemical Flask": [
-            "- Updated Warden {{AbilityIcon|Ability=Alchemical Flask|Size=20}} Alchemical Flask impact sounds"
+            "- Updated {{HeroIcon|Hero=Warden|Size=20}} Warden {{AbilityIcon|Ability=Alchemical Flask|Size=20}} Alchemical Flask impact sounds"
         ],
         "Binding Word": [
-            "- Updated Warden {{AbilityIcon|Ability=Binding Word|Size=20}} Binding Word sound mix for teammates"
+            "- Updated {{HeroIcon|Hero=Warden|Size=20}} Warden {{AbilityIcon|Ability=Binding Word|Size=20}} Binding Word sound mix for teammates"
         ],
         "Shoulder Charge": [
-            "- Fixed {{AbilityIcon|Ability=Shoulder Charge|Size=20}} Shoulder Charge not stunning the target when colliding with Kelvin's Ice Dome",
+            "- Fixed {{AbilityIcon|Ability=Shoulder Charge|Size=20}} Shoulder Charge not stunning the target when colliding with {{HeroIcon|Hero=Kelvin|Size=20}} Kelvin's {{AbilityIcon|Ability=Ice Dome|Size=20}} Ice Dome",
             "- Fixed some cases where {{AbilityIcon|Ability=Shoulder Charge|Size=20}} Shoulder Charge did not stun when hitting a wall",
             "- {{AbilityIcon|Ability=Shoulder Charge|Size=20}} Shoulder Charge T3 reduced from +6.5 to +5.5 Weapon Damage"
         ],
@@ -351,12 +351,12 @@
             "- {{AbilityIcon|Ability=Hyper Beam|Size=20}} Hyper Beam spirit scaling increased from 2.2 to 2.4"
         ],
         "Kinetic Pulse": [
-            "- Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse width increased from 4m to 4.5m",
-            "- Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse recharge time reduced from 6s to 5s"
+            "- {{AbilityIcon|Ability=Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse|Size=20}} Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse width increased from 4m to 4.5m",
+            "- {{AbilityIcon|Ability=Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse|Size=20}} Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse recharge time reduced from 6s to 5s"
         ],
         "Pulse": [
-            "- Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse width increased from 4m to 4.5m",
-            "- Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse recharge time reduced from 6s to 5s"
+            "- {{AbilityIcon|Ability=Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse|Size=20}} Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse width increased from 4m to 4.5m",
+            "- {{AbilityIcon|Ability=Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse|Size=20}} Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse recharge time reduced from 6s to 5s"
         ],
         "Rejuvenating Aurora": [
             "- {{AbilityIcon|Ability=Rejuvenating Aurora|Size=20}} Rejuvenating Aurora regen Spirit Power scaling increased from 0.4 to 0.5"
@@ -369,10 +369,10 @@
             "- {{AbilityIcon|Ability=Guided Owl|Size=20}} Guided Owl cooldown reduced from 120s to 110s"
         ],
         "Smoke Bomb": [
-            "- Can now cast {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb while on zipline"
+            "- Can now cast {{ItemIcon|Item=Smoke|Size=20}} {{AbilityIcon|Ability=Smoke Bomb|Size=20}} Smoke Bomb while on zipline"
         ],
         "Flame Dash": [
-            "- Fixed Infernus being unable to slide out of {{AbilityIcon|Ability=Flame Dash|Size=20}} Flame Dash"
+            "- Fixed {{HeroIcon|Hero=Infernus|Size=20}} Infernus being unable to slide out of {{AbilityIcon|Ability=Flame Dash|Size=20}} Flame Dash"
         ],
         "Afterburn": [
             "- {{AbilityIcon|Ability=Afterburn|Size=20}} Afterburn T1 and T2 Swapped",
@@ -393,7 +393,7 @@
             "- {{AbilityIcon|Ability=Ice Path|Size=20}} Ice Path sprint is now granted immediately on use"
         ],
         "Heavy Barrage": [
-            "- Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage cast/aim behavior improved for indoors and close range"
+            "- {{AbilityIcon|Ability=Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage|Size=20}} Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage cast/aim behavior improved for indoors and close range"
         ],
         "Kinetic Carbine": [
             "- {{AbilityIcon|Ability=Kinetic Carbine|Size=20}} Kinetic Carbine Time Slowed targets that were moving before the time slow will now resume their momentum when time slow wears off",
@@ -403,7 +403,7 @@
             "- {{AbilityIcon|Ability=Affliction|Size=20}} Affliction damage is dealt over 18s instead of 16s (same total damage, lower DPS)"
         ],
         "Enchanter's Satchel": [
-            "- {{AbilityIcon|Ability=Enchanter's Satchel|Size=20}} Enchanter's Satchel T3 changed from Disarms for 2.5s to Applies -40% Fire Rate for 4s"
+            "- {{AbilityIcon|Ability=Enchanter's Satchel|Size=20}} Enchanter's Satchel T3 changed from Disarms for 2.5s to Applies -40% {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate for 4s"
         ],
         "Static Charge": [
             "- {{AbilityIcon|Ability=Static Charge|Size=20}} Static Charge stun duration reduced from 1.25s to 1.1s",

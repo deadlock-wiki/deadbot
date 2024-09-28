@@ -36,12 +36,12 @@
     "08-15-2024": [
         "- Fixed melee still going through when casting {{AbilityIcon|Ability=Stone Form|Size=20}} Stone Form after initiating a melee attack",
         "- {{AbilityIcon|Ability=Stone Form|Size=20}} Stone Form T2 stun reduced from 0.75s to 0.5s",
-        "- {{AbilityIcon|Ability=Watcher's Covenant|Size=20}} Watcher's Covenant T1 reduced from +15% Fire Rate to +10%",
-        "- Now has a new ultimate ability, {{AbilityIcon|Ability=Air Drop|Size=20}} Air Drop. Take flight with an Ally (or self-cast to carry a bomb). You fly and drop the ally or bomb onto an area, dealing damage, slowing, and silencing enemies. Ivy and the ally gain a bullet shield when they are dropped. Allies can drop by themselves at any time. When using the ability without an ally (carrying a bomb), it has a 1 second cast time."
+        "- {{AbilityIcon|Ability=Watcher's Covenant|Size=20}} Watcher's Covenant T1 reduced from +15% {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate to +10%",
+        "- Now has a new ultimate ability, {{AbilityIcon|Ability=Air Drop|Size=20}} Air Drop. Take flight with an Ally (or self-cast to carry a bomb). You fly and drop the ally or bomb onto an area, dealing damage, slowing, and silencing enemies. {{HeroIcon|Hero=Ivy|Size=20}} Ivy and the ally gain a bullet shield when they are dropped. Allies can drop by themselves at any time. When using the ability without an ally (carrying a bomb), it has a 1 second cast time."
     ],
     "08-01-2024": [
-        "- Added a bunch of new {{AbilityIcon|Ability=Ivy|Size=20}} Ivy lines including updated pings, kill lines, etc",
-        "- Improved ground impact effects for {{AbilityIcon|Ability=Ivy|Size=20}} Ivy's True Form"
+        "- Added a bunch of new {{HeroIcon|Hero=Ivy|Size=20}} Ivy lines including updated pings, kill lines, etc",
+        "- Improved ground impact effects for {{HeroIcon|Hero=Ivy|Size=20}} Ivy's True Form"
     ],
     "07-18-2024": [
         "- Base damage reduced from 5.0 to 4.5",
@@ -49,7 +49,7 @@
         "- {{AbilityIcon|Ability=Watcher's Covenant|Size=20}} Watcher's Covenant replicated healing reduced from 35% to 30%"
     ],
     "07-11-2024": [
-        "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's {{AbilityIcon|Ability=Pulse|Size=20}} Pulse Grenade, Warden's Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)",
+        "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: {{HeroIcon|Hero=Ivy|Size=20}} Ivy's {{AbilityIcon|Ability=Kudzu Bomb|Size=20}} Kudzu Bomb, {{HeroIcon|Hero=Paradox|Size=20}} Paradox's {{AbilityIcon|Ability={{AbilityIcon|Ability=Pulse|Size=20}} Pulse Grenade|Size=20}} {{AbilityIcon|Ability=Pulse|Size=20}} Pulse Grenade, {{HeroIcon|Hero=Warden|Size=20}} Warden's {{AbilityIcon|Ability=Alchemical Flask|Size=20}} Alchemical Flask, {{HeroIcon|Hero=Vindicta|Size=20}} Vindicta's {{AbilityIcon|Ability=Stake|Size=20}} Stake, {{ItemIcon|Item=Alchemical Fire|Size=20}} Alchemical Fire (T3 Weapon item)",
         "- Base damage growth increased from 0.35 to 0.55",
         "- {{AbilityIcon|Ability=Watcher's Covenant|Size=20}} Watcher's Covenant replicated healing reduced from 45% to 35%",
         "- {{AbilityIcon|Ability=Watcher's Covenant|Size=20}} Watcher's Covenant bullet lifesteal now scales with spirit power (0.18)",
@@ -58,28 +58,28 @@
         "- Fixed {{AbilityIcon|Ability=Kudzu Bomb|Size=20}} Kudzu Bomb not going where you had targeted if you moved quickly during the cast"
     ],
     "06-20-2024": [
-        "- Updated reload animations for {{AbilityIcon|Ability=Warden|Size=20}} Warden, Dynamo, and Ivy",
+        "- Updated reload animations for {{HeroIcon|Hero=Warden|Size=20}} Warden, {{HeroIcon|Hero=Dynamo|Size=20}} Dynamo, and {{HeroIcon|Hero=Ivy|Size=20}} Ivy",
         "- {{AbilityIcon|Ability=Kudzu Bomb|Size=20}} Kudzu Bomb now does 50% less damage to objectives"
     ],
     "06-13-2024": [
-        "- Changed Ivy's True Form ability name to {{AbilityIcon|Ability=Stone Form|Size=20}} Stone Form",
+        "- Changed {{HeroIcon|Hero=Ivy|Size=20}} Ivy's True Form ability name to {{AbilityIcon|Ability=Stone Form|Size=20}} Stone Form",
         "- {{AbilityIcon|Ability=Watcher's Covenant|Size=20}} Watcher's Covenant replicated healing reduced from 55% to 45%",
         "- {{AbilityIcon|Ability=Watcher's Covenant|Size=20}} Watcher's Covenant no longer provides +2 m/s in the base ability",
         "- {{AbilityIcon|Ability=Watcher's Covenant|Size=20}} Watcher's Covenant T2 movement bonus increased from +2 m/s to +3"
     ],
     "06-06-2024": [
-        "- Fixed training {{AbilityIcon|Ability=Ivy|Size=20}} Ivy's True Form causing you to get healed",
+        "- Fixed training {{HeroIcon|Hero=Ivy|Size=20}} Ivy's True Form causing you to get healed",
         "- {{AbilityIcon|Ability=Watcher's Covenant|Size=20}} Watcher's Covenant heal sharing reduced from 65% to 55%"
     ],
     "05-30-2024": [
         "- {{AbilityIcon|Ability=Kudzu Bomb|Size=20}} Kudzu Bomb T3 improved from +50 DPS to +60"
     ],
     "05-23-2024": [
-        "- Fixed various movement stuck bugs with {{AbilityIcon|Ability=Ivy|Size=20}} Ivy",
+        "- Fixed various movement stuck bugs with {{HeroIcon|Hero=Ivy|Size=20}} Ivy",
         "- {{AbilityIcon|Ability=Kudzu Bomb|Size=20}} Kudzu Bomb duration increased from 3.5s to 4s",
         "- {{AbilityIcon|Ability=Kudzu Bomb|Size=20}} Kudzu Bomb T2 duration increased from +1.5s to +2s",
         "- {{AbilityIcon|Ability=Watcher's Covenant|Size=20}} Watcher's Covenant Replicated Healing increased from 50% to 65%",
-        "- {{AbilityIcon|Ability=Watcher's Covenant|Size=20}} Watcher's Covenant Fire Rate reduced from 20% to 15%",
+        "- {{AbilityIcon|Ability=Watcher's Covenant|Size=20}} Watcher's Covenant {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate reduced from 20% to 15%",
         "- {{AbilityIcon|Ability=Watcher's Covenant|Size=20}} Watcher's Covenant T1 changed to +15% Rate"
     ],
     "05-16-2024": [

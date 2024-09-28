@@ -20,7 +20,7 @@
         "Dynamo": [
             "- {{AbilityIcon|Ability=Rejuvenating Aurora|Size=20}} Rejuvenating Aurora no longer gets canceled when stamina is used",
             "- {{AbilityIcon|Ability=Rejuvenating Aurora|Size=20}} Rejuvenating Aurora T3 reduced from 4% to 3.8%",
-            "- Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse T1 reduced from 40% slow to 35%",
+            "- {{AbilityIcon|Ability=Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse|Size=20}} Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse T1 reduced from 40% slow to 35%",
             "- {{AbilityIcon|Ability=Quantum Entanglement|Size=20}} Quantum Entanglement cooldown increased from 11s to 12s"
         ],
         "Grey Talon": [
@@ -46,7 +46,7 @@
             "- {{AbilityIcon|Ability=Arctic Beam|Size=20}} Arctic Beam fire rate slow reduced from 80% to 40%",
             "- {{AbilityIcon|Ability=Arctic Beam|Size=20}} Arctic Beam movement slow reduced from 80% to 70%",
             "- Objectives and Rejuvenator are now frozen and invulnerable when under frozen shelter",
-            "- {{AbilityIcon|Ability=Ice Path|Size=20}} Ice Path and Arctic Beam can now also be cancelled by hitting the ability key again"
+            "- {{AbilityIcon|Ability=Ice Path|Size=20}} Ice Path and {{AbilityIcon|Ability=Arctic Beam|Size=20}} Arctic Beam can now also be cancelled by hitting the ability key again"
         ],
         "Lady Geist": [
             "- {{AbilityIcon|Ability=Essence Bomb|Size=20}} Essence Bomb T3 damage increased from 22% to 26%",
@@ -66,17 +66,17 @@
             "- Can no longer wall jump from {{AbilityIcon|Ability=Spectral Wall|Size=20}} Spectral Wall",
             "- {{AbilityIcon|Ability=Spectral Wall|Size=20}} Spectral Wall min range reduced from 7m to 6m",
             "- {{AbilityIcon|Ability=Spectral Wall|Size=20}} Spectral Wall duration reduced from 6s to 5s",
-            "- Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage spirit scaling increased from 0.3 to 0.35",
-            "- Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage min range reduced from 7m to 6m",
+            "- {{AbilityIcon|Ability=Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage|Size=20}} Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage spirit scaling increased from 0.3 to 0.35",
+            "- {{AbilityIcon|Ability=Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage|Size=20}} Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage min range reduced from 7m to 6m",
             "- {{AbilityIcon|Ability=Mini Turret|Size=20}} Mini Turrets bullet travel speed increased"
         ],
         "Mo & Krill": [
             "- Camera zooms out a little bit more when un-burrowing",
-            "- Can cast Scorn while using {{AbilityIcon|Ability=Combo|Size=20}} Combo",
+            "- Can cast {{AbilityIcon|Ability=Scorn|Size=20}} Scorn while using {{AbilityIcon|Ability=Combo|Size=20}} Combo",
             "- {{AbilityIcon|Ability=Combo|Size=20}} Combo T2 reduced from +1s to +0.75s"
         ],
         "Paradox": [
-            "- Fixed issues with {{AbilityIcon|Ability=Paradoxical Swap|Size=20}} Paradoxical Swap hitting targets behind walls"
+            "- Fixed issues with {{HeroIcon|Hero=Paradox|Size=20}} {{AbilityIcon|Ability=Paradoxical Swap|Size=20}} Paradoxical Swap hitting targets behind walls"
         ],
         "Pocket": [
             "- {{AbilityIcon|Ability=Barrage|Size=20}} Barrage amp per stack reduced from 7% to 6%",
@@ -113,14 +113,14 @@
             "- {{AbilityIcon|Ability=Assassinate|Size=20}} Assassinate scope ends when you are stunned"
         ],
         "Viscous": [
-            "- {{AbilityIcon|Ability=Puddle Punch|Size=20}} Puddle Punch now correctly knocks people in The Cube up in the air",
+            "- {{AbilityIcon|Ability=Puddle Punch|Size=20}} Puddle Punch now correctly knocks people in {{AbilityIcon|Ability=The Cube|Size=20}} The Cube up in the air",
             "- Improved various issues with the camera",
             "- Puddle punch now telegraphs an effect before it forms",
             "- Base bullet damage reduced from 14 to 13",
             "- {{AbilityIcon|Ability=Splatter|Size=20}} Splatter damage reduced from 110 to 100",
             "- {{AbilityIcon|Ability=Goo Ball|Size=20}} Goo Ball turn rate improved a bit",
             "- {{AbilityIcon|Ability=Goo Ball|Size=20}} Goo Ball stun frequency cooldown improved from 1.5s to 1.25s",
-            "- Fixed {{AbilityIcon|Ability=Puddle Punch|Size=20}} Puddle Punch piercing Unstoppable"
+            "- Fixed {{AbilityIcon|Ability=Puddle Punch|Size=20}} Puddle Punch piercing {{ItemIcon|Item=Unstoppable|Size=20}} Unstoppable"
         ],
         "Warden": [
             "- Bullet growth reduced from 1.31 to 1.2",
@@ -145,49 +145,49 @@
     "Items": {
         "General": [],
         "Metal Skin": [
-            "- {{AbilityIcon|Ability=Metal Skin|Size=20}} Metal Skin effects revisions",
+            "- {{ItemIcon|Item=Metal Skin|Size=20}} Metal Skin effects revisions",
             "- Cooldown reduced from 22s to 20s"
         ],
         "Tesla Bullets": [
-            "- Added sound for {{AbilityIcon|Ability=Tesla Bullets|Size=20}} Tesla Bullets proc"
+            "- Added sound for {{ItemIcon|Item=Tesla Bullets|Size=20}} Tesla Bullets proc"
         ],
         "Toxic Bullets": [
-            "- Added sound for {{AbilityIcon|Ability=Toxic Bullets|Size=20}} Toxic Bullets proc"
+            "- Added sound for {{ItemIcon|Item=Toxic Bullets|Size=20}} Toxic Bullets proc"
         ],
         "Divine Barrier": [
-            "- {{AbilityIcon|Ability=Divine Barrier|Size=20}} Divine Barrier wings no longer fully opaque",
+            "- {{ItemIcon|Item=Divine Barrier|Size=20}} Divine Barrier wings no longer fully opaque",
             "- Bullet Shield shield reduced from 300 to 260",
             "- Spirit Shield shield reduced from 300 to 260"
         ],
         "Echo Shard": [
-            "- Updated {{AbilityIcon|Ability=Echo Shard|Size=20}} Echo Shard sound effects",
+            "- Updated {{ItemIcon|Item=Echo Shard|Size=20}} Echo Shard sound effects",
             "- Spirit Power increased from +8 to +12"
         ],
         "Refresher": [
-            "- Updated {{AbilityIcon|Ability=Refresher|Size=20}} Refresher effects colors from green to purple"
+            "- Updated {{ItemIcon|Item=Refresher|Size=20}} Refresher effects colors from green to purple"
         ],
         "Warp Stone": [
-            "- Updated effects for the {{AbilityIcon|Ability=Warp Stone|Size=20}} Warp Stone bullet resist buff"
+            "- Updated effects for the {{ItemIcon|Item=Warp Stone|Size=20}} Warp Stone bullet resist buff"
         ],
         "Lucky Shot": [
-            "- Added {{AbilityIcon|Ability=Lucky Shot|Size=20}} Lucky Shot proc sound effect",
+            "- Added {{ItemIcon|Item=Lucky Shot|Size=20}} Lucky Shot proc sound effect",
             "- Bonus Damage increased from 80% to 90%"
         ],
         "Berserker": [
-            "- Updated {{AbilityIcon|Ability=Berserker|Size=20}} Berserker buff effects",
+            "- Updated {{ItemIcon|Item=Berserker|Size=20}} Berserker buff effects",
             "- Bullet Resist reduced from 8% to 7%"
         ],
         "Silencer": [
-            "- Revised {{AbilityIcon|Ability=Silencer|Size=20}} Silencer cast and duration sounds",
+            "- Revised {{ItemIcon|Item=Silencer|Size=20}} Silencer cast and duration sounds",
             "- Damage increased from 15% to 20%"
         ],
         "Rebirth": [
-            "- Added {{AbilityIcon|Ability=Rebirth|Size=20}} Rebirth channel and revive sounds",
-            "- {{AbilityIcon|Ability=Soul Rebirth|Size=20}} Soul Rebirth: No longer grants 20% Weapon Damage",
-            "- {{AbilityIcon|Ability=Soul Rebirth|Size=20}} Soul Rebirth: Cooldown Reduction reduced from 18% to 15%"
+            "- Added {{ItemIcon|Item=Rebirth|Size=20}} Rebirth channel and revive sounds",
+            "- Soul {{ItemIcon|Item=Rebirth|Size=20}} Rebirth: No longer grants 20% Weapon Damage",
+            "- Soul {{ItemIcon|Item=Rebirth|Size=20}} Rebirth: Cooldown Reduction reduced from 18% to 15%"
         ],
         "Infuser": [
-            "- Added {{AbilityIcon|Ability=Infuser|Size=20}} Infuser cast sound"
+            "- Added {{ItemIcon|Item=Infuser|Size=20}} Infuser cast sound"
         ],
         "Headshot Booster": [
             "- Bonus damage reduced from 45 to 40"
@@ -200,12 +200,12 @@
             "- Healing from troopers increased from 10 to 15"
         ],
         "Fire Rate": [
-            "- {{AbilityIcon|Ability=Rapid Rounds|Size=20}} Rapid Rounds: Fire Rate reduced from 12% to 9%",
-            "- {{AbilityIcon|Ability=Withering Whip|Size=20}} Withering Whip: Fire Rate slow increased from 30% to 40%",
-            "- {{AbilityIcon|Ability=Surge of Power|Size=20}} Surge of Power: Imbued ability now grants +10% Fire Rate when used (same 6s duration as the movespeed buff)"
+            "- {{ItemIcon|Item=Rapid Rounds|Size=20}} Rapid Rounds: {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate reduced from 12% to 9%",
+            "- {{ItemIcon|Item=Withering Whip|Size=20}} Withering Whip: {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate slow increased from 30% to 40%",
+            "- {{ItemIcon|Item=Surge of Power|Size=20}} Surge of Power: Imbued ability now grants +10% {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate when used (same 6s duration as the movespeed buff)"
         ],
         "Rapid Rounds": [
-            "- {{AbilityIcon|Ability=Fire Rate|Size=20}} Fire Rate reduced from 12% to 9%",
+            "- {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate reduced from 12% to 9%",
             "- No longer provides -50 Max Health"
         ],
         "Active Reload": [
@@ -261,27 +261,27 @@
         ],
         "Healing Rite": [
             "- Now grants +3 Spirit Power",
-            "- Now requires {{AbilityIcon|Ability=Healing Rite|Size=20}} Healing Rite",
-            "- {{AbilityIcon|Ability=Rescue Beam|Size=20}} Rescue Beam: No longer requires Healing Rite"
+            "- Now requires {{ItemIcon|Item=Healing Rite|Size=20}} Healing Rite",
+            "- {{ItemIcon|Item=Rescue Beam|Size=20}} Rescue Beam: No longer requires {{ItemIcon|Item=Healing Rite|Size=20}} Healing Rite"
         ],
         "Spirit Lifesteal": [
-            "- {{AbilityIcon|Ability=Enduring Spirit|Size=20}} Enduring Spirit: Spirit Lifesteal increased from 8% to 10%"
+            "- {{ItemIcon|Item=Enduring Spirit|Size=20}} Enduring Spirit: {{ItemIcon|Item=Spirit Lifesteal|Size=20}} Spirit Lifesteal increased from 8% to 10%"
         ],
         "Enduring Spirit": [
-            "- {{AbilityIcon|Ability=Spirit Lifesteal|Size=20}} Spirit Lifesteal increased from 8% to 10%"
+            "- {{ItemIcon|Item=Spirit Lifesteal|Size=20}} Spirit Lifesteal increased from 8% to 10%"
         ],
         "Melee Lifesteal": [
             "- Melee damage reduced from 15% to 13%"
         ],
         "Health Nova": [
-            "- Now requires {{AbilityIcon|Ability=Healing Rite|Size=20}} Healing Rite",
+            "- Now requires {{ItemIcon|Item=Healing Rite|Size=20}} Healing Rite",
             "- Now grants +4 Spirit Power",
             "- Range reduced from 18m to 15m"
         ],
         "Rescue Beam": [
             "- Heal reduced from 30% to 26%",
             "- Cast range reduced from 45m to 36m",
-            "- No longer requires {{AbilityIcon|Ability=Healing Rite|Size=20}} Healing Rite"
+            "- No longer requires {{ItemIcon|Item=Healing Rite|Size=20}} Healing Rite"
         ],
         "Fortitude": [
             "- Lane troopers do not reset the passive regen timer"
@@ -309,7 +309,7 @@
         ],
         "Unstoppable": [
             "- Fixed not preventing Disarm properly",
-            "- Fixed {{AbilityIcon|Ability=Puddle Punch|Size=20}} Puddle Punch piercing Unstoppable"
+            "- Fixed {{AbilityIcon|Ability=Puddle Punch|Size=20}} Puddle Punch piercing {{ItemIcon|Item=Unstoppable|Size=20}} Unstoppable"
         ],
         "Spirit Strike": [
             "- Melee damage reduced from 15% to 12%",
@@ -329,7 +329,7 @@
             "- Buff duration increased from 35s to 40s"
         ],
         "Withering Whip": [
-            "- {{AbilityIcon|Ability=Fire Rate|Size=20}} Fire Rate slow increased from 30% to 40%"
+            "- {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate slow increased from 30% to 40%"
         ],
         "Slowing Hex": [
             "- Projectile speed increased by 20%"
@@ -338,13 +338,13 @@
             "- Damage increased from 50 to 65"
         ],
         "Surge of Power": [
-            "- Imbued ability now grants +10% {{AbilityIcon|Ability=Fire Rate|Size=20}} Fire Rate when used (same 6s duration as the movespeed buff)"
+            "- Imbued ability now grants +10% {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate when used (same 6s duration as the movespeed buff)"
         ],
         "Extra Charge": [
-            "- {{AbilityIcon|Ability=Rapid Recharge|Size=20}} Rapid Recharge: Now gains +12% Weapon Damage (T1 Extra Charge gives +6%)"
+            "- {{ItemIcon|Item=Rapid Recharge|Size=20}} Rapid Recharge: Now gains +12% Weapon Damage (T1 {{ItemIcon|Item=Extra Charge|Size=20}} Extra Charge gives +6%)"
         ],
         "Rapid Recharge": [
-            "- Now gains +12% Weapon Damage (T1 {{AbilityIcon|Ability=Extra Charge|Size=20}} Extra Charge gives +6%)"
+            "- Now gains +12% Weapon Damage (T1 {{ItemIcon|Item=Extra Charge|Size=20}} Extra Charge gives +6%)"
         ],
         "Improved Burst": [
             "- Damage reduced from 10% of Max HP to 9%"
@@ -365,21 +365,21 @@
             "- {{AbilityIcon|Ability=Bounce Pad|Size=20}} Bounce Pad visuals have been replaced with a wind fan (no mechanic changes). The effects also indicate the travel path."
         ],
         "Static Charge": [
-            "- Seven's {{AbilityIcon|Ability=Static Charge|Size=20}} Static Charge effects improvement to make the boundary more clear"
+            "- {{HeroIcon|Hero=Seven|Size=20}} Seven's {{AbilityIcon|Ability=Static Charge|Size=20}} Static Charge effects improvement to make the boundary more clear"
         ],
         "Seismic Impact": [
             "- Minor updates to Abram's {{AbilityIcon|Ability=Seismic Impact|Size=20}} Seismic Impact to resolve some states faster to reduce visual noise",
             "- Fixed {{AbilityIcon|Ability=Seismic Impact|Size=20}} Seismic Impact getting stuck on ceilings like in the mid boss room"
         ],
         "Malice": [
-            "- Updated Lady Geist Blood Bomb, {{AbilityIcon|Ability=Life Drain|Size=20}} Life Drain, Malice, and Soul Exchange sounds",
+            "- Updated {{HeroIcon|Hero=Lady Geist|Size=20}} Lady Geist {{AbilityIcon|Ability=Blood Bomb|Size=20}} Blood Bomb, {{AbilityIcon|Ability=Life Drain|Size=20}} Life Drain, {{AbilityIcon|Ability=Malice|Size=20}} Malice, and {{AbilityIcon|Ability=Soul Exchange|Size=20}} Soul Exchange sounds",
             "- Fixed a recent bug with {{AbilityIcon|Ability=Malice|Size=20}} Malice that caused multiple blood shards to be absorbed by 1 hero rather than pass through and hit others (it didn't stack that way in any case)"
         ],
         "Soul Exchange": [
-            "- Updated Lady Geist Blood Bomb, {{AbilityIcon|Ability=Life Drain|Size=20}} Life Drain, Malice, and Soul Exchange sounds"
+            "- Updated {{HeroIcon|Hero=Lady Geist|Size=20}} Lady Geist {{AbilityIcon|Ability=Blood Bomb|Size=20}} Blood Bomb, {{AbilityIcon|Ability=Life Drain|Size=20}} Life Drain, {{AbilityIcon|Ability=Malice|Size=20}} Malice, and {{AbilityIcon|Ability=Soul Exchange|Size=20}} Soul Exchange sounds"
         ],
         "Life Drain": [
-            "- Updated Lady Geist Blood Bomb, {{AbilityIcon|Ability=Life Drain|Size=20}} Life Drain, Malice, and Soul Exchange sounds"
+            "- Updated {{HeroIcon|Hero=Lady Geist|Size=20}} Lady Geist {{AbilityIcon|Ability=Blood Bomb|Size=20}} Blood Bomb, {{AbilityIcon|Ability=Life Drain|Size=20}} Life Drain, {{AbilityIcon|Ability=Malice|Size=20}} Malice, and {{AbilityIcon|Ability=Soul Exchange|Size=20}} Soul Exchange sounds"
         ],
         "Shoulder Charge": [
             "- Added {{AbilityIcon|Ability=Shoulder Charge|Size=20}} Shoulder Charge wall impact effects",
@@ -391,7 +391,7 @@
             "- Improved visibility of heroes caught in the {{AbilityIcon|Ability=Singularity|Size=20}} Singularity"
         ],
         "Splatter": [
-            "- Viscous {{AbilityIcon|Ability=Splatter|Size=20}} Splatter effects have been adjusted",
+            "- {{HeroIcon|Hero=Viscous|Size=20}} Viscous {{AbilityIcon|Ability=Splatter|Size=20}} Splatter effects have been adjusted",
             "- {{AbilityIcon|Ability=Splatter|Size=20}} Splatter damage reduced from 110 to 100"
         ],
         "Infernal Resilience": [
@@ -408,10 +408,10 @@
             "- {{AbilityIcon|Ability=Rejuvenating Aurora|Size=20}} Rejuvenating Aurora T3 reduced from 4% to 3.8%"
         ],
         "Kinetic Pulse": [
-            "- Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse T1 reduced from 40% slow to 35%"
+            "- {{AbilityIcon|Ability=Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse|Size=20}} Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse T1 reduced from 40% slow to 35%"
         ],
         "Pulse": [
-            "- Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse T1 reduced from 40% slow to 35%"
+            "- {{AbilityIcon|Ability=Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse|Size=20}} Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse T1 reduced from 40% slow to 35%"
         ],
         "Quantum Entanglement": [
             "- {{AbilityIcon|Ability=Quantum Entanglement|Size=20}} Quantum Entanglement cooldown increased from 11s to 12s"
@@ -439,10 +439,10 @@
         "Arctic Beam": [
             "- {{AbilityIcon|Ability=Arctic Beam|Size=20}} Arctic Beam fire rate slow reduced from 80% to 40%",
             "- {{AbilityIcon|Ability=Arctic Beam|Size=20}} Arctic Beam movement slow reduced from 80% to 70%",
-            "- {{AbilityIcon|Ability=Ice Path|Size=20}} Ice Path and Arctic Beam can now also be cancelled by hitting the ability key again"
+            "- {{AbilityIcon|Ability=Ice Path|Size=20}} Ice Path and {{AbilityIcon|Ability=Arctic Beam|Size=20}} Arctic Beam can now also be cancelled by hitting the ability key again"
         ],
         "Ice Path": [
-            "- {{AbilityIcon|Ability=Ice Path|Size=20}} Ice Path and Arctic Beam can now also be cancelled by hitting the ability key again"
+            "- {{AbilityIcon|Ability=Ice Path|Size=20}} Ice Path and {{AbilityIcon|Ability=Arctic Beam|Size=20}} Arctic Beam can now also be cancelled by hitting the ability key again"
         ],
         "Essence Bomb": [
             "- {{AbilityIcon|Ability=Essence Bomb|Size=20}} Essence Bomb T3 damage increased from 22% to 26%",
@@ -458,26 +458,26 @@
             "- {{AbilityIcon|Ability=Spectral Wall|Size=20}} Spectral Wall duration reduced from 6s to 5s"
         ],
         "Heavy Barrage": [
-            "- Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage spirit scaling increased from 0.3 to 0.35",
-            "- Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage min range reduced from 7m to 6m"
+            "- {{AbilityIcon|Ability=Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage|Size=20}} Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage spirit scaling increased from 0.3 to 0.35",
+            "- {{AbilityIcon|Ability=Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage|Size=20}} Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage min range reduced from 7m to 6m"
         ],
         "Barrage": [
-            "- Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage spirit scaling increased from 0.3 to 0.35",
-            "- Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage min range reduced from 7m to 6m",
+            "- {{AbilityIcon|Ability=Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage|Size=20}} Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage spirit scaling increased from 0.3 to 0.35",
+            "- {{AbilityIcon|Ability=Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage|Size=20}} Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage min range reduced from 7m to 6m",
             "- {{AbilityIcon|Ability=Barrage|Size=20}} Barrage amp per stack reduced from 7% to 6%"
         ],
         "Mini Turret": [
             "- {{AbilityIcon|Ability=Mini Turret|Size=20}} Mini Turrets bullet travel speed increased"
         ],
         "Scorn": [
-            "- Can cast Scorn while using {{AbilityIcon|Ability=Combo|Size=20}} Combo"
+            "- Can cast {{AbilityIcon|Ability=Scorn|Size=20}} Scorn while using {{AbilityIcon|Ability=Combo|Size=20}} Combo"
         ],
         "Combo": [
-            "- Can cast Scorn while using {{AbilityIcon|Ability=Combo|Size=20}} Combo",
+            "- Can cast {{AbilityIcon|Ability=Scorn|Size=20}} Scorn while using {{AbilityIcon|Ability=Combo|Size=20}} Combo",
             "- {{AbilityIcon|Ability=Combo|Size=20}} Combo T2 reduced from +1s to +0.75s"
         ],
         "Paradoxical Swap": [
-            "- Fixed issues with {{AbilityIcon|Ability=Paradoxical Swap|Size=20}} Paradoxical Swap hitting targets behind walls"
+            "- Fixed issues with {{HeroIcon|Hero=Paradox|Size=20}} {{AbilityIcon|Ability=Paradoxical Swap|Size=20}} Paradoxical Swap hitting targets behind walls"
         ],
         "Flying Cloak": [
             "- Added a brief lockout period on {{AbilityIcon|Ability=Flying Cloak|Size=20}} Flying Cloak to prevent accidental double clicks"
@@ -516,11 +516,11 @@
             "- {{AbilityIcon|Ability=Crow Familiar|Size=20}} Crow Familiar spirit power duration scaling reduced from 0.04 to 0.03"
         ],
         "The Cube": [
-            "- {{AbilityIcon|Ability=Puddle Punch|Size=20}} Puddle Punch now correctly knocks people in The Cube up in the air"
+            "- {{AbilityIcon|Ability=Puddle Punch|Size=20}} Puddle Punch now correctly knocks people in {{AbilityIcon|Ability=The Cube|Size=20}} The Cube up in the air"
         ],
         "Puddle Punch": [
-            "- {{AbilityIcon|Ability=Puddle Punch|Size=20}} Puddle Punch now correctly knocks people in The Cube up in the air",
-            "- Fixed {{AbilityIcon|Ability=Puddle Punch|Size=20}} Puddle Punch piercing Unstoppable"
+            "- {{AbilityIcon|Ability=Puddle Punch|Size=20}} Puddle Punch now correctly knocks people in {{AbilityIcon|Ability=The Cube|Size=20}} The Cube up in the air",
+            "- Fixed {{AbilityIcon|Ability=Puddle Punch|Size=20}} Puddle Punch piercing {{ItemIcon|Item=Unstoppable|Size=20}} Unstoppable"
         ],
         "Goo Ball": [
             "- {{AbilityIcon|Ability=Goo Ball|Size=20}} Goo Ball turn rate improved a bit",
@@ -600,7 +600,7 @@
             "- Updated medic healing beam colors to be consistent with other heals",
             "- Melee troopers no longer play swipe effect (to reduce some unnecessary noise)",
             "- Added better indication when all four active slots are full",
-            "- Updated Ice Dome to fix some performance related issues",
+            "- Updated {{AbilityIcon|Ability=Ice Dome|Size=20}} Ice Dome to fix some performance related issues",
             "- Updated Torment visual effects to reduce some noise",
             "- Reduced intensity of last hit status effect",
             "- Added low ammo indication sound",

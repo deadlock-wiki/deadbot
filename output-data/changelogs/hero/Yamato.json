@@ -11,7 +11,7 @@
         "- {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash max damage time requirement reduced from 1.5s to 1.4s",
         "- {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash collision radius reduced by 8%",
         "- {{AbilityIcon|Ability=Crimson Slash|Size=20}} Crimson Slash radius increased from 12m to 13m",
-        "- Fixed being able to die during {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation if hit by Grey Talon's Owl",
+        "- Fixed being able to die during {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation if hit by {{HeroIcon|Hero=Grey Talon|Size=20}} Grey Talon's Owl",
         "- Fixed some cases where {{AbilityIcon|Ability=Flying Strike|Size=20}} Flying Strike could get into a stuck state",
         "- Fixed some cases where {{AbilityIcon|Ability=Crimson Slash|Size=20}} Crimson Slash would appear to be cast when it wasn't"
     ],
@@ -20,13 +20,13 @@
         "- {{AbilityIcon|Ability=Flying Strike|Size=20}} Flying Strike T3 now procs after the ability ends, rather than when connecting to the target"
     ],
     "08-01-2024": [
-        "- Fixed crosshair sometimes being stuck hidden for Yamato after {{AbilityIcon|Ability=Flying Strike|Size=20}} Flying Strike was interrupted",
+        "- Fixed crosshair sometimes being stuck hidden for {{HeroIcon|Hero=Yamato|Size=20}} Yamato after {{AbilityIcon|Ability=Flying Strike|Size=20}} Flying Strike was interrupted",
         "- {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash collision size reduced by 10%",
         "- Bullet damage growth increased from 0.4 to 0.5"
     ],
     "07-11-2024": [
         "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation incoming damage reduction reduced from 70% to 55%",
-        "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation changed from 70% debuff reduction to the same buff as Unstoppable"
+        "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation changed from 70% debuff reduction to the same buff as {{ItemIcon|Item=Unstoppable|Size=20}} Unstoppable"
     ],
     "06-27-2024": [
         "- {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash damage reduced from 175 to 170",
@@ -43,22 +43,22 @@
         "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation T3 increased from +1s to +1.5s"
     ],
     "06-13-2024": [
-        "- Fixed Yamato's {{AbilityIcon|Ability=Crimson Slash|Size=20}} Crimson Slash visual direction being wrong sometimes",
+        "- Fixed {{HeroIcon|Hero=Yamato|Size=20}} Yamato's {{AbilityIcon|Ability=Crimson Slash|Size=20}} Crimson Slash visual direction being wrong sometimes",
         "- {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash T3 bonus damage reduced from +210 to +200",
         "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation cooldown increased from 100 to 110"
     ],
     "05-30-2024": [
         "- {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash spirit scaling improved from 1.6 to 2.0",
         "- {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash no longer does a very minor movement on enemies hit",
-        "- Fixed {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash sometimes not being a full charge when channeled fully during the Shadow Transformation",
+        "- Fixed {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash sometimes not being a full charge when channeled fully during the {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation",
         "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation's ability speedup now affects the post-cast durations as well",
         "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation's ability speedup now improves the visual animations (cosmetic only change)"
     ],
     "05-23-2024": [
-        "- Fixed missing VO for {{AbilityIcon|Ability=Yamato|Size=20}} Yamato ability use/upgrades",
+        "- Fixed missing VO for {{HeroIcon|Hero=Yamato|Size=20}} Yamato ability use/upgrades",
         "- Shadow Explosion renamed to {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation and reworked into a new ability",
         "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation no longer has radius impact behavior",
-        "- Shadow Transformation now gives you 4.5s of invulnerability after the initial 2s invulnerable channel period. You transform and refresh your abilities, improving ability speeds by 60% and gaining unlimited ammo. \"Ability Speeds\" affects {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash cast time, Flying Strike flying time, and Crimson Slash cast time.",
+        "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation now gives you 4.5s of invulnerability after the initial 2s invulnerable channel period. You transform and refresh your abilities, improving ability speeds by 60% and gaining unlimited ammo. \"Ability Speeds\" affects {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash cast time, {{AbilityIcon|Ability=Flying Strike|Size=20}} Flying Strike flying time, and {{AbilityIcon|Ability=Crimson Slash|Size=20}} Crimson Slash cast time.",
         "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation cooldown increased from 90s to 100s",
         "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation T2 is now +4 m/s during Shadow Form",
         "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation T3 is now +1s duration"
@@ -70,12 +70,12 @@
         "- {{AbilityIcon|Ability=Crimson Slash|Size=20}} Crimson Slash cooldown reduced from 13s to 11s",
         "- {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash physics/world collision reduced from 15 to 4 (allowing it to be more easily used near objects)",
         "- Shadow Explosion radius increased from 14m to 16m",
-        "- Shadow Explosion {{AbilityIcon|Ability=Fire Rate|Size=20}} Fire Rate and Spirit buff duration increased from 15s to 20s",
+        "- Shadow Explosion {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate and Spirit buff duration increased from 15s to 20s",
         "- Shadow Explosion T3 Spirit bonus increased from +10% to +15%",
-        "- Shadow Explosion T3 {{AbilityIcon|Ability=Fire Rate|Size=20}} Fire Rate bonus increased from +5% to +10%"
+        "- Shadow Explosion T3 {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate bonus increased from +5% to +10%"
     ],
     "05-03-2024": [
-        "- Removed the slow climbing vertical recoil on {{AbilityIcon|Ability=Yamato|Size=20}} Yamato's alt fire",
+        "- Removed the slow climbing vertical recoil on {{HeroIcon|Hero=Yamato|Size=20}} Yamato's alt fire",
         "- {{AbilityIcon|Ability=Crimson Slash|Size=20}} Crimson Slash radius increased from 11m to 12m",
         "- {{AbilityIcon|Ability=Crimson Slash|Size=20}} Crimson Slash fire rate debuff duration increased from 3s to 4s",
         "- {{AbilityIcon|Ability=Crimson Slash|Size=20}} Crimson Slash T2 changed from \"-5s Cooldown\" to \"10% Max Health heal on hero hit\"",
@@ -85,7 +85,7 @@
         "- {{AbilityIcon|Ability=Flying Strike|Size=20}} Flying Strike T2 changed from \"-15s Cooldown\" to \"+20 Cast Range\"",
         "- {{AbilityIcon|Ability=Flying Strike|Size=20}} Flying Strike range no longer scales with Spirit",
         "- Shadow Explosion bonus Spirit per victim increased from 10 to 15",
-        "- Shadow Explosion bonus {{AbilityIcon|Ability=Fire Rate|Size=20}} Fire Rate per victim increased from 5 to 10",
+        "- Shadow Explosion bonus {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate per victim increased from 5 to 10",
         "- Shadow Explosion buff duration increased from 8s to 15s"
     ]
 }
