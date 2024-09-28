@@ -2163,6 +2163,37 @@
             "Key": "citadel_ability_shieldedsentry",
             "Name": "Mini Turret",
             "DescKey": "citadel_ability_shieldedsentry_desc",
+            "Info1": {
+                "Main": {
+                    "Props": [
+                        {
+                            "Key": "TurretDPS",
+                            "Name": "Turret DPS",
+                            "Value": 60,
+                            "Type": "tech_damage",
+                            "Scale": {
+                                "Value": 0.419328,
+                                "Type": "spirit"
+                            }
+                        },
+                        {
+                            "Key": "TurretAttackRange",
+                            "Name": "Attack Range",
+                            "Value": 25,
+                            "Type": "distance"
+                        }
+                    ]
+                },
+                "Alt": [
+                    {
+                        "Key": "TurretLifetime",
+                        "Name": "Lifetime",
+                        "Value": 30,
+                        "Type": "duration"
+                    }
+                ],
+                "DescKey": "citadel_ability_shieldedsentry_desc"
+            },
             "Upgrades": [
                 {
                     "AbilityCharges": 1,
@@ -2184,11 +2215,6 @@
                     "Name": "Deploy Time",
                     "Value": 1,
                     "Type": "duration"
-                },
-                "TurretLifetime": {
-                    "Name": "Lifetime",
-                    "Value": 30,
-                    "Type": "duration"
                 }
             },
             "Range": {
@@ -2201,22 +2227,6 @@
                     "Name": null,
                     "Value": 20,
                     "Type": "distance"
-                },
-                "TurretAttackRange": {
-                    "Name": "Attack Range",
-                    "Value": 25,
-                    "Type": "distance"
-                }
-            },
-            "Damage": {
-                "TurretDPS": {
-                    "Name": "Turret DPS",
-                    "Value": 60,
-                    "Type": "tech_damage",
-                    "Scale": {
-                        "Value": 0.419328,
-                        "Type": "spirit"
-                    }
                 }
             },
             "Health": {
@@ -8376,6 +8386,30 @@
                 "Alt": [],
                 "DescKey": "viscous_goo_grenade_desc"
             },
+            "Info3": {
+                "Main": {
+                    "Props": [
+                        {
+                            "Key": "SlowPercent",
+                            "Name": "Movement Slow",
+                            "Value": 35,
+                            "Type": "slow"
+                        },
+                        {
+                            "Key": "PuddleDuration",
+                            "Name": "Puddle Duration",
+                            "Value": 10,
+                            "Type": "duration",
+                            "Scale": {
+                                "Value": 1.0,
+                                "Type": "duration"
+                            }
+                        }
+                    ]
+                },
+                "Alt": [],
+                "DescKey": "viscous_goo_grenade_puddle_desc"
+            },
             "Upgrades": [
                 {
                     "AbilityCooldown": -5.75
@@ -8390,29 +8424,11 @@
                     "DescKey": "viscous_goo_grenade_t3_desc"
                 }
             ],
-            "Duration": {
-                "PuddleDuration": {
-                    "Name": "Puddle Duration",
-                    "Value": 10,
-                    "Type": "duration",
-                    "Scale": {
-                        "Value": 1.0,
-                        "Type": "duration"
-                    }
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
                     "Value": 50,
                     "Type": "move_speed"
-                }
-            },
-            "Debuff": {
-                "SlowPercent": {
-                    "Name": "Movement Slow",
-                    "Value": 35,
-                    "Type": "slow"
                 }
             },
             "Other": {
