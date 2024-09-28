@@ -2,18 +2,21 @@ import os
 import sys
 
 from parsers import abilities, ability_ui, items, heroes, changelogs, localizations, attributes
+
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from utils import json_utils
 from dotenv import load_dotenv
+
 load_dotenv()
+
 
 class Parser:
     def __init__(self, language='english'):
         # constants
-        self.OUTPUT_DIR = os.getenv('OUTPUT_DIR','../../output-data')
-        self.DATA_DIR = os.getenv('WORK_DIR',"./decompiled-data")
-        
+        self.OUTPUT_DIR = os.getenv('OUTPUT_DIR', '../../output-data')
+        self.DATA_DIR = os.getenv('WORK_DIR', './decompiled-data')
+
         self.language = language
         self.data = {'scripts': {}}
         self.localization_groups = os.listdir(os.path.join(self.DATA_DIR, 'localizations'))
@@ -35,7 +38,7 @@ class Parser:
         scripts_path = 'scripts'
 
         # Load json files to memory
-        for file_name in os.listdir(os.path.join(self.DATA_DIR,scripts_path)):
+        for file_name in os.listdir(os.path.join(self.DATA_DIR, scripts_path)):
             if file_name.endswith('.json'):
                 # path/to/scripts/abilities.json -> abilities
                 key = file_name.split('.')[0].split('/')[-1]
@@ -53,17 +56,18 @@ class Parser:
         for language in self.languages:
             self.localizations[language] = {}
             for localization_group in self.localization_groups:
-                localization_data = json_utils.read( os.path.join(
-                    self.DATA_DIR,
-                    'localizations/',
-                    localization_group,
-                    'citadel_' + localization_group + '_' + language + '.json'
-                )
+                localization_data = json_utils.read(
+                    os.path.join(
+                        self.DATA_DIR,
+                        'localizations/',
+                        localization_group,
+                        'citadel_' + localization_group + '_' + language + '.json',
+                    )
                 )
 
-                self._merge_localizations(language, localization_data)
+                self._merge_localizations(language, localization_group, localization_data)
 
-    def _merge_localizations(self, language, data):
+    def _merge_localizations(self, language, group, data):
         """
         Assigns a set of localization data to self.localizations for use across the parser
 
@@ -77,10 +81,12 @@ class Parser:
             # that are not needed but shared across groups
             if key in ['Language']:
                 continue
-
             if key not in self.localizations[language]:
                 self.localizations[language][key] = value
-            else:
+
+            # 'heroes' group is storing extra English labels for each language, causing it to throw
+            # duplicate key error. This is a temporary measure to keep patch updates going
+            elif group != 'heroes':
                 current_value = self.localizations[language][key]
                 raise Exception(
                     f'Key {key} with value {value} already exists in {language} localization '

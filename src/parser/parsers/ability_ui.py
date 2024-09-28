@@ -434,22 +434,6 @@ class AbilityUiParser:
         For some edge cases, the localization key does not match this pattern
         and we defer to an override
         """
-        OVERRIDES = {
-            'BonusHealthRegen': 'HealthRegen_label',
-            'BarbedWireRadius': 'Radius_label',
-            'BarbedWireDamagePerMeter': 'DamagePerMeter_label',
-            'BuildUpDuration': 'BuildupDuration_label',
-            # capital "L" for some reason...
-            'TechArmorDamageReduction': 'TechArmorDamageReduction_Label',
-            'DamageAbsorb': 'DamageAbsorb_Label',
-            'InvisRegen': 'InvisRegen_Label',
-            'EvasionChance': 'EvasionChance_Label',
-            'DelayBetweenShots': 'DelayBetweenShots_Label',
-        }
-
-        if attr in OVERRIDES:
-            return self._get_localized_string(OVERRIDES[attr])
-
         localized_key = f'{attr}_label'
         if localized_key not in self.localizations[self.language]:
             return None
@@ -460,6 +444,22 @@ class AbilityUiParser:
         return self.abilities[ability_key]['m_mapAbilityProperties'][attr_key]
 
     def _get_localized_string(self, key):
+        OVERRIDES = {
+            'MoveSlowPercent_label': 'MovementSlow_label',
+            'BonusHealthRegen_label': 'HealthRegen_label',
+            'BarbedWireRadius_label': 'Radius_label',
+            'BarbedWireDamagePerMeter_label': 'DamagePerMeter_label',
+            'BuildUpDuration_label': 'BuildupDuration_label',
+            # capital "L" for some reason...
+            'TechArmorDamageReduction_label': 'TechArmorDamageReduction_Label',
+            'DamageAbsorb_label': 'DamageAbsorb_Label',
+            'InvisRegen_label': 'InvisRegen_Label',
+            'EvasionChance_label': 'EvasionChance_Label',
+            'DelayBetweenShots_label': 'DelayBetweenShots_Label',
+        }
+
+        key = OVERRIDES.get(key, key)
+
         if key in self.localizations[self.language]:
             return self.localizations[self.language][key]
 
