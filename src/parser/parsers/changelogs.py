@@ -78,9 +78,9 @@ class ChangelogParser:
 
         json_utils.write(self.OUTPUT_CHANGELOGS + f'date/{version}.json', changelog_with_icons)
         return changelog_with_icons
-    
+
     # "Icon" is appended to i.e. "Hero" to make the template, "HeroIcon"
-    resource_type_to_template_map = {"Heroes": "Hero", "Items": "Item", "Abilities": "Ability"}
+    resource_type_to_template_map = {'Heroes': 'Hero', 'Items': 'Item', 'Abilities': 'Ability'}
 
     # mass find and replace of any resource names with the ability icon template
     def _embed_icons(self, changelog):
@@ -89,7 +89,6 @@ class ChangelogParser:
         for header, log_groups in changelog.items():
             for group_name, logs in log_groups.items():
                 for index, log in enumerate(logs):
-
                     for resource_key in self.resources:
                         resource = self.resources[resource_key]
                         resource_name = resource['Name']
@@ -98,7 +97,7 @@ class ChangelogParser:
 
                         # Check if the resource's english name or key is referenced in the log
                         # english name matching: i.e. "Essence Bomb" and "Essence Bomb"
-                        # key matching: i.e. "Blood Bomb" in log; "ability_blood_bomb" is the resource key, 
+                        # key matching: i.e. "Blood Bomb" in log; "ability_blood_bomb" is the resource key,
                         # "Essence Bomb" is the english name
                         # this captures it being referenced
                         resource_found = False
@@ -107,16 +106,20 @@ class ChangelogParser:
 
                         if not resource_found:
                             # Lady Geist Blood Bomb to ladygeistbloodbomb
-                            log_flattened = log.lower().replace(' ','')
+                            log_flattened = log.lower().replace(' ', '')
 
                             # ability_blood_bomb to bloodbomb
-                            resource_key_flattened = resource_key.replace('ability_','').replace('_','') 
+                            resource_key_flattened = resource_key.replace('ability_', '').replace(
+                                '_', ''
+                            )
 
                             if resource_key_flattened in log_flattened:
                                 # ability_blood_bomb to Blood Bomb
-                                resource_name = resource_key.replace('ability_','').replace('_',' ').title()
+                                resource_name = (
+                                    resource_key.replace('ability_', '').replace('_', ' ').title()
+                                )
                                 resource_found = True
-                        
+
                         if not resource_found:
                             continue
 
@@ -124,14 +127,21 @@ class ChangelogParser:
                         resource_type = resource['Type']
                         resource_type_singular = self.resource_type_to_template_map[resource_type]
                         # "Ability" type to "AbilityIcon" template
-                        template = resource_type_singular+'Icon'
-                        
+                        template = resource_type_singular + 'Icon'
 
-                        icon = "{{"+template+"|"+resource_type_singular+"="+resource_name+"|Size=20}}"
+                        icon = (
+                            '{{'
+                            + template
+                            + '|'
+                            + resource_type_singular
+                            + '='
+                            + resource_name
+                            + '|Size=20}}'
+                        )
                         log = log.replace(resource_name, f'{icon} {resource_name}')
                         new_changelog[header][group_name][index] = log
-                        #if log.startswith('- Updated Lady Geist Blood Bomb'):
-                            #print(new_log)
+                        # if log.startswith('- Updated Lady Geist Blood Bomb'):
+                        # print(new_log)
 
         return new_changelog
 
