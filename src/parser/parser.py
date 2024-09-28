@@ -6,16 +6,19 @@ from parsers import abilities, ability_ui, items, heroes, changelogs, localizati
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from utils import json_utils
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 class Parser:
     def __init__(self, language='english'):
         # constants
-        self.OUTPUT_DIR = '../../output-data/'
-        self.DATA_DIR = './decompiler/decompiled-data/'
+        self.OUTPUT_DIR = os.getenv('OUTPUT_DIR', '../../output-data')
+        self.DATA_DIR = os.getenv('WORK_DIR', './decompiled-data')
+
         self.language = language
         self.data = {'scripts': {}}
-
         self.localization_groups = os.listdir(os.path.join(self.DATA_DIR, 'localizations'))
         # Get all languages from localization_file i.e. citadel_attributes_english.json -> english
         self.languages = [
@@ -35,7 +38,7 @@ class Parser:
         scripts_path = 'scripts'
 
         # Load json files to memory
-        for file_name in os.listdir(self.DATA_DIR + scripts_path):
+        for file_name in os.listdir(os.path.join(self.DATA_DIR, scripts_path)):
             if file_name.endswith('.json'):
                 # path/to/scripts/abilities.json -> abilities
                 key = file_name.split('.')[0].split('/')[-1]
@@ -54,14 +57,12 @@ class Parser:
             self.localizations[language] = {}
             for localization_group in self.localization_groups:
                 localization_data = json_utils.read(
-                    self.DATA_DIR
-                    + 'localizations/'
-                    + localization_group
-                    + '/citadel_'
-                    + localization_group
-                    + '_'
-                    + language
-                    + '.json'
+                    os.path.join(
+                        self.DATA_DIR,
+                        'localizations/',
+                        localization_group,
+                        'citadel_' + localization_group + '_' + language + '.json',
+                    )
                 )
 
                 self._merge_localizations(language, localization_group, localization_data)
@@ -133,7 +134,7 @@ class Parser:
         )
 
         json_utils.write(
-            self.OUTPUT_DIR + 'json/hero-data.json', json_utils.sort_dict(parsed_heroes)
+            self.OUTPUT_DIR + '/json/hero-data.json', json_utils.sort_dict(parsed_heroes)
         )
         return parsed_heroes
 
@@ -146,7 +147,7 @@ class Parser:
         ).run()
 
         json_utils.write(
-            self.OUTPUT_DIR + 'json/ability-data.json', json_utils.sort_dict(parsed_abilities)
+            self.OUTPUT_DIR + '/json/ability-data.json', json_utils.sort_dict(parsed_abilities)
         )
         return parsed_abilities
 
@@ -165,7 +166,7 @@ class Parser:
 
             # Only write to ability_ui.json for English
             if language == 'english':
-                json_utils.write(self.OUTPUT_DIR + 'json/ability_ui.json', parsed_ability_ui)
+                json_utils.write(self.OUTPUT_DIR + '/json/ability_ui.json', parsed_ability_ui)
 
     def _parse_items(self):
         print('Parsing Items...')
@@ -175,7 +176,9 @@ class Parser:
             self.localizations[self.language],
         ).run()
 
-        json_utils.write(self.OUTPUT_DIR + 'json/item-data.json', json_utils.sort_dict(parsed_items))
+        json_utils.write(
+            self.OUTPUT_DIR + '/json/item-data.json', json_utils.sort_dict(parsed_items)
+        )
 
         with open(self.OUTPUT_DIR + '/item-component-tree.txt', 'w') as f:
             f.write(str(item_component_chart))
@@ -186,8 +189,8 @@ class Parser:
             self.data['scripts']['heroes'], self.localizations[self.language]
         ).run()
 
-        json_utils.write(self.OUTPUT_DIR + 'json/attribute-data.json', parsed_attributes)
-        json_utils.write(self.OUTPUT_DIR + 'json/stat-infobox-order.json', attribute_orders)
+        json_utils.write(self.OUTPUT_DIR + '/json/attribute-data.json', parsed_attributes)
+        json_utils.write(self.OUTPUT_DIR + '/json/stat-infobox-order.json', attribute_orders)
 
     def _parse_changelogs(self):
         print('Parsing Changelogs...')

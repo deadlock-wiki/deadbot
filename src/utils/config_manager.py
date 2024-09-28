@@ -18,12 +18,12 @@ def get_config_value(key):
 
 if __name__ == '__main__':
     # Example usages
-    deadlock_path = os.getenv('DEADLOCK_PATH')
-    decompiler_path = os.getenv('DECOMPILER_PATH')
+    deadlock_path = os.getenv('DEADLOCK_PATH','default value')
+    decompiler_cmd = os.getenv('DECOMPILER_CMD',deadlock_path)
 
     # Or
     deadlock_path = get_config_value('DEADLOCK_PATH')
-    decompiler_path = get_config_value('DECOMPILER_PATH')
+    decompiler_cmd = get_config_value('DECOMPILER_CMD')
 
     print('deadlock_path:', deadlock_path)
-    print('decompiler_path', decompiler_path)
+    print('decompiler_cmd', decompiler_cmd)
