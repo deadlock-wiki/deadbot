@@ -8,12 +8,14 @@ import datetime
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import utils.json_utils as json_utils
 
+from .constants import OUTPUT_DIR
+
 
 class ChangelogParser:
     def __init__(self):
         self.CHANGELOGS_DIR = os.path.join(os.path.dirname(__file__), '../raw-changelogs/')
-        self.OUTPUT_DIR = os.path.join(os.path.dirname(__file__), '../../../output-data/')
-        self.OUTPUT_CHANGELOGS = self.OUTPUT_DIR + '/changelogs/'
+        self.OUTPUT_DIR = OUTPUT_DIR
+        self.OUTPUT_CHANGELOGS = self.OUTPUT_DIR+'/changelogs'
         self.resources = self._get_resources()
 
     def run_all(self):
@@ -76,7 +78,7 @@ class ChangelogParser:
 
         changelog_with_icons = self._embed_icons(changelog_dict)
 
-        json_utils.write(self.OUTPUT_CHANGELOGS + f'date/{version}.json', changelog_with_icons)
+        json_utils.write(self.OUTPUT_CHANGELOGS + f'/date/{version}.json', changelog_with_icons)
         return changelog_with_icons
 
     # "Icon" is appended to i.e. "Hero" to make the template, "HeroIcon"
@@ -156,9 +158,9 @@ class ChangelogParser:
 
     def _get_resources(self):
         resources = {}
-        heroes = json_utils.read(self.OUTPUT_DIR + 'json/hero-data.json')
-        items = json_utils.read(self.OUTPUT_DIR + 'json/item-data.json')
-        abilities = json_utils.read(self.OUTPUT_DIR + 'json/ability-data.json')
+        heroes = json_utils.read(self.OUTPUT_DIR+'/json/hero-data.json')
+        items = json_utils.read(self.OUTPUT_DIR+'/json/item-data.json')
+        abilities = json_utils.read(self.OUTPUT_DIR+'/json/ability-data.json')
 
         for key in heroes:
             heroes[key]['Type'] = 'Heroes'
@@ -187,7 +189,7 @@ class ChangelogParser:
 
         for hero_name, changelog in hero_changelogs.items():
             json_utils.write(
-                self.OUTPUT_CHANGELOGS + f'hero/{hero_name}.json',
+                self.OUTPUT_CHANGELOGS + f'/hero/{hero_name}.json',
                 self._sort_object_by_date_key(changelog),
             )
 
@@ -200,7 +202,7 @@ class ChangelogParser:
 
         for item_name, changelog in item_changelogs.items():
             json_utils.write(
-                self.OUTPUT_CHANGELOGS + f'item/{item_name}.json',
+                self.OUTPUT_CHANGELOGS + f'/item/{item_name}.json',
                 self._sort_object_by_date_key(changelog),
             )
 
