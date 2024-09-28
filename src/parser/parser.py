@@ -116,7 +116,7 @@ class Parser:
             self.localizations[self.language],
         ).run()
 
-        # Ensure it matches the current list of non-constants, and raise a warning if not
+        # Ensure it matches the current list of meaningful stats, and raise a warning if not
         # File diff will also appear in git
         if not json_utils.compare_json_file_to_dict(
             self.OUTPUT_DIR + 'json/hero-meaningful-stats.json', parsed_meaningful_stats
