@@ -140,8 +140,6 @@ class ChangelogParser:
                         )
                         log = log.replace(resource_name, f'{icon} {resource_name}')
                         new_changelog[header][group_name][index] = log
-                        # if log.startswith('- Updated Lady Geist Blood Bomb'):
-                        # print(new_log)
 
         return new_changelog
 
