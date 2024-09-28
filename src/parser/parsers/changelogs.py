@@ -100,47 +100,17 @@ class ChangelogParser:
         for header, log_groups in changelog.items():
             for group_name, logs in log_groups.items():
                 for index, log in enumerate(logs):
-                    for resource_key in self.resources:
-                        resource = self.resources[resource_key]
-                        resource_name = resource['Name']
-                        if resource_name is None:
-                            continue
-
-                        # Check if the resource's english name
-                        # or key is referenced in the log
-                        # english name matching: i.e.
-                        # "Essence Bomb" and "Essence Bomb"
-                        # key matching: i.e. "Blood Bomb" in log;
-                        # "ability_blood_bomb" is the resource key,
-                        # "Essence Bomb" is the english name
-                        # this captures it being referenced
+                    tags = log['Tags']
+                    description = log['Description']
+                    for tag in tags:
                         resource_found = False
-                        if resource_name in log:
+                        if tag in log:
                             resource_found = True
-
-                        if not resource_found:
-                            # Lady Geist Blood Bomb to ladygeistbloodbomb
-                            log_flattened = log.lower().replace(' ', '')
-
-                            # ability_blood_bomb to bloodbomb
-                            resource_key_flattened = resource_key.replace('ability_', '').replace(
-                                '_', ''
-                            )
-
-                            if resource_key_flattened in log_flattened:
-                                # ability_blood_bomb to Blood Bomb
-                                resource_name = (
-                                    resource_key.replace('ability_', '').replace('_', ' ').title()
-                                )
-                                resource_found = True
-
                         if not resource_found:
                             continue
 
-                        # Retrieve the resource's type
-                        resource_type = resource['Type']
-                        resource_type_singular = self.resource_type_to_template_map[resource_type]
-                        # "Ability" type to "AbilityIcon" template
+                        resource_type_singular = self.resource_type_to_template_map[group_name]
+                        # "Ability" group to "AbilityIcon" template
                         template = resource_type_singular + 'Icon'
 
                         icon = (
@@ -149,11 +119,11 @@ class ChangelogParser:
                             + '|'
                             + resource_type_singular
                             + '='
-                            + resource_name
+                            + tag
                             + '|Size=20}}'
                         )
-                        log = log.replace(resource_name, f'{icon} {resource_name}')
-                        new_changelog[header][group_name][index] = log
+                        description = description.replace(tag, f'{icon} {tag}')
+                        new_changelog[header][group_name][index]['Description'] = description
 
         return new_changelog
 
