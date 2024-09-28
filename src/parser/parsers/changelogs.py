@@ -88,15 +88,6 @@ class ChangelogParser:
                                 include_tag = True
                                 resource_tags.append(ability_name)
                                 break
-
-                            # a word in the english ability name is found in the line
-                            else:
-                                ability_name_words = ability_name.split(' ')
-                                for word in ability_name_words:
-                                    if word in line:
-                                        resource_tags.append(ability_name)
-                                        break
-                    
                 
             # if no resource is found, assign to default group
             if len(resource_tags) == 0:
