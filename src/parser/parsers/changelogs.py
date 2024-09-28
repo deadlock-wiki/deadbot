@@ -95,8 +95,10 @@ class ChangelogParser:
                         if resource_name is None:
                             continue
 
-                        # Check if the resource's english name or key is referenced in the log
-                        # english name matching: i.e. "Essence Bomb" and "Essence Bomb"
+                        # Check if the resource's english name
+                        # or key is referenced in the log
+                        # english name matching: i.e. 
+                        # "Essence Bomb" and "Essence Bomb"
                         # key matching: i.e. "Blood Bomb" in log; 
                         # "ability_blood_bomb" is the resource key,
                         # "Essence Bomb" is the english name
