@@ -159,6 +159,7 @@ LOCALIZATION_OVERRIDE_MAP = {
     'HotDPS_scale': 'HotDPS',
     'Damage_scale': 'Damage',
     'MaxChargeDuration': 'SpeedBoostDuration',
+    'PulseGrenadeDamageAmplificationPerStack': 'DamageAmplificationPerStack',
 }
 
 
