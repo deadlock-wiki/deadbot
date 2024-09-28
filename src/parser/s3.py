@@ -15,7 +15,7 @@ class S3:
         )
 
         self.bucket_name = bucket_name
-        self.DATA_DIR = os.getenv('WORK_DIR',"./decompiled-data")
+        self.DATA_DIR = os.getenv('WORK_DIR', './decompiled-data')
 
     def read(self):
         return self.client.list_objects_v2(Bucket=self.bucket_name).get('Contents')

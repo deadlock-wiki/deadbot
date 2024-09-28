@@ -15,7 +15,7 @@ class ChangelogParser:
     def __init__(self):
         self.CHANGELOGS_DIR = os.path.join(os.path.dirname(__file__), '../raw-changelogs/')
         self.OUTPUT_DIR = OUTPUT_DIR
-        self.OUTPUT_CHANGELOGS = self.OUTPUT_DIR+'/changelogs'
+        self.OUTPUT_CHANGELOGS = self.OUTPUT_DIR + '/changelogs'
         self.resources = self._get_resources()
 
     def run_all(self):
@@ -27,8 +27,8 @@ class ChangelogParser:
             changelogs_by_date[date] = changelog
 
         # take parsed changelogs and transform them into some other useful formats
-        #self._create_resource_changelogs(changelogs_by_date)
-        #self._create_changelog_db_data(changelogs_by_date)
+        # self._create_resource_changelogs(changelogs_by_date)
+        # self._create_changelog_db_data(changelogs_by_date)
 
     def run(self, version):
         logs = self._read_logs(version)
@@ -50,7 +50,9 @@ class ChangelogParser:
             # if heading is found, update current heading
             if line.startswith('[ '):
                 current_heading = line[2:-2]
-                current_heading = current_heading.replace(' Changes', '') #i.e. 'Map Changes' > 'Map'
+                current_heading = current_heading.replace(
+                    ' Changes', ''
+                )  # i.e. 'Map Changes' > 'Map'
                 changelog_dict[current_heading] = []
                 continue
 
@@ -63,7 +65,7 @@ class ChangelogParser:
                 resource_name = resource['Name']
 
                 if resource_type == 'Abilities':
-                    continue #skip abilities for now, may change format later
+                    continue  # skip abilities for now, may change format later
 
                 if resource_name is None:
                     continue
@@ -88,7 +90,7 @@ class ChangelogParser:
                                 include_tag = True
                                 resource_tags.append(ability_name)
                                 break
-                
+
             # if no resource is found, assign to default group
             if len(resource_tags) == 0:
                 resource_tags.append(default_category)
@@ -98,10 +100,10 @@ class ChangelogParser:
                 if line.startswith(f'- {tag}: '):
                     line = line.replace(f'{tag}: ', '')
 
-            changelog_dict[group].append({"Description": line, "Tags": resource_tags})
+            changelog_dict[group].append({'Description': line, 'Tags': resource_tags})
 
         changelog_with_icons = changelog_dict
-        #changelog_with_icons = self._embed_icons(changelog_dict)
+        # changelog_with_icons = self._embed_icons(changelog_dict)
 
         json_utils.write(self.OUTPUT_CHANGELOGS + f'/date/{version}.json', changelog_with_icons)
         return changelog_with_icons
@@ -124,9 +126,9 @@ class ChangelogParser:
 
                         # Check if the resource's english name
                         # or key is referenced in the log
-                        # english name matching: i.e. 
+                        # english name matching: i.e.
                         # "Essence Bomb" and "Essence Bomb"
-                        # key matching: i.e. "Blood Bomb" in log; 
+                        # key matching: i.e. "Blood Bomb" in log;
                         # "ability_blood_bomb" is the resource key,
                         # "Essence Bomb" is the english name
                         # this captures it being referenced
@@ -139,16 +141,14 @@ class ChangelogParser:
                             log_flattened = log.lower().replace(' ', '')
 
                             # ability_blood_bomb to bloodbomb
-                            resource_key_flattened = resource_key.replace(
-                                'ability_', '').replace(
+                            resource_key_flattened = resource_key.replace('ability_', '').replace(
                                 '_', ''
                             )
 
                             if resource_key_flattened in log_flattened:
                                 # ability_blood_bomb to Blood Bomb
                                 resource_name = (
-                                    resource_key.replace('ability_', '').replace(
-                                        '_', ' ').title()
+                                    resource_key.replace('ability_', '').replace('_', ' ').title()
                                 )
                                 resource_found = True
 
@@ -157,8 +157,7 @@ class ChangelogParser:
 
                         # Retrieve the resource's type
                         resource_type = resource['Type']
-                        resource_type_singular = self.resource_type_to_template_map[
-                            resource_type]
+                        resource_type_singular = self.resource_type_to_template_map[resource_type]
                         # "Ability" type to "AbilityIcon" template
                         template = resource_type_singular + 'Icon'
 
@@ -183,9 +182,9 @@ class ChangelogParser:
 
     def _get_resources(self):
         resources = {}
-        heroes = json_utils.read(self.OUTPUT_DIR+'/json/hero-data.json')
-        items = json_utils.read(self.OUTPUT_DIR+'/json/item-data.json')
-        abilities = json_utils.read(self.OUTPUT_DIR+'/json/ability-data.json')
+        heroes = json_utils.read(self.OUTPUT_DIR + '/json/hero-data.json')
+        items = json_utils.read(self.OUTPUT_DIR + '/json/item-data.json')
+        abilities = json_utils.read(self.OUTPUT_DIR + '/json/ability-data.json')
 
         for key in heroes:
             heroes[key]['Type'] = 'Heroes'
