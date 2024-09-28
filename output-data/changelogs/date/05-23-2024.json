@@ -1,396 +1,999 @@
 {
-    "Other": {
-        "General": []
-    },
-    "Heroes": {
-        "General": [],
-        "Haze": [
-            "- Added unique {{HeroIcon|Hero=Haze|Size=20}} Haze footstep sound effects",
-            "- Improved visibility of {{HeroIcon|Hero=Haze|Size=20}} Haze\u2019s bullet and travel path",
-            "- {{AbilityIcon|Ability=Sleep Dagger|Size=20}} Sleep Dagger no longer breaks invisibility when cast (previously was part of the T3)",
-            "- {{AbilityIcon|Ability=Sleep Dagger|Size=20}} Sleep Dagger Spirit scaling increased from 2.3 to 2.6",
-            "- {{AbilityIcon|Ability=Sleep Dagger|Size=20}} Sleep Dagger no longer gets +140 damage with the T3",
-            "- {{AbilityIcon|Ability=Sleep Dagger|Size=20}} Sleep Dagger T3 is now \"-30% Damage Penalty On Victim for 4s after wakeup\"",
-            "- {{AbilityIcon|Ability=Bullet Dance|Size=20}} Bullet Dance cast time increased from 0.7s to 0.8s",
-            "- {{AbilityIcon|Ability=Bullet Dance|Size=20}} Bullet Dance evasion from 70% to 50%"
-        ],
-        "Bebop": [
-            "- Fixed a few unit target abilities that could sometimes select a target behind a nearby wall (e.g. {{HeroIcon|Hero=Bebop|Size=20}} Bebop {{AbilityIcon|Ability=Sticky Bomb|Size=20}} Sticky Bomb)",
-            "- {{AbilityIcon|Ability=Sticky Bomb|Size=20}} Sticky Bomb T3 changed from Silence to Disarm",
-            "- Improved {{AbilityIcon|Ability=Hook|Size=20}} Hook hitbox detection to not grab targets that are behind cover",
-            "- Hyperbeam width increased from 2.5m to 2.7m"
-        ],
-        "Lash": [
-            "- Added some additional visual tells for the receiving end of {{HeroIcon|Hero=Lash|Size=20}} Lash\u2019s {{AbilityIcon|Ability=Death Slam|Size=20}} Death Slam",
-            "- Base Stamina increased from 2 to 3",
-            "- {{AbilityIcon|Ability=Ground Strike|Size=20}} Ground Strike base Damage Per Meter reduced from 8 to 6",
-            "- Fixed some cases with {{AbilityIcon|Ability=Ground Strike|Size=20}} Ground Strike not hitting units positioned just below the impact zone",
-            "- {{AbilityIcon|Ability=Flog|Size=20}} Flog angle increased from 20 degrees to 30 degrees",
-            "- {{AbilityIcon|Ability=Flog|Size=20}} Flog cooldown reduced from 35s to 30s"
-        ],
-        "Ivy": [
-            "- Fixed various movement stuck bugs with {{HeroIcon|Hero=Ivy|Size=20}} Ivy",
-            "- {{AbilityIcon|Ability=Kudzu Bomb|Size=20}} Kudzu Bomb duration increased from 3.5s to 4s",
-            "- {{AbilityIcon|Ability=Kudzu Bomb|Size=20}} Kudzu Bomb T2 duration increased from +1.5s to +2s",
-            "- {{AbilityIcon|Ability=Watcher's Covenant|Size=20}} Watcher's Covenant Replicated Healing increased from 50% to 65%",
-            "- {{AbilityIcon|Ability=Watcher's Covenant|Size=20}} Watcher's Covenant {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate reduced from 20% to 15%",
-            "- {{AbilityIcon|Ability=Watcher's Covenant|Size=20}} Watcher's Covenant T1 changed to +15% Rate"
-        ],
-        "Vindicta": [
-            "- Improved {{HeroIcon|Hero=Vindicta|Size=20}} Vindicta\u2019s {{AbilityIcon|Ability=Stake|Size=20}} Stake effects to make it a little clearer when you are affected",
-            "- {{AbilityIcon|Ability=Flight|Size=20}} Flight T3 reduced from +4m/s to +3m/s",
-            "- {{AbilityIcon|Ability=Crow Familiar|Size=20}} Crow Familiar T3 improved from -30% Healing Suppression to -40%"
-        ],
-        "McGinnis": [
-            "- Fixed upgrading {{HeroIcon|Hero=McGinnis|Size=20}} McGinnis\u2019s {{AbilityIcon|Ability=Medicinal Specter|Size=20}} Medicinal Specter to T3 while active causing it to heal everyone to full instantly",
-            "- Fixed certain rooftops allowing turrets to be built on them"
-        ],
-        "Paradox": [
-            "- Fixed a bug that could cause all of {{HeroIcon|Hero=Paradox|Size=20}} Paradox {{AbilityIcon|Ability={{AbilityIcon|Ability=Pulse|Size=20}} Pulse Grenade|Size=20}} {{AbilityIcon|Ability=Pulse|Size=20}} Pulse Grenade\u2019s pulses to go off at once",
-            "- Improved visibility of {{HeroIcon|Hero=Paradox|Size=20}} Paradox\u2019s bullet and travel path",
-            "- Added custom tracer and muzzle flash for {{HeroIcon|Hero=Paradox|Size=20}} Paradox\u2019s gun",
-            "- {{AbilityIcon|Ability=Kinetic Carbine|Size=20}} Kinetic Carbine Max Damage Amp reduced from 125% to 100%",
-            "- {{HeroIcon|Hero=Paradox|Size=20}} {{AbilityIcon|Ability=Paradoxical Swap|Size=20}} Paradoxical Swap range reduced from 45m to 40m"
-        ],
-        "Kelvin": [
-            "- Fixed {{HeroIcon|Hero=Kelvin|Size=20}} Kelvin\u2019s Ice Beam sometimes not hitting Neutrals",
-            "- {{AbilityIcon|Ability=Frost Grenade|Size=20}} Frost Grenade cooldown reduced from 26s to 23s",
-            "- While {{AbilityIcon|Ability=Ice Path|Size=20}} Ice Pathing you no longer slow down when you shoot your gun",
-            "- {{AbilityIcon|Ability=Arctic Beam|Size=20}} Arctic Beam Channel move speed increased from 4 to 6",
-            "- {{AbilityIcon|Ability=Arctic Beam|Size=20}} Arctic Beam T1 changed from \"+2 Channel Move Speed\" to -8s Cooldown"
-        ],
-        "Abrams": [
-            "- Fixed {{HeroIcon|Hero=Abrams|Size=20}} Abrams getting stuck on department store facade when using his ult",
-            "- Adjusted timing of select {{HeroIcon|Hero=Abrams|Size=20}} Abrams impact lines to time with either the rise of his leap or the descent accordingly",
-            "- {{AbilityIcon|Ability=Siphon Life|Size=20}} Siphon Life T1 and T2 swapped",
-            "- Shoulder charge now allows for a bit more steering control"
-        ],
-        "Wraith": [
-            "- Added new slide and reload animation for {{HeroIcon|Hero=Wraith|Size=20}} Wraith",
-            "- Improved visibility of {{HeroIcon|Hero=Wraith|Size=20}} Wraith\u2019s bullet and travel path",
-            "- Added custom tracer and muzzle flash for {{HeroIcon|Hero=Wraith|Size=20}} Wraith\u2019s gun",
-            "- {{AbilityIcon|Ability=Royal Flush|Size=20}} Royal Flush no longer has a cast delay",
-            "- {{AbilityIcon|Ability=Royal Flush|Size=20}} Royal Flush time to spawn cards increased from 0.4s to 0.6s",
-            "- {{AbilityIcon|Ability=Telekinesis|Size=20}} Telekinesis no longer allows the victim to shoot back"
-        ],
-        "Yamato": [
-            "- Fixed missing VO for {{HeroIcon|Hero=Yamato|Size=20}} Yamato ability use/upgrades",
-            "- Shadow Explosion renamed to {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation and reworked into a new ability",
-            "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation no longer has radius impact behavior",
-            "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation now gives you 4.5s of invulnerability after the initial 2s invulnerable channel period. You transform and refresh your abilities, improving ability speeds by 60% and gaining unlimited ammo. \"Ability Speeds\" affects {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash cast time, {{AbilityIcon|Ability=Flying Strike|Size=20}} Flying Strike flying time, and {{AbilityIcon|Ability=Crimson Slash|Size=20}} Crimson Slash cast time.",
-            "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation cooldown increased from 90s to 100s",
-            "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation T2 is now +4 m/s during Shadow Form",
-            "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation T3 is now +1s duration"
-        ],
-        "Seven": [
-            "- Improved visibility of {{HeroIcon|Hero=Seven|Size=20}} Seven\u2019s bullet and travel path",
-            "- Added custom tracer and muzzle flash for {{HeroIcon|Hero=Seven|Size=20}} Seven\u2019s gun"
-        ],
-        "Lady Geist": [
-            "- Improved visibility of {{HeroIcon|Hero=Lady Geist|Size=20}} Lady Geist\u2019s bullet and travel path",
-            "- {{AbilityIcon|Ability=Soul Exchange|Size=20}} Soul Exchange cast time reduced from 0.65s to 0.5s",
-            "- Fixed {{AbilityIcon|Ability=Malice|Size=20}} Malice clipping aggressively against map geometry edges"
-        ],
-        "Dynamo": [
-            "- Base gun damage reduced from 18 to 15",
-            "- Gun damage growth reduced from +1.1 to +0.8"
-        ],
-        "Grey Talon": [
-            "- {{AbilityIcon|Ability=Guided Owl|Size=20}} Guided Owl Spirit scaling reduced from 2.2 to 1.2",
-            "- {{AbilityIcon|Ability=Guided Owl|Size=20}} Guided Owl T3 changed from +200 damage to \"Kills enemy heroes below 20%\". Low health enemies are highlighted while guiding the owl."
-        ],
-        "Mo & Krill": [
-            "- {{AbilityIcon|Ability=Scorn|Size=20}} Scorn healing against non-heroes reduced from 1x to 0.7x",
-            "- Sandblast no longer prevents enemies from reloading while disarmed"
-        ],
-        "Pocket": [
-            "- {{AbilityIcon|Ability=Barrage|Size=20}} Barrage T3 added, now heals {{HeroIcon|Hero=Pocket|Size=20}} Pocket for 100% of its damage (33% vs non-heroes)",
-            "- Fixed some issues with {{AbilityIcon|Ability=Barrage|Size=20}} Barrage projectiles getting caught on map geometry",
-            "- {{AbilityIcon|Ability=Flying Cloak|Size=20}} Flying Cloak pathing improved, it will no longer bounce erratically off map geometry"
-        ],
-        "Warden": [
-            "- {{AbilityIcon|Ability=Alchemical Flask|Size=20}} Alchemical Flask travel speed increased from 800 to 1000"
-        ]
-    },
-    "Items": {
-        "General": [],
-        "Headshot Booster": [
-            "- Cooldown reduced from 14s to 9s"
-        ],
-        "Spirit Strike": [
-            "- No longer has +50 Health",
-            "- Now grants +75 Spirit Shield",
-            "- Now grants +0.7 HP regen"
-        ],
-        "Mystic Burst": [
-            "- No longer has +1 HP Regen",
-            "- Now grants +1 Sprint",
-            "- Cooldown reduced from 8s to 6s"
-        ],
-        "Withering Whip": [
-            "- Moved from T3 to T2",
-            "- Duration reduced 5s to 3.5s",
-            "- Cooldown increased from 25s to 40s",
-            "- Bullet Resist reduced from 25% to 20%",
-            "- Cast range reduced from 20m to 15m"
-        ],
-        "Decay": [
-            "- Cooldown increased from 22s to 27s"
-        ],
-        "Slowing Hex": [
-            "- Range increased from 30 to 35"
-        ],
-        "Reactive Barrier": [
-            "- Cooldown reduced from 40s to 35s"
-        ],
-        "Combat Barrier": [
-            "- Bullet Shield increased from 275 to 300",
-            "- Weapon Damage while Shielded from 20% to 24%"
-        ],
-        "Mystic Shot": [
-            "- Now requires that shotguns middle pellet hit the target"
-        ],
-        "Restorative Locket": [
-            "- Now displays its current number of charges on its active icon"
-        ],
-        "Silence Glyph": [
-            "- Moved from T2 to T3",
-            "- Health increased from 50 to 75",
-            "- Spirit Amp increased from 8% to 12%"
-        ],
-        "Majestic Leap": [
-            "- Duration of no damage taken requirement reduced from 5s to 4s",
-            "- Now gives +75 Health"
-        ],
-        "Lifestrike": [
-            "- Flat portion of the lifesteal increased from 90 to 110"
-        ],
-        "Knockdown": [
-            "- Spirit bonus reduced from 6 to 5",
-            "- Now grants +2 Sprint",
-            "- Stun duration starts after hitting the ground"
-        ],
-        "Superior Cooldown": [
-            "- HP regen reduced from 6 to 4"
-        ],
-        "Escalating Resilience": [
-            "- Max Bullet Resist increased from 30% to 36%"
-        ],
-        "Improved Burst": [
-            "- Damage reduced from 11% Max HP to 10%"
-        ],
-        "Frenzy": [
-            "- When below 40% HP you now gain 25% Spirit Resist"
-        ],
-        "Curse": [
-            "- Ammo increased from 15% to 20%"
-        ],
-        "Refresher": [
-            "- Now grants +10% Spirit Resist"
-        ],
-        "Fire Rate": [
-            "- {{ItemIcon|Item=Glass Cannon|Size=20}} Glass Cannon: {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate reduced from 15% to 10%",
-            "- {{AbilityIcon|Ability=Watcher's Covenant|Size=20}} Watcher's Covenant {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate reduced from 20% to 15%"
-        ],
-        "Glass Cannon": [
-            "- {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate reduced from 15% to 10%"
-        ],
-        "Silencer": [
-            "- Now provides 15% Ammo"
-        ],
-        "Leech": [
-            "- Spirit bonus reduced from 12 to 8"
-        ],
-        "Phantom Strike": [
-            "- Damage reduced from 200 to 150"
-        ]
-    },
-    "Abilities": {
-        "General": [],
-        "Sticky Bomb": [
-            "- Fixed a few unit target abilities that could sometimes select a target behind a nearby wall (e.g. {{HeroIcon|Hero=Bebop|Size=20}} Bebop {{AbilityIcon|Ability=Sticky Bomb|Size=20}} Sticky Bomb)",
-            "- {{AbilityIcon|Ability=Sticky Bomb|Size=20}} Sticky Bomb T3 changed from Silence to Disarm"
-        ],
-        "Death Slam": [
-            "- Added some additional visual tells for the receiving end of {{HeroIcon|Hero=Lash|Size=20}} Lash\u2019s {{AbilityIcon|Ability=Death Slam|Size=20}} Death Slam"
-        ],
-        "Stake": [
-            "- Improved {{HeroIcon|Hero=Vindicta|Size=20}} Vindicta\u2019s {{AbilityIcon|Ability=Stake|Size=20}} Stake effects to make it a little clearer when you are affected"
-        ],
-        "Medicinal Specter": [
-            "- Fixed upgrading {{HeroIcon|Hero=McGinnis|Size=20}} McGinnis\u2019s {{AbilityIcon|Ability=Medicinal Specter|Size=20}} Medicinal Specter to T3 while active causing it to heal everyone to full instantly"
-        ],
-        "Pulse Grenade": [
-            "- Fixed a bug that could cause all of {{HeroIcon|Hero=Paradox|Size=20}} Paradox {{AbilityIcon|Ability={{AbilityIcon|Ability=Pulse|Size=20}} Pulse Grenade|Size=20}} {{AbilityIcon|Ability=Pulse|Size=20}} Pulse Grenade\u2019s pulses to go off at once"
-        ],
-        "Pulse": [
-            "- Fixed a bug that could cause all of {{HeroIcon|Hero=Paradox|Size=20}} Paradox {{AbilityIcon|Ability={{AbilityIcon|Ability=Pulse|Size=20}} Pulse Grenade|Size=20}} {{AbilityIcon|Ability=Pulse|Size=20}} Pulse Grenade\u2019s pulses to go off at once"
-        ],
-        "Storm Cloud": [
-            "- Allies now compliment teammates when they see impressive use of channeled abilities (for instance, Gigawatt killing three people with {{AbilityIcon|Ability=Storm Cloud|Size=20}} Storm Cloud)"
-        ],
-        "Siphon Life": [
-            "- {{AbilityIcon|Ability=Siphon Life|Size=20}} Siphon Life T1 and T2 swapped"
-        ],
-        "Hook": [
-            "- Improved {{AbilityIcon|Ability=Hook|Size=20}} Hook hitbox detection to not grab targets that are behind cover"
-        ],
-        "Guided Owl": [
-            "- {{AbilityIcon|Ability=Guided Owl|Size=20}} Guided Owl Spirit scaling reduced from 2.2 to 1.2",
-            "- {{AbilityIcon|Ability=Guided Owl|Size=20}} Guided Owl T3 changed from +200 damage to \"Kills enemy heroes below 20%\". Low health enemies are highlighted while guiding the owl."
-        ],
-        "Sleep Dagger": [
-            "- {{AbilityIcon|Ability=Sleep Dagger|Size=20}} Sleep Dagger no longer breaks invisibility when cast (previously was part of the T3)",
-            "- {{AbilityIcon|Ability=Sleep Dagger|Size=20}} Sleep Dagger Spirit scaling increased from 2.3 to 2.6",
-            "- {{AbilityIcon|Ability=Sleep Dagger|Size=20}} Sleep Dagger no longer gets +140 damage with the T3",
-            "- {{AbilityIcon|Ability=Sleep Dagger|Size=20}} Sleep Dagger T3 is now \"-30% Damage Penalty On Victim for 4s after wakeup\""
-        ],
-        "Bullet Dance": [
-            "- {{AbilityIcon|Ability=Bullet Dance|Size=20}} Bullet Dance cast time increased from 0.7s to 0.8s",
-            "- {{AbilityIcon|Ability=Bullet Dance|Size=20}} Bullet Dance evasion from 70% to 50%"
-        ],
-        "Kudzu Bomb": [
-            "- {{AbilityIcon|Ability=Kudzu Bomb|Size=20}} Kudzu Bomb duration increased from 3.5s to 4s",
-            "- {{AbilityIcon|Ability=Kudzu Bomb|Size=20}} Kudzu Bomb T2 duration increased from +1.5s to +2s"
-        ],
-        "Watcher's Covenant": [
-            "- {{AbilityIcon|Ability=Watcher's Covenant|Size=20}} Watcher's Covenant Replicated Healing increased from 50% to 65%",
-            "- {{AbilityIcon|Ability=Watcher's Covenant|Size=20}} Watcher's Covenant {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate reduced from 20% to 15%",
-            "- {{AbilityIcon|Ability=Watcher's Covenant|Size=20}} Watcher's Covenant T1 changed to +15% Rate"
-        ],
-        "Frost Grenade": [
-            "- {{AbilityIcon|Ability=Frost Grenade|Size=20}} Frost Grenade cooldown reduced from 26s to 23s"
-        ],
-        "Ice Path": [
-            "- While {{AbilityIcon|Ability=Ice Path|Size=20}} Ice Pathing you no longer slow down when you shoot your gun"
-        ],
-        "Arctic Beam": [
-            "- {{AbilityIcon|Ability=Arctic Beam|Size=20}} Arctic Beam Channel move speed increased from 4 to 6",
-            "- {{AbilityIcon|Ability=Arctic Beam|Size=20}} Arctic Beam T1 changed from \"+2 Channel Move Speed\" to -8s Cooldown"
-        ],
-        "Soul Exchange": [
-            "- {{AbilityIcon|Ability=Soul Exchange|Size=20}} Soul Exchange cast time reduced from 0.65s to 0.5s"
-        ],
-        "Malice": [
-            "- Fixed {{AbilityIcon|Ability=Malice|Size=20}} Malice clipping aggressively against map geometry edges"
-        ],
-        "Ground Strike": [
-            "- {{AbilityIcon|Ability=Ground Strike|Size=20}} Ground Strike base Damage Per Meter reduced from 8 to 6",
-            "- Fixed some cases with {{AbilityIcon|Ability=Ground Strike|Size=20}} Ground Strike not hitting units positioned just below the impact zone"
-        ],
-        "Flog": [
-            "- {{AbilityIcon|Ability=Flog|Size=20}} Flog angle increased from 20 degrees to 30 degrees",
-            "- {{AbilityIcon|Ability=Flog|Size=20}} Flog cooldown reduced from 35s to 30s"
-        ],
-        "Scorn": [
-            "- {{AbilityIcon|Ability=Scorn|Size=20}} Scorn healing against non-heroes reduced from 1x to 0.7x"
-        ],
-        "Kinetic Carbine": [
-            "- {{AbilityIcon|Ability=Kinetic Carbine|Size=20}} Kinetic Carbine Max Damage Amp reduced from 125% to 100%"
-        ],
-        "Paradoxical Swap": [
-            "- {{HeroIcon|Hero=Paradox|Size=20}} {{AbilityIcon|Ability=Paradoxical Swap|Size=20}} Paradoxical Swap range reduced from 45m to 40m"
-        ],
-        "Barrage": [
-            "- {{AbilityIcon|Ability=Barrage|Size=20}} Barrage T3 added, now heals {{HeroIcon|Hero=Pocket|Size=20}} Pocket for 100% of its damage (33% vs non-heroes)",
-            "- Fixed some issues with {{AbilityIcon|Ability=Barrage|Size=20}} Barrage projectiles getting caught on map geometry"
-        ],
-        "Flying Cloak": [
-            "- {{AbilityIcon|Ability=Flying Cloak|Size=20}} Flying Cloak pathing improved, it will no longer bounce erratically off map geometry"
-        ],
-        "Flight": [
-            "- {{AbilityIcon|Ability=Flight|Size=20}} Flight T3 reduced from +4m/s to +3m/s"
-        ],
-        "Crow Familiar": [
-            "- {{AbilityIcon|Ability=Crow Familiar|Size=20}} Crow Familiar T3 improved from -30% Healing Suppression to -40%"
-        ],
-        "Alchemical Flask": [
-            "- {{AbilityIcon|Ability=Alchemical Flask|Size=20}} Alchemical Flask travel speed increased from 800 to 1000"
-        ],
-        "Royal Flush": [
-            "- {{AbilityIcon|Ability=Royal Flush|Size=20}} Royal Flush no longer has a cast delay",
-            "- {{AbilityIcon|Ability=Royal Flush|Size=20}} Royal Flush time to spawn cards increased from 0.4s to 0.6s"
-        ],
-        "Telekinesis": [
-            "- {{AbilityIcon|Ability=Telekinesis|Size=20}} Telekinesis no longer allows the victim to shoot back"
-        ],
-        "Shadow Transformation": [
-            "- Shadow Explosion renamed to {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation and reworked into a new ability",
-            "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation no longer has radius impact behavior",
-            "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation now gives you 4.5s of invulnerability after the initial 2s invulnerable channel period. You transform and refresh your abilities, improving ability speeds by 60% and gaining unlimited ammo. \"Ability Speeds\" affects {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash cast time, {{AbilityIcon|Ability=Flying Strike|Size=20}} Flying Strike flying time, and {{AbilityIcon|Ability=Crimson Slash|Size=20}} Crimson Slash cast time.",
-            "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation cooldown increased from 90s to 100s",
-            "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation T2 is now +4 m/s during Shadow Form",
-            "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation T3 is now +1s duration"
-        ],
-        "Flying Strike": [
-            "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation now gives you 4.5s of invulnerability after the initial 2s invulnerable channel period. You transform and refresh your abilities, improving ability speeds by 60% and gaining unlimited ammo. \"Ability Speeds\" affects {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash cast time, {{AbilityIcon|Ability=Flying Strike|Size=20}} Flying Strike flying time, and {{AbilityIcon|Ability=Crimson Slash|Size=20}} Crimson Slash cast time."
-        ],
-        "Crimson Slash": [
-            "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation now gives you 4.5s of invulnerability after the initial 2s invulnerable channel period. You transform and refresh your abilities, improving ability speeds by 60% and gaining unlimited ammo. \"Ability Speeds\" affects {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash cast time, {{AbilityIcon|Ability=Flying Strike|Size=20}} Flying Strike flying time, and {{AbilityIcon|Ability=Crimson Slash|Size=20}} Crimson Slash cast time."
-        ],
-        "Power Slash": [
-            "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation now gives you 4.5s of invulnerability after the initial 2s invulnerable channel period. You transform and refresh your abilities, improving ability speeds by 60% and gaining unlimited ammo. \"Ability Speeds\" affects {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash cast time, {{AbilityIcon|Ability=Flying Strike|Size=20}} Flying Strike flying time, and {{AbilityIcon|Ability=Crimson Slash|Size=20}} Crimson Slash cast time."
-        ]
-    },
-    "General Changes": {
-        "General": [
-            "- Playtesting times are now starting 1 hour earlier. Weekdays are 5PM PDT and weekends are 3PM PDT.",
-            "- Added in-game custom item builds support. Create your own builds or browse builds from the community in the heroes page.",
-            "- Added post game player reporting option",
-            "- Ally player glow-through-world silhouette now communicates their current health",
-            "- Added ambient music track",
-            "- Fixed various issues with mic audio input and lag it introduced",
-            "- Small adjustments to how the crosshair UI area looks",
-            "- Mic input device is now selected from in-game settings rather than the steam client",
-            "- Improved various networking and hit registration related issues (this was released a couple days ago)",
-            "- Updated Trooper and Neutral shooting sound effects",
-            "- Various improvements to damage audio clarity for victims and attackers",
-            "- Sped up select Amber Hand VO that related to game state (shrines being under attack, protecting the urn runner etc)",
-            "- Adding game audio muted indicator in top left if the game is muted",
-            "- Camera can now be moved while the game is paused in replays",
-            "- Fixed the Rejuvenator falling during pause",
-            "- Fixed the Idol falling during pause",
-            "- Fixed the bottom most shop items having part of their icon be unclickable",
-            "- Updated Bullet Shredder debuff effects",
-            "- Mid-Boss is now invulnerable if there are no enemies it can actually attack",
-            "- Fixed your active items not hiding in the UI when you are dead and spectating a team mate",
-            "- Added support for binding mouse1 and mouse2 to any key (this was released a couple days ago)",
-            "- Added alt info to recent damage view to make it clearer that this can be brought up again after it disappears",
-            "- Fixed being able to see some things through the Veils in the map that you shouldn\u2019t be able to see",
-            "- Removed stack of cardboard boxes inside connection hallway near bases to prevent cover from Neutrals",
-            "- Fixed getting stuck under stair at inner lanes near Guardian",
-            "- Sapphire side materials tint color changed to white",
-            "- Sapphire side street materials changed to new asphalt blend",
-            "- Out of combat run animation variants now only play during sprint state"
-        ]
-    },
-    "Misc Gameplay Changes": {
-        "General": [
-            "- Adjusted map around the middle lanes to have an area with Veils for laning",
-            "- Hero kill bounty ratio between Killer and Assister reduced from 2.75x to 2.55x (means slightly more to the Assister)",
-            "- Spirit scaling reduced by ~15% (the total effective Spirit damage is reduced by less than this, this is just the Spirit multiplier scaling portion and has largest impact on late game burst)",
-            "- Unclaimed souls now convert 10% slower",
-            "- Vaults base bounty increased from 220 to 260",
-            "- Strong Neutrals Spirit Resist increased from 25% to 35%",
-            "- Medium Neutrals Spirit Resist increased from 25% to 30%",
-            "- Starting at 15 minutes, one melee Trooper per wave will spawn with 1.75x health",
-            "- Medic Trooper health increased from 240 to 260",
-            "- Sidelane Veils near Guardians are now one-way visibility (used to be blocked visibility in both directions)",
-            "- Neutrals can now lean side to side to fire when obstructed by map geometry and being attacked",
-            "- Zipline Boost ability speed increased from 100% to 130%",
-            "- Zipline Boost ability ramp time to reach max speed reduced from 2s to 1s",
-            "- Zipline base speed boost after Base Guardians are killed increased from 100% to 120%",
-            "- Zipline base speed boost's ramp time after Base Guardians are killed reduced from 5s to 4s",
-            "- Being Disarmed no longer prevents you from reloading"
-        ]
-    },
-    "Item Gameplay Changes": {
-        "General": [
-            "- Shifting Shroud: Cooldown reduced from 70s to 55s",
-            "- Shifting Shroud: Duration 2.5s to 2.75s"
-        ]
-    },
-    "Hero Gameplay Changes": {
-        "General": []
-    }
+    "Other": [],
+    "Heroes": [],
+    "Items": [],
+    "Abilities": [],
+    "General": [
+        {
+            "Description": "- Playtesting times are now starting 1 hour earlier. Weekdays are 5PM PDT and weekends are 3PM PDT.",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added in-game custom item builds support. Create your own builds or browse builds from the community in the heroes page.",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added post game player reporting option",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Ally player glow-through-world silhouette now communicates their current health",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added ambient music track",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added unique Haze footstep sound effects",
+            "Tags": [
+                "Haze"
+            ]
+        },
+        {
+            "Description": "- Fixed various issues with mic audio input and lag it introduced",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Small adjustments to how the crosshair UI area looks",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Mic input device is now selected from in-game settings rather than the steam client",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Improved various networking and hit registration related issues (this was released a couple days ago)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Updated Trooper and Neutral shooting sound effects",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Various improvements to damage audio clarity for victims and attackers",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Sped up select Amber Hand VO that related to game state (shrines being under attack, protecting the urn runner etc)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Adding game audio muted indicator in top left if the game is muted",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Camera can now be moved while the game is paused in replays",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed the Rejuvenator falling during pause",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed the Idol falling during pause",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed the bottom most shop items having part of their icon be unclickable",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed a few unit target abilities that could sometimes select a target behind a nearby wall (e.g. Bebop Sticky Bomb)",
+            "Tags": [
+                "Bebop",
+                "Sticky Bomb"
+            ]
+        },
+        {
+            "Description": "- Added some additional visual tells for the receiving end of Lash\u2019s Death Slam",
+            "Tags": [
+                "Lash",
+                "Death Slam"
+            ]
+        },
+        {
+            "Description": "- Updated Bullet Shredder debuff effects",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Mid-Boss is now invulnerable if there are no enemies it can actually attack",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed your active items not hiding in the UI when you are dead and spectating a team mate",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added support for binding mouse1 and mouse2 to any key (this was released a couple days ago)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed various movement stuck bugs with Ivy",
+            "Tags": [
+                "Ivy"
+            ]
+        },
+        {
+            "Description": "- Added alt info to recent damage view to make it clearer that this can be brought up again after it disappears",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Improved Vindicta\u2019s Stake effects to make it a little clearer when you are affected",
+            "Tags": [
+                "Vindicta",
+                "Stake"
+            ]
+        },
+        {
+            "Description": "- Fixed upgrading McGinnis\u2019s Medicinal Specter to T3 while active causing it to heal everyone to full instantly",
+            "Tags": [
+                "McGinnis",
+                "Medicinal Specter"
+            ]
+        },
+        {
+            "Description": "- Fixed a bug that could cause all of Paradox Pulse Grenade\u2019s pulses to go off at once",
+            "Tags": [
+                "Paradox",
+                "Pulse Grenade"
+            ]
+        },
+        {
+            "Description": "- Fixed Kelvin\u2019s Ice Beam sometimes not hitting Neutrals",
+            "Tags": [
+                "Kelvin"
+            ]
+        },
+        {
+            "Description": "- Fixed being able to see some things through the Veils in the map that you shouldn\u2019t be able to see",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Removed stack of cardboard boxes inside connection hallway near bases to prevent cover from Neutrals",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed getting stuck under stair at inner lanes near Guardian",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed Abrams getting stuck on department store facade when using his ult",
+            "Tags": [
+                "Abrams"
+            ]
+        },
+        {
+            "Description": "- Sapphire side materials tint color changed to white",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Sapphire side street materials changed to new asphalt blend",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added new slide and reload animation for Wraith",
+            "Tags": [
+                "Wraith"
+            ]
+        },
+        {
+            "Description": "- Out of combat run animation variants now only play during sprint state",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed missing VO for Yamato ability use/upgrades",
+            "Tags": [
+                "Yamato"
+            ]
+        },
+        {
+            "Description": "- Allies now compliment teammates when they see impressive use of channeled abilities (for instance, Gigawatt killing three people with Storm Cloud)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Adjusted timing of select Abrams impact lines to time with either the rise of his leap or the descent accordingly",
+            "Tags": [
+                "Abrams"
+            ]
+        },
+        {
+            "Description": "- Improved visibility of Seven\u2019s bullet and travel path",
+            "Tags": [
+                "Seven"
+            ]
+        },
+        {
+            "Description": "- Improved visibility of Paradox\u2019s bullet and travel path",
+            "Tags": [
+                "Paradox"
+            ]
+        },
+        {
+            "Description": "- Improved visibility of Wraith\u2019s bullet and travel path",
+            "Tags": [
+                "Wraith"
+            ]
+        },
+        {
+            "Description": "- Improved visibility of Haze\u2019s bullet and travel path",
+            "Tags": [
+                "Haze"
+            ]
+        },
+        {
+            "Description": "- Improved visibility of Lady Geist\u2019s bullet and travel path",
+            "Tags": [
+                "Lady Geist"
+            ]
+        },
+        {
+            "Description": "- Added custom tracer and muzzle flash for Seven\u2019s gun",
+            "Tags": [
+                "Seven"
+            ]
+        },
+        {
+            "Description": "- Added custom tracer and muzzle flash for Paradox\u2019s gun",
+            "Tags": [
+                "Paradox"
+            ]
+        },
+        {
+            "Description": "- Added custom tracer and muzzle flash for Wraith\u2019s gun",
+            "Tags": [
+                "Wraith"
+            ]
+        }
+    ],
+    "Misc Gameplay": [
+        {
+            "Description": "- Adjusted map around the middle lanes to have an area with Veils for laning",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Hero kill bounty ratio between Killer and Assister reduced from 2.75x to 2.55x (means slightly more to the Assister)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Spirit scaling reduced by ~15% (the total effective Spirit damage is reduced by less than this, this is just the Spirit multiplier scaling portion and has largest impact on late game burst)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Unclaimed souls now convert 10% slower",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Vaults base bounty increased from 220 to 260",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Strong Neutrals Spirit Resist increased from 25% to 35%",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Medium Neutrals Spirit Resist increased from 25% to 30%",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Starting at 15 minutes, one melee Trooper per wave will spawn with 1.75x health",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Medic Trooper health increased from 240 to 260",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Sidelane Veils near Guardians are now one-way visibility (used to be blocked visibility in both directions)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Neutrals can now lean side to side to fire when obstructed by map geometry and being attacked",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Zipline Boost ability speed increased from 100% to 130%",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Zipline Boost ability ramp time to reach max speed reduced from 2s to 1s",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Zipline base speed boost after Base Guardians are killed increased from 100% to 120%",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Zipline base speed boost's ramp time after Base Guardians are killed reduced from 5s to 4s",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Being Disarmed no longer prevents you from reloading",
+            "Tags": [
+                "General"
+            ]
+        }
+    ],
+    "Item Gameplay": [
+        {
+            "Description": "- Cooldown reduced from 14s to 9s",
+            "Tags": [
+                "Headshot Booster"
+            ]
+        },
+        {
+            "Description": "- No longer has +50 Health",
+            "Tags": [
+                "Spirit Strike"
+            ]
+        },
+        {
+            "Description": "- Now grants +75 Spirit Shield",
+            "Tags": [
+                "Spirit Strike"
+            ]
+        },
+        {
+            "Description": "- Now grants +0.7 HP regen",
+            "Tags": [
+                "Spirit Strike"
+            ]
+        },
+        {
+            "Description": "- No longer has +1 HP Regen",
+            "Tags": [
+                "Mystic Burst"
+            ]
+        },
+        {
+            "Description": "- Now grants +1 Sprint",
+            "Tags": [
+                "Mystic Burst"
+            ]
+        },
+        {
+            "Description": "- Cooldown reduced from 8s to 6s",
+            "Tags": [
+                "Mystic Burst"
+            ]
+        },
+        {
+            "Description": "- Moved from T3 to T2",
+            "Tags": [
+                "Withering Whip"
+            ]
+        },
+        {
+            "Description": "- Duration reduced 5s to 3.5s",
+            "Tags": [
+                "Withering Whip"
+            ]
+        },
+        {
+            "Description": "- Cooldown increased from 25s to 40s",
+            "Tags": [
+                "Withering Whip"
+            ]
+        },
+        {
+            "Description": "- Bullet Resist reduced from 25% to 20%",
+            "Tags": [
+                "Withering Whip"
+            ]
+        },
+        {
+            "Description": "- Cast range reduced from 20m to 15m",
+            "Tags": [
+                "Withering Whip"
+            ]
+        },
+        {
+            "Description": "- Cooldown increased from 22s to 27s",
+            "Tags": [
+                "Decay"
+            ]
+        },
+        {
+            "Description": "- Range increased from 30 to 35",
+            "Tags": [
+                "Slowing Hex"
+            ]
+        },
+        {
+            "Description": "- Cooldown reduced from 40s to 35s",
+            "Tags": [
+                "Reactive Barrier"
+            ]
+        },
+        {
+            "Description": "- Bullet Shield increased from 275 to 300",
+            "Tags": [
+                "Combat Barrier"
+            ]
+        },
+        {
+            "Description": "- Weapon Damage while Shielded from 20% to 24%",
+            "Tags": [
+                "Combat Barrier"
+            ]
+        },
+        {
+            "Description": "- Now requires that shotguns middle pellet hit the target",
+            "Tags": [
+                "Mystic Shot"
+            ]
+        },
+        {
+            "Description": "- Now displays its current number of charges on its active icon",
+            "Tags": [
+                "Restorative Locket"
+            ]
+        },
+        {
+            "Description": "- Moved from T2 to T3",
+            "Tags": [
+                "Silence Glyph"
+            ]
+        },
+        {
+            "Description": "- Health increased from 50 to 75",
+            "Tags": [
+                "Silence Glyph"
+            ]
+        },
+        {
+            "Description": "- Spirit Amp increased from 8% to 12%",
+            "Tags": [
+                "Silence Glyph"
+            ]
+        },
+        {
+            "Description": "- Shifting Shroud: Cooldown reduced from 70s to 55s",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Shifting Shroud: Duration 2.5s to 2.75s",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Duration of no damage taken requirement reduced from 5s to 4s",
+            "Tags": [
+                "Majestic Leap"
+            ]
+        },
+        {
+            "Description": "- Now gives +75 Health",
+            "Tags": [
+                "Majestic Leap"
+            ]
+        },
+        {
+            "Description": "- Flat portion of the lifesteal increased from 90 to 110",
+            "Tags": [
+                "Lifestrike"
+            ]
+        },
+        {
+            "Description": "- Spirit bonus reduced from 6 to 5",
+            "Tags": [
+                "Knockdown"
+            ]
+        },
+        {
+            "Description": "- Now grants +2 Sprint",
+            "Tags": [
+                "Knockdown"
+            ]
+        },
+        {
+            "Description": "- Stun duration starts after hitting the ground",
+            "Tags": [
+                "Knockdown"
+            ]
+        },
+        {
+            "Description": "- HP regen reduced from 6 to 4",
+            "Tags": [
+                "Superior Cooldown"
+            ]
+        },
+        {
+            "Description": "- Max Bullet Resist increased from 30% to 36%",
+            "Tags": [
+                "Escalating Resilience"
+            ]
+        },
+        {
+            "Description": "- Damage reduced from 11% Max HP to 10%",
+            "Tags": [
+                "Improved Burst"
+            ]
+        },
+        {
+            "Description": "- When below 40% HP you now gain 25% Spirit Resist",
+            "Tags": [
+                "Frenzy"
+            ]
+        },
+        {
+            "Description": "- Ammo increased from 15% to 20%",
+            "Tags": [
+                "Curse"
+            ]
+        },
+        {
+            "Description": "- Now grants +10% Spirit Resist",
+            "Tags": [
+                "Refresher"
+            ]
+        },
+        {
+            "Description": "- Fire Rate reduced from 15% to 10%",
+            "Tags": [
+                "Fire Rate",
+                "Glass Cannon"
+            ]
+        },
+        {
+            "Description": "- Now provides 15% Ammo",
+            "Tags": [
+                "Silencer"
+            ]
+        },
+        {
+            "Description": "- Spirit bonus reduced from 12 to 8",
+            "Tags": [
+                "Leech"
+            ]
+        },
+        {
+            "Description": "- Damage reduced from 200 to 150",
+            "Tags": [
+                "Phantom Strike"
+            ]
+        }
+    ],
+    "Hero Gameplay": [
+        {
+            "Description": "- Siphon Life T1 and T2 swapped",
+            "Tags": [
+                "Abrams",
+                "Siphon Life"
+            ]
+        },
+        {
+            "Description": "- Shoulder charge now allows for a bit more steering control",
+            "Tags": [
+                "Abrams"
+            ]
+        },
+        {
+            "Description": "- Sticky Bomb T3 changed from Silence to Disarm",
+            "Tags": [
+                "Bebop",
+                "Sticky Bomb"
+            ]
+        },
+        {
+            "Description": "- Improved Hook hitbox detection to not grab targets that are behind cover",
+            "Tags": [
+                "Bebop",
+                "Hook"
+            ]
+        },
+        {
+            "Description": "- Hyperbeam width increased from 2.5m to 2.7m",
+            "Tags": [
+                "Bebop"
+            ]
+        },
+        {
+            "Description": "- Base gun damage reduced from 18 to 15",
+            "Tags": [
+                "Dynamo"
+            ]
+        },
+        {
+            "Description": "- Gun damage growth reduced from +1.1 to +0.8",
+            "Tags": [
+                "Dynamo"
+            ]
+        },
+        {
+            "Description": "- Guided Owl Spirit scaling reduced from 2.2 to 1.2",
+            "Tags": [
+                "Grey Talon",
+                "Guided Owl"
+            ]
+        },
+        {
+            "Description": "- Guided Owl T3 changed from +200 damage to \"Kills enemy heroes below 20%\". Low health enemies are highlighted while guiding the owl.",
+            "Tags": [
+                "Grey Talon",
+                "Guided Owl"
+            ]
+        },
+        {
+            "Description": "- Sleep Dagger no longer breaks invisibility when cast (previously was part of the T3)",
+            "Tags": [
+                "Haze",
+                "Sleep Dagger"
+            ]
+        },
+        {
+            "Description": "- Sleep Dagger Spirit scaling increased from 2.3 to 2.6",
+            "Tags": [
+                "Haze",
+                "Sleep Dagger"
+            ]
+        },
+        {
+            "Description": "- Sleep Dagger no longer gets +140 damage with the T3",
+            "Tags": [
+                "Haze",
+                "Sleep Dagger"
+            ]
+        },
+        {
+            "Description": "- Sleep Dagger T3 is now \"-30% Damage Penalty On Victim for 4s after wakeup\"",
+            "Tags": [
+                "Haze",
+                "Sleep Dagger"
+            ]
+        },
+        {
+            "Description": "- Bullet Dance cast time increased from 0.7s to 0.8s",
+            "Tags": [
+                "Haze",
+                "Bullet Dance"
+            ]
+        },
+        {
+            "Description": "- Bullet Dance evasion from 70% to 50%",
+            "Tags": [
+                "Haze",
+                "Bullet Dance"
+            ]
+        },
+        {
+            "Description": "- Kudzu Bomb duration increased from 3.5s to 4s",
+            "Tags": [
+                "Ivy",
+                "Kudzu Bomb"
+            ]
+        },
+        {
+            "Description": "- Kudzu Bomb T2 duration increased from +1.5s to +2s",
+            "Tags": [
+                "Ivy",
+                "Kudzu Bomb"
+            ]
+        },
+        {
+            "Description": "- Watcher's Covenant Replicated Healing increased from 50% to 65%",
+            "Tags": [
+                "Ivy",
+                "Watcher's Covenant"
+            ]
+        },
+        {
+            "Description": "- Watcher's Covenant Fire Rate reduced from 20% to 15%",
+            "Tags": [
+                "Ivy",
+                "Watcher's Covenant",
+                "Fire Rate"
+            ]
+        },
+        {
+            "Description": "- Watcher's Covenant T1 changed to +15% Rate",
+            "Tags": [
+                "Ivy",
+                "Watcher's Covenant"
+            ]
+        },
+        {
+            "Description": "- Frost Grenade cooldown reduced from 26s to 23s",
+            "Tags": [
+                "Kelvin",
+                "Frost Grenade"
+            ]
+        },
+        {
+            "Description": "- While Ice Pathing you no longer slow down when you shoot your gun",
+            "Tags": [
+                "Kelvin",
+                "Ice Path"
+            ]
+        },
+        {
+            "Description": "- Arctic Beam Channel move speed increased from 4 to 6",
+            "Tags": [
+                "Kelvin",
+                "Arctic Beam"
+            ]
+        },
+        {
+            "Description": "- Arctic Beam T1 changed from \"+2 Channel Move Speed\" to -8s Cooldown",
+            "Tags": [
+                "Kelvin",
+                "Arctic Beam"
+            ]
+        },
+        {
+            "Description": "- Soul Exchange cast time reduced from 0.65s to 0.5s",
+            "Tags": [
+                "Lady Geist",
+                "Soul Exchange"
+            ]
+        },
+        {
+            "Description": "- Fixed Malice clipping aggressively against map geometry edges",
+            "Tags": [
+                "Lady Geist",
+                "Malice"
+            ]
+        },
+        {
+            "Description": "- Base Stamina increased from 2 to 3",
+            "Tags": [
+                "Lash"
+            ]
+        },
+        {
+            "Description": "- Ground Strike base Damage Per Meter reduced from 8 to 6",
+            "Tags": [
+                "Lash",
+                "Ground Strike"
+            ]
+        },
+        {
+            "Description": "- Fixed some cases with Ground Strike not hitting units positioned just below the impact zone",
+            "Tags": [
+                "Lash",
+                "Ground Strike"
+            ]
+        },
+        {
+            "Description": "- Flog angle increased from 20 degrees to 30 degrees",
+            "Tags": [
+                "Lash",
+                "Flog"
+            ]
+        },
+        {
+            "Description": "- Flog cooldown reduced from 35s to 30s",
+            "Tags": [
+                "Lash",
+                "Flog"
+            ]
+        },
+        {
+            "Description": "- Fixed certain rooftops allowing turrets to be built on them",
+            "Tags": [
+                "McGinnis"
+            ]
+        },
+        {
+            "Description": "- Scorn healing against non-heroes reduced from 1x to 0.7x",
+            "Tags": [
+                "Mo & Krill",
+                "Scorn"
+            ]
+        },
+        {
+            "Description": "- Sandblast no longer prevents enemies from reloading while disarmed",
+            "Tags": [
+                "Mo & Krill"
+            ]
+        },
+        {
+            "Description": "- Kinetic Carbine Max Damage Amp reduced from 125% to 100%",
+            "Tags": [
+                "Paradox",
+                "Kinetic Carbine"
+            ]
+        },
+        {
+            "Description": "- Paradoxical Swap range reduced from 45m to 40m",
+            "Tags": [
+                "Paradox",
+                "Paradoxical Swap"
+            ]
+        },
+        {
+            "Description": "- Barrage T3 added, now heals Pocket for 100% of its damage (33% vs non-heroes)",
+            "Tags": [
+                "Pocket",
+                "Barrage"
+            ]
+        },
+        {
+            "Description": "- Fixed some issues with Barrage projectiles getting caught on map geometry",
+            "Tags": [
+                "Pocket",
+                "Barrage"
+            ]
+        },
+        {
+            "Description": "- Flying Cloak pathing improved, it will no longer bounce erratically off map geometry",
+            "Tags": [
+                "Pocket",
+                "Flying Cloak"
+            ]
+        },
+        {
+            "Description": "- Flight T3 reduced from +4m/s to +3m/s",
+            "Tags": [
+                "Vindicta",
+                "Flight"
+            ]
+        },
+        {
+            "Description": "- Crow Familiar T3 improved from -30% Healing Suppression to -40%",
+            "Tags": [
+                "Vindicta",
+                "Crow Familiar"
+            ]
+        },
+        {
+            "Description": "- Alchemical Flask travel speed increased from 800 to 1000",
+            "Tags": [
+                "Warden",
+                "Alchemical Flask"
+            ]
+        },
+        {
+            "Description": "- Royal Flush no longer has a cast delay",
+            "Tags": [
+                "Wraith"
+            ]
+        },
+        {
+            "Description": "- Royal Flush time to spawn cards increased from 0.4s to 0.6s",
+            "Tags": [
+                "Wraith"
+            ]
+        },
+        {
+            "Description": "- Telekinesis no longer allows the victim to shoot back",
+            "Tags": [
+                "Wraith",
+                "Telekinesis"
+            ]
+        },
+        {
+            "Description": "- Shadow Explosion renamed to Shadow Transformation and reworked into a new ability",
+            "Tags": [
+                "Yamato",
+                "Shadow Transformation"
+            ]
+        },
+        {
+            "Description": "- Shadow Transformation no longer has radius impact behavior",
+            "Tags": [
+                "Yamato",
+                "Shadow Transformation"
+            ]
+        },
+        {
+            "Description": "- Shadow Transformation now gives you 4.5s of invulnerability after the initial 2s invulnerable channel period. You transform and refresh your abilities, improving ability speeds by 60% and gaining unlimited ammo. \"Ability Speeds\" affects Power Slash cast time, Flying Strike flying time, and Crimson Slash cast time.",
+            "Tags": [
+                "Yamato",
+                "Power Slash"
+            ]
+        },
+        {
+            "Description": "- Shadow Transformation cooldown increased from 90s to 100s",
+            "Tags": [
+                "Yamato",
+                "Shadow Transformation"
+            ]
+        },
+        {
+            "Description": "- Shadow Transformation T2 is now +4 m/s during Shadow Form",
+            "Tags": [
+                "Yamato",
+                "Shadow Transformation"
+            ]
+        },
+        {
+            "Description": "- Shadow Transformation T3 is now +1s duration",
+            "Tags": [
+                "Yamato",
+                "Shadow Transformation"
+            ]
+        }
+    ]
 }

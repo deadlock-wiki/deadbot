@@ -1,33 +1,50 @@
 {
-    "Other": {
-        "General": [
-            "- There is no longer a reinforcement trooper wave after Guardians and Walkers die"
-        ]
-    },
-    "Heroes": {
-        "General": [],
-        "Yamato": [
-            "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation now causes you to be unable to die during the buff"
-        ]
-    },
-    "Items": {
-        "General": [],
-        "Spirit Strike": [
-            "- Melee damage reduced from 20% to 15%"
-        ],
-        "Melee Charge": [
-            "- No longer grants +15% Melee Damage"
-        ],
-        "Veil Walker": [
-            "- Bullet Shield reduced from +200 to +150",
-            "- Shield restore now takes 5s to fully regen",
-            "- Cooldown increased from 20s to 25s"
-        ]
-    },
-    "Abilities": {
-        "General": [],
-        "Shadow Transformation": [
-            "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation now causes you to be unable to die during the buff"
-        ]
-    }
+    "Other": [
+        {
+            "Description": "- Melee damage reduced from 20% to 15%",
+            "Tags": [
+                "Spirit Strike"
+            ]
+        },
+        {
+            "Description": "- No longer grants +15% Melee Damage",
+            "Tags": [
+                "Melee Charge"
+            ]
+        },
+        {
+            "Description": "- Bullet Shield reduced from +200 to +150",
+            "Tags": [
+                "Veil Walker"
+            ]
+        },
+        {
+            "Description": "- Shield restore now takes 5s to fully regen",
+            "Tags": [
+                "Veil Walker"
+            ]
+        },
+        {
+            "Description": "- Cooldown increased from 20s to 25s",
+            "Tags": [
+                "Veil Walker"
+            ]
+        },
+        {
+            "Description": "- Shadow Transformation now causes you to be unable to die during the buff",
+            "Tags": [
+                "Yamato",
+                "Shadow Transformation"
+            ]
+        },
+        {
+            "Description": "- There is no longer a reinforcement trooper wave after Guardians and Walkers die",
+            "Tags": [
+                "General"
+            ]
+        }
+    ],
+    "Heroes": [],
+    "Items": [],
+    "Abilities": []
 }

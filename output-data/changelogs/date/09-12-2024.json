@@ -1,688 +1,1949 @@
 {
-    "Other": {
-        "General": []
-    },
-    "Heroes": {
-        "General": [],
-        "Abrams": [
-            "- Fixed {{AbilityIcon|Ability=Seismic Impact|Size=20}} Seismic Impact getting stuck on ceilings like in the mid boss room",
-            "- {{AbilityIcon|Ability=Shoulder Charge|Size=20}} Shoulder Charge turn rate reduced a bit",
-            "- {{AbilityIcon|Ability=Infernal Resilience|Size=20}} Infernal Resilience reduced from 17% to 16%",
-            "- {{AbilityIcon|Ability=Shoulder Charge|Size=20}} Shoulder Charge stun time reduced from 1s to 0.85s"
-        ],
-        "Bebop": [
-            "- Uppercut no longer roots your hero during cast time",
-            "- Can now keep firing if he jumps and his laser is already warmed up",
-            "- Reverted recent change to make hook have an alternate cast mode to pierce through allies/enemies",
-            "- {{AbilityIcon|Ability=Hook|Size=20}} Hook range reduced from 35m to 30m",
-            "- {{AbilityIcon|Ability=Hyper Beam|Size=20}} Hyper Beam now does splash damage around a 5m area the beam connects to on the ground (can be used to fish heroes out of cover in some areas)"
-        ],
-        "Dynamo": [
-            "- {{AbilityIcon|Ability=Rejuvenating Aurora|Size=20}} Rejuvenating Aurora no longer gets canceled when stamina is used",
-            "- {{AbilityIcon|Ability=Rejuvenating Aurora|Size=20}} Rejuvenating Aurora T3 reduced from 4% to 3.8%",
-            "- {{AbilityIcon|Ability=Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse|Size=20}} Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse T1 reduced from 40% slow to 35%",
-            "- {{AbilityIcon|Ability=Quantum Entanglement|Size=20}} Quantum Entanglement cooldown increased from 11s to 12s"
-        ],
-        "Grey Talon": [
-            "- Fixed issues with {{AbilityIcon|Ability=Charged Shot|Size=20}} Charged Shot hitting targets behind walls",
-            "- Fixed {{AbilityIcon|Ability=Guided Owl|Size=20}} Guided Owl doing damage through buildings",
-            "- {{AbilityIcon|Ability=Rain of Arrows|Size=20}} Rain of Arrows Weapon Damage reduced from +7 to +4",
-            "- {{AbilityIcon|Ability=Rain of Arrows|Size=20}} Rain of Arrows T2 Weapon Damage reduced from +7 to +5",
-            "- Bullet damage growth per boon increased from +1.46 to +1.8",
-            "- {{AbilityIcon|Ability=Guided Owl|Size=20}} Guided Owl cooldown increased from 110s to 120s"
-        ],
-        "Haze": [
-            "- Fixed issues with {{AbilityIcon|Ability=Sleep Dagger|Size=20}} Sleep Dagger hitting targets behind walls"
-        ],
-        "Infernus": [
-            "- Base health reduced from 625 to 600",
-            "- {{AbilityIcon|Ability=Flame Dash|Size=20}} Flame Dash slow resistance increased from 30% to 50%"
-        ],
-        "Ivy": [
-            "- Fixed some control issues when flying near a wall",
-            "- {{AbilityIcon|Ability=Air Drop|Size=20}} Air Drop silence and slow debuff duration reduced from 4.5s to 4s"
-        ],
-        "Kelvin": [
-            "- {{AbilityIcon|Ability=Arctic Beam|Size=20}} Arctic Beam fire rate slow reduced from 80% to 40%",
-            "- {{AbilityIcon|Ability=Arctic Beam|Size=20}} Arctic Beam movement slow reduced from 80% to 70%",
-            "- Objectives and Rejuvenator are now frozen and invulnerable when under frozen shelter",
-            "- {{AbilityIcon|Ability=Ice Path|Size=20}} Ice Path and {{AbilityIcon|Ability=Arctic Beam|Size=20}} Arctic Beam can now also be cancelled by hitting the ability key again"
-        ],
-        "Lady Geist": [
-            "- {{AbilityIcon|Ability=Essence Bomb|Size=20}} Essence Bomb T3 damage increased from 22% to 26%",
-            "- {{AbilityIcon|Ability=Essence Bomb|Size=20}} Essence Bomb spirit scaling increased from 1.05 to 1.15",
-            "- Fixed a recent bug with {{AbilityIcon|Ability=Malice|Size=20}} Malice that caused multiple blood shards to be absorbed by 1 hero rather than pass through and hit others (it didn't stack that way in any case)",
-            "- Self Damage no longer consumes shields (general change)"
-        ],
-        "Lash": [
-            "- Ground Slam now allows you to turn during the descent",
-            "- Bullet growth from 1.15 to 0.9",
-            "- {{AbilityIcon|Ability=Ground Strike|Size=20}} Ground Strike Damage spirit scaling increased from 0.78 to 0.85",
-            "- {{AbilityIcon|Ability=Ground Strike|Size=20}} Ground Strike Damage Per Meter Spirit scaling increased from 0.045 to 0.05"
-        ],
-        "McGinnis": [
-            "- Medicinal Spectre radius reduced from 6m to 5m",
-            "- Medicinal Spectre radius now grows with Spirit Power (0.07)",
-            "- Can no longer wall jump from {{AbilityIcon|Ability=Spectral Wall|Size=20}} Spectral Wall",
-            "- {{AbilityIcon|Ability=Spectral Wall|Size=20}} Spectral Wall min range reduced from 7m to 6m",
-            "- {{AbilityIcon|Ability=Spectral Wall|Size=20}} Spectral Wall duration reduced from 6s to 5s",
-            "- {{AbilityIcon|Ability=Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage|Size=20}} Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage spirit scaling increased from 0.3 to 0.35",
-            "- {{AbilityIcon|Ability=Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage|Size=20}} Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage min range reduced from 7m to 6m",
-            "- {{AbilityIcon|Ability=Mini Turret|Size=20}} Mini Turrets bullet travel speed increased"
-        ],
-        "Mo & Krill": [
-            "- Camera zooms out a little bit more when un-burrowing",
-            "- Can cast {{AbilityIcon|Ability=Scorn|Size=20}} Scorn while using {{AbilityIcon|Ability=Combo|Size=20}} Combo",
-            "- {{AbilityIcon|Ability=Combo|Size=20}} Combo T2 reduced from +1s to +0.75s"
-        ],
-        "Paradox": [
-            "- Fixed issues with {{HeroIcon|Hero=Paradox|Size=20}} {{AbilityIcon|Ability=Paradoxical Swap|Size=20}} Paradoxical Swap hitting targets behind walls"
-        ],
-        "Pocket": [
-            "- {{AbilityIcon|Ability=Barrage|Size=20}} Barrage amp per stack reduced from 7% to 6%",
-            "- Bararge slow reduced from 40% to 30%",
-            "- Added a brief lockout period on {{AbilityIcon|Ability=Flying Cloak|Size=20}} Flying Cloak to prevent accidental double clicks"
-        ],
-        "Seven": [
-            "- Base bullet resist reduced from 8% to 0%",
-            "- Bullet resist no longer scales with Boons",
-            "- Headshot reduction increased from 25% to 35%",
-            "- {{AbilityIcon|Ability=Storm Cloud|Size=20}} Storm Cloud damage reduced from 124 to 110",
-            "- {{AbilityIcon|Ability=Storm Cloud|Size=20}} Storm Cloud max radius reduced from 30m to 25m",
-            "- {{AbilityIcon|Ability=Storm Cloud|Size=20}} Storm Cloud cooldown reduced from 180s to 140s",
-            "- {{AbilityIcon|Ability=Storm Cloud|Size=20}} Storm Cloud audio is now a little clearer when it's cast"
-        ],
-        "Shiv": [
-            "- Fixed issues with {{AbilityIcon|Ability=Serrated Knives|Size=20}} Serrated Knives hitting targets behind walls",
-            "- {{AbilityIcon|Ability=Slice and Dice|Size=20}} Slice and Dice damage reduced from 125 to 105",
-            "- {{AbilityIcon|Ability=Bloodletting|Size=20}} Bloodletting Deferred Damage Cleared reduced from 50% to 40%",
-            "- {{AbilityIcon|Ability=Killing Blow|Size=20}} Killing Blow Bonus Damage from Full Rage reduced from +25% to +20%",
-            "- {{AbilityIcon|Ability=Killing Blow|Size=20}} Killing Blow T2 now also increases Rage Amp by +5%"
-        ],
-        "Vindicta": [
-            "- Base bullet damage reduced from 14 to 13",
-            "- {{AbilityIcon|Ability=Stake|Size=20}} Stake T1 duration reduced from +0.75s to +0.5s",
-            "- {{AbilityIcon|Ability=Assassinate|Size=20}} Assassinate bonus gold is now shared with assisters",
-            "- {{AbilityIcon|Ability=Crow Familiar|Size=20}} Crow Familiar now reduces bullet armor by 6%",
-            "- {{AbilityIcon|Ability=Crow Familiar|Size=20}} Crow Familiar impact damage reduced from 50 to 40",
-            "- {{AbilityIcon|Ability=Crow Familiar|Size=20}} Crow Familiar impact damage spirit scaling reduced from 1 to 0.8",
-            "- {{AbilityIcon|Ability=Crow Familiar|Size=20}} Crow Familiar spirit power duration scaling reduced from 0.04 to 0.03",
-            "- You can now use stamina while flying to get an impulse in the facing direction",
-            "- Space bar no longer exists the ability, you have to press the key again",
-            "- {{AbilityIcon|Ability=Assassinate|Size=20}} Assassinate now does 20% more damage when getting a headshot",
-            "- {{AbilityIcon|Ability=Assassinate|Size=20}} Assassinate scope ends when you are stunned"
-        ],
-        "Viscous": [
-            "- {{AbilityIcon|Ability=Puddle Punch|Size=20}} Puddle Punch now correctly knocks people in {{AbilityIcon|Ability=The Cube|Size=20}} The Cube up in the air",
-            "- Improved various issues with the camera",
-            "- Puddle punch now telegraphs an effect before it forms",
-            "- Base bullet damage reduced from 14 to 13",
-            "- {{AbilityIcon|Ability=Splatter|Size=20}} Splatter damage reduced from 110 to 100",
-            "- {{AbilityIcon|Ability=Goo Ball|Size=20}} Goo Ball turn rate improved a bit",
-            "- {{AbilityIcon|Ability=Goo Ball|Size=20}} Goo Ball stun frequency cooldown improved from 1.5s to 1.25s",
-            "- Fixed {{AbilityIcon|Ability=Puddle Punch|Size=20}} Puddle Punch piercing {{ItemIcon|Item=Unstoppable|Size=20}} Unstoppable"
-        ],
-        "Warden": [
-            "- Bullet growth reduced from 1.31 to 1.2",
-            "- {{AbilityIcon|Ability=Alchemical Flask|Size=20}} Alchemical Flask debuff duration reduced from 7s to 6s",
-            "- {{AbilityIcon|Ability=Alchemical Flask|Size=20}} Alchemical Flask radius reduced from 7m to 6.5m",
-            "- You gain 50% bullet resistance during the 2s ult channel"
-        ],
-        "Wraith": [
-            "- {{AbilityIcon|Ability=Card Trick|Size=20}} Card Trick damage reduced from 100 to 80",
-            "- {{AbilityIcon|Ability=Card Trick|Size=20}} Card Trick spirit scaling increased from 1.2 to 1.5",
-            "- {{AbilityIcon|Ability=Card Trick|Size=20}} Card Trick card projectiles spawn above the reticle rather than on the left side"
-        ],
-        "Yamato": [
-            "- Ammo now scales with Spirit Power (0.15)",
-            "- {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash damage reduced from 170 to 160",
-            "- {{AbilityIcon|Ability=Grapple|Size=20}} Grapple post cast duration reduced from 0.5 to 0.2",
-            "- Alt fire now fixed to work with conditional damage sources (point blank, pristine emblem, etc)",
-            "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation bullet and spirit resistance reduced from 55% to 40%",
-            "- Can now interrupt {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash with parry"
-        ]
-    },
-    "Items": {
-        "General": [],
-        "Metal Skin": [
-            "- {{ItemIcon|Item=Metal Skin|Size=20}} Metal Skin effects revisions",
-            "- Cooldown reduced from 22s to 20s"
-        ],
-        "Tesla Bullets": [
-            "- Added sound for {{ItemIcon|Item=Tesla Bullets|Size=20}} Tesla Bullets proc"
-        ],
-        "Toxic Bullets": [
-            "- Added sound for {{ItemIcon|Item=Toxic Bullets|Size=20}} Toxic Bullets proc"
-        ],
-        "Divine Barrier": [
-            "- {{ItemIcon|Item=Divine Barrier|Size=20}} Divine Barrier wings no longer fully opaque",
-            "- Bullet Shield shield reduced from 300 to 260",
-            "- Spirit Shield shield reduced from 300 to 260"
-        ],
-        "Echo Shard": [
-            "- Updated {{ItemIcon|Item=Echo Shard|Size=20}} Echo Shard sound effects",
-            "- Spirit Power increased from +8 to +12"
-        ],
-        "Refresher": [
-            "- Updated {{ItemIcon|Item=Refresher|Size=20}} Refresher effects colors from green to purple"
-        ],
-        "Warp Stone": [
-            "- Updated effects for the {{ItemIcon|Item=Warp Stone|Size=20}} Warp Stone bullet resist buff"
-        ],
-        "Lucky Shot": [
-            "- Added {{ItemIcon|Item=Lucky Shot|Size=20}} Lucky Shot proc sound effect",
-            "- Bonus Damage increased from 80% to 90%"
-        ],
-        "Berserker": [
-            "- Updated {{ItemIcon|Item=Berserker|Size=20}} Berserker buff effects",
-            "- Bullet Resist reduced from 8% to 7%"
-        ],
-        "Silencer": [
-            "- Revised {{ItemIcon|Item=Silencer|Size=20}} Silencer cast and duration sounds",
-            "- Damage increased from 15% to 20%"
-        ],
-        "Rebirth": [
-            "- Added {{ItemIcon|Item=Rebirth|Size=20}} Rebirth channel and revive sounds",
-            "- Soul {{ItemIcon|Item=Rebirth|Size=20}} Rebirth: No longer grants 20% Weapon Damage",
-            "- Soul {{ItemIcon|Item=Rebirth|Size=20}} Rebirth: Cooldown Reduction reduced from 18% to 15%"
-        ],
-        "Infuser": [
-            "- Added {{ItemIcon|Item=Infuser|Size=20}} Infuser cast sound"
-        ],
-        "Headshot Booster": [
-            "- Bonus damage reduced from 45 to 40"
-        ],
-        "High-Velocity Mag": [
-            "- Weapon Damage reduced from 14% to 12%"
-        ],
-        "Restorative Shot": [
-            "- Healing from heroes increased from 35 to 40",
-            "- Healing from troopers increased from 10 to 15"
-        ],
-        "Fire Rate": [
-            "- {{ItemIcon|Item=Rapid Rounds|Size=20}} Rapid Rounds: {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate reduced from 12% to 9%",
-            "- {{ItemIcon|Item=Withering Whip|Size=20}} Withering Whip: {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate slow increased from 30% to 40%",
-            "- {{ItemIcon|Item=Surge of Power|Size=20}} Surge of Power: Imbued ability now grants +10% {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate when used (same 6s duration as the movespeed buff)"
-        ],
-        "Rapid Rounds": [
-            "- {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate reduced from 12% to 9%",
-            "- No longer provides -50 Max Health"
-        ],
-        "Active Reload": [
-            "- Lifesteal reduced from 22% to 20%"
-        ],
-        "Mystic Shot": [
-            "- Spirit damage now considers bullet falloff",
-            "- Cooldown reduced from 6s to 5s"
-        ],
-        "Long Range": [
-            "- Bullet Shield increased from +90 to +140"
-        ],
-        "Melee Charge": [
-            "- Charge distance bonus is moved to innate section",
-            "- Passive now has a 8s cooldown",
-            "- When passive triggers, you deal bonus +20% Melee Damage",
-            "- Now gives a UI indication when reload procs"
-        ],
-        "Soul Shredder Bullets": [
-            "- Weapon Damage increased from 6% to 7%"
-        ],
-        "Fleetfoot": [
-            "- Active move speed reduced from 4 to 3",
-            "- Cooldown reduced from 22s to 18s",
-            "- Health increased from +75 to +90"
-        ],
-        "Heroic Aura": [
-            "- Active movement speed bonus reduced from 3 to 2"
-        ],
-        "Burst Fire": [
-            "- Now provides +70 Health"
-        ],
-        "Sharpshooter": [
-            "- Bullet Health increased from +175 to +200"
-        ],
-        "Hunter's Aura": [
-            "- Bullet Resist reduction reduced from -10% to -9%"
-        ],
-        "Titanic Magazine": [
-            "- Bullet Resist increased from 15% to 18%"
-        ],
-        "Alchemical Fire": [
-            "- Spirit Power increased from +7 to +11"
-        ],
-        "Crippling Headshot": [
-            "- Debuff duration reduced from 5s to 4s"
-        ],
-        "Glass Cannon": [
-            "- Max stacks increased from 5 to 7"
-        ],
-        "Frenzy": [
-            "- Linger duration increased from 4s to 6s"
-        ],
-        "Healing Rite": [
-            "- Now grants +3 Spirit Power",
-            "- Now requires {{ItemIcon|Item=Healing Rite|Size=20}} Healing Rite",
-            "- {{ItemIcon|Item=Rescue Beam|Size=20}} Rescue Beam: No longer requires {{ItemIcon|Item=Healing Rite|Size=20}} Healing Rite"
-        ],
-        "Spirit Lifesteal": [
-            "- {{ItemIcon|Item=Enduring Spirit|Size=20}} Enduring Spirit: {{ItemIcon|Item=Spirit Lifesteal|Size=20}} Spirit Lifesteal increased from 8% to 10%"
-        ],
-        "Enduring Spirit": [
-            "- {{ItemIcon|Item=Spirit Lifesteal|Size=20}} Spirit Lifesteal increased from 8% to 10%"
-        ],
-        "Melee Lifesteal": [
-            "- Melee damage reduced from 15% to 13%"
-        ],
-        "Health Nova": [
-            "- Now requires {{ItemIcon|Item=Healing Rite|Size=20}} Healing Rite",
-            "- Now grants +4 Spirit Power",
-            "- Range reduced from 18m to 15m"
-        ],
-        "Rescue Beam": [
-            "- Heal reduced from 30% to 26%",
-            "- Cast range reduced from 45m to 36m",
-            "- No longer requires {{ItemIcon|Item=Healing Rite|Size=20}} Healing Rite"
-        ],
-        "Fortitude": [
-            "- Lane troopers do not reset the passive regen timer"
-        ],
-        "Lifestrike": [
-            "- Melee damage reduced from 40% to 35%"
-        ],
-        "Majestic Leap": [
-            "- Cooldown reduced from 24s to 22s"
-        ],
-        "Inhibitor": [
-            "- Fixed damage reduction on bullets not being reduced by a percentage properly"
-        ],
-        "Colossus": [
-            "- Radius increased from 10m to 12m",
-            "- Cooldown reduced from 45s to 35s"
-        ],
-        "Phantom Strike": [
-            "- Damage reduced from 150 to 75",
-            "- Spirit Power scaling reduced from 2 to 1"
-        ],
-        "Soul Rebirth": [
-            "- No longer grants 20% Weapon Damage",
-            "- Cooldown Reduction reduced from 18% to 15%"
-        ],
-        "Unstoppable": [
-            "- Fixed not preventing Disarm properly",
-            "- Fixed {{AbilityIcon|Ability=Puddle Punch|Size=20}} Puddle Punch piercing {{ItemIcon|Item=Unstoppable|Size=20}} Unstoppable"
-        ],
-        "Spirit Strike": [
-            "- Melee damage reduced from 15% to 12%",
-            "- Debuff duration reduced from 13s to 11s",
-            "- Spirit Shield reduced from 100 to 80",
-            "- Regen reduced from 1 to 0.8"
-        ],
-        "Mystic Reach": [
-            "- Spirit Resist increased from 5% to 6%",
-            "- Ability Range increased from 15% to 16%"
-        ],
-        "Extra Spirit": [
-            "- Spirit increased from 8 to 9"
-        ],
-        "Ammo Scavenger": [
-            "- Neutral kills now count as a soul capture",
-            "- Buff duration increased from 35s to 40s"
-        ],
-        "Withering Whip": [
-            "- {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate slow increased from 30% to 40%"
-        ],
-        "Slowing Hex": [
-            "- Projectile speed increased by 20%"
-        ],
-        "Quicksilver Reload": [
-            "- Damage increased from 50 to 65"
-        ],
-        "Surge of Power": [
-            "- Imbued ability now grants +10% {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate when used (same 6s duration as the movespeed buff)"
-        ],
-        "Extra Charge": [
-            "- {{ItemIcon|Item=Rapid Recharge|Size=20}} Rapid Recharge: Now gains +12% Weapon Damage (T1 {{ItemIcon|Item=Extra Charge|Size=20}} Extra Charge gives +6%)"
-        ],
-        "Rapid Recharge": [
-            "- Now gains +12% Weapon Damage (T1 {{ItemIcon|Item=Extra Charge|Size=20}} Extra Charge gives +6%)"
-        ],
-        "Improved Burst": [
-            "- Damage reduced from 10% of Max HP to 9%"
-        ],
-        "Improved Reach": [
-            "- Spirit Power increased from +6 to +8"
-        ],
-        "Torment Pulse": [
-            "- Health increased from +125 to +140"
-        ],
-        "Silence Glyph": [
-            "- Spirit Shield reduced from +200 to +150"
-        ]
-    },
-    "Abilities": {
-        "General": [],
-        "Bounce Pad": [
-            "- {{AbilityIcon|Ability=Bounce Pad|Size=20}} Bounce Pad visuals have been replaced with a wind fan (no mechanic changes). The effects also indicate the travel path."
-        ],
-        "Static Charge": [
-            "- {{HeroIcon|Hero=Seven|Size=20}} Seven's {{AbilityIcon|Ability=Static Charge|Size=20}} Static Charge effects improvement to make the boundary more clear"
-        ],
-        "Seismic Impact": [
-            "- Minor updates to Abram's {{AbilityIcon|Ability=Seismic Impact|Size=20}} Seismic Impact to resolve some states faster to reduce visual noise",
-            "- Fixed {{AbilityIcon|Ability=Seismic Impact|Size=20}} Seismic Impact getting stuck on ceilings like in the mid boss room"
-        ],
-        "Malice": [
-            "- Updated {{HeroIcon|Hero=Lady Geist|Size=20}} Lady Geist {{AbilityIcon|Ability=Blood Bomb|Size=20}} Blood Bomb, {{AbilityIcon|Ability=Life Drain|Size=20}} Life Drain, {{AbilityIcon|Ability=Malice|Size=20}} Malice, and {{AbilityIcon|Ability=Soul Exchange|Size=20}} Soul Exchange sounds",
-            "- Fixed a recent bug with {{AbilityIcon|Ability=Malice|Size=20}} Malice that caused multiple blood shards to be absorbed by 1 hero rather than pass through and hit others (it didn't stack that way in any case)"
-        ],
-        "Soul Exchange": [
-            "- Updated {{HeroIcon|Hero=Lady Geist|Size=20}} Lady Geist {{AbilityIcon|Ability=Blood Bomb|Size=20}} Blood Bomb, {{AbilityIcon|Ability=Life Drain|Size=20}} Life Drain, {{AbilityIcon|Ability=Malice|Size=20}} Malice, and {{AbilityIcon|Ability=Soul Exchange|Size=20}} Soul Exchange sounds"
-        ],
-        "Life Drain": [
-            "- Updated {{HeroIcon|Hero=Lady Geist|Size=20}} Lady Geist {{AbilityIcon|Ability=Blood Bomb|Size=20}} Blood Bomb, {{AbilityIcon|Ability=Life Drain|Size=20}} Life Drain, {{AbilityIcon|Ability=Malice|Size=20}} Malice, and {{AbilityIcon|Ability=Soul Exchange|Size=20}} Soul Exchange sounds"
-        ],
-        "Shoulder Charge": [
-            "- Added {{AbilityIcon|Ability=Shoulder Charge|Size=20}} Shoulder Charge wall impact effects",
-            "- Added wall impact animation for Abram's {{AbilityIcon|Ability=Shoulder Charge|Size=20}} Shoulder Charge",
-            "- {{AbilityIcon|Ability=Shoulder Charge|Size=20}} Shoulder Charge turn rate reduced a bit",
-            "- {{AbilityIcon|Ability=Shoulder Charge|Size=20}} Shoulder Charge stun time reduced from 1s to 0.85s"
-        ],
-        "Singularity": [
-            "- Improved visibility of heroes caught in the {{AbilityIcon|Ability=Singularity|Size=20}} Singularity"
-        ],
-        "Splatter": [
-            "- {{HeroIcon|Hero=Viscous|Size=20}} Viscous {{AbilityIcon|Ability=Splatter|Size=20}} Splatter effects have been adjusted",
-            "- {{AbilityIcon|Ability=Splatter|Size=20}} Splatter damage reduced from 110 to 100"
-        ],
-        "Infernal Resilience": [
-            "- {{AbilityIcon|Ability=Infernal Resilience|Size=20}} Infernal Resilience reduced from 17% to 16%"
-        ],
-        "Hook": [
-            "- {{AbilityIcon|Ability=Hook|Size=20}} Hook range reduced from 35m to 30m"
-        ],
-        "Hyper Beam": [
-            "- {{AbilityIcon|Ability=Hyper Beam|Size=20}} Hyper Beam now does splash damage around a 5m area the beam connects to on the ground (can be used to fish heroes out of cover in some areas)"
-        ],
-        "Rejuvenating Aurora": [
-            "- {{AbilityIcon|Ability=Rejuvenating Aurora|Size=20}} Rejuvenating Aurora no longer gets canceled when stamina is used",
-            "- {{AbilityIcon|Ability=Rejuvenating Aurora|Size=20}} Rejuvenating Aurora T3 reduced from 4% to 3.8%"
-        ],
-        "Kinetic Pulse": [
-            "- {{AbilityIcon|Ability=Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse|Size=20}} Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse T1 reduced from 40% slow to 35%"
-        ],
-        "Pulse": [
-            "- {{AbilityIcon|Ability=Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse|Size=20}} Kinetic {{AbilityIcon|Ability=Pulse|Size=20}} Pulse T1 reduced from 40% slow to 35%"
-        ],
-        "Quantum Entanglement": [
-            "- {{AbilityIcon|Ability=Quantum Entanglement|Size=20}} Quantum Entanglement cooldown increased from 11s to 12s"
-        ],
-        "Charged Shot": [
-            "- Fixed issues with {{AbilityIcon|Ability=Charged Shot|Size=20}} Charged Shot hitting targets behind walls"
-        ],
-        "Guided Owl": [
-            "- Fixed {{AbilityIcon|Ability=Guided Owl|Size=20}} Guided Owl doing damage through buildings",
-            "- {{AbilityIcon|Ability=Guided Owl|Size=20}} Guided Owl cooldown increased from 110s to 120s"
-        ],
-        "Rain of Arrows": [
-            "- {{AbilityIcon|Ability=Rain of Arrows|Size=20}} Rain of Arrows Weapon Damage reduced from +7 to +4",
-            "- {{AbilityIcon|Ability=Rain of Arrows|Size=20}} Rain of Arrows T2 Weapon Damage reduced from +7 to +5"
-        ],
-        "Sleep Dagger": [
-            "- Fixed issues with {{AbilityIcon|Ability=Sleep Dagger|Size=20}} Sleep Dagger hitting targets behind walls"
-        ],
-        "Flame Dash": [
-            "- {{AbilityIcon|Ability=Flame Dash|Size=20}} Flame Dash slow resistance increased from 30% to 50%"
-        ],
-        "Air Drop": [
-            "- {{AbilityIcon|Ability=Air Drop|Size=20}} Air Drop silence and slow debuff duration reduced from 4.5s to 4s"
-        ],
-        "Arctic Beam": [
-            "- {{AbilityIcon|Ability=Arctic Beam|Size=20}} Arctic Beam fire rate slow reduced from 80% to 40%",
-            "- {{AbilityIcon|Ability=Arctic Beam|Size=20}} Arctic Beam movement slow reduced from 80% to 70%",
-            "- {{AbilityIcon|Ability=Ice Path|Size=20}} Ice Path and {{AbilityIcon|Ability=Arctic Beam|Size=20}} Arctic Beam can now also be cancelled by hitting the ability key again"
-        ],
-        "Ice Path": [
-            "- {{AbilityIcon|Ability=Ice Path|Size=20}} Ice Path and {{AbilityIcon|Ability=Arctic Beam|Size=20}} Arctic Beam can now also be cancelled by hitting the ability key again"
-        ],
-        "Essence Bomb": [
-            "- {{AbilityIcon|Ability=Essence Bomb|Size=20}} Essence Bomb T3 damage increased from 22% to 26%",
-            "- {{AbilityIcon|Ability=Essence Bomb|Size=20}} Essence Bomb spirit scaling increased from 1.05 to 1.15"
-        ],
-        "Ground Strike": [
-            "- {{AbilityIcon|Ability=Ground Strike|Size=20}} Ground Strike Damage spirit scaling increased from 0.78 to 0.85",
-            "- {{AbilityIcon|Ability=Ground Strike|Size=20}} Ground Strike Damage Per Meter Spirit scaling increased from 0.045 to 0.05"
-        ],
-        "Spectral Wall": [
-            "- Can no longer wall jump from {{AbilityIcon|Ability=Spectral Wall|Size=20}} Spectral Wall",
-            "- {{AbilityIcon|Ability=Spectral Wall|Size=20}} Spectral Wall min range reduced from 7m to 6m",
-            "- {{AbilityIcon|Ability=Spectral Wall|Size=20}} Spectral Wall duration reduced from 6s to 5s"
-        ],
-        "Heavy Barrage": [
-            "- {{AbilityIcon|Ability=Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage|Size=20}} Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage spirit scaling increased from 0.3 to 0.35",
-            "- {{AbilityIcon|Ability=Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage|Size=20}} Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage min range reduced from 7m to 6m"
-        ],
-        "Barrage": [
-            "- {{AbilityIcon|Ability=Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage|Size=20}} Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage spirit scaling increased from 0.3 to 0.35",
-            "- {{AbilityIcon|Ability=Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage|Size=20}} Heavy {{AbilityIcon|Ability=Barrage|Size=20}} Barrage min range reduced from 7m to 6m",
-            "- {{AbilityIcon|Ability=Barrage|Size=20}} Barrage amp per stack reduced from 7% to 6%"
-        ],
-        "Mini Turret": [
-            "- {{AbilityIcon|Ability=Mini Turret|Size=20}} Mini Turrets bullet travel speed increased"
-        ],
-        "Scorn": [
-            "- Can cast {{AbilityIcon|Ability=Scorn|Size=20}} Scorn while using {{AbilityIcon|Ability=Combo|Size=20}} Combo"
-        ],
-        "Combo": [
-            "- Can cast {{AbilityIcon|Ability=Scorn|Size=20}} Scorn while using {{AbilityIcon|Ability=Combo|Size=20}} Combo",
-            "- {{AbilityIcon|Ability=Combo|Size=20}} Combo T2 reduced from +1s to +0.75s"
-        ],
-        "Paradoxical Swap": [
-            "- Fixed issues with {{HeroIcon|Hero=Paradox|Size=20}} {{AbilityIcon|Ability=Paradoxical Swap|Size=20}} Paradoxical Swap hitting targets behind walls"
-        ],
-        "Flying Cloak": [
-            "- Added a brief lockout period on {{AbilityIcon|Ability=Flying Cloak|Size=20}} Flying Cloak to prevent accidental double clicks"
-        ],
-        "Storm Cloud": [
-            "- {{AbilityIcon|Ability=Storm Cloud|Size=20}} Storm Cloud damage reduced from 124 to 110",
-            "- {{AbilityIcon|Ability=Storm Cloud|Size=20}} Storm Cloud max radius reduced from 30m to 25m",
-            "- {{AbilityIcon|Ability=Storm Cloud|Size=20}} Storm Cloud cooldown reduced from 180s to 140s",
-            "- {{AbilityIcon|Ability=Storm Cloud|Size=20}} Storm Cloud audio is now a little clearer when it's cast"
-        ],
-        "Serrated Knives": [
-            "- Fixed issues with {{AbilityIcon|Ability=Serrated Knives|Size=20}} Serrated Knives hitting targets behind walls"
-        ],
-        "Slice and Dice": [
-            "- {{AbilityIcon|Ability=Slice and Dice|Size=20}} Slice and Dice damage reduced from 125 to 105"
-        ],
-        "Bloodletting": [
-            "- {{AbilityIcon|Ability=Bloodletting|Size=20}} Bloodletting Deferred Damage Cleared reduced from 50% to 40%"
-        ],
-        "Killing Blow": [
-            "- {{AbilityIcon|Ability=Killing Blow|Size=20}} Killing Blow Bonus Damage from Full Rage reduced from +25% to +20%",
-            "- {{AbilityIcon|Ability=Killing Blow|Size=20}} Killing Blow T2 now also increases Rage Amp by +5%"
-        ],
-        "Stake": [
-            "- {{AbilityIcon|Ability=Stake|Size=20}} Stake T1 duration reduced from +0.75s to +0.5s"
-        ],
-        "Assassinate": [
-            "- {{AbilityIcon|Ability=Assassinate|Size=20}} Assassinate bonus gold is now shared with assisters",
-            "- {{AbilityIcon|Ability=Assassinate|Size=20}} Assassinate now does 20% more damage when getting a headshot",
-            "- {{AbilityIcon|Ability=Assassinate|Size=20}} Assassinate scope ends when you are stunned"
-        ],
-        "Crow Familiar": [
-            "- {{AbilityIcon|Ability=Crow Familiar|Size=20}} Crow Familiar now reduces bullet armor by 6%",
-            "- {{AbilityIcon|Ability=Crow Familiar|Size=20}} Crow Familiar impact damage reduced from 50 to 40",
-            "- {{AbilityIcon|Ability=Crow Familiar|Size=20}} Crow Familiar impact damage spirit scaling reduced from 1 to 0.8",
-            "- {{AbilityIcon|Ability=Crow Familiar|Size=20}} Crow Familiar spirit power duration scaling reduced from 0.04 to 0.03"
-        ],
-        "The Cube": [
-            "- {{AbilityIcon|Ability=Puddle Punch|Size=20}} Puddle Punch now correctly knocks people in {{AbilityIcon|Ability=The Cube|Size=20}} The Cube up in the air"
-        ],
-        "Puddle Punch": [
-            "- {{AbilityIcon|Ability=Puddle Punch|Size=20}} Puddle Punch now correctly knocks people in {{AbilityIcon|Ability=The Cube|Size=20}} The Cube up in the air",
-            "- Fixed {{AbilityIcon|Ability=Puddle Punch|Size=20}} Puddle Punch piercing {{ItemIcon|Item=Unstoppable|Size=20}} Unstoppable"
-        ],
-        "Goo Ball": [
-            "- {{AbilityIcon|Ability=Goo Ball|Size=20}} Goo Ball turn rate improved a bit",
-            "- {{AbilityIcon|Ability=Goo Ball|Size=20}} Goo Ball stun frequency cooldown improved from 1.5s to 1.25s"
-        ],
-        "Alchemical Flask": [
-            "- {{AbilityIcon|Ability=Alchemical Flask|Size=20}} Alchemical Flask debuff duration reduced from 7s to 6s",
-            "- {{AbilityIcon|Ability=Alchemical Flask|Size=20}} Alchemical Flask radius reduced from 7m to 6.5m"
-        ],
-        "Card Trick": [
-            "- {{AbilityIcon|Ability=Card Trick|Size=20}} Card Trick damage reduced from 100 to 80",
-            "- {{AbilityIcon|Ability=Card Trick|Size=20}} Card Trick spirit scaling increased from 1.2 to 1.5",
-            "- {{AbilityIcon|Ability=Card Trick|Size=20}} Card Trick card projectiles spawn above the reticle rather than on the left side"
-        ],
-        "Power Slash": [
-            "- {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash damage reduced from 170 to 160",
-            "- Can now interrupt {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash with parry"
-        ],
-        "Grapple": [
-            "- {{AbilityIcon|Ability=Grapple|Size=20}} Grapple post cast duration reduced from 0.5 to 0.2"
-        ],
-        "Shadow Transformation": [
-            "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation bullet and spirit resistance reduced from 55% to 40%"
-        ]
-    },
-    "General Changes": {
-        "General": [
-            "- Matchmaking is now open 24/7 for all regions",
-            "- Added new minimap",
-            "Updated base asset and added new unique Hero Icons\u200b",
-            "Neutral Camps are now represented by a highlight glow on the buildings they are located within\u200b",
-            "The Orange Lane (Orchard) is now the Green Lane (Greenwich)\u200b",
-            "- Added a new behavior system. Players can temporarily lose access to certain capabilities in the game. The controls include Matchmaking, Voice Chat, Text Chat, Pausing, and Reporting. The system for tracking is active now, however we will wait on most penalties for a few days as we review the results.",
-            "- There is now a low priority queue. The primary way to enter this is through abandoning games, but it can include other behavior. You must complete the required amount of games (escalates based on low priority frequency) to be able to return to using matchmaking normally.",
-            "- Regularly misreporting players will result in you losing the reporting function and may in some cases cause you to go into low priority as well.",
-            "- New players that are queued solo will only match with other new players until they get 4 wins",
-            "- The lane allocation of 1-1-2-2- and 2-2-1-1 will no longer be a possible setup",
-            "- A 6 player party will no longer match against solo players. This may result in longer queue times for 6 stacks.",
-            "- AFK players will be automatically kicked out after a few minutes",
-            "- Abandon Match dialog is now more clear about consequences of leaving",
-            "- Abandon Match now has a time delay before you can click it to help protect against some accidental cases",
-            "- Added custom hotkeys per hero",
-            "- Added little spirit frog legs to the Soul Urn",
-            "- Orange zipline is now green",
-            "- Space Bar no longer cancels abilities. Abilities can be pressed again to cancel the ones that have a cancel state.",
-            "- The Alternate Cast modes \"Modifier Button\" and \"Alternate Cast Button\" have had their behaviors merged",
-            "- Added UI button hints when using \"Alternate Cast Button\" in some extra cases",
-            "- Added a slider for Double Tap Alternate Cast timing",
-            "- Added a slider for Press and Hold Alternate Cast required time",
-            "-Changes to Scoreboard (TAB) and Extra Info (ALT)",
-            "Previously there was a lot of crossover between the TAB and ALT modes during gameplay. In this update we have separated the behavior of these two modes to better serve different functions. The keys used for each of these modes can be swapped within Keybinds Settings.\u200b",
-            "\u200b",
-            "Scoreboard (TAB):\u200b",
-            "- Enables cursor mode\u200b",
-            "- Displays Scoreboard\u200b",
-            "- Displays Damage Summary\u200b",
-            "- Allows minimap ping and draw\u200b",
-            "\u200b",
-            "Extra Info (ALT):\u200b",
-            "- No longer enables cursor mode\u200b",
-            "- Quick-upgrade Abilities (ie. ALT+1) each of these can be individually remapped\u200b",
-            "- Can now more easily map ALT as an Alternate Cast button\u200b",
-            "- Displays extra information on HUD (ie. Zipline Speed Boost Cooldown) - we plan to expand upon this in future updates\u200b",
-            "\u200b",
-            "- Client performance improvements",
-            "- Game now automatically starts preloading the map once the client is launched, to help reduce load time for most users",
-            "- Sand Box orb practice area now displays the time in milliseconds that you hit the orb after spawning",
-            "- Added a console command (private_lobby_create) to allow players to create custom lobbies using our servers. This has very temp UI. Once we add a real UI to it along with some misc features, we'll add a non-console way to host custom lobbies.",
-            "- Upgrade ability keys are now customizable (Current defaults are ALT+1, ALT+2, etc)",
-            "- Adjusted Midboss low health roar sound to be more distinct from spawn sound",
-            "- Added Maximum FPS Sliders for Dashboard and In-Game",
-            "- Removed Pause limit for hero testing, coop bot matches, and the tutorial",
-            "- Added support for launching the game in a secondary monitor properly",
-            "- Fixed friends menu scrolling up automatically when it shouldn't",
-            "- Fixed being unable to invite offline users to a party",
-            "- Fixed invite tooltips on friends menu not being positioned correctly",
-            "- Updated medic healing beam colors to be consistent with other heals",
-            "- Melee troopers no longer play swipe effect (to reduce some unnecessary noise)",
-            "- Added better indication when all four active slots are full",
-            "- Updated {{AbilityIcon|Ability=Ice Dome|Size=20}} Ice Dome to fix some performance related issues",
-            "- Updated Torment visual effects to reduce some noise",
-            "- Reduced intensity of last hit status effect",
-            "- Added low ammo indication sound",
-            "- Changed open mic audio settings to allow open mic to opt in to team chat or party chat",
-            "- Lowered gun arm during Abram's jump animation to not obscure reticle",
-            "- Soul Jar return location effects will change color based on the captured state of the Soul Jar",
-            "- Distance field shadows and AO no longer visible behind cosmic veils",
-            "- Added sliders for FSR and FSR2 sharpness",
-            "- Walker AoE Stomp has new effects",
-            "- Audio bug fixes related to switching spectating targets"
-        ]
-    },
-    "Misc Gameplay": {
-        "General": [
-            "- Orbs now favor the claimer rather than the denier when both impact within a very narrow window of each other",
-            "- Flex Slot moved from \"First Walker\" to \"Two Walkers\"",
-            "- All ability and item cooldowns increased by 6% globally",
-            "- Max respawn time now happens at 35 minutes rather than 40 minutes",
-            "- T4 Items Cost reduced from 6300 to 6200",
-            "- Shield regeneration time reduced from 60s to 50s",
-            "- Wall Jump activation has been made more lenient",
-            "- Wall Jump launch angle can now be steered a bit more",
-            "- Jump shooting lockout period reduced from 0.25s to 0.15s",
-            "- Souls from bosses now appear much more spread out",
-            "- Rope climbing speed increased from 13 to 14",
-            "- Taking non-dot damage while on a rope slows you by 30%",
-            "- Improved Heavy melee hit registration",
-            "- Mid Boss warning now happens at 60% instead of 50%",
-            "- Walker beam max range (the sticky portion after being acquired) reduced by 20% (50m to 40m)",
-            "- Successful Parry CD reduced from 0.5s to 0.25s",
-            "- Fixed Alt Fires not working with conditional bonuses (like Close Range)",
-            "- Melee trooper hitbox improved",
-            "- Fixed Medic Troopers sometimes using their heal on Guardian boss",
-            "- Fixed multiple heroes getting the power-up bonus by standing on top of it before spawns",
-            "- Fixed your gun reloading down to a smaller magazine when reloading with higher ammo than your max"
-        ]
-    },
-    "Weapon Items": {
-        "General": [
-            "- Hollow Point Round: Conditional Weapon Damage increased from 20% to 22%",
-            "- Warpstone: Range reduced from 13m to 11m"
-        ]
-    },
-    "Vitality Items": {
-        "General": []
-    },
-    "Spirit Items": {
-        "General": []
-    },
-    "Map Changes": {
-        "General": [
-            "Inner Lane Changes:",
-            "- Added connections from the Shop to the front of the Department Store and the New York Oracle buildings",
-            "- Added veil in the opening at the front looking out toward the opposing side",
-            "- Added a cover barrier in front of the opening with the veil",
-            "- Moved the catwalk stair in front of the Department Store and New York Oracle closer to the Mid",
-            "amber_green_guardian_arena.png",
-            "dynamo_01.png",
-            "dynamo_02.png",
-            "Base Changes:",
-            "- Angled the walkway connection from the outer lane exits to the inner lane exits",
-            "- Added an overhang below the Patron position",
-            "- Added two juke closets facing the Patron",
-            "base_update_091224.jpg",
-            "Rope Changes:",
-            "- Removed the exterior ropes from the Garage and Nightclub",
-            "- Replaced interior stairwells with ropes inside the Garage and the Nightclub that give access to the 2nd floor and roof",
-            "dynamo_03.png",
-            "dynamo_04.png",
-            "Rooftop Changes:",
-            "- Raised Apothecary and Imports rooftops to match heights of the Record Store and the Comedy Club",
-            "- Removed rooftop details from roofs that are not safe",
-            "- Added rooftop details to new valid rooftops",
-            "Miscellaneous:",
-            "- Changed collision on the shelves inside the Armory and Warehouse to improve shooting through them",
-            "- Replaced wall landing in front of the Nursery and the Market with an electrical box",
-            "Bug Fixes:",
-            "- Fixed breakable items outside the underground tunnel",
-            "- Removed some duplicate models, lights and geometry",
-            "- Fixed bug where the Hotel sign was replacing billboards on other rooftops",
-            "- Fixed rooftop details not aligned to the new height of the rooftops",
-            "- Fixed enemy team from being able to enter the base side passages"
-        ]
-    }
+    "Other": [],
+    "Heroes": [
+        {
+            "Description": "- Fixed Seismic Impact getting stuck on ceilings like in the mid boss room",
+            "Tags": [
+                "Abrams",
+                "Seismic Impact"
+            ]
+        },
+        {
+            "Description": "- Shoulder Charge turn rate reduced a bit",
+            "Tags": [
+                "Abrams",
+                "Shoulder Charge"
+            ]
+        },
+        {
+            "Description": "- Infernal Resilience reduced from 17% to 16%",
+            "Tags": [
+                "Abrams",
+                "Infernal Resilience"
+            ]
+        },
+        {
+            "Description": "- Shoulder Charge stun time reduced from 1s to 0.85s",
+            "Tags": [
+                "Abrams",
+                "Shoulder Charge"
+            ]
+        },
+        {
+            "Description": "- Uppercut no longer roots your hero during cast time",
+            "Tags": [
+                "Bebop"
+            ]
+        },
+        {
+            "Description": "- Can now keep firing if he jumps and his laser is already warmed up",
+            "Tags": [
+                "Bebop"
+            ]
+        },
+        {
+            "Description": "- Reverted recent change to make hook have an alternate cast mode to pierce through allies/enemies",
+            "Tags": [
+                "Bebop"
+            ]
+        },
+        {
+            "Description": "- Hook range reduced from 35m to 30m",
+            "Tags": [
+                "Bebop",
+                "Hook"
+            ]
+        },
+        {
+            "Description": "- Hyper Beam now does splash damage around a 5m area the beam connects to on the ground (can be used to fish heroes out of cover in some areas)",
+            "Tags": [
+                "Bebop",
+                "Hyper Beam"
+            ]
+        },
+        {
+            "Description": "- Rejuvenating Aurora no longer gets canceled when stamina is used",
+            "Tags": [
+                "Dynamo",
+                "Rejuvenating Aurora"
+            ]
+        },
+        {
+            "Description": "- Rejuvenating Aurora T3 reduced from 4% to 3.8%",
+            "Tags": [
+                "Dynamo",
+                "Rejuvenating Aurora"
+            ]
+        },
+        {
+            "Description": "- Kinetic Pulse T1 reduced from 40% slow to 35%",
+            "Tags": [
+                "Dynamo",
+                "Kinetic Pulse"
+            ]
+        },
+        {
+            "Description": "- Quantum Entanglement cooldown increased from 11s to 12s",
+            "Tags": [
+                "Dynamo",
+                "Quantum Entanglement"
+            ]
+        },
+        {
+            "Description": "- Fixed issues with Charged Shot hitting targets behind walls",
+            "Tags": [
+                "Grey Talon",
+                "Charged Shot"
+            ]
+        },
+        {
+            "Description": "- Fixed Guided Owl doing damage through buildings",
+            "Tags": [
+                "Grey Talon",
+                "Guided Owl"
+            ]
+        },
+        {
+            "Description": "- Rain of Arrows Weapon Damage reduced from +7 to +4",
+            "Tags": [
+                "Grey Talon",
+                "Rain of Arrows"
+            ]
+        },
+        {
+            "Description": "- Rain of Arrows T2 Weapon Damage reduced from +7 to +5",
+            "Tags": [
+                "Grey Talon",
+                "Rain of Arrows"
+            ]
+        },
+        {
+            "Description": "- Bullet damage growth per boon increased from +1.46 to +1.8",
+            "Tags": [
+                "Grey Talon"
+            ]
+        },
+        {
+            "Description": "- Guided Owl cooldown increased from 110s to 120s",
+            "Tags": [
+                "Grey Talon",
+                "Guided Owl"
+            ]
+        },
+        {
+            "Description": "- Fixed issues with Sleep Dagger hitting targets behind walls",
+            "Tags": [
+                "Haze",
+                "Sleep Dagger"
+            ]
+        },
+        {
+            "Description": "- Base health reduced from 625 to 600",
+            "Tags": [
+                "Infernus"
+            ]
+        },
+        {
+            "Description": "- Flame Dash slow resistance increased from 30% to 50%",
+            "Tags": [
+                "Infernus",
+                "Flame Dash"
+            ]
+        },
+        {
+            "Description": "- Fixed some control issues when flying near a wall",
+            "Tags": [
+                "Ivy"
+            ]
+        },
+        {
+            "Description": "- Air Drop silence and slow debuff duration reduced from 4.5s to 4s",
+            "Tags": [
+                "Ivy",
+                "Air Drop"
+            ]
+        },
+        {
+            "Description": "- Arctic Beam fire rate slow reduced from 80% to 40%",
+            "Tags": [
+                "Kelvin",
+                "Arctic Beam"
+            ]
+        },
+        {
+            "Description": "- Arctic Beam movement slow reduced from 80% to 70%",
+            "Tags": [
+                "Kelvin",
+                "Arctic Beam"
+            ]
+        },
+        {
+            "Description": "- Objectives and Rejuvenator are now frozen and invulnerable when under frozen shelter",
+            "Tags": [
+                "Kelvin"
+            ]
+        },
+        {
+            "Description": "- Ice Path and Arctic Beam can now also be cancelled by hitting the ability key again",
+            "Tags": [
+                "Kelvin",
+                "Ice Path"
+            ]
+        },
+        {
+            "Description": "- Essence Bomb T3 damage increased from 22% to 26%",
+            "Tags": [
+                "Lady Geist",
+                "Essence Bomb"
+            ]
+        },
+        {
+            "Description": "- Essence Bomb spirit scaling increased from 1.05 to 1.15",
+            "Tags": [
+                "Lady Geist",
+                "Essence Bomb"
+            ]
+        },
+        {
+            "Description": "- Fixed a recent bug with Malice that caused multiple blood shards to be absorbed by 1 hero rather than pass through and hit others (it didn't stack that way in any case)",
+            "Tags": [
+                "Lady Geist",
+                "Malice"
+            ]
+        },
+        {
+            "Description": "- Self Damage no longer consumes shields (general change)",
+            "Tags": [
+                "Lady Geist"
+            ]
+        },
+        {
+            "Description": "- Ground Slam now allows you to turn during the descent",
+            "Tags": [
+                "Lash"
+            ]
+        },
+        {
+            "Description": "- Bullet growth from 1.15 to 0.9",
+            "Tags": [
+                "Lash"
+            ]
+        },
+        {
+            "Description": "- Ground Strike Damage spirit scaling increased from 0.78 to 0.85",
+            "Tags": [
+                "Lash",
+                "Ground Strike"
+            ]
+        },
+        {
+            "Description": "- Ground Strike Damage Per Meter Spirit scaling increased from 0.045 to 0.05",
+            "Tags": [
+                "Lash",
+                "Ground Strike"
+            ]
+        },
+        {
+            "Description": "- Medicinal Spectre radius reduced from 6m to 5m",
+            "Tags": [
+                "McGinnis"
+            ]
+        },
+        {
+            "Description": "- Medicinal Spectre radius now grows with Spirit Power (0.07)",
+            "Tags": [
+                "McGinnis"
+            ]
+        },
+        {
+            "Description": "- Can no longer wall jump from Spectral Wall",
+            "Tags": [
+                "McGinnis",
+                "Spectral Wall"
+            ]
+        },
+        {
+            "Description": "- Spectral Wall min range reduced from 7m to 6m",
+            "Tags": [
+                "McGinnis",
+                "Spectral Wall"
+            ]
+        },
+        {
+            "Description": "- Spectral Wall duration reduced from 6s to 5s",
+            "Tags": [
+                "McGinnis",
+                "Spectral Wall"
+            ]
+        },
+        {
+            "Description": "- Heavy Barrage spirit scaling increased from 0.3 to 0.35",
+            "Tags": [
+                "McGinnis",
+                "Heavy Barrage"
+            ]
+        },
+        {
+            "Description": "- Heavy Barrage min range reduced from 7m to 6m",
+            "Tags": [
+                "McGinnis",
+                "Heavy Barrage"
+            ]
+        },
+        {
+            "Description": "- Mini Turrets bullet travel speed increased",
+            "Tags": [
+                "McGinnis",
+                "Mini Turret"
+            ]
+        },
+        {
+            "Description": "- Camera zooms out a little bit more when un-burrowing",
+            "Tags": [
+                "Mo & Krill"
+            ]
+        },
+        {
+            "Description": "- Can cast Scorn while using Combo",
+            "Tags": [
+                "Mo & Krill",
+                "Scorn"
+            ]
+        },
+        {
+            "Description": "- Combo T2 reduced from +1s to +0.75s",
+            "Tags": [
+                "Mo & Krill",
+                "Combo"
+            ]
+        },
+        {
+            "Description": "- Fixed issues with Paradoxical Swap hitting targets behind walls",
+            "Tags": [
+                "Paradox",
+                "Paradoxical Swap"
+            ]
+        },
+        {
+            "Description": "- Barrage amp per stack reduced from 7% to 6%",
+            "Tags": [
+                "Pocket",
+                "Barrage"
+            ]
+        },
+        {
+            "Description": "- Bararge slow reduced from 40% to 30%",
+            "Tags": [
+                "Pocket"
+            ]
+        },
+        {
+            "Description": "- Added a brief lockout period on Flying Cloak to prevent accidental double clicks",
+            "Tags": [
+                "Pocket",
+                "Flying Cloak"
+            ]
+        },
+        {
+            "Description": "- Base bullet resist reduced from 8% to 0%",
+            "Tags": [
+                "Seven"
+            ]
+        },
+        {
+            "Description": "- Bullet resist no longer scales with Boons",
+            "Tags": [
+                "Seven"
+            ]
+        },
+        {
+            "Description": "- Headshot reduction increased from 25% to 35%",
+            "Tags": [
+                "Seven"
+            ]
+        },
+        {
+            "Description": "- Storm Cloud damage reduced from 124 to 110",
+            "Tags": [
+                "Seven",
+                "Storm Cloud"
+            ]
+        },
+        {
+            "Description": "- Storm Cloud max radius reduced from 30m to 25m",
+            "Tags": [
+                "Seven",
+                "Storm Cloud"
+            ]
+        },
+        {
+            "Description": "- Storm Cloud cooldown reduced from 180s to 140s",
+            "Tags": [
+                "Seven",
+                "Storm Cloud"
+            ]
+        },
+        {
+            "Description": "- Storm Cloud audio is now a little clearer when it's cast",
+            "Tags": [
+                "Seven",
+                "Storm Cloud"
+            ]
+        },
+        {
+            "Description": "- Fixed issues with Serrated Knives hitting targets behind walls",
+            "Tags": [
+                "Shiv",
+                "Serrated Knives"
+            ]
+        },
+        {
+            "Description": "- Slice and Dice damage reduced from 125 to 105",
+            "Tags": [
+                "Shiv",
+                "Slice and Dice"
+            ]
+        },
+        {
+            "Description": "- Bloodletting Deferred Damage Cleared reduced from 50% to 40%",
+            "Tags": [
+                "Shiv",
+                "Bloodletting"
+            ]
+        },
+        {
+            "Description": "- Killing Blow Bonus Damage from Full Rage reduced from +25% to +20%",
+            "Tags": [
+                "Shiv",
+                "Killing Blow"
+            ]
+        },
+        {
+            "Description": "- Killing Blow T2 now also increases Rage Amp by +5%",
+            "Tags": [
+                "Shiv",
+                "Killing Blow"
+            ]
+        },
+        {
+            "Description": "- Base bullet damage reduced from 14 to 13",
+            "Tags": [
+                "Vindicta"
+            ]
+        },
+        {
+            "Description": "- Stake T1 duration reduced from +0.75s to +0.5s",
+            "Tags": [
+                "Vindicta",
+                "Stake"
+            ]
+        },
+        {
+            "Description": "- Assassinate bonus gold is now shared with assisters",
+            "Tags": [
+                "Vindicta",
+                "Assassinate"
+            ]
+        },
+        {
+            "Description": "- Crow Familiar now reduces bullet armor by 6%",
+            "Tags": [
+                "Vindicta",
+                "Crow Familiar"
+            ]
+        },
+        {
+            "Description": "- Crow Familiar impact damage reduced from 50 to 40",
+            "Tags": [
+                "Vindicta",
+                "Crow Familiar"
+            ]
+        },
+        {
+            "Description": "- Crow Familiar impact damage spirit scaling reduced from 1 to 0.8",
+            "Tags": [
+                "Vindicta",
+                "Crow Familiar"
+            ]
+        },
+        {
+            "Description": "- Crow Familiar spirit power duration scaling reduced from 0.04 to 0.03",
+            "Tags": [
+                "Vindicta",
+                "Crow Familiar"
+            ]
+        },
+        {
+            "Description": "- You can now use stamina while flying to get an impulse in the facing direction",
+            "Tags": [
+                "Vindicta"
+            ]
+        },
+        {
+            "Description": "- Space bar no longer exists the ability, you have to press the key again",
+            "Tags": [
+                "Vindicta"
+            ]
+        },
+        {
+            "Description": "- Assassinate now does 20% more damage when getting a headshot",
+            "Tags": [
+                "Vindicta",
+                "Assassinate"
+            ]
+        },
+        {
+            "Description": "- Assassinate scope ends when you are stunned",
+            "Tags": [
+                "Vindicta",
+                "Assassinate"
+            ]
+        },
+        {
+            "Description": "- Puddle Punch now correctly knocks people in The Cube up in the air",
+            "Tags": [
+                "Viscous",
+                "The Cube"
+            ]
+        },
+        {
+            "Description": "- Improved various issues with the camera",
+            "Tags": [
+                "Viscous"
+            ]
+        },
+        {
+            "Description": "- Puddle punch now telegraphs an effect before it forms",
+            "Tags": [
+                "Viscous"
+            ]
+        },
+        {
+            "Description": "- Base bullet damage reduced from 14 to 13",
+            "Tags": [
+                "Viscous"
+            ]
+        },
+        {
+            "Description": "- Splatter damage reduced from 110 to 100",
+            "Tags": [
+                "Viscous",
+                "Splatter"
+            ]
+        },
+        {
+            "Description": "- Goo Ball turn rate improved a bit",
+            "Tags": [
+                "Viscous",
+                "Goo Ball"
+            ]
+        },
+        {
+            "Description": "- Goo Ball stun frequency cooldown improved from 1.5s to 1.25s",
+            "Tags": [
+                "Viscous",
+                "Goo Ball"
+            ]
+        },
+        {
+            "Description": "- Fixed Puddle Punch piercing Unstoppable",
+            "Tags": [
+                "Viscous",
+                "Puddle Punch",
+                "Unstoppable"
+            ]
+        },
+        {
+            "Description": "- Bullet growth reduced from 1.31 to 1.2",
+            "Tags": [
+                "Warden"
+            ]
+        },
+        {
+            "Description": "- Alchemical Flask debuff duration reduced from 7s to 6s",
+            "Tags": [
+                "Warden",
+                "Alchemical Flask"
+            ]
+        },
+        {
+            "Description": "- Alchemical Flask radius reduced from 7m to 6.5m",
+            "Tags": [
+                "Warden",
+                "Alchemical Flask"
+            ]
+        },
+        {
+            "Description": "- You gain 50% bullet resistance during the 2s ult channel",
+            "Tags": [
+                "Warden"
+            ]
+        },
+        {
+            "Description": "- Card Trick damage reduced from 100 to 80",
+            "Tags": [
+                "Wraith",
+                "Card Trick"
+            ]
+        },
+        {
+            "Description": "- Card Trick spirit scaling increased from 1.2 to 1.5",
+            "Tags": [
+                "Wraith",
+                "Card Trick"
+            ]
+        },
+        {
+            "Description": "- Card Trick card projectiles spawn above the reticle rather than on the left side",
+            "Tags": [
+                "Wraith",
+                "Card Trick"
+            ]
+        },
+        {
+            "Description": "- Ammo now scales with Spirit Power (0.15)",
+            "Tags": [
+                "Yamato"
+            ]
+        },
+        {
+            "Description": "- Power Slash damage reduced from 170 to 160",
+            "Tags": [
+                "Yamato",
+                "Power Slash"
+            ]
+        },
+        {
+            "Description": "- Grapple post cast duration reduced from 0.5 to 0.2",
+            "Tags": [
+                "Yamato"
+            ]
+        },
+        {
+            "Description": "- Alt fire now fixed to work with conditional damage sources (point blank, pristine emblem, etc)",
+            "Tags": [
+                "Yamato"
+            ]
+        },
+        {
+            "Description": "- Shadow Transformation bullet and spirit resistance reduced from 55% to 40%",
+            "Tags": [
+                "Yamato",
+                "Shadow Transformation"
+            ]
+        },
+        {
+            "Description": "- Can now interrupt Power Slash with parry",
+            "Tags": [
+                "Yamato",
+                "Power Slash"
+            ]
+        }
+    ],
+    "Items": [],
+    "Abilities": [],
+    "General": [
+        {
+            "Description": "- Matchmaking is now open 24/7 for all regions",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added new minimap",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "Updated base asset and added new unique Hero Icons\u200b",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "Neutral Camps are now represented by a highlight glow on the buildings they are located within\u200b",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "The Orange Lane (Orchard) is now the Green Lane (Greenwich)\u200b",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added a new behavior system. Players can temporarily lose access to certain capabilities in the game. The controls include Matchmaking, Voice Chat, Text Chat, Pausing, and Reporting. The system for tracking is active now, however we will wait on most penalties for a few days as we review the results.",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- There is now a low priority queue. The primary way to enter this is through abandoning games, but it can include other behavior. You must complete the required amount of games (escalates based on low priority frequency) to be able to return to using matchmaking normally.",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Regularly misreporting players will result in you losing the reporting function and may in some cases cause you to go into low priority as well.",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- New players that are queued solo will only match with other new players until they get 4 wins",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- The lane allocation of 1-1-2-2- and 2-2-1-1 will no longer be a possible setup",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- A 6 player party will no longer match against solo players. This may result in longer queue times for 6 stacks.",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- AFK players will be automatically kicked out after a few minutes",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Abandon Match dialog is now more clear about consequences of leaving",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Abandon Match now has a time delay before you can click it to help protect against some accidental cases",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added custom hotkeys per hero",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Bounce Pad visuals have been replaced with a wind fan (no mechanic changes). The effects also indicate the travel path.",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added little spirit frog legs to the Soul Urn",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Orange zipline is now green",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Space Bar no longer cancels abilities. Abilities can be pressed again to cancel the ones that have a cancel state.",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- The Alternate Cast modes \"Modifier Button\" and \"Alternate Cast Button\" have had their behaviors merged",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added UI button hints when using \"Alternate Cast Button\" in some extra cases",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added a slider for Double Tap Alternate Cast timing",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added a slider for Press and Hold Alternate Cast required time",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "-Changes to Scoreboard (TAB) and Extra Info (ALT)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "Previously there was a lot of crossover between the TAB and ALT modes during gameplay. In this update we have separated the behavior of these two modes to better serve different functions. The keys used for each of these modes can be swapped within Keybinds Settings.\u200b",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "\u200b",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "Scoreboard (TAB):\u200b",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Enables cursor mode\u200b",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Displays Scoreboard\u200b",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Displays Damage Summary\u200b",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Allows minimap ping and draw\u200b",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "\u200b",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "Extra Info (ALT):\u200b",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- No longer enables cursor mode\u200b",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Quick-upgrade Abilities (ie. ALT+1) each of these can be individually remapped\u200b",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Can now more easily map ALT as an Alternate Cast button\u200b",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Displays extra information on HUD (ie. Zipline Speed Boost Cooldown) - we plan to expand upon this in future updates\u200b",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "\u200b",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Client performance improvements",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Game now automatically starts preloading the map once the client is launched, to help reduce load time for most users",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Sand Box orb practice area now displays the time in milliseconds that you hit the orb after spawning",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added a console command (private_lobby_create) to allow players to create custom lobbies using our servers. This has very temp UI. Once we add a real UI to it along with some misc features, we'll add a non-console way to host custom lobbies.",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Upgrade ability keys are now customizable (Current defaults are ALT+1, ALT+2, etc)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Adjusted Midboss low health roar sound to be more distinct from spawn sound",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added Maximum FPS Sliders for Dashboard and In-Game",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Removed Pause limit for hero testing, coop bot matches, and the tutorial",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added support for launching the game in a secondary monitor properly",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed friends menu scrolling up automatically when it shouldn't",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed being unable to invite offline users to a party",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed invite tooltips on friends menu not being positioned correctly",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Metal Skin effects revisions",
+            "Tags": [
+                "Metal Skin"
+            ]
+        },
+        {
+            "Description": "- Seven's Static Charge effects improvement to make the boundary more clear",
+            "Tags": [
+                "Seven",
+                "Static Charge"
+            ]
+        },
+        {
+            "Description": "- Updated medic healing beam colors to be consistent with other heals",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Melee troopers no longer play swipe effect (to reduce some unnecessary noise)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added better indication when all four active slots are full",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Updated Ice Dome to fix some performance related issues",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Updated Torment visual effects to reduce some noise",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added sound for Tesla Bullets proc",
+            "Tags": [
+                "Tesla Bullets"
+            ]
+        },
+        {
+            "Description": "- Added sound for Toxic Bullets proc",
+            "Tags": [
+                "Toxic Bullets"
+            ]
+        },
+        {
+            "Description": "- Divine Barrier wings no longer fully opaque",
+            "Tags": [
+                "Divine Barrier"
+            ]
+        },
+        {
+            "Description": "- Reduced intensity of last hit status effect",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Updated Echo Shard sound effects",
+            "Tags": [
+                "Echo Shard"
+            ]
+        },
+        {
+            "Description": "- Added low ammo indication sound",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Improved clarity for Seven casting and channeling sounds",
+            "Tags": [
+                "Seven"
+            ]
+        },
+        {
+            "Description": "- Updated Refresher effects colors from green to purple",
+            "Tags": [
+                "Refresher"
+            ]
+        },
+        {
+            "Description": "- Minor updates to Abram's Seismic Impact to resolve some states faster to reduce visual noise",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Updated Lady Geist Blood Bomb, Life Drain, Malice, and Soul Exchange sounds",
+            "Tags": [
+                "Lady Geist",
+                "Life Drain"
+            ]
+        },
+        {
+            "Description": "- Added Shoulder Charge wall impact effects",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Changed open mic audio settings to allow open mic to opt in to team chat or party chat",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Updated effects for the Warp Stone bullet resist buff",
+            "Tags": [
+                "Warp Stone"
+            ]
+        },
+        {
+            "Description": "- Added Lucky Shot proc sound effect",
+            "Tags": [
+                "Lucky Shot"
+            ]
+        },
+        {
+            "Description": "- Updated Berserker buff effects",
+            "Tags": [
+                "Berserker"
+            ]
+        },
+        {
+            "Description": "- Adjusted Shiv's running reload animation",
+            "Tags": [
+                "Shiv"
+            ]
+        },
+        {
+            "Description": "- Added wall impact animation for Abram's Shoulder Charge",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Lowered gun arm during Abram's jump animation to not obscure reticle",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Soul Jar return location effects will change color based on the captured state of the Soul Jar",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Lady Geist Blood bomb revisions to improve visibility in team fights",
+            "Tags": [
+                "Lady Geist"
+            ]
+        },
+        {
+            "Description": "- Improved visibility of heroes caught in the Singularity",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Distance field shadows and AO no longer visible behind cosmic veils",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added sliders for FSR and FSR2 sharpness",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Updated Wraith, Grey Talon, and Infernus VO",
+            "Tags": [
+                "Infernus",
+                "Grey Talon",
+                "Wraith"
+            ]
+        },
+        {
+            "Description": "- Walker AoE Stomp has new effects",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Viscous Splatter effects have been adjusted",
+            "Tags": [
+                "Viscous",
+                "Splatter"
+            ]
+        },
+        {
+            "Description": "- Revised Silencer cast and duration sounds",
+            "Tags": [
+                "Silencer"
+            ]
+        },
+        {
+            "Description": "- Added Rebirth channel and revive sounds",
+            "Tags": [
+                "Rebirth"
+            ]
+        },
+        {
+            "Description": "- Added Infuser cast sound",
+            "Tags": [
+                "Infuser"
+            ]
+        },
+        {
+            "Description": "- Audio bug fixes related to switching spectating targets",
+            "Tags": [
+                "General"
+            ]
+        }
+    ],
+    "Misc Gameplay": [
+        {
+            "Description": "- Orbs now favor the claimer rather than the denier when both impact within a very narrow window of each other",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Flex Slot moved from \"First Walker\" to \"Two Walkers\"",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- All ability and item cooldowns increased by 6% globally",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Max respawn time now happens at 35 minutes rather than 40 minutes",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- T4 Items Cost reduced from 6300 to 6200",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Shield regeneration time reduced from 60s to 50s",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Wall Jump activation has been made more lenient",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Wall Jump launch angle can now be steered a bit more",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Jump shooting lockout period reduced from 0.25s to 0.15s",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Souls from bosses now appear much more spread out",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Rope climbing speed increased from 13 to 14",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Taking non-dot damage while on a rope slows you by 30%",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Improved Heavy melee hit registration",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Mid Boss warning now happens at 60% instead of 50%",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Walker beam max range (the sticky portion after being acquired) reduced by 20% (50m to 40m)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Successful Parry CD reduced from 0.5s to 0.25s",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed Alt Fires not working with conditional bonuses (like Close Range)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Melee trooper hitbox improved",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed Medic Troopers sometimes using their heal on Guardian boss",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed multiple heroes getting the power-up bonus by standing on top of it before spawns",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed your gun reloading down to a smaller magazine when reloading with higher ammo than your max",
+            "Tags": [
+                "General"
+            ]
+        }
+    ],
+    "Weapon Items": [
+        {
+            "Description": "- Bonus damage reduced from 45 to 40",
+            "Tags": [
+                "Headshot Booster"
+            ]
+        },
+        {
+            "Description": "- Weapon Damage reduced from 14% to 12%",
+            "Tags": [
+                "High-Velocity Mag"
+            ]
+        },
+        {
+            "Description": "- Healing from heroes increased from 35 to 40",
+            "Tags": [
+                "Restorative Shot"
+            ]
+        },
+        {
+            "Description": "- Healing from troopers increased from 10 to 15",
+            "Tags": [
+                "Restorative Shot"
+            ]
+        },
+        {
+            "Description": "- Hollow Point Round: Conditional Weapon Damage increased from 20% to 22%",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fire Rate reduced from 12% to 9%",
+            "Tags": [
+                "Fire Rate",
+                "Rapid Rounds"
+            ]
+        },
+        {
+            "Description": "- No longer provides -50 Max Health",
+            "Tags": [
+                "Rapid Rounds"
+            ]
+        },
+        {
+            "Description": "- Lifesteal reduced from 22% to 20%",
+            "Tags": [
+                "Active Reload"
+            ]
+        },
+        {
+            "Description": "- Spirit damage now considers bullet falloff",
+            "Tags": [
+                "Mystic Shot"
+            ]
+        },
+        {
+            "Description": "- Cooldown reduced from 6s to 5s",
+            "Tags": [
+                "Mystic Shot"
+            ]
+        },
+        {
+            "Description": "- Bullet Resist reduced from 8% to 7%",
+            "Tags": [
+                "Berserker"
+            ]
+        },
+        {
+            "Description": "- Bullet Shield increased from +90 to +140",
+            "Tags": [
+                "Long Range"
+            ]
+        },
+        {
+            "Description": "- Charge distance bonus is moved to innate section",
+            "Tags": [
+                "Melee Charge"
+            ]
+        },
+        {
+            "Description": "- Passive now has a 8s cooldown",
+            "Tags": [
+                "Melee Charge"
+            ]
+        },
+        {
+            "Description": "- When passive triggers, you deal bonus +20% Melee Damage",
+            "Tags": [
+                "Melee Charge"
+            ]
+        },
+        {
+            "Description": "- Now gives a UI indication when reload procs",
+            "Tags": [
+                "Melee Charge"
+            ]
+        },
+        {
+            "Description": "- Weapon Damage increased from 6% to 7%",
+            "Tags": [
+                "Soul Shredder Bullets"
+            ]
+        },
+        {
+            "Description": "- Active move speed reduced from 4 to 3",
+            "Tags": [
+                "Fleetfoot"
+            ]
+        },
+        {
+            "Description": "- Cooldown reduced from 22s to 18s",
+            "Tags": [
+                "Fleetfoot"
+            ]
+        },
+        {
+            "Description": "- Health increased from +75 to +90",
+            "Tags": [
+                "Fleetfoot"
+            ]
+        },
+        {
+            "Description": "- Warpstone: Range reduced from 13m to 11m",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Active movement speed bonus reduced from 3 to 2",
+            "Tags": [
+                "Heroic Aura"
+            ]
+        },
+        {
+            "Description": "- Now provides +70 Health",
+            "Tags": [
+                "Burst Fire"
+            ]
+        },
+        {
+            "Description": "- Bullet Health increased from +175 to +200",
+            "Tags": [
+                "Sharpshooter"
+            ]
+        },
+        {
+            "Description": "- Bullet Resist reduction reduced from -10% to -9%",
+            "Tags": [
+                "Hunter's Aura"
+            ]
+        },
+        {
+            "Description": "- Bullet Resist increased from 15% to 18%",
+            "Tags": [
+                "Titanic Magazine"
+            ]
+        },
+        {
+            "Description": "- Spirit Power increased from +7 to +11",
+            "Tags": [
+                "Alchemical Fire"
+            ]
+        },
+        {
+            "Description": "- Debuff duration reduced from 5s to 4s",
+            "Tags": [
+                "Crippling Headshot"
+            ]
+        },
+        {
+            "Description": "- Bonus Damage increased from 80% to 90%",
+            "Tags": [
+                "Lucky Shot"
+            ]
+        },
+        {
+            "Description": "- Max stacks increased from 5 to 7",
+            "Tags": [
+                "Glass Cannon"
+            ]
+        },
+        {
+            "Description": "- Damage increased from 15% to 20%",
+            "Tags": [
+                "Silencer"
+            ]
+        },
+        {
+            "Description": "- Linger duration increased from 4s to 6s",
+            "Tags": [
+                "Frenzy"
+            ]
+        }
+    ],
+    "Vitality Items": [
+        {
+            "Description": "- Now grants +3 Spirit Power",
+            "Tags": [
+                "Healing Rite"
+            ]
+        },
+        {
+            "Description": "- Spirit Lifesteal increased from 8% to 10%",
+            "Tags": [
+                "Spirit Lifesteal",
+                "Enduring Spirit"
+            ]
+        },
+        {
+            "Description": "- Melee damage reduced from 15% to 13%",
+            "Tags": [
+                "Melee Lifesteal"
+            ]
+        },
+        {
+            "Description": "- Now requires Healing Rite",
+            "Tags": [
+                "Health Nova",
+                "Healing Rite"
+            ]
+        },
+        {
+            "Description": "- Now grants +4 Spirit Power",
+            "Tags": [
+                "Health Nova"
+            ]
+        },
+        {
+            "Description": "- Range reduced from 18m to 15m",
+            "Tags": [
+                "Health Nova"
+            ]
+        },
+        {
+            "Description": "- Bullet Shield shield reduced from 300 to 260",
+            "Tags": [
+                "Divine Barrier"
+            ]
+        },
+        {
+            "Description": "- Spirit Shield shield reduced from 300 to 260",
+            "Tags": [
+                "Divine Barrier"
+            ]
+        },
+        {
+            "Description": "- Heal reduced from 30% to 26%",
+            "Tags": [
+                "Rescue Beam"
+            ]
+        },
+        {
+            "Description": "- Cast range reduced from 45m to 36m",
+            "Tags": [
+                "Rescue Beam"
+            ]
+        },
+        {
+            "Description": "- No longer requires Healing Rite",
+            "Tags": [
+                "Healing Rite",
+                "Rescue Beam"
+            ]
+        },
+        {
+            "Description": "- Lane troopers do not reset the passive regen timer",
+            "Tags": [
+                "Fortitude"
+            ]
+        },
+        {
+            "Description": "- Melee damage reduced from 40% to 35%",
+            "Tags": [
+                "Lifestrike"
+            ]
+        },
+        {
+            "Description": "- Cooldown reduced from 24s to 22s",
+            "Tags": [
+                "Majestic Leap"
+            ]
+        },
+        {
+            "Description": "- Cooldown reduced from 22s to 20s",
+            "Tags": [
+                "Metal Skin"
+            ]
+        },
+        {
+            "Description": "- Fixed damage reduction on bullets not being reduced by a percentage properly",
+            "Tags": [
+                "Inhibitor"
+            ]
+        },
+        {
+            "Description": "- Radius increased from 10m to 12m",
+            "Tags": [
+                "Colossus"
+            ]
+        },
+        {
+            "Description": "- Cooldown reduced from 45s to 35s",
+            "Tags": [
+                "Colossus"
+            ]
+        },
+        {
+            "Description": "- Damage reduced from 150 to 75",
+            "Tags": [
+                "Phantom Strike"
+            ]
+        },
+        {
+            "Description": "- Spirit Power scaling reduced from 2 to 1",
+            "Tags": [
+                "Phantom Strike"
+            ]
+        },
+        {
+            "Description": "- No longer grants 20% Weapon Damage",
+            "Tags": [
+                "Rebirth",
+                "Soul Rebirth"
+            ]
+        },
+        {
+            "Description": "- Cooldown Reduction reduced from 18% to 15%",
+            "Tags": [
+                "Rebirth",
+                "Soul Rebirth"
+            ]
+        },
+        {
+            "Description": "- Fixed not preventing Disarm properly",
+            "Tags": [
+                "Unstoppable"
+            ]
+        }
+    ],
+    "Spirit Items": [
+        {
+            "Description": "- Melee damage reduced from 15% to 12%",
+            "Tags": [
+                "Spirit Strike"
+            ]
+        },
+        {
+            "Description": "- Debuff duration reduced from 13s to 11s",
+            "Tags": [
+                "Spirit Strike"
+            ]
+        },
+        {
+            "Description": "- Spirit Shield reduced from 100 to 80",
+            "Tags": [
+                "Spirit Strike"
+            ]
+        },
+        {
+            "Description": "- Regen reduced from 1 to 0.8",
+            "Tags": [
+                "Spirit Strike"
+            ]
+        },
+        {
+            "Description": "- Spirit Resist increased from 5% to 6%",
+            "Tags": [
+                "Mystic Reach"
+            ]
+        },
+        {
+            "Description": "- Ability Range increased from 15% to 16%",
+            "Tags": [
+                "Mystic Reach"
+            ]
+        },
+        {
+            "Description": "- Spirit increased from 8 to 9",
+            "Tags": [
+                "Extra Spirit"
+            ]
+        },
+        {
+            "Description": "- Neutral kills now count as a soul capture",
+            "Tags": [
+                "Ammo Scavenger"
+            ]
+        },
+        {
+            "Description": "- Buff duration increased from 35s to 40s",
+            "Tags": [
+                "Ammo Scavenger"
+            ]
+        },
+        {
+            "Description": "- Fire Rate slow increased from 30% to 40%",
+            "Tags": [
+                "Fire Rate",
+                "Withering Whip"
+            ]
+        },
+        {
+            "Description": "- Projectile speed increased by 20%",
+            "Tags": [
+                "Slowing Hex"
+            ]
+        },
+        {
+            "Description": "- Damage increased from 50 to 65",
+            "Tags": [
+                "Quicksilver Reload"
+            ]
+        },
+        {
+            "Description": "- Imbued ability now grants +10% Fire Rate when used (same 6s duration as the movespeed buff)",
+            "Tags": [
+                "Fire Rate",
+                "Surge of Power"
+            ]
+        },
+        {
+            "Description": "- Now gains +12% Weapon Damage (T1 Extra Charge gives +6%)",
+            "Tags": [
+                "Extra Charge",
+                "Rapid Recharge"
+            ]
+        },
+        {
+            "Description": "- Damage reduced from 10% of Max HP to 9%",
+            "Tags": [
+                "Improved Burst"
+            ]
+        },
+        {
+            "Description": "- Spirit Power increased from +6 to +8",
+            "Tags": [
+                "Improved Reach"
+            ]
+        },
+        {
+            "Description": "- Health increased from +125 to +140",
+            "Tags": [
+                "Torment Pulse"
+            ]
+        },
+        {
+            "Description": "- Spirit Shield reduced from +200 to +150",
+            "Tags": [
+                "Silence Glyph"
+            ]
+        },
+        {
+            "Description": "- Spirit Power increased from +8 to +12",
+            "Tags": [
+                "Echo Shard"
+            ]
+        }
+    ],
+    "Map": [
+        {
+            "Description": "Inner Lane Changes:",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added connections from the Shop to the front of the Department Store and the New York Oracle buildings",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added veil in the opening at the front looking out toward the opposing side",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added a cover barrier in front of the opening with the veil",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Moved the catwalk stair in front of the Department Store and New York Oracle closer to the Mid",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "amber_green_guardian_arena.png",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "dynamo_01.png",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "dynamo_02.png",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "Base Changes:",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Angled the walkway connection from the outer lane exits to the inner lane exits",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added an overhang below the Patron position",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added two juke closets facing the Patron",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "base_update_091224.jpg",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "Rope Changes:",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Removed the exterior ropes from the Garage and Nightclub",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Replaced interior stairwells with ropes inside the Garage and the Nightclub that give access to the 2nd floor and roof",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "dynamo_03.png",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "dynamo_04.png",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "Rooftop Changes:",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Raised Apothecary and Imports rooftops to match heights of the Record Store and the Comedy Club",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Removed rooftop details from roofs that are not safe",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added rooftop details to new valid rooftops",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "Miscellaneous:",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Changed collision on the shelves inside the Armory and Warehouse to improve shooting through them",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Replaced wall landing in front of the Nursery and the Market with an electrical box",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "Bug Fixes:",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed breakable items outside the underground tunnel",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Removed some duplicate models, lights and geometry",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed bug where the Hotel sign was replacing billboards on other rooftops",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed rooftop details not aligned to the new height of the rooftops",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed enemy team from being able to enter the base side passages",
+            "Tags": [
+                "General"
+            ]
+        }
+    ]
 }

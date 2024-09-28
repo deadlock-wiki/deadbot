@@ -1,33 +1,40 @@
 {
-    "Other": {
-        "General": [
-            "- Replaced the recent soul duplication hotfix with new behavior. Pre 10 min, lanes now always split orbs when there are more heroes than the assigned participants for that lane (3+ people in a dual lane, 2+ people in a solo). Previously it only split with 3+ people regardless of the lane, which is what allowed soul abuses when dipping into a solo lane.",
-            "- Private lobbies can now assign players to duo and solo lanes"
-        ]
-    },
-    "Heroes": {
-        "General": [],
-        "Vindicta": [
-            "- Fixed some recent bugs with {{HeroIcon|Hero=Vindicta|Size=20}} Vindicta {{AbilityIcon|Ability=Flight|Size=20}} Flight that could cause some large bursts in a direction",
-            "- Fixed being able to shoot while using {{ItemIcon|Item=Ethereal Shift|Size=20}} Ethereal Shift and flying with {{HeroIcon|Hero=Vindicta|Size=20}} Vindicta"
-        ]
-    },
-    "Items": {
-        "General": [],
-        "Ethereal Shift": [
-            "- Fixed being able to shoot while using {{ItemIcon|Item=Ethereal Shift|Size=20}} Ethereal Shift and flying with {{HeroIcon|Hero=Vindicta|Size=20}} Vindicta"
-        ],
-        "Fire Rate": [
-            "- {{ItemIcon|Item=Veil Walker|Size=20}} Veil Walker: {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate reduced from 30% to 20%"
-        ],
-        "Veil Walker": [
-            "- {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate reduced from 30% to 20%"
-        ]
-    },
-    "Abilities": {
-        "General": [],
-        "Flight": [
-            "- Fixed some recent bugs with {{HeroIcon|Hero=Vindicta|Size=20}} Vindicta {{AbilityIcon|Ability=Flight|Size=20}} Flight that could cause some large bursts in a direction"
-        ]
-    }
+    "Other": [
+        {
+            "Description": "- Replaced the recent soul duplication hotfix with new behavior. Pre 10 min, lanes now always split orbs when there are more heroes than the assigned participants for that lane (3+ people in a dual lane, 2+ people in a solo). Previously it only split with 3+ people regardless of the lane, which is what allowed soul abuses when dipping into a solo lane.",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Private lobbies can now assign players to duo and solo lanes",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed some recent bugs with Vindicta Flight that could cause some large bursts in a direction",
+            "Tags": [
+                "Vindicta",
+                "Flight"
+            ]
+        },
+        {
+            "Description": "- Fixed being able to shoot while using Ethereal Shift and flying with Vindicta",
+            "Tags": [
+                "Vindicta",
+                "Ethereal Shift"
+            ]
+        },
+        {
+            "Description": "- Fire Rate reduced from 30% to 20%",
+            "Tags": [
+                "Fire Rate",
+                "Veil Walker"
+            ]
+        }
+    ],
+    "Heroes": [],
+    "Items": [],
+    "Abilities": []
 }

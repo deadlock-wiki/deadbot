@@ -27,8 +27,8 @@ class ChangelogParser:
             changelogs_by_date[date] = changelog
 
         # take parsed changelogs and transform them into some other useful formats
-        self._create_resource_changelogs(changelogs_by_date)
-        self._create_changelog_db_data(changelogs_by_date)
+        #self._create_resource_changelogs(changelogs_by_date)
+        #self._create_changelog_db_data(changelogs_by_date)
 
     def run(self, version):
         logs = self._read_logs(version)
@@ -37,10 +37,10 @@ class ChangelogParser:
         current_heading = 'Other'
         default_category = 'General'
         changelog_dict = {
-            current_heading: {default_category: []},
-            'Heroes': {default_category: []},
-            'Items': {default_category: []},
-            'Abilities': {default_category: []},
+            current_heading: [],
+            'Heroes': [],
+            'Items': [],
+            'Abilities': [],
         }
 
         for line in changelog_lines:
@@ -50,33 +50,67 @@ class ChangelogParser:
             # if heading is found, update current heading
             if line.startswith('[ '):
                 current_heading = line[2:-2]
-                changelog_dict[current_heading] = {default_category: []}
+                current_heading = current_heading.replace(' Changes', '') #i.e. 'Map Changes' > 'Map'
+                changelog_dict[current_heading] = []
                 continue
 
             # find if a resource can be assigned a changelog line
-            resource_found = False
+            resource_tags = []
+            group = current_heading
             for resource_key in self.resources:
                 resource = self.resources[resource_key]
                 resource_type = resource['Type']
                 resource_name = resource['Name']
+
+                if resource_type == 'Abilities':
+                    continue #skip abilities for now, may change format later
+
                 if resource_name is None:
                     continue
 
+                # Determine if the line is about this resource
+                # resource (i.e. hero) name in english is found in the line
                 if resource_name in line:
-                    resource_found = True
-                    if resource_name not in changelog_dict[resource_type]:
-                        changelog_dict[resource_type][resource_name] = []
+                    resource_tags.append(resource_name)
 
-                    # strip redundant prefix as it is already grouped under resource_name
-                    if line.startswith(f'- {resource_name}: '):
-                        line = line.replace(f'{resource_name}: ', '')
+                    # If its a Hero, check if any of their 4 abilities are mentioned
+                    if resource_type == 'Heroes':
+                        if 'BoundAbilities' not in resource:
+                            continue
+                        for index, ability in resource['BoundAbilities'].items():
+                            ability_key = ability['Key']
+                            ability_name = ability['Name']
+                            if ability_name is None:
+                                continue
 
-                    changelog_dict[resource_type][resource_name].append(line)
+                            # ability name in english is found in the line
+                            if ability_name in line:
+                                include_tag = True
+                                resource_tags.append(ability_name)
+                                break
 
-            if not resource_found:
-                changelog_dict[current_heading]['General'].append(line)
+                            # a word in the english ability name is found in the line
+                            else:
+                                ability_name_words = ability_name.split(' ')
+                                for word in ability_name_words:
+                                    if word in line:
+                                        resource_tags.append(ability_name)
+                                        break
+                    
+                
+            # if no resource is found, assign to default group
+            if len(resource_tags) == 0:
+                resource_tags.append(default_category)
 
-        changelog_with_icons = self._embed_icons(changelog_dict)
+            for tag in resource_tags:
+                # strip redundant prefix as it is already grouped under resource_name
+                if line.startswith(f'- {tag}: '):
+                    line = line.replace(f'{tag}: ', '')
+
+            changelog_dict[group].append({"Description": line, "Tags": resource_tags})
+
+        changelog_with_icons = changelog_dict
+        #changelog_with_icons = self._embed_icons(changelog_dict)
 
         json_utils.write(self.OUTPUT_CHANGELOGS + f'/date/{version}.json', changelog_with_icons)
         return changelog_with_icons

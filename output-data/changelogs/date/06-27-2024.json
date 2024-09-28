@@ -1,430 +1,1027 @@
 {
-    "Other": {
-        "General": []
-    },
-    "Heroes": {
-        "General": [],
-        "McGinnis": [
-            "- Updated {{HeroIcon|Hero=McGinnis|Size=20}} McGinnis weapon sounds",
-            "- Fixed her gun having a recent regression that caused it to not have any spread",
-            "- {{AbilityIcon|Ability=Mini Turret|Size=20}} Mini Turret damage reduced by up to 30% at 35m (now has bullet falloff from 20m to 35m)",
-            "- {{AbilityIcon|Ability=Mini Turret|Size=20}} Mini Turret deploy time reduced from 2s to 1s",
-            "- {{AbilityIcon|Ability=Mini Turret|Size=20}} Mini Turret now shows up on the minimap",
-            "- Medicinal Spectre can no longer be attacked",
-            "- {{AbilityIcon|Ability=Spectral Wall|Size=20}} Spectral Wall height increased by 2m",
-            "- {{AbilityIcon|Ability=Spectral Wall|Size=20}} Spectral Wall slow duration increased from 2s to 2.5s",
-            "- Fixed a bug with {{AbilityIcon|Ability=Spectral Wall|Size=20}} Spectral Wall that caused the Rejuvenator to instantly drop"
-        ],
-        "Vindicta": [
-            "- Updated {{HeroIcon|Hero=Vindicta|Size=20}} Vindicta weapon sounds",
-            "- Base movement speed increased from 7 to 8",
-            "- Fixed {{AbilityIcon|Ability=Crow Familiar|Size=20}} Crow Familiar T1 only bouncing to 1 additional target instead of 2",
-            "- {{AbilityIcon|Ability=Assassinate|Size=20}} Assassinate zoom level is reduced a bit"
-        ],
-        "Lady Geist": [
-            "- Updated {{HeroIcon|Hero=Lady Geist|Size=20}} Lady Geist weapon sounds"
-        ],
-        "Bebop": [
-            "- Fixed a bug where pinging {{HeroIcon|Hero=Bebop|Size=20}} Bebop's {{AbilityIcon|Ability=Hook|Size=20}} Hook and {{AbilityIcon|Ability=Sticky Bomb|Size=20}} Sticky Bomb abilities would call the wrong ability name"
-        ],
-        "Grey Talon": [
-            "- Fixed a bug with releasing {{HeroIcon|Hero=Grey Talon|Size=20}} Grey Talon's Owl early",
-            "- Fixed a bug that could allow {{HeroIcon|Hero=Grey Talon|Size=20}} Grey Talon to hit the same target multiple times when close during {{AbilityIcon|Ability=Rain of Arrows|Size=20}} Rain of Arrows"
-        ],
-        "Dynamo": [
-            "- Updated {{HeroIcon|Hero=Dynamo|Size=20}} Dynamo's animation while using {{AbilityIcon|Ability=Rejuvenating Aurora|Size=20}} Rejuvenating Aurora",
-            "- {{AbilityIcon|Ability=Quantum Entanglement|Size=20}} Quantum Entanglement is prevented from being cast when {{HeroIcon|Hero=Dynamo|Size=20}} Dynamo is rooted or movement-silenced (such as by {{ItemIcon|Item=Slowing Hex|Size=20}} Slowing Hex)",
-            "- {{AbilityIcon|Ability=Rejuvenating Aurora|Size=20}} Rejuvenating Aurora T3 reduced from +5% to +4%"
-        ],
-        "Abrams": [
-            "- Improved {{HeroIcon|Hero=Abrams|Size=20}} Abrams animation while hovering in the air during his ultimate and adjusted the downward acceleration animation"
-        ],
-        "Haze": [
-            "- {{AbilityIcon|Ability=Bullet Dance|Size=20}} Bullet Dance T1 increased from +5 Weapon Damage to +6",
-            "- Fixed various bugs with the fire rate on {{AbilityIcon|Ability=Bullet Dance|Size=20}} Bullet Dance (net effect of the bugs was that it often fired a little faster than it was intended to)"
-        ],
-        "Infernus": [
-            "- {{AbilityIcon|Ability=Afterburn|Size=20}} Afterburn base dps reduced from 20 to 18",
-            "- {{AbilityIcon|Ability=Afterburn|Size=20}} Afterburn T3 reduced from +35 to +33"
-        ],
-        "Kelvin": [
-            "- {{AbilityIcon|Ability=Arctic Beam|Size=20}} Arctic Beam spirit scaling increased from 0.7 to 0.9",
-            "- {{AbilityIcon|Ability=Arctic Beam|Size=20}} Arctic Beam cooldown reduced from 25 to 23"
-        ],
-        "Lash": [
-            "- {{AbilityIcon|Ability=Ground Strike|Size=20}} Ground Strike radius reduced from 14m to 13m",
-            "- {{AbilityIcon|Ability=Death Slam|Size=20}} Death Slam radius reduced from 20m to 19m"
-        ],
-        "Mo & Krill": [
-            "- Base HP regen increased from 2.5 to 3",
-            "- {{AbilityIcon|Ability=Scorn|Size=20}} Scorn damage increased from 50 to 60",
-            "- Fixed {{AbilityIcon|Ability=Scorn|Size=20}} Scorn not healing for more with things like {{ItemIcon|Item=Mystic Burst|Size=20}} Mystic Burst",
-            "- {{AbilityIcon|Ability=Burrow|Size=20}} Burrow now destroys breakables in its path",
-            "- Fixed {{ItemIcon|Item=Healing Booster|Size=20}} Healing Booster not applying to {{AbilityIcon|Ability=Scorn|Size=20}} Scorn's 2x heal multiplier on heroes",
-            "- Added a bonus counter to show how much health has been earned by getting a kill during {{AbilityIcon|Ability=Combo|Size=20}} Combo"
-        ],
-        "Paradox": [
-            "- Base movement speed reduced from 7 to 6.5",
-            "- {{AbilityIcon|Ability=Kinetic Carbine|Size=20}} Kinetic Carbine impact radius reduced by 15%",
-            "- {{AbilityIcon|Ability=Kinetic Carbine|Size=20}} Kinetic Carbine Max Stop Duration reduced from 0.75 to 0.5",
-            "- {{AbilityIcon|Ability=Kinetic Carbine|Size=20}} Kinetic Carbine buff duration reduced from 6 to 4",
-            "- {{AbilityIcon|Ability=Kinetic Carbine|Size=20}} Kinetic Carbine T1 increased from +0.5s Max Stop Duration to +0.75",
-            "- {{AbilityIcon|Ability=Kinetic Carbine|Size=20}} Kinetic Carbine T2 now also increases buff by +2s",
-            "- {{HeroIcon|Hero=Paradox|Size=20}} {{AbilityIcon|Ability=Paradoxical Swap|Size=20}} Paradoxical Swap range reduced from 35m to 30m"
-        ],
-        "Pocket": [
-            "- {{AbilityIcon|Ability=Enchanter's Satchel|Size=20}} Enchanter's Satchel can now be canceled by shooting"
-        ],
-        "Seven": [
-            "- Fixed {{ItemIcon|Item=Return Fire|Size=20}} Return Fire working with {{AbilityIcon|Ability=Power Surge|Size=20}} Power Surge",
-            "- No longer has base +15% Spirit Resistance",
-            "- Now has base +20% Bullet Resistance",
-            "- Base health regen reduced from 2 to 1",
-            "- {{AbilityIcon|Ability=Static Charge|Size=20}} Static Charge T1 improved from -15s Cooldown to -20s"
-        ],
-        "Warden": [
-            "- {{AbilityIcon|Ability=Willpower|Size=20}} Willpower no longer loses movement speed when the shield is depleted",
-            "- {{AbilityIcon|Ability=Willpower|Size=20}} Willpower duration reduced from 8s to 7s"
-        ],
-        "Wraith": [
-            "- The {{AbilityIcon|Ability=Royal Flush|Size=20}} Royal Flush ability has been replaced with {{AbilityIcon|Ability=Card Trick|Size=20}} Card Trick. {{AbilityIcon|Ability=Card Trick|Size=20}} Card Trick enables {{HeroIcon|Hero=Wraith|Size=20}} Wraith's weapon damage to summon playing cards. Activating the ability throws one of the cards, which will fly towards the enemy or point under the crosshair and explode on impact."
-        ],
-        "Yamato": [
-            "- {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash damage reduced from 175 to 170",
-            "- Can now cancel {{AbilityIcon|Ability=Flying Strike|Size=20}} Flying Strike",
-            "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation damage and debuff resistance reduced from 80% to 70%",
-            "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation duration increased from 4.5s to 5s"
-        ]
-    },
-    "Items": {
-        "General": [],
-        "Metal Skin": [
-            "- Fixed a recent bug with {{ItemIcon|Item=Metal Skin|Size=20}} Metal Skin that caused you to do zero bullet damage"
-        ],
-        "Fire Rate": [
-            "+1.5% {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate",
-            "- {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate powerup duration increased from 35s to 45s and +15% {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate to +18%",
-            "- No longer grants +20% {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate for 4s on Soul Secure/Deny",
-            "- {{ItemIcon|Item=Swift Striker|Size=20}} Swift Striker: {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate increased from +20% to +22%",
-            "- {{ItemIcon|Item=Suppressor|Size=20}} Suppressor: {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate reduction reduced from -35% to -30%",
-            "- {{ItemIcon|Item=Mystic Slow|Size=20}} Mystic Slow: {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate reduction reduced from -35% to -30%",
-            "- {{ItemIcon|Item=Heroic Aura|Size=20}} Heroic Aura: No longer grants a 10% {{ItemIcon|Item=Fire Rate|Size=20}} {{ItemIcon|Item=Fire Rate Aura|Size=20}} Fire Rate Aura",
-            "- {{ItemIcon|Item=Heroic Aura|Size=20}} Heroic Aura: Active now grants +20% {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate instead of {{ItemIcon|Item=Bullet Lifesteal|Size=20}} Bullet Lifesteal",
-            "- {{ItemIcon|Item=Spiritual Overflow|Size=20}} Spiritual Overflow: {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate increased from +15% to +20%"
-        ],
-        "Extra Charge": [
-            "- CD reduction increased from +7% to +8%"
-        ],
-        "Infuser": [
-            "- Active Spirit Power increased from +12 to +18"
-        ],
-        "Ammo Scavenger": [
-            "- Now a Spirit Item",
-            "- No longer grants +20% {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate for 4s on Soul Secure/Deny",
-            "- Now grants +3 Spirit for 18s on Soul Secure/Deny. Multiple instances stack and refresh the duration. Max 12 stacks."
-        ],
-        "Extra Spirit": [
-            "- Spirit bonus increased from +7 to +8"
-        ],
-        "Extra Health": [
-            "- Health increased from +135 to +140"
-        ],
-        "Healing Rite": [
-            "- Cooldown reduced from 80s to 75s"
-        ],
-        "Swift Striker": [
-            "- {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate increased from +20% to +22%"
-        ],
-        "Active Reload": [
-            "- Timing window to click increased from 0.2s to 0.3s",
-            "- Active {{ItemIcon|Item=Bullet Lifesteal|Size=20}} Bullet Lifesteal increased from 30% to 40%",
-            "- Duration increased from 6s to 8s",
-            "- Weapon Damage increased from 8% to 10%"
-        ],
-        "Bullet Lifesteal": [
-            "- Active {{ItemIcon|Item=Bullet Lifesteal|Size=20}} Bullet Lifesteal increased from 30% to 40%",
-            "- Increased from 20% to 22%",
-            "- Now provides +16% {{ItemIcon|Item=Bullet Lifesteal|Size=20}} Bullet Lifesteal",
-            "- Active now grants +20% {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate instead of {{ItemIcon|Item=Bullet Lifesteal|Size=20}} Bullet Lifesteal"
-        ],
-        "Melee Charge": [
-            "- Weapon Damage increased from 10% to 15%"
-        ],
-        "Long Range": [
-            "- Ammo increased from +15% to +20%"
-        ],
-        "Reactive Barrier": [
-            "- Spirit Shield Health reduced from +500 to +200",
-            "- Now grants +400 Bullet Shield Health"
-        ],
-        "Restorative Locket": [
-            "- Max stacks increased from 18 to 20"
-        ],
-        "Duration Extender": [
-            "- Health increased from +50 to +75",
-            "- Ability Duration reduced from 18% to 16%"
-        ],
-        "Decay": [
-            "- Healing Reduction improved from -65% to -70%",
-            "- Bleed increased from 2.4% to 2.6%"
-        ],
-        "Withering Whip": [
-            "- Ammo increased from 15% to 20%",
-            "- Now grants +4 Spirit"
-        ],
-        "Suppressor": [
-            "- {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate reduction reduced from -35% to -30%"
-        ],
-        "Mystic Slow": [
-            "- {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate reduction reduced from -35% to -30%"
-        ],
-        "Titanic Magazine": [
-            "- Ammo increased from +75% to +90%"
-        ],
-        "Escalating Resilience": [
-            "- Stack duration increased from 10s to 14s"
-        ],
-        "Burst Fire": [
-            "- Cooldown reduced from 9s to 8s",
-            "- Slide Distance increased from 25% to 35%"
-        ],
-        "Alchemical Fire": [
-            "- Max DPS increased from 85 to 95",
-            "- Cooldown reduced from 30s to 28s",
-            "- Weapon Damage increased from +12% to +14%"
-        ],
-        "Warp Stone": [
-            "- Distance increased from 12m to 13m"
-        ],
-        "Point Blank": [
-            "- Bullet Shield health increased from +200 to +225"
-        ],
-        "Heroic Aura": [
-            "- Now provides +16% {{ItemIcon|Item=Bullet Lifesteal|Size=20}} Bullet Lifesteal",
-            "- No longer grants a 10% {{ItemIcon|Item=Fire Rate|Size=20}} {{ItemIcon|Item=Fire Rate Aura|Size=20}} Fire Rate Aura",
-            "- Active now grants +20% {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate instead of {{ItemIcon|Item=Bullet Lifesteal|Size=20}} Bullet Lifesteal"
-        ],
-        "Fire Rate Aura": [
-            "- No longer grants a 10% {{ItemIcon|Item=Fire Rate|Size=20}} {{ItemIcon|Item=Fire Rate Aura|Size=20}} Fire Rate Aura"
-        ],
-        "Lifestrike": [
-            "- Slow duration increased from 2s to 2.5s"
-        ],
-        "Imbued Ability": [
-            "- {{ItemIcon|Item=Surge of Power|Size=20}} Surge of Power: {{ItemIcon|Item=Imbued Ability|Size=20}} Imbued Ability Spirit Power increased from +20 to +24"
-        ],
-        "Surge of Power": [
-            "- {{ItemIcon|Item=Imbued Ability|Size=20}} Imbued Ability Spirit Power increased from +20 to +24"
-        ],
-        "Ethereal Shift": [
-            "- Duration increased from 3s to 3.5s",
-            "- Post-cast bonus is now still granted when ending the buff early"
-        ],
-        "Superior Duration": [
-            "- Health increased from +100 to +125",
-            "- Now grants +4 {{ItemIcon|Item=Health Regen|Size=20}} Health Regen"
-        ],
-        "Health Regen": [
-            "- {{ItemIcon|Item=Superior Duration|Size=20}} Superior Duration: Now grants +4 {{ItemIcon|Item=Health Regen|Size=20}} Health Regen"
-        ],
-        "Crippling Headshot": [
-            "- Weapon Damage reduced from 25% to 20%",
-            "- Debuff duration reduced from 8s to 5s"
-        ],
-        "Spiritual Overflow": [
-            "- Bonus spirit increased from +40 to +45",
-            "- {{ItemIcon|Item=Fire Rate|Size=20}} Fire Rate increased from +15% to +20%"
-        ],
-        "Frenzy": [
-            "- Whenever you go back above 40%, the buff lingers for 4s",
-            "- Ammo increased from +7 to +9"
-        ],
-        "Vampiric Burst": [
-            "- Cooldown reduced from 30s to 24s"
-        ],
-        "Siphon Bullets": [
-            "- Max HP Steal duration increased from 12s to 15s"
-        ],
-        "Leech": [
-            "- Now grants +8% Weapon Damage"
-        ],
-        "Mystic Reverb": [
-            "- Radius increased from 10m to 12m",
-            "- Cooldown reduced from 12s to 8s"
-        ],
-        "Slowing Hex": [
-            "- {{AbilityIcon|Ability=Quantum Entanglement|Size=20}} Quantum Entanglement is prevented from being cast when {{HeroIcon|Hero=Dynamo|Size=20}} Dynamo is rooted or movement-silenced (such as by {{ItemIcon|Item=Slowing Hex|Size=20}} Slowing Hex)"
-        ],
-        "Mystic Burst": [
-            "- Fixed {{AbilityIcon|Ability=Scorn|Size=20}} Scorn not healing for more with things like {{ItemIcon|Item=Mystic Burst|Size=20}} Mystic Burst"
-        ],
-        "Healing Booster": [
-            "- Fixed {{ItemIcon|Item=Healing Booster|Size=20}} Healing Booster not applying to {{AbilityIcon|Ability=Scorn|Size=20}} Scorn's 2x heal multiplier on heroes"
-        ],
-        "Return Fire": [
-            "- Fixed {{ItemIcon|Item=Return Fire|Size=20}} Return Fire working with {{AbilityIcon|Ability=Power Surge|Size=20}} Power Surge"
-        ]
-    },
-    "Abilities": {
-        "General": [],
-        "Hook": [
-            "- Fixed a bug where pinging {{HeroIcon|Hero=Bebop|Size=20}} Bebop's {{AbilityIcon|Ability=Hook|Size=20}} Hook and {{AbilityIcon|Ability=Sticky Bomb|Size=20}} Sticky Bomb abilities would call the wrong ability name"
-        ],
-        "Sticky Bomb": [
-            "- Fixed a bug where pinging {{HeroIcon|Hero=Bebop|Size=20}} Bebop's {{AbilityIcon|Ability=Hook|Size=20}} Hook and {{AbilityIcon|Ability=Sticky Bomb|Size=20}} Sticky Bomb abilities would call the wrong ability name"
-        ],
-        "Rejuvenating Aurora": [
-            "- Updated {{HeroIcon|Hero=Dynamo|Size=20}} Dynamo's animation while using {{AbilityIcon|Ability=Rejuvenating Aurora|Size=20}} Rejuvenating Aurora",
-            "- {{AbilityIcon|Ability=Rejuvenating Aurora|Size=20}} Rejuvenating Aurora T3 reduced from +5% to +4%"
-        ],
-        "Rain of Arrows": [
-            "- Fixed a bug that could allow {{HeroIcon|Hero=Grey Talon|Size=20}} Grey Talon to hit the same target multiple times when close during {{AbilityIcon|Ability=Rain of Arrows|Size=20}} Rain of Arrows"
-        ],
-        "Quantum Entanglement": [
-            "- {{AbilityIcon|Ability=Quantum Entanglement|Size=20}} Quantum Entanglement is prevented from being cast when {{HeroIcon|Hero=Dynamo|Size=20}} Dynamo is rooted or movement-silenced (such as by {{ItemIcon|Item=Slowing Hex|Size=20}} Slowing Hex)"
-        ],
-        "Bullet Dance": [
-            "- {{AbilityIcon|Ability=Bullet Dance|Size=20}} Bullet Dance T1 increased from +5 Weapon Damage to +6",
-            "- Fixed various bugs with the fire rate on {{AbilityIcon|Ability=Bullet Dance|Size=20}} Bullet Dance (net effect of the bugs was that it often fired a little faster than it was intended to)"
-        ],
-        "Afterburn": [
-            "- {{AbilityIcon|Ability=Afterburn|Size=20}} Afterburn base dps reduced from 20 to 18",
-            "- {{AbilityIcon|Ability=Afterburn|Size=20}} Afterburn T3 reduced from +35 to +33"
-        ],
-        "Arctic Beam": [
-            "- {{AbilityIcon|Ability=Arctic Beam|Size=20}} Arctic Beam spirit scaling increased from 0.7 to 0.9",
-            "- {{AbilityIcon|Ability=Arctic Beam|Size=20}} Arctic Beam cooldown reduced from 25 to 23"
-        ],
-        "Ground Strike": [
-            "- {{AbilityIcon|Ability=Ground Strike|Size=20}} Ground Strike radius reduced from 14m to 13m"
-        ],
-        "Death Slam": [
-            "- {{AbilityIcon|Ability=Death Slam|Size=20}} Death Slam radius reduced from 20m to 19m"
-        ],
-        "Mini Turret": [
-            "- {{AbilityIcon|Ability=Mini Turret|Size=20}} Mini Turret damage reduced by up to 30% at 35m (now has bullet falloff from 20m to 35m)",
-            "- {{AbilityIcon|Ability=Mini Turret|Size=20}} Mini Turret deploy time reduced from 2s to 1s",
-            "- {{AbilityIcon|Ability=Mini Turret|Size=20}} Mini Turret now shows up on the minimap"
-        ],
-        "Spectral Wall": [
-            "- {{AbilityIcon|Ability=Spectral Wall|Size=20}} Spectral Wall height increased by 2m",
-            "- {{AbilityIcon|Ability=Spectral Wall|Size=20}} Spectral Wall slow duration increased from 2s to 2.5s",
-            "- Fixed a bug with {{AbilityIcon|Ability=Spectral Wall|Size=20}} Spectral Wall that caused the Rejuvenator to instantly drop"
-        ],
-        "Scorn": [
-            "- {{AbilityIcon|Ability=Scorn|Size=20}} Scorn damage increased from 50 to 60",
-            "- Fixed {{AbilityIcon|Ability=Scorn|Size=20}} Scorn not healing for more with things like {{ItemIcon|Item=Mystic Burst|Size=20}} Mystic Burst",
-            "- Fixed {{ItemIcon|Item=Healing Booster|Size=20}} Healing Booster not applying to {{AbilityIcon|Ability=Scorn|Size=20}} Scorn's 2x heal multiplier on heroes"
-        ],
-        "Burrow": [
-            "- {{AbilityIcon|Ability=Burrow|Size=20}} Burrow now destroys breakables in its path"
-        ],
-        "Combo": [
-            "- Added a bonus counter to show how much health has been earned by getting a kill during {{AbilityIcon|Ability=Combo|Size=20}} Combo"
-        ],
-        "Kinetic Carbine": [
-            "- {{AbilityIcon|Ability=Kinetic Carbine|Size=20}} Kinetic Carbine impact radius reduced by 15%",
-            "- {{AbilityIcon|Ability=Kinetic Carbine|Size=20}} Kinetic Carbine Max Stop Duration reduced from 0.75 to 0.5",
-            "- {{AbilityIcon|Ability=Kinetic Carbine|Size=20}} Kinetic Carbine buff duration reduced from 6 to 4",
-            "- {{AbilityIcon|Ability=Kinetic Carbine|Size=20}} Kinetic Carbine T1 increased from +0.5s Max Stop Duration to +0.75",
-            "- {{AbilityIcon|Ability=Kinetic Carbine|Size=20}} Kinetic Carbine T2 now also increases buff by +2s"
-        ],
-        "Paradoxical Swap": [
-            "- {{HeroIcon|Hero=Paradox|Size=20}} {{AbilityIcon|Ability=Paradoxical Swap|Size=20}} Paradoxical Swap range reduced from 35m to 30m"
-        ],
-        "Enchanter's Satchel": [
-            "- {{AbilityIcon|Ability=Enchanter's Satchel|Size=20}} Enchanter's Satchel can now be canceled by shooting"
-        ],
-        "Power Surge": [
-            "- Fixed {{ItemIcon|Item=Return Fire|Size=20}} Return Fire working with {{AbilityIcon|Ability=Power Surge|Size=20}} Power Surge"
-        ],
-        "Static Charge": [
-            "- {{AbilityIcon|Ability=Static Charge|Size=20}} Static Charge T1 improved from -15s Cooldown to -20s"
-        ],
-        "Crow Familiar": [
-            "- Fixed {{AbilityIcon|Ability=Crow Familiar|Size=20}} Crow Familiar T1 only bouncing to 1 additional target instead of 2"
-        ],
-        "Assassinate": [
-            "- {{AbilityIcon|Ability=Assassinate|Size=20}} Assassinate zoom level is reduced a bit"
-        ],
-        "Willpower": [
-            "- {{AbilityIcon|Ability=Willpower|Size=20}} Willpower no longer loses movement speed when the shield is depleted",
-            "- {{AbilityIcon|Ability=Willpower|Size=20}} Willpower duration reduced from 8s to 7s"
-        ],
-        "Card Trick": [
-            "- The {{AbilityIcon|Ability=Royal Flush|Size=20}} Royal Flush ability has been replaced with {{AbilityIcon|Ability=Card Trick|Size=20}} Card Trick. {{AbilityIcon|Ability=Card Trick|Size=20}} Card Trick enables {{HeroIcon|Hero=Wraith|Size=20}} Wraith's weapon damage to summon playing cards. Activating the ability throws one of the cards, which will fly towards the enemy or point under the crosshair and explode on impact."
-        ],
-        "Royal Flush": [
-            "- The {{AbilityIcon|Ability=Royal Flush|Size=20}} Royal Flush ability has been replaced with {{AbilityIcon|Ability=Card Trick|Size=20}} Card Trick. {{AbilityIcon|Ability=Card Trick|Size=20}} Card Trick enables {{HeroIcon|Hero=Wraith|Size=20}} Wraith's weapon damage to summon playing cards. Activating the ability throws one of the cards, which will fly towards the enemy or point under the crosshair and explode on impact."
-        ],
-        "Power Slash": [
-            "- {{AbilityIcon|Ability=Power Slash|Size=20}} Power Slash damage reduced from 175 to 170"
-        ],
-        "Flying Strike": [
-            "- Can now cancel {{AbilityIcon|Ability=Flying Strike|Size=20}} Flying Strike"
-        ],
-        "Shadow Transformation": [
-            "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation damage and debuff resistance reduced from 80% to 70%",
-            "- {{AbilityIcon|Ability=Shadow Transformation|Size=20}} Shadow Transformation duration increased from 4.5s to 5s"
-        ]
-    },
-    "General Changes": {
-        "General": [
-            "- Added a hero based mmr system, so when you join a match with a specific hero the matchmaker adjusts the skill level it assumes you are at by a percentage up or down based on your experience and performance levels with that hero.",
-            "- Added settings option to allow weapon zoom to be a toggle",
-            "- Added a game volume slider which will control volume independently from voice chat (VoIP)",
-            "- General improvements to voice chat quality",
-            "- Non-matchmaking lobbies are now considered safe to abandon",
-            "- Crates now show the amount of souls they have in the tooltip",
-            "- Greater contrast between team and enemy sounds",
-            "- Updated headshot hit indicator",
-            "- Fixed a bug that could cause button input detection to malfunction",
-            "- Fixed an issue where the Rejuvenator being stolen was firing incorrectly",
-            "- Fixed a bug introduced in last week's update that caused gun spreads to not work properly",
-            "- Added an effect at the bottom of a player's screen whenever they are standing on something that causes damage"
-        ]
-    },
-    "Misc Gameplay": {
-        "General": [
-            "- Flex slot removed from killing the Patron and added to killing all Walkers",
-            "- Urn now spawns on both sides of the map. Bounty for each is reduced by 40%",
-            "- Rejuvenator now reduces players' next respawn time by 75% instead of giving a 3s respawn time",
-            "- Golden Statues no longer drop powerups (time duration buffs). Instead they now drop small permanent bonuses. These stack and do not decay with time or death. Drop rates rebalanced.",
-            "+2 Spirit",
-            "+3% Ammo",
-            "+15 Max HP (this has slightly higher odds of dropping than the others)",
-            "+0.5% Cooldown Reduction",
-            "+2% Weapon Damage",
-            "- At defined locations around the map, powerups now spawn starting 10 minutes (and every 5 minutes after). There are 6 spots where they spawn and they are indicated on the minimap when they are up.",
-            "- Movement powerup duration increased from 30s to 50s",
-            "- Regeneration powerup duration increased from 25s to 45s",
-            "- Stamina powerup duration increased from 80s to 120s",
-            "- Cooldown powerup is unchanged",
-            "- Clip powerup is unchanged",
-            "- Breakables initial spawn time increased from 2 min to 3 min",
-            "- Fixed being able to hide inside the Guardian's head",
-            "- Jumping after a dash jump no longer causes your hero to sometimes jump in place",
-            "- Breakables souls base value reduced by 30%. Increases to +15% of current values over 30 minutes. (so -30% to +15% from start to 30 min)",
-            "- All hero guns' reload time reduced by 5%",
-            "- Zipline Boost ability cooldown reduced from 380s to 340s",
-            "- Medic Trooper heal now bounces to up to one other allied hero within 25m from the hero",
-            "- Trooper gold sharing radius from the location of the allied hero reduced from 50m to 40m",
-            "- Creep waves now land at their lane destinations at the same time as each other",
-            "- Added connection hallway between outer lane Shop and crate room",
-            "- Opened up Authority Building and Jazz Club to the Guardian side",
-            "- Added intermediate cover in front of Amber Orange Guardian and Sapphire Blue Guardian",
-            "- Added Veils to entrances to base fountain",
-            "- Extended cover near Sapphire Orange Guardian to match Amber Blue",
-            "- Extended alcove on outer lane cover position in front of the Shop",
-            "- Underground tunnels have more light",
-            "- Removed underground tunnel alcoves",
-            "- Added signs for entrance to the underground tunnel from the warehouse side"
-        ]
-    },
-    "Item Gameplay": {
-        "General": []
-    },
-    "Hero Gameplay": {
-        "General": []
-    }
+    "Other": [],
+    "Heroes": [],
+    "Items": [],
+    "Abilities": [],
+    "General": [
+        {
+            "Description": "- Added a hero based mmr system, so when you join a match with a specific hero the matchmaker adjusts the skill level it assumes you are at by a percentage up or down based on your experience and performance levels with that hero.",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added settings option to allow weapon zoom to be a toggle",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added a game volume slider which will control volume independently from voice chat (VoIP)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- General improvements to voice chat quality",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Non-matchmaking lobbies are now considered safe to abandon",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Crates now show the amount of souls they have in the tooltip",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Greater contrast between team and enemy sounds",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Updated headshot hit indicator",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Updated McGinnis weapon sounds",
+            "Tags": [
+                "McGinnis"
+            ]
+        },
+        {
+            "Description": "- Updated Vindicta weapon sounds",
+            "Tags": [
+                "Vindicta"
+            ]
+        },
+        {
+            "Description": "- Updated Lady Geist weapon sounds",
+            "Tags": [
+                "Lady Geist"
+            ]
+        },
+        {
+            "Description": "- Fixed a bug where pinging Bebop's Hook and Sticky Bomb abilities would call the wrong ability name",
+            "Tags": [
+                "Bebop",
+                "Sticky Bomb"
+            ]
+        },
+        {
+            "Description": "- Fixed a recent bug with Metal Skin that caused you to do zero bullet damage",
+            "Tags": [
+                "Metal Skin"
+            ]
+        },
+        {
+            "Description": "- Fixed a bug with releasing Grey Talon's Owl early",
+            "Tags": [
+                "Grey Talon"
+            ]
+        },
+        {
+            "Description": "- Updated Dynamo's animation while using Rejuvenating Aurora",
+            "Tags": [
+                "Dynamo",
+                "Rejuvenating Aurora"
+            ]
+        },
+        {
+            "Description": "- Fixed a bug that could allow Grey Talon to hit the same target multiple times when close during Rain of Arrows",
+            "Tags": [
+                "Grey Talon",
+                "Rain of Arrows"
+            ]
+        },
+        {
+            "Description": "- Fixed a bug that could cause button input detection to malfunction",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed an issue where the Rejuvenator being stolen was firing incorrectly",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed a bug introduced in last week's update that caused gun spreads to not work properly",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added an effect at the bottom of a player's screen whenever they are standing on something that causes damage",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Improved Abrams animation while hovering in the air during his ultimate and adjusted the downward acceleration animation",
+            "Tags": [
+                "Abrams"
+            ]
+        }
+    ],
+    "Misc Gameplay": [
+        {
+            "Description": "- Flex slot removed from killing the Patron and added to killing all Walkers",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Urn now spawns on both sides of the map. Bounty for each is reduced by 40%",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Rejuvenator now reduces players' next respawn time by 75% instead of giving a 3s respawn time",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Golden Statues no longer drop powerups (time duration buffs). Instead they now drop small permanent bonuses. These stack and do not decay with time or death. Drop rates rebalanced.",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "+2 Spirit",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "+1.5% Fire Rate",
+            "Tags": [
+                "Fire Rate"
+            ]
+        },
+        {
+            "Description": "+3% Ammo",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "+15 Max HP (this has slightly higher odds of dropping than the others)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "+0.5% Cooldown Reduction",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "+2% Weapon Damage",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- At defined locations around the map, powerups now spawn starting 10 minutes (and every 5 minutes after). There are 6 spots where they spawn and they are indicated on the minimap when they are up.",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Movement powerup duration increased from 30s to 50s",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fire Rate powerup duration increased from 35s to 45s and +15% Fire Rate to +18%",
+            "Tags": [
+                "Fire Rate"
+            ]
+        },
+        {
+            "Description": "- Regeneration powerup duration increased from 25s to 45s",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Stamina powerup duration increased from 80s to 120s",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Cooldown powerup is unchanged",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Clip powerup is unchanged",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Breakables initial spawn time increased from 2 min to 3 min",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fixed being able to hide inside the Guardian's head",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Jumping after a dash jump no longer causes your hero to sometimes jump in place",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Breakables souls base value reduced by 30%. Increases to +15% of current values over 30 minutes. (so -30% to +15% from start to 30 min)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- All hero guns' reload time reduced by 5%",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Zipline Boost ability cooldown reduced from 380s to 340s",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Medic Trooper heal now bounces to up to one other allied hero within 25m from the hero",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Trooper gold sharing radius from the location of the allied hero reduced from 50m to 40m",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Creep waves now land at their lane destinations at the same time as each other",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added connection hallway between outer lane Shop and crate room",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Opened up Authority Building and Jazz Club to the Guardian side",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added intermediate cover in front of Amber Orange Guardian and Sapphire Blue Guardian",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added Veils to entrances to base fountain",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Extended cover near Sapphire Orange Guardian to match Amber Blue",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Extended alcove on outer lane cover position in front of the Shop",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Underground tunnels have more light",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Removed underground tunnel alcoves",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Added signs for entrance to the underground tunnel from the warehouse side",
+            "Tags": [
+                "General"
+            ]
+        }
+    ],
+    "Item Gameplay": [
+        {
+            "Description": "- CD reduction increased from +7% to +8%",
+            "Tags": [
+                "Extra Charge"
+            ]
+        },
+        {
+            "Description": "- Active Spirit Power increased from +12 to +18",
+            "Tags": [
+                "Infuser"
+            ]
+        },
+        {
+            "Description": "- Now a Spirit Item",
+            "Tags": [
+                "Ammo Scavenger"
+            ]
+        },
+        {
+            "Description": "- No longer grants +20% Fire Rate for 4s on Soul Secure/Deny",
+            "Tags": [
+                "Ammo Scavenger",
+                "Fire Rate"
+            ]
+        },
+        {
+            "Description": "- Now grants +3 Spirit for 18s on Soul Secure/Deny. Multiple instances stack and refresh the duration. Max 12 stacks.",
+            "Tags": [
+                "Ammo Scavenger"
+            ]
+        },
+        {
+            "Description": "- Spirit bonus increased from +7 to +8",
+            "Tags": [
+                "Extra Spirit"
+            ]
+        },
+        {
+            "Description": "- Health increased from +135 to +140",
+            "Tags": [
+                "Extra Health"
+            ]
+        },
+        {
+            "Description": "- Cooldown reduced from 80s to 75s",
+            "Tags": [
+                "Healing Rite"
+            ]
+        },
+        {
+            "Description": "- Fire Rate increased from +20% to +22%",
+            "Tags": [
+                "Fire Rate",
+                "Swift Striker"
+            ]
+        },
+        {
+            "Description": "- Timing window to click increased from 0.2s to 0.3s",
+            "Tags": [
+                "Active Reload"
+            ]
+        },
+        {
+            "Description": "- Active Bullet Lifesteal increased from 30% to 40%",
+            "Tags": [
+                "Active Reload",
+                "Bullet Lifesteal"
+            ]
+        },
+        {
+            "Description": "- Duration increased from 6s to 8s",
+            "Tags": [
+                "Active Reload"
+            ]
+        },
+        {
+            "Description": "- Weapon Damage increased from 8% to 10%",
+            "Tags": [
+                "Active Reload"
+            ]
+        },
+        {
+            "Description": "- Weapon Damage increased from 10% to 15%",
+            "Tags": [
+                "Melee Charge"
+            ]
+        },
+        {
+            "Description": "- Ammo increased from +15% to +20%",
+            "Tags": [
+                "Long Range"
+            ]
+        },
+        {
+            "Description": "- Increased from 20% to 22%",
+            "Tags": [
+                "Bullet Lifesteal"
+            ]
+        },
+        {
+            "Description": "- Spirit Shield Health reduced from +500 to +200",
+            "Tags": [
+                "Reactive Barrier"
+            ]
+        },
+        {
+            "Description": "- Now grants +400 Bullet Shield Health",
+            "Tags": [
+                "Reactive Barrier"
+            ]
+        },
+        {
+            "Description": "- Max stacks increased from 18 to 20",
+            "Tags": [
+                "Restorative Locket"
+            ]
+        },
+        {
+            "Description": "- Health increased from +50 to +75",
+            "Tags": [
+                "Duration Extender"
+            ]
+        },
+        {
+            "Description": "- Ability Duration reduced from 18% to 16%",
+            "Tags": [
+                "Duration Extender"
+            ]
+        },
+        {
+            "Description": "- Healing Reduction improved from -65% to -70%",
+            "Tags": [
+                "Decay"
+            ]
+        },
+        {
+            "Description": "- Bleed increased from 2.4% to 2.6%",
+            "Tags": [
+                "Decay"
+            ]
+        },
+        {
+            "Description": "- Ammo increased from 15% to 20%",
+            "Tags": [
+                "Withering Whip"
+            ]
+        },
+        {
+            "Description": "- Now grants +4 Spirit",
+            "Tags": [
+                "Withering Whip"
+            ]
+        },
+        {
+            "Description": "- Fire Rate reduction reduced from -35% to -30%",
+            "Tags": [
+                "Fire Rate",
+                "Suppressor"
+            ]
+        },
+        {
+            "Description": "- Fire Rate reduction reduced from -35% to -30%",
+            "Tags": [
+                "Fire Rate",
+                "Mystic Slow"
+            ]
+        },
+        {
+            "Description": "- Ammo increased from +75% to +90%",
+            "Tags": [
+                "Titanic Magazine"
+            ]
+        },
+        {
+            "Description": "- Stack duration increased from 10s to 14s",
+            "Tags": [
+                "Escalating Resilience"
+            ]
+        },
+        {
+            "Description": "- Cooldown reduced from 9s to 8s",
+            "Tags": [
+                "Burst Fire"
+            ]
+        },
+        {
+            "Description": "- Slide Distance increased from 25% to 35%",
+            "Tags": [
+                "Burst Fire"
+            ]
+        },
+        {
+            "Description": "- Max DPS increased from 85 to 95",
+            "Tags": [
+                "Alchemical Fire"
+            ]
+        },
+        {
+            "Description": "- Cooldown reduced from 30s to 28s",
+            "Tags": [
+                "Alchemical Fire"
+            ]
+        },
+        {
+            "Description": "- Weapon Damage increased from +12% to +14%",
+            "Tags": [
+                "Alchemical Fire"
+            ]
+        },
+        {
+            "Description": "- Distance increased from 12m to 13m",
+            "Tags": [
+                "Warp Stone"
+            ]
+        },
+        {
+            "Description": "- Bullet Shield health increased from +200 to +225",
+            "Tags": [
+                "Point Blank"
+            ]
+        },
+        {
+            "Description": "- Now provides +16% Bullet Lifesteal",
+            "Tags": [
+                "Heroic Aura",
+                "Bullet Lifesteal"
+            ]
+        },
+        {
+            "Description": "- No longer grants a 10% Fire Rate Aura",
+            "Tags": [
+                "Fire Rate",
+                "Heroic Aura",
+                "Fire Rate Aura"
+            ]
+        },
+        {
+            "Description": "- Active now grants +20% Fire Rate instead of Bullet Lifesteal",
+            "Tags": [
+                "Fire Rate",
+                "Heroic Aura",
+                "Bullet Lifesteal"
+            ]
+        },
+        {
+            "Description": "- Slow duration increased from 2s to 2.5s",
+            "Tags": [
+                "Lifestrike"
+            ]
+        },
+        {
+            "Description": "- Imbued Ability Spirit Power increased from +20 to +24",
+            "Tags": [
+                "Imbued Ability",
+                "Surge of Power"
+            ]
+        },
+        {
+            "Description": "- Duration increased from 3s to 3.5s",
+            "Tags": [
+                "Ethereal Shift"
+            ]
+        },
+        {
+            "Description": "- Post-cast bonus is now still granted when ending the buff early",
+            "Tags": [
+                "Ethereal Shift"
+            ]
+        },
+        {
+            "Description": "- Health increased from +100 to +125",
+            "Tags": [
+                "Superior Duration"
+            ]
+        },
+        {
+            "Description": "- Now grants +4 Health Regen",
+            "Tags": [
+                "Health Regen",
+                "Superior Duration"
+            ]
+        },
+        {
+            "Description": "- Weapon Damage reduced from 25% to 20%",
+            "Tags": [
+                "Crippling Headshot"
+            ]
+        },
+        {
+            "Description": "- Debuff duration reduced from 8s to 5s",
+            "Tags": [
+                "Crippling Headshot"
+            ]
+        },
+        {
+            "Description": "- Bonus spirit increased from +40 to +45",
+            "Tags": [
+                "Spiritual Overflow"
+            ]
+        },
+        {
+            "Description": "- Fire Rate increased from +15% to +20%",
+            "Tags": [
+                "Fire Rate",
+                "Spiritual Overflow"
+            ]
+        },
+        {
+            "Description": "- Whenever you go back above 40%, the buff lingers for 4s",
+            "Tags": [
+                "Frenzy"
+            ]
+        },
+        {
+            "Description": "- Ammo increased from +7 to +9",
+            "Tags": [
+                "Frenzy"
+            ]
+        },
+        {
+            "Description": "- Cooldown reduced from 30s to 24s",
+            "Tags": [
+                "Vampiric Burst"
+            ]
+        },
+        {
+            "Description": "- Max HP Steal duration increased from 12s to 15s",
+            "Tags": [
+                "Siphon Bullets"
+            ]
+        },
+        {
+            "Description": "- Now grants +8% Weapon Damage",
+            "Tags": [
+                "Leech"
+            ]
+        },
+        {
+            "Description": "- Radius increased from 10m to 12m",
+            "Tags": [
+                "Mystic Reverb"
+            ]
+        },
+        {
+            "Description": "- Cooldown reduced from 12s to 8s",
+            "Tags": [
+                "Mystic Reverb"
+            ]
+        }
+    ],
+    "Hero Gameplay": [
+        {
+            "Description": "- Quantum Entanglement is prevented from being cast when Dynamo is rooted or movement-silenced (such as by Slowing Hex)",
+            "Tags": [
+                "Dynamo",
+                "Quantum Entanglement",
+                "Slowing Hex"
+            ]
+        },
+        {
+            "Description": "- Rejuvenating Aurora T3 reduced from +5% to +4%",
+            "Tags": [
+                "Dynamo",
+                "Rejuvenating Aurora"
+            ]
+        },
+        {
+            "Description": "- Bullet Dance T1 increased from +5 Weapon Damage to +6",
+            "Tags": [
+                "Haze",
+                "Bullet Dance"
+            ]
+        },
+        {
+            "Description": "- Fixed various bugs with the fire rate on Bullet Dance (net effect of the bugs was that it often fired a little faster than it was intended to)",
+            "Tags": [
+                "Haze",
+                "Bullet Dance"
+            ]
+        },
+        {
+            "Description": "- Afterburn base dps reduced from 20 to 18",
+            "Tags": [
+                "Infernus",
+                "Afterburn"
+            ]
+        },
+        {
+            "Description": "- Afterburn T3 reduced from +35 to +33",
+            "Tags": [
+                "Infernus",
+                "Afterburn"
+            ]
+        },
+        {
+            "Description": "- Arctic Beam spirit scaling increased from 0.7 to 0.9",
+            "Tags": [
+                "Kelvin",
+                "Arctic Beam"
+            ]
+        },
+        {
+            "Description": "- Arctic Beam cooldown reduced from 25 to 23",
+            "Tags": [
+                "Kelvin",
+                "Arctic Beam"
+            ]
+        },
+        {
+            "Description": "- Ground Strike radius reduced from 14m to 13m",
+            "Tags": [
+                "Lash",
+                "Ground Strike"
+            ]
+        },
+        {
+            "Description": "- Death Slam radius reduced from 20m to 19m",
+            "Tags": [
+                "Lash",
+                "Death Slam"
+            ]
+        },
+        {
+            "Description": "- Fixed her gun having a recent regression that caused it to not have any spread",
+            "Tags": [
+                "McGinnis"
+            ]
+        },
+        {
+            "Description": "- Mini Turret damage reduced by up to 30% at 35m (now has bullet falloff from 20m to 35m)",
+            "Tags": [
+                "McGinnis",
+                "Mini Turret"
+            ]
+        },
+        {
+            "Description": "- Mini Turret deploy time reduced from 2s to 1s",
+            "Tags": [
+                "McGinnis",
+                "Mini Turret"
+            ]
+        },
+        {
+            "Description": "- Mini Turret now shows up on the minimap",
+            "Tags": [
+                "McGinnis",
+                "Mini Turret"
+            ]
+        },
+        {
+            "Description": "- Medicinal Spectre can no longer be attacked",
+            "Tags": [
+                "McGinnis"
+            ]
+        },
+        {
+            "Description": "- Spectral Wall height increased by 2m",
+            "Tags": [
+                "McGinnis",
+                "Spectral Wall"
+            ]
+        },
+        {
+            "Description": "- Spectral Wall slow duration increased from 2s to 2.5s",
+            "Tags": [
+                "McGinnis",
+                "Spectral Wall"
+            ]
+        },
+        {
+            "Description": "- Fixed a bug with Spectral Wall that caused the Rejuvenator to instantly drop",
+            "Tags": [
+                "McGinnis",
+                "Spectral Wall"
+            ]
+        },
+        {
+            "Description": "- Base HP regen increased from 2.5 to 3",
+            "Tags": [
+                "Mo & Krill"
+            ]
+        },
+        {
+            "Description": "- Scorn damage increased from 50 to 60",
+            "Tags": [
+                "Mo & Krill",
+                "Scorn"
+            ]
+        },
+        {
+            "Description": "- Fixed Scorn not healing for more with things like Mystic Burst",
+            "Tags": [
+                "Mo & Krill",
+                "Scorn",
+                "Mystic Burst"
+            ]
+        },
+        {
+            "Description": "- Burrow now destroys breakables in its path",
+            "Tags": [
+                "Mo & Krill",
+                "Burrow"
+            ]
+        },
+        {
+            "Description": "- Fixed Healing Booster not applying to Scorn's 2x heal multiplier on heroes",
+            "Tags": [
+                "Mo & Krill",
+                "Scorn",
+                "Healing Booster"
+            ]
+        },
+        {
+            "Description": "- Added a bonus counter to show how much health has been earned by getting a kill during Combo",
+            "Tags": [
+                "Mo & Krill",
+                "Combo"
+            ]
+        },
+        {
+            "Description": "- Base movement speed reduced from 7 to 6.5",
+            "Tags": [
+                "Paradox"
+            ]
+        },
+        {
+            "Description": "- Kinetic Carbine impact radius reduced by 15%",
+            "Tags": [
+                "Paradox",
+                "Kinetic Carbine"
+            ]
+        },
+        {
+            "Description": "- Kinetic Carbine Max Stop Duration reduced from 0.75 to 0.5",
+            "Tags": [
+                "Paradox",
+                "Kinetic Carbine"
+            ]
+        },
+        {
+            "Description": "- Kinetic Carbine buff duration reduced from 6 to 4",
+            "Tags": [
+                "Paradox",
+                "Kinetic Carbine"
+            ]
+        },
+        {
+            "Description": "- Kinetic Carbine T1 increased from +0.5s Max Stop Duration to +0.75",
+            "Tags": [
+                "Paradox",
+                "Kinetic Carbine"
+            ]
+        },
+        {
+            "Description": "- Kinetic Carbine T2 now also increases buff by +2s",
+            "Tags": [
+                "Paradox",
+                "Kinetic Carbine"
+            ]
+        },
+        {
+            "Description": "- Paradoxical Swap range reduced from 35m to 30m",
+            "Tags": [
+                "Paradox",
+                "Paradoxical Swap"
+            ]
+        },
+        {
+            "Description": "- Enchanter's Satchel can now be canceled by shooting",
+            "Tags": [
+                "Pocket",
+                "Enchanter's Satchel"
+            ]
+        },
+        {
+            "Description": "- Fixed Return Fire working with Power Surge",
+            "Tags": [
+                "Seven",
+                "Power Surge",
+                "Return Fire"
+            ]
+        },
+        {
+            "Description": "- No longer has base +15% Spirit Resistance",
+            "Tags": [
+                "Seven"
+            ]
+        },
+        {
+            "Description": "- Now has base +20% Bullet Resistance",
+            "Tags": [
+                "Seven"
+            ]
+        },
+        {
+            "Description": "- Base health regen reduced from 2 to 1",
+            "Tags": [
+                "Seven"
+            ]
+        },
+        {
+            "Description": "- Static Charge T1 improved from -15s Cooldown to -20s",
+            "Tags": [
+                "Seven",
+                "Static Charge"
+            ]
+        },
+        {
+            "Description": "- Base movement speed increased from 7 to 8",
+            "Tags": [
+                "Vindicta"
+            ]
+        },
+        {
+            "Description": "- Fixed Crow Familiar T1 only bouncing to 1 additional target instead of 2",
+            "Tags": [
+                "Vindicta",
+                "Crow Familiar"
+            ]
+        },
+        {
+            "Description": "- Assassinate zoom level is reduced a bit",
+            "Tags": [
+                "Vindicta",
+                "Assassinate"
+            ]
+        },
+        {
+            "Description": "- Willpower no longer loses movement speed when the shield is depleted",
+            "Tags": [
+                "Warden",
+                "Willpower"
+            ]
+        },
+        {
+            "Description": "- Willpower duration reduced from 8s to 7s",
+            "Tags": [
+                "Warden",
+                "Willpower"
+            ]
+        },
+        {
+            "Description": "- The Royal Flush ability has been replaced with Card Trick. Card Trick enables Wraith's weapon damage to summon playing cards. Activating the ability throws one of the cards, which will fly towards the enemy or point under the crosshair and explode on impact.",
+            "Tags": [
+                "Wraith",
+                "Card Trick"
+            ]
+        },
+        {
+            "Description": "- Power Slash damage reduced from 175 to 170",
+            "Tags": [
+                "Yamato",
+                "Power Slash"
+            ]
+        },
+        {
+            "Description": "- Can now cancel Flying Strike",
+            "Tags": [
+                "Yamato",
+                "Flying Strike"
+            ]
+        },
+        {
+            "Description": "- Shadow Transformation damage and debuff resistance reduced from 80% to 70%",
+            "Tags": [
+                "Yamato",
+                "Shadow Transformation"
+            ]
+        },
+        {
+            "Description": "- Shadow Transformation duration increased from 4.5s to 5s",
+            "Tags": [
+                "Yamato",
+                "Shadow Transformation"
+            ]
+        }
+    ]
 }
