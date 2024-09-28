@@ -97,7 +97,8 @@ class ChangelogParser:
 
                         # Check if the resource's english name or key is referenced in the log
                         # english name matching: i.e. "Essence Bomb" and "Essence Bomb"
-                        # key matching: i.e. "Blood Bomb" in log; "ability_blood_bomb" is the resource key,
+                        # key matching: i.e. "Blood Bomb" in log; 
+                        # "ability_blood_bomb" is the resource key,
                         # "Essence Bomb" is the english name
                         # this captures it being referenced
                         resource_found = False
@@ -109,14 +110,16 @@ class ChangelogParser:
                             log_flattened = log.lower().replace(' ', '')
 
                             # ability_blood_bomb to bloodbomb
-                            resource_key_flattened = resource_key.replace('ability_', '').replace(
+                            resource_key_flattened = resource_key.replace(
+                                'ability_', '').replace(
                                 '_', ''
                             )
 
                             if resource_key_flattened in log_flattened:
                                 # ability_blood_bomb to Blood Bomb
                                 resource_name = (
-                                    resource_key.replace('ability_', '').replace('_', ' ').title()
+                                    resource_key.replace('ability_', '').replace(
+                                        '_', ' ').title()
                                 )
                                 resource_found = True
 
@@ -125,7 +128,8 @@ class ChangelogParser:
 
                         # Retrieve the resource's type
                         resource_type = resource['Type']
-                        resource_type_singular = self.resource_type_to_template_map[resource_type]
+                        resource_type_singular = self.resource_type_to_template_map[
+                            resource_type]
                         # "Ability" type to "AbilityIcon" template
                         template = resource_type_singular + 'Icon'
 
