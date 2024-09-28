@@ -53,7 +53,7 @@ def _replace_variables(desc, data):
             return value
         return f'UNKNOWN[{key}]'
 
-    formatted_desc = re.sub(r'\{s:(.*?)\}', replace_match, desc)
+    formatted_desc = re.sub(r'\[?\{s:(.*?)\}\]?', replace_match, desc)
     return formatted_desc
 
 
