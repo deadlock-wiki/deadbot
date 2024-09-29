@@ -95,12 +95,6 @@
             ]
         },
         {
-            "Description": "- Fixed {{ItemIcon|Majestic Leap}} Majestic Leap buff sticking around after attaching to zipline (caused audio bugs as well)",
-            "Tags": [
-                "Majestic Leap"
-            ]
-        },
-        {
             "Description": "- Bonus health reduced from +50 to +40",
             "Tags": [
                 "Headshot Booster"
@@ -298,12 +292,6 @@
             "Description": "- Health increased from 225 to 250",
             "Tags": [
                 "Fortitude"
-            ]
-        },
-        {
-            "Description": "- Added a brief period before you can press the hotkey again to prevent accidental uses of drop down",
-            "Tags": [
-                "Majestic Leap"
             ]
         },
         {
@@ -508,10 +496,9 @@
             ]
         },
         {
-            "Description": "- {{AbilityIcon|Infernal Resilience}} Infernal Resilience now provides +1 {{AbilityIcon|Health Regen}} Health Regen",
+            "Description": "- {{AbilityIcon|Infernal Resilience}} Infernal Resilience now provides +1 Health Regen",
             "Tags": [
                 "Abrams",
-                "Health Regen",
                 "Infernal Resilience"
             ]
         },
@@ -868,6 +855,12 @@
             ]
         },
         {
+            "Description": "- Fixed Majestic Leap buff sticking around after attaching to zipline (caused audio bugs as well)",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
             "Description": "- Fixed Soul Urn walking back while the game is paused",
             "Tags": [
                 "General"
@@ -1166,7 +1159,14 @@
             ]
         }
     ],
-    "Vitality Items": [],
+    "Vitality Items": [
+        {
+            "Description": "- Majestic Leap: Added a brief period before you can press the hotkey again to prevent accidental uses of drop down",
+            "Tags": [
+                "General"
+            ]
+        }
+    ],
     "Spirit Items": [],
     "Hero Gameplay": []
 }

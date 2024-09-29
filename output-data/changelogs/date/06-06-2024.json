@@ -58,30 +58,6 @@
     ],
     "Items": [
         {
-            "Description": "- {{ItemIcon|Fire Rate}} Fire Rate powerup reduced from +20% to +15%",
-            "Tags": [
-                "Fire Rate"
-            ]
-        },
-        {
-            "Description": "- {{ItemIcon|Fire Rate}} Fire Rate powerup duration increased from 25s to 35s",
-            "Tags": [
-                "Fire Rate"
-            ]
-        },
-        {
-            "Description": "- {{ItemIcon|Health Regen}} Health Regen powerup regen reduced from 1.5% to 1%",
-            "Tags": [
-                "Health Regen"
-            ]
-        },
-        {
-            "Description": "- {{ItemIcon|Health Regen}} Health Regen powerup duration increased from 15s to 25s",
-            "Tags": [
-                "Health Regen"
-            ]
-        },
-        {
             "Description": "- {{ItemIcon|Extra Stamina}} Extra Stamina powerup duration increased from 60s to 80s",
             "Tags": [
                 "Extra Stamina"
@@ -188,12 +164,6 @@
             "Description": "- Time for Max Damage reduced from 4s to 3.5s",
             "Tags": [
                 "Intensifying Magazine"
-            ]
-        },
-        {
-            "Description": "- Velocity increased from 22.5 to 27",
-            "Tags": [
-                "Majestic Leap"
             ]
         },
         {
@@ -397,10 +367,9 @@
             ]
         },
         {
-            "Description": "- {{AbilityIcon|Smoke}} {{AbilityIcon|Smoke Bomb}} Smoke Bomb sprint speed now instantly kicks in after casting it",
+            "Description": "- {{AbilityIcon|Smoke Bomb}} Smoke Bomb sprint speed now instantly kicks in after casting it",
             "Tags": [
                 "Haze",
-                "Smoke",
                 "Smoke Bomb"
             ]
         },
@@ -461,10 +430,9 @@
             ]
         },
         {
-            "Description": "- {{AbilityIcon|Frozen Shelter}} Frozen Shelter T3 changed to +70 {{AbilityIcon|Health Regen}} Health Regen that scales with Spirit",
+            "Description": "- {{AbilityIcon|Frozen Shelter}} Frozen Shelter T3 changed to +70 Health Regen that scales with Spirit",
             "Tags": [
                 "Kelvin",
-                "Health Regen",
                 "Frozen Shelter"
             ]
         },
@@ -553,10 +521,9 @@
             ]
         },
         {
-            "Description": "- {{AbilityIcon|Alchemical Flask}} Alchemical Flask T3 increased from +25% {{AbilityIcon|Fire Rate}} Fire Rate Slow to +35%",
+            "Description": "- {{AbilityIcon|Alchemical Flask}} Alchemical Flask T3 increased from +25% Fire Rate Slow to +35%",
             "Tags": [
                 "Warden",
-                "Fire Rate",
                 "Alchemical Flask"
             ]
         },
@@ -884,6 +851,30 @@
             ]
         },
         {
+            "Description": "- Fire Rate powerup reduced from +20% to +15%",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Fire Rate powerup duration increased from 25s to 35s",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Health Regen powerup regen reduced from 1.5% to 1%",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Health Regen powerup duration increased from 15s to 25s",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
             "Description": "- Cooldown Reduction powerup reduced from 25% to 20%",
             "Tags": [
                 "General"
@@ -923,6 +914,12 @@
         },
         {
             "Description": "- Shifting Shroud: Bonus spirit duration increased from 6s to 10s",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Majestic Leap: Velocity increased from 22.5 to 27",
             "Tags": [
                 "General"
             ]

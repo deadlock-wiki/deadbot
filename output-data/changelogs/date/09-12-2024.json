@@ -226,12 +226,6 @@
             ]
         },
         {
-            "Description": "- Added {{ItemIcon|Rebirth}} Rebirth channel and revive sounds",
-            "Tags": [
-                "Rebirth"
-            ]
-        },
-        {
             "Description": "- Added {{ItemIcon|Infuser}} Infuser cast sound",
             "Tags": [
                 "Infuser"
@@ -262,9 +256,8 @@
             ]
         },
         {
-            "Description": "- {{ItemIcon|Fire Rate}} Fire Rate reduced from 12% to 9%",
+            "Description": "- Fire Rate reduced from 12% to 9%",
             "Tags": [
-                "Fire Rate",
                 "Rapid Rounds"
             ]
         },
@@ -500,12 +493,6 @@
             ]
         },
         {
-            "Description": "- Cooldown reduced from 24s to 22s",
-            "Tags": [
-                "Majestic Leap"
-            ]
-        },
-        {
             "Description": "- Cooldown reduced from 22s to 20s",
             "Tags": [
                 "Metal Skin"
@@ -539,20 +526,6 @@
             "Description": "- Spirit Power scaling reduced from 2 to 1",
             "Tags": [
                 "Phantom Strike"
-            ]
-        },
-        {
-            "Description": "- No longer grants 20% Weapon Damage",
-            "Tags": [
-                "Rebirth",
-                "Soul Rebirth"
-            ]
-        },
-        {
-            "Description": "- Cooldown Reduction reduced from 18% to 15%",
-            "Tags": [
-                "Rebirth",
-                "Soul Rebirth"
             ]
         },
         {
@@ -616,9 +589,8 @@
             ]
         },
         {
-            "Description": "- {{ItemIcon|Fire Rate}} Fire Rate slow increased from 30% to 40%",
+            "Description": "- Fire Rate slow increased from 30% to 40%",
             "Tags": [
-                "Fire Rate",
                 "Withering Whip"
             ]
         },
@@ -635,9 +607,8 @@
             ]
         },
         {
-            "Description": "- Imbued ability now grants +10% {{ItemIcon|Fire Rate}} Fire Rate when used (same 6s duration as the movespeed buff)",
+            "Description": "- Imbued ability now grants +10% Fire Rate when used (same 6s duration as the movespeed buff)",
             "Tags": [
-                "Fire Rate",
                 "Surge of Power"
             ]
         },
@@ -1592,6 +1563,12 @@
             ]
         },
         {
+            "Description": "- Added Rebirth channel and revive sounds",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
             "Description": "- Audio bug fixes related to switching spectating targets",
             "Tags": [
                 "General"
@@ -1740,7 +1717,26 @@
             ]
         }
     ],
-    "Vitality Items": [],
+    "Vitality Items": [
+        {
+            "Description": "- Majestic Leap: Cooldown reduced from 24s to 22s",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Soul Rebirth: No longer grants 20% Weapon Damage",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Soul Rebirth: Cooldown Reduction reduced from 18% to 15%",
+            "Tags": [
+                "General"
+            ]
+        }
+    ],
     "Spirit Items": [],
     "Map": [
         {

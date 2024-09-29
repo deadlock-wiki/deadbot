@@ -167,16 +167,14 @@
             ]
         },
         {
-            "Description": "- {{ItemIcon|Fire Rate}} Fire Rate reduced from 6% to 5%",
+            "Description": "- Fire Rate reduced from 6% to 5%",
             "Tags": [
-                "Fire Rate",
                 "Headshot Booster"
             ]
         },
         {
-            "Description": "- {{ItemIcon|Rapid Rounds}} Rapid Rounds (new T1 Weapon item): +12% {{ItemIcon|Fire Rate}} Fire Rate, +1 Sprint, -40 HP",
+            "Description": "- {{ItemIcon|Rapid Rounds}} Rapid Rounds (new T1 Weapon item): +12% Fire Rate, +1 Sprint, -40 HP",
             "Tags": [
-                "Fire Rate",
                 "Rapid Rounds"
             ]
         },
@@ -313,9 +311,8 @@
             ]
         },
         {
-            "Description": "- {{ItemIcon|Fire Rate}} Fire Rate reduced from 8% to 7%",
+            "Description": "- Fire Rate reduced from 8% to 7%",
             "Tags": [
-                "Fire Rate",
                 "Extra Stamina"
             ]
         },
@@ -434,12 +431,6 @@
             ]
         },
         {
-            "Description": "- Health increased from +75 to +100",
-            "Tags": [
-                "Majestic Leap"
-            ]
-        },
-        {
             "Description": "- Works against creeps for 25% effectiveness",
             "Tags": [
                 "Lifestrike"
@@ -497,13 +488,6 @@
             "Description": "- Now disarms the enemy for the slow duration (3s)",
             "Tags": [
                 "Phantom Strike"
-            ]
-        },
-        {
-            "Description": "- Soul {{ItemIcon|Rebirth}} Rebirth (new T4 Vitality item): After you die, you will respawn in 4 seconds where you died with 40% of your Max Health. Cooldown: 220s. Also innately grants +20% Weapon Damage and +10% Cooldown Reduction.",
-            "Tags": [
-                "Rebirth",
-                "Soul Rebirth"
             ]
         },
         {
@@ -1313,7 +1297,20 @@
         }
     ],
     "Weapon Items": [],
-    "Vitality Items": [],
+    "Vitality Items": [
+        {
+            "Description": "- Majestic Leap: Health increased from +75 to +100",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Soul Rebirth (new T4 Vitality item): After you die, you will respawn in 4 seconds where you died with 40% of your Max Health. Cooldown: 220s. Also innately grants +20% Weapon Damage and +10% Cooldown Reduction.",
+            "Tags": [
+                "General"
+            ]
+        }
+    ],
     "Spirit Items": [],
     "Hero Gameplay": []
 }

@@ -20,6 +20,12 @@
             ]
         },
         {
+            "Description": "- Fire Rate now scales with Spirit (0.25)",
+            "Tags": [
+                "Grey Talon"
+            ]
+        },
+        {
             "Description": "- Can now use multiple air dashes while using Rain of Fire",
             "Tags": [
                 "Grey Talon"
@@ -102,6 +108,12 @@
             "Tags": [
                 "Warden"
             ]
+        },
+        {
+            "Description": "- Fire Rate scaling with spirit reduced from 0.375 Fire Rate per Spirit to 0.3",
+            "Tags": [
+                "Warden"
+            ]
         }
     ],
     "Items": [
@@ -133,12 +145,6 @@
             "Description": "- Added {{ItemIcon|Decay}} Decay impact sound",
             "Tags": [
                 "Decay"
-            ]
-        },
-        {
-            "Description": "- Updated {{ItemIcon|Majestic Leap}} Majestic Leap sound",
-            "Tags": [
-                "Majestic Leap"
             ]
         },
         {
@@ -178,9 +184,8 @@
             ]
         },
         {
-            "Description": "- Active {{ItemIcon|Fire Rate}} Fire Rate reduced from 30% to 25%",
+            "Description": "- Active Fire Rate reduced from 30% to 25%",
             "Tags": [
-                "Fire Rate",
                 "Kinetic Dash"
             ]
         },
@@ -339,9 +344,8 @@
             ]
         },
         {
-            "Description": "- No longer grants +1.5 {{ItemIcon|Health Regen}} Health Regen",
+            "Description": "- No longer grants +1.5 Health Regen",
             "Tags": [
-                "Health Regen",
                 "Divine Barrier"
             ]
         },
@@ -364,9 +368,8 @@
             ]
         },
         {
-            "Description": "- Now also grants +8% {{ItemIcon|Fire Rate}} Fire Rate while active",
+            "Description": "- Now also grants +8% Fire Rate while active",
             "Tags": [
-                "Fire Rate",
                 "Combat Barrier"
             ]
         },
@@ -426,12 +429,6 @@
             ]
         },
         {
-            "Description": "- Cooldown reduced from 26s to 24s",
-            "Tags": [
-                "Majestic Leap"
-            ]
-        },
-        {
             "Description": "- No longer has 30% Heal Reduction Resist",
             "Tags": [
                 "Leech"
@@ -447,34 +444,6 @@
             "Description": "- Cooldown reduced from 65s to 60s",
             "Tags": [
                 "Unstoppable"
-            ]
-        },
-        {
-            "Description": "- Cooldown reduction increased from +15% to +18%",
-            "Tags": [
-                "Rebirth",
-                "Soul Rebirth"
-            ]
-        },
-        {
-            "Description": "- Now grants +12 Spirit",
-            "Tags": [
-                "Rebirth",
-                "Soul Rebirth"
-            ]
-        },
-        {
-            "Description": "- Fixed being able to purchase globally during its brief respawn period",
-            "Tags": [
-                "Rebirth",
-                "Soul Rebirth"
-            ]
-        },
-        {
-            "Description": "- Fixed the camera moving away from the player if you will respawn, rather than following the ragdoll",
-            "Tags": [
-                "Rebirth",
-                "Soul Rebirth"
             ]
         },
         {
@@ -538,16 +507,14 @@
             ]
         },
         {
-            "Description": "- Now grants +8% {{ItemIcon|Fire Rate}} Fire Rate",
+            "Description": "- Now grants +8% Fire Rate",
             "Tags": [
-                "Fire Rate",
                 "Withering Whip"
             ]
         },
         {
-            "Description": "- {{ItemIcon|Fire Rate}} Fire Rate slow reduced from -40% to -30%",
+            "Description": "- Fire Rate slow reduced from -40% to -30%",
             "Tags": [
-                "Fire Rate",
                 "Withering Whip"
             ]
         },
@@ -564,9 +531,8 @@
             ]
         },
         {
-            "Description": "- {{ItemIcon|Fire Rate}} Fire Rate reduction reduced from -30% to -25%",
+            "Description": "- Fire Rate reduction reduced from -30% to -25%",
             "Tags": [
-                "Fire Rate",
                 "Suppressor"
             ]
         },
@@ -637,9 +603,8 @@
             ]
         },
         {
-            "Description": "- {{ItemIcon|Imbued Ability}} Imbued Ability Spirit Power increased from +28 to +34",
+            "Description": "- Imbued Ability Spirit Power increased from +28 to +34",
             "Tags": [
-                "Imbued Ability",
                 "Surge of Power"
             ]
         },
@@ -650,9 +615,8 @@
             ]
         },
         {
-            "Description": "- {{ItemIcon|Health Regen}} Health Regen increased from 2 to 3",
+            "Description": "- Health Regen increased from 2 to 3",
             "Tags": [
-                "Health Regen",
                 "Improved Spirit"
             ]
         },
@@ -720,20 +684,6 @@
             "Description": "- Now grants +25% Weapon Damage",
             "Tags": [
                 "Boundless Spirit"
-            ]
-        },
-        {
-            "Description": "- {{ItemIcon|Fire Rate}} Fire Rate now scales with Spirit (0.25)",
-            "Tags": [
-                "Grey Talon",
-                "Fire Rate"
-            ]
-        },
-        {
-            "Description": "- {{ItemIcon|Fire Rate}} Fire Rate scaling with spirit reduced from 0.375 {{ItemIcon|Fire Rate}} Fire Rate per Spirit to 0.3",
-            "Tags": [
-                "Warden",
-                "Fire Rate"
             ]
         }
     ],
@@ -919,10 +869,9 @@
             ]
         },
         {
-            "Description": "- {{AbilityIcon|Smoke}} {{AbilityIcon|Smoke Bomb}} Smoke Bomb radius reduced from 20m to 18m",
+            "Description": "- {{AbilityIcon|Smoke Bomb}} Smoke Bomb radius reduced from 20m to 18m",
             "Tags": [
                 "Haze",
-                "Smoke",
                 "Smoke Bomb"
             ]
         },
@@ -1578,6 +1527,12 @@
             ]
         },
         {
+            "Description": "- Updated Majestic Leap sound",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
             "Description": "- Updated bounce pad sound",
             "Tags": [
                 "General"
@@ -1867,6 +1822,36 @@
     "Vitality Items": [
         {
             "Description": "- Enchanter's Barrer: Now also grants +8% Cooldown Reduction while active",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Majestic Leap: Cooldown reduced from 26s to 24s",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Soul Rebirth: Cooldown reduction increased from +15% to +18%",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Soul Rebirth: Now grants +12 Spirit",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Soul Rebirth: Fixed being able to purchase globally during its brief respawn period",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Soul Rebirth: Fixed the camera moving away from the player if you will respawn, rather than following the ragdoll",
             "Tags": [
                 "General"
             ]

@@ -124,12 +124,6 @@
     ],
     "Items": [
         {
-            "Description": "- Reworked the invite system in the client to streamline the process. Emails are no longer required, the users will now receive access directly through Steam and {{ItemIcon|Discord}} Discord/Forum access will be available through the client. The UI will now also group users into three categories: available to invite, already invited, and already have access. This new system will result in less invitations stuck in limbo, and any previous invites that have not already claimed the game will be granted through this system as well.",
-            "Tags": [
-                "Discord"
-            ]
-        },
-        {
             "Description": "- Bonus damage reduced from 25% to 20%",
             "Tags": [
                 "Hollow Point Ward"
@@ -227,9 +221,8 @@
             ]
         },
         {
-            "Description": "- Now gives +8% {{ItemIcon|Fire Rate}} Fire Rate",
+            "Description": "- Now gives +8% Fire Rate",
             "Tags": [
-                "Fire Rate",
                 "Ricochet"
             ]
         },
@@ -361,9 +354,8 @@
             ]
         },
         {
-            "Description": "- {{ItemIcon|Fire Rate}} Fire Rate reduced from 15% to 10%",
+            "Description": "- Fire Rate reduced from 15% to 10%",
             "Tags": [
-                "Fire Rate",
                 "Superior Stamina"
             ]
         },
@@ -371,13 +363,6 @@
             "Description": "- Bonus HP increased from 500 to 600",
             "Tags": [
                 "Colossus"
-            ]
-        },
-        {
-            "Description": "- Cooldown reduction increased from 10% to 15%",
-            "Tags": [
-                "Rebirth",
-                "Soul Rebirth"
             ]
         },
         {
@@ -667,10 +652,9 @@
             ]
         },
         {
-            "Description": "- Can now cast {{AbilityIcon|Smoke}} {{AbilityIcon|Smoke Bomb}} Smoke Bomb while on zipline",
+            "Description": "- Can now cast {{AbilityIcon|Smoke Bomb}} Smoke Bomb while on zipline",
             "Tags": [
                 "Haze",
-                "Smoke",
                 "Smoke Bomb"
             ]
         },
@@ -810,10 +794,9 @@
             ]
         },
         {
-            "Description": "- {{AbilityIcon|Enchanter's Satchel}} Enchanter's Satchel T3 changed from Disarms for 2.5s to Applies -40% {{AbilityIcon|Fire Rate}} Fire Rate for 4s",
+            "Description": "- {{AbilityIcon|Enchanter's Satchel}} Enchanter's Satchel T3 changed from Disarms for 2.5s to Applies -40% Fire Rate for 4s",
             "Tags": [
                 "Pocket",
-                "Fire Rate",
                 "Enchanter's Satchel"
             ]
         },
@@ -918,6 +901,12 @@
         },
         {
             "Description": "- When using the underground tunnels, the primary minimap fades out and an underground map for that area shows you your path and the exit locations.",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Reworked the invite system in the client to streamline the process. Emails are no longer required, the users will now receive access directly through Steam and Discord/Forum access will be available through the client. The UI will now also group users into three categories: available to invite, already invited, and already have access. This new system will result in less invitations stuck in limbo, and any previous invites that have not already claimed the game will be granted through this system as well.",
             "Tags": [
                 "General"
             ]
@@ -1316,7 +1305,14 @@
         }
     ],
     "Weapon Items": [],
-    "Vitality Items": [],
+    "Vitality Items": [
+        {
+            "Description": "- Soul Rebirth: Cooldown reduction increased from 10% to 15%",
+            "Tags": [
+                "General"
+            ]
+        }
+    ],
     "Spirit Items": [
         {
             "Description": "- Torment: Now has a regular cooldown that is reduced by cooldown reduction",

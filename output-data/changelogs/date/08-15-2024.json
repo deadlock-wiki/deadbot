@@ -187,10 +187,9 @@
             ]
         },
         {
-            "Description": "- {{ItemIcon|Fire Rate}} Fire Rate reduced from 24% to 20%",
+            "Description": "- Fire Rate reduced from 24% to 20%",
             "Tags": [
-                "Active Reload",
-                "Fire Rate"
+                "Active Reload"
             ]
         },
         {
@@ -309,9 +308,8 @@
             ]
         },
         {
-            "Description": "- {{ItemIcon|Fire Rate}} Fire Rate increased from +8% to +12%",
+            "Description": "- Fire Rate increased from +8% to +12%",
             "Tags": [
-                "Fire Rate",
                 "Ricochet"
             ]
         },
@@ -460,9 +458,8 @@
             ]
         },
         {
-            "Description": "- {{ItemIcon|Fire Rate}} Fire Rate reduced from 10% to 7%",
+            "Description": "- Fire Rate reduced from 10% to 7%",
             "Tags": [
-                "Fire Rate",
                 "Superior Stamina"
             ]
         },
@@ -485,18 +482,6 @@
             ]
         },
         {
-            "Description": "- Health increased from +100 to +125",
-            "Tags": [
-                "Majestic Leap"
-            ]
-        },
-        {
-            "Description": "- Spirit Power increased from +8 to +10",
-            "Tags": [
-                "Majestic Leap"
-            ]
-        },
-        {
             "Description": "- Cooldown reduced from 30s to 25s",
             "Tags": [
                 "Metal Skin"
@@ -512,20 +497,6 @@
             "Description": "- Cooldown reduced from 30s to 25s",
             "Tags": [
                 "Rescue Beam"
-            ]
-        },
-        {
-            "Description": "- {{ItemIcon|Rebirth}} Rebirth Health increased from 40% to 50%",
-            "Tags": [
-                "Rebirth",
-                "Soul Rebirth"
-            ]
-        },
-        {
-            "Description": "- Cooldown reduced from 240s to 200s",
-            "Tags": [
-                "Rebirth",
-                "Soul Rebirth"
             ]
         },
         {
@@ -649,9 +620,8 @@
             ]
         },
         {
-            "Description": "- Now applies -40% {{ItemIcon|Fire Rate}} Fire Rate instead of a Disarm",
+            "Description": "- Now applies -40% Fire Rate instead of a Disarm",
             "Tags": [
-                "Fire Rate",
                 "Withering Whip"
             ]
         },
@@ -680,9 +650,8 @@
             ]
         },
         {
-            "Description": "- No longer provides +10% {{ItemIcon|Fire Rate}} Fire Rate",
+            "Description": "- No longer provides +10% Fire Rate",
             "Tags": [
-                "Fire Rate",
                 "Ethereal Shift"
             ]
         },
@@ -729,9 +698,8 @@
             ]
         },
         {
-            "Description": "- {{ItemIcon|Fire Rate}} Fire Rate reduction increased from -30% to -40%",
+            "Description": "- Fire Rate reduction increased from -30% to -40%",
             "Tags": [
-                "Fire Rate",
                 "Mystic Slow"
             ]
         },
@@ -826,18 +794,16 @@
             ]
         },
         {
-            "Description": "- Updated {{AbilityIcon|Haze}} Haze {{AbilityIcon|Smoke}} {{AbilityIcon|Smoke Bomb}} Smoke Bomb sound",
+            "Description": "- Updated {{AbilityIcon|Haze}} Haze {{AbilityIcon|Smoke Bomb}} Smoke Bomb sound",
             "Tags": [
                 "Haze",
-                "Smoke",
                 "Smoke Bomb"
             ]
         },
         {
-            "Description": "- Removed {{AbilityIcon|Haze}} Haze {{AbilityIcon|Smoke}} {{AbilityIcon|Smoke Bomb}} Smoke Bomb voice line for everyone except the casting player and spectators",
+            "Description": "- Removed {{AbilityIcon|Haze}} Haze {{AbilityIcon|Smoke Bomb}} Smoke Bomb voice line for everyone except the casting player and spectators",
             "Tags": [
                 "Haze",
-                "Smoke",
                 "Smoke Bomb"
             ]
         },
@@ -1101,10 +1067,9 @@
             ]
         },
         {
-            "Description": "- {{AbilityIcon|Watcher's Covenant}} Watcher's Covenant T1 reduced from +15% {{AbilityIcon|Fire Rate}} Fire Rate to +10%",
+            "Description": "- {{AbilityIcon|Watcher's Covenant}} Watcher's Covenant T1 reduced from +15% Fire Rate to +10%",
             "Tags": [
                 "Ivy",
-                "Fire Rate",
                 "Watcher's Covenant"
             ]
         },
@@ -1123,10 +1088,9 @@
             ]
         },
         {
-            "Description": "- {{AbilityIcon|Arctic Beam}} Arctic Beam now slows {{AbilityIcon|Fire Rate}} Fire Rate (same values as slow)",
+            "Description": "- {{AbilityIcon|Arctic Beam}} Arctic Beam now slows Fire Rate (same values as slow)",
             "Tags": [
                 "Kelvin",
-                "Fire Rate",
                 "Arctic Beam"
             ]
         },
@@ -1160,10 +1124,9 @@
             ]
         },
         {
-            "Description": "- {{AbilityIcon|Flog}} Flog T3 now also reduces {{AbilityIcon|Fire Rate}} Fire Rate by 35%",
+            "Description": "- {{AbilityIcon|Flog}} Flog T3 now also reduces Fire Rate by 35%",
             "Tags": [
                 "Lash",
-                "Fire Rate",
                 "Flog"
             ]
         },
@@ -2022,7 +1985,32 @@
         }
     ],
     "Weapon Items": [],
-    "Vitality Items": [],
+    "Vitality Items": [
+        {
+            "Description": "- Majestic Leap: Health increased from +100 to +125",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Majestic Leap: Spirit Power increased from +8 to +10",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Soul Rebirth: Rebirth Health increased from 40% to 50%",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Soul Rebirth: Cooldown reduced from 240s to 200s",
+            "Tags": [
+                "General"
+            ]
+        }
+    ],
     "Spirit Items": [],
     "New Items": [
         {

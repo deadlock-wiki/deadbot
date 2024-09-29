@@ -9,6 +9,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import utils.json_utils as json_utils
 
 from .constants import OUTPUT_DIR
+from .items import ItemParser
 
 
 class ChangelogParser:
@@ -65,6 +66,10 @@ class ChangelogParser:
                 resource_name = resource['Name']
 
                 if resource_name is None:
+                    continue
+
+                # Skip disabled items
+                if resource_type == 'Items' and not ItemParser._is_enabled(resource):
                     continue
 
                 # Determine if the line is about this resource

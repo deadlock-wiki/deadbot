@@ -171,12 +171,6 @@
             ]
         },
         {
-            "Description": "- {{ItemIcon|Fire Rate}} Fire Rate slows now stack diminishingly",
-            "Tags": [
-                "Fire Rate"
-            ]
-        },
-        {
             "Description": "- Bullet Resist vs NPCs reduced from 35% to 30%",
             "Tags": [
                 "Monster Rounds"
@@ -201,23 +195,20 @@
             ]
         },
         {
-            "Description": "- {{ItemIcon|Fire Rate}} Fire Rate reduced from +5% to +4%",
+            "Description": "- Fire Rate reduced from +5% to +4%",
             "Tags": [
-                "Fire Rate",
                 "Headshot Booster"
             ]
         },
         {
-            "Description": "- {{ItemIcon|Fire Rate}} Fire Rate reduced from 25% to 20%",
+            "Description": "- Fire Rate reduced from 25% to 20%",
             "Tags": [
-                "Fire Rate",
                 "Kinetic Dash"
             ]
         },
         {
-            "Description": "- {{ItemIcon|Fire Rate}} Fire Rate max duration reduced from 8s to 7s",
+            "Description": "- Fire Rate max duration reduced from 8s to 7s",
             "Tags": [
-                "Fire Rate",
                 "Kinetic Dash"
             ]
         },
@@ -252,9 +243,8 @@
             ]
         },
         {
-            "Description": "- {{ItemIcon|Fire Rate}} Fire Rate reduced from 14% to 12%",
+            "Description": "- Fire Rate reduced from 14% to 12%",
             "Tags": [
-                "Fire Rate",
                 "Escalating Resilience"
             ]
         },
@@ -272,9 +262,8 @@
             ]
         },
         {
-            "Description": "- Now grants +5% {{ItemIcon|Fire Rate}} Fire Rate",
+            "Description": "- Now grants +5% Fire Rate",
             "Tags": [
-                "Fire Rate",
                 "Headhunter"
             ]
         },
@@ -328,9 +317,8 @@
             ]
         },
         {
-            "Description": "- {{ItemIcon|Fire Rate}} Fire Rate reduced from 12% to 10%",
+            "Description": "- Fire Rate reduced from 12% to 10%",
             "Tags": [
-                "Fire Rate",
                 "Ricochet"
             ]
         },
@@ -383,9 +371,8 @@
             ]
         },
         {
-            "Description": "- {{ItemIcon|Fire Rate}} Fire Rate while shielded reduced from 8% to 6%",
+            "Description": "- Fire Rate while shielded reduced from 8% to 6%",
             "Tags": [
-                "Fire Rate",
                 "Combat Barrier"
             ]
         },
@@ -420,9 +407,8 @@
             ]
         },
         {
-            "Description": "- No longer grants +7% {{ItemIcon|Fire Rate}} Fire Rate",
+            "Description": "- No longer grants +7% Fire Rate",
             "Tags": [
-                "Fire Rate",
                 "Return Fire"
             ]
         },
@@ -446,9 +432,8 @@
             ]
         },
         {
-            "Description": "- No longer grants +20% {{ItemIcon|Fire Rate}} Fire Rate",
+            "Description": "- No longer grants +20% Fire Rate",
             "Tags": [
-                "Fire Rate",
                 "Veil Walker"
             ]
         },
@@ -456,7 +441,6 @@
             "Description": "- Bullet Resist increased from 45% to 50%",
             "Tags": [
                 "Bullet Armor",
-                "Improved Bullet Armor",
                 "Improved Bullet Armor"
             ]
         },
@@ -509,13 +493,6 @@
             ]
         },
         {
-            "Description": "- Increases base respawn rate by +15s",
-            "Tags": [
-                "Rebirth",
-                "Soul Rebirth"
-            ]
-        },
-        {
             "Description": "- Can no longer be cast during channels",
             "Tags": [
                 "Unstoppable"
@@ -546,10 +523,9 @@
             ]
         },
         {
-            "Description": "- No longer grants +0.8 {{ItemIcon|Health Regen}} Health Regen",
+            "Description": "- No longer grants +0.8 Health Regen",
             "Tags": [
-                "Spirit Strike",
-                "Health Regen"
+                "Spirit Strike"
             ]
         },
         {
@@ -565,9 +541,8 @@
             ]
         },
         {
-            "Description": "- No longer grants +8% {{ItemIcon|Fire Rate}} Fire Rate",
+            "Description": "- No longer grants +8% Fire Rate",
             "Tags": [
-                "Fire Rate",
                 "Withering Whip"
             ]
         },
@@ -590,9 +565,8 @@
             ]
         },
         {
-            "Description": "- {{ItemIcon|Fire Rate}} Fire Rate slow increased from 40% to 45%",
+            "Description": "- Fire Rate slow increased from 40% to 45%",
             "Tags": [
-                "Fire Rate",
                 "Withering Whip"
             ]
         },
@@ -863,10 +837,9 @@
             ]
         },
         {
-            "Description": "- Fixed refresher not working properly with {{AbilityIcon|Smoke}} {{AbilityIcon|Smoke Bomb}} Smoke Bomb",
+            "Description": "- Fixed refresher not working properly with {{AbilityIcon|Smoke Bomb}} Smoke Bomb",
             "Tags": [
                 "Haze",
-                "Smoke",
                 "Smoke Bomb"
             ]
         },
@@ -1674,6 +1647,12 @@
             ]
         },
         {
+            "Description": "- Fire Rate slows now stack diminishingly",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
             "Description": "- Rejuv bonus creep HP increased from 50% to 70%",
             "Tags": [
                 "General"
@@ -1777,7 +1756,14 @@
         }
     ],
     "Weapon Items": [],
-    "Vitality Items": [],
+    "Vitality Items": [
+        {
+            "Description": "- Soul Rebirth: Increases base respawn rate by +15s",
+            "Tags": [
+                "General"
+            ]
+        }
+    ],
     "Spirit Items": [],
     "Hero": [],
     "Map": [

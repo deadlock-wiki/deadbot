@@ -86,21 +86,14 @@
             ]
         },
         {
-            "Description": "Passive: Anytime you secure or deny a Soul, you get 2 ammo back and have +20% {{ItemIcon|Fire Rate}} Fire Rate for 4 seconds.",
-            "Tags": [
-                "Fire Rate"
-            ]
-        },
-        {
             "Description": "- Added a new T2 Weapon item, {{ItemIcon|Active Reload}} Active Reload",
             "Tags": [
                 "Active Reload"
             ]
         },
         {
-            "Description": "Passive: Pressing the reload key during the halfway point of a reload will cause you to instantly regain your magazine and grant you +30% {{ItemIcon|Bullet Lifesteal}} Bullet Lifesteal and +15% {{ItemIcon|Fire Rate}} Fire Rate for 6s. The reload UI has an indicator for the trigger window. Cooldown: 25s",
+            "Description": "Passive: Pressing the reload key during the halfway point of a reload will cause you to instantly regain your magazine and grant you +30% {{ItemIcon|Bullet Lifesteal}} Bullet Lifesteal and +15% Fire Rate for 6s. The reload UI has an indicator for the trigger window. Cooldown: 25s",
             "Tags": [
-                "Fire Rate",
                 "Bullet Lifesteal"
             ]
         },
@@ -108,12 +101,6 @@
             "Description": "- Added a new T2 Weapon item, {{ItemIcon|Veil Walker}} Veil Walker",
             "Tags": [
                 "Veil Walker"
-            ]
-        },
-        {
-            "Description": "- Passive: Walking through a Cosmic Veil causes you to become invisible with +3 m/s for 4 seconds and grants you +30% {{ItemIcon|Fire Rate}} Fire Rate for your next magazine. Cosmic Veils regenerate any shields you have. Cooldown: 20s",
-            "Tags": [
-                "Fire Rate"
             ]
         },
         {
@@ -273,9 +260,8 @@
             ]
         },
         {
-            "Description": "- {{ItemIcon|Fire Rate}} Fire Rate increased from +12% to +15%",
+            "Description": "- Fire Rate increased from +12% to +15%",
             "Tags": [
-                "Fire Rate",
                 "Superior Stamina"
             ]
         },
@@ -295,24 +281,6 @@
             "Description": "- Heal increased from 40% of damage to 45%",
             "Tags": [
                 "Lifestrike"
-            ]
-        },
-        {
-            "Description": "- Cooldown increased from 20s to 26s",
-            "Tags": [
-                "Majestic Leap"
-            ]
-        },
-        {
-            "Description": "- Damage cooldown window increased from 4s to 5s",
-            "Tags": [
-                "Majestic Leap"
-            ]
-        },
-        {
-            "Description": "- Fixed cooldown reduction affecting the damage cooldown",
-            "Tags": [
-                "Majestic Leap"
             ]
         },
         {
@@ -444,9 +412,8 @@
             ]
         },
         {
-            "Description": "- Ambush {{ItemIcon|Fire Rate}} Fire Rate increased from +50% to +60%",
+            "Description": "- Ambush Fire Rate increased from +50% to +60%",
             "Tags": [
-                "Fire Rate",
                 "Shadow Weave"
             ]
         },
@@ -550,10 +517,9 @@
             ]
         },
         {
-            "Description": "- {{AbilityIcon|Singularity}} Singularity falls 70% slower when {{AbilityIcon|Majestic Leap}} Majestic Leap down is used (similar to the hero falling slower normally when casting the ability from an elevation)",
+            "Description": "- {{AbilityIcon|Singularity}} Singularity falls 70% slower when Majestic Leap down is used (similar to the hero falling slower normally when casting the ability from an elevation)",
             "Tags": [
                 "Dynamo",
-                "Majestic Leap",
                 "Singularity"
             ]
         },
@@ -595,10 +561,9 @@
             ]
         },
         {
-            "Description": "- {{AbilityIcon|Smoke}} {{AbilityIcon|Smoke Bomb}} Smoke Bomb T2 changed to \"Replenishes stamina on cast and grants +40% Stamina Regen\"",
+            "Description": "- {{AbilityIcon|Smoke Bomb}} Smoke Bomb T2 changed to \"Replenishes stamina on cast and grants +40% Stamina Regen\"",
             "Tags": [
                 "Haze",
-                "Smoke",
                 "Smoke Bomb"
             ]
         },
@@ -660,10 +625,9 @@
             ]
         },
         {
-            "Description": "- {{AbilityIcon|Soul Exchange}} Soul Exchange T3 changed to \"After swap gain +40% {{AbilityIcon|Fire Rate}} Fire Rate and +40% Spirit Resistance for 8s\"",
+            "Description": "- {{AbilityIcon|Soul Exchange}} Soul Exchange T3 changed to \"After swap gain +40% Fire Rate and +40% Spirit Resistance for 8s\"",
             "Tags": [
                 "Lady Geist",
-                "Fire Rate",
                 "Soul Exchange"
             ]
         },
@@ -959,6 +923,12 @@
             ]
         },
         {
+            "Description": "Passive: Anytime you secure or deny a Soul, you get 2 ammo back and have +20% Fire Rate for 4 seconds.",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
             "Description": "-20% Reload Time",
             "Tags": [
                 "General"
@@ -990,6 +960,12 @@
         },
         {
             "Description": "+200 Bullet Shield",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Passive: Walking through a Cosmic Veil causes you to become invisible with +3 m/s for 4 seconds and grants you +30% Fire Rate for your next magazine. Cosmic Veils regenerate any shields you have. Cooldown: 20s",
             "Tags": [
                 "General"
             ]
@@ -1050,6 +1026,24 @@
         },
         {
             "Description": "Active: Gain 40% Bullet and Spirit Resist and apply 20% movement slow to enemies within 10m. Your model size grows by 10%. Lasts 7 seconds. Cooldown: 65s",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Majestic Leap: Cooldown increased from 20s to 26s",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Majestic Leap: Damage cooldown window increased from 4s to 5s",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Majestic Leap: Fixed cooldown reduction affecting the damage cooldown",
             "Tags": [
                 "General"
             ]

@@ -52,12 +52,6 @@
             ]
         },
         {
-            "Description": "- Added a new T3 Spirit Item, Shifting Shroud. Innate: +10% {{ItemIcon|Fire Rate}} Fire Rate. Active: You become invulnerable for 2.5s, during which you cannot move or perform any actions. When your invulnerability expires, your gun is instantly reloaded and you gain 14 bonus Spirit for 6s. Cooldown: 70s.",
-            "Tags": [
-                "Fire Rate"
-            ]
-        },
-        {
             "Description": "- Bonus damage reduced from +40 to +35",
             "Tags": [
                 "Mystic Burst"
@@ -191,12 +185,6 @@
             ]
         },
         {
-            "Description": "- You can now use the active again while in the air to dive down faster",
-            "Tags": [
-                "Majestic Leap"
-            ]
-        },
-        {
             "Description": "- Max HP bonus damage reduced from 13% to 11%",
             "Tags": [
                 "Improved Burst"
@@ -222,9 +210,8 @@
             ]
         },
         {
-            "Description": "- {{ItemIcon|Fire Rate}} Fire Rate slow increased from 20% to 35%",
+            "Description": "- Fire Rate slow increased from 20% to 35%",
             "Tags": [
-                "Fire Rate",
                 "Mystic Slow"
             ]
         },
@@ -334,10 +321,9 @@
             ]
         },
         {
-            "Description": "- {{AbilityIcon|Frozen Shelter}} Frozen Shelter T1 increased from +35% to +40% {{AbilityIcon|Fire Rate}} Fire Rate Slow",
+            "Description": "- {{AbilityIcon|Frozen Shelter}} Frozen Shelter T1 increased from +35% to +40% Fire Rate Slow",
             "Tags": [
                 "Kelvin",
-                "Fire Rate",
                 "Frozen Shelter"
             ]
         },
@@ -363,26 +349,23 @@
             ]
         },
         {
-            "Description": "- {{AbilityIcon|Smoke}} {{AbilityIcon|Smoke Bomb}} Smoke Bomb cooldown reduced from 45s to 35s",
+            "Description": "- {{AbilityIcon|Smoke Bomb}} Smoke Bomb cooldown reduced from 45s to 35s",
             "Tags": [
                 "Haze",
-                "Smoke",
                 "Smoke Bomb"
             ]
         },
         {
-            "Description": "- {{AbilityIcon|Smoke}} {{AbilityIcon|Smoke Bomb}} Smoke Bomb T1 changed to +4 Invis Sprint",
+            "Description": "- {{AbilityIcon|Smoke Bomb}} Smoke Bomb T1 changed to +4 Invis Sprint",
             "Tags": [
                 "Haze",
-                "Smoke",
                 "Smoke Bomb"
             ]
         },
         {
-            "Description": "- {{AbilityIcon|Smoke}} {{AbilityIcon|Smoke Bomb}} Smoke Bomb T2 is now -20s Cooldown",
+            "Description": "- {{AbilityIcon|Smoke Bomb}} Smoke Bomb T2 is now -20s Cooldown",
             "Tags": [
                 "Haze",
-                "Smoke",
                 "Smoke Bomb"
             ]
         },
@@ -436,10 +419,9 @@
             ]
         },
         {
-            "Description": "- {{AbilityIcon|Mini Turret}} Mini Turret T2 is now +10m Attack Range and +10% {{AbilityIcon|Fire Rate}} Fire Rate",
+            "Description": "- {{AbilityIcon|Mini Turret}} Mini Turret T2 is now +10m Attack Range and +10% Fire Rate",
             "Tags": [
                 "McGinnis",
-                "Fire Rate",
                 "Mini Turret"
             ]
         },
@@ -679,7 +661,19 @@
     ],
     "Item Gameplay": [
         {
+            "Description": "- Added a new T3 Spirit Item, Shifting Shroud. Innate: +10% Fire Rate. Active: You become invulnerable for 2.5s, during which you cannot move or perform any actions. When your invulnerability expires, your gun is instantly reloaded and you gain 14 bonus Spirit for 6s. Cooldown: 70s.",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
             "Description": "- Medic Bullets: Cooldown reduced from 5s to 4s",
+            "Tags": [
+                "General"
+            ]
+        },
+        {
+            "Description": "- Majestic Leap: You can now use the active again while in the air to dive down faster",
             "Tags": [
                 "General"
             ]
