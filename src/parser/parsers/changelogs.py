@@ -96,7 +96,6 @@ class ChangelogParser:
     # mass find and replace of any resource names with the ability icon template
     def _embed_icons(self, changelog):
         new_changelog = changelog.copy()
-        first=True
         for header, logs in changelog.items():
             for index, log in enumerate(logs):
                 tags = log['Tags']
@@ -114,13 +113,7 @@ class ChangelogParser:
                         template = resource_type_singular + 'Icon'
 
                         icon = (
-                            '{{'
-                            + template
-                            + '|'
-                            + resource_type_singular
-                            + '='
-                            + tag
-                            + '|Size=20}}'
+                            '{{' + template + '|' + resource_type_singular + '=' + tag + '|Size=20}}'
                         )
                         description = description.replace(tag, f'{icon} {tag}')
                         new_changelog[header][index]['Description'] = description
