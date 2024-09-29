@@ -113,7 +113,7 @@ class ChangelogParser:
                         template = resource_type_singular + 'Icon'
 
                         icon = (
-                            '{{' + template + '|' + resource_type_singular + '=' + tag + '|Size=20}}'
+                            '{{' + template + '|' + tag + '}}'
                         )
                         description = description.replace(tag, f'{icon} {tag}')
                         new_changelog[header][index]['Description'] = description
