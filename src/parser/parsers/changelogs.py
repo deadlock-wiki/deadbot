@@ -85,7 +85,7 @@ class ChangelogParser:
             changelog_dict[group].append({'Description': line, 'Tags': resource_tags})
 
         changelog_with_icons = changelog_dict
-        # changelog_with_icons = self._embed_icons(changelog_dict)
+        changelog_with_icons = self._embed_icons(changelog_dict)
 
         json_utils.write(self.OUTPUT_CHANGELOGS + f'/date/{version}.json', changelog_with_icons)
         return changelog_with_icons
@@ -96,20 +96,20 @@ class ChangelogParser:
     # mass find and replace of any resource names with the ability icon template
     def _embed_icons(self, changelog):
         new_changelog = changelog.copy()
+        first=True
+        for header, logs in changelog.items():
+            for index, log in enumerate(logs):
+                tags = log['Tags']
+                description = log['Description']
+                for tag in tags:
+                    resource_found = False
+                    if tag in description:
+                        resource_found = True
+                    if not resource_found:
+                        continue
 
-        for header, log_groups in changelog.items():
-            for group_name, logs in log_groups.items():
-                for index, log in enumerate(logs):
-                    tags = log['Tags']
-                    description = log['Description']
-                    for tag in tags:
-                        resource_found = False
-                        if tag in log:
-                            resource_found = True
-                        if not resource_found:
-                            continue
-
-                        resource_type_singular = self.resource_type_to_template_map[group_name]
+                    if header in self.resource_type_to_template_map:
+                        resource_type_singular = self.resource_type_to_template_map[header]
                         # "Ability" group to "AbilityIcon" template
                         template = resource_type_singular + 'Icon'
 
@@ -123,7 +123,7 @@ class ChangelogParser:
                             + '|Size=20}}'
                         )
                         description = description.replace(tag, f'{icon} {tag}')
-                        new_changelog[header][group_name][index]['Description'] = description
+                        new_changelog[header][index]['Description'] = description
 
         return new_changelog
 
