@@ -116,3 +116,6 @@ class ItemParser:
             output_array.append(mapped_value)
 
         return output_array
+    
+    def _is_enabled(self, item):
+        return not item.get('Disabled', False)
