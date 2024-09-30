@@ -18,6 +18,7 @@ class ChangelogParser:
         self.OUTPUT_DIR = OUTPUT_DIR
         self.OUTPUT_CHANGELOGS = self.OUTPUT_DIR + '/changelogs'
         self.resources = self._get_resources()
+        self.unique_tags = ['General']
 
     def run_all(self):
         changelogs_by_date = {}
@@ -58,7 +59,7 @@ class ChangelogParser:
                 continue
 
             # find if a resource can be assigned a changelog line
-            resource_tags = []
+            tags = []
             group = current_heading
             for resource_key in self.resources:
                 resource = self.resources[resource_key]
@@ -76,18 +77,36 @@ class ChangelogParser:
                 # resource (i.e. hero) name in english is found in the line
                 if resource_name in line:
                     group = resource_type
-                    resource_tags.append(resource_name)
+                    tags = self._register_tag(tags, resource_name)
 
-            # if no resource is found, assign to default group
-            if len(resource_tags) == 0:
-                resource_tags.append(default_category)
+                    # Also register the resource type
+                    tags = self._register_tag(tags, resource_type)
 
-            for tag in resource_tags:
+                    # Also register 'Weapon Items', 'Spirit Items', etc. for item resources
+                    if resource_type == 'Items':
+                        item_slot = resource['Slot']
+                        slot_str = item_slot + ' Items'
+                        tags = self._register_tag(tags, slot_str)
+
+            # check for other tags
+            tags_to_search = ['Map']
+            for tag_to_search in tags_to_search:
+                if tag_to_search in line:
+                    tags = self._register_tag(tags, tag_to_search)
+
+            # if no tag is found, assign to default group
+            if len(tags) == 0:
+                tags.append(default_category)
+
+            # Also register heading as a tag
+            tags = self._register_tag(tags, current_heading)
+
+            for tag in tags:
                 # strip redundant prefix as it is already grouped under resource_name
                 if line.startswith(f'- {tag}: '):
                     line = line.replace(f'{tag}: ', '')
 
-            changelog_dict[group].append({'Description': line, 'Tags': resource_tags})
+            changelog_dict[group].append({'Description': line, 'Tags': tags})
 
         changelog_with_icons = changelog_dict
         changelog_with_icons = self._embed_icons(changelog_dict)
@@ -124,6 +143,18 @@ class ChangelogParser:
                         new_changelog[header][index]['Description'] = description
 
         return new_changelog
+    
+    def _register_tag(self, tags, tag):
+        """
+        Registers a tag to the changelog's unique current tags, and to the static unique list of tags
+        """
+        if tag not in tags:
+            tags.append(tag)
+
+        if tag not in self.unique_tags:
+            self.unique_tags.append(tag)
+
+        return tags
 
     def _read_logs(self, version):
         # files just
