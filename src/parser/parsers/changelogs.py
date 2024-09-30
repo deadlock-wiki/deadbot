@@ -18,7 +18,14 @@ class ChangelogParser:
         self.OUTPUT_DIR = OUTPUT_DIR
         self.OUTPUT_CHANGELOGS = self.OUTPUT_DIR + '/changelogs'
         self.resources = self._get_resources()
+        
         self.unique_tags = ['General']
+        self.unique_tag_groups = ['General']
+        # i.e. Abilities is a tag group and a tag, Siphon Life is just a tag
+        # i.e. Heroes is a tag group and a tag, Abrams is just a tag
+        # all tags from a resource have icons embedded
+        # only tag groups are displayed for /Changelogs page,
+        # allowing users to see compact list of pages that have changelogs
 
     def run_all(self):
         changelogs_by_date = {}
@@ -31,6 +38,9 @@ class ChangelogParser:
         # take parsed changelogs and transform them into some other useful formats
         # self._create_resource_changelogs(changelogs_by_date)
         # self._create_changelog_db_data(changelogs_by_date)
+
+        #print('Unique Tags:', self.unique_tags)
+        print('Unique Tag Groups:', self.unique_tag_groups)
 
     def run(self, version):
         logs = self._read_logs(version)
@@ -77,18 +87,20 @@ class ChangelogParser:
                 # resource (i.e. hero) name in english is found in the line
                 if resource_name in line:
                     group = resource_type
-                    tags = self._register_tag(tags, resource_name)
+                    tags = self._register_tag(tags, resource_name, is_group_tag=False)
 
                     # Also register the resource type
                     tags = self._register_tag(tags, resource_type)
 
                     # Also register 'Weapon Items', 'Spirit Items', etc. for item resources
+                    # currently these are also a heading, this check makes it future proof
                     if resource_type == 'Items':
                         item_slot = resource['Slot']
                         slot_str = item_slot + ' Items'
                         tags = self._register_tag(tags, slot_str)
 
             # check for other tags
+            # all tags in this are counted as a tag group
             tags_to_search = ['Map']
             for tag_to_search in tags_to_search:
                 if tag_to_search in line:
@@ -144,15 +156,18 @@ class ChangelogParser:
 
         return new_changelog
     
-    def _register_tag(self, tags, tag):
+    def _register_tag(self, tags, tag, is_group_tag=True):
         """
-        Registers a tag to the changelog's unique current tags, and to the static unique list of tags
+        Registers a tag to the changelog's unique current tags, and to the static unique list of tags.
         """
         if tag not in tags:
             tags.append(tag)
 
         if tag not in self.unique_tags:
             self.unique_tags.append(tag)
+
+        if is_group_tag and tag not in self.unique_tag_groups:
+            self.unique_tag_groups.append(tag)
 
         return tags
 
