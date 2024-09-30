@@ -5,10 +5,11 @@ from os.path import isfile, join
 import datetime
 
 # bring utils module in scope
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..')))
 import utils.json_utils as json_utils
 
 from .constants import OUTPUT_DIR
+from ...utils.localization import Localization
 
 
 class ChangelogParser:
@@ -17,6 +18,8 @@ class ChangelogParser:
         self.OUTPUT_DIR = OUTPUT_DIR
         self.OUTPUT_CHANGELOGS = self.OUTPUT_DIR+'/changelogs'
         self.resources = self._get_resources()
+
+        self.localization = Localization()
 
     def run_all(self):
         changelogs_by_date = {}
@@ -29,6 +32,9 @@ class ChangelogParser:
         # take parsed changelogs and transform them into some other useful formats
         self._create_resource_changelogs(changelogs_by_date)
         self._create_changelog_db_data(changelogs_by_date)
+
+        #TESTING
+        print(self.localization._localize('CitadelCategoryWeapon', lang='english'))
 
     def run(self, version):
         logs = self._read_logs(version)
