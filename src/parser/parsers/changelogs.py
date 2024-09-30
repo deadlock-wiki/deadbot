@@ -5,11 +5,11 @@ from os.path import isfile, join
 import datetime
 
 # bring utils module in scope
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 import utils.json_utils as json_utils
 
 from .constants import OUTPUT_DIR
-from ...utils.localization import Localization
+from utils.localization import Localization
 
 
 class ChangelogParser:
