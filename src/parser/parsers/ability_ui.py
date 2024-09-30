@@ -40,7 +40,7 @@ class AbilityUiParser:
         output = {}
         for self.hero_key, hero in self.parsed_heroes.items():
             # skip disabled heroes
-            if hero['Disabled']:
+            if hero['IsDisabled']:
                 continue
 
             hero_abilities = {'Name': hero['Name']}
