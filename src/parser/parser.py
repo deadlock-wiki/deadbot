@@ -129,7 +129,7 @@ class Parser:
             )
 
         json_utils.write(
-            self.OUTPUT_DIR + 'json/hero-meaningful-stats.json',
+            self.OUTPUT_DIR + '/json/hero-meaningful-stats.json',
             json_utils.sort_dict(parsed_meaningful_stats),
         )
 
