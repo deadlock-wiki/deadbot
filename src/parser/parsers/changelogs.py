@@ -8,11 +8,9 @@ import datetime
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import utils.json_utils as json_utils
 
-from .constants import OUTPUT_DIR
-
 
 class ChangelogParser:
-    def __init__(self):
+    def __init__(self, OUTPUT_DIR):
         self.CHANGELOGS_DIR = os.path.join(os.path.dirname(__file__), '../raw-changelogs/')
         self.OUTPUT_DIR = OUTPUT_DIR
         self.OUTPUT_CHANGELOGS = self.OUTPUT_DIR+'/changelogs'
@@ -185,7 +183,3 @@ class ChangelogParser:
             sorted_changelogs[key] = changelogs[key]
 
         return sorted_changelogs
-
-
-if __name__ == '__main__':
-    ChangelogParser().run_all()
