@@ -99,7 +99,7 @@ class AbilityUiParser:
         self.used_attributes = ['Key', 'Name', 'Upgrades']
         for index, info_section in enumerate(info_sections):
             # skip any UI that requires an upgraded ability to display it
-            if 'm_strAbilityPropertyUpgradeRequired' in info_section:
+            if info_section.get('m_strAbilityPropertyUpgradeRequired') not in [None, '']:
                 continue
 
             for key in info_section:
@@ -109,8 +109,8 @@ class AbilityUiParser:
             # Each info section consists of some combination of
             # title, description, main properties, and alternate properties
             parsed_info_section = {
-                'Main': [],
-                'Alt': [],
+                'Main': None,
+                'Alt': None,
             }
 
             desc_key = info_section.get('m_strLocString')

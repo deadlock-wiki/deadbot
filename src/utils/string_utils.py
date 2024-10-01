@@ -30,8 +30,10 @@ def format_description(description, *data_sets):
     if description is None:
         return None
 
-    # strip away all html tags for displaying as text
-    description = re.sub(r'<span\b[^>]*>|<\/span>', '', description)
+    # replace valve's highlight class with a simple text bold
+    description = description.replace(
+        '<span class="highlight">', '<span style="font-weight: bold;">'
+    )
     return _replace_variables(description, data)
 
 
@@ -51,7 +53,7 @@ def _replace_variables(desc, data):
             return value
         return f'UNKNOWN[{key}]'
 
-    formatted_desc = re.sub(r'\{s:(.*?)\}', replace_match, desc)
+    formatted_desc = re.sub(r'\[?\{s:(.*?)\}\]?', replace_match, desc)
     return formatted_desc
 
 

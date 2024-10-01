@@ -134,9 +134,9 @@ def get_bound_abilities(value):
 
 
 KEYBIND_MAP = {
-    'iv_attack': 'M1',
-    'iv_attack2': 'M2',
-    'key_alt_cast': 'M3',
+    'iv_attack': '{{Mouse|1}}',
+    'iv_attack2': '{{Mouse|2}}',
+    'key_alt_cast': '{{Mouse|3}}',
     'key_reload': 'R',
     'key_innate_1': 'Shift',
     'in_mantle': 'Space',
@@ -159,6 +159,7 @@ LOCALIZATION_OVERRIDE_MAP = {
     'HotDPS_scale': 'HotDPS',
     'Damage_scale': 'Damage',
     'MaxChargeDuration': 'SpeedBoostDuration',
+    'PulseGrenadeDamageAmplificationPerStack': 'DamageAmplificationPerStack',
 }
 
 
