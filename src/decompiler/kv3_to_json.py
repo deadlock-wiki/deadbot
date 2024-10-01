@@ -56,7 +56,3 @@ def process_file(path, out_path):
     remove_subclass(path)
     data = kv3.read(path)
     kv3_to_json(data, out_path)
-
-
-if __name__ == '__main__':
-    process_file(sys.argv[1], sys.argv[2])

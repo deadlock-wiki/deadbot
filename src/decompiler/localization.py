@@ -23,10 +23,3 @@ def process_localization_files(input_folder, output_folder):
                 output_file_json = os.path.join(output_folder, filename.replace('.txt', '.json'))
                 with open(output_file_json, 'w', encoding='utf-8') as f:
                     json.dump(out, f, indent=4)
-
-if __name__ == '__main__':
-    # Arg1: Input folder which contains all localization files
-    # Arg2: Output folder which all localization files will be placed in
-    input_folder = sys.argv[1]
-    output_folder = sys.argv[2]
-    process_localization_files(input_folder, output_folder)
