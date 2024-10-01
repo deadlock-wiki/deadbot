@@ -62,7 +62,3 @@ class S3:
             version_data[key] = value
 
         return version_data['ClientVersion']
-
-
-if __name__ == '__main__':
-    S3('deadlock-game-files').write()
