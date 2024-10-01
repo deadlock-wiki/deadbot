@@ -7,10 +7,10 @@ if [ -f ".env" ]; then
 fi
 
 if [ "$DECOMPILE" = true ]; then
-    cd src/parser/decompiler
+    cd src/decompiler
     echo "Decompiling source files..."
     python3 decompile.py
-    cd ../../..
+    cd ../..
 else
     echo "! Skipping Decompiler !"
 fi
