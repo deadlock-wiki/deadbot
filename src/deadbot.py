@@ -2,7 +2,7 @@ import os
 import mwclient
 import argparse
 # local imports
-from utils import pages
+from utils import pages, csv_writer
 from decompiler import decompile
 from parser import parser
 
@@ -123,8 +123,8 @@ if __name__ == '__main__':
         game_parser = parser.Parser(args.output,args.workdir)
         game_parser.run()
         print("Exporting to CSV...")
-        export_json_file_to_csv('item-data', args.output)
-        export_json_file_to_csv('hero-data', args.output)
+        csv_writer.export_json_file_to_csv('item-data', args.output)
+        csv_writer.export_json_file_to_csv('hero-data', args.output)
     else:
         print("! Skipping Parser !")
     
