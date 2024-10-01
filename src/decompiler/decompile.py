@@ -1,5 +1,5 @@
 import os
-import kv3_to_json
+from .kv3_to_json import kv3_to_json
 from localization import process_localization_files
 from dotenv import load_dotenv
 
@@ -35,15 +35,15 @@ def decompile(DEADLOCK_PATH,WORK_DIR,OUTPUT_DIR,DECOMPILER_CMD):
 
   # Define an array of folders to parse
   # All folders (UNUSED)
-  all_folders = [ 
-    "citadel_attributes",
-    "citadel_dev",
-    "citadel_gc",
-    "citadel_generated_vo",
-    "citadel_heroes",
-    "citadel_main",
-    "citadel_mods"
-  ] 
+  # all_folders = [ 
+  #   "citadel_attributes",
+  #   "citadel_dev",
+  #   "citadel_gc",
+  #   "citadel_generated_vo",
+  #   "citadel_heroes",
+  #   "citadel_main",
+  #   "citadel_mods"
+  # ] 
 
   # All folders but voice lines and dev for now
   folders = [
