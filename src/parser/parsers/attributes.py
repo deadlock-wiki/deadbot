@@ -3,7 +3,7 @@ import os
 
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
-import maps as maps
+import parser.maps as maps
 
 
 class AttributeParser:

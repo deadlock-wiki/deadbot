@@ -84,15 +84,15 @@ def parse_arguments():
         help="Push current data to wiki (overrides BOT_PUSH environment variable)", 
         default=os.getenv('BOT_PUSH',False))
     parser.add_argument(
-        "", "--iam_key",
+        "--iam_key",
         help="AWS iam key for updating bucket (overrides IAM_KEY environment variable)", 
         default=os.getenv('IAM_KEY'))
     parser.add_argument(
-        "", "--iam_secret",
+        "--iam_secret",
         help="AWS iam secret for updating bucket (overrides IAM_SECRET environment variable)", 
         default=os.getenv('IAM_SECRET'))
     parser.add_argument(
-        "", "--bucket",
+        "--bucket",
         help="S3 bucket name to push to (overrides BUCKET environment variable)", 
         default=os.getenv('BUCKET','deadlock-game-files'))
     parser.add_argument(
@@ -119,7 +119,7 @@ if __name__ == '__main__':
     
     if args.parse:
         print("Parsing decompiled files...")
-        game_parser = parser.Parser(args.output,args.workdir)
+        game_parser = parser.Parser(args.workdir,args.output)
         game_parser.run()
         print("Exporting to CSV...")
         csv_writer.export_json_file_to_csv('item-data', args.output)

@@ -1,8 +1,5 @@
-import sys
-import os
 import keyvalues3 as kv3
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 from utils import json_utils
 
 

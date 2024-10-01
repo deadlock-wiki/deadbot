@@ -1,7 +1,6 @@
 import os
-from .kv3_to_json import kv3_to_json
-from localization import process_localization_files
-from dotenv import load_dotenv
+import decompiler.kv3_to_json as kv3_to_json
+import decompiler.localization as localization
 
 def decompile(DEADLOCK_PATH,WORK_DIR,OUTPUT_DIR,DECOMPILER_CMD):
   # Define paths
@@ -65,5 +64,5 @@ def decompile(DEADLOCK_PATH,WORK_DIR,OUTPUT_DIR,DECOMPILER_CMD):
       os.makedirs(dest_path,exist_ok=True)
 
       # Run the Python script to parse the folder
-      process_localization_files(src_path,dest_path)
+      localization.process_files(src_path,dest_path)
       print(f"Parsed {src_path} to {dest_path}")

@@ -1,8 +1,7 @@
 import os
 import sys
 
-from parsers import abilities, ability_ui, items, heroes, changelogs, localizations, attributes
-
+from .parsers import abilities, ability_ui, items, heroes, changelogs, localizations, attributes
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from utils import json_utils
@@ -23,7 +22,7 @@ class Parser:
                 '.json'
             )[0]
             for localization_file in os.listdir(
-                os.path.join(self.DATA_DIR, 'localizations/' + self.localization_groups[0])
+                os.path.join(self.DATA_DIR, 'localizations', self.localization_groups[0])
             )
         ]
 
