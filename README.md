@@ -24,8 +24,39 @@ Some data has been processed and formatted for google sheets:\
 7. Add the paths to Deadlock files and the Decompiler in `.env` using `.env.example` as an example
 
 ### Usage
-`bash main.sh` to run end-to-end decompilation, parsing and bot (bot is a WIP)\
-`bash parser.sh` to just run the parser. Must have already run `main.sh` once to decompile the source files
+
+```sh
+$ python3 src/deadbot.py -h
+usage: DeadBot [-h] [-i DL_PATH] [-w WORKDIR] [-o OUTPUT] [- DECOMPILER_CMD] [-d DECOMPILE] [-p PARSE] [-b BOT_PUSH]
+               [--iam_key IAM_KEY] [--iam_secret IAM_SECRET] [--bucket BUCKET] [-c CLEANUP]
+
+Bot that lives to serve deadlocked.wiki
+
+options:
+  -h, --help            show this help message and exit
+  -i DL_PATH, --dl_path DL_PATH
+                        Path to Deadlock game files (overrides DEADLOCK_PATH environment variable)
+  -w WORKDIR, --workdir WORKDIR
+                        Directory for temp working files (overrides WORK_DIR environment variable)
+  -o OUTPUT, --output OUTPUT
+                        Output directory (overrides OUTPUT_DIR environment variable)
+  - DECOMPILER_CMD, --decompiler_cmd DECOMPILER_CMD
+                        Command for Valve Resource Format tool (overrides DECOMPILER_CMD env variable)
+  -d DECOMPILE, --decompile DECOMPILE
+                        Decompiles Deadlock game files (overrides DECOMPILE environment variable)
+  -p PARSE, --parse PARSE
+                        Parses decompiled game files into json and csv (overrides PARSE env variable)
+  -b BOT_PUSH, --bot_push BOT_PUSH
+                        Push current data to wiki (overrides BOT_PUSH environment variable)
+  --iam_key IAM_KEY     AWS iam key for updating bucket (overrides IAM_KEY environment variable)
+  --iam_secret IAM_SECRET
+                        AWS iam secret for updating bucket (overrides IAM_SECRET environment variable)
+  --bucket BUCKET       S3 bucket name to push to (overrides BUCKET environment variable)
+  -c CLEANUP, --cleanup CLEANUP
+                        Cleanup output files (overrides CLEANUP environment variable)
+
+Process Deadlock game files and extract data and stats
+```
 
 ## Docker
 
