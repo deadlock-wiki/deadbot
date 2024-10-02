@@ -9,7 +9,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')
 import utils.json_utils as json_utils
 
 from .constants import OUTPUT_DIR
-from .items import ItemParser
+from .items import is_enabled
 from utils.localization import Localization
 
 class ChangelogParser:
@@ -85,7 +85,7 @@ class ChangelogParser:
                     continue
 
                 # Skip disabled items
-                if resource_type == 'Items' and not resource._is_enabled():
+                if resource_type == 'Items' and not is_enabled(resource):
                     continue
 
                 # Determine if the line is about this resource

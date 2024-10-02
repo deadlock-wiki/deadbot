@@ -117,5 +117,5 @@ class ItemParser:
 
         return output_array
     
-    def _is_enabled(self):
-        return not self.get('Disabled', False)
+def is_enabled(item):
+    return not item.get('Disabled', False)
