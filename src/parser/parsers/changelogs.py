@@ -96,7 +96,7 @@ class ChangelogParser:
 
                     # Determine hyperlink
                     if resource_type == 'Abilities':
-                        hyperlink = 'Ability'
+                        hyperlink = resource_name+'#<AbilityNum>'
                     else:
                         hyperlink = resource_name
 
