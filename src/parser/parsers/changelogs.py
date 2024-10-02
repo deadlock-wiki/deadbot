@@ -12,13 +12,14 @@ from .constants import OUTPUT_DIR
 from .items import is_enabled
 from utils.localization import Localization
 
+
 class ChangelogParser:
     def __init__(self):
         self.CHANGELOGS_DIR = os.path.join(os.path.dirname(__file__), '../raw-changelogs/')
         self.OUTPUT_DIR = OUTPUT_DIR
         self.OUTPUT_CHANGELOGS = self.OUTPUT_DIR + '/changelogs'
         self.resources = self._get_resources()
-        
+
         self.unique_tags = ['General']
         self.unique_tag_groups = ['General']
         # i.e. Abilities is a tag group and a tag, Siphon Life is just a tag
@@ -43,10 +44,10 @@ class ChangelogParser:
         # self._create_resource_changelogs(changelogs_by_date)
         # self._create_changelog_db_data(changelogs_by_date)
 
-        #print('Unique Tags:', self.unique_tags)
+        # print('Unique Tags:', self.unique_tags)
         print('Unique Tag Groups:', self.unique_tag_groups)
 
-        #TESTING
+        # TESTING
         print(self.localization._localize('CitadelCategoryWeapon', lang='english'))
 
     def run(self, version):
@@ -100,8 +101,10 @@ class ChangelogParser:
                     # Also register 'Weapon Items', 'Spirit Items', etc. for item resources
                     # currently these are also a heading, this check makes it future proof
                     if resource_type == 'Items':
-                        item_slot = resource['Slot'] #i.e. Tech
-                        localized_item_slot = self.localization._localize('CitadelCategory'+item_slot, lang='english')
+                        item_slot = resource['Slot']  # i.e. Tech
+                        localized_item_slot = self.localization._localize(
+                            'CitadelCategory' + item_slot, lang='english'
+                        )
                         slot_str = localized_item_slot + ' Items'
                         tags = self._register_tag(tags, tag=slot_str)
 
@@ -133,7 +136,7 @@ class ChangelogParser:
 
         json_utils.write(self.OUTPUT_CHANGELOGS + f'/date/{version}.json', changelog_with_icons)
         return changelog_with_icons
-    
+
     def _validate_heading(self, heading):
         """
         Validates the heading to accomodate for excess verbage or typos.
@@ -144,20 +147,19 @@ class ChangelogParser:
             heading = heading.replace(str_to_replace, '')
 
         # Correct " Gamepla" suffix to " Gameplay"
-        if heading.endswith(" Gamepla"):
-            heading = heading.replace(" Gamepla", " Gameplay")
-            
-        
+        if heading.endswith(' Gamepla'):
+            heading = heading.replace(' Gamepla', ' Gameplay')
+
         return heading
-    
+
     def _heading_to_tag(self, heading):
         """
         Converts a heading to a tag, i.e. Hero and Heroes don't need to be separate tags,
         New Items doesn't need to be a tag at all, etc
         """
-        if heading == "Hero":
-            heading = "Heroes"
-        elif heading == "New Items":
+        if heading == 'Hero':
+            heading = 'Heroes'
+        elif heading == 'New Items':
             return None
 
         return heading
@@ -184,14 +186,12 @@ class ChangelogParser:
                         # "Ability" group to "AbilityIcon" template
                         template = resource_type_singular + 'Icon'
 
-                        icon = (
-                            '{{' + template + '|' + tag + '}}'
-                        )
+                        icon = '{{' + template + '|' + tag + '}}'
                         description = description.replace(tag, f'{icon} {tag}')
                         new_changelog[header][index]['Description'] = description
 
         return new_changelog
-    
+
     def _register_tag(self, tags, tag, is_group_tag=True):
         """
         Registers a tag to the changelog's unique current tags, and to the static unique list of tags.
