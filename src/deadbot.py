@@ -2,6 +2,7 @@ import os
 import mwclient
 import argparse
 # local imports
+from utils import pages
 from decompiler import decompile
 
 """
