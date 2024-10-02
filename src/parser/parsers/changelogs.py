@@ -10,7 +10,7 @@ import utils.json_utils as json_utils
 
 from .constants import OUTPUT_DIR
 from .items import ItemParser
-from ...utils.localization import Localization
+from utils.localization import Localization
 
 class ChangelogParser:
     def __init__(self):
@@ -29,6 +29,8 @@ class ChangelogParser:
 
         self.localization = Localization()
 
+        self.localization = Localization()
+
     def run_all(self):
         changelogs_by_date = {}
         files = [f for f in listdir(self.CHANGELOGS_DIR) if isfile(join(self.CHANGELOGS_DIR, f))]
@@ -43,6 +45,9 @@ class ChangelogParser:
 
         #print('Unique Tags:', self.unique_tags)
         print('Unique Tag Groups:', self.unique_tag_groups)
+
+        #TESTING
+        print(self.localization._localize('CitadelCategoryWeapon', lang='english'))
 
     def run(self, version):
         logs = self._read_logs(version)
@@ -80,7 +85,7 @@ class ChangelogParser:
                     continue
 
                 # Skip disabled items
-                if resource_type == 'Items' and not ItemParser._is_enabled(resource):
+                if resource_type == 'Items' and not resource._is_enabled():
                     continue
 
                 # Determine if the line is about this resource
