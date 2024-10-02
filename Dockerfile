@@ -38,4 +38,4 @@ ENV DEADLOCK_PATH="/data"
 ENV WORK_DIR="/work"
 ENV OUTPUT_DIR="/output"
 
-ENTRYPOINT [ "sh", "/repo/main.sh" ]
+ENTRYPOINT [ "python3", "src/deadbot.py" ]
