@@ -1,13 +1,7 @@
-import sys
 import json
 import os
 
-if __name__ == '__main__':
-    # Arg1: Input folder which contains all localization files
-    # Arg2: Output folder which all localization files will be placed in
-    input_folder = sys.argv[1]
-    output_folder = sys.argv[2]
-
+def process_files(input_folder, output_folder):
     # Iterate all localizations in the input_folder
     for filename in os.listdir(input_folder):
         if filename.endswith('.txt'):
