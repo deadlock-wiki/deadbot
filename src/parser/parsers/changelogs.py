@@ -194,7 +194,8 @@ class ChangelogParser:
 
     def _register_tag(self, tags, tag, is_group_tag=True):
         """
-        Registers a tag to the changelog's unique current tags, and to the static unique list of tags.
+        Registers a tag to the changelog's unique current tags, 
+        and to the static unique list of tags.
         """
         if tag not in tags:
             tags.append(tag)
