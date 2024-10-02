@@ -93,13 +93,14 @@ class ItemParser:
                 flag = item_value['m_bDisabled']
                 # flag is 1 of [True, False, 'true', 'false']
                 if flag in [True, 'true']:
-                    val = True
+                    is_disabled = True
                 elif flag in [False, 'false']:
-                    val = False
+                    is_disabled = False
                 else:
                     raise ValueError(f'New unexpected value for m_bDisabled: {flag}')
-
-                parsed_item_data['Disabled'] = val
+            else:
+                is_disabled = False
+            parsed_item_data['Disabled'] = is_disabled
                 
 
             all_items[key] = parsed_item_data
