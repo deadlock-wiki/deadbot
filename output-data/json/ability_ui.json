@@ -6811,7 +6811,7 @@
                 },
                 "Height": {
                     "Name": null,
-                    "Value": 3
+                    "Value": 2
                 },
                 "TickRate": {
                     "Name": null,
@@ -9502,13 +9502,13 @@
                         {
                             "Key": "HoldInPlaceDuration",
                             "Name": "Lift Duration",
-                            "Value": 1.5,
+                            "Value": 1.2,
                             "Type": "duration"
                         },
                         {
                             "Key": "WhirlwindEvasionChance",
                             "Name": "Bullet Evasion Chance",
-                            "Value": 30
+                            "Value": 25
                         }
                     ]
                 },
@@ -9529,7 +9529,7 @@
             },
             "Upgrades": [
                 {
-                    "HoldInPlaceDuration": 0.5
+                    "HoldInPlaceDuration": 0.4
                 },
                 {
                     "AbilityCooldown": -14.0
@@ -9809,7 +9809,9 @@
                     "DescKey": "mirage_sand_phantom_t2_desc"
                 },
                 {
-                    "MaxStacks": 4
+                    "ProcCooldown": -0.5,
+                    "MaxStacks": 4,
+                    "DescKey": "mirage_sand_phantom_t3_desc"
                 }
             ],
             "Move": {
