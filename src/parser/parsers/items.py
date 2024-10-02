@@ -90,7 +90,17 @@ class ItemParser:
                 self._add_children_to_tree(parent_name, parsed_item_data['Components'])
 
             if 'm_bDisabled' in item_value:
-                parsed_item_data['Disabled'] = item_value['m_bDisabled']
+                flag = item_value['m_bDisabled']
+                # flag is 1 of [True, False, 'true', 'false']
+                if flag in [True, 'true']:
+                    val = True
+                elif flag in [False, 'false']:
+                    val = False
+                else:
+                    raise ValueError(f'New unexpected value for m_bDisabled: {flag}')
+
+                parsed_item_data['Disabled'] = val
+                
 
             all_items[key] = parsed_item_data
 
