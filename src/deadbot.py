@@ -1,6 +1,8 @@
 import os
 import mwclient
-from utils import pages
+import argparse
+# local imports
+from decompiler import decompile
 
 """
 DeadBot pulls all aggregated data for heros, items ,buildings and more to populate
@@ -36,7 +38,59 @@ class DeadBot:
         else:
             print(f"No changes made to '{page.name}'")
 
+def parse_arguments():
+    parser = argparse.ArgumentParser(
+                    prog='DeadBot',
+                    description='Bot that lives to serve deadlocked.wiki',
+                    epilog='Process Deadlock game files and extract data and stats')
+
+    # Setup / Base config Flags
+    parser.add_argument(
+        "-i", "--dl_path", 
+        help="Path to Deadlock game files (overrides DEADLOCK_PATH environment variable)", 
+        default=os.getenv('DEADLOCK_PATH'))
+    parser.add_argument(
+        "-w", "--workdir", 
+        help="Directory for temp working files (overrides WORK_DIR environment variable)",
+        default=os.getenv('WORK_DIR',os.path.abspath(os.getcwd())+'/decompiled-data'))
+    parser.add_argument(
+        "-o", "--output", 
+        help="Output directory (overrides OUTPUT_DIR environment variable)", 
+        default=os.getenv('OUTPUT_DIR',os.path.abspath(os.getcwd())+'/output-data'))
+    parser.add_argument(
+        "-", "--decompiler_cmd", 
+        help="Command for Valve Resource Format tool (overrides DECOMPILER_CMD env variable)",
+        default=os.getenv('DECOMPILER_CMD','Decompiler'))    
+
+    # Operational Flags
+    parser.add_argument(
+        "-d", "--decompile", 
+        help="Decompiles Deadlock game files (overrides DECOMPILE environment variable)", 
+        default=os.getenv('DECOMPILE',False))
+    parser.add_argument(
+        "-b", "--bot_push", 
+        help="Push current data to wiki (overrides BOT_PUSH environment variable)", 
+        default=os.getenv('BOT_PUSH',False))
+
+    return parser.parse_args()
 
 if __name__ == '__main__':
-    bot = DeadBot()
-    bot.run()
+    args = parse_arguments()
+
+    if args.decompile in [True,"true","True","TRUE"]:
+        print("Decompiling source files...")
+        decompile.decompile(
+            args.dl_path,
+            args.workdir,
+            args.output,
+            args.decompiler_cmd
+        )
+    else:
+        print("! Skipping Decompiler !")
+    
+    if args.bot_push in [True,"true","True","TRUE"]:
+        print("Running DeadBot...")
+        bot = DeadBot()
+        bot.run()
+    else:
+        print("! Skipping DeadBot !")

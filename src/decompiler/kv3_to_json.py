@@ -1,8 +1,5 @@
-import sys
-import os
 import keyvalues3 as kv3
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 from utils import json_utils
 
 
@@ -56,7 +53,3 @@ def process_file(path, out_path):
     remove_subclass(path)
     data = kv3.read(path)
     kv3_to_json(data, out_path)
-
-
-if __name__ == '__main__':
-    process_file(sys.argv[1], sys.argv[2])
