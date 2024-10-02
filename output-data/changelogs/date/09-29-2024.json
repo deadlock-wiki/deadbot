@@ -1,29 +1,40 @@
 {
-    "Other": {
-        "General": [
-            "- Outer ziplines hero speed increased by 20% relative to inner lanes (same as troopers on outer lanes zipline being faster)",
-            "- Initial respawn reduced from 12s to 8s"
-        ]
-    },
-    "Heroes": {
-        "General": [],
-        "Mirage": [
-            "- Urn now drops when teleporting with Mirage's {AbilityIcon|Ability=Traveler|Size=20} Traveler"
-        ],
-        "Shiv": [
-            "- Fixed {AbilityIcon|Ability=Wraith|Size=20} Wraith Cards, Shiv Rage and lifesteal from increasing by shooting the shop"
-        ],
-        "Wraith": [
-            "- Fixed {AbilityIcon|Ability=Wraith|Size=20} Wraith Cards, Shiv Rage and lifesteal from increasing by shooting the shop"
-        ]
-    },
-    "Items": {
-        "General": []
-    },
-    "Abilities": {
-        "General": [],
-        "Traveler": [
-            "- Urn now drops when teleporting with Mirage's {AbilityIcon|Ability=Traveler|Size=20} Traveler"
-        ]
-    }
+    "Other": [
+        {
+            "Description": "- Outer ziplines hero speed increased by 20% relative to inner lanes (same as troopers on outer lanes zipline being faster)",
+            "Tags": {
+                "Other": "Other"
+            }
+        },
+        {
+            "Description": "- Initial respawn reduced from 12s to 8s",
+            "Tags": {
+                "Other": "Other"
+            }
+        }
+    ],
+    "Heroes": [
+        {
+            "Description": "- Fixed {{HeroIcon|Wraith}} Wraith Cards, {{HeroIcon|Shiv}} Shiv Rage and lifesteal from increasing by shooting the shop",
+            "Tags": {
+                "Shiv": "Shiv",
+                "Heroes": "Heroes",
+                "Wraith": "Wraith",
+                "Other": "Other"
+            }
+        }
+    ],
+    "Items": [],
+    "Abilities": [
+        {
+            "Description": "- Urn now drops when teleporting with {{AbilityIcon|Mirage}} Mirage's {{AbilityIcon|Traveler}} Traveler",
+            "Tags": {
+                "Mirage": "Mirage",
+                "Heroes": "Heroes",
+                "Traveler": "Ability",
+                "Abilities": "Abilities",
+                "Other": "Other"
+            }
+        }
+    ]
 }

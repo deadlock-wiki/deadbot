@@ -31,6 +31,7 @@ class AbilityParser:
             ability_data = {
                 'Key': ability_key,
                 'Name': self.localizations.get(ability_key, None),
+                'Number': self._get_ability_num(ability_key),
             }
 
             stats = ability['m_mapAbilityProperties']
@@ -104,3 +105,16 @@ class AbilityParser:
             parsed_upgrade_sets.append(parsed_upgrade_set)
 
         return parsed_upgrade_sets
+    
+    def _get_ability_num(self, ability_key):
+        for hero_key, hero_data in self.heroes_data.items():
+            for ability_num, ability_data in hero_data["BoundAbilities"].items():
+                if ability_data["Key"] == ability_key:
+                    return ability_num
+        raise ValueError(f"Ability {ability_key} not found in heroes data")
+
+    
+def get_ability_num(ability_data):
+    a=1
+    
+

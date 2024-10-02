@@ -75,7 +75,7 @@ class ChangelogParser:
                 continue
 
             # find if a resource can be assigned a changelog line
-            tags = []
+            tags = {}
             group = current_heading
             for resource_key in self.resources:
                 resource = self.resources[resource_key]
@@ -93,7 +93,14 @@ class ChangelogParser:
                 # resource (i.e. hero) name in english is found in the line
                 if resource_name in line:
                     group = resource_type
-                    tags = self._register_tag(tags, tag=resource_name, is_group_tag=False)
+
+                    # Determine hyperlink
+                    if resource_type == 'Abilities':
+                        hyperlink = 'Ability'
+                    else:
+                        hyperlink = resource_name
+
+                    tags = self._register_tag(tags, tag=resource_name, hyperlink=hyperlink, is_group_tag=False)
 
                     # Also register the resource type
                     tags = self._register_tag(tags, tag=resource_type)
@@ -115,16 +122,16 @@ class ChangelogParser:
                 if tag_to_search in line:
                     tags = self._register_tag(tags, tag=tag_to_search)
 
-            # if no tag is found, assign to default group
-            if len(tags) == 0:
-                tags.append(default_category)
-
             # Also register heading as a tag
             heading_tag = self._heading_to_tag(current_heading)
             if heading_tag is not None:
                 tags = self._register_tag(tags, tag=heading_tag)
 
-            for tag in tags:
+            # if no tag is found, assign to default group
+            if len(tags) == 0:
+                tags[default_category] = default_category
+
+            for tag, hyperlink in tags.items():
                 # strip redundant prefix as it is already grouped under resource_name
                 if line.startswith(f'- {tag}: '):
                     line = line.replace(f'{tag}: ', '')
@@ -174,7 +181,7 @@ class ChangelogParser:
             for index, log in enumerate(logs):
                 tags = log['Tags']
                 description = log['Description']
-                for tag in tags:
+                for tag, hyperlink in tags.items():
                     resource_found = False
                     if tag in description:
                         resource_found = True
@@ -192,13 +199,19 @@ class ChangelogParser:
 
         return new_changelog
 
-    def _register_tag(self, tags, tag, is_group_tag=True):
+    def _register_tag(self, tags, tag, is_group_tag=True, hyperlink=None):
         """
         Registers a tag to the changelog's unique current tags, 
         and to the static unique list of tags.
         """
+        
+        # Determine the hyperlink
+        # default to tag
+        if hyperlink is None:
+            hyperlink = tag
+
         if tag not in tags:
-            tags.append(tag)
+            tags[tag] = hyperlink
 
         if tag not in self.unique_tags:
             self.unique_tags.append(tag)
