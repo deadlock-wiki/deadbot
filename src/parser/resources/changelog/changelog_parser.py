@@ -5,15 +5,15 @@ from os.path import isfile, join
 import datetime
 
 # bring utils module in scope
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 import utils.json_utils as json_utils
 
-from .constants import OUTPUT_DIR
+from ..constants import OUTPUT_DIR
 
 
 class ChangelogParser:
     def __init__(self):
-        self.CHANGELOGS_DIR = os.path.join(os.path.dirname(__file__), '../raw-changelogs/')
+        self.CHANGELOGS_DIR = os.path.join(os.path.dirname(__file__), '../../raw-changelogs/')
         self.OUTPUT_DIR = OUTPUT_DIR
         self.OUTPUT_CHANGELOGS = self.OUTPUT_DIR + '/changelogs'
         self.resources = self._get_resources()
