@@ -39,57 +39,70 @@ class DeadBot:
         else:
             print(f"No changes made to '{page.name}'")
 
+
 def parse_arguments():
     parser = argparse.ArgumentParser(
-                    prog='DeadBot',
-                    description='Bot that lives to serve deadlocked.wiki',
-                    epilog='Process Deadlock game files and extract data and stats')
+        prog="DeadBot",
+        description="Bot that lives to serve deadlocked.wiki",
+        epilog="Process Deadlock game files and extract data and stats",
+    )
 
     # Setup / Base config Flags
     parser.add_argument(
-        "-i", "--dl_path", 
-        help="Path to Deadlock game files (overrides DEADLOCK_PATH environment variable)", 
-        default=os.getenv('DEADLOCK_PATH'))
+        "-i",
+        "--dl_path",
+        help="Path to Deadlock game files (also set with DEADLOCK_PATH environment variable)",
+        default=os.getenv("DEADLOCK_PATH"),
+    )
     parser.add_argument(
-        "-w", "--workdir", 
-        help="Directory for temp working files (overrides WORK_DIR environment variable)",
-        default=os.getenv('WORK_DIR',os.path.abspath(os.getcwd())+'/decompiled-data'))
+        "-w",
+        "--workdir",
+        help="Directory for temp working files (also set with WORK_DIR environment variable)",
+        default=os.getenv(
+            "WORK_DIR", os.path.abspath(os.getcwd()) + "/decompiled-data"
+        ),
+    )
     parser.add_argument(
-        "-o", "--output", 
-        help="Output directory (overrides OUTPUT_DIR environment variable)", 
-        default=os.getenv('OUTPUT_DIR',os.path.abspath(os.getcwd())+'/output-data'))
+        "-o",
+        "--output",
+        help="Output directory (also set with OUTPUT_DIR environment variable)",
+        default=os.getenv("OUTPUT_DIR", os.path.abspath(os.getcwd()) + "/output-data"),
+    )
     parser.add_argument(
-        "-", "--decompiler_cmd", 
-        help="Command for Valve Resource Format tool (overrides DECOMPILER_CMD env variable)",
-        default=os.getenv('DECOMPILER_CMD','Decompiler'))    
+        "--decompiler_cmd",
+        help="Command for Valve Resource Format tool (also set with DECOMPILER_CMD env variable)",
+        default=os.getenv("DECOMPILER_CMD", "tools/Decompiler"),
+    )
 
     # Operational Flags
     parser.add_argument(
-        "-d", "--decompile", 
-        help="Decompiles Deadlock game files (overrides DECOMPILE environment variable)", 
-        default=os.getenv('DECOMPILE',False))
+        "-d",
+        "--decompile",
+        action="store_true",
+        help="Decompiles Deadlock game files. (also set with DECOMPILE environment variable)",
+    )
     parser.add_argument(
-        "-b", "--bot_push", 
-        help="Push current data to wiki (overrides BOT_PUSH environment variable)", 
-        default=os.getenv('BOT_PUSH',False))
+        "-b",
+        "--bot_push",
+        action="store_true",
+        help="Push current data to wiki (also set with BOT_PUSH environment variable)",
+    )
 
     return parser.parse_args()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     args = parse_arguments()
 
-    if args.decompile in [True,"true","True","TRUE"]:
+    if args.decompile or os.getenv("DECOMPILE", False):
         print("Decompiling source files...")
         decompile.decompile(
-            args.dl_path,
-            args.workdir,
-            args.output,
-            args.decompiler_cmd
+            args.dl_path, args.workdir, args.output, args.decompiler_cmd
         )
     else:
         print("! Skipping Decompiler !")
-    
-    if args.bot_push in [True,"true","True","TRUE"]:
+
+    if args.bot_push or os.getenv("BOT_PUSH", False):
         print("Running DeadBot...")
         bot = DeadBot()
         bot.run()
