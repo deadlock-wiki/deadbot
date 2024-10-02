@@ -92,7 +92,6 @@ class HeroParser:
 
                             if dps_scaling != 0.0:
                                 hero_stats[scaling_container][dps_type_localized] = dps_scaling
-                            
 
                 hero_stats['WeaponName'] = 'citadel_weapon_' + hero_key + '_set'
                 # i.e. citadel_weapon_hero_kelvin_set
@@ -111,7 +110,7 @@ class HeroParser:
 
         Returns meaningful_stats dict
 
-        Meaningful stats are ones that are either scaled by level/power increase, 
+        Meaningful stats are ones that are either scaled by level/power increase,
         or have differing base values across the hero pool
 
         These are displayed on the deadlocked.wiki/Hero_Comparison page, among others in the future.
@@ -197,7 +196,6 @@ class HeroParser:
             #'BulletRadius': w['m_flBulletRadius'] / ENGINE_UNITS_PER_METER,
         }
 
-
         dps_stats = self._get_dps_stats(weapon_stats)
 
         weapon_stats['DPS'] = self._calc_dps(dps_stats, 'burst')
@@ -216,7 +214,7 @@ class HeroParser:
             weapon_stats['WeaponTypes'] = ['Attribute_' + wtype for wtype in types]
 
         return weapon_stats
-    
+
     def _get_dps_stats(self, weapon_stats):
         """Returns a dictionary of stats used to calculate DPS"""
         # TODO: These should be grouped under a "Weapon" key in hero data, among other things
@@ -227,7 +225,7 @@ class HeroParser:
             'ClipSize': weapon_stats['ClipSize'],
             'RoundsPerSecond': weapon_stats['RoundsPerSecond'],
             'BulletDamage': weapon_stats['BulletDamage'],
-            'BulletsPerShot': weapon_stats['BulletsPerShot']
+            'BulletsPerShot': weapon_stats['BulletsPerShot'],
         }
 
     def _calc_dps(self, dps_stats, type='burst'):
@@ -240,13 +238,13 @@ class HeroParser:
         # ReloadTime of 1,
         # ClipSize of 10,
         # =time to reload 1 bullet is 1.5s, time to reload 10 bullets is 10.5s
-        
+
         # Abbreivated dictionary for easier access
         d = dps_stats.copy()
-        
+
         if type == 'burst':
             return d['BulletDamage'] * d['RoundsPerSecond'] * d['BulletsPerShot']
-        
+
         elif type == 'sustained':
             if d['ReloadSingle']:
                 # If reloading 1 bullet at a time, reload time is actually per bullet
@@ -256,18 +254,16 @@ class HeroParser:
             time_to_reload += d['ReloadDelay']
             time_to_empty_clip = d['ClipSize'] / d['RoundsPerSecond']
             # More bullets per shot doesn't consume more bullets in the clip, so think of it as bullet per bullet
-            damage_from_clip = (
-                d['BulletDamage'] * d['BulletsPerShot'] * d['ClipSize']
-            )
+            damage_from_clip = d['BulletDamage'] * d['BulletsPerShot'] * d['ClipSize']
             return damage_from_clip / (time_to_empty_clip + time_to_reload)
-        
+
         else:
             raise Exception('Invalid DPS type, must be one of: ' + ', '.join(['burst', 'sustained']))
-    
+
     def _calc_dps_scaling(self, dps_stats_, scalings, type='burst'):
         """
         Calc DPS level/spirit scaling based on the scalars.
-        
+
         i.e. with bullet dmg scaling
         Dps scaling = dps * bullet dmg scaling / bullet dmg
         """
@@ -280,8 +276,8 @@ class HeroParser:
         for scalar_key, scalar_value in scalings.items():
             if scalar_key in dps_stats_scaled:
                 dps_stats_scaled[scalar_key] += scalar_value
-                
-        #unscaled_dps = self._calc_dps(dps_stats_, type)
+
+        # unscaled_dps = self._calc_dps(dps_stats_, type)
         scaled_dps = self._calc_dps(dps_stats_scaled, type)
         dps = self._calc_dps(dps_stats, type)
 
