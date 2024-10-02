@@ -106,7 +106,7 @@ if __name__ == '__main__':
 
     args = parse_arguments()
 
-    if args.decompile:
+    if args.decompile in [True,"true","True","TRUE"]:
         print("Decompiling source files...")
         decompile.decompile(
             args.dl_path,
@@ -117,7 +117,7 @@ if __name__ == '__main__':
     else:
         print("! Skipping Decompiler !")
     
-    if args.parse:
+    if args.parse in [True,"true","True","TRUE"]:
         print("Parsing decompiled files...")
         game_parser = parser.Parser(args.workdir,args.output)
         game_parser.run()
@@ -127,7 +127,7 @@ if __name__ == '__main__':
     else:
         print("! Skipping Parser !")
     
-    if args.bot_push:
+    if args.bot_push in [True,"true","True","TRUE"]:
         print("Running DeadBot...")
         bot = DeadBot()
         bot.run()
@@ -143,7 +143,7 @@ if __name__ == '__main__':
             args.iam_secret
         ).write()
 
-    if args.cleanup:
+    if args.cleanup in [True,"true","True","TRUE"]:
         cmd = 'rm -rf '+ args.workdir
         print("Command: "+ cmd)
         os.system(cmd)

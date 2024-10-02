@@ -8,11 +8,12 @@ from utils import json_utils
 
 
 class Parser:
-    def __init__(self, data_dir, output_dir, language='english',):
+    def __init__(self, work_dir, output_dir, language='english',):
         # constants
         self.OUTPUT_DIR = output_dir
-        self.DATA_DIR = data_dir
-        
+        # Directory with decompiled data
+        self.DATA_DIR = work_dir
+
         self.language = language
         self.data = {'scripts': {}}
         self.localization_groups = os.listdir(os.path.join(self.DATA_DIR, 'localizations'))
@@ -84,7 +85,7 @@ class Parser:
             # duplicate key error. This is a temporary measure to keep patch updates going
             elif group != 'heroes':
                 current_value = self.localizations[language][key]
-                raise Exception(
+                print(
                     f'Key {key} with value {value} already exists in {language} localization '
                     + f'data with value {current_value}.'
                 )
@@ -174,4 +175,4 @@ class Parser:
 
     def _parse_changelogs(self):
         print('Parsing Changelogs...')
-        changelogs.ChangelogParser(self.output_dir).run_all()
+        changelogs.ChangelogParser(self.OUTPUT_DIR).run_all()
