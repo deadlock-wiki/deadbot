@@ -23,7 +23,8 @@
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
         "TechPower": "0",
-        "WeaponPower": "0"
+        "WeaponPower": "0",
+        "Disabled": false
     },
     "armor_upgrade_base": {
         "Name": null,
@@ -47,7 +48,8 @@
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
         "TechPower": "0",
-        "WeaponPower": "0"
+        "WeaponPower": "0",
+        "Disabled": false
     },
     "armor_upgrade_t1": {
         "Name": null,
@@ -71,7 +73,8 @@
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
         "TechPower": "0",
-        "WeaponPower": "0"
+        "WeaponPower": "0",
+        "Disabled": false
     },
     "armor_upgrade_t2": {
         "Name": null,
@@ -95,7 +98,8 @@
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
         "TechPower": "0",
-        "WeaponPower": "0"
+        "WeaponPower": "0",
+        "Disabled": false
     },
     "armor_upgrade_t3": {
         "Name": null,
@@ -119,7 +123,8 @@
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
         "TechPower": "0",
-        "WeaponPower": "0"
+        "WeaponPower": "0",
+        "Disabled": false
     },
     "armor_upgrade_t4": {
         "Name": null,
@@ -143,7 +148,8 @@
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
         "TechPower": "0",
-        "WeaponPower": "0"
+        "WeaponPower": "0",
+        "Disabled": false
     },
     "tech_upgrade_base": {
         "Name": null,
@@ -167,7 +173,8 @@
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
         "TechPower": "0",
-        "WeaponPower": "0"
+        "WeaponPower": "0",
+        "Disabled": false
     },
     "tech_upgrade_t1": {
         "Name": null,
@@ -191,7 +198,8 @@
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
         "TechPower": "0",
-        "WeaponPower": "0"
+        "WeaponPower": "0",
+        "Disabled": false
     },
     "tech_upgrade_t2": {
         "Name": null,
@@ -215,7 +223,8 @@
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
         "TechPower": "0",
-        "WeaponPower": "0"
+        "WeaponPower": "0",
+        "Disabled": false
     },
     "tech_upgrade_t3": {
         "Name": null,
@@ -239,7 +248,8 @@
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
         "TechPower": "0",
-        "WeaponPower": "0"
+        "WeaponPower": "0",
+        "Disabled": false
     },
     "tech_upgrade_t4": {
         "Name": null,
@@ -263,7 +273,8 @@
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
         "TechPower": "0",
-        "WeaponPower": "0"
+        "WeaponPower": "0",
+        "Disabled": false
     },
     "upgrade_ability_power_shard": {
         "Name": "Echo Shard",
@@ -292,11 +303,12 @@
         "TechPower": "12",
         "WeaponPower": "0",
         "BonusMoveSpeed": "1m",
-        "BulletResist": "16"
+        "BulletResist": "16",
+        "Disabled": false
     },
     "upgrade_ability_refresher": {
         "Name": "Refresher",
-        "Description": "Reset the cooldown of all your abilities and restore all your charges.",
+        "Description": "<span style=\"font-weight: bold;\">Reset the cooldown</span> of all your abilities and <span style=\"font-weight: bold;\">restore all your charges</span>.",
         "Cost": "6200",
         "Tier": "4",
         "Activation": "InstantCast",
@@ -318,11 +330,12 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "TechResist": "8",
-        "BulletResist": "16"
+        "BulletResist": "16",
+        "Disabled": false
     },
     "upgrade_ablative_coat": {
         "Name": "Ablative Coat",
-        "Description": "Provides Bullet Resist but you lose some each time you take Weapon Damage. Loss can only happen once every 1s. Bullet Resist is restored when out of combat.",
+        "Description": "Provides <span style=\"font-weight: bold;\">Bullet Resist</span> but you lose some each time you take Weapon Damage. Loss can only happen once every 1s. Bullet Resist is restored when out of combat.",
         "Cost": "6200",
         "Tier": "4",
         "Activation": "Passive",
@@ -347,11 +360,12 @@
         "StackLossFrequency": "1",
         "ArmorLossPerHit": "4",
         "BulletArmor": "1",
-        "BonusSprintSpeed": "3m"
+        "BonusSprintSpeed": "3m",
+        "Disabled": true
     },
     "upgrade_acolytes_glove": {
         "Name": "Spirit Strike",
-        "Description": "When you perform a Light or Heavy Melee attack against a hero, deal extra Spirit Damage with the attack and reduce the target's Spirit Resist.",
+        "Description": "When you perform a <span style=\"font-weight: bold;\">Light or Heavy Melee</span> attack against a hero, deal extra <span style=\"font-weight: bold;\">Spirit Damage</span> with the attack and reduce the target's <span style=\"font-weight: bold;\">Spirit Resist</span>.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
@@ -380,11 +394,12 @@
         "SpiritDamage": "50",
         "TechArmorDamageReduction": "-12",
         "TechShieldMaxHealth": "80",
-        "BonusMeleeDamagePercent": "12"
+        "BonusMeleeDamagePercent": "12",
+        "Disabled": false
     },
     "upgrade_active_bullet_shield": {
         "Name": "Shield Rush",
-        "Description": "Give temporary bullet shield for you and nearby allied Heros and their minions.",
+        "Description": "Give temporary <span style=\"font-weight: bold;\">bullet shield</span> for you and nearby allied Heros and their minions.",
         "Cost": "6200",
         "Tier": "4",
         "Activation": "InstantCast",
@@ -411,11 +426,12 @@
         "TempBulletShieldHealth": "800",
         "Radius": "30m",
         "BulletShieldMaxHealth": "400",
-        "BonusSprintSpeed": "5m"
+        "BonusSprintSpeed": "5m",
+        "Disabled": true
     },
     "upgrade_active_reload": {
         "Name": "Active Reload",
-        "Description": "While reloading, pressing [R] during the highlighted portion will instantly finish your reload and grant you Fire Rate and Bullet Lifesteal.",
+        "Description": "While reloading, pressing R during the highlighted portion will <span style=\"font-weight: bold;\">instantly finish your reload</span> and grant you <span style=\"font-weight: bold;\">Fire Rate</span> and <span style=\"font-weight: bold;\">Bullet Lifesteal</span>.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -441,7 +457,8 @@
         "BaseAttackDamagePercent": "10",
         "ReloadSpeedMultipler": "-20",
         "BulletLifestealPercent": "20",
-        "BonusFireRate": "20"
+        "BonusFireRate": "20",
+        "Disabled": false
     },
     "upgrade_aerial_assault": {
         "Name": "Aerial Assault",
@@ -475,11 +492,12 @@
         "AssaultLifestealPercent": "20",
         "AssaultDuration": "3.0",
         "AssaultFireRate": "60",
-        "ExplodeRadius": "3m"
+        "ExplodeRadius": "3m",
+        "Disabled": true
     },
     "upgrade_ammo_scavenger": {
         "Name": "Ammo Scavenger",
-        "Description": "Any time you secure or deny a Soul from an entity you get ammo back and gain stacking Spirit Power.",
+        "Description": "Any time you secure or deny a Soul from an entity you <span style=\"font-weight: bold;\">get ammo back</span> and gain stacking <span style=\"font-weight: bold;\">Spirit Power</span>.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
@@ -507,7 +525,8 @@
         "BonusHealth": "40",
         "AmmoPerSoul": "2",
         "SpiritPowerPerSoul": "2",
-        "MaxStacks": "10"
+        "MaxStacks": "10",
+        "Disabled": false
     },
     "upgrade_aoe_root": {
         "Name": "Vacuum Web",
@@ -538,11 +557,12 @@
         "TetherDuration": "3.5",
         "TetherRadius": "3m",
         "TechRangeMultiplier": "20",
-        "TechRadiusMultiplier": "20"
+        "TechRadiusMultiplier": "20",
+        "Disabled": true
     },
     "upgrade_aoe_silence": {
         "Name": "EMP Grenade",
-        "Description": "Throw a grenade that silences enemies and lowers their spirit resistance.",
+        "Description": "Throw a grenade that <span style=\"font-weight: bold;\">silences</span> enemies and lowers their <span style=\"font-weight: bold;\">spirit resistance</span>.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "ActivationPress",
@@ -572,11 +592,12 @@
         "StartRadius": "1m",
         "Radius": "8m",
         "TechResist": "-20",
-        "TechShieldMaxHealth": "225"
+        "TechShieldMaxHealth": "225",
+        "Disabled": true
     },
     "upgrade_aoe_smoke_bomb": {
         "Name": "Smoke",
-        "Description": "Give you and teammates invisibility and a movement speed bonus.  Attacking or taking damage will remove the invisibility.<br>Cast delay: UNKNOWN[AbilityCastDelay]s.",
+        "Description": "Give you and teammates <span style=\"font-weight: bold;\">invisibility</span> and a <span style=\"font-weight: bold;\">movement speed</span> bonus.  Attacking or taking damage will remove the invisibility.<br>Cast delay: UNKNOWN[AbilityCastDelay]s.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "InstantCast",
@@ -607,11 +628,12 @@
         "RevealOnDamageDuration": "0.25",
         "RevealOnSpottedDuration": "0.25",
         "Radius": "30m",
-        "FullInvisDistance": "50m"
+        "FullInvisDistance": "50m",
+        "Disabled": true
     },
     "upgrade_aoe_tech_shield": {
         "Name": "Spirit Barrier Pulse",
-        "Description": "Temporarily gain spirit barrier for you and all nearby allied units.",
+        "Description": "Temporarily gain <span style=\"font-weight: bold;\">spirit barrier</span> for you and all nearby allied units.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "InstantCast",
@@ -635,11 +657,12 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "TempTechShieldHealth": "400",
-        "Radius": "30m"
+        "Radius": "30m",
+        "Disabled": true
     },
     "upgrade_arcane_eater": {
         "Name": "Arcane Eater",
-        "Description": "Your bullets Steal Spirit Power from enemy Heroes.  Steal 1 extra Spirit Power with Headshots.  This effect stacks.",
+        "Description": "Your bullets <span style=\"font-weight: bold;\">Steal Spirit Power</span> from enemy Heroes.  Steal 1 extra Spirit Power with Headshots.  This effect stacks.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -670,11 +693,12 @@
         "HeadshotBonusSteal": "1",
         "ProcCooldown": "0.5",
         "MaxStacks": "99",
-        "StealDuration": "12"
+        "StealDuration": "12",
+        "Disabled": true
     },
     "upgrade_arcane_extension": {
         "Name": "Duration Extender",
-        "Description": "Increases the Duration of your abilities and items.",
+        "Description": "Increases the <span style=\"font-weight: bold;\">Duration</span> of your abilities and items.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -697,11 +721,12 @@
         "WeaponPower": "0",
         "BonusAbilityDurationPercent": "16",
         "BonusHealth": "100",
-        "BonusHealthRegen": "1.75"
+        "BonusHealthRegen": "1.75",
+        "Disabled": false
     },
     "upgrade_arcane_medallion": {
         "Name": "Arcane Medallion",
-        "Description": "Whenever you deal 200 Spirit damage or more in a single hit against an enemy hero, gain temporary Spirit Power.",
+        "Description": "Whenever you deal <span style=\"font-weight: bold;\">200 Spirit damage</span> or more in a single hit against an enemy hero, gain <span style=\"font-weight: bold;\">temporary Spirit Power</span>.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -724,11 +749,12 @@
         "ResourceCost": "0",
         "TechPower": "35",
         "WeaponPower": "0",
-        "MinimumDamage": "200"
+        "MinimumDamage": "200",
+        "Disabled": true
     },
     "upgrade_armor_reduction_debuff": {
         "Name": "Armor Piercing Rounds",
-        "Description": "Your bullets reduce the target's bullet resistance by -60% of their current value for UNKNOWN[AbilityDuration]s and deal bonus damage against bullet shields.",
+        "Description": "Your bullets reduce the target's <span style=\"font-weight: bold;\">bullet resistance by -60%</span> of their current value for UNKNOWN[AbilityDuration]s and deal bonus damage <span style=\"font-weight: bold;\">against bullet shields</span>.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -757,11 +783,12 @@
         "WeaponPower": "0",
         "ResistReduction": "-60",
         "BaseAttackDamagePercent": "12",
-        "BulletShieldDamagePercent": "60"
+        "BulletShieldDamagePercent": "60",
+        "Disabled": true
     },
     "upgrade_attack_speed_1": {
         "Name": "Fire Rate",
-        "Description": "Increases your Fire Rate.",
+        "Description": "Increases your <span style=\"font-weight: bold;\">Fire Rate</span>.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -782,11 +809,12 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BonusFireRate": "15"
+        "BonusFireRate": "15",
+        "Disabled": true
     },
     "upgrade_attack_speed_2": {
         "Name": "Improved Fire Rate",
-        "Description": "Increases your Fire Rate.",
+        "Description": "Increases your <span style=\"font-weight: bold;\">Fire Rate</span>.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -807,7 +835,8 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BonusFireRate": "25"
+        "BonusFireRate": "25",
+        "Disabled": true
     },
     "upgrade_banshee_slugs": {
         "Name": "Crippling Headshot",
@@ -840,7 +869,8 @@
         "LifestealPercentHero": "10",
         "BulletResistReduction": "24",
         "MagicResistReduction": "24",
-        "DebuffDuration": "4"
+        "DebuffDuration": "4",
+        "Disabled": false
     },
     "upgrade_base": {
         "Name": null,
@@ -864,11 +894,12 @@
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
         "TechPower": "0",
-        "WeaponPower": "0"
+        "WeaponPower": "0",
+        "Disabled": false
     },
     "upgrade_belt_fed_magazine": {
         "Name": "Belt-Fed Magazine",
-        "Description": "Your weapon gains a much larger magazine that requires spin-up time, starting with a slower initial fire rate and becoming faster over the spin-up time.",
+        "Description": "Your weapon gains a <span style=\"font-weight: bold;\">much larger magazine that </span><span class=\"isNegative\">requires spin-up time</span>, starting with a <span style=\"font-weight: bold;\">slower initial fire rate and becoming faster over the spin-up time</span>.",
         "Cost": "6200",
         "Tier": "4",
         "Activation": "Passive",
@@ -897,11 +928,12 @@
         "SpinUpDecay": "1.0",
         "InitialFireRateDecrease": "40",
         "MaxFireRateIncrease": "60",
-        "BonusReloadTime": "0.0"
+        "BonusReloadTime": "0.0",
+        "Disabled": true
     },
     "upgrade_berserker": {
         "Name": "Berserker",
-        "Description": "Your Weapon Damage increases as you take sustained damage.",
+        "Description": "Your <span style=\"font-weight: bold;\">Weapon Damage</span> increases as you take sustained damage.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -931,7 +963,8 @@
         "WeaponPowerPerStack": "5",
         "MaxStacks": 10,
         "BonusClipSize": "4",
-        "BulletResist": "7"
+        "BulletResist": "7",
+        "Disabled": false
     },
     "upgrade_blitz_bullets": {
         "Name": "Swift Striker",
@@ -960,11 +993,12 @@
         "WeaponPower": "0",
         "BonusFireRate": "22",
         "BonusClipSizePercent": "10",
-        "LocalBulletArmorReduction": "-5"
+        "LocalBulletArmorReduction": "-5",
+        "Disabled": false
     },
     "upgrade_bonus_ability_charge_3": {
         "Name": "Hyper Charge",
-        "Description": "+3 to your max ability charges.",
+        "Description": "<span style=\"font-weight: bold;\">+3</span> to your max ability <span style=\"font-weight: bold;\">charges</span>.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -985,11 +1019,12 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BonusAbilityCharges": "3"
+        "BonusAbilityCharges": "3",
+        "Disabled": true
     },
     "upgrade_boxing_glove": {
         "Name": "Lifestrike",
-        "Description": "Your Melee Attack applies Movement Slow and heals you for 55% of the Melee Damage dealt plus 110. This heal is 40% effective vs non-heroes.",
+        "Description": "Your <span style=\"font-weight: bold;\">Melee Attack</span> applies <span style=\"font-weight: bold;\">Movement Slow</span> and <span style=\"font-weight: bold;\">heals you</span> for 55% of the <span style=\"font-weight: bold;\">Melee Damage</span> dealt plus 110. This heal is 40% effective vs non-heroes.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -1025,11 +1060,12 @@
         "LifestealHealPercent": "55",
         "BonusHealth": "125",
         "BulletResist": "8",
-        "NonHeroHealPct": "40"
+        "NonHeroHealPct": "40",
+        "Disabled": false
     },
     "upgrade_bullet_armor": {
         "Name": "Bullet Armor",
-        "Description": "Decreases damage taken from bullets.",
+        "Description": "Decreases <span style=\"font-weight: bold;\">damage taken</span> from bullets.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -1054,11 +1090,12 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "BulletResist": "25",
-        "BaseAttackDamagePercent": "6"
+        "BaseAttackDamagePercent": "6",
+        "Disabled": false
     },
     "upgrade_bullet_armor_2": {
         "Name": "Improved Bullet Armor",
-        "Description": "Decreases damage taken from bullets.",
+        "Description": "Decreases <span style=\"font-weight: bold;\">damage taken</span> from bullets.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -1079,11 +1116,12 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BulletArmor": "2"
+        "BulletArmor": "2",
+        "Disabled": true
     },
     "upgrade_bullet_armor_reduction_aura": {
         "Name": "Hunter's Aura",
-        "Description": "Reduces nearby enemies' Bullet Resist and Fire Rate. If there is only one enemy hero nearby, this effect is tripled.",
+        "Description": "Reduces nearby enemies' <span style=\"font-weight: bold;\">Bullet Resist and Fire Rate</span>. If there is only one enemy hero nearby, this <span style=\"font-weight: bold;\">effect is tripled</span>.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -1116,11 +1154,12 @@
         "Radius": "15m",
         "BulletArmorReduction": "-9",
         "FireRateSlow": "10",
-        "SingleTargetPlayerMultiplier": "3"
+        "SingleTargetPlayerMultiplier": "3",
+        "Disabled": false
     },
     "upgrade_bullet_damage_reduction_aura": {
         "Name": "Weapon Jammer",
-        "Description": "Reduces the Fire Rate of all nearby enemies.",
+        "Description": "Reduces the <span style=\"font-weight: bold;\">Fire Rate</span> of all nearby enemies.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -1146,11 +1185,12 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "Radius": "12m",
-        "FireRateSlow": "30"
+        "FireRateSlow": "30",
+        "Disabled": true
     },
     "upgrade_bullet_resist_shredder": {
         "Name": "Bullet Resist Shredder",
-        "Description": "Reduces Bullet Resist on enemies when you deal Spirit Damage.",
+        "Description": "Reduces <span style=\"font-weight: bold;\">Bullet Resist</span> on enemies when you deal <span style=\"font-weight: bold;\">Spirit Damage</span>.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -1180,11 +1220,12 @@
         "WeaponPower": "0",
         "BulletArmorReduction": "-12",
         "BonusHealth": "100",
-        "BulletResist": "5"
+        "BulletResist": "5",
+        "Disabled": false
     },
     "upgrade_burst_fire": {
         "Name": "Burst Fire",
-        "Description": "Briefly gain Fire Rate and Move Speed when one of your bullets hits an enemy hero.",
+        "Description": "Briefly gain <span style=\"font-weight: bold;\">Fire Rate</span> and <span style=\"font-weight: bold;\">Move Speed</span> when one of your bullets hits an enemy hero.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -1211,11 +1252,12 @@
         "ActivatedFireRate": "30",
         "SlideScale": "50",
         "BonusMoveSpeed": "2m",
-        "BonusHealth": "70"
+        "BonusHealth": "70",
+        "Disabled": false
     },
     "upgrade_burst_fire_actuator": {
         "Name": "Burst Fire Actuator",
-        "Description": "Your weapon  fires an additional percentage of your gun's starting clip as a burst.  If all bullets in a burst connect with an enemy Hero, gain temporary Base Bullet Damage for the rest of the clip.",
+        "Description": "Your weapon <span style=\"font-weight: bold;\"> fires an additional percentage of your gun's starting clip as a burst</span>.  If all bullets in a burst connect with an enemy Hero, <span style=\"font-weight: bold;\">gain temporary Base Bullet Damage</span> for the rest of the clip.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -1246,11 +1288,12 @@
         "BonusHeadshotDamage": "0",
         "BaseBonusWeaponPower": "5",
         "IntraBurstFireRateIncrease": "0",
-        "NonBurstFireConversionFactor": "3"
+        "NonBurstFireConversionFactor": "3",
+        "Disabled": true
     },
     "upgrade_camouflage": {
         "Name": "Camouflage Suit",
-        "Description": "Go invisible and maintain invisibility by not moving or attacking.  Taking damage will not reveal the Hero.  Bonus Regen while Invisible.",
+        "Description": "Go <span style=\"font-weight: bold;\">invisible</span> and maintain invisibility by <span style=\"font-weight: bold;\">not moving or attacking</span>.  Taking damage will not reveal the Hero.  Bonus Regen while Invisible.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "InstantCast",
@@ -1279,11 +1322,12 @@
         "RevealOnDamageDuration": "0",
         "RevealOnSpottedDuration": "0.25",
         "MovementThresholdSq": "200",
-        "RegenWhileInvisible": "5"
+        "RegenWhileInvisible": "5",
+        "Disabled": true
     },
     "upgrade_cardio_calibrator": {
         "Name": "Enduring Speed",
-        "Description": "Reduces the effect of enemy Movement Slow.",
+        "Description": "Reduces the effect of enemy <span style=\"font-weight: bold;\">Movement Slow</span>.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -1313,11 +1357,12 @@
         "SlowResistancePercent": "40",
         "BonusSprintSpeed": "2m",
         "BonusHealth": "75",
-        "BonusHealthRegen": "1.5"
+        "BonusHealthRegen": "1.5",
+        "Disabled": false
     },
     "upgrade_chain_lightning": {
         "Name": "Tesla Bullets",
-        "Description": "Your bullets have a chance to shock your target.  The shock will jump to a nearby enemy.",
+        "Description": "Your bullets have a chance to <span style=\"font-weight: bold;\">shock</span> your target.  The <span style=\"font-weight: bold;\">shock</span> will jump to a nearby enemy.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -1350,7 +1395,8 @@
         "ProcCooldown": "0.35",
         "ChainCount": "2",
         "ChainTickRate": "0.4",
-        "BonusFireRate": "14"
+        "BonusFireRate": "14",
+        "Disabled": false
     },
     "upgrade_charge_mastery": {
         "Name": "Charge Mastery",
@@ -1378,11 +1424,12 @@
         "BonusAbilityCharges": "4",
         "CooldownBetweenChargeReduction": "50",
         "BonusChargedAbilityDamage": "15",
-        "BonusChargedCooldownReduction": "15"
+        "BonusChargedCooldownReduction": "15",
+        "Disabled": true
     },
     "upgrade_charmed_wraps": {
         "Name": "Charmed Wraps",
-        "Description": "Your abilities get their cooldowns reduced when you perform a heavy melee attack against a hero (or two light melee attacks within 4.0s).",
+        "Description": "Your abilities get their <span style=\"font-weight: bold;\">cooldowns reduced</span> when you perform a <span style=\"font-weight: bold;\">heavy melee</span> attack against a hero (or <span style=\"font-weight: bold;\">two light melee</span> attacks within 4.0s).",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -1406,7 +1453,8 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "CooldownReductionFlat": "8.0",
-        "LightMeleeTimeWindow": "4.0"
+        "LightMeleeTimeWindow": "4.0",
+        "Disabled": true
     },
     "upgrade_cheat_death": {
         "Name": "Cheat Death",
@@ -1439,11 +1487,12 @@
         "DeathImmunityDuration": "4",
         "DeathImmunityPulseRateMultiplier": "4",
         "BonusHealth": "175",
-        "BonusHealthRegen": "2"
+        "BonusHealthRegen": "2",
+        "Disabled": true
     },
     "upgrade_chonky": {
         "Name": "Fortitude",
-        "Description": "After not taking damage for 11s, gain 4% Max Health Regen.",
+        "Description": "After not taking damage for <span style=\"font-weight: bold;\">11s</span>, gain <span style=\"font-weight: bold;\">4% Max Health Regen</span>.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -1474,11 +1523,12 @@
         "HealthThreshold": "75",
         "BonusMoveSpeed": "2m",
         "BaseAttackDamagePercent": "25",
-        "BonusHealth": "300"
+        "BonusHealth": "300",
+        "Disabled": false
     },
     "upgrade_clip_size": {
         "Name": "Basic Magazine",
-        "Description": "Increases ammo.",
+        "Description": "Increases <span style=\"font-weight: bold;\">ammo</span>.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
@@ -1503,11 +1553,12 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "BonusClipSizePercent": "24",
-        "BaseAttackDamagePercent": "15"
+        "BaseAttackDamagePercent": "15",
+        "Disabled": false
     },
     "upgrade_clip_size_2": {
         "Name": "Big Clip",
-        "Description": "Big Increase ammo.",
+        "Description": "Big Increase <span style=\"font-weight: bold;\">ammo</span>.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -1528,11 +1579,12 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BonusClipSizePercent": "30"
+        "BonusClipSizePercent": "30",
+        "Disabled": true
     },
     "upgrade_clip_size_3": {
         "Name": "Extra Large Magazine",
-        "Description": "Greatly Increases ammo.",
+        "Description": "Greatly Increases <span style=\"font-weight: bold;\">ammo</span>.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -1553,11 +1605,12 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BonusClipSizePercent": "60"
+        "BonusClipSizePercent": "60",
+        "Disabled": true
     },
     "upgrade_clip_size_fixed": {
         "Name": "Extended Magazine",
-        "Description": "Increases ammo.",
+        "Description": "Increases <span style=\"font-weight: bold;\">ammo</span>.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -1578,11 +1631,12 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BonusClipSize": "6"
+        "BonusClipSize": "6",
+        "Disabled": true
     },
     "upgrade_clip_size_fixed_t3": {
         "Name": "Extra Large Magazine",
-        "Description": "Greatly Increases ammo.",
+        "Description": "Greatly Increases <span style=\"font-weight: bold;\">ammo</span>.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -1603,11 +1657,12 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BonusClipSize": "12"
+        "BonusClipSize": "12",
+        "Disabled": true
     },
     "upgrade_cloaking_device": {
         "Name": "Cloaking Device",
-        "Description": "Become invisible. Nearby enemies will temporaily reveal the hero.  Attacking or taking damage will remove the invisibility for UNKNOWN[AbilityCooldown]s.",
+        "Description": "Become <span style=\"font-weight: bold;\">invisible</span>. Nearby enemies will temporaily reveal the hero.  Attacking or taking damage will remove the invisibility for UNKNOWN[AbilityCooldown]s.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -1635,11 +1690,12 @@
         "SpottedRadius": "20m",
         "RevealOnDamageDuration": "1.5",
         "RevealOnSpottedDuration": "1.5",
-        "FullInvisDistance": "50m"
+        "FullInvisDistance": "50m",
+        "Disabled": true
     },
     "upgrade_cloaking_device_active": {
         "Name": "Shadow Weave",
-        "Description": "Become Stealthed. Whenever you take damage while Stealthed you get briefly revealed.",
+        "Description": "Become <span style=\"font-weight: bold;\">Stealthed</span>. Whenever you take damage while Stealthed you get briefly revealed.",
         "Cost": "6200",
         "Tier": "4",
         "Activation": "InstantCast",
@@ -1677,11 +1733,12 @@
         "AmbushBonusTechPower": "55",
         "TechShieldMaxHealth": "300",
         "BonusHealthRegen": "15",
-        "BonusClipSizePercent": "30"
+        "BonusClipSizePercent": "30",
+        "Disabled": false
     },
     "upgrade_close_quarter_combat": {
         "Name": "Point Blank",
-        "Description": "When in close range to your target, gain Weapon Damage and your bullets apply a Movement Slow.",
+        "Description": "When in <span style=\"font-weight: bold;\">close range</span> to your target, gain <span style=\"font-weight: bold;\">Weapon Damage</span> and your bullets apply a <span style=\"font-weight: bold;\">Movement Slow</span>.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -1715,11 +1772,12 @@
         "SlowDuration": "2",
         "CloseRangeBonusDamageRange": "15m",
         "BulletResist": "15",
-        "Stamina": "1"
+        "Stamina": "1",
+        "Disabled": false
     },
     "upgrade_close_range": {
         "Name": "Close Quarters",
-        "Description": "Deal additional Weapon Damage when in close range to your target.",
+        "Description": "Deal additional <span style=\"font-weight: bold;\">Weapon Damage</span> when in <span style=\"font-weight: bold;\">close range</span> to your target.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
@@ -1745,11 +1803,12 @@
         "WeaponPower": "0",
         "CloseRangeBonusWeaponPower": "25",
         "CloseRangeBonusDamageRange": "15m",
-        "BulletShieldMaxHealth": "85"
+        "BulletShieldMaxHealth": "85",
+        "Disabled": false
     },
     "upgrade_cold_front": {
         "Name": "Cold Front",
-        "Description": "Release an expanding ice blast that deals Spirit Damage and Slows targets it hits.",
+        "Description": "Release an expanding ice blast that deals <span style=\"font-weight: bold;\">Spirit Damage</span> and <span style=\"font-weight: bold;\">Slows</span> targets it hits.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "InstantCast",
@@ -1781,11 +1840,12 @@
         "EndRadius": "14m",
         "SlowPercent": "40",
         "Damage": "75",
-        "TechResist": "10"
+        "TechResist": "10",
+        "Disabled": false
     },
     "upgrade_colossus": {
         "Name": "Colossus",
-        "Description": "Gain Bullet and Spirit Resist, and slow the movement and dash speed of enemies nearby. Your model size grows by 20%.",
+        "Description": "Gain <span style=\"font-weight: bold;\">Bullet and Spirit Resist</span>, and <span style=\"font-weight: bold;\">slow the movement and dash speed</span> of enemies nearby. Your model size grows by 20%.",
         "Cost": "6200",
         "Tier": "4",
         "Activation": "InstantCast",
@@ -1816,11 +1876,12 @@
         "SlowPercent": "35",
         "GroundDashReductionPercent": "-25",
         "Radius": "14m",
-        "ModelScaleGrowth": "1.2"
+        "ModelScaleGrowth": "1.2",
+        "Disabled": false
     },
     "upgrade_combo_breaker": {
         "Name": "Combo Breaker",
-        "Description": "Remove all debuffs and heal yourself. <br>Can be used while stunned.",
+        "Description": "<span style=\"font-weight: bold;\">Remove all debuffs</span> and heal yourself. <br><span style=\"font-weight: bold;\">Can be used while stunned.</span>",
         "Cost": "6200",
         "Tier": "4",
         "Activation": "InstantCast",
@@ -1846,11 +1907,12 @@
         "TechArmor": "2",
         "BonusHealthRegen": "2.75",
         "HealPercentAmount": "30",
-        "RegenDuration": "10"
+        "RegenDuration": "10",
+        "Disabled": true
     },
     "upgrade_containment": {
         "Name": "Slowing Hex",
-        "Description": "Deals Spirit Damage and Slows targets movement and dashes. Also Silences their movement-based items and abilities.<br>Does not affect target's stamina usage.",
+        "Description": "Deals <span style=\"font-weight: bold;\">Spirit Damage</span> and <span style=\"font-weight: bold;\">Slows</span> targets movement and dashes. Also <span style=\"font-weight: bold;\">Silences their movement-based items and abilities</span>.<br>Does not affect target's stamina usage.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "ActivationPress",
@@ -1880,11 +1942,12 @@
         "SlowPercent": "30",
         "Damage": "70",
         "BonusSprintSpeed": "1m",
-        "GroundDashReductionPercent": "-30"
+        "GroundDashReductionPercent": "-30",
+        "Disabled": false
     },
     "upgrade_cooldown_reduction": {
         "Name": "Superior Cooldown",
-        "Description": "Reduces the Cooldown of your abilities and items.",
+        "Description": "Reduces the <span style=\"font-weight: bold;\">Cooldown</span> of your abilities and items.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -1911,11 +1974,12 @@
         "WeaponPower": "0",
         "ImbuedCooldownReduction": "32",
         "NonImbuedCooldownReduction": "24",
-        "BonusHealthRegen": "4"
+        "BonusHealthRegen": "4",
+        "Disabled": false
     },
     "upgrade_crackshot": {
         "Name": "Mystic Shot",
-        "Description": "Your next bullet deals bonus Spirit Damage.",
+        "Description": "Your next bullet deals bonus <span style=\"font-weight: bold;\">Spirit Damage</span>.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -1946,11 +2010,12 @@
         "ProcCooldown": "1",
         "ProcBonusMagicDamage": "65",
         "BaseAttackDamagePercent": "12",
-        "SpiritPower": "4"
+        "SpiritPower": "4",
+        "Disabled": false
     },
     "upgrade_critshot": {
         "Name": "Lucky Shot",
-        "Description": "Your bullets have a chance to be empowered, causing them to deal bonus damage and Slow on hit.",
+        "Description": "Your bullets have a chance to be empowered, causing them to deal <span style=\"font-weight: bold;\">bonus damage</span> and <span style=\"font-weight: bold;\">Slow</span> on hit.",
         "Cost": "6200",
         "Tier": "4",
         "Activation": "Passive",
@@ -1981,11 +2046,12 @@
         "SlowPercent": "30",
         "SlowDuration": "1.5",
         "CritDamagePercent": "90",
-        "BonusClipSizePercent": "30"
+        "BonusClipSizePercent": "30",
+        "Disabled": false
     },
     "upgrade_damage_recycler": {
         "Name": "Leech",
-        "Description": "Reduces the effect of enemy applied healing reduction.",
+        "Description": "Reduces the effect of enemy applied <span style=\"font-weight: bold;\">healing reduction</span>.",
         "Cost": "6200",
         "Tier": "4",
         "Activation": "Passive",
@@ -2012,11 +2078,12 @@
         "LifestealPercentHero": "35",
         "BulletLifestealPercent": "35",
         "BaseAttackDamagePercent": "15",
-        "BonusHealth": "175"
+        "BonusHealth": "175",
+        "Disabled": false
     },
     "upgrade_debuff_reducer": {
         "Name": "Debuff Reducer",
-        "Description": "Reduces the duration of all negative effects applied to you.",
+        "Description": "Reduces the <span style=\"font-weight: bold;\">duration</span> of all negative effects applied to you.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -2041,11 +2108,12 @@
         "WeaponPower": "0",
         "StatusResistancePercent": "30",
         "BaseAttackDamagePercent": "6",
-        "BonusHealth": "75"
+        "BonusHealth": "75",
+        "Disabled": false
     },
     "upgrade_disarm": {
         "Name": "Drain Will",
-        "Description": "Fires a projectile which reduces the Fire Rate of the target and steals Spirit.",
+        "Description": "Fires a projectile which reduces the <span style=\"font-weight: bold;\">Fire Rate</span> of the target and <span style=\"font-weight: bold;\">steals Spirit</span>.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "ActivationPress",
@@ -2074,11 +2142,12 @@
         "FireRateSlow": "30",
         "SpiritSteal": "22",
         "SpiritStealDuration": "6",
-        "BonusHealth": "50"
+        "BonusHealth": "50",
+        "Disabled": true
     },
     "upgrade_discord": {
         "Name": "Discord",
-        "Description": "Apply an aura around enemy or friendly target that damages enemies in the radius and suppresses their healing by -80%. If cast on a friendly, it also heals them.",
+        "Description": "Apply an aura around enemy or friendly target that <span style=\"font-weight: bold;\">damages enemies in the radius and suppresses their healing by -80%</span>. If cast on a friendly, it also heals them.",
         "Cost": "6200",
         "Tier": "4",
         "Activation": "ActivationPress",
@@ -2105,11 +2174,12 @@
         "HealAmpRegenPenaltyPercent": "-80",
         "MaxHealthPercentAsDPS": "3",
         "MaxHealthPercentAsHealPerSecond": "5",
-        "AuraRadius": "10m"
+        "AuraRadius": "10m",
+        "Disabled": true
     },
     "upgrade_diviners_kevlar": {
         "Name": "Diviner's Kevlar",
-        "Description": "Upon casting an ultimate ability gain temporary Bullet Shield, Spirit Shield, and Spirit Power.",
+        "Description": "Upon casting an <span style=\"font-weight: bold;\">ultimate ability</span> gain temporary <span style=\"font-weight: bold;\">Bullet Shield, Spirit Shield,</span> and <span style=\"font-weight: bold;\">Spirit Power</span>.",
         "Cost": "6200",
         "Tier": "4",
         "Activation": "Passive",
@@ -2138,11 +2208,12 @@
         "BulletShieldOnCast": "700",
         "TechShieldOnCast": "700",
         "BuffDuration": "15",
-        "CooldownReduction": "12"
+        "CooldownReduction": "12",
+        "Disabled": false
     },
     "upgrade_double_jump": {
         "Name": "Double-Jump",
-        "Description": "Allows you to perform an additional jump in mid-air.",
+        "Description": "Allows you to perform an additional <span style=\"font-weight: bold;\">jump</span> in mid-air.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
@@ -2165,11 +2236,12 @@
         "WeaponPower": "0",
         "AirJumps": "1",
         "AirJumpVerticalSpeedPercent": "75",
-        "InteruptCooldown": 4
+        "InteruptCooldown": 4,
+        "Disabled": true
     },
     "upgrade_dps_aura": {
         "Name": "Heroic Aura",
-        "Description": "Provides Fire Rate to nearby player minions.",
+        "Description": "Provides <span style=\"font-weight: bold;\">Fire Rate</span> to nearby player minions.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "InstantCast",
@@ -2203,11 +2275,12 @@
         "ActiveRadius": "30m",
         "ActiveBonusMoveSpeed": "2m",
         "BonusHealth": "150",
-        "BonusMoveSpeed": "1m"
+        "BonusMoveSpeed": "1m",
+        "Disabled": false
     },
     "upgrade_drum_magazine": {
         "Name": "Drum Magazine",
-        "Description": "Provides a large ammo bonus, and increased reload speed",
+        "Description": "Provides a large <span style=\"font-weight: bold;\">ammo bonus</span>, and <span style=\"font-weight: bold;\">increased reload speed</span>",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -2229,11 +2302,12 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "BonusClipSize": "20",
-        "ReloadSpeedMultipler": "-25"
+        "ReloadSpeedMultipler": "-25",
+        "Disabled": true
     },
     "upgrade_duration_extender": {
         "Name": "[Deprecated] Duration Extender",
-        "Description": "Increases Duration of your abilities and items by UNKNOWN[NonImbuedBonusDuration]%.",
+        "Description": "Increases <span style=\"font-weight: bold;\">Duration</span> of your abilities and items by <span style=\"font-weight: bold;\">UNKNOWN[NonImbuedBonusDuration]%</span>.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -2256,7 +2330,8 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BonusAbilityDurationPercent": "20"
+        "BonusAbilityDurationPercent": "20",
+        "Disabled": true
     },
     "upgrade_endurance": {
         "Name": "Extra Regen",
@@ -2286,11 +2361,12 @@
         "WeaponPower": "0",
         "BonusHealthRegen": "2.8",
         "BonusClipSizePercent": "8",
-        "BonusHealth": "25"
+        "BonusHealth": "25",
+        "Disabled": false
     },
     "upgrade_escalating_exposure": {
         "Name": "Escalating Exposure",
-        "Description": "Dealing Spirit Damage applies a stacking Spirit Amp that increases your Spirit Damage to the target.",
+        "Description": "Dealing <span style=\"font-weight: bold;\">Spirit Damage</span> applies a stacking <span style=\"font-weight: bold;\">Spirit Amp</span> that increases your <span style=\"font-weight: bold;\">Spirit Damage</span> to the target.",
         "Cost": "6200",
         "Tier": "4",
         "Activation": "Passive",
@@ -2322,11 +2398,12 @@
         "MagicIncreasePerStack": "6",
         "TechResist": "15",
         "BonusHealth": "125",
-        "TechArmorDamageReduction": "-15"
+        "TechArmorDamageReduction": "-15",
+        "Disabled": false
     },
     "upgrade_extra_charge": {
         "Name": "Extra Charge",
-        "Description": "Adds one to your ability max charges.",
+        "Description": "Adds one to your ability max <span style=\"font-weight: bold;\">charges</span>.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
@@ -2352,7 +2429,8 @@
         "BonusAbilityCharges": "1",
         "BonusSpiritForChargedAbilities": "0",
         "CooldownReductionOnChargedAbilities": "10",
-        "BaseAttackDamagePercent": "6"
+        "BaseAttackDamagePercent": "6",
+        "Disabled": false
     },
     "upgrade_fervor": {
         "Name": "Frenzy",
@@ -2389,11 +2467,12 @@
         "FervorMovespeed": "4m",
         "FervorFireRate": "40",
         "FervorBulletResist": "45",
-        "LingerDuration": "6"
+        "LingerDuration": "6",
+        "Disabled": false
     },
     "upgrade_fire_rate_aura": {
         "Name": "Fire Rate Aura",
-        "Description": "Provides a Fire Rate increase to you and nearby teammates.  Different bonus to non-Heroes",
+        "Description": "Provides a <span style=\"font-weight: bold;\">Fire Rate</span> increase to you and nearby teammates.  Different bonus to non-Heroes",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -2418,7 +2497,8 @@
         "WeaponPower": "0",
         "BonusFireRate": "10",
         "BonusFireRateNPC": "35",
-        "AuraRadius": "30m"
+        "AuraRadius": "30m",
+        "Disabled": true
     },
     "upgrade_fleetfoot_boots": {
         "Name": "Fleetfoot",
@@ -2452,7 +2532,8 @@
         "BonusClipSizePercent": "30",
         "BonusClipDuration": "10",
         "BonusHealth": "90",
-        "SlideScale": "25"
+        "SlideScale": "25",
+        "Disabled": false
     },
     "upgrade_frenzy": {
         "Name": null,
@@ -2483,7 +2564,8 @@
         "LowHealthPercentThreshold": "45",
         "LowHealthLifeStealPercent": "45",
         "KillBonusMoveSpeedPerStack": "2m",
-        "MaxKillBonusMoveSpeedStack": "3"
+        "MaxKillBonusMoveSpeedStack": "3",
+        "Disabled": true
     },
     "upgrade_full_spectrum": {
         "Name": "Full Spectrum",
@@ -2514,7 +2596,8 @@
         "TechRadiusMultiplier": "60",
         "SlowPercent": "30",
         "SlowDuration": "2",
-        "BonusDamagePerHero": "5"
+        "BonusDamagePerHero": "5",
+        "Disabled": true
     },
     "upgrade_galvanic_storm": {
         "Name": "Galvanic Storm",
@@ -2553,11 +2636,12 @@
         "ExplodeRadius": "10m",
         "GalvanicBuffDuration": "7",
         "BuffDamageMult": "2",
-        "BuffMoveSpeedBonus": "3m"
+        "BuffMoveSpeedBonus": "3m",
+        "Disabled": true
     },
     "upgrade_glass_cannon": {
         "Name": "Glass Cannon",
-        "Description": "Each hero kill grants permanent Weapon Damage (up to a max of 7 times).  Death results in the loss of 1 stack.",
+        "Description": "Each hero kill grants <span style=\"font-weight: bold;\">permanent Weapon Damage</span> (up to a max of 7 times).  Death results in the loss of 1 stack.",
         "Cost": "6200",
         "Tier": "4",
         "Activation": "Passive",
@@ -2589,11 +2673,12 @@
         "BonusFireRate": "10",
         "BonusMoveSpeed": "1m",
         "WeaponPowerPerKill": "10",
-        "MaxStacks": "7"
+        "MaxStacks": "7",
+        "Disabled": false
     },
     "upgrade_glitch": {
         "Name": "Curse",
-        "Description": "Curses an enemy - interrupting, Silencing, Disarming, and preventing item usage.",
+        "Description": "Curses an enemy - <span style=\"font-weight: bold;\">interrupting, Silencing, Disarming</span>, and <span style=\"font-weight: bold;\">preventing item usage</span>.",
         "Cost": "6200",
         "Tier": "4",
         "Activation": "ActivationPress",
@@ -2621,7 +2706,8 @@
         "WeaponPower": "0",
         "SkipFrames": "6",
         "SlowPercent": "0",
-        "BaseAttackDamagePercent": "20"
+        "BaseAttackDamagePercent": "20",
+        "Disabled": false
     },
     "upgrade_headhunter": {
         "Name": "Headhunter",
@@ -2656,11 +2742,12 @@
         "HealPercentPerHeadshot": "8",
         "BonusMoveSpeed": "2m",
         "MovementSpeedBonusDuration": "3",
-        "BonusFireRate": "5"
+        "BonusFireRate": "5",
+        "Disabled": false
     },
     "upgrade_headshot_booster": {
         "Name": "Headshot Booster",
-        "Description": "Deal bonus Weapon Damage with headshots.",
+        "Description": "Deal bonus <span style=\"font-weight: bold;\">Weapon Damage</span> with <span style=\"font-weight: bold;\">headshots</span>.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
@@ -2686,11 +2773,12 @@
         "WeaponPower": "0",
         "BonusFireRate": "4",
         "BulletShieldMaxHealth": "40",
-        "HeadShotBonusDamage": "40"
+        "HeadShotBonusDamage": "40",
+        "Disabled": false
     },
     "upgrade_heal_on_level": {
         "Name": "Patron's Healing",
-        "Description": "When you receive a Boon, automatically heal.",
+        "Description": "When you receive a <span style=\"font-weight: bold;\">Boon</span>, automatically <span style=\"font-weight: bold;\">heal</span>.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
@@ -2717,11 +2805,12 @@
         "HealOnLevelHealAmount": "210",
         "BonusHealth": "25",
         "BonusHealthRegen": "2.0",
-        "AuraRadius": "15m"
+        "AuraRadius": "15m",
+        "Disabled": true
     },
     "upgrade_healbane": {
         "Name": "Healbane",
-        "Description": "Your Spirit Damage applies Healing Reduction. If an enemy hero dies under this effect, you receive a large heal.",
+        "Description": "Your <span style=\"font-weight: bold;\">Spirit Damage</span> applies <span style=\"font-weight: bold;\">Healing Reduction</span>. If an enemy hero dies under this effect, you receive a large heal.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -2751,11 +2840,12 @@
         "HealAmpReceivePenaltyPercent": "-40",
         "HealAmpRegenPenaltyPercent": "-40",
         "HealOnKill": "350",
-        "BonusHealth": "75"
+        "BonusHealth": "75",
+        "Disabled": false
     },
     "upgrade_healing_booster": {
         "Name": "Healing Booster",
-        "Description": "Increases the effectiveness of your healing by 25% and increases your resistance to healing reduction by 15%.",
+        "Description": "Increases the effectiveness of your <span style=\"font-weight: bold;\">healing</span> by <span style=\"font-weight: bold;\">25%</span> and increases your <span style=\"font-weight: bold;\">resistance to healing reduction</span> by <span style=\"font-weight: bold;\">15%</span>.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -2782,11 +2872,12 @@
         "HealAmpRegenPercent": "25",
         "BonusHealthRegen": "2",
         "TechResist": "6",
-        "DegenResistance": "15"
+        "DegenResistance": "15",
+        "Disabled": false
     },
     "upgrade_health": {
         "Name": "Extra Health",
-        "Description": "Increase health.",
+        "Description": "Increase <span style=\"font-weight: bold;\">health</span>.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
@@ -2811,11 +2902,12 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "BonusHealth": "160",
-        "BaseAttackDamagePercent": "5"
+        "BaseAttackDamagePercent": "5",
+        "Disabled": false
     },
     "upgrade_health_nova": {
         "Name": "Health Nova",
-        "Description": "Heal yourself and nearby allies. Heals an additional 20% per ally.",
+        "Description": "<span style=\"font-weight: bold;\">Heal</span> yourself and nearby allies. Heals an additional 20% per ally.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "InstantCast",
@@ -2847,11 +2939,12 @@
         "RegenDuration": "2",
         "AuraRadius": "15m",
         "BaseAttackDamagePercent": "12",
-        "BonusHealth": "100"
+        "BonusHealth": "100",
+        "Disabled": false
     },
     "upgrade_health_regen_1": {
         "Name": "Health Regen",
-        "Description": "Increases health regen.",
+        "Description": "Increases <span style=\"font-weight: bold;\">health regen</span>.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
@@ -2872,11 +2965,12 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BonusHealthRegen": "2.75"
+        "BonusHealthRegen": "2.75",
+        "Disabled": true
     },
     "upgrade_health_regen_aura": {
         "Name": "Healing Aura",
-        "Description": "Automatically provides a burst of healing to yourself and nearby friendlies every 3 seconds.  <br>Effect does not stack.",
+        "Description": "Automatically provides a burst of healing to yourself and nearby friendlies every <span style=\"font-weight: bold;\">3 seconds</span>.  <br>Effect does not stack.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -2901,11 +2995,12 @@
         "WeaponPower": "0",
         "HealInterval": "3",
         "HealAmount": "40",
-        "HealRadius": "9m"
+        "HealRadius": "9m",
+        "Disabled": true
     },
     "upgrade_health_stealing_magic": {
         "Name": "Spirit Lifesteal",
-        "Description": "Your spirit items and abilities heal you for a percentage of the damage they deal. Heals for less on Non-Heroes and does not work on buildings.",
+        "Description": "Your <span style=\"font-weight: bold;\">spirit items and abilities heal you</span> for a percentage of the damage they deal. Heals for less on Non-Heroes and does not work on buildings.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -2932,11 +3027,12 @@
         "WeaponPower": "0",
         "LifestealPercentHero": "23",
         "NonHeroAbilityLifestealTooltipOnly": "3",
-        "BonusHealth": "75"
+        "BonusHealth": "75",
+        "Disabled": false
     },
     "upgrade_health_stimpak": {
         "Name": "Healing Rite",
-        "Description": "Grant Regen and Sprint Speed to the target. Gets dispelled if you take damage from enemy players or objectives. Can be self-cast.",
+        "Description": "Grant <span style=\"font-weight: bold;\">Regen</span> and <span style=\"font-weight: bold;\">Sprint Speed</span> to the target. Gets dispelled if you take damage from enemy players or objectives. Can be self-cast.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "ActivationPress",
@@ -2964,11 +3060,12 @@
         "TotalHealthRegen": "370",
         "RegenDuration": "17",
         "BonusHealth": "45",
-        "BonusSprintSpeed": "2m"
+        "BonusSprintSpeed": "2m",
+        "Disabled": false
     },
     "upgrade_height_advantage": {
         "Name": "Height Advantage",
-        "Description": "Gain additional 50% Weapon Damage when attacking targets that are below you.",
+        "Description": "Gain additional <span class=\"highlight_weapon\">50% Weapon Damage</span> when attacking targets that are <span style=\"font-weight: bold;\">below you</span>.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
@@ -2989,11 +3086,12 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "HighGroundBonusWeaponPower": "50"
+        "HighGroundBonusWeaponPower": "50",
+        "Disabled": true
     },
     "upgrade_high_impact_armor": {
         "Name": "High Impact Armor",
-        "Description": "Provides protection against high-damage bullets. Any bullet damage portion above the threshold is reduced by 60%.",
+        "Description": "Provides protection against high-damage bullets. Any <span style=\"font-weight: bold;\">bullet damage</span> portion above the threshold is reduced by 60%.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -3015,7 +3113,8 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "DamageThreshold": "40",
-        "DamageReduction": "60"
+        "DamageReduction": "60",
+        "Disabled": true
     },
     "upgrade_high_velocity_mag": {
         "Name": "High-Velocity Mag",
@@ -3044,11 +3143,12 @@
         "WeaponPower": "0",
         "BonusBulletSpeedPercent": "25",
         "BaseAttackDamagePercent": "12",
-        "BulletShieldMaxHealth": "50"
+        "BulletShieldMaxHealth": "50",
+        "Disabled": false
     },
     "upgrade_hollow_point_rounds": {
         "Name": "Hollow Point Ward",
-        "Description": "When you are above 60% health, deal additional Weapon Damage.",
+        "Description": "When you are <span style=\"font-weight: bold;\">above 60% health</span>, deal additional <span style=\"font-weight: bold;\">Weapon Damage</span>.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
@@ -3076,7 +3176,8 @@
         "WeaponPower": "0",
         "LifeThreshold": "60",
         "BaseAttackDamagePercent": "22",
-        "TechShieldMaxHealth": "95"
+        "TechShieldMaxHealth": "95",
+        "Disabled": false
     },
     "upgrade_imbued_ability": {
         "Name": "Imbued Ability",
@@ -3107,11 +3208,12 @@
         "ImbuedBonusDamage": "10",
         "BonusAbilityDurationPercent": "20",
         "SlowPercent": "15",
-        "SlowDuration": "2"
+        "SlowDuration": "2",
+        "Disabled": true
     },
     "upgrade_imbued_duration_extender": {
         "Name": "Superior Duration",
-        "Description": "Increases the duration of your abilities and items.",
+        "Description": "Increases the <span style=\"font-weight: bold;\">duration</span> of your abilities and items.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -3140,11 +3242,12 @@
         "NonImbuedBonusDuration": "26",
         "BonusHealth": "175",
         "BaseAttackDamagePercent": "15",
-        "BonusHealthRegen": "4"
+        "BonusHealthRegen": "4",
+        "Disabled": false
     },
     "upgrade_improved_bullet_armor": {
         "Name": "Improved Bullet Armor",
-        "Description": "Decreases damage taken from bullets.",
+        "Description": "Decreases <span style=\"font-weight: bold;\">damage taken</span> from bullets.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -3171,7 +3274,8 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "BulletResist": "50",
-        "BaseAttackDamagePercent": "10"
+        "BaseAttackDamagePercent": "10",
+        "Disabled": false
     },
     "upgrade_improved_spirit": {
         "Name": "Extra Spirit",
@@ -3200,7 +3304,8 @@
         "TechPower": "9",
         "WeaponPower": "0",
         "BonusHealthRegen": "1",
-        "BonusHealth": "35"
+        "BonusHealth": "35",
+        "Disabled": false
     },
     "upgrade_improved_stamina": {
         "Name": "Extra Stamina",
@@ -3230,11 +3335,12 @@
         "WeaponPower": "0",
         "Stamina": "1",
         "StaminaCooldownReduction": "14",
-        "BonusFireRate": "7"
+        "BonusFireRate": "7",
+        "Disabled": false
     },
     "upgrade_infuser": {
         "Name": "Infuser",
-        "Description": "Gain Spirit Power and Spirit Lifesteal.",
+        "Description": "Gain <span style=\"font-weight: bold;\">Spirit Power</span> and <span style=\"font-weight: bold;\">Spirit Lifesteal</span>.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "InstantCast",
@@ -3260,11 +3366,12 @@
         "BonusHealth": "50",
         "BonusClipSizePercent": "10",
         "BonusSpirit": "16",
-        "LifestealPercentHero": "20"
+        "LifestealPercentHero": "20",
+        "Disabled": false
     },
     "upgrade_inhibitor": {
         "Name": "Inhibitor",
-        "Description": "Your bullets apply Movement Slow and reduce the target's outgoing damage on hit.",
+        "Description": "Your bullets apply <span style=\"font-weight: bold;\">Movement Slow</span> and reduce the target's <span style=\"font-weight: bold;\">outgoing damage</span> on hit.",
         "Cost": "6200",
         "Tier": "4",
         "Activation": "Passive",
@@ -3295,11 +3402,12 @@
         "BaseAttackDamagePercent": "25",
         "SlowPercent": "25",
         "DebuffDuration": "2.5",
-        "OutgoingDamagePenaltyPercent": "-35"
+        "OutgoingDamagePenaltyPercent": "-35",
+        "Disabled": false
     },
     "upgrade_intensifying_clip": {
         "Name": "Intensifying Magazine",
-        "Description": "Increases Weapon Damage as you continuously fire your weapon.",
+        "Description": "Increases <span style=\"font-weight: bold;\">Weapon Damage</span> as you continuously fire your weapon.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -3326,11 +3434,12 @@
         "BonusClipSizePercent": "25",
         "BaseAttackDamagePercent": "20",
         "ShootDurationForMax": "3.0",
-        "BaseAttackDamagePercentAtMaxDuration": "60"
+        "BaseAttackDamagePercentAtMaxDuration": "60",
+        "Disabled": false
     },
     "upgrade_kinetic_sash": {
         "Name": "Kinetic Dash",
-        "Description": "Your next Dash-Jump does not cost an extra stamina and you gain Fire Rate and bonus Ammo until your next reload. Lasts up to UNKNOWN[AbilityDuration]s.",
+        "Description": "Your next <span style=\"font-weight: bold;\">Dash-Jump</span> does not cost an extra stamina and you gain <span style=\"font-weight: bold;\">Fire Rate</span> and bonus <span style=\"font-weight: bold;\">Ammo</span> until your next reload. Lasts up to UNKNOWN[AbilityDuration]s.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -3359,11 +3468,12 @@
         "BonusFireRate": "20",
         "BonusClipSize": "5",
         "BonusHealth": "100",
-        "BonusHealthRegen": "1.5"
+        "BonusHealthRegen": "1.5",
+        "Disabled": false
     },
     "upgrade_lifestrike_gauntlets": {
         "Name": "Melee Lifesteal",
-        "Description": "Your Melee attacks heal you for 20% of the Melee Damage dealt plus 90. This heal is 30% effective vs non-heroes.",
+        "Description": "Your <span style=\"font-weight: bold;\">Melee</span> attacks <span style=\"font-weight: bold;\">heal you</span> for 20% of the <span style=\"font-weight: bold;\">Melee Damage</span> dealt plus 90. This heal is 30% effective vs non-heroes.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
@@ -3394,11 +3504,12 @@
         "LifestrikeHeal": "90",
         "LifestrikeHealPercent": "20",
         "BonusHealth": "75",
-        "NonHeroHealPct": "30"
+        "NonHeroHealPct": "30",
+        "Disabled": false
     },
     "upgrade_long_range": {
         "Name": "Long Range",
-        "Description": "Deal additional Weapon Damage when beyond a minimum distance from your target.",
+        "Description": "Deal additional <span style=\"font-weight: bold;\">Weapon Damage</span> when <span style=\"font-weight: bold;\">beyond a minimum distance</span> from your target.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -3425,11 +3536,12 @@
         "LongRangeBonusWeaponPower": "40",
         "LongRangeBonusWeaponPowerMinRange": "15m",
         "BonusClipSizePercent": "20",
-        "BulletShieldMaxHealth": "140"
+        "BulletShieldMaxHealth": "140",
+        "Disabled": false
     },
     "upgrade_long_range_slowing_tech": {
         "Name": "Omni Spirit",
-        "Description": "Applies a movement slow to enemies when dealing spirit damage.",
+        "Description": "Applies a <span style=\"font-weight: bold;\">movement slow</span> to enemies when dealing spirit damage.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -3456,11 +3568,12 @@
         "TechRangeMultiplier": "30",
         "TechRadiusMultiplier": "30",
         "SlowPercent": "20",
-        "SlowDuration": "2"
+        "SlowDuration": "2",
+        "Disabled": true
     },
     "upgrade_magic_burst": {
         "Name": "Mystic Burst",
-        "Description": "Abilities deal bonus Spirit Damage if they deal 80 damage or more in a single hit.",
+        "Description": "Abilities deal bonus <span style=\"font-weight: bold;\">Spirit Damage</span> if they deal 80 damage or more in a single hit.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
@@ -3489,7 +3602,8 @@
         "Damage": "35",
         "MinimumDamage": "80",
         "TechShieldMaxHealth": "40",
-        "BaseAttackDamagePercent": "6"
+        "BaseAttackDamagePercent": "6",
+        "Disabled": false
     },
     "upgrade_magic_carpet": {
         "Name": "Magic Carpet",
@@ -3522,11 +3636,12 @@
         "FlyingTechShield": "400",
         "FlyMoveSpeed": "6m",
         "BonusHealth": "150",
-        "BonusAbilityDurationPercent": "10"
+        "BonusAbilityDurationPercent": "10",
+        "Disabled": false
     },
     "upgrade_magic_clarity": {
         "Name": "Clarity",
-        "Description": "On ability or item use, gain a move speed bonus for UNKNOWN[AbilityDuration]s.  Your next ability cast will remove the move speed bonus and apply a Spirit bonus to that ability.",
+        "Description": "On ability or item use, gain a <span style=\"font-weight: bold;\">move speed</span> bonus for UNKNOWN[AbilityDuration]s.  Your next ability cast will remove the move speed bonus and apply a <span style=\"font-weight: bold;\">Spirit</span> bonus to that ability.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -3551,7 +3666,8 @@
         "BonusSpirit": "28",
         "BonusSpiritMaxTime": "12",
         "BonusSpiritWindow": "1",
-        "BonusSpiritMin": "2"
+        "BonusSpiritMin": "2",
+        "Disabled": true
     },
     "upgrade_magic_missile": {
         "Name": "Conjure Missiles",
@@ -3587,11 +3703,12 @@
         "BonusFireRate": "10",
         "BonusMoveSpeed": "1m",
         "WeaponPowerPerKill": "10",
-        "MaxStacks": "5"
+        "MaxStacks": "5",
+        "Disabled": true
     },
     "upgrade_magic_reach": {
         "Name": "Mystic Reach",
-        "Description": "Increases the range and effect radius of your abilities and items.",
+        "Description": "Increases the <span style=\"font-weight: bold;\">range</span> and <span style=\"font-weight: bold;\">effect radius</span> of your abilities and items.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
@@ -3614,11 +3731,12 @@
         "WeaponPower": "0",
         "TechRangeMultiplier": "18",
         "TechRadiusMultiplier": "16",
-        "BulletResist": "6"
+        "BulletResist": "6",
+        "Disabled": false
     },
     "upgrade_magic_shield": {
         "Name": "Enchanter's Barrier",
-        "Description": "While you have a Spirit Shield, gain bonus Spirit Power and Cooldown Reduction.",
+        "Description": "While you have a <span style=\"font-weight: bold;\">Spirit Shield</span>, gain bonus <span style=\"font-weight: bold;\">Spirit Power</span> and <span style=\"font-weight: bold;\">Cooldown Reduction</span>.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -3644,11 +3762,12 @@
         "WeaponPower": "0",
         "TechShieldMaxHealth": "300",
         "BonusSpiritWithMagicShield": "20",
-        "CooldownReductionWithShield": "8"
+        "CooldownReductionWithShield": "8",
+        "Disabled": false
     },
     "upgrade_magic_shock": {
         "Name": "Improved Burst",
-        "Description": "Abilities deal bonus Spirit Damage if they deal 125 damage or more in a single hit.<br/>Targets are immune to the effects of Improved Burst for 5s after taking damage from it.",
+        "Description": "Abilities deal bonus <span style=\"font-weight: bold;\">Spirit Damage</span> if they deal 125 damage or more in a single hit.<br/>Targets are immune to the effects of Improved Burst for <span style=\"font-weight: bold;\">5s</span> after taking damage from it.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -3680,11 +3799,12 @@
         "ReProcLockoutTime": "5",
         "MaxHealthDamage": "9",
         "TechShieldMaxHealth": "100",
-        "BaseAttackDamagePercent": "8"
+        "BaseAttackDamagePercent": "8",
+        "Disabled": false
     },
     "upgrade_magic_slow": {
         "Name": "Mystic Slow",
-        "Description": "When the target takes Spirit Damage, they have their Movement Speed and Fire Rate reduced.",
+        "Description": "When the target takes <span style=\"font-weight: bold;\">Spirit Damage</span>, they have their <span style=\"font-weight: bold;\">Movement Speed</span> and <span style=\"font-weight: bold;\">Fire Rate</span> reduced.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -3714,11 +3834,12 @@
         "FireRateSlow": "40",
         "MovementSpeedSlow": "30",
         "BonusHealthRegen": "3",
-        "BonusHealth": "100"
+        "BonusHealth": "100",
+        "Disabled": false
     },
     "upgrade_magic_storm": {
         "Name": "Surge of Power",
-        "Description": "Imbue an ability with permanent Spirit Power. When that ability is used, gain bonus Movement Speed.",
+        "Description": "Imbue an ability with <span style=\"font-weight: bold;\">permanent Spirit Power</span>. When that ability is used, gain bonus <span style=\"font-weight: bold;\">Movement Speed</span>.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -3746,11 +3867,12 @@
         "FireRateBonus": "10",
         "BonusMoveSpeed": "3m",
         "MovementSpeedBonusDuration": "6",
-        "BonusHealth": "75"
+        "BonusHealth": "75",
+        "Disabled": false
     },
     "upgrade_magic_tempo": {
         "Name": "Improved Cooldown",
-        "Description": "Reduces the Cooldown of your abilities and items.",
+        "Description": "Reduces the <span style=\"font-weight: bold;\">Cooldown</span> of your abilities and items.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -3774,11 +3896,12 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "CooldownReduction": "16",
-        "BonusHealthRegen": "1.5"
+        "BonusHealthRegen": "1.5",
+        "Disabled": false
     },
     "upgrade_magic_vulnerability": {
         "Name": "Mystic Vulnerability",
-        "Description": "When the target takes Spirit Damage, they have their Spirit Resist reduced.",
+        "Description": "When the target takes <span style=\"font-weight: bold;\">Spirit Damage</span>, they have their <span style=\"font-weight: bold;\">Spirit Resist</span> reduced.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -3805,11 +3928,12 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "TechArmorDamageReduction": "-12",
-        "TechResist": "6"
+        "TechResist": "6",
+        "Disabled": false
     },
     "upgrade_medic_bullets": {
         "Name": "Restorative Shot",
-        "Description": "Your next bullet will heal you based on what target you hit.",
+        "Description": "Your next bullet will <span style=\"font-weight: bold;\">heal</span> you based on what target you hit.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
@@ -3840,7 +3964,8 @@
         "BaseAttackDamagePercent": "8",
         "HealFromHero": "40",
         "HealFromNPC": "15",
-        "BulletResist": "7"
+        "BulletResist": "7",
+        "Disabled": false
     },
     "upgrade_mega_spirit": {
         "Name": "Boundless Spirit",
@@ -3874,11 +3999,12 @@
         "BonusHealthRegen": "15",
         "BaseAttackDamagePercent": "25",
         "BonusSprintSpeed": "2m",
-        "BonusHealth": "300"
+        "BonusHealth": "300",
+        "Disabled": false
     },
     "upgrade_melee_charge": {
         "Name": "Melee Charge",
-        "Description": "Your next Heavy Melee attack against an enemy deals increased damage and either reload your weapon instantly or give you up to +100% bonus ammo. <br>Only activates when Bonus Ammo is not full.",
+        "Description": "Your next <span style=\"font-weight: bold;\">Heavy Melee</span> attack against an enemy <span style=\"font-weight: bold;\">deals increased damage</span> and either <span style=\"font-weight: bold;\">reload your weapon instantly</span> or give you up to <span style=\"font-weight: bold;\">+100% bonus ammo</span>. <br>Only activates when Bonus Ammo is not full.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -3910,11 +4036,12 @@
         "BonusHealth": "100",
         "MeleeDistanceScale": "40",
         "BonusHealthRegen": "1",
-        "BonusHeavyMeleeDamage": "20"
+        "BonusHeavyMeleeDamage": "20",
+        "Disabled": false
     },
     "upgrade_metal_skin": {
         "Name": "Metal Skin",
-        "Description": "Become immune to bullets and melee attacks.",
+        "Description": "Become <span style=\"font-weight: bold;\">immune to bullets and melee attacks</span>.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "InstantCast",
@@ -3939,11 +4066,12 @@
         "TechPower": "8",
         "WeaponPower": "0",
         "BonusFireRate": "8",
-        "BonusHealth": "125"
+        "BonusHealth": "125",
+        "Disabled": false
     },
     "upgrade_mod_disruptor": {
         "Name": "Soul Disruptor",
-        "Description": "Throw a grenade that explodes on contact and applies silence and increasing amounts of damage to each enemy.",
+        "Description": "Throw a grenade that explodes on contact and applies <span style=\"font-weight: bold;\">silence</span> and <span style=\"font-weight: bold;\">increasing amounts of damage</span> to each enemy.",
         "Cost": "6200",
         "Tier": "4",
         "Activation": "ActivationPress",
@@ -3971,11 +4099,12 @@
         "DPSMax": "100",
         "Radius": "8m",
         "TickRate": "0.5",
-        "TechResist": "-18"
+        "TechResist": "-18",
+        "Disabled": true
     },
     "upgrade_nearby_enemy_boost": {
         "Name": "Adrenaline Rush",
-        "Description": "Gain bonus Weapon Damage and Fire Rate when there are two or more enemy heroes nearby.",
+        "Description": "Gain bonus <span style=\"font-weight: bold;\">Weapon Damage</span> and <span style=\"font-weight: bold;\">Fire Rate</span> when there are two or more enemy heroes nearby.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -4008,11 +4137,12 @@
         "BaseAttackDamagePercent": "48",
         "BonusFireRate": "30",
         "BonusHealth": "125",
-        "BonusMoveSpeed": "1m"
+        "BonusMoveSpeed": "1m",
+        "Disabled": true
     },
     "upgrade_non_player_bonus": {
         "Name": "Monster Rounds",
-        "Description": "Gain additional 35% Weapon Damage when attacking Troopers, Neutrals and Bosses.",
+        "Description": "Gain additional <span class=\"highlight_weapon\">35% Weapon Damage</span> when attacking <span style=\"font-weight: bold;\">Troopers</span>, <span style=\"font-weight: bold;\">Neutrals</span> and <span style=\"font-weight: bold;\">Bosses</span>.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
@@ -4040,7 +4170,8 @@
         "NonPlayerBonusWeaponPower": "35",
         "BonusHealth": "50",
         "BonusHealthRegen": "1",
-        "NonPlayerBulletResist": "30"
+        "NonPlayerBulletResist": "30",
+        "Disabled": false
     },
     "upgrade_personal_rejuvenator": {
         "Name": "Rebirth",
@@ -4066,11 +4197,12 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "RespawnDelay": "5",
-        "RespawnBonusHealthDuration": "0"
+        "RespawnBonusHealthDuration": "0",
+        "Disabled": true
     },
     "upgrade_phantom_strike": {
         "Name": "Phantom Strike",
-        "Description": "Teleport to an enemy target, applying Disarm, Slow, and dealing damage.",
+        "Description": "<span style=\"font-weight: bold;\">Teleport</span> to an enemy target, applying <span style=\"font-weight: bold;\">Disarm</span>, <span style=\"font-weight: bold;\">Slow</span>, and dealing <span style=\"font-weight: bold;\">damage</span>.",
         "Cost": "6200",
         "Tier": "4",
         "Activation": "ActivationPress",
@@ -4102,11 +4234,12 @@
         "BaseAttackDamagePercent": "30",
         "SlowPercent": "50",
         "SlowDuration": "3",
-        "ImpactDamage": "75"
+        "ImpactDamage": "75",
+        "Disabled": false
     },
     "upgrade_predator_precision": {
         "Name": "Predator Precision",
-        "Description": "Gain additional weapon damage against enemy Heroes that are low health",
+        "Description": "Gain additional <span style=\"font-weight: bold;\">weapon damage</span> against enemy Heroes that are <span style=\"font-weight: bold;\">low health</span>",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -4131,11 +4264,12 @@
         "WeaponPower": "0",
         "BonusFireRate": "8",
         "LifeThreshold": "50",
-        "BaseAttackDamagePercent": "50"
+        "BaseAttackDamagePercent": "50",
+        "Disabled": true
     },
     "upgrade_pristine_emblem": {
         "Name": "Pristine Emblem",
-        "Description": "Your attacks have additional Weapon Damage against enemies above 50% health.",
+        "Description": "Your attacks have additional <span style=\"font-weight: bold;\">Weapon Damage</span> against <span style=\"font-weight: bold;\">enemies above 50% health</span>.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -4167,11 +4301,12 @@
         "BaseAttackDamagePercent": "25",
         "BaseAttackDamagePercentBonus": "25",
         "TechResist": "12",
-        "BonusBulletSpeedPercent": "35"
+        "BonusBulletSpeedPercent": "35",
+        "Disabled": false
     },
     "upgrade_proc_disarm": {
         "Name": "Disarming Bullets",
-        "Description": "Your bullets disarm enemies, them preventing them from shooting their weapon.  Victims are immune to disarming bullets for 3s after application expires.",
+        "Description": "Your bullets <span style=\"font-weight: bold;\">disarm</span> enemies, them preventing them from shooting their weapon.  Victims are immune to disarming bullets for <span style=\"font-weight: bold;\">3s</span> after application expires.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -4196,11 +4331,12 @@
         "WeaponPower": "0",
         "ImmunityDuration": "3",
         "BuildUpPerShot": "1.0",
-        "BuildUpDuration": "10"
+        "BuildUpDuration": "10",
+        "Disabled": true
     },
     "upgrade_proc_silence": {
         "Name": "EMP Bullets",
-        "Description": "Your bullets charge up an EMP on enemy heroes that will prevent targets from using abilities. Victims are immune to emp bullets for 4s after application expires.",
+        "Description": "Your bullets charge up an <span style=\"font-weight: bold;\">EMP</span> on enemy heroes that will <span style=\"font-weight: bold;\">prevent targets from using abilities</span>. Victims are immune to emp bullets for <span style=\"font-weight: bold;\">4s</span> after application expires.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -4227,11 +4363,12 @@
         "ImmunityDuration": "4",
         "EMPProcChance": "100",
         "BuildUpPerShot": "1.6",
-        "BuildUpDuration": "10"
+        "BuildUpDuration": "10",
+        "Disabled": true
     },
     "upgrade_proc_tech_damage": {
         "Name": "Magitech Rounds",
-        "Description": "Your bullets also deal your base bullet damage [1]  as spirit damage.  Magitech Rounds receives 5x amplification from Spirit Power. Shotguns split the damage between each pellet. This effect can only happen once every 1s.",
+        "Description": "Your bullets also deal your <span style=\"font-weight: bold;\">base bullet damage 1 </span> as spirit damage.  Magitech Rounds receives <span style=\"font-weight: bold;\">5x</span> amplification from <span style=\"font-weight: bold;\">Spirit Power</span>. Shotguns split the damage between each pellet. This effect can only happen once every 1s.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -4256,11 +4393,12 @@
         "BaseDamagePct": "0.0001",
         "NanoTechPerShot": "1",
         "BaseDamagePerShot": "1",
-        "SpellAmplificationMultiplier": "5"
+        "SpellAmplificationMultiplier": "5",
+        "Disabled": true
     },
     "upgrade_quarantine": {
         "Name": "Quarantine",
-        "Description": "Quarantine an enemy Hero, making them invincible but also silencing and disarming them.",
+        "Description": "Quarantine an enemy Hero, making them <span style=\"font-weight: bold;\">invincible</span> but also <span style=\"font-weight: bold;\">silencing and disarming</span> them.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "ActivationPress",
@@ -4282,11 +4420,12 @@
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
         "TechPower": "0",
-        "WeaponPower": "0"
+        "WeaponPower": "0",
+        "Disabled": true
     },
     "upgrade_quick_silver": {
         "Name": "Quicksilver Reload",
-        "Description": "Imbue an ability with bonus Spirit Damage on the first hit.  When the ability is used, your weapon is reloaded and has a Fire Rate bonus for that clip.  <br>Only activates when Ammo is not full.",
+        "Description": "Imbue an ability with bonus <span style=\"font-weight: bold;\">Spirit Damage</span> on the first hit.  When the ability is used, your weapon is <span style=\"font-weight: bold;\">reloaded</span> and has a <span style=\"font-weight: bold;\">Fire Rate</span> bonus for that clip.  <br>Only activates when Ammo is not full.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -4315,7 +4454,8 @@
         "ProcCooldown": "12",
         "FireRateBonus": "15",
         "FireRateDuration": "12",
-        "Damage": "65"
+        "Damage": "65",
+        "Disabled": false
     },
     "upgrade_rapid_recharge": {
         "Name": "Rapid Recharge",
@@ -4345,7 +4485,8 @@
         "CooldownBetweenChargeReduction": "65",
         "BonusAbilityCharges": "2",
         "CooldownReductionOnChargedAbilities": "30",
-        "BaseAttackDamagePercent": "12"
+        "BaseAttackDamagePercent": "12",
+        "Disabled": false
     },
     "upgrade_rapid_rounds": {
         "Name": "Rapid Rounds",
@@ -4374,7 +4515,8 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "BonusFireRate": "9",
-        "BonusSprintSpeed": "1m"
+        "BonusSprintSpeed": "1m",
+        "Disabled": false
     },
     "upgrade_rebirth": {
         "Name": "Soul Rebirth",
@@ -4402,11 +4544,12 @@
         "SpawnTimePenalty": "15",
         "RespawnDelay": "4",
         "RespawnHealthPercent": "50",
-        "CooldownReduction": "15"
+        "CooldownReduction": "15",
+        "Disabled": false
     },
     "upgrade_reduce_debuff_duration": {
         "Name": "Debuff Remover",
-        "Description": "Reduces the duration of all negative effects applied to you.",
+        "Description": "Reduces the <span style=\"font-weight: bold;\">duration</span> of all negative effects applied to you.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "InstantCast",
@@ -4435,11 +4578,12 @@
         "BaseAttackDamagePercent": "20",
         "ActiveBonusMoveSpeed": "3m",
         "BuffDuration": "3",
-        "BonusHealth": "125"
+        "BonusHealth": "125",
+        "Disabled": false
     },
     "upgrade_regenerating_bullet_shield": {
         "Name": "Combat Barrier",
-        "Description": "While you have a Bullet Shield, gain Weapon Damage and Fire Rate.",
+        "Description": "While you have a <span style=\"font-weight: bold;\">Bullet Shield</span>, gain <span style=\"font-weight: bold;\">Weapon Damage</span> and <span style=\"font-weight: bold;\">Fire Rate</span>.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -4465,7 +4609,8 @@
         "WeaponPower": "0",
         "BulletShieldMaxHealth": "325",
         "AttackDamageWhenShielded": "25",
-        "FireRateWhenShielded": "6"
+        "FireRateWhenShielded": "6",
+        "Disabled": false
     },
     "upgrade_regenerative_armor": {
         "Name": "Regenerative Armor",
@@ -4490,11 +4635,12 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BonusHealthRegen": "20"
+        "BonusHealthRegen": "20",
+        "Disabled": true
     },
     "upgrade_reinforcing_casings": {
         "Name": "Escalating Resilience",
-        "Description": "Grants Bullet Resist when your bullets hit an enemy hero. Each shot can only grant one stack.",
+        "Description": "Grants <span style=\"font-weight: bold;\">Bullet Resist</span> when your bullets hit an enemy hero. <span style=\"font-weight: bold;\">Each shot can only grant one stack.</span>",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -4523,11 +4669,12 @@
         "BulletResistPerStack": "2",
         "BulletResistDuration": "20",
         "BaseAttackDamagePercent": "14",
-        "BonusFireRate": "12"
+        "BonusFireRate": "12",
+        "Disabled": false
     },
     "upgrade_reload_speed": {
         "Name": "Fast Reload",
-        "Description": "Increased reload speed.",
+        "Description": "Increased <span style=\"font-weight: bold;\">reload speed</span>.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -4548,11 +4695,12 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "ReloadSpeedMultipler": "-35"
+        "ReloadSpeedMultipler": "-35",
+        "Disabled": true
     },
     "upgrade_rescue_beam": {
         "Name": "Rescue Beam",
-        "Description": "Heals a target allied hero and yourself for a percentage of Max Health. Once while healing, you can Pull the target towards you. Can be self-cast.",
+        "Description": "<span style=\"font-weight: bold;\">Heals</span> a target allied hero and yourself for a percentage of <span style=\"font-weight: bold;\">Max Health</span>. Once while healing, you can <span style=\"font-weight: bold;\">Pull</span> the target towards you. Can be self-cast.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "ActivationPress",
@@ -4585,7 +4733,8 @@
         "BonusMoveSpeed": "0m",
         "BonusHealth": "125",
         "BonusSprintSpeed": "2m",
-        "SelfModifier": "100"
+        "SelfModifier": "100",
+        "Disabled": false
     },
     "upgrade_resilience": {
         "Name": "Enduring Spirit",
@@ -4614,7 +4763,8 @@
         "TechPower": "4",
         "WeaponPower": "0",
         "BonusHealth": "75",
-        "LifestealPercentHero": "10"
+        "LifestealPercentHero": "10",
+        "Disabled": false
     },
     "upgrade_restorative_locket": {
         "Name": "Restorative Locket",
@@ -4647,11 +4797,12 @@
         "Radius": "50m",
         "TechResist": "8",
         "HealPerStack": "35",
-        "MaxStacks": "15"
+        "MaxStacks": "15",
+        "Disabled": false
     },
     "upgrade_return_fire": {
         "Name": "Return Fire",
-        "Description": "Automatically fire a bullet towards any attacker who damages you with their abilities or weapon.",
+        "Description": "Automatically <span style=\"font-weight: bold;\">fire a bullet</span> towards any attacker who damages you with their abilities or weapon.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "InstantCast",
@@ -4679,11 +4830,12 @@
         "BulletDamageReflectedPct": "60",
         "BonusHealth": "125",
         "SpiritDamageReflectedPct": "30",
-        "ReturnFireBulletResist": "25"
+        "ReturnFireBulletResist": "25",
+        "Disabled": false
     },
     "upgrade_ricochet": {
         "Name": "Ricochet",
-        "Description": "Your bullets will ricochet on enemies near your target, applying any bullet procs and dealing a percentage of the original damage.",
+        "Description": "Your bullets will <span style=\"font-weight: bold;\">ricochet</span> on enemies near your target, <span style=\"font-weight: bold;\">applying any bullet procs</span> and <span style=\"font-weight: bold;\">dealing a percentage of the original damage.</span>",
         "Cost": "6200",
         "Tier": "4",
         "Activation": "Passive",
@@ -4717,11 +4869,12 @@
         "BonusClipSizePercent": "35",
         "RicochetTargetsTooltipOnly": "2",
         "BonusHealth": "150",
-        "BonusFireRate": "10"
+        "BonusFireRate": "10",
+        "Disabled": false
     },
     "upgrade_rocket_booster": {
         "Name": "Majestic Leap",
-        "Description": "Launch yourself high into the air. While in the air, you can use the active again to drop down faster.<br>Cannot be used for 5s if attacked by enemy Hero.",
+        "Description": "<span style=\"font-weight: bold;\">Launch yourself</span> high into the air. While in the air, you can use the active again to drop down faster.<br>Cannot be used for 5s if attacked by enemy Hero.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "InstantCast",
@@ -4758,11 +4911,12 @@
         "ImpactDamage": "0",
         "ImpactHeight": "2m",
         "MinAimAngle": "30",
-        "BonusHealth": "125"
+        "BonusHealth": "125",
+        "Disabled": false
     },
     "upgrade_rocket_boots": {
         "Name": "Majestic Leap - Disabled",
-        "Description": "Launch yourself high into the air. Cannot be used for 4s if damaged by enemy Hero.",
+        "Description": "<span style=\"font-weight: bold;\">Launch yourself</span> high into the air. Cannot be used for 4s if damaged by enemy Hero.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "InstantCast",
@@ -4789,11 +4943,12 @@
         "JumpVelocityHidden": "22.5m",
         "InteruptCooldown": 4,
         "AirControlPercent": "100",
-        "BonusHealth": "75"
+        "BonusHealth": "75",
+        "Disabled": true
     },
     "upgrade_rupture": {
         "Name": "Decay",
-        "Description": "Reduces healing received of targeted enemy and inflicts damage over time of their current health.<br>Decay's damage is non-lethal.",
+        "Description": "Reduces <span style=\"font-weight: bold;\">healing</span> received of targeted enemy and inflicts <span style=\"font-weight: bold;\">damage over time</span> of their current health.<br>Decay's damage is non-lethal.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "ActivationPress",
@@ -4822,11 +4977,12 @@
         "HealAmpReceivePenaltyPercent": "-50",
         "HealAmpRegenPenaltyPercent": "-50",
         "TickRate": "1.0",
-        "DotHealthPercent": "3.1"
+        "DotHealthPercent": "3.1",
+        "Disabled": false
     },
     "upgrade_savior": {
         "Name": "Divine Barrier",
-        "Description": "Provide the target with Bullet Shield, Spirit Shield, and Movement Speed. Can be self-cast.",
+        "Description": "Provide the target with <span style=\"font-weight: bold;\">Bullet Shield, Spirit Shield, and Movement Speed</span>. Can be self-cast.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "ActivationPress",
@@ -4859,11 +5015,12 @@
         "TechRadiusMultiplier": "8",
         "BonusMoveSpeed": "2m",
         "BonusSprintSpeed": "1m",
-        "BonusHealth": "50"
+        "BonusHealth": "50",
+        "Disabled": false
     },
     "upgrade_self_bubble": {
         "Name": "Ethereal Shift",
-        "Description": "You enter a void state and become untargetable and invincible for a short duration, during which you cannot move or perform any actions. Afterwards you instantly reload and gain bonus Spirit Power.<br>Can be cancelled early.",
+        "Description": "You enter a void state and become <span style=\"font-weight: bold;\">untargetable and invincible</span> for a short duration, during which you cannot move or perform any actions. Afterwards you <span style=\"font-weight: bold;\">instantly reload</span> and gain bonus <span style=\"font-weight: bold;\">Spirit Power</span>.<br>Can be cancelled early.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "InstantCast",
@@ -4890,11 +5047,12 @@
         "BonusSpiritDuration": "10",
         "DampingFactor": "3",
         "LiftHeight": "120",
-        "MoveSpeedMax": "0m"
+        "MoveSpeedMax": "0m",
+        "Disabled": false
     },
     "upgrade_sharpshooter": {
         "Name": "Sharpshooter",
-        "Description": "Deal additional Weapon Damage when beyond a minimum distance from your target.",
+        "Description": "Deal additional <span style=\"font-weight: bold;\">Weapon Damage</span> when <span style=\"font-weight: bold;\">beyond a minimum distance</span> from your target.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -4925,7 +5083,8 @@
         "BonusAttackRangePercent": "15",
         "BonusZoomPercent": "35",
         "BonusClipSizePercent": "20",
-        "BulletShieldMaxHealth": "200"
+        "BulletShieldMaxHealth": "200",
+        "Disabled": false
     },
     "upgrade_silencer": {
         "Name": "Silencer",
@@ -4960,7 +5119,8 @@
         "EMPDuration": "2",
         "BaseAttackDamagePercent": "20",
         "SlowPercent": "25",
-        "SlowDuration": "1.3"
+        "SlowDuration": "1.3",
+        "Disabled": false
     },
     "upgrade_siphon_bullets": {
         "Name": "Siphon Bullets",
@@ -4997,7 +5157,8 @@
         "StealDuration": "20",
         "ProcCooldown": "0.8",
         "HealthSteal": "45",
-        "ParticleRadius": "1m"
+        "ParticleRadius": "1m",
+        "Disabled": false
     },
     "upgrade_slow_immunity": {
         "Name": "Unstoppable - Deprecated",
@@ -5021,11 +5182,12 @@
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
         "TechPower": "0",
-        "WeaponPower": "0"
+        "WeaponPower": "0",
+        "Disabled": true
     },
     "upgrade_slowing_bullets": {
         "Name": "Slowing Bullets",
-        "Description": "Your bullets apply Movement Slow.",
+        "Description": "Your bullets apply <span style=\"font-weight: bold;\">Movement Slow</span>.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -5053,11 +5215,12 @@
         "WeaponPower": "0",
         "SlowPercent": "25",
         "SlowDuration": "1.3",
-        "BaseAttackDamagePercent": "16"
+        "BaseAttackDamagePercent": "16",
+        "Disabled": false
     },
     "upgrade_slowing_tech": {
         "Name": "Slowing Spirit",
-        "Description": "Dealing Spirit Damage applies Movement Slows to your target.",
+        "Description": "Dealing <span style=\"font-weight: bold;\">Spirit Damage</span> applies <span style=\"font-weight: bold;\">Movement Slows</span> to your target.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
@@ -5082,11 +5245,12 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "SlowPercent": "15",
-        "SlowDuration": "2"
+        "SlowDuration": "2",
+        "Disabled": true
     },
     "upgrade_small_attack_speed": {
         "Name": "Basic Fire Rate",
-        "Description": "Increases your Fire Rate.",
+        "Description": "Increases your <span style=\"font-weight: bold;\">Fire Rate</span>.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
@@ -5107,7 +5271,8 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BonusFireRate": "8"
+        "BonusFireRate": "8",
+        "Disabled": true
     },
     "upgrade_soaring_spirit": {
         "Name": "Improved Spirit",
@@ -5139,11 +5304,12 @@
         "WeaponPower": "0",
         "BonusHealthRegen": "3",
         "BonusSprintSpeed": "1m",
-        "BonusHealth": "100"
+        "BonusHealth": "100",
+        "Disabled": false
     },
     "upgrade_spellshield": {
         "Name": "Hexafoil Ward",
-        "Description": "Block the next Spirit Damage or Debuff, preventing its effects. Only regenerates outside of combat.",
+        "Description": "Block the next <span style=\"font-weight: bold;\">Spirit Damage</span> or <span style=\"font-weight: bold;\">Debuff</span>, preventing its effects. Only regenerates outside of combat.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -5169,11 +5335,12 @@
         "TechResist": "15",
         "BonusHealth": "25",
         "SpellShieldLingerDuration": ".3",
-        "SpellShieldFlavorText": "asdasd"
+        "SpellShieldFlavorText": "asdasd",
+        "Disabled": true
     },
     "upgrade_sprint_booster": {
         "Name": "Sprint Boots",
-        "Description": "Increases your forward movement speed over time. Taking damage resets the effect for 1.5s",
+        "Description": "Increases your <span style=\"font-weight: bold;\">forward movement speed</span> over time. Taking damage resets the effect for <span style=\"font-weight: bold;\">1.5s</span>",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
@@ -5200,11 +5367,12 @@
         "WeaponPower": "0",
         "BonusSprintSpeed": "2m",
         "BaseAttackDamagePercent": "4",
-        "BonusHealthRegen": "1"
+        "BonusHealthRegen": "1",
+        "Disabled": false
     },
     "upgrade_stabilizer": {
         "Name": "Stabilizer",
-        "Description": "Removes the movement speed penalty while shooting, and increases bullet speed.",
+        "Description": "Removes the <span style=\"font-weight: bold;\">movement speed penalty</span> while shooting, and increases <span style=\"font-weight: bold;\">bullet speed</span>.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
@@ -5227,11 +5395,12 @@
         "WeaponPower": "0",
         "MoveWhileShootingSpeedPenaltyReductionPercent": "100",
         "MoveWhileZoomedSpeedPenaltyReductionPercent": "100",
-        "BonusBulletSpeedPercent": "30"
+        "BonusBulletSpeedPercent": "30",
+        "Disabled": true
     },
     "upgrade_stabilizing_tripod": {
         "Name": "Stabilizing Tripod",
-        "Description": "Disarm yourself to toss your weapon to the target location where it transforms into a Field Sentry that will attack enemies using your weapon with an unlimited clip.  You can melee the sentry to end the effect early.",
+        "Description": "<span style=\"font-weight: bold;\">Disarm yourself</span> to toss your weapon to the target location where it transforms into a <span style=\"font-weight: bold;\">Field Sentry that will attack enemies using your weapon with an unlimited clip</span>.  You can melee the sentry to end the effect early.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "ActivationPress",
@@ -5265,7 +5434,8 @@
         "StationaryWeaponPower": "40",
         "StationaryRecoilReduction": "25",
         "CasterHealthPercent": "100",
-        "BulletSpeedOverride": "6500"
+        "BulletSpeedOverride": "6500",
+        "Disabled": true
     },
     "upgrade_stasis_bomb": {
         "Name": "Stasis Bomb",
@@ -5303,11 +5473,12 @@
         "MaxFallSpeed": "0",
         "LiftHeight": "120",
         "SlamdownSpeed": "500",
-        "MoveSpeedMax": "4m"
+        "MoveSpeedMax": "4m",
+        "Disabled": true
     },
     "upgrade_superacolytes_glove": {
         "Name": "Hex-Sealed Knuckles",
-        "Description": "After dealing an accumulated 200 spirit damage, your next Heavy Melee Attack deals an additional 200 spirit damage.",
+        "Description": "After dealing an accumulated <span style=\"font-weight: bold;\">200</span> spirit damage, your next <span style=\"font-weight: bold;\">Heavy Melee Attack</span> deals an additional <span style=\"font-weight: bold;\">200 spirit damage</span>.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -5338,7 +5509,8 @@
         "StoredSpiritDamage": "200",
         "TechShieldMaxHealth": "100",
         "BonusHealthRegen": "1",
-        "BonusMeleeDamagePercent": "30"
+        "BonusMeleeDamagePercent": "30",
+        "Disabled": true
     },
     "upgrade_superior_stamina": {
         "Name": "Superior Stamina",
@@ -5372,11 +5544,12 @@
         "Stamina": "3",
         "StaminaCooldownReduction": "20",
         "BonusFireRate": "7",
-        "AirMoveIncreasePercent": "30"
+        "AirMoveIncreasePercent": "30",
+        "Disabled": false
     },
     "upgrade_suppressor": {
         "Name": "Suppressor",
-        "Description": "When you deal Spirit Damage to enemies, you also apply Fire Rate Slow.",
+        "Description": "When you deal <span style=\"font-weight: bold;\">Spirit Damage</span> to enemies, you also apply <span style=\"font-weight: bold;\">Fire Rate Slow</span>.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -5404,7 +5577,8 @@
         "WeaponPower": "0",
         "BonusHealth": "50",
         "BonusHealthRegen": "2.5",
-        "FireRateSlow": "25"
+        "FireRateSlow": "25",
+        "Disabled": false
     },
     "upgrade_surging_power": {
         "Name": "Vampiric Burst",
@@ -5441,11 +5615,12 @@
         "BonusMoveSpeed": "2m",
         "BaseAttackDamagePercent": "25",
         "BonusHealth": "150",
-        "ActiveReloadPercent": "50"
+        "ActiveReloadPercent": "50",
+        "Disabled": false
     },
     "upgrade_target_stun": {
         "Name": "Knockdown",
-        "Description": "Target is knocked down and Stunned after a 2s delay, interrupting and temporarily preventing them from taking any action.",
+        "Description": "Target is <span style=\"font-weight: bold;\">knocked down</span> and <span style=\"font-weight: bold;\">Stunned</span> after a <span style=\"font-weight: bold;\">2s delay</span>, interrupting and temporarily preventing them from taking any action.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "ActivationPress",
@@ -5476,11 +5651,12 @@
         "VisualContractRadius": "3m",
         "Damage": "20",
         "TechShieldMaxHealth": "200",
-        "Stamina": "1"
+        "Stamina": "1",
+        "Disabled": false
     },
     "upgrade_targeted_silence": {
         "Name": "Silence Glyph",
-        "Description": "Fires a projectile which silences and damages the target. Silence does not interrupt channeling abilities.",
+        "Description": "Fires a projectile which <span style=\"font-weight: bold;\">silences and damages</span> the target. Silence does not interrupt channeling abilities.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "ActivationPress",
@@ -5508,11 +5684,12 @@
         "WeaponPower": "0",
         "Damage": "100",
         "TechShieldMaxHealth": "150",
-        "BonusSprintSpeed": "1m"
+        "BonusSprintSpeed": "1m",
+        "Disabled": false
     },
     "upgrade_tech_armor": {
         "Name": "Spirit Armor",
-        "Description": "Reduces the damage you take from Spirit abilities.",
+        "Description": "Reduces the damage you take from <span style=\"font-weight: bold;\">Spirit</span> abilities.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -5536,11 +5713,12 @@
         "ResourceCost": "0",
         "TechPower": "5",
         "WeaponPower": "0",
-        "TechResist": "20"
+        "TechResist": "20",
+        "Disabled": false
     },
     "upgrade_tech_bleed": {
         "Name": "Mystic Reverb",
-        "Description": "Imbue an ability to apply slow in a radius around the target and deal an additional percentage of the damage dealt to enemies around the target after a short delay.",
+        "Description": "Imbue an ability to apply <span style=\"font-weight: bold;\">slow</span> in a radius around the target and deal an <span style=\"font-weight: bold;\">additional percentage of the damage dealt</span> to enemies around the target after a short delay.",
         "Cost": "6200",
         "Tier": "4",
         "Activation": "Passive",
@@ -5574,11 +5752,12 @@
         "TechResist": "15",
         "TechRangeMultiplier": "15",
         "TechRadiusMultiplier": "15",
-        "MovementSpeedSlow": "50"
+        "MovementSpeedSlow": "50",
+        "Disabled": false
     },
     "upgrade_tech_cleave": {
         "Name": "Quantum Chimaera",
-        "Description": "Your Tech attacks strike additional nearby enemies for 75% of the total damage.",
+        "Description": "Your Tech attacks strike additional nearby enemies for <span style=\"font-weight: bold;\">75% of the total damage</span>.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -5601,11 +5780,12 @@
         "WeaponPower": "0",
         "TechCleaveDamagePercent": "75",
         "TechCleaveRadius": "10m",
-        "ProcCooldown": "0.05"
+        "ProcCooldown": "0.05",
+        "Disabled": true
     },
     "upgrade_tech_damage_pulse": {
         "Name": "Torment Pulse",
-        "Description": "Periodically deals Spirit Damage to the closest two enemies nearby.",
+        "Description": "Periodically deals <span style=\"font-weight: bold;\">Spirit Damage</span> to the closest two enemies nearby.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -5633,7 +5813,8 @@
         "WeaponPower": "0",
         "BonusHealth": "160",
         "DamagePulseAmount": "40",
-        "DamagePulseRadius": "9m"
+        "DamagePulseRadius": "9m",
+        "Disabled": false
     },
     "upgrade_tech_defender": {
         "Name": "Tech Defender",
@@ -5659,11 +5840,12 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "BonusHealth": "125",
-        "TechArmor": "1"
+        "TechArmor": "1",
+        "Disabled": true
     },
     "upgrade_tech_defense_shredders": {
         "Name": "Soul Shredder Bullets",
-        "Description": "Your bullets apply a debuff that amplifies your Spirit Damage against the target and grants you Spirit Lifesteal against them.",
+        "Description": "Your bullets apply a debuff that amplifies your <span style=\"font-weight: bold;\">Spirit Damage</span> against the target and grants you <span style=\"font-weight: bold;\">Spirit Lifesteal</span> against them.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -5692,11 +5874,12 @@
         "BaseAttackDamagePercent": "7",
         "ShreddersTechAmp": "10",
         "DebuffDuration": "6",
-        "LifestealPercentHero": "20"
+        "LifestealPercentHero": "20",
+        "Disabled": false
     },
     "upgrade_tech_overflow": {
         "Name": "Spiritual Overflow",
-        "Description": "Gain bonus Spirit Power by charging up with your bullets on enemy heroes.",
+        "Description": "Gain bonus <span style=\"font-weight: bold;\">Spirit Power</span> by <span style=\"font-weight: bold;\">charging up</span> with your bullets on enemy heroes.",
         "Cost": "6200",
         "Tier": "4",
         "Activation": "Passive",
@@ -5728,7 +5911,8 @@
         "BonusFireRate": "20",
         "BonusSpirit": "45",
         "BuildUpPerShot": "0.75",
-        "BuildUpDuration": "5"
+        "BuildUpDuration": "5",
+        "Disabled": false
     },
     "upgrade_tech_purge": {
         "Name": "Improved Spirit Armor",
@@ -5758,11 +5942,12 @@
         "ResourceCost": "0",
         "TechPower": "8",
         "WeaponPower": "0",
-        "TechResist": "45"
+        "TechResist": "45",
+        "Disabled": false
     },
     "upgrade_tech_range": {
         "Name": "Improved Reach",
-        "Description": "Increases the range and effect radius of your abilities and items.",
+        "Description": "Increases the <span style=\"font-weight: bold;\">range</span> and <span style=\"font-weight: bold;\">effect radius</span> of your abilities and items.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -5792,11 +5977,12 @@
         "NonImbuedTechRadiusMultiplier": "25",
         "ImbuedTechRangeMultiplier": "35",
         "ImbuedTechRadiusMultiplier": "35",
-        "BulletResist": "12"
+        "BulletResist": "12",
+        "Disabled": false
     },
     "upgrade_thermal_detonator": {
         "Name": "Alchemical Fire",
-        "Description": "Throw a flask that explodes on contact, creating an area that does increasing Spirit Damage per second and causes enemies to receive additional Weapon Damage from your team.<br><br>Deals 40% less DPS vs non-heroes.",
+        "Description": "Throw a flask that explodes on contact, creating an area that does increasing <span style=\"font-weight: bold;\">Spirit Damage per second</span> and causes enemies to receive additional <span style=\"font-weight: bold;\">Weapon Damage</span> from your team.<br><br>Deals 40% less DPS vs non-heroes.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "ActivationPress",
@@ -5831,7 +6017,8 @@
         "TickRate": "0.5",
         "BonusBaseWeaponDamageTaken": "50",
         "BulletShieldMaxHealth": "225",
-        "BaseAttackDamagePercent": "14"
+        "BaseAttackDamagePercent": "14",
+        "Disabled": false
     },
     "upgrade_titan_round": {
         "Name": "Titanic Magazine",
@@ -5863,11 +6050,12 @@
         "WeaponPower": "0",
         "BonusClipSizePercent": "120",
         "BaseAttackDamagePercent": "18",
-        "BulletResist": "18"
+        "BulletResist": "18",
+        "Disabled": false
     },
     "upgrade_toughness_3": {
         "Name": "Toughness",
-        "Description": "Increases Health and health regen.",
+        "Description": "Increases <span style=\"font-weight: bold;\">Health</span> and <span style=\"font-weight: bold;\">health regen</span>.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -5889,11 +6077,12 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "BonusHealth": "175",
-        "BonusHealthRegen": "2"
+        "BonusHealthRegen": "2",
+        "Disabled": true
     },
     "upgrade_toxic_bullets": {
         "Name": "Toxic Bullets",
-        "Description": "Your bullets build up a Bleed on enemies, causing them to lose a percentage of their current health over time. Also applies Healing Reduction on the bleeding target.",
+        "Description": "Your bullets build up a <span style=\"font-weight: bold;\">Bleed</span> on enemies, causing them to lose a <span style=\"font-weight: bold;\">percentage of their current health</span> over time. Also applies <span style=\"font-weight: bold;\">Healing Reduction</span> on the bleeding target.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -5929,11 +6118,12 @@
         "TickRate": "0.5",
         "HealAmpReceivePenaltyPercent": "-65",
         "HealAmpRegenPenaltyPercent": "-65",
-        "DotMultiplerTroopers": "0.5"
+        "DotMultiplerTroopers": "0.5",
+        "Disabled": false
     },
     "upgrade_unstoppable": {
         "Name": "Unstoppable",
-        "Description": "Temporarily suppress negative status effects and become immune to Stun, Silence, Sleep, Root, and Disarm. <br>Cannot be used while Stunned or Slept.",
+        "Description": "Temporarily suppress <span style=\"font-weight: bold;\">negative status effects</span> and become <span style=\"font-weight: bold;\">immune</span> to <span style=\"font-weight: bold;\">Stun, Silence, Sleep, Root, and Disarm</span>. <br>Cannot be used while <span style=\"font-weight: bold;\">Stunned</span> or <span style=\"font-weight: bold;\">Slept</span>.",
         "Cost": "6200",
         "Tier": "4",
         "Activation": "InstantCast",
@@ -5960,11 +6150,12 @@
         "BonusHealth": "150",
         "TechResist": "15",
         "BonusMoveSpeed": "1m",
-        "SpiritPower": "12"
+        "SpiritPower": "12",
+        "Disabled": false
     },
     "upgrade_vampire": {
         "Name": "Bullet Lifesteal",
-        "Description": "Your bullets heal you for a percentage of the damage they deal to enemies. Half as effective vs Non-Heroes.",
+        "Description": "Your <span style=\"font-weight: bold;\">bullets heal you</span> for a percentage of the damage they deal to enemies. Half as effective vs Non-Heroes.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -5989,11 +6180,12 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "BulletLifestealPercent": "28",
-        "BonusHealth": "75"
+        "BonusHealth": "75",
+        "Disabled": false
     },
     "upgrade_veil_walker": {
         "Name": "Veil Walker",
-        "Description": "Walking through a cosmic veil grants you Stealth, increased Movement Speed and restores all Bullet and Spirit Shields.",
+        "Description": "Walking through a <span style=\"font-weight: bold;\">cosmic veil</span> grants you <span style=\"font-weight: bold;\">Stealth</span>, increased <span style=\"font-weight: bold;\">Movement Speed</span> and restores all <span style=\"font-weight: bold;\">Bullet and Spirit Shields</span>.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -6030,11 +6222,12 @@
         "BaseAttackDamagePercent": "10",
         "BonusClipSize": "0",
         "InvisDuration": "5",
-        "BonusMoveSpeed": "3m"
+        "BonusMoveSpeed": "3m",
+        "Disabled": false
     },
     "upgrade_vex_barrier": {
         "Name": "Reactive Barrier",
-        "Description": "Automatically deploy temporary Bullet and Spirit Shields when you are movement locked, Stunned, Chained, Immobilized, or Slept.",
+        "Description": "Automatically deploy temporary <span style=\"font-weight: bold;\">Bullet and Spirit Shields</span> when you are <span style=\"font-weight: bold;\">movement locked, Stunned, Chained, Immobilized, or Slept</span>.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -6064,11 +6257,12 @@
         "BonusClipSizePercent": "15",
         "BonusHealth": "75",
         "BonusHealthRegen": "2",
-        "VexBarrierShieldDuration": "9"
+        "VexBarrierShieldDuration": "9",
+        "Disabled": false
     },
     "upgrade_warp_stone": {
         "Name": "Warp Stone",
-        "Description": "Teleport straight ahead, gaining Bullet Resist.",
+        "Description": "<span style=\"font-weight: bold;\">Teleport</span> straight ahead, gaining <span style=\"font-weight: bold;\">Bullet Resist</span>.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "InstantCast",
@@ -6094,11 +6288,12 @@
         "WeaponPower": "0",
         "BaseAttackDamagePercent": "20",
         "BulletResist": "30",
-        "CasterBuffDuration": "5"
+        "CasterBuffDuration": "5",
+        "Disabled": false
     },
     "upgrade_weapon_detention_ammo": {
         "Name": "Detention Rounds",
-        "Description": "Your bullets build up on enemies, causing them to be tethered to their position.",
+        "Description": "Your bullets build up on enemies, causing them to be <span style=\"font-weight: bold;\">tethered</span> to their position.",
         "Cost": "6200",
         "Tier": "4",
         "Activation": "Passive",
@@ -6129,11 +6324,12 @@
         "ImmunityDuration": "8",
         "BuildUpPerShot": "1.2",
         "BuildUpDuration": "10",
-        "TetherRadius": "7m"
+        "TetherRadius": "7m",
+        "Disabled": true
     },
     "upgrade_weapon_eater": {
         "Name": "Weapon Eater",
-        "Description": "Reduces Courage by -5. <br>Gain 3.5 Courage (Up to 30) for killing an enemy Hero but lose 6 gained Courage on Death. Bonus applied if damage was done within 1s of enemy killed.",
+        "Description": "Reduces Courage by <span class=\"highlight_weapon\">-5</span>. <br>Gain <span class=\"highlight_weapon\">3.5 Courage</span> (Up to <span class=\"highlight_weapon\">30</span>) for <span style=\"font-weight: bold;\">killing an enemy Hero</span> but lose <span class=\"highlight_weapon\">6 gained Courage</span> on <span style=\"font-weight: bold;\">Death</span>. Bonus applied if damage was done within 1s of enemy killed.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -6158,7 +6354,8 @@
         "WeaponPowerPerDeath": "6",
         "KillWindow": "1",
         "MaxWeaponPower": "30",
-        "BaseBonusCounter": "-5"
+        "BaseBonusCounter": "-5",
+        "Disabled": true
     },
     "upgrade_weapon_instant_reload": {
         "Name": "Reloader + Huge Clip",
@@ -6183,11 +6380,12 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BonusClipSizePercent": "60"
+        "BonusClipSizePercent": "60",
+        "Disabled": true
     },
     "upgrade_weapon_overdrive_clip": {
         "Name": "Overdrive Clip",
-        "Description": "Deal non-lethal damage based on your max health to yourself and reload bullets in your clip equal to your max ammo, no matter how many bullets are left.  The bullets in this clip have additional courage.",
+        "Description": "<span style=\"font-weight: bold;\">Deal non-lethal damage based on your max health to yourself</span> and <span style=\"font-weight: bold;\">reload bullets in your clip equal to your max ammo, no matter how many bullets are left.</span>  The bullets in this clip have additional <span style=\"font-weight: bold;\">courage</span>.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "InstantCast",
@@ -6211,11 +6409,12 @@
         "HealthDamagePercent": "20",
         "BonusReloadSpeed": "-75",
         "BonusWeaponPower": "100",
-        "OverdriveClipDuration": "5"
+        "OverdriveClipDuration": "5",
+        "Disabled": true
     },
     "upgrade_weapon_power_and_health_drain": {
         "Name": "Overdrive",
-        "Description": "Increase your Courage while draining your own health.",
+        "Description": "Increase your <span style=\"font-weight: bold;\">Courage</span> while draining your own <span style=\"font-weight: bold;\">health</span>.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "InstantCast",
@@ -6238,11 +6437,12 @@
         "WeaponPower": "0",
         "WeaponPowerWhileActivated": "135",
         "HealthDrainedPerSecond": "35",
-        "Interval": "0.1"
+        "Interval": "0.1",
+        "Disabled": true
     },
     "upgrade_withering_whip": {
         "Name": "Withering Whip",
-        "Description": "Target an enemy to apply Fire Rate Slow and reduce their Bullet Resist.",
+        "Description": "Target an enemy to apply <span style=\"font-weight: bold;\">Fire Rate Slow</span> and reduce their <span style=\"font-weight: bold;\">Bullet Resist</span>.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "ActivationPress",
@@ -6272,7 +6472,8 @@
         "BulletArmorReduction": "-14",
         "SpiritPower": "6",
         "BonusSprintSpeed": "1m",
-        "BonusHealth": "50"
+        "BonusHealth": "50",
+        "Disabled": false
     },
     "weapon_upgrade_base": {
         "Name": null,
@@ -6296,7 +6497,8 @@
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
         "TechPower": "0",
-        "WeaponPower": "0"
+        "WeaponPower": "0",
+        "Disabled": false
     },
     "weapon_upgrade_t1": {
         "Name": null,
@@ -6320,7 +6522,8 @@
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
         "TechPower": "0",
-        "WeaponPower": "0"
+        "WeaponPower": "0",
+        "Disabled": false
     },
     "weapon_upgrade_t2": {
         "Name": null,
@@ -6344,7 +6547,8 @@
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
         "TechPower": "0",
-        "WeaponPower": "0"
+        "WeaponPower": "0",
+        "Disabled": false
     },
     "weapon_upgrade_t3": {
         "Name": null,
@@ -6368,7 +6572,8 @@
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
         "TechPower": "0",
-        "WeaponPower": "0"
+        "WeaponPower": "0",
+        "Disabled": false
     },
     "weapon_upgrade_t4": {
         "Name": null,
@@ -6392,6 +6597,7 @@
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
         "TechPower": "0",
-        "WeaponPower": "0"
+        "WeaponPower": "0",
+        "Disabled": false
     }
 }
