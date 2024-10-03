@@ -1,9 +1,12 @@
 [tool.poetry]
 name = "DeadBot" 
-version = "0.1.0"  # REQUIRED, although can be dynamic
+version = "0.1.1"  # REQUIRED, although can be dynamic
 description = "Bot that lives to serve deadlocked.wiki"
 readme = "README.md"
 authors=[]
+
+[tool.poetry.scripts]
+deadbot = 'src.deadbot:main'
 
 [tool.poetry.dependencies]
 python="^3.11"
@@ -24,7 +27,6 @@ extend-select = ["E501"]
 
 [tool.ruff.format]
 quote-style = "single"
-
 
 [build-system]
 requires = ["poetry-core"]

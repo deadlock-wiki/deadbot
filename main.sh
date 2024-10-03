@@ -23,11 +23,8 @@ fi
 
 if [ "$BOT_PUSH" = true ]; then
     cd src
-    echo "Running DeadBot..."
     python3 deadbot.py  # uses BOT_PUSH env var
     cd ..
-else
-    echo "! Skipping DeadBot !"
 fi
 
 # cleanup
