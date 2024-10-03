@@ -23,7 +23,8 @@
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
         "TechPower": "0",
-        "WeaponPower": "0"
+        "WeaponPower": "0",
+        "Disabled": false
     },
     "armor_upgrade_base": {
         "Name": null,
@@ -47,7 +48,8 @@
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
         "TechPower": "0",
-        "WeaponPower": "0"
+        "WeaponPower": "0",
+        "Disabled": false
     },
     "armor_upgrade_t1": {
         "Name": null,
@@ -71,7 +73,8 @@
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
         "TechPower": "0",
-        "WeaponPower": "0"
+        "WeaponPower": "0",
+        "Disabled": false
     },
     "armor_upgrade_t2": {
         "Name": null,
@@ -95,7 +98,8 @@
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
         "TechPower": "0",
-        "WeaponPower": "0"
+        "WeaponPower": "0",
+        "Disabled": false
     },
     "armor_upgrade_t3": {
         "Name": null,
@@ -119,7 +123,8 @@
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
         "TechPower": "0",
-        "WeaponPower": "0"
+        "WeaponPower": "0",
+        "Disabled": false
     },
     "armor_upgrade_t4": {
         "Name": null,
@@ -143,7 +148,8 @@
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
         "TechPower": "0",
-        "WeaponPower": "0"
+        "WeaponPower": "0",
+        "Disabled": false
     },
     "tech_upgrade_base": {
         "Name": null,
@@ -167,7 +173,8 @@
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
         "TechPower": "0",
-        "WeaponPower": "0"
+        "WeaponPower": "0",
+        "Disabled": false
     },
     "tech_upgrade_t1": {
         "Name": null,
@@ -191,7 +198,8 @@
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
         "TechPower": "0",
-        "WeaponPower": "0"
+        "WeaponPower": "0",
+        "Disabled": false
     },
     "tech_upgrade_t2": {
         "Name": null,
@@ -215,7 +223,8 @@
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
         "TechPower": "0",
-        "WeaponPower": "0"
+        "WeaponPower": "0",
+        "Disabled": false
     },
     "tech_upgrade_t3": {
         "Name": null,
@@ -239,7 +248,8 @@
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
         "TechPower": "0",
-        "WeaponPower": "0"
+        "WeaponPower": "0",
+        "Disabled": false
     },
     "tech_upgrade_t4": {
         "Name": null,
@@ -263,7 +273,8 @@
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
         "TechPower": "0",
-        "WeaponPower": "0"
+        "WeaponPower": "0",
+        "Disabled": false
     },
     "upgrade_ability_power_shard": {
         "Name": "Echo Shard",
@@ -292,7 +303,8 @@
         "TechPower": "12",
         "WeaponPower": "0",
         "BonusMoveSpeed": "1m",
-        "BulletResist": "16"
+        "BulletResist": "16",
+        "Disabled": false
     },
     "upgrade_ability_refresher": {
         "Name": "Refresher",
@@ -318,7 +330,8 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "TechResist": "8",
-        "BulletResist": "16"
+        "BulletResist": "16",
+        "Disabled": false
     },
     "upgrade_ablative_coat": {
         "Name": "Ablative Coat",
@@ -347,7 +360,8 @@
         "StackLossFrequency": "1",
         "ArmorLossPerHit": "4",
         "BulletArmor": "1",
-        "BonusSprintSpeed": "3m"
+        "BonusSprintSpeed": "3m",
+        "Disabled": true
     },
     "upgrade_acolytes_glove": {
         "Name": "Spirit Strike",
@@ -380,7 +394,8 @@
         "SpiritDamage": "50",
         "TechArmorDamageReduction": "-12",
         "TechShieldMaxHealth": "80",
-        "BonusMeleeDamagePercent": "12"
+        "BonusMeleeDamagePercent": "12",
+        "Disabled": false
     },
     "upgrade_active_bullet_shield": {
         "Name": "Shield Rush",
@@ -411,7 +426,8 @@
         "TempBulletShieldHealth": "800",
         "Radius": "30m",
         "BulletShieldMaxHealth": "400",
-        "BonusSprintSpeed": "5m"
+        "BonusSprintSpeed": "5m",
+        "Disabled": true
     },
     "upgrade_active_reload": {
         "Name": "Active Reload",
@@ -441,7 +457,8 @@
         "BaseAttackDamagePercent": "10",
         "ReloadSpeedMultipler": "-20",
         "BulletLifestealPercent": "20",
-        "BonusFireRate": "20"
+        "BonusFireRate": "20",
+        "Disabled": false
     },
     "upgrade_aerial_assault": {
         "Name": "Aerial Assault",
@@ -475,7 +492,8 @@
         "AssaultLifestealPercent": "20",
         "AssaultDuration": "3.0",
         "AssaultFireRate": "60",
-        "ExplodeRadius": "3m"
+        "ExplodeRadius": "3m",
+        "Disabled": true
     },
     "upgrade_ammo_scavenger": {
         "Name": "Ammo Scavenger",
@@ -507,7 +525,8 @@
         "BonusHealth": "40",
         "AmmoPerSoul": "2",
         "SpiritPowerPerSoul": "2",
-        "MaxStacks": "10"
+        "MaxStacks": "10",
+        "Disabled": false
     },
     "upgrade_aoe_root": {
         "Name": "Vacuum Web",
@@ -538,7 +557,8 @@
         "TetherDuration": "3.5",
         "TetherRadius": "3m",
         "TechRangeMultiplier": "20",
-        "TechRadiusMultiplier": "20"
+        "TechRadiusMultiplier": "20",
+        "Disabled": true
     },
     "upgrade_aoe_silence": {
         "Name": "EMP Grenade",
@@ -572,7 +592,8 @@
         "StartRadius": "1m",
         "Radius": "8m",
         "TechResist": "-20",
-        "TechShieldMaxHealth": "225"
+        "TechShieldMaxHealth": "225",
+        "Disabled": true
     },
     "upgrade_aoe_smoke_bomb": {
         "Name": "Smoke",
@@ -607,7 +628,8 @@
         "RevealOnDamageDuration": "0.25",
         "RevealOnSpottedDuration": "0.25",
         "Radius": "30m",
-        "FullInvisDistance": "50m"
+        "FullInvisDistance": "50m",
+        "Disabled": true
     },
     "upgrade_aoe_tech_shield": {
         "Name": "Spirit Barrier Pulse",
@@ -635,7 +657,8 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "TempTechShieldHealth": "400",
-        "Radius": "30m"
+        "Radius": "30m",
+        "Disabled": true
     },
     "upgrade_arcane_eater": {
         "Name": "Arcane Eater",
@@ -670,7 +693,8 @@
         "HeadshotBonusSteal": "1",
         "ProcCooldown": "0.5",
         "MaxStacks": "99",
-        "StealDuration": "12"
+        "StealDuration": "12",
+        "Disabled": true
     },
     "upgrade_arcane_extension": {
         "Name": "Duration Extender",
@@ -697,7 +721,8 @@
         "WeaponPower": "0",
         "BonusAbilityDurationPercent": "16",
         "BonusHealth": "100",
-        "BonusHealthRegen": "1.75"
+        "BonusHealthRegen": "1.75",
+        "Disabled": false
     },
     "upgrade_arcane_medallion": {
         "Name": "Arcane Medallion",
@@ -724,7 +749,8 @@
         "ResourceCost": "0",
         "TechPower": "35",
         "WeaponPower": "0",
-        "MinimumDamage": "200"
+        "MinimumDamage": "200",
+        "Disabled": true
     },
     "upgrade_armor_reduction_debuff": {
         "Name": "Armor Piercing Rounds",
@@ -757,7 +783,8 @@
         "WeaponPower": "0",
         "ResistReduction": "-60",
         "BaseAttackDamagePercent": "12",
-        "BulletShieldDamagePercent": "60"
+        "BulletShieldDamagePercent": "60",
+        "Disabled": true
     },
     "upgrade_attack_speed_1": {
         "Name": "Fire Rate",
@@ -782,7 +809,8 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BonusFireRate": "15"
+        "BonusFireRate": "15",
+        "Disabled": true
     },
     "upgrade_attack_speed_2": {
         "Name": "Improved Fire Rate",
@@ -807,7 +835,8 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BonusFireRate": "25"
+        "BonusFireRate": "25",
+        "Disabled": true
     },
     "upgrade_banshee_slugs": {
         "Name": "Crippling Headshot",
@@ -840,7 +869,8 @@
         "LifestealPercentHero": "10",
         "BulletResistReduction": "24",
         "MagicResistReduction": "24",
-        "DebuffDuration": "4"
+        "DebuffDuration": "4",
+        "Disabled": false
     },
     "upgrade_base": {
         "Name": null,
@@ -864,7 +894,8 @@
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
         "TechPower": "0",
-        "WeaponPower": "0"
+        "WeaponPower": "0",
+        "Disabled": false
     },
     "upgrade_belt_fed_magazine": {
         "Name": "Belt-Fed Magazine",
@@ -897,7 +928,8 @@
         "SpinUpDecay": "1.0",
         "InitialFireRateDecrease": "40",
         "MaxFireRateIncrease": "60",
-        "BonusReloadTime": "0.0"
+        "BonusReloadTime": "0.0",
+        "Disabled": true
     },
     "upgrade_berserker": {
         "Name": "Berserker",
@@ -931,7 +963,8 @@
         "WeaponPowerPerStack": "5",
         "MaxStacks": 10,
         "BonusClipSize": "4",
-        "BulletResist": "7"
+        "BulletResist": "7",
+        "Disabled": false
     },
     "upgrade_blitz_bullets": {
         "Name": "Swift Striker",
@@ -960,7 +993,8 @@
         "WeaponPower": "0",
         "BonusFireRate": "22",
         "BonusClipSizePercent": "10",
-        "LocalBulletArmorReduction": "-5"
+        "LocalBulletArmorReduction": "-5",
+        "Disabled": false
     },
     "upgrade_bonus_ability_charge_3": {
         "Name": "Hyper Charge",
@@ -985,7 +1019,8 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BonusAbilityCharges": "3"
+        "BonusAbilityCharges": "3",
+        "Disabled": true
     },
     "upgrade_boxing_glove": {
         "Name": "Lifestrike",
@@ -1025,7 +1060,8 @@
         "LifestealHealPercent": "55",
         "BonusHealth": "125",
         "BulletResist": "8",
-        "NonHeroHealPct": "40"
+        "NonHeroHealPct": "40",
+        "Disabled": false
     },
     "upgrade_bullet_armor": {
         "Name": "Bullet Armor",
@@ -1054,7 +1090,8 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "BulletResist": "25",
-        "BaseAttackDamagePercent": "6"
+        "BaseAttackDamagePercent": "6",
+        "Disabled": false
     },
     "upgrade_bullet_armor_2": {
         "Name": "Improved Bullet Armor",
@@ -1079,7 +1116,8 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BulletArmor": "2"
+        "BulletArmor": "2",
+        "Disabled": true
     },
     "upgrade_bullet_armor_reduction_aura": {
         "Name": "Hunter's Aura",
@@ -1116,7 +1154,8 @@
         "Radius": "15m",
         "BulletArmorReduction": "-9",
         "FireRateSlow": "10",
-        "SingleTargetPlayerMultiplier": "3"
+        "SingleTargetPlayerMultiplier": "3",
+        "Disabled": false
     },
     "upgrade_bullet_damage_reduction_aura": {
         "Name": "Weapon Jammer",
@@ -1146,7 +1185,8 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "Radius": "12m",
-        "FireRateSlow": "30"
+        "FireRateSlow": "30",
+        "Disabled": true
     },
     "upgrade_bullet_resist_shredder": {
         "Name": "Bullet Resist Shredder",
@@ -1180,7 +1220,8 @@
         "WeaponPower": "0",
         "BulletArmorReduction": "-12",
         "BonusHealth": "100",
-        "BulletResist": "5"
+        "BulletResist": "5",
+        "Disabled": false
     },
     "upgrade_burst_fire": {
         "Name": "Burst Fire",
@@ -1211,7 +1252,8 @@
         "ActivatedFireRate": "30",
         "SlideScale": "50",
         "BonusMoveSpeed": "2m",
-        "BonusHealth": "70"
+        "BonusHealth": "70",
+        "Disabled": false
     },
     "upgrade_burst_fire_actuator": {
         "Name": "Burst Fire Actuator",
@@ -1246,7 +1288,8 @@
         "BonusHeadshotDamage": "0",
         "BaseBonusWeaponPower": "5",
         "IntraBurstFireRateIncrease": "0",
-        "NonBurstFireConversionFactor": "3"
+        "NonBurstFireConversionFactor": "3",
+        "Disabled": true
     },
     "upgrade_camouflage": {
         "Name": "Camouflage Suit",
@@ -1279,7 +1322,8 @@
         "RevealOnDamageDuration": "0",
         "RevealOnSpottedDuration": "0.25",
         "MovementThresholdSq": "200",
-        "RegenWhileInvisible": "5"
+        "RegenWhileInvisible": "5",
+        "Disabled": true
     },
     "upgrade_cardio_calibrator": {
         "Name": "Enduring Speed",
@@ -1313,7 +1357,8 @@
         "SlowResistancePercent": "40",
         "BonusSprintSpeed": "2m",
         "BonusHealth": "75",
-        "BonusHealthRegen": "1.5"
+        "BonusHealthRegen": "1.5",
+        "Disabled": false
     },
     "upgrade_chain_lightning": {
         "Name": "Tesla Bullets",
@@ -1350,7 +1395,8 @@
         "ProcCooldown": "0.35",
         "ChainCount": "2",
         "ChainTickRate": "0.4",
-        "BonusFireRate": "14"
+        "BonusFireRate": "14",
+        "Disabled": false
     },
     "upgrade_charge_mastery": {
         "Name": "Charge Mastery",
@@ -1378,7 +1424,8 @@
         "BonusAbilityCharges": "4",
         "CooldownBetweenChargeReduction": "50",
         "BonusChargedAbilityDamage": "15",
-        "BonusChargedCooldownReduction": "15"
+        "BonusChargedCooldownReduction": "15",
+        "Disabled": true
     },
     "upgrade_charmed_wraps": {
         "Name": "Charmed Wraps",
@@ -1406,7 +1453,8 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "CooldownReductionFlat": "8.0",
-        "LightMeleeTimeWindow": "4.0"
+        "LightMeleeTimeWindow": "4.0",
+        "Disabled": true
     },
     "upgrade_cheat_death": {
         "Name": "Cheat Death",
@@ -1439,7 +1487,8 @@
         "DeathImmunityDuration": "4",
         "DeathImmunityPulseRateMultiplier": "4",
         "BonusHealth": "175",
-        "BonusHealthRegen": "2"
+        "BonusHealthRegen": "2",
+        "Disabled": true
     },
     "upgrade_chonky": {
         "Name": "Fortitude",
@@ -1474,7 +1523,8 @@
         "HealthThreshold": "75",
         "BonusMoveSpeed": "2m",
         "BaseAttackDamagePercent": "25",
-        "BonusHealth": "300"
+        "BonusHealth": "300",
+        "Disabled": false
     },
     "upgrade_clip_size": {
         "Name": "Basic Magazine",
@@ -1503,7 +1553,8 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "BonusClipSizePercent": "24",
-        "BaseAttackDamagePercent": "15"
+        "BaseAttackDamagePercent": "15",
+        "Disabled": false
     },
     "upgrade_clip_size_2": {
         "Name": "Big Clip",
@@ -1528,7 +1579,8 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BonusClipSizePercent": "30"
+        "BonusClipSizePercent": "30",
+        "Disabled": true
     },
     "upgrade_clip_size_3": {
         "Name": "Extra Large Magazine",
@@ -1553,7 +1605,8 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BonusClipSizePercent": "60"
+        "BonusClipSizePercent": "60",
+        "Disabled": true
     },
     "upgrade_clip_size_fixed": {
         "Name": "Extended Magazine",
@@ -1578,7 +1631,8 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BonusClipSize": "6"
+        "BonusClipSize": "6",
+        "Disabled": true
     },
     "upgrade_clip_size_fixed_t3": {
         "Name": "Extra Large Magazine",
@@ -1603,7 +1657,8 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BonusClipSize": "12"
+        "BonusClipSize": "12",
+        "Disabled": true
     },
     "upgrade_cloaking_device": {
         "Name": "Cloaking Device",
@@ -1635,7 +1690,8 @@
         "SpottedRadius": "20m",
         "RevealOnDamageDuration": "1.5",
         "RevealOnSpottedDuration": "1.5",
-        "FullInvisDistance": "50m"
+        "FullInvisDistance": "50m",
+        "Disabled": true
     },
     "upgrade_cloaking_device_active": {
         "Name": "Shadow Weave",
@@ -1677,7 +1733,8 @@
         "AmbushBonusTechPower": "55",
         "TechShieldMaxHealth": "300",
         "BonusHealthRegen": "15",
-        "BonusClipSizePercent": "30"
+        "BonusClipSizePercent": "30",
+        "Disabled": false
     },
     "upgrade_close_quarter_combat": {
         "Name": "Point Blank",
@@ -1715,7 +1772,8 @@
         "SlowDuration": "2",
         "CloseRangeBonusDamageRange": "15m",
         "BulletResist": "15",
-        "Stamina": "1"
+        "Stamina": "1",
+        "Disabled": false
     },
     "upgrade_close_range": {
         "Name": "Close Quarters",
@@ -1745,7 +1803,8 @@
         "WeaponPower": "0",
         "CloseRangeBonusWeaponPower": "25",
         "CloseRangeBonusDamageRange": "15m",
-        "BulletShieldMaxHealth": "85"
+        "BulletShieldMaxHealth": "85",
+        "Disabled": false
     },
     "upgrade_cold_front": {
         "Name": "Cold Front",
@@ -1781,7 +1840,8 @@
         "EndRadius": "14m",
         "SlowPercent": "40",
         "Damage": "75",
-        "TechResist": "10"
+        "TechResist": "10",
+        "Disabled": false
     },
     "upgrade_colossus": {
         "Name": "Colossus",
@@ -1816,7 +1876,8 @@
         "SlowPercent": "35",
         "GroundDashReductionPercent": "-25",
         "Radius": "14m",
-        "ModelScaleGrowth": "1.2"
+        "ModelScaleGrowth": "1.2",
+        "Disabled": false
     },
     "upgrade_combo_breaker": {
         "Name": "Combo Breaker",
@@ -1846,7 +1907,8 @@
         "TechArmor": "2",
         "BonusHealthRegen": "2.75",
         "HealPercentAmount": "30",
-        "RegenDuration": "10"
+        "RegenDuration": "10",
+        "Disabled": true
     },
     "upgrade_containment": {
         "Name": "Slowing Hex",
@@ -1880,7 +1942,8 @@
         "SlowPercent": "30",
         "Damage": "70",
         "BonusSprintSpeed": "1m",
-        "GroundDashReductionPercent": "-30"
+        "GroundDashReductionPercent": "-30",
+        "Disabled": false
     },
     "upgrade_cooldown_reduction": {
         "Name": "Superior Cooldown",
@@ -1911,7 +1974,8 @@
         "WeaponPower": "0",
         "ImbuedCooldownReduction": "32",
         "NonImbuedCooldownReduction": "24",
-        "BonusHealthRegen": "4"
+        "BonusHealthRegen": "4",
+        "Disabled": false
     },
     "upgrade_crackshot": {
         "Name": "Mystic Shot",
@@ -1946,7 +2010,8 @@
         "ProcCooldown": "1",
         "ProcBonusMagicDamage": "65",
         "BaseAttackDamagePercent": "12",
-        "SpiritPower": "4"
+        "SpiritPower": "4",
+        "Disabled": false
     },
     "upgrade_critshot": {
         "Name": "Lucky Shot",
@@ -1981,7 +2046,8 @@
         "SlowPercent": "30",
         "SlowDuration": "1.5",
         "CritDamagePercent": "90",
-        "BonusClipSizePercent": "30"
+        "BonusClipSizePercent": "30",
+        "Disabled": false
     },
     "upgrade_damage_recycler": {
         "Name": "Leech",
@@ -2012,7 +2078,8 @@
         "LifestealPercentHero": "35",
         "BulletLifestealPercent": "35",
         "BaseAttackDamagePercent": "15",
-        "BonusHealth": "175"
+        "BonusHealth": "175",
+        "Disabled": false
     },
     "upgrade_debuff_reducer": {
         "Name": "Debuff Reducer",
@@ -2041,7 +2108,8 @@
         "WeaponPower": "0",
         "StatusResistancePercent": "30",
         "BaseAttackDamagePercent": "6",
-        "BonusHealth": "75"
+        "BonusHealth": "75",
+        "Disabled": false
     },
     "upgrade_disarm": {
         "Name": "Drain Will",
@@ -2074,7 +2142,8 @@
         "FireRateSlow": "30",
         "SpiritSteal": "22",
         "SpiritStealDuration": "6",
-        "BonusHealth": "50"
+        "BonusHealth": "50",
+        "Disabled": true
     },
     "upgrade_discord": {
         "Name": "Discord",
@@ -2105,7 +2174,8 @@
         "HealAmpRegenPenaltyPercent": "-80",
         "MaxHealthPercentAsDPS": "3",
         "MaxHealthPercentAsHealPerSecond": "5",
-        "AuraRadius": "10m"
+        "AuraRadius": "10m",
+        "Disabled": true
     },
     "upgrade_diviners_kevlar": {
         "Name": "Diviner's Kevlar",
@@ -2138,7 +2208,8 @@
         "BulletShieldOnCast": "700",
         "TechShieldOnCast": "700",
         "BuffDuration": "15",
-        "CooldownReduction": "12"
+        "CooldownReduction": "12",
+        "Disabled": false
     },
     "upgrade_double_jump": {
         "Name": "Double-Jump",
@@ -2165,7 +2236,8 @@
         "WeaponPower": "0",
         "AirJumps": "1",
         "AirJumpVerticalSpeedPercent": "75",
-        "InteruptCooldown": 4
+        "InteruptCooldown": 4,
+        "Disabled": true
     },
     "upgrade_dps_aura": {
         "Name": "Heroic Aura",
@@ -2203,7 +2275,8 @@
         "ActiveRadius": "30m",
         "ActiveBonusMoveSpeed": "2m",
         "BonusHealth": "150",
-        "BonusMoveSpeed": "1m"
+        "BonusMoveSpeed": "1m",
+        "Disabled": false
     },
     "upgrade_drum_magazine": {
         "Name": "Drum Magazine",
@@ -2229,7 +2302,8 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "BonusClipSize": "20",
-        "ReloadSpeedMultipler": "-25"
+        "ReloadSpeedMultipler": "-25",
+        "Disabled": true
     },
     "upgrade_duration_extender": {
         "Name": "[Deprecated] Duration Extender",
@@ -2256,7 +2330,8 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BonusAbilityDurationPercent": "20"
+        "BonusAbilityDurationPercent": "20",
+        "Disabled": true
     },
     "upgrade_endurance": {
         "Name": "Extra Regen",
@@ -2286,7 +2361,8 @@
         "WeaponPower": "0",
         "BonusHealthRegen": "2.8",
         "BonusClipSizePercent": "8",
-        "BonusHealth": "25"
+        "BonusHealth": "25",
+        "Disabled": false
     },
     "upgrade_escalating_exposure": {
         "Name": "Escalating Exposure",
@@ -2322,7 +2398,8 @@
         "MagicIncreasePerStack": "6",
         "TechResist": "15",
         "BonusHealth": "125",
-        "TechArmorDamageReduction": "-15"
+        "TechArmorDamageReduction": "-15",
+        "Disabled": false
     },
     "upgrade_extra_charge": {
         "Name": "Extra Charge",
@@ -2352,7 +2429,8 @@
         "BonusAbilityCharges": "1",
         "BonusSpiritForChargedAbilities": "0",
         "CooldownReductionOnChargedAbilities": "10",
-        "BaseAttackDamagePercent": "6"
+        "BaseAttackDamagePercent": "6",
+        "Disabled": false
     },
     "upgrade_fervor": {
         "Name": "Frenzy",
@@ -2389,7 +2467,8 @@
         "FervorMovespeed": "4m",
         "FervorFireRate": "40",
         "FervorBulletResist": "45",
-        "LingerDuration": "6"
+        "LingerDuration": "6",
+        "Disabled": false
     },
     "upgrade_fire_rate_aura": {
         "Name": "Fire Rate Aura",
@@ -2418,7 +2497,8 @@
         "WeaponPower": "0",
         "BonusFireRate": "10",
         "BonusFireRateNPC": "35",
-        "AuraRadius": "30m"
+        "AuraRadius": "30m",
+        "Disabled": true
     },
     "upgrade_fleetfoot_boots": {
         "Name": "Fleetfoot",
@@ -2452,7 +2532,8 @@
         "BonusClipSizePercent": "30",
         "BonusClipDuration": "10",
         "BonusHealth": "90",
-        "SlideScale": "25"
+        "SlideScale": "25",
+        "Disabled": false
     },
     "upgrade_frenzy": {
         "Name": null,
@@ -2483,7 +2564,8 @@
         "LowHealthPercentThreshold": "45",
         "LowHealthLifeStealPercent": "45",
         "KillBonusMoveSpeedPerStack": "2m",
-        "MaxKillBonusMoveSpeedStack": "3"
+        "MaxKillBonusMoveSpeedStack": "3",
+        "Disabled": true
     },
     "upgrade_full_spectrum": {
         "Name": "Full Spectrum",
@@ -2514,7 +2596,8 @@
         "TechRadiusMultiplier": "60",
         "SlowPercent": "30",
         "SlowDuration": "2",
-        "BonusDamagePerHero": "5"
+        "BonusDamagePerHero": "5",
+        "Disabled": true
     },
     "upgrade_galvanic_storm": {
         "Name": "Galvanic Storm",
@@ -2553,7 +2636,8 @@
         "ExplodeRadius": "10m",
         "GalvanicBuffDuration": "7",
         "BuffDamageMult": "2",
-        "BuffMoveSpeedBonus": "3m"
+        "BuffMoveSpeedBonus": "3m",
+        "Disabled": true
     },
     "upgrade_glass_cannon": {
         "Name": "Glass Cannon",
@@ -2589,7 +2673,8 @@
         "BonusFireRate": "10",
         "BonusMoveSpeed": "1m",
         "WeaponPowerPerKill": "10",
-        "MaxStacks": "7"
+        "MaxStacks": "7",
+        "Disabled": false
     },
     "upgrade_glitch": {
         "Name": "Curse",
@@ -2621,7 +2706,8 @@
         "WeaponPower": "0",
         "SkipFrames": "6",
         "SlowPercent": "0",
-        "BaseAttackDamagePercent": "20"
+        "BaseAttackDamagePercent": "20",
+        "Disabled": false
     },
     "upgrade_headhunter": {
         "Name": "Headhunter",
@@ -2656,7 +2742,8 @@
         "HealPercentPerHeadshot": "8",
         "BonusMoveSpeed": "2m",
         "MovementSpeedBonusDuration": "3",
-        "BonusFireRate": "5"
+        "BonusFireRate": "5",
+        "Disabled": false
     },
     "upgrade_headshot_booster": {
         "Name": "Headshot Booster",
@@ -2686,7 +2773,8 @@
         "WeaponPower": "0",
         "BonusFireRate": "4",
         "BulletShieldMaxHealth": "40",
-        "HeadShotBonusDamage": "40"
+        "HeadShotBonusDamage": "40",
+        "Disabled": false
     },
     "upgrade_heal_on_level": {
         "Name": "Patron's Healing",
@@ -2717,7 +2805,8 @@
         "HealOnLevelHealAmount": "210",
         "BonusHealth": "25",
         "BonusHealthRegen": "2.0",
-        "AuraRadius": "15m"
+        "AuraRadius": "15m",
+        "Disabled": true
     },
     "upgrade_healbane": {
         "Name": "Healbane",
@@ -2751,7 +2840,8 @@
         "HealAmpReceivePenaltyPercent": "-40",
         "HealAmpRegenPenaltyPercent": "-40",
         "HealOnKill": "350",
-        "BonusHealth": "75"
+        "BonusHealth": "75",
+        "Disabled": false
     },
     "upgrade_healing_booster": {
         "Name": "Healing Booster",
@@ -2782,7 +2872,8 @@
         "HealAmpRegenPercent": "25",
         "BonusHealthRegen": "2",
         "TechResist": "6",
-        "DegenResistance": "15"
+        "DegenResistance": "15",
+        "Disabled": false
     },
     "upgrade_health": {
         "Name": "Extra Health",
@@ -2811,7 +2902,8 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "BonusHealth": "160",
-        "BaseAttackDamagePercent": "5"
+        "BaseAttackDamagePercent": "5",
+        "Disabled": false
     },
     "upgrade_health_nova": {
         "Name": "Health Nova",
@@ -2847,7 +2939,8 @@
         "RegenDuration": "2",
         "AuraRadius": "15m",
         "BaseAttackDamagePercent": "12",
-        "BonusHealth": "100"
+        "BonusHealth": "100",
+        "Disabled": false
     },
     "upgrade_health_regen_1": {
         "Name": "Health Regen",
@@ -2872,7 +2965,8 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BonusHealthRegen": "2.75"
+        "BonusHealthRegen": "2.75",
+        "Disabled": true
     },
     "upgrade_health_regen_aura": {
         "Name": "Healing Aura",
@@ -2901,7 +2995,8 @@
         "WeaponPower": "0",
         "HealInterval": "3",
         "HealAmount": "40",
-        "HealRadius": "9m"
+        "HealRadius": "9m",
+        "Disabled": true
     },
     "upgrade_health_stealing_magic": {
         "Name": "Spirit Lifesteal",
@@ -2932,7 +3027,8 @@
         "WeaponPower": "0",
         "LifestealPercentHero": "23",
         "NonHeroAbilityLifestealTooltipOnly": "3",
-        "BonusHealth": "75"
+        "BonusHealth": "75",
+        "Disabled": false
     },
     "upgrade_health_stimpak": {
         "Name": "Healing Rite",
@@ -2964,7 +3060,8 @@
         "TotalHealthRegen": "370",
         "RegenDuration": "17",
         "BonusHealth": "45",
-        "BonusSprintSpeed": "2m"
+        "BonusSprintSpeed": "2m",
+        "Disabled": false
     },
     "upgrade_height_advantage": {
         "Name": "Height Advantage",
@@ -2989,7 +3086,8 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "HighGroundBonusWeaponPower": "50"
+        "HighGroundBonusWeaponPower": "50",
+        "Disabled": true
     },
     "upgrade_high_impact_armor": {
         "Name": "High Impact Armor",
@@ -3015,7 +3113,8 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "DamageThreshold": "40",
-        "DamageReduction": "60"
+        "DamageReduction": "60",
+        "Disabled": true
     },
     "upgrade_high_velocity_mag": {
         "Name": "High-Velocity Mag",
@@ -3044,7 +3143,8 @@
         "WeaponPower": "0",
         "BonusBulletSpeedPercent": "25",
         "BaseAttackDamagePercent": "12",
-        "BulletShieldMaxHealth": "50"
+        "BulletShieldMaxHealth": "50",
+        "Disabled": false
     },
     "upgrade_hollow_point_rounds": {
         "Name": "Hollow Point Ward",
@@ -3076,7 +3176,8 @@
         "WeaponPower": "0",
         "LifeThreshold": "60",
         "BaseAttackDamagePercent": "22",
-        "TechShieldMaxHealth": "95"
+        "TechShieldMaxHealth": "95",
+        "Disabled": false
     },
     "upgrade_imbued_ability": {
         "Name": "Imbued Ability",
@@ -3107,7 +3208,8 @@
         "ImbuedBonusDamage": "10",
         "BonusAbilityDurationPercent": "20",
         "SlowPercent": "15",
-        "SlowDuration": "2"
+        "SlowDuration": "2",
+        "Disabled": true
     },
     "upgrade_imbued_duration_extender": {
         "Name": "Superior Duration",
@@ -3140,7 +3242,8 @@
         "NonImbuedBonusDuration": "26",
         "BonusHealth": "175",
         "BaseAttackDamagePercent": "15",
-        "BonusHealthRegen": "4"
+        "BonusHealthRegen": "4",
+        "Disabled": false
     },
     "upgrade_improved_bullet_armor": {
         "Name": "Improved Bullet Armor",
@@ -3171,7 +3274,8 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "BulletResist": "50",
-        "BaseAttackDamagePercent": "10"
+        "BaseAttackDamagePercent": "10",
+        "Disabled": false
     },
     "upgrade_improved_spirit": {
         "Name": "Extra Spirit",
@@ -3200,7 +3304,8 @@
         "TechPower": "9",
         "WeaponPower": "0",
         "BonusHealthRegen": "1",
-        "BonusHealth": "35"
+        "BonusHealth": "35",
+        "Disabled": false
     },
     "upgrade_improved_stamina": {
         "Name": "Extra Stamina",
@@ -3230,7 +3335,8 @@
         "WeaponPower": "0",
         "Stamina": "1",
         "StaminaCooldownReduction": "14",
-        "BonusFireRate": "7"
+        "BonusFireRate": "7",
+        "Disabled": false
     },
     "upgrade_infuser": {
         "Name": "Infuser",
@@ -3260,7 +3366,8 @@
         "BonusHealth": "50",
         "BonusClipSizePercent": "10",
         "BonusSpirit": "16",
-        "LifestealPercentHero": "20"
+        "LifestealPercentHero": "20",
+        "Disabled": false
     },
     "upgrade_inhibitor": {
         "Name": "Inhibitor",
@@ -3295,7 +3402,8 @@
         "BaseAttackDamagePercent": "25",
         "SlowPercent": "25",
         "DebuffDuration": "2.5",
-        "OutgoingDamagePenaltyPercent": "-35"
+        "OutgoingDamagePenaltyPercent": "-35",
+        "Disabled": false
     },
     "upgrade_intensifying_clip": {
         "Name": "Intensifying Magazine",
@@ -3326,7 +3434,8 @@
         "BonusClipSizePercent": "25",
         "BaseAttackDamagePercent": "20",
         "ShootDurationForMax": "3.0",
-        "BaseAttackDamagePercentAtMaxDuration": "60"
+        "BaseAttackDamagePercentAtMaxDuration": "60",
+        "Disabled": false
     },
     "upgrade_kinetic_sash": {
         "Name": "Kinetic Dash",
@@ -3359,7 +3468,8 @@
         "BonusFireRate": "20",
         "BonusClipSize": "5",
         "BonusHealth": "100",
-        "BonusHealthRegen": "1.5"
+        "BonusHealthRegen": "1.5",
+        "Disabled": false
     },
     "upgrade_lifestrike_gauntlets": {
         "Name": "Melee Lifesteal",
@@ -3394,7 +3504,8 @@
         "LifestrikeHeal": "90",
         "LifestrikeHealPercent": "20",
         "BonusHealth": "75",
-        "NonHeroHealPct": "30"
+        "NonHeroHealPct": "30",
+        "Disabled": false
     },
     "upgrade_long_range": {
         "Name": "Long Range",
@@ -3425,7 +3536,8 @@
         "LongRangeBonusWeaponPower": "40",
         "LongRangeBonusWeaponPowerMinRange": "15m",
         "BonusClipSizePercent": "20",
-        "BulletShieldMaxHealth": "140"
+        "BulletShieldMaxHealth": "140",
+        "Disabled": false
     },
     "upgrade_long_range_slowing_tech": {
         "Name": "Omni Spirit",
@@ -3456,7 +3568,8 @@
         "TechRangeMultiplier": "30",
         "TechRadiusMultiplier": "30",
         "SlowPercent": "20",
-        "SlowDuration": "2"
+        "SlowDuration": "2",
+        "Disabled": true
     },
     "upgrade_magic_burst": {
         "Name": "Mystic Burst",
@@ -3489,7 +3602,8 @@
         "Damage": "35",
         "MinimumDamage": "80",
         "TechShieldMaxHealth": "40",
-        "BaseAttackDamagePercent": "6"
+        "BaseAttackDamagePercent": "6",
+        "Disabled": false
     },
     "upgrade_magic_carpet": {
         "Name": "Magic Carpet",
@@ -3522,7 +3636,8 @@
         "FlyingTechShield": "400",
         "FlyMoveSpeed": "6m",
         "BonusHealth": "150",
-        "BonusAbilityDurationPercent": "10"
+        "BonusAbilityDurationPercent": "10",
+        "Disabled": false
     },
     "upgrade_magic_clarity": {
         "Name": "Clarity",
@@ -3551,7 +3666,8 @@
         "BonusSpirit": "28",
         "BonusSpiritMaxTime": "12",
         "BonusSpiritWindow": "1",
-        "BonusSpiritMin": "2"
+        "BonusSpiritMin": "2",
+        "Disabled": true
     },
     "upgrade_magic_missile": {
         "Name": "Conjure Missiles",
@@ -3587,7 +3703,8 @@
         "BonusFireRate": "10",
         "BonusMoveSpeed": "1m",
         "WeaponPowerPerKill": "10",
-        "MaxStacks": "5"
+        "MaxStacks": "5",
+        "Disabled": true
     },
     "upgrade_magic_reach": {
         "Name": "Mystic Reach",
@@ -3614,7 +3731,8 @@
         "WeaponPower": "0",
         "TechRangeMultiplier": "18",
         "TechRadiusMultiplier": "16",
-        "BulletResist": "6"
+        "BulletResist": "6",
+        "Disabled": false
     },
     "upgrade_magic_shield": {
         "Name": "Enchanter's Barrier",
@@ -3644,7 +3762,8 @@
         "WeaponPower": "0",
         "TechShieldMaxHealth": "300",
         "BonusSpiritWithMagicShield": "20",
-        "CooldownReductionWithShield": "8"
+        "CooldownReductionWithShield": "8",
+        "Disabled": false
     },
     "upgrade_magic_shock": {
         "Name": "Improved Burst",
@@ -3680,7 +3799,8 @@
         "ReProcLockoutTime": "5",
         "MaxHealthDamage": "9",
         "TechShieldMaxHealth": "100",
-        "BaseAttackDamagePercent": "8"
+        "BaseAttackDamagePercent": "8",
+        "Disabled": false
     },
     "upgrade_magic_slow": {
         "Name": "Mystic Slow",
@@ -3714,7 +3834,8 @@
         "FireRateSlow": "40",
         "MovementSpeedSlow": "30",
         "BonusHealthRegen": "3",
-        "BonusHealth": "100"
+        "BonusHealth": "100",
+        "Disabled": false
     },
     "upgrade_magic_storm": {
         "Name": "Surge of Power",
@@ -3746,7 +3867,8 @@
         "FireRateBonus": "10",
         "BonusMoveSpeed": "3m",
         "MovementSpeedBonusDuration": "6",
-        "BonusHealth": "75"
+        "BonusHealth": "75",
+        "Disabled": false
     },
     "upgrade_magic_tempo": {
         "Name": "Improved Cooldown",
@@ -3774,7 +3896,8 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "CooldownReduction": "16",
-        "BonusHealthRegen": "1.5"
+        "BonusHealthRegen": "1.5",
+        "Disabled": false
     },
     "upgrade_magic_vulnerability": {
         "Name": "Mystic Vulnerability",
@@ -3805,7 +3928,8 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "TechArmorDamageReduction": "-12",
-        "TechResist": "6"
+        "TechResist": "6",
+        "Disabled": false
     },
     "upgrade_medic_bullets": {
         "Name": "Restorative Shot",
@@ -3840,7 +3964,8 @@
         "BaseAttackDamagePercent": "8",
         "HealFromHero": "40",
         "HealFromNPC": "15",
-        "BulletResist": "7"
+        "BulletResist": "7",
+        "Disabled": false
     },
     "upgrade_mega_spirit": {
         "Name": "Boundless Spirit",
@@ -3874,7 +3999,8 @@
         "BonusHealthRegen": "15",
         "BaseAttackDamagePercent": "25",
         "BonusSprintSpeed": "2m",
-        "BonusHealth": "300"
+        "BonusHealth": "300",
+        "Disabled": false
     },
     "upgrade_melee_charge": {
         "Name": "Melee Charge",
@@ -3910,7 +4036,8 @@
         "BonusHealth": "100",
         "MeleeDistanceScale": "40",
         "BonusHealthRegen": "1",
-        "BonusHeavyMeleeDamage": "20"
+        "BonusHeavyMeleeDamage": "20",
+        "Disabled": false
     },
     "upgrade_metal_skin": {
         "Name": "Metal Skin",
@@ -3939,7 +4066,8 @@
         "TechPower": "8",
         "WeaponPower": "0",
         "BonusFireRate": "8",
-        "BonusHealth": "125"
+        "BonusHealth": "125",
+        "Disabled": false
     },
     "upgrade_mod_disruptor": {
         "Name": "Soul Disruptor",
@@ -3971,7 +4099,8 @@
         "DPSMax": "100",
         "Radius": "8m",
         "TickRate": "0.5",
-        "TechResist": "-18"
+        "TechResist": "-18",
+        "Disabled": true
     },
     "upgrade_nearby_enemy_boost": {
         "Name": "Adrenaline Rush",
@@ -4008,7 +4137,8 @@
         "BaseAttackDamagePercent": "48",
         "BonusFireRate": "30",
         "BonusHealth": "125",
-        "BonusMoveSpeed": "1m"
+        "BonusMoveSpeed": "1m",
+        "Disabled": true
     },
     "upgrade_non_player_bonus": {
         "Name": "Monster Rounds",
@@ -4040,7 +4170,8 @@
         "NonPlayerBonusWeaponPower": "35",
         "BonusHealth": "50",
         "BonusHealthRegen": "1",
-        "NonPlayerBulletResist": "30"
+        "NonPlayerBulletResist": "30",
+        "Disabled": false
     },
     "upgrade_personal_rejuvenator": {
         "Name": "Rebirth",
@@ -4066,7 +4197,8 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "RespawnDelay": "5",
-        "RespawnBonusHealthDuration": "0"
+        "RespawnBonusHealthDuration": "0",
+        "Disabled": true
     },
     "upgrade_phantom_strike": {
         "Name": "Phantom Strike",
@@ -4102,7 +4234,8 @@
         "BaseAttackDamagePercent": "30",
         "SlowPercent": "50",
         "SlowDuration": "3",
-        "ImpactDamage": "75"
+        "ImpactDamage": "75",
+        "Disabled": false
     },
     "upgrade_predator_precision": {
         "Name": "Predator Precision",
@@ -4131,7 +4264,8 @@
         "WeaponPower": "0",
         "BonusFireRate": "8",
         "LifeThreshold": "50",
-        "BaseAttackDamagePercent": "50"
+        "BaseAttackDamagePercent": "50",
+        "Disabled": true
     },
     "upgrade_pristine_emblem": {
         "Name": "Pristine Emblem",
@@ -4167,7 +4301,8 @@
         "BaseAttackDamagePercent": "25",
         "BaseAttackDamagePercentBonus": "25",
         "TechResist": "12",
-        "BonusBulletSpeedPercent": "35"
+        "BonusBulletSpeedPercent": "35",
+        "Disabled": false
     },
     "upgrade_proc_disarm": {
         "Name": "Disarming Bullets",
@@ -4196,7 +4331,8 @@
         "WeaponPower": "0",
         "ImmunityDuration": "3",
         "BuildUpPerShot": "1.0",
-        "BuildUpDuration": "10"
+        "BuildUpDuration": "10",
+        "Disabled": true
     },
     "upgrade_proc_silence": {
         "Name": "EMP Bullets",
@@ -4227,7 +4363,8 @@
         "ImmunityDuration": "4",
         "EMPProcChance": "100",
         "BuildUpPerShot": "1.6",
-        "BuildUpDuration": "10"
+        "BuildUpDuration": "10",
+        "Disabled": true
     },
     "upgrade_proc_tech_damage": {
         "Name": "Magitech Rounds",
@@ -4256,7 +4393,8 @@
         "BaseDamagePct": "0.0001",
         "NanoTechPerShot": "1",
         "BaseDamagePerShot": "1",
-        "SpellAmplificationMultiplier": "5"
+        "SpellAmplificationMultiplier": "5",
+        "Disabled": true
     },
     "upgrade_quarantine": {
         "Name": "Quarantine",
@@ -4282,7 +4420,8 @@
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
         "TechPower": "0",
-        "WeaponPower": "0"
+        "WeaponPower": "0",
+        "Disabled": true
     },
     "upgrade_quick_silver": {
         "Name": "Quicksilver Reload",
@@ -4315,7 +4454,8 @@
         "ProcCooldown": "12",
         "FireRateBonus": "15",
         "FireRateDuration": "12",
-        "Damage": "65"
+        "Damage": "65",
+        "Disabled": false
     },
     "upgrade_rapid_recharge": {
         "Name": "Rapid Recharge",
@@ -4345,7 +4485,8 @@
         "CooldownBetweenChargeReduction": "65",
         "BonusAbilityCharges": "2",
         "CooldownReductionOnChargedAbilities": "30",
-        "BaseAttackDamagePercent": "12"
+        "BaseAttackDamagePercent": "12",
+        "Disabled": false
     },
     "upgrade_rapid_rounds": {
         "Name": "Rapid Rounds",
@@ -4374,7 +4515,8 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "BonusFireRate": "9",
-        "BonusSprintSpeed": "1m"
+        "BonusSprintSpeed": "1m",
+        "Disabled": false
     },
     "upgrade_rebirth": {
         "Name": "Soul Rebirth",
@@ -4402,7 +4544,8 @@
         "SpawnTimePenalty": "15",
         "RespawnDelay": "4",
         "RespawnHealthPercent": "50",
-        "CooldownReduction": "15"
+        "CooldownReduction": "15",
+        "Disabled": false
     },
     "upgrade_reduce_debuff_duration": {
         "Name": "Debuff Remover",
@@ -4435,7 +4578,8 @@
         "BaseAttackDamagePercent": "20",
         "ActiveBonusMoveSpeed": "3m",
         "BuffDuration": "3",
-        "BonusHealth": "125"
+        "BonusHealth": "125",
+        "Disabled": false
     },
     "upgrade_regenerating_bullet_shield": {
         "Name": "Combat Barrier",
@@ -4465,7 +4609,8 @@
         "WeaponPower": "0",
         "BulletShieldMaxHealth": "325",
         "AttackDamageWhenShielded": "25",
-        "FireRateWhenShielded": "6"
+        "FireRateWhenShielded": "6",
+        "Disabled": false
     },
     "upgrade_regenerative_armor": {
         "Name": "Regenerative Armor",
@@ -4490,7 +4635,8 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BonusHealthRegen": "20"
+        "BonusHealthRegen": "20",
+        "Disabled": true
     },
     "upgrade_reinforcing_casings": {
         "Name": "Escalating Resilience",
@@ -4523,7 +4669,8 @@
         "BulletResistPerStack": "2",
         "BulletResistDuration": "20",
         "BaseAttackDamagePercent": "14",
-        "BonusFireRate": "12"
+        "BonusFireRate": "12",
+        "Disabled": false
     },
     "upgrade_reload_speed": {
         "Name": "Fast Reload",
@@ -4548,7 +4695,8 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "ReloadSpeedMultipler": "-35"
+        "ReloadSpeedMultipler": "-35",
+        "Disabled": true
     },
     "upgrade_rescue_beam": {
         "Name": "Rescue Beam",
@@ -4585,7 +4733,8 @@
         "BonusMoveSpeed": "0m",
         "BonusHealth": "125",
         "BonusSprintSpeed": "2m",
-        "SelfModifier": "100"
+        "SelfModifier": "100",
+        "Disabled": false
     },
     "upgrade_resilience": {
         "Name": "Enduring Spirit",
@@ -4614,7 +4763,8 @@
         "TechPower": "4",
         "WeaponPower": "0",
         "BonusHealth": "75",
-        "LifestealPercentHero": "10"
+        "LifestealPercentHero": "10",
+        "Disabled": false
     },
     "upgrade_restorative_locket": {
         "Name": "Restorative Locket",
@@ -4647,7 +4797,8 @@
         "Radius": "50m",
         "TechResist": "8",
         "HealPerStack": "35",
-        "MaxStacks": "15"
+        "MaxStacks": "15",
+        "Disabled": false
     },
     "upgrade_return_fire": {
         "Name": "Return Fire",
@@ -4679,7 +4830,8 @@
         "BulletDamageReflectedPct": "60",
         "BonusHealth": "125",
         "SpiritDamageReflectedPct": "30",
-        "ReturnFireBulletResist": "25"
+        "ReturnFireBulletResist": "25",
+        "Disabled": false
     },
     "upgrade_ricochet": {
         "Name": "Ricochet",
@@ -4717,7 +4869,8 @@
         "BonusClipSizePercent": "35",
         "RicochetTargetsTooltipOnly": "2",
         "BonusHealth": "150",
-        "BonusFireRate": "10"
+        "BonusFireRate": "10",
+        "Disabled": false
     },
     "upgrade_rocket_booster": {
         "Name": "Majestic Leap",
@@ -4758,7 +4911,8 @@
         "ImpactDamage": "0",
         "ImpactHeight": "2m",
         "MinAimAngle": "30",
-        "BonusHealth": "125"
+        "BonusHealth": "125",
+        "Disabled": false
     },
     "upgrade_rocket_boots": {
         "Name": "Majestic Leap - Disabled",
@@ -4789,7 +4943,8 @@
         "JumpVelocityHidden": "22.5m",
         "InteruptCooldown": 4,
         "AirControlPercent": "100",
-        "BonusHealth": "75"
+        "BonusHealth": "75",
+        "Disabled": true
     },
     "upgrade_rupture": {
         "Name": "Decay",
@@ -4822,7 +4977,8 @@
         "HealAmpReceivePenaltyPercent": "-50",
         "HealAmpRegenPenaltyPercent": "-50",
         "TickRate": "1.0",
-        "DotHealthPercent": "3.1"
+        "DotHealthPercent": "3.1",
+        "Disabled": false
     },
     "upgrade_savior": {
         "Name": "Divine Barrier",
@@ -4859,7 +5015,8 @@
         "TechRadiusMultiplier": "8",
         "BonusMoveSpeed": "2m",
         "BonusSprintSpeed": "1m",
-        "BonusHealth": "50"
+        "BonusHealth": "50",
+        "Disabled": false
     },
     "upgrade_self_bubble": {
         "Name": "Ethereal Shift",
@@ -4890,7 +5047,8 @@
         "BonusSpiritDuration": "10",
         "DampingFactor": "3",
         "LiftHeight": "120",
-        "MoveSpeedMax": "0m"
+        "MoveSpeedMax": "0m",
+        "Disabled": false
     },
     "upgrade_sharpshooter": {
         "Name": "Sharpshooter",
@@ -4925,7 +5083,8 @@
         "BonusAttackRangePercent": "15",
         "BonusZoomPercent": "35",
         "BonusClipSizePercent": "20",
-        "BulletShieldMaxHealth": "200"
+        "BulletShieldMaxHealth": "200",
+        "Disabled": false
     },
     "upgrade_silencer": {
         "Name": "Silencer",
@@ -4960,7 +5119,8 @@
         "EMPDuration": "2",
         "BaseAttackDamagePercent": "20",
         "SlowPercent": "25",
-        "SlowDuration": "1.3"
+        "SlowDuration": "1.3",
+        "Disabled": false
     },
     "upgrade_siphon_bullets": {
         "Name": "Siphon Bullets",
@@ -4997,7 +5157,8 @@
         "StealDuration": "20",
         "ProcCooldown": "0.8",
         "HealthSteal": "45",
-        "ParticleRadius": "1m"
+        "ParticleRadius": "1m",
+        "Disabled": false
     },
     "upgrade_slow_immunity": {
         "Name": "Unstoppable - Deprecated",
@@ -5021,7 +5182,8 @@
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
         "TechPower": "0",
-        "WeaponPower": "0"
+        "WeaponPower": "0",
+        "Disabled": true
     },
     "upgrade_slowing_bullets": {
         "Name": "Slowing Bullets",
@@ -5053,7 +5215,8 @@
         "WeaponPower": "0",
         "SlowPercent": "25",
         "SlowDuration": "1.3",
-        "BaseAttackDamagePercent": "16"
+        "BaseAttackDamagePercent": "16",
+        "Disabled": false
     },
     "upgrade_slowing_tech": {
         "Name": "Slowing Spirit",
@@ -5082,7 +5245,8 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "SlowPercent": "15",
-        "SlowDuration": "2"
+        "SlowDuration": "2",
+        "Disabled": true
     },
     "upgrade_small_attack_speed": {
         "Name": "Basic Fire Rate",
@@ -5107,7 +5271,8 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BonusFireRate": "8"
+        "BonusFireRate": "8",
+        "Disabled": true
     },
     "upgrade_soaring_spirit": {
         "Name": "Improved Spirit",
@@ -5139,7 +5304,8 @@
         "WeaponPower": "0",
         "BonusHealthRegen": "3",
         "BonusSprintSpeed": "1m",
-        "BonusHealth": "100"
+        "BonusHealth": "100",
+        "Disabled": false
     },
     "upgrade_spellshield": {
         "Name": "Hexafoil Ward",
@@ -5169,7 +5335,8 @@
         "TechResist": "15",
         "BonusHealth": "25",
         "SpellShieldLingerDuration": ".3",
-        "SpellShieldFlavorText": "asdasd"
+        "SpellShieldFlavorText": "asdasd",
+        "Disabled": true
     },
     "upgrade_sprint_booster": {
         "Name": "Sprint Boots",
@@ -5200,7 +5367,8 @@
         "WeaponPower": "0",
         "BonusSprintSpeed": "2m",
         "BaseAttackDamagePercent": "4",
-        "BonusHealthRegen": "1"
+        "BonusHealthRegen": "1",
+        "Disabled": false
     },
     "upgrade_stabilizer": {
         "Name": "Stabilizer",
@@ -5227,7 +5395,8 @@
         "WeaponPower": "0",
         "MoveWhileShootingSpeedPenaltyReductionPercent": "100",
         "MoveWhileZoomedSpeedPenaltyReductionPercent": "100",
-        "BonusBulletSpeedPercent": "30"
+        "BonusBulletSpeedPercent": "30",
+        "Disabled": true
     },
     "upgrade_stabilizing_tripod": {
         "Name": "Stabilizing Tripod",
@@ -5265,7 +5434,8 @@
         "StationaryWeaponPower": "40",
         "StationaryRecoilReduction": "25",
         "CasterHealthPercent": "100",
-        "BulletSpeedOverride": "6500"
+        "BulletSpeedOverride": "6500",
+        "Disabled": true
     },
     "upgrade_stasis_bomb": {
         "Name": "Stasis Bomb",
@@ -5303,7 +5473,8 @@
         "MaxFallSpeed": "0",
         "LiftHeight": "120",
         "SlamdownSpeed": "500",
-        "MoveSpeedMax": "4m"
+        "MoveSpeedMax": "4m",
+        "Disabled": true
     },
     "upgrade_superacolytes_glove": {
         "Name": "Hex-Sealed Knuckles",
@@ -5338,7 +5509,8 @@
         "StoredSpiritDamage": "200",
         "TechShieldMaxHealth": "100",
         "BonusHealthRegen": "1",
-        "BonusMeleeDamagePercent": "30"
+        "BonusMeleeDamagePercent": "30",
+        "Disabled": true
     },
     "upgrade_superior_stamina": {
         "Name": "Superior Stamina",
@@ -5372,7 +5544,8 @@
         "Stamina": "3",
         "StaminaCooldownReduction": "20",
         "BonusFireRate": "7",
-        "AirMoveIncreasePercent": "30"
+        "AirMoveIncreasePercent": "30",
+        "Disabled": false
     },
     "upgrade_suppressor": {
         "Name": "Suppressor",
@@ -5404,7 +5577,8 @@
         "WeaponPower": "0",
         "BonusHealth": "50",
         "BonusHealthRegen": "2.5",
-        "FireRateSlow": "25"
+        "FireRateSlow": "25",
+        "Disabled": false
     },
     "upgrade_surging_power": {
         "Name": "Vampiric Burst",
@@ -5441,7 +5615,8 @@
         "BonusMoveSpeed": "2m",
         "BaseAttackDamagePercent": "25",
         "BonusHealth": "150",
-        "ActiveReloadPercent": "50"
+        "ActiveReloadPercent": "50",
+        "Disabled": false
     },
     "upgrade_target_stun": {
         "Name": "Knockdown",
@@ -5476,7 +5651,8 @@
         "VisualContractRadius": "3m",
         "Damage": "20",
         "TechShieldMaxHealth": "200",
-        "Stamina": "1"
+        "Stamina": "1",
+        "Disabled": false
     },
     "upgrade_targeted_silence": {
         "Name": "Silence Glyph",
@@ -5508,7 +5684,8 @@
         "WeaponPower": "0",
         "Damage": "100",
         "TechShieldMaxHealth": "150",
-        "BonusSprintSpeed": "1m"
+        "BonusSprintSpeed": "1m",
+        "Disabled": false
     },
     "upgrade_tech_armor": {
         "Name": "Spirit Armor",
@@ -5536,7 +5713,8 @@
         "ResourceCost": "0",
         "TechPower": "5",
         "WeaponPower": "0",
-        "TechResist": "20"
+        "TechResist": "20",
+        "Disabled": false
     },
     "upgrade_tech_bleed": {
         "Name": "Mystic Reverb",
@@ -5574,7 +5752,8 @@
         "TechResist": "15",
         "TechRangeMultiplier": "15",
         "TechRadiusMultiplier": "15",
-        "MovementSpeedSlow": "50"
+        "MovementSpeedSlow": "50",
+        "Disabled": false
     },
     "upgrade_tech_cleave": {
         "Name": "Quantum Chimaera",
@@ -5601,7 +5780,8 @@
         "WeaponPower": "0",
         "TechCleaveDamagePercent": "75",
         "TechCleaveRadius": "10m",
-        "ProcCooldown": "0.05"
+        "ProcCooldown": "0.05",
+        "Disabled": true
     },
     "upgrade_tech_damage_pulse": {
         "Name": "Torment Pulse",
@@ -5633,7 +5813,8 @@
         "WeaponPower": "0",
         "BonusHealth": "160",
         "DamagePulseAmount": "40",
-        "DamagePulseRadius": "9m"
+        "DamagePulseRadius": "9m",
+        "Disabled": false
     },
     "upgrade_tech_defender": {
         "Name": "Tech Defender",
@@ -5659,7 +5840,8 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "BonusHealth": "125",
-        "TechArmor": "1"
+        "TechArmor": "1",
+        "Disabled": true
     },
     "upgrade_tech_defense_shredders": {
         "Name": "Soul Shredder Bullets",
@@ -5692,7 +5874,8 @@
         "BaseAttackDamagePercent": "7",
         "ShreddersTechAmp": "10",
         "DebuffDuration": "6",
-        "LifestealPercentHero": "20"
+        "LifestealPercentHero": "20",
+        "Disabled": false
     },
     "upgrade_tech_overflow": {
         "Name": "Spiritual Overflow",
@@ -5728,7 +5911,8 @@
         "BonusFireRate": "20",
         "BonusSpirit": "45",
         "BuildUpPerShot": "0.75",
-        "BuildUpDuration": "5"
+        "BuildUpDuration": "5",
+        "Disabled": false
     },
     "upgrade_tech_purge": {
         "Name": "Improved Spirit Armor",
@@ -5758,7 +5942,8 @@
         "ResourceCost": "0",
         "TechPower": "8",
         "WeaponPower": "0",
-        "TechResist": "45"
+        "TechResist": "45",
+        "Disabled": false
     },
     "upgrade_tech_range": {
         "Name": "Improved Reach",
@@ -5792,7 +5977,8 @@
         "NonImbuedTechRadiusMultiplier": "25",
         "ImbuedTechRangeMultiplier": "35",
         "ImbuedTechRadiusMultiplier": "35",
-        "BulletResist": "12"
+        "BulletResist": "12",
+        "Disabled": false
     },
     "upgrade_thermal_detonator": {
         "Name": "Alchemical Fire",
@@ -5831,7 +6017,8 @@
         "TickRate": "0.5",
         "BonusBaseWeaponDamageTaken": "50",
         "BulletShieldMaxHealth": "225",
-        "BaseAttackDamagePercent": "14"
+        "BaseAttackDamagePercent": "14",
+        "Disabled": false
     },
     "upgrade_titan_round": {
         "Name": "Titanic Magazine",
@@ -5863,7 +6050,8 @@
         "WeaponPower": "0",
         "BonusClipSizePercent": "120",
         "BaseAttackDamagePercent": "18",
-        "BulletResist": "18"
+        "BulletResist": "18",
+        "Disabled": false
     },
     "upgrade_toughness_3": {
         "Name": "Toughness",
@@ -5889,7 +6077,8 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "BonusHealth": "175",
-        "BonusHealthRegen": "2"
+        "BonusHealthRegen": "2",
+        "Disabled": true
     },
     "upgrade_toxic_bullets": {
         "Name": "Toxic Bullets",
@@ -5929,7 +6118,8 @@
         "TickRate": "0.5",
         "HealAmpReceivePenaltyPercent": "-65",
         "HealAmpRegenPenaltyPercent": "-65",
-        "DotMultiplerTroopers": "0.5"
+        "DotMultiplerTroopers": "0.5",
+        "Disabled": false
     },
     "upgrade_unstoppable": {
         "Name": "Unstoppable",
@@ -5960,7 +6150,8 @@
         "BonusHealth": "150",
         "TechResist": "15",
         "BonusMoveSpeed": "1m",
-        "SpiritPower": "12"
+        "SpiritPower": "12",
+        "Disabled": false
     },
     "upgrade_vampire": {
         "Name": "Bullet Lifesteal",
@@ -5989,7 +6180,8 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "BulletLifestealPercent": "28",
-        "BonusHealth": "75"
+        "BonusHealth": "75",
+        "Disabled": false
     },
     "upgrade_veil_walker": {
         "Name": "Veil Walker",
@@ -6030,7 +6222,8 @@
         "BaseAttackDamagePercent": "10",
         "BonusClipSize": "0",
         "InvisDuration": "5",
-        "BonusMoveSpeed": "3m"
+        "BonusMoveSpeed": "3m",
+        "Disabled": false
     },
     "upgrade_vex_barrier": {
         "Name": "Reactive Barrier",
@@ -6064,7 +6257,8 @@
         "BonusClipSizePercent": "15",
         "BonusHealth": "75",
         "BonusHealthRegen": "2",
-        "VexBarrierShieldDuration": "9"
+        "VexBarrierShieldDuration": "9",
+        "Disabled": false
     },
     "upgrade_warp_stone": {
         "Name": "Warp Stone",
@@ -6094,7 +6288,8 @@
         "WeaponPower": "0",
         "BaseAttackDamagePercent": "20",
         "BulletResist": "30",
-        "CasterBuffDuration": "5"
+        "CasterBuffDuration": "5",
+        "Disabled": false
     },
     "upgrade_weapon_detention_ammo": {
         "Name": "Detention Rounds",
@@ -6129,7 +6324,8 @@
         "ImmunityDuration": "8",
         "BuildUpPerShot": "1.2",
         "BuildUpDuration": "10",
-        "TetherRadius": "7m"
+        "TetherRadius": "7m",
+        "Disabled": true
     },
     "upgrade_weapon_eater": {
         "Name": "Weapon Eater",
@@ -6158,7 +6354,8 @@
         "WeaponPowerPerDeath": "6",
         "KillWindow": "1",
         "MaxWeaponPower": "30",
-        "BaseBonusCounter": "-5"
+        "BaseBonusCounter": "-5",
+        "Disabled": true
     },
     "upgrade_weapon_instant_reload": {
         "Name": "Reloader + Huge Clip",
@@ -6183,7 +6380,8 @@
         "ResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BonusClipSizePercent": "60"
+        "BonusClipSizePercent": "60",
+        "Disabled": true
     },
     "upgrade_weapon_overdrive_clip": {
         "Name": "Overdrive Clip",
@@ -6211,7 +6409,8 @@
         "HealthDamagePercent": "20",
         "BonusReloadSpeed": "-75",
         "BonusWeaponPower": "100",
-        "OverdriveClipDuration": "5"
+        "OverdriveClipDuration": "5",
+        "Disabled": true
     },
     "upgrade_weapon_power_and_health_drain": {
         "Name": "Overdrive",
@@ -6238,7 +6437,8 @@
         "WeaponPower": "0",
         "WeaponPowerWhileActivated": "135",
         "HealthDrainedPerSecond": "35",
-        "Interval": "0.1"
+        "Interval": "0.1",
+        "Disabled": true
     },
     "upgrade_withering_whip": {
         "Name": "Withering Whip",
@@ -6272,7 +6472,8 @@
         "BulletArmorReduction": "-14",
         "SpiritPower": "6",
         "BonusSprintSpeed": "1m",
-        "BonusHealth": "50"
+        "BonusHealth": "50",
+        "Disabled": false
     },
     "weapon_upgrade_base": {
         "Name": null,
@@ -6296,7 +6497,8 @@
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
         "TechPower": "0",
-        "WeaponPower": "0"
+        "WeaponPower": "0",
+        "Disabled": false
     },
     "weapon_upgrade_t1": {
         "Name": null,
@@ -6320,7 +6522,8 @@
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
         "TechPower": "0",
-        "WeaponPower": "0"
+        "WeaponPower": "0",
+        "Disabled": false
     },
     "weapon_upgrade_t2": {
         "Name": null,
@@ -6344,7 +6547,8 @@
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
         "TechPower": "0",
-        "WeaponPower": "0"
+        "WeaponPower": "0",
+        "Disabled": false
     },
     "weapon_upgrade_t3": {
         "Name": null,
@@ -6368,7 +6572,8 @@
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
         "TechPower": "0",
-        "WeaponPower": "0"
+        "WeaponPower": "0",
+        "Disabled": false
     },
     "weapon_upgrade_t4": {
         "Name": null,
@@ -6392,6 +6597,7 @@
         "ChannelMoveSpeed": "50",
         "ResourceCost": "0",
         "TechPower": "0",
-        "WeaponPower": "0"
+        "WeaponPower": "0",
+        "Disabled": false
     }
 }
