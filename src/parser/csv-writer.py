@@ -1,5 +1,8 @@
 import pandas as pd
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 OUTPUT_DIR = os.getenv('OUTPUT_DIR', '../output-data')
 
