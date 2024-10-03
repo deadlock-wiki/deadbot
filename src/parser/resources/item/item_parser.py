@@ -111,7 +111,7 @@ class ItemParser:
         Item.hashToObjs(all_items)
         Item.saveObjects(free_memory=True)
 
-        #Item.loadObjects() #if commented out, the following line will throw an error
+        Item.loadObjects() #if commented out, the following line will throw an error
         print(Item.objects['armor_upgrade_t4'].getProp('Cost'))
 
         return (all_items, chart)
