@@ -26,3 +26,15 @@ jobs:
           IAM_SECRET: ${{ secrets.IAM_SECRET }}
           BOT_WIKI_USER: ${{ secrets.BOT_WIKI_USER }}
           BOT_WIKI_PASS: ${{ secrets.BOT_WIKI_PASS }}
+
+      - name: Checkout deadlock-data repo
+        uses: actions/checkout@v3
+        with:
+          repository: git@github.com:deadlock-wiki/deadbot.git
+          ref: ${{ github.ref_name }}
+
+      - name: Copy files to data repo
+        run: cp -r ./output-data ../deadlock-data/data/current
+
+      - name: Commit and push changes
+        run: 
