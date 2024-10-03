@@ -93,7 +93,7 @@ def parse_arguments():
 def main():
     args = parse_arguments()
 
-    if args.decompile or os.getenv('DECOMPILE', False) in [True, 'true', 'True', 't', 'T', 1]:
+    if args.decompile or os.getenv('DECOMPILE', False) in [True, 'true', 'True', 'TRUE', 't', 'T', 1]:
         print('Decompiling source files...')
         decompile.decompile(args.dl_path, args.workdir, args.output, args.decompiler_cmd)
     else:
@@ -101,7 +101,7 @@ def main():
     else:
         print("! Skipping Decompiler !")
 
-    if args.bot_push or os.getenv('BOT_PUSH', False) in [True, 'true', 'True', 't', 'T', 1]:
+    if args.bot_push or os.getenv('BOT_PUSH', False) in [True, 'true', 'TRUE', 'True', 't', 'T', 1]:
         print('Running DeadBot...')
         bot = DeadBot()
         bot.run()
