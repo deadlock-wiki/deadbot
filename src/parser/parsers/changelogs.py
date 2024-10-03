@@ -2,13 +2,29 @@ import sys
 import os
 from os import listdir
 from os.path import isfile, join
+from html.parser import HTMLParser
 import datetime
+import feedparser
 
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import utils.json_utils as json_utils
 
 from .constants import OUTPUT_DIR
+
+
+
+class HTMLTagRemover(HTMLParser):
+    # https://www.slingacademy.com/article/python-ways-to-remove-html-tags-from-a-string#Using_HTMLParser
+    def __init__(self):
+        super().__init__()
+        self.result = []
+
+    def handle_data(self, data):
+        self.result.append(data)
+
+    def get_text(self):
+        return ''.join(self.result)
 
 
 class ChangelogParser:
