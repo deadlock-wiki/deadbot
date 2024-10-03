@@ -27,8 +27,8 @@ class ChangelogParser:
             changelogs_by_date[date] = changelog
 
         # take parsed changelogs and transform them into some other useful formats
-        self._create_resource_changelogs(changelogs_by_date)
-        self._create_changelog_db_data(changelogs_by_date)
+        self._create_resource_changelogs()
+        self._create_changelog_db_data()
 
     def run(self, version):
         logs = self._read_logs(version)
@@ -128,9 +128,9 @@ class ChangelogParser:
 
     # Creates historic changelog for each resource (eg. heroes, items etc.)
     # using each parsed changelog
-    def _create_resource_changelogs(self, changelogs_by_date):
+    def _create_resource_changelogs(self):
         hero_changelogs = {}
-        for date, changelog in changelogs_by_date.items():
+        for date, changelog in self.changelogs_by_date.items():
             for hero, changes in changelog['Heroes'].items():
                 if hero not in hero_changelogs:
                     hero_changelogs[hero] = {}
@@ -143,7 +143,7 @@ class ChangelogParser:
             )
 
         item_changelogs = {}
-        for date, changelog in changelogs_by_date.items():
+        for date, changelog in self.changelogs_by_date.items():
             for item, changes in changelog['Items'].items():
                 if item not in item_changelogs:
                     item_changelogs[item] = {}
@@ -157,9 +157,9 @@ class ChangelogParser:
 
     # Convert changelogs to an array of rows, with the plan to upload
     # them to a database (TODO)
-    def _create_changelog_db_data(self, changelogs):
+    def _create_changelog_db_data(self):
         rows = []
-        for date, changelog in changelogs.items():
+        for date, changelog in self.changelogs_by_date.items():
             for header, log_groups in changelog.items():
                 for group_name, logs in log_groups.items():
                     for index, log in enumerate(logs):
