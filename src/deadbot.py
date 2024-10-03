@@ -85,7 +85,6 @@ def parse_arguments():
         action='store_true',
         help='Push current data to wiki (also set with BOT_PUSH environment variable)',
     )
-    )
 
     return parser.parse_args()
 
@@ -93,20 +92,29 @@ def parse_arguments():
 def main():
     args = parse_arguments()
 
-    if args.decompile or os.getenv('DECOMPILE', False) in [True, 'true', 'True', 'TRUE', 't', 'T', 1]:
+    true_args = [
+        True,
+        'true',
+        'True',
+        'TRUE',
+        't',
+        'T',
+        1,
+    ]
+
+    if args.decompile or os.getenv('DECOMPILE', False) in true_args:
         print('Decompiling source files...')
         decompile.decompile(args.dl_path, args.workdir, args.output, args.decompiler_cmd)
     else:
         print('! Skipping Decompiler !')
-    else:
-        print("! Skipping Decompiler !")
 
-    if args.bot_push or os.getenv('BOT_PUSH', False) in [True, 'true', 'TRUE', 'True', 't', 'T', 1]:
+    if args.bot_push or os.getenv('BOT_PUSH', False) in true_args:
         print('Running DeadBot...')
         bot = DeadBot()
         bot.run()
     else:
         print('! Skipping DeadBot !')
+
 
 if __name__ == '__main__':
     main()

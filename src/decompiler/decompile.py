@@ -9,13 +9,8 @@ def decompile(DEADLOCK_PATH, WORK_DIR, OUTPUT_DIR, DECOMPILER_CMD):
     os.system(f'cp "{DEADLOCK_PATH}/game/citadel/steam.inf" "{WORK_DIR}/version.txt"')
     os.system(f'cp "{DEADLOCK_PATH}/game/citadel/steam.inf" "{OUTPUT_DIR}/version.txt"')
 
-  # Define files to be decompiled and processed
-  files = [
-    "scripts/heroes",
-    "scripts/abilities",
-    "scripts/generic_data",
-    "scripts/misc"
-  ]
+    # Define files to be decompiled and processed
+    files = ['scripts/heroes', 'scripts/abilities', 'scripts/generic_data', 'scripts/misc']
 
     # Loop through files and run Decompiler.exe for each
     for file in files:
@@ -46,14 +41,8 @@ def decompile(DEADLOCK_PATH, WORK_DIR, OUTPUT_DIR, DECOMPILER_CMD):
     #   "citadel_mods"
     # ]
 
-  # All folders but voice lines and dev for now
-  folders = [
-    "citadel_attributes",
-    "citadel_gc",
-    "citadel_heroes",
-    "citadel_main",
-    "citadel_mods"
-  ]
+    # All folders but voice lines and dev for now
+    folders = ['citadel_attributes', 'citadel_gc', 'citadel_heroes', 'citadel_main', 'citadel_mods']
 
     # Loop through each folder in the array
     for folder in folders:
