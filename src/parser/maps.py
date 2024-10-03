@@ -160,6 +160,8 @@ LOCALIZATION_OVERRIDE_MAP = {
     'Damage_scale': 'Damage',
     'MaxChargeDuration': 'SpeedBoostDuration',
     'PulseGrenadeDamageAmplificationPerStack': 'DamageAmplificationPerStack',
+    'MirageDjinnsMarkMaxStacks': 'MaxStacks',
+    'SandPhantomProcCooldown': 'ProcCooldown',
 }
 
 
