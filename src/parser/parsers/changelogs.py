@@ -18,20 +18,21 @@ class ChangelogParser:
         self.OUTPUT_CHANGELOGS = self.OUTPUT_DIR + '/changelogs'
         self.resources = self._get_resources()
 
-    def run_all(self):
-        changelogs_by_date = {}
+    def process_local_changelogs(self):
         files = [f for f in listdir(self.CHANGELOGS_DIR) if isfile(join(self.CHANGELOGS_DIR, f))]
         for file in files:
             date = file.replace('.txt', '')
-            changelog = self.run(date)
-            changelogs_by_date[date] = changelog
+            changelog = self.run(date, self._read_local_logs(date))
+            self.changelogs_by_date[date] = changelog
+
+        self.changelogs_by_date = {}
+        self.process_local_changelogs()
 
         # take parsed changelogs and transform them into some other useful formats
         self._create_resource_changelogs()
         self._create_changelog_db_data()
 
-    def run(self, version):
-        logs = self._read_logs(version)
+    def run(self, version, logs):
         changelog_lines = logs.split('\n')
 
         current_heading = 'Other'
@@ -100,7 +101,7 @@ class ChangelogParser:
 
         return changelog
 
-    def _read_logs(self, version):
+    def _read_local_logs(self, version):
         # files just
         f = open(self.CHANGELOGS_DIR + f'{version}.txt', 'r', encoding='utf8')
         return f.read()
