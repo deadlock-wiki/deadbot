@@ -28,7 +28,7 @@ class Resource:
         write(path, hash)
 
         if free_memory:
-            del cls.objects
+            cls.objects = {}
 
     # Load all object's of a given class from json file to memory
     @classmethod

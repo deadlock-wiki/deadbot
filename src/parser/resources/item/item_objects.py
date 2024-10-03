@@ -12,4 +12,3 @@ class Item (resource.Resource):
         self.data = {}
 
         Item.objects[key] = self
-    
