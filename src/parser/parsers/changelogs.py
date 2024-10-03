@@ -34,6 +34,21 @@ class ChangelogParser:
         self.OUTPUT_CHANGELOGS = self.OUTPUT_DIR + '/changelogs'
         self.resources = self._get_resources()
 
+    # download rss feed from changelog forum and parse entries
+    def fetch_forum_changelogs(self):
+        print('Fetching Changelog RSS feed')
+        # Forum Link: https://forums.playdeadlock.com/forums/changelog.10/
+        f_url = 'https://forums.playdeadlock.com/forums/changelog.10/index.rss'
+        # fetches first page, last 20 entries date-wise
+        feed = feedparser.parse(f_url)
+        for entry in feed.entries:
+            # Dependent on thread title being in the format "mm-dd-yyyy Update"
+            date = entry.title.replace(' Update', '')
+            html_remover = HTMLTagRemover()
+            # Potential for more than one post, we just grab the first
+            html_remover.feed(entry.content[0].value)
+            self.changelogs_by_date[date] = self.run(date, html_remover.get_text())
+
     def process_local_changelogs(self):
         files = [f for f in listdir(self.CHANGELOGS_DIR) if isfile(join(self.CHANGELOGS_DIR, f))]
         for file in files:
@@ -41,7 +56,10 @@ class ChangelogParser:
             changelog = self.run(date, self._read_local_logs(date))
             self.changelogs_by_date[date] = changelog
 
+    def run_all(self, fetch_rss=False):
         self.changelogs_by_date = {}
+        if fetch_rss:
+            self.fetch_forum_changelogs()
         self.process_local_changelogs()
 
         # take parsed changelogs and transform them into some other useful formats

@@ -179,7 +179,7 @@ class Parser:
 
     def _parse_changelogs(self):
         print('Parsing Changelogs...')
-        changelogs.ChangelogParser().run_all()
+        changelogs.ChangelogParser().run_all(fetch_rss=True)
 
 
 if __name__ == '__main__':
