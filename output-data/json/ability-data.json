@@ -333,7 +333,9 @@
             {
                 "AbilityCharges": 1
             },
-            {},
+            {
+                "Damage": 65
+            },
             {
                 "AbilityCooldownBetweenCharge": -3,
                 "Scale": {
@@ -2274,7 +2276,12 @@
                 "SlowDuration": 4
             },
             {
-                "Damage": 40
+                "Damage": 40,
+                "Scale": {
+                    "Prop": "Damage",
+                    "Value": 1.3104,
+                    "Type": "spirit"
+                }
             },
             {
                 "CooldownReductionOnHit": -7
