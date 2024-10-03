@@ -25,7 +25,7 @@ class DeadBot:
             page for page in site.pages if pages.page_has_category(page, 'Category:Attribute')
         ]
 
-    def run(self):
+    def push_lane(self):
         for page in self.attribute_pages:
             self._update_page(page)
 
@@ -111,7 +111,7 @@ def main():
     if args.bot_push or os.getenv('BOT_PUSH', False) in true_args:
         print('Running DeadBot...')
         bot = DeadBot()
-        bot.run()
+        bot.push_lane()
     else:
         print('! Skipping DeadBot !')
 
