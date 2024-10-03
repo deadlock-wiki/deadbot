@@ -10,7 +10,7 @@ class Resource:
 
     # Save all object's of a given class from memory to json file
     @classmethod
-    def saveObjects(cls):
+    def saveObjects(cls, free_memory=True):
         class_name_str = cls.__name__
         
         os.makedirs(Resource.resource_path, exist_ok=True)
@@ -19,15 +19,16 @@ class Resource:
         # Convert hash of objects to hash of hashes
         hash = {}
         for obj_key, obj in cls.objects.items():
-            for attr in obj.__dict__:
-                if attr == 'Key':
-                    continue
+            for attr in obj.__dict__['data']:
                 if obj_key not in hash:
                     hash[obj_key] = {}
-                hash[obj_key][attr] = getattr(obj, attr)
+                hash[obj_key][attr] = obj.data[attr]
         
         # Write to file
         write(path, hash)
+
+        if free_memory:
+            del cls.objects
 
     # Load all object's of a given class from json file to memory
     @classmethod
@@ -41,20 +42,14 @@ class Resource:
         with open(path) as json_file:
             data = json.load(json_file)
             for obj_key, obj_data in data.items():
-                cls.objects[obj_key] = cls(obj_key)
-                # Add data as attributes
-                for item in obj_data:
-                    setattr(cls.objects[obj_key], item, obj_data[item])
+                obj = cls(obj_key)
+                obj.data = obj_data
 
     @classmethod
     def hashToObjs(cls, hash):
         for key, value in hash.items():
-            cls.objects[key] = cls(key)
-            cls.objects[key].hashToAttrs(value)
+            obj = cls(key)
+            obj.data = value
 
-    def hashToAttrs(self, data):
-        for key, value in data.items():
-            setattr(self, key, value)
-
-    def getProperty(self, prop):
-        return getattr(self, prop)
+    def getProp(self, prop):
+        return self.data.get(prop, None)

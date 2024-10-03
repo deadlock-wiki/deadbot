@@ -107,12 +107,12 @@ class ItemParser:
 
         chart = MermaidDiagram(title='Items', nodes=self.nodes, links=self.links)
 
-        # Create Item objects
+        # Create and save Item objects
         Item.hashToObjs(all_items)
-        Item.saveObjects()
+        Item.saveObjects(free_memory=True)
 
-        Item.loadObjects()
-        print(Item.objects['armor_upgrade_t4'].Cost)
+        #Item.loadObjects() #if commented out, the following line will throw an error
+        print(Item.objects['armor_upgrade_t4'].getProp('Cost'))
 
         return (all_items, chart)
 

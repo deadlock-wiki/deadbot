@@ -61,7 +61,7 @@ class AbilityParser:
                 if attr_value != '0':
                     formatted_ability_data[attr_key] = num_utils.remove_uom(attr_value)
 
-            all_abilities[ability_key] = json_utils.sort_dict(formatted_ability_data)
+            all_abilities[ability_key] = json_utils.sort_dict(formatted_ability_data)            
 
         return all_abilities
 

@@ -8,32 +8,8 @@ class Item (resource.Resource):
     objects = {}
 
     def __init__(self, key):
-        self.Key = key
-        self.Name = ""
-        self.Description = ""
-        self.Cost = ""
-        self.Tier = ""
-        self.Activation = ""
-        self.Slot = ""
-        self.Components = ""
-        self.TargetTypes = []
-        self.ShopFilters = []
-        self.Cooldown = 0.0
-        self.Duration = ""
-        self.CastRange = ""
-        self.UnitTargetLimit = ""
-        self.CastDelay = ""
-        self.ChannelTime = ""
-        self.PostCastDuration = ""
-        self.Charges = ""
-        self.CooldownBetweenCharge = ""
-        self.ChannelMoveSpeed = ""
-        self.ResourceCost = ""
-        self.TechPower = ""
-        self.WeaponPower = ""
-        self.TempTechShieldHealth = ""
-        self.Radius = ""
-        self.Disabled = True
+        self.key = key
+        self.data = {}
 
         Item.objects[key] = self
     
