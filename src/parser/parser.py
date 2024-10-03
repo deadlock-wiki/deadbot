@@ -1,18 +1,21 @@
 import os
 import sys
 
-from .parsers import abilities, ability_ui, items, heroes, changelogs, localizations, attributes
+from parsers import abilities, ability_ui, items, heroes, changelogs, localizations, attributes
+
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from utils import json_utils
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 class Parser:
-    def __init__(self, work_dir, output_dir, language='english',):
+    def __init__(self, language='english'):
         # constants
-        self.OUTPUT_DIR = output_dir
-        # Directory with decompiled data
-        self.DATA_DIR = work_dir
+        self.OUTPUT_DIR = os.getenv('OUTPUT_DIR', '../../output-data')
+        self.DATA_DIR = os.getenv('WORK_DIR', './decompiled-data')
 
         self.language = language
         self.data = {'scripts': {}}
@@ -23,7 +26,7 @@ class Parser:
                 '.json'
             )[0]
             for localization_file in os.listdir(
-                os.path.join(self.DATA_DIR, 'localizations', self.localization_groups[0])
+                os.path.join(self.DATA_DIR, 'localizations/' + self.localization_groups[0])
             )
         ]
 
@@ -85,7 +88,7 @@ class Parser:
             # duplicate key error. This is a temporary measure to keep patch updates going
             elif group != 'heroes':
                 current_value = self.localizations[language][key]
-                print(
+                raise Exception(
                     f'Key {key} with value {value} already exists in {language} localization '
                     + f'data with value {current_value}.'
                 )
@@ -191,4 +194,9 @@ class Parser:
 
     def _parse_changelogs(self):
         print('Parsing Changelogs...')
-        changelogs.ChangelogParser(self.OUTPUT_DIR).run_all()
+        changelogs.ChangelogParser().run_all()
+
+
+if __name__ == '__main__':
+    parser = Parser()
+    parser.run()

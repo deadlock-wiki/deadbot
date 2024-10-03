@@ -1,16 +1,21 @@
+import os
 import boto3
 import glob
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 class S3:
-    def __init__(self, data_dir, bucket_name, aws_access_key_id, aws_secret_access_key):
+    def __init__(self, bucket_name):
         self.client = boto3.client(
             's3',
-            aws_access_key_id=aws_access_key_id,
-            aws_secret_access_key=aws_secret_access_key,
+            aws_access_key_id=os.getenv('IAM_KEY'),
+            aws_secret_access_key=os.getenv('IAM_SECRET'),
         )
 
         self.bucket_name = bucket_name
-        self.DATA_DIR = data_dir
+        self.DATA_DIR = os.getenv('WORK_DIR',"./decompiled-data")
 
     def read(self):
         return self.client.list_objects_v2(Bucket=self.bucket_name).get('Contents')
@@ -61,3 +66,7 @@ class S3:
             version_data[key] = value
 
         return version_data['ClientVersion']
+
+
+if __name__ == '__main__':
+    S3('deadlock-game-files').write()

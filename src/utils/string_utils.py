@@ -3,7 +3,7 @@ import os
 import re
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-import parser.maps as maps
+import maps
 
 
 def format_description(description, *data_sets):

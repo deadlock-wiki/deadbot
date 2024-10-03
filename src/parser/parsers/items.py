@@ -5,7 +5,7 @@ from python_mermaid.diagram import MermaidDiagram, Node, Link
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 import utils.string_utils as string_utils
-import parser.maps as maps
+import maps
 
 
 class ItemParser:

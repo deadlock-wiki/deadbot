@@ -5,6 +5,9 @@ description = "Bot that lives to serve deadlocked.wiki"
 readme = "README.md"
 authors=[]
 
+[tool.poetry.scripts]
+deadbot = 'src.deadbot:main'
+
 [tool.poetry.dependencies]
 python="^3.11"
 mwclient="^0.11.0"
@@ -24,7 +27,6 @@ extend-select = ["E501"]
 
 [tool.ruff.format]
 quote-style = "single"
-
 
 [build-system]
 requires = ["poetry-core"]
