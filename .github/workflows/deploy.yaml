@@ -1,0 +1,28 @@
+name: Deploy
+on:
+  push:
+    branches: [ "master", "develop" ]
+  pull_request:
+    branches: [ "master", "develop" ]
+
+jobs:
+  parse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Build
+        run: docker-compose build
+      
+      - name: Run Deadbot
+        run: 
+        env:
+          USE_LOCAL_FILES: false
+          IAM_KEY: ${{ secrets.IAM_KEY }}
+          IAM_SECRET: ${{ secrets.IAM_SECRET }}
+          BOT_WIKI_USER: ${{ secrets.BOT_WIKI_USER }}
+          BOT_WIKI_PASS: ${{ secrets.BOT_WIKI_PASS }}
