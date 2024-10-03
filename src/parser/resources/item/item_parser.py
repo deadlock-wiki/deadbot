@@ -1,5 +1,6 @@
 import sys
 import os
+from .item_objects import Item
 from python_mermaid.diagram import MermaidDiagram, Node, Link
 
 # bring utils module in scope
@@ -105,6 +106,13 @@ class ItemParser:
             all_items[key] = parsed_item_data
 
         chart = MermaidDiagram(title='Items', nodes=self.nodes, links=self.links)
+
+        # Create Item objects
+        Item.hashToObjs(all_items)
+        Item.saveObjects()
+
+        Item.loadObjects()
+        print(Item.objects['armor_upgrade_t4'].Cost)
 
         return (all_items, chart)
 
