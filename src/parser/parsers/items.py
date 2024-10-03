@@ -89,6 +89,20 @@ class ItemParser:
                     parent_name = key
                 self._add_children_to_tree(parent_name, parsed_item_data['Components'])
 
+            if 'm_bDisabled' in item_value:
+                flag = item_value['m_bDisabled']
+                # flag is 1 of [True, False, 'true', 'false']
+                if flag in [True, 'true']:
+                    is_disabled = True
+                elif flag in [False, 'false']:
+                    is_disabled = False
+                else:
+                    raise ValueError(f'New unexpected value for m_bDisabled: {flag}')
+            else:
+                is_disabled = False
+            parsed_item_data['Disabled'] = is_disabled
+                
+
             all_items[key] = parsed_item_data
 
         chart = MermaidDiagram(title='Items', nodes=self.nodes, links=self.links)
@@ -113,3 +127,6 @@ class ItemParser:
             output_array.append(mapped_value)
 
         return output_array
+    
+def is_enabled(item):
+    return not item.get('Disabled', False)
