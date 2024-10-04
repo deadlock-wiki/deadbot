@@ -3,6 +3,7 @@ import os
 from os import listdir
 from os.path import isfile, join
 import datetime
+from .changelog_objects import Changelog
 
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
@@ -25,6 +26,12 @@ class ChangelogParser:
             date = file.replace('.txt', '')
             changelog = self.run(date)
             changelogs_by_date[date] = changelog
+
+        Changelog.hashToObjs(changelogs_by_date)
+        Changelog.saveObjects()
+
+        # Changelog rework will be done soon, the above is not necessary currently, 
+        # just used for illustration purposes and completionsim currently
 
         # take parsed changelogs and transform them into some other useful formats
         self._create_resource_changelogs(changelogs_by_date)
@@ -79,6 +86,7 @@ class ChangelogParser:
         changelog_with_icons = self._embed_icons(changelog_dict)
 
         json_utils.write(self.OUTPUT_CHANGELOGS + f'/date/{version}.json', changelog_with_icons)
+
         return changelog_with_icons
 
     # mass find and replace of any resource names with the ability icon template
