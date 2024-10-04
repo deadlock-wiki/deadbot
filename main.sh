@@ -8,7 +8,7 @@ fi
 
 if [ "$DECOMPILE" = true ]; then
     cd src
-    python3 deadbot.py --decompile=true --deadbot=false
+    python3 deadbot.py --decompile
     cd ..
 fi
 
@@ -23,7 +23,7 @@ fi
 
 if [ "$BOT_PUSH" = true ]; then
     cd src
-    python3 deadbot.py  # uses BOT_PUSH env var
+    python3 deadbot.py  --bot_push # uses BOT_PUSH env var
     cd ..
 fi
 
