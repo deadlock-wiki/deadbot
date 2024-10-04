@@ -1,7 +1,8 @@
 import os
 import sys
 
-from parsers import abilities, ability_ui, items, heroes, changelogs, localizations, attributes
+from parsers import abilities, ability_ui, items, heroes, localizations, attributes
+from parsers.changelogs import parse_changelogs
 
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -195,7 +196,7 @@ class Parser:
 
     def _parse_changelogs(self):
         print('Parsing Changelogs...')
-        changelogs.ChangelogParser(self.OUTPUT_DIR).run_all()
+        parse_changelogs.ChangelogParser(self.OUTPUT_DIR).run_all()
 
 
 if __name__ == '__main__':

@@ -1,10 +1,8 @@
 import sys
 import os
 import datetime
-import fetch_changelogs
+from .fetch_changelogs import ChangelogFetcher
 
-# bring utils module in scope
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import utils.json_utils as json_utils
 
 
@@ -14,9 +12,11 @@ class ChangelogParser:
         self.OUTPUT_DIR = output_dir
         self.OUTPUT_CHANGELOGS = self.OUTPUT_DIR + '/changelogs'
         self.resources = self._get_resources()
+        self.changelogs_by_date = {}
 
     def run_all(self, txt=True, rss=True):
-        for key, val in fetch_changelogs.ChangelogFetcher(self.OUTPUT_DIR).items():
+        log_fetch = ChangelogFetcher(self.OUTPUT_DIR) 
+        for key, val in log_fetch.fetch_changelogs().items():
             self.changelogs_by_date[key] = self.run(key, val)
         # take parsed changelogs and transform them into some other useful formats
         self._create_resource_changelogs()
