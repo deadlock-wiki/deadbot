@@ -1,4 +1,3 @@
-import sys
 import os
 import datetime
 from .fetch_changelogs import ChangelogFetcher
