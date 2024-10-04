@@ -1,0 +1,16 @@
+name: Deadlock-data repo sync
+on:
+  push:
+    # TODO: update to only master after testing in develop
+    branches: ['master', 'develop']
+    paths: ['output-data/**']
+jobs:
+  repo-dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger data repo to sync
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          event-type: data_sync
+          repository: deadlock-wiki/deadlock-data
+          token: ${{GITHUB_TOKEN}}
