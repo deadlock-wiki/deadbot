@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import os
 import mwclient
 import argparse
@@ -48,64 +49,74 @@ def parse_arguments():
     )
 
     # Setup / Base config Flags
-    parser.add_argument(
+    group_base = parser.add_argument_group('path configs')
+    group_base.add_argument(
         '-i',
         '--dl_path',
         help='Path to Deadlock game files (also set with DEADLOCK_PATH environment variable)',
         default=os.getenv('DEADLOCK_PATH'),
     )
-    parser.add_argument(
+    group_base.add_argument(
         '-w',
         '--workdir',
         help='Directory for temp working files (also set with WORK_DIR environment variable)',
         default=os.getenv('WORK_DIR', os.path.abspath(os.getcwd()) + '/decompiled-data'),
     )
-    parser.add_argument(
+    group_base.add_argument(
         '-o',
         '--output',
         help='Output directory (also set with OUTPUT_DIR environment variable)',
         default=os.getenv('OUTPUT_DIR', os.path.abspath(os.getcwd()) + '/output-data'),
     )
-    parser.add_argument(
+    group_base.add_argument(
         '--decompiler_cmd',
         help='Command for Valve Resource Format tool (also set with DECOMPILER_CMD env variable)',
         default=os.getenv('DECOMPILER_CMD', 'tools/Decompiler'),
     )
 
+    # s3 config
+    group_s3 = parser.add_argument_group('s3 config')
+    group_s3.add_argument(
+        '--iam_key',
+        help='AWS iam key for updating bucket (overrides IAM_KEY environment variable)',
+        default=os.getenv('IAM_KEY'),
+    )
+    group_s3.add_argument(
+        '--iam_secret',
+        help='AWS iam secret for updating bucket (overrides IAM_SECRET environment variable)',
+        default=os.getenv('IAM_SECRET'),
+    )
+    group_s3.add_argument(
+        '--bucket',
+        help='S3 bucket name to push to (overrides BUCKET environment variable)',
+        default=os.getenv('BUCKET', 'deadlock-game-files'),
+    )
+
     # Operational Flags
-    parser.add_argument(
+    group_actions = parser.add_argument_group('bot actions')
+    group_actions.add_argument(
         '-d',
         '--decompile',
         action='store_true',
         help='Decompiles Deadlock game files. (also set with DECOMPILE environment variable)',
     )
-    parser.add_argument(
+    group_actions.add_argument(
         '-p',
         '--parse',
+        action='store_true',
         help='Parses decompiled game files into json and csv (overrides PARSE env variable)',
-        default=os.getenv('PARSE', False),
     )
-    parser.add_argument(
+    group_actions.add_argument(
         '-b',
         '--bot_push',
         action='store_true',
         help='Push current data to wiki (also set with BOT_PUSH environment variable)',
     )
-    # s3 config
-    parser.add_argument(
-        '--iam_key',
-        help='AWS iam key for updating bucket (overrides IAM_KEY environment variable)',
-        default=os.getenv('IAM_KEY'),
-    )
-    parser.add_argument(
-        '--iam_secret',
-        help='AWS iam secret for updating bucket (overrides IAM_SECRET environment variable)',
-        default=os.getenv('IAM_SECRET'),
-    )
-    parser.add_argument(
-        '--bucket',
-        help='S3 bucket name to push to (overrides BUCKET environment variable)',
-        default=os.getenv('BUCKET', 'deadlock-game-files'),
+    group_actions.add_argument(
+        '-s',
+        '--s3_push',
+        action='store_true',
+        help='Push current data to s3',
     )
 
     return parser.parse_args()
@@ -147,8 +158,11 @@ def main():
     else:
         print('! Skipping DeadBot !')
 
-    if args.iam_key and args.iam_secret:
-        parser.S3(args.output, args.bucket, args.iam_key, args.iam_secret).write()
+    if args.s3_push or os.getenv('S3_PUSH', False) in true_args:
+        if args.iam_key and args.iam_secret:
+            parser.S3(args.output, args.bucket, args.iam_key, args.iam_secret).write()
+        else:
+            print("Error: iam_key and iam_secret must be set for s3")
 
     print('\nDone!')
 
