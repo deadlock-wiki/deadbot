@@ -88,9 +88,9 @@ class Parser:
             # duplicate key error. This is a temporary measure to keep patch updates going
             elif group != 'heroes':
                 current_value = self.localizations[language][key]
-                raise Exception(
-                    f'Key {key} with value {value} already exists in {language} localization '
-                    + f'data with value {current_value}.'
+                print(
+                    f'Warning: In Key `{key}` with value `{value}` already exists in `{language}` localization '
+                    + f'data with value `{current_value}`.'
                 )
 
     def run(self):
