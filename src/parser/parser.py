@@ -101,9 +101,9 @@ class Parser:
 
     def run(self):
         print('Parsing...')
-        parsed_abilities = self._parse_abilities()
-        parsed_heroes = self._parse_heroes(parsed_abilities)
-        self._parsed_ability_ui(parsed_heroes)
+        self._parse_abilities()
+        #parsed_heroes = self._parse_heroes()
+        #self._parsed_ability_ui(parsed_heroes)
         self._parse_items()
         self._parse_attributes()
         self._parse_changelogs()
@@ -114,7 +114,7 @@ class Parser:
         print('Parsing Localizations...')
         return localizations.LocalizationParser(self.localizations, self.OUTPUT_DIR).run()
 
-    def _parse_heroes(self, parsed_abilities):
+    def _parse_heroes(self):
         print('Parsing Heroes...')
         parsed_heroes, parsed_meaningful_stats = heroes.HeroParser(
             self.data['scripts']['heroes'],
@@ -146,16 +146,12 @@ class Parser:
 
     def _parse_abilities(self):
         print('Parsing Abilities...')
-        parsed_abilities = abilities.AbilityParser(
+        abilities.AbilityParser(
             self.data['scripts']['abilities'],
             self.data['scripts']['heroes'],
             self.localizations[self.language],
         ).run()
 
-        json_utils.write(
-            self.OUTPUT_DIR + '/json/ability-data.json', json_utils.sort_dict(parsed_abilities)
-        )
-        return parsed_abilities
 
     def _parsed_ability_ui(self, parsed_heroes):
         print('Parsing Ability UI...')

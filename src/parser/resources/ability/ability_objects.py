@@ -12,3 +12,12 @@ class Ability (resource.Resource):
         self.data = {}
 
         Ability.objects[key] = self
+
+# class AbilityUI (resource.Resource):
+#     objects = {}
+
+#     def __init__(self, key):
+#         self.key = key
+#         self.data = {}
+
+#         AbilityUI.objects[key] = self

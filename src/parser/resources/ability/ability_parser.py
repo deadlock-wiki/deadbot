@@ -1,8 +1,9 @@
 import sys
 import os
-
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..')))
+
+from .ability_objects import Ability
 import maps as maps
 import utils.json_utils as json_utils
 import utils.num_utils as num_utils
@@ -61,9 +62,11 @@ class AbilityParser:
                 if attr_value != '0':
                     formatted_ability_data[attr_key] = num_utils.remove_uom(attr_value)
 
-            all_abilities[ability_key] = json_utils.sort_dict(formatted_ability_data)            
+            all_abilities[ability_key] = json_utils.sort_dict(formatted_ability_data)
 
-        return all_abilities
+        Ability.hashToObjs(all_abilities)
+        Ability.saveObjects()        
+
 
     def _parse_upgrades(self, ability_data, upgrade_sets):
         parsed_upgrade_sets = []
