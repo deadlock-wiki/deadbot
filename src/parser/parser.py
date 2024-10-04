@@ -102,7 +102,7 @@ class Parser:
     def run(self):
         print('Parsing...')
         self._parse_abilities()
-        parsed_heroes = self._parse_heroes()
+        self._parse_heroes()
         #self._parsed_ability_ui(parsed_heroes)
         self._parse_items()
         self._parse_attributes()
@@ -112,7 +112,7 @@ class Parser:
 
     def _parse_localizations(self):
         print('Parsing Localizations...')
-        return localizations.LocalizationParser(self.localizations, self.OUTPUT_DIR).run()
+        localizations.LocalizationParser(self.localizations, self.OUTPUT_DIR).run()
 
     def _parse_heroes(self):
         print('Parsing Heroes...')
