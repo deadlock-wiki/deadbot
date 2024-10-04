@@ -3,6 +3,7 @@ import os
 
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..')))
+from ..attribute.attribute_objects import Attribute
 import maps as maps
 
 
@@ -58,6 +59,10 @@ class AttributeParser:
             for category in category_order
             if category in all_attributes
         }
+
+        Attribute.hashToObjs(all_attributes)
+        Attribute.order_lists = order_lists
+        Attribute.saveObjects()
 
         return (all_attributes, order_lists)
 

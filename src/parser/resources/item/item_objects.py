@@ -13,14 +13,6 @@ class Item (resource.Resource):
         self.data = {}
 
         Item.objects[key] = self
-
-    @classmethod
-    def set_chart(cls, chart):
-        cls.chart = chart
-
-    @classmethod
-    def get_chart(cls):
-        return cls.chart
     
     @classmethod
     def save_chart(cls):

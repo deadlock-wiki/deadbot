@@ -2,7 +2,7 @@ import os
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..')))
 from utils.config_manager import get_config_value
-from utils.json_utils import write
+import utils.json_utils as json_utils
 import json
 
 class Resource:
@@ -25,7 +25,7 @@ class Resource:
                 hash[obj_key][attr] = obj.data[attr]
         
         # Write to file
-        write(path, hash)
+        json_utils.write(path, hash)
 
         if free_memory:
             cls.objects = {}

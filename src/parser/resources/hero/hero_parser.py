@@ -6,13 +6,16 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../.
 import maps as maps
 import utils.json_utils as json_utils
 from ..constants import ENGINE_UNITS_PER_METER
-
+from ..ability.ability_objects import Ability
+from ..attribute.attribute_objects import Attribute
+from ..hero.hero_objects import Hero
 
 class HeroParser:
-    def __init__(self, hero_data, abilities_data, parsed_abilities, localizations):
+    def __init__(self, hero_data, abilities_data, localizations):
         self.hero_data = hero_data
         self.abilities_data = abilities_data
-        self.parsed_abilities = parsed_abilities
+        Ability.loadObjects()
+        self.parsed_abilities = Ability.objects
         self.localizations = localizations
 
     def run(self):
@@ -102,6 +105,11 @@ class HeroParser:
         # Write meaningful stats to json file
         meaningful_stats = self._get_meaningful_stats(all_hero_stats)
 
+        Hero.hashToObjs(all_hero_stats)
+        Hero.saveObjects()
+        Attribute.meaningful_stats = meaningful_stats
+        Attribute.save_meaningful_stats()
+
         return all_hero_stats, meaningful_stats
 
     def _get_meaningful_stats(self, all_hero_stats):
@@ -160,9 +168,9 @@ class HeroParser:
         abilities = {}
         for ability_position, bound_ability_key in bound_abilities.items():
             # ignore any abilities without any parsed data
-            if bound_ability_key not in self.parsed_abilities:
+            if bound_ability_key not in self.parsed_abilities.keys():
                 continue
-            abilities[ability_position] = self.parsed_abilities[bound_ability_key]
+            abilities[ability_position] = self.parsed_abilities[bound_ability_key].data
 
         mapped_abilities = self._map_attr_names(abilities, maps.get_bound_abilities)
 

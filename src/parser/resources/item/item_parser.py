@@ -109,9 +109,9 @@ class ItemParser:
 
         # Create and save Item objects
         Item.hashToObjs(all_items)
-        Item.saveObjects(free_memory=True)
-        Item.set_chart(chart)
+        Item.chart = chart
         Item.save_chart()
+        Item.saveObjects(free_memory=True)
 
     # Add items to mermaid tree
     def _add_children_to_tree(self, parent_key, child_keys):
