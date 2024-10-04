@@ -101,7 +101,6 @@ class ItemParser:
             else:
                 is_disabled = False
             parsed_item_data['Disabled'] = is_disabled
-                
 
             all_items[key] = parsed_item_data
 
@@ -127,6 +126,7 @@ class ItemParser:
             output_array.append(mapped_value)
 
         return output_array
-    
+
+
 def is_enabled(item):
     return not item.get('Disabled', False)
