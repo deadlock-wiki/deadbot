@@ -11,8 +11,8 @@ import utils.string_utils as string_utils
 
 class AbilityUiParser:
     """
-    Takes in parsed hero_data data (hero_data-data.json) and for each hero_data, format their abilities for
-    display in the Wiki Ability Cards
+    Takes in parsed hero_data data (hero_data-data.json) and for each hero_data, 
+    format their abilities for display in the Wiki Ability Cards
     This is with the aim of matching the in-game layout
 
     Components of the ability card UI:
