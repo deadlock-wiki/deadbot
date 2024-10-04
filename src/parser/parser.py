@@ -130,7 +130,6 @@ class Parser:
             self.localizations[self.language],
         ).run()
 
-
     def _parse_ability_ui(self):
         print('Parsing Ability UI...')
 

@@ -65,8 +65,6 @@ class AbilityUiParser:
 
         return self.localization_updates
 
-        
-
     def _parse_ability_ui(self, parsed_ability):
         parsed_ui = {
             'Key': parsed_ability['Key'],

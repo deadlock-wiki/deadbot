@@ -1,11 +1,13 @@
 import sys
 import os
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 import utils.json_utils as json_utils
 import resources.resource as resource
 
+
 # extends Resource
-class Attribute (resource.Resource):
+class Attribute(resource.Resource):
     objects = {}
     order_lists = {}
     meaningful_stats = {}
@@ -32,4 +34,4 @@ class Attribute (resource.Resource):
 
     @classmethod
     def save_order_lists(cls):
-        json_utils.write(cls.output_path+'/stat-infobox-order.json', cls.order_lists)
+        json_utils.write(cls.output_path + '/stat-infobox-order.json', cls.order_lists)

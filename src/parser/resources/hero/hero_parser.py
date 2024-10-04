@@ -10,6 +10,7 @@ from ..ability.ability_objects import Ability
 from ..attribute.attribute_objects import Attribute
 from ..hero.hero_objects import Hero
 
+
 class HeroParser:
     def __init__(self, hero_data, abilities_data, localizations):
         self.hero_data = hero_data
@@ -261,7 +262,7 @@ class HeroParser:
                 time_to_reload = d['ReloadTime']
             time_to_reload += d['ReloadDelay']
             time_to_empty_clip = d['ClipSize'] / d['RoundsPerSecond']
-            # More bullets per shot doesn't consume more bullets in the clip, 
+            # More bullets per shot doesn't consume more bullets in the clip,
             # so think of it as bullet per bullet
             damage_from_clip = d['BulletDamage'] * d['BulletsPerShot'] * d['ClipSize']
             return damage_from_clip / (time_to_empty_clip + time_to_reload)

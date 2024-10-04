@@ -3,6 +3,7 @@ import os
 
 OUTPUT_DIR = os.getenv('OUTPUT_DIR', '../output-data')
 
+
 # OUTPUT_DIR/source.json
 # OUTPUT_DIR/csv/dest.csv
 def export_json_file_to_csv(source, dest):

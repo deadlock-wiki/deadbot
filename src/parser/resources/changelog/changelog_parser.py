@@ -33,7 +33,7 @@ class ChangelogParser:
         Changelog.hashToObjs(changelogs_by_date)
         Changelog.saveObjects()
 
-        # Changelog rework will be done soon, the above is not necessary currently, 
+        # Changelog rework will be done soon, the above is not necessary currently,
         # just used for illustration purposes and completionsim currently
 
         # take parsed changelogs and transform them into some other useful formats

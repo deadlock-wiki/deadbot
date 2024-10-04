@@ -1,10 +1,12 @@
 import sys
 import os
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 import resources.resource as resource
 
+
 # extends Resource
-class Ability (resource.Resource):
+class Ability(resource.Resource):
     objects = {}
 
     def __init__(self, key):
@@ -13,7 +15,8 @@ class Ability (resource.Resource):
 
         Ability.objects[key] = self
 
-class AbilityUI (resource.Resource):
+
+class AbilityUI(resource.Resource):
     objects = {}
 
     def __init__(self, key):

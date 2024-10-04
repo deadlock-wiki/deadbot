@@ -1,5 +1,6 @@
 import sys
 import os
+
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..')))
 
@@ -65,8 +66,7 @@ class AbilityParser:
             all_abilities[ability_key] = json_utils.sort_dict(formatted_ability_data)
 
         Ability.hashToObjs(all_abilities)
-        Ability.saveObjects()        
-
+        Ability.saveObjects()
 
     def _parse_upgrades(self, ability_data, upgrade_sets):
         parsed_upgrade_sets = []
