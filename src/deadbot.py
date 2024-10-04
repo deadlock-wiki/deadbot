@@ -39,11 +39,6 @@ class DeadBot:
         else:
             print(f"No changes made to '{page.name}'")
 
-def env_opt(variable, default_value):
-    if variable in os.environ:
-        return { 'default': os.getenv(variable) }
-    else:
-        return { 'required': True }
 def parse_arguments():
     parser = argparse.ArgumentParser(
                     prog='DeadBot',
