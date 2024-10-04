@@ -25,7 +25,7 @@
             "- Updated {AbilityIcon|Ability=Lady Geist|Size=20} Lady Geist weapon sounds"
         ],
         "Bebop": [
-            "- Fixed a bug where pinging Bebop's {AbilityIcon|Ability=Hook|Size=20} Hook and Sticky Bomb abilities would call the wrong ability name"
+            "- Fixed a bug where pinging Bebop's Hook and {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb abilities would call the wrong ability name"
         ],
         "Grey Talon": [
             "- Fixed a bug with releasing {AbilityIcon|Ability=Grey Talon|Size=20} Grey Talon's Owl early",
@@ -87,7 +87,7 @@
             "- {AbilityIcon|Ability=Willpower|Size=20} Willpower duration reduced from 8s to 7s"
         ],
         "Wraith": [
-            "- The Royal Flush ability has been replaced with {AbilityIcon|Ability=Card Trick|Size=20} Card Trick. {AbilityIcon|Ability=Card Trick|Size=20} Card Trick enables Wraith's weapon damage to summon playing cards. Activating the ability throws one of the cards, which will fly towards the enemy or point under the crosshair and explode on impact."
+            "- The {AbilityIcon|Ability=Royal Flush|Size=20} Royal Flush ability has been replaced with Card Trick. Card Trick enables Wraith's weapon damage to summon playing cards. Activating the ability throws one of the cards, which will fly towards the enemy or point under the crosshair and explode on impact."
         ],
         "Yamato": [
             "- {AbilityIcon|Ability=Power Slash|Size=20} Power Slash damage reduced from 175 to 170",
@@ -142,7 +142,7 @@
             "- Weapon Damage increased from 8% to 10%"
         ],
         "Bullet Lifesteal": [
-            "- {AbilityIcon|Ability=Active Reload|Size=20} Active Reload: Active Bullet Lifesteal increased from 30% to 40%",
+            "- Active {AbilityIcon|Ability=Bullet Lifesteal|Size=20} Bullet Lifesteal increased from 30% to 40%",
             "- Increased from 20% to 22%",
             "- Now provides +16% {AbilityIcon|Ability=Bullet Lifesteal|Size=20} Bullet Lifesteal",
             "- Active now grants +20% Fire Rate instead of {AbilityIcon|Ability=Bullet Lifesteal|Size=20} Bullet Lifesteal"
@@ -267,11 +267,11 @@
     },
     "Abilities": {
         "General": [],
-        "Sticky Bomb": [
-            "- Fixed a bug where pinging Bebop's {AbilityIcon|Ability=Hook|Size=20} Hook and Sticky Bomb abilities would call the wrong ability name"
-        ],
         "Hook": [
-            "- Fixed a bug where pinging Bebop's {AbilityIcon|Ability=Hook|Size=20} Hook and Sticky Bomb abilities would call the wrong ability name"
+            "- Fixed a bug where pinging Bebop's Hook and {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb abilities would call the wrong ability name"
+        ],
+        "Sticky Bomb": [
+            "- Fixed a bug where pinging Bebop's Hook and {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb abilities would call the wrong ability name"
         ],
         "Rejuvenating Aurora": [
             "- Updated Dynamo's animation while using {AbilityIcon|Ability=Rejuvenating Aurora|Size=20} Rejuvenating Aurora",
@@ -351,11 +351,11 @@
             "- {AbilityIcon|Ability=Willpower|Size=20} Willpower no longer loses movement speed when the shield is depleted",
             "- {AbilityIcon|Ability=Willpower|Size=20} Willpower duration reduced from 8s to 7s"
         ],
-        "Royal Flush": [
-            "- The Royal Flush ability has been replaced with {AbilityIcon|Ability=Card Trick|Size=20} Card Trick. {AbilityIcon|Ability=Card Trick|Size=20} Card Trick enables Wraith's weapon damage to summon playing cards. Activating the ability throws one of the cards, which will fly towards the enemy or point under the crosshair and explode on impact."
-        ],
         "Card Trick": [
-            "- The Royal Flush ability has been replaced with {AbilityIcon|Ability=Card Trick|Size=20} Card Trick. {AbilityIcon|Ability=Card Trick|Size=20} Card Trick enables Wraith's weapon damage to summon playing cards. Activating the ability throws one of the cards, which will fly towards the enemy or point under the crosshair and explode on impact."
+            "- The {AbilityIcon|Ability=Royal Flush|Size=20} Royal Flush ability has been replaced with Card Trick. Card Trick enables Wraith's weapon damage to summon playing cards. Activating the ability throws one of the cards, which will fly towards the enemy or point under the crosshair and explode on impact."
+        ],
+        "Royal Flush": [
+            "- The {AbilityIcon|Ability=Royal Flush|Size=20} Royal Flush ability has been replaced with Card Trick. Card Trick enables Wraith's weapon damage to summon playing cards. Activating the ability throws one of the cards, which will fly towards the enemy or point under the crosshair and explode on impact."
         ],
         "Power Slash": [
             "- {AbilityIcon|Ability=Power Slash|Size=20} Power Slash damage reduced from 175 to 170"

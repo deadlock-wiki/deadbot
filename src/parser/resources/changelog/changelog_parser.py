@@ -121,9 +121,9 @@ class ChangelogParser:
         Hero.load_objects()
         Item.load_objects()
         Ability.load_objects()
-        heroes = Hero.objs_to_hash()
-        items = Item.objs_to_hash()
-        abilities = Ability.objs_to_hash()
+        heroes = json_utils.sort_dict(Hero.objs_to_hash())
+        items = json_utils.sort_dict(Item.objs_to_hash())
+        abilities = json_utils.sort_dict(Ability.objs_to_hash())
 
         for key in heroes:
             heroes[key]['Type'] = 'Heroes'

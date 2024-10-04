@@ -6,7 +6,7 @@
         "General": [],
         "Mirage": [
             "- Added new hero, {AbilityIcon|Ability=Mirage|Size=20} Mirage.",
-            "- Bots can now choose to play Lady Geist, {AbilityIcon|Ability=Mirage|Size=20} Mirage, Shiv, and Warden"
+            "- Bots can now choose to play Lady Geist, Mirage, Shiv, and {AbilityIcon|Ability=Warden|Size=20} Warden"
         ],
         "Dynamo": [
             "- Updated {AbilityIcon|Ability=Viscous|Size=20} Viscous icon to look more different from Dynamo",
@@ -41,7 +41,7 @@
             "- Fixed some items that didn't proc before: Tesla Bullets, {AbilityIcon|Ability=Lucky Shot|Size=20} Lucky Shot, Mystic Shot",
             "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance now more accurately shows who it is shooting",
             "- Fixed {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance sometimes not obeying line of sight accurately",
-            "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance bullets are now affected by Time Wall",
+            "- Bullet Dance bullets are now affected by {AbilityIcon|Ability=Time Wall|Size=20} Time Wall",
             "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance evasion reduced from 50% to 25%",
             "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance fire rate reduced from 25% to 15%"
         ],
@@ -54,7 +54,7 @@
         ],
         "Shiv": [
             "- Turned off a {AbilityIcon|Ability=Shiv|Size=20} Shiv line where he referenced slowing down enemies when he wasn't actually doing so",
-            "- Bots can now choose to play Lady Geist, {AbilityIcon|Ability=Mirage|Size=20} Mirage, Shiv, and Warden",
+            "- Bots can now choose to play Lady Geist, Mirage, Shiv, and {AbilityIcon|Ability=Warden|Size=20} Warden",
             "- {AbilityIcon|Ability=Slice and Dice|Size=20} Slice and Dice T2 reduced from +85 to +75",
             "- {AbilityIcon|Ability=Killing Blow|Size=20} Killing Blow Rage buildup per spirit damage reduced from 0.02 to 0.013",
             "- {AbilityIcon|Ability=Killing Blow|Size=20} Killing Blow Rage drain rate increased from 0.3 to 0.35",
@@ -82,7 +82,7 @@
             "- {AbilityIcon|Ability=Infernus|Size=20} Infernus will no longer appear in every bot match"
         ],
         "Lady Geist": [
-            "- Bots can now choose to play Lady Geist, {AbilityIcon|Ability=Mirage|Size=20} Mirage, Shiv, and Warden",
+            "- Bots can now choose to play Lady Geist, Mirage, Shiv, and {AbilityIcon|Ability=Warden|Size=20} Warden",
             "- {AbilityIcon|Ability=Life Drain|Size=20} Life Drain cooldown reduced from 42s to 30s",
             "- {AbilityIcon|Ability=Malice|Size=20} Malice cooldown reduced from 6.25s to 6s",
             "- {AbilityIcon|Ability=Malice|Size=20} Malice T1 improved from -2.75s Cooldown to -3s",
@@ -90,7 +90,7 @@
             "- Sprint increased from 1 to 1.5"
         ],
         "Warden": [
-            "- Bots can now choose to play Lady Geist, {AbilityIcon|Ability=Mirage|Size=20} Mirage, Shiv, and Warden",
+            "- Bots can now choose to play Lady Geist, Mirage, Shiv, and {AbilityIcon|Ability=Warden|Size=20} Warden",
             "- {AbilityIcon|Ability=Binding Word|Size=20} Binding Word escape range and escape time increased by 15%",
             "- {AbilityIcon|Ability=Last Stand|Size=20} Last Stand spirit scaling increased from 0.9 to 1.2"
         ],
@@ -116,7 +116,7 @@
             "- {AbilityIcon|Ability=Burrow|Size=20} Burrow T3 speed reduced from +3 to +2"
         ],
         "Paradox": [
-            "- {AbilityIcon|Ability=Pulse Grenade|Size=20} Pulse Grenade T3 now also grants +2% Damage Amp",
+            "- {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade T3 now also grants +2% Damage Amp",
             "- Fixed being unable to be damaged by multiple {AbilityIcon|Ability=Time Wall|Size=20} Time Walls"
         ],
         "Pocket": [
@@ -153,13 +153,13 @@
     "Items": {
         "General": [],
         "Quicksilver Reload": [
-            "- Fixed Quicksilver Reload bonus damage not working correctly with things like {AbilityIcon|Ability=Scorn|Size=20} Scorn and Flog",
+            "- Fixed Quicksilver Reload bonus damage not working correctly with things like Scorn and {AbilityIcon|Ability=Flog|Size=20} Flog",
             "- No longer triggers if your ammo is at max value already"
         ],
         "Ricochet": [
             "- Fixed {AbilityIcon|Ability=Ricochet|Size=20} Ricochet not respecting LOS when picking the targets",
             "- {AbilityIcon|Ability=Fire Rate|Size=20} Fire Rate reduced from 12% to 10%",
-            "- {AbilityIcon|Ability=Return Fire|Size=20} Return Fire: Fixed Ricochet'd bullets not returning the right amount of damage"
+            "- Fixed {AbilityIcon|Ability=Ricochet|Size=20} Ricochet'd bullets not returning the right amount of damage"
         ],
         "Unstoppable": [
             "- Updated {AbilityIcon|Ability=Unstoppable|Size=20} Unstoppable effects to be clearer at cast time",
@@ -188,7 +188,7 @@
         ],
         "High-Velocity Mag": [
             "- Bullet Velocity reduced from +30% to +25%",
-            "- Now requires {AbilityIcon|Ability=High-Velocity Mag|Size=20} High-Velocity Mag"
+            "- {AbilityIcon|Ability=Pristine Emblem|Size=20} Pristine Emblem: Now requires High-Velocity Mag"
         ],
         "Restorative Shot": [
             "- Cooldown reduced from 6.2s to 5.5s"
@@ -198,7 +198,7 @@
         ],
         "Headshot Booster": [
             "- {AbilityIcon|Ability=Fire Rate|Size=20} Fire Rate reduced from +5% to +4%",
-            "- {AbilityIcon|Ability=Headhunter|Size=20} Headhunter: Now requires Headshot Booster"
+            "- Now requires {AbilityIcon|Ability=Headshot Booster|Size=20} Headshot Booster"
         ],
         "Kinetic Dash": [
             "- {AbilityIcon|Ability=Fire Rate|Size=20} Fire Rate reduced from 25% to 20%",
@@ -319,10 +319,10 @@
             "- Duration reduced from 35s to 30s",
             "- Max stacks reduced from 12 to 10"
         ],
-        "Health Regen": [
-            "- {AbilityIcon|Ability=Spirit Strike|Size=20} Spirit Strike: No longer grants +0.8 Health Regen"
-        ],
         "Spirit Strike": [
+            "- No longer grants +0.8 {AbilityIcon|Ability=Health Regen|Size=20} Health Regen"
+        ],
+        "Health Regen": [
             "- No longer grants +0.8 {AbilityIcon|Ability=Health Regen|Size=20} Health Regen"
         ],
         "Mystic Reach": [
@@ -366,7 +366,7 @@
         "Refresher": [
             "- Bullet Resist increased from 8% to 16%",
             "- Spirit Resist reduced from 16% to 8%",
-            "- {AbilityIcon|Ability=Echo Shard|Size=20} Echo Shard: Now has a 0.3s cast delay (like Refresher)"
+            "- Now has a 0.3s cast delay (like {AbilityIcon|Ability=Refresher|Size=20} Refresher)"
         ],
         "Echo Shard": [
             "- Now has a 0.3s cast delay (like {AbilityIcon|Ability=Refresher|Size=20} Refresher)"
@@ -389,11 +389,11 @@
         "Frozen Shelter": [
             "- Added frosted shell effect on the rejuv crystal when {AbilityIcon|Ability=Frozen Shelter|Size=20} Frozen Shelter is active"
         ],
-        "Flog": [
-            "- Fixed Quicksilver Reload bonus damage not working correctly with things like {AbilityIcon|Ability=Scorn|Size=20} Scorn and Flog"
-        ],
         "Scorn": [
-            "- Fixed Quicksilver Reload bonus damage not working correctly with things like {AbilityIcon|Ability=Scorn|Size=20} Scorn and Flog"
+            "- Fixed Quicksilver Reload bonus damage not working correctly with things like Scorn and {AbilityIcon|Ability=Flog|Size=20} Flog"
+        ],
+        "Flog": [
+            "- Fixed Quicksilver Reload bonus damage not working correctly with things like Scorn and {AbilityIcon|Ability=Flog|Size=20} Flog"
         ],
         "Flying Cloak": [
             "- Added timer sound to the last couple seconds of {AbilityIcon|Ability=Flying Cloak|Size=20} Flying Cloak"
@@ -468,12 +468,12 @@
         "Bullet Dance": [
             "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance now more accurately shows who it is shooting",
             "- Fixed {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance sometimes not obeying line of sight accurately",
-            "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance bullets are now affected by Time Wall",
+            "- Bullet Dance bullets are now affected by {AbilityIcon|Ability=Time Wall|Size=20} Time Wall",
             "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance evasion reduced from 50% to 25%",
             "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance fire rate reduced from 25% to 15%"
         ],
         "Time Wall": [
-            "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance bullets are now affected by Time Wall",
+            "- Bullet Dance bullets are now affected by {AbilityIcon|Ability=Time Wall|Size=20} Time Wall",
             "- Fixed being unable to be damaged by multiple {AbilityIcon|Ability=Time Wall|Size=20} Time Walls"
         ],
         "Stone Form": [
@@ -518,11 +518,11 @@
             "- {AbilityIcon|Ability=Burrow|Size=20} Burrow base speed increased from 3 to 4",
             "- {AbilityIcon|Ability=Burrow|Size=20} Burrow T3 speed reduced from +3 to +2"
         ],
-        "Pulse": [
-            "- {AbilityIcon|Ability=Pulse Grenade|Size=20} Pulse Grenade T3 now also grants +2% Damage Amp"
-        ],
         "Pulse Grenade": [
-            "- {AbilityIcon|Ability=Pulse Grenade|Size=20} Pulse Grenade T3 now also grants +2% Damage Amp"
+            "- {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade T3 now also grants +2% Damage Amp"
+        ],
+        "Pulse": [
+            "- {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade T3 now also grants +2% Damage Amp"
         ],
         "Affliction": [
             "- {AbilityIcon|Ability=Affliction|Size=20} Affliction no longer goes through walls, now respects line of sight"

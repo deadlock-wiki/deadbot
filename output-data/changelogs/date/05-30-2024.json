@@ -91,7 +91,7 @@
         "Yamato": [
             "- {AbilityIcon|Ability=Power Slash|Size=20} Power Slash spirit scaling improved from 1.6 to 2.0",
             "- {AbilityIcon|Ability=Power Slash|Size=20} Power Slash no longer does a very minor movement on enemies hit",
-            "- Fixed Power Slash sometimes not being a full charge when channeled fully during the {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation",
+            "- Fixed {AbilityIcon|Ability=Power Slash|Size=20} Power Slash sometimes not being a full charge when channeled fully during the Shadow Transformation",
             "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation's ability speedup now affects the post-cast durations as well",
             "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation's ability speedup now improves the visual animations (cosmetic only change)"
         ]
@@ -111,10 +111,10 @@
         "Headshot Booster": [
             "- Cooldown reduced from 9s to 5s"
         ],
-        "Health Regen": [
-            "- {AbilityIcon|Ability=Spirit Strike|Size=20} Spirit Strike: Health Regen increased from 0.7 to 1"
-        ],
         "Spirit Strike": [
+            "- {AbilityIcon|Ability=Health Regen|Size=20} Health Regen increased from 0.7 to 1"
+        ],
+        "Health Regen": [
             "- {AbilityIcon|Ability=Health Regen|Size=20} Health Regen increased from 0.7 to 1"
         ],
         "Enduring Spirit": [
@@ -212,11 +212,11 @@
             "- {AbilityIcon|Ability=Guided Owl|Size=20} Guided Owl T3 increased from 20% to 22%",
             "- {AbilityIcon|Ability=Guided Owl|Size=20} Guided Owl player collision sized increased to regular sizes for these kind of projectiles"
         ],
-        "Pulse": [
-            "- Fixed some sound issues with {AbilityIcon|Ability=Pulse Grenade|Size=20} Pulse Grenade"
-        ],
         "Pulse Grenade": [
-            "- Fixed some sound issues with {AbilityIcon|Ability=Pulse Grenade|Size=20} Pulse Grenade"
+            "- Fixed some sound issues with {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade"
+        ],
+        "Pulse": [
+            "- Fixed some sound issues with {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade"
         ],
         "Ground Strike": [
             "- Various fixes to Lash's {AbilityIcon|Ability=Ground Strike|Size=20} Ground Strike visual effects"
@@ -307,10 +307,10 @@
         "Power Slash": [
             "- {AbilityIcon|Ability=Power Slash|Size=20} Power Slash spirit scaling improved from 1.6 to 2.0",
             "- {AbilityIcon|Ability=Power Slash|Size=20} Power Slash no longer does a very minor movement on enemies hit",
-            "- Fixed Power Slash sometimes not being a full charge when channeled fully during the {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation"
+            "- Fixed {AbilityIcon|Ability=Power Slash|Size=20} Power Slash sometimes not being a full charge when channeled fully during the Shadow Transformation"
         ],
         "Shadow Transformation": [
-            "- Fixed Power Slash sometimes not being a full charge when channeled fully during the {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation",
+            "- Fixed {AbilityIcon|Ability=Power Slash|Size=20} Power Slash sometimes not being a full charge when channeled fully during the Shadow Transformation",
             "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation's ability speedup now affects the post-cast durations as well",
             "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation's ability speedup now improves the visual animations (cosmetic only change)"
         ]

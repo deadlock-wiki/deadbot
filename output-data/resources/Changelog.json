@@ -392,12 +392,12 @@
                 "- Now provides +15% Clip",
                 "- Duration increased from 3.5s to 3.75s"
             ],
-            "Health Regen": [
-                "- {AbilityIcon|Ability=Shadow Weave|Size=20} Shadow Weave: Now provides +15 Health Regen",
-                "- Crate Powerups: Increased {AbilityIcon|Ability=Health Regen|Size=20} Health Regen drop from 1.25% Regen to 1.5%"
-            ],
             "Shadow Weave": [
                 "- Now provides +15 {AbilityIcon|Ability=Health Regen|Size=20} Health Regen"
+            ],
+            "Health Regen": [
+                "- Now provides +15 {AbilityIcon|Ability=Health Regen|Size=20} Health Regen",
+                "- Crate Powerups: Increased {AbilityIcon|Ability=Health Regen|Size=20} Health Regen drop from 1.25% Regen to 1.5%"
             ],
             "Phantom Strike": [
                 "- No longer passively provides +500 Bullet Shield",
@@ -405,10 +405,10 @@
                 "- When using the active, gain a temporary +500 Bullet Shield for 7 seconds",
                 "- Now deals 200 damage on impact"
             ],
-            "Bullet Lifesteal": [
-                "- {AbilityIcon|Ability=Vampiric Burst|Size=20} Vampiric Burst: Active Bullet Lifesteal increased from 40% to 60%"
-            ],
             "Vampiric Burst": [
+                "- Active {AbilityIcon|Ability=Bullet Lifesteal|Size=20} Bullet Lifesteal increased from 40% to 60%"
+            ],
+            "Bullet Lifesteal": [
                 "- Active {AbilityIcon|Ability=Bullet Lifesteal|Size=20} Bullet Lifesteal increased from 40% to 60%"
             ],
             "Unstoppable": [
@@ -962,7 +962,7 @@
                 "- Fixed certain rooftops allowing turrets to be built on them"
             ],
             "Paradox": [
-                "- Fixed a bug that could cause all of Paradox {AbilityIcon|Ability=Pulse Grenade|Size=20} Pulse Grenade\u2019s pulses to go off at once",
+                "- Fixed a bug that could cause all of Paradox {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade\u2019s pulses to go off at once",
                 "- Improved visibility of {AbilityIcon|Ability=Paradox|Size=20} Paradox\u2019s bullet and travel path",
                 "- Added custom tracer and muzzle flash for {AbilityIcon|Ability=Paradox|Size=20} Paradox\u2019s gun",
                 "- {AbilityIcon|Ability=Kinetic Carbine|Size=20} Kinetic Carbine Max Damage Amp reduced from 125% to 100%",
@@ -993,7 +993,7 @@
                 "- Fixed missing VO for {AbilityIcon|Ability=Yamato|Size=20} Yamato ability use/upgrades",
                 "- Shadow Explosion renamed to {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation and reworked into a new ability",
                 "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation no longer has radius impact behavior",
-                "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation now gives you 4.5s of invulnerability after the initial 2s invulnerable channel period. You transform and refresh your abilities, improving ability speeds by 60% and gaining unlimited ammo. \"Ability Speeds\" affects Power Slash cast time, Flying Strike flying time, and Crimson Slash cast time.",
+                "- Shadow Transformation now gives you 4.5s of invulnerability after the initial 2s invulnerable channel period. You transform and refresh your abilities, improving ability speeds by 60% and gaining unlimited ammo. \"Ability Speeds\" affects {AbilityIcon|Ability=Power Slash|Size=20} Power Slash cast time, Flying Strike flying time, and Crimson Slash cast time.",
                 "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation cooldown increased from 90s to 100s",
                 "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation T2 is now +4 m/s during Shadow Form",
                 "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation T3 is now +1s duration"
@@ -1136,11 +1136,11 @@
             "Medicinal Specter": [
                 "- Fixed upgrading McGinnis\u2019s {AbilityIcon|Ability=Medicinal Specter|Size=20} Medicinal Specter to T3 while active causing it to heal everyone to full instantly"
             ],
-            "Pulse": [
-                "- Fixed a bug that could cause all of Paradox {AbilityIcon|Ability=Pulse Grenade|Size=20} Pulse Grenade\u2019s pulses to go off at once"
-            ],
             "Pulse Grenade": [
-                "- Fixed a bug that could cause all of Paradox {AbilityIcon|Ability=Pulse Grenade|Size=20} Pulse Grenade\u2019s pulses to go off at once"
+                "- Fixed a bug that could cause all of Paradox {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade\u2019s pulses to go off at once"
+            ],
+            "Pulse": [
+                "- Fixed a bug that could cause all of Paradox {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade\u2019s pulses to go off at once"
             ],
             "Storm Cloud": [
                 "- Allies now compliment teammates when they see impressive use of channeled abilities (for instance, Gigawatt killing three people with {AbilityIcon|Ability=Storm Cloud|Size=20} Storm Cloud)"
@@ -1233,19 +1233,19 @@
             "Shadow Transformation": [
                 "- Shadow Explosion renamed to {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation and reworked into a new ability",
                 "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation no longer has radius impact behavior",
-                "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation now gives you 4.5s of invulnerability after the initial 2s invulnerable channel period. You transform and refresh your abilities, improving ability speeds by 60% and gaining unlimited ammo. \"Ability Speeds\" affects Power Slash cast time, Flying Strike flying time, and Crimson Slash cast time.",
+                "- Shadow Transformation now gives you 4.5s of invulnerability after the initial 2s invulnerable channel period. You transform and refresh your abilities, improving ability speeds by 60% and gaining unlimited ammo. \"Ability Speeds\" affects {AbilityIcon|Ability=Power Slash|Size=20} Power Slash cast time, Flying Strike flying time, and Crimson Slash cast time.",
                 "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation cooldown increased from 90s to 100s",
                 "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation T2 is now +4 m/s during Shadow Form",
                 "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation T3 is now +1s duration"
             ],
-            "Power Slash": [
-                "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation now gives you 4.5s of invulnerability after the initial 2s invulnerable channel period. You transform and refresh your abilities, improving ability speeds by 60% and gaining unlimited ammo. \"Ability Speeds\" affects Power Slash cast time, Flying Strike flying time, and Crimson Slash cast time."
-            ],
             "Flying Strike": [
-                "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation now gives you 4.5s of invulnerability after the initial 2s invulnerable channel period. You transform and refresh your abilities, improving ability speeds by 60% and gaining unlimited ammo. \"Ability Speeds\" affects Power Slash cast time, Flying Strike flying time, and Crimson Slash cast time."
+                "- Shadow Transformation now gives you 4.5s of invulnerability after the initial 2s invulnerable channel period. You transform and refresh your abilities, improving ability speeds by 60% and gaining unlimited ammo. \"Ability Speeds\" affects {AbilityIcon|Ability=Power Slash|Size=20} Power Slash cast time, Flying Strike flying time, and Crimson Slash cast time."
             ],
             "Crimson Slash": [
-                "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation now gives you 4.5s of invulnerability after the initial 2s invulnerable channel period. You transform and refresh your abilities, improving ability speeds by 60% and gaining unlimited ammo. \"Ability Speeds\" affects Power Slash cast time, Flying Strike flying time, and Crimson Slash cast time."
+                "- Shadow Transformation now gives you 4.5s of invulnerability after the initial 2s invulnerable channel period. You transform and refresh your abilities, improving ability speeds by 60% and gaining unlimited ammo. \"Ability Speeds\" affects {AbilityIcon|Ability=Power Slash|Size=20} Power Slash cast time, Flying Strike flying time, and Crimson Slash cast time."
+            ],
+            "Power Slash": [
+                "- Shadow Transformation now gives you 4.5s of invulnerability after the initial 2s invulnerable channel period. You transform and refresh your abilities, improving ability speeds by 60% and gaining unlimited ammo. \"Ability Speeds\" affects {AbilityIcon|Ability=Power Slash|Size=20} Power Slash cast time, Flying Strike flying time, and Crimson Slash cast time."
             ]
         },
         "General Changes": {
@@ -1425,7 +1425,7 @@
             "Yamato": [
                 "- {AbilityIcon|Ability=Power Slash|Size=20} Power Slash spirit scaling improved from 1.6 to 2.0",
                 "- {AbilityIcon|Ability=Power Slash|Size=20} Power Slash no longer does a very minor movement on enemies hit",
-                "- Fixed Power Slash sometimes not being a full charge when channeled fully during the {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation",
+                "- Fixed {AbilityIcon|Ability=Power Slash|Size=20} Power Slash sometimes not being a full charge when channeled fully during the Shadow Transformation",
                 "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation's ability speedup now affects the post-cast durations as well",
                 "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation's ability speedup now improves the visual animations (cosmetic only change)"
             ]
@@ -1445,10 +1445,10 @@
             "Headshot Booster": [
                 "- Cooldown reduced from 9s to 5s"
             ],
-            "Health Regen": [
-                "- {AbilityIcon|Ability=Spirit Strike|Size=20} Spirit Strike: Health Regen increased from 0.7 to 1"
-            ],
             "Spirit Strike": [
+                "- {AbilityIcon|Ability=Health Regen|Size=20} Health Regen increased from 0.7 to 1"
+            ],
+            "Health Regen": [
                 "- {AbilityIcon|Ability=Health Regen|Size=20} Health Regen increased from 0.7 to 1"
             ],
             "Enduring Spirit": [
@@ -1546,11 +1546,11 @@
                 "- {AbilityIcon|Ability=Guided Owl|Size=20} Guided Owl T3 increased from 20% to 22%",
                 "- {AbilityIcon|Ability=Guided Owl|Size=20} Guided Owl player collision sized increased to regular sizes for these kind of projectiles"
             ],
-            "Pulse": [
-                "- Fixed some sound issues with {AbilityIcon|Ability=Pulse Grenade|Size=20} Pulse Grenade"
-            ],
             "Pulse Grenade": [
-                "- Fixed some sound issues with {AbilityIcon|Ability=Pulse Grenade|Size=20} Pulse Grenade"
+                "- Fixed some sound issues with {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade"
+            ],
+            "Pulse": [
+                "- Fixed some sound issues with {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade"
             ],
             "Ground Strike": [
                 "- Various fixes to Lash's {AbilityIcon|Ability=Ground Strike|Size=20} Ground Strike visual effects"
@@ -1641,10 +1641,10 @@
             "Power Slash": [
                 "- {AbilityIcon|Ability=Power Slash|Size=20} Power Slash spirit scaling improved from 1.6 to 2.0",
                 "- {AbilityIcon|Ability=Power Slash|Size=20} Power Slash no longer does a very minor movement on enemies hit",
-                "- Fixed Power Slash sometimes not being a full charge when channeled fully during the {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation"
+                "- Fixed {AbilityIcon|Ability=Power Slash|Size=20} Power Slash sometimes not being a full charge when channeled fully during the Shadow Transformation"
             ],
             "Shadow Transformation": [
-                "- Fixed Power Slash sometimes not being a full charge when channeled fully during the {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation",
+                "- Fixed {AbilityIcon|Ability=Power Slash|Size=20} Power Slash sometimes not being a full charge when channeled fully during the Shadow Transformation",
                 "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation's ability speedup now affects the post-cast durations as well",
                 "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation's ability speedup now improves the visual animations (cosmetic only change)"
             ]
@@ -2153,7 +2153,7 @@
             ],
             "Kelvin": [
                 "- {AbilityIcon|Ability=Frozen Shelter|Size=20} Frozen Shelter movement speed slow increased from 25% to 35%",
-                "- Can now dismiss {AbilityIcon|Ability=Frozen Shelter|Size=20} Frozen Shelter while channeling other abilities (Arctic Beam)"
+                "- Can now dismiss Frozen Shelter while channeling other abilities ({AbilityIcon|Ability=Arctic Beam|Size=20} Arctic Beam)"
             ],
             "McGinnis": [
                 "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turret charge delay reduced from 10s to 8s",
@@ -2341,10 +2341,10 @@
             ],
             "Frozen Shelter": [
                 "- {AbilityIcon|Ability=Frozen Shelter|Size=20} Frozen Shelter movement speed slow increased from 25% to 35%",
-                "- Can now dismiss {AbilityIcon|Ability=Frozen Shelter|Size=20} Frozen Shelter while channeling other abilities (Arctic Beam)"
+                "- Can now dismiss Frozen Shelter while channeling other abilities ({AbilityIcon|Ability=Arctic Beam|Size=20} Arctic Beam)"
             ],
             "Arctic Beam": [
-                "- Can now dismiss {AbilityIcon|Ability=Frozen Shelter|Size=20} Frozen Shelter while channeling other abilities (Arctic Beam)"
+                "- Can now dismiss Frozen Shelter while channeling other abilities ({AbilityIcon|Ability=Arctic Beam|Size=20} Arctic Beam)"
             ],
             "Mini Turret": [
                 "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turret charge delay reduced from 10s to 8s"
@@ -2493,17 +2493,17 @@
             "Warden": [
                 "- Updated reload animations for {AbilityIcon|Ability=Warden|Size=20} Warden, Dynamo, and Ivy"
             ],
+            "Bebop": [
+                "- Fixed the unit target UI not showing up for instant-cast abilities (MoKrill ult, {AbilityIcon|Ability=Lady Geist|Size=20} Lady Geist ult, Bebop bomb)",
+                "- {AbilityIcon|Ability=Hook|Size=20} Hook hitbox reduced from 36 inches to 33",
+                "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam cooldown increased from 100s to 110s",
+                "- Seven: {AbilityIcon|Ability=Static Charge|Size=20} Static Charge now uses the new instant cast option that Bebop Bomb uses"
+            ],
             "Lady Geist": [
-                "- Fixed the unit target UI not showing up for instant-cast abilities (MoKrill ult, Lady Geist ult, {AbilityIcon|Ability=Bebop|Size=20} Bebop bomb)",
+                "- Fixed the unit target UI not showing up for instant-cast abilities (MoKrill ult, {AbilityIcon|Ability=Lady Geist|Size=20} Lady Geist ult, Bebop bomb)",
                 "- {AbilityIcon|Ability=Essence Bomb|Size=20} Essence Bomb no longer starts decaying the arm time while in the air",
                 "- {AbilityIcon|Ability=Essence Bomb|Size=20} Essence Bomb arm time reduced from 1s to 0.5s (this is a nerf for long distance bombs)",
                 "- {AbilityIcon|Ability=Soul Exchange|Size=20} Soul Exchange T3 changed to \"After swap gain +40% Fire Rate and +40% Spirit Resistance for 8s\""
-            ],
-            "Bebop": [
-                "- Fixed the unit target UI not showing up for instant-cast abilities (MoKrill ult, Lady Geist ult, {AbilityIcon|Ability=Bebop|Size=20} Bebop bomb)",
-                "- {AbilityIcon|Ability=Hook|Size=20} Hook hitbox reduced from 36 inches to 33",
-                "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam cooldown increased from 100s to 110s",
-                "- {AbilityIcon|Ability=Static Charge|Size=20} Static Charge now uses the new instant cast option that Bebop Bomb uses"
             ],
             "Abrams": [
                 "- Improved misc issues with {AbilityIcon|Ability=Seismic Impact|Size=20} Seismic Impact collision",
@@ -2543,7 +2543,7 @@
                 "- Heavy {AbilityIcon|Ability=Barrage|Size=20} Barrage cooldown reduced from 110s to 100s"
             ],
             "Mo & Krill": [
-                "- You can now cast items and Scorn while spinning out of {AbilityIcon|Ability=Burrow|Size=20} Burrow",
+                "- You can now cast items and {AbilityIcon|Ability=Scorn|Size=20} Scorn while spinning out of Burrow",
                 "- {AbilityIcon|Ability=Combo|Size=20} Combo bonus health per kill increased from 25 to 30"
             ],
             "Paradox": [
@@ -2703,7 +2703,7 @@
                 "- Weapon Damage reduced from 30% to 20%"
             ],
             "Slowing Bullets": [
-                "- {AbilityIcon|Ability=Inhibitor|Size=20} Inhibitor: No longer requires the component Slowing Bullets"
+                "- No longer requires the component {AbilityIcon|Ability=Slowing Bullets|Size=20} Slowing Bullets"
             ],
             "Crippling Headshot": [
                 "- Bullet and {AbilityIcon|Ability=Spirit Lifesteal|Size=20} Spirit Lifesteal reduced from 15% to 10%"
@@ -2832,11 +2832,11 @@
                 "- {AbilityIcon|Ability=Barrage|Size=20} Barrage base damage reduced from 40 to 35",
                 "- {AbilityIcon|Ability=Barrage|Size=20} Barrage T1 reduced from +20 to +15"
             ],
-            "Scorn": [
-                "- You can now cast items and Scorn while spinning out of {AbilityIcon|Ability=Burrow|Size=20} Burrow"
-            ],
             "Burrow": [
-                "- You can now cast items and Scorn while spinning out of {AbilityIcon|Ability=Burrow|Size=20} Burrow"
+                "- You can now cast items and {AbilityIcon|Ability=Scorn|Size=20} Scorn while spinning out of Burrow"
+            ],
+            "Scorn": [
+                "- You can now cast items and {AbilityIcon|Ability=Scorn|Size=20} Scorn while spinning out of Burrow"
             ],
             "Combo": [
                 "- {AbilityIcon|Ability=Combo|Size=20} Combo bonus health per kill increased from 25 to 30"
@@ -2991,7 +2991,7 @@
                 "- Updated {AbilityIcon|Ability=Lady Geist|Size=20} Lady Geist weapon sounds"
             ],
             "Bebop": [
-                "- Fixed a bug where pinging Bebop's {AbilityIcon|Ability=Hook|Size=20} Hook and Sticky Bomb abilities would call the wrong ability name"
+                "- Fixed a bug where pinging Bebop's Hook and {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb abilities would call the wrong ability name"
             ],
             "Grey Talon": [
                 "- Fixed a bug with releasing {AbilityIcon|Ability=Grey Talon|Size=20} Grey Talon's Owl early",
@@ -3053,7 +3053,7 @@
                 "- {AbilityIcon|Ability=Willpower|Size=20} Willpower duration reduced from 8s to 7s"
             ],
             "Wraith": [
-                "- The Royal Flush ability has been replaced with {AbilityIcon|Ability=Card Trick|Size=20} Card Trick. {AbilityIcon|Ability=Card Trick|Size=20} Card Trick enables Wraith's weapon damage to summon playing cards. Activating the ability throws one of the cards, which will fly towards the enemy or point under the crosshair and explode on impact."
+                "- The {AbilityIcon|Ability=Royal Flush|Size=20} Royal Flush ability has been replaced with Card Trick. Card Trick enables Wraith's weapon damage to summon playing cards. Activating the ability throws one of the cards, which will fly towards the enemy or point under the crosshair and explode on impact."
             ],
             "Yamato": [
                 "- {AbilityIcon|Ability=Power Slash|Size=20} Power Slash damage reduced from 175 to 170",
@@ -3108,7 +3108,7 @@
                 "- Weapon Damage increased from 8% to 10%"
             ],
             "Bullet Lifesteal": [
-                "- {AbilityIcon|Ability=Active Reload|Size=20} Active Reload: Active Bullet Lifesteal increased from 30% to 40%",
+                "- Active {AbilityIcon|Ability=Bullet Lifesteal|Size=20} Bullet Lifesteal increased from 30% to 40%",
                 "- Increased from 20% to 22%",
                 "- Now provides +16% {AbilityIcon|Ability=Bullet Lifesteal|Size=20} Bullet Lifesteal",
                 "- Active now grants +20% Fire Rate instead of {AbilityIcon|Ability=Bullet Lifesteal|Size=20} Bullet Lifesteal"
@@ -3233,11 +3233,11 @@
         },
         "Abilities": {
             "General": [],
-            "Sticky Bomb": [
-                "- Fixed a bug where pinging Bebop's {AbilityIcon|Ability=Hook|Size=20} Hook and Sticky Bomb abilities would call the wrong ability name"
-            ],
             "Hook": [
-                "- Fixed a bug where pinging Bebop's {AbilityIcon|Ability=Hook|Size=20} Hook and Sticky Bomb abilities would call the wrong ability name"
+                "- Fixed a bug where pinging Bebop's Hook and {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb abilities would call the wrong ability name"
+            ],
+            "Sticky Bomb": [
+                "- Fixed a bug where pinging Bebop's Hook and {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb abilities would call the wrong ability name"
             ],
             "Rejuvenating Aurora": [
                 "- Updated Dynamo's animation while using {AbilityIcon|Ability=Rejuvenating Aurora|Size=20} Rejuvenating Aurora",
@@ -3317,11 +3317,11 @@
                 "- {AbilityIcon|Ability=Willpower|Size=20} Willpower no longer loses movement speed when the shield is depleted",
                 "- {AbilityIcon|Ability=Willpower|Size=20} Willpower duration reduced from 8s to 7s"
             ],
-            "Royal Flush": [
-                "- The Royal Flush ability has been replaced with {AbilityIcon|Ability=Card Trick|Size=20} Card Trick. {AbilityIcon|Ability=Card Trick|Size=20} Card Trick enables Wraith's weapon damage to summon playing cards. Activating the ability throws one of the cards, which will fly towards the enemy or point under the crosshair and explode on impact."
-            ],
             "Card Trick": [
-                "- The Royal Flush ability has been replaced with {AbilityIcon|Ability=Card Trick|Size=20} Card Trick. {AbilityIcon|Ability=Card Trick|Size=20} Card Trick enables Wraith's weapon damage to summon playing cards. Activating the ability throws one of the cards, which will fly towards the enemy or point under the crosshair and explode on impact."
+                "- The {AbilityIcon|Ability=Royal Flush|Size=20} Royal Flush ability has been replaced with Card Trick. Card Trick enables Wraith's weapon damage to summon playing cards. Activating the ability throws one of the cards, which will fly towards the enemy or point under the crosshair and explode on impact."
+            ],
+            "Royal Flush": [
+                "- The {AbilityIcon|Ability=Royal Flush|Size=20} Royal Flush ability has been replaced with Card Trick. Card Trick enables Wraith's weapon damage to summon playing cards. Activating the ability throws one of the cards, which will fly towards the enemy or point under the crosshair and explode on impact."
             ],
             "Power Slash": [
                 "- {AbilityIcon|Ability=Power Slash|Size=20} Power Slash damage reduced from 175 to 170"
@@ -3425,18 +3425,18 @@
             ],
             "Vindicta": [
                 "- Fixed Vindicta's {AbilityIcon|Ability=Stake|Size=20} Stake sometimes moving units that aren't supposed to be moved",
-                "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's Pulse Grenade, Warden's {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)",
+                "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade, Warden's Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)",
                 "- {AbilityIcon|Ability=Crow Familiar|Size=20} Crow Familiar duration spirit power scaling reduced from 0.07 to 0.05",
                 "- Gun damage growth increased from 0.7 to 0.85"
             ],
             "Paradox": [
-                "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's Pulse Grenade, Warden's {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)",
+                "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade, Warden's Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)",
                 "- Fixed {AbilityIcon|Ability=Time Wall|Size=20} Time Wall projectiles and bullets being stuck in the wall for its full duration instead of for the shorter time stop duration",
                 "- {AbilityIcon|Ability=Kinetic Carbine|Size=20} Kinetic Carbine collision radius reduced by 10%",
-                "- Fixed {AbilityIcon|Ability=Pulse Grenade|Size=20} Pulse Grenade not going where you had targeted if you moved quickly during the cast"
+                "- Fixed {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade not going where you had targeted if you moved quickly during the cast"
             ],
             "Ivy": [
-                "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's Pulse Grenade, Warden's {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)",
+                "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade, Warden's Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)",
                 "- Base damage growth increased from 0.35 to 0.55",
                 "- {AbilityIcon|Ability=Watcher's Covenant|Size=20} Watcher's Covenant replicated healing reduced from 45% to 35%",
                 "- {AbilityIcon|Ability=Watcher's Covenant|Size=20} Watcher's Covenant bullet lifesteal now scales with spirit power (0.18)",
@@ -3445,16 +3445,16 @@
                 "- Fixed {AbilityIcon|Ability=Kudzu Bomb|Size=20} Kudzu Bomb not going where you had targeted if you moved quickly during the cast"
             ],
             "Warden": [
-                "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's Pulse Grenade, Warden's {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)",
+                "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade, Warden's Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)",
                 "- Reload time no longer scales with spirit power",
                 "- Now innately gains additive fire rate from spirit power (scale factor is 0.015)"
             ],
-            "Wraith": [
-                "- Global base Ammo increased by 5% (except for Wraith and {AbilityIcon|Ability=Haze|Size=20} Haze)"
-            ],
             "Haze": [
-                "- Global base Ammo increased by 5% (except for Wraith and {AbilityIcon|Ability=Haze|Size=20} Haze)",
+                "- Global base Ammo increased by 5% (except for {AbilityIcon|Ability=Wraith|Size=20} Wraith and Haze)",
                 "- Ammo scaling with spirit power reduced from 0.6 to 0.5"
+            ],
+            "Wraith": [
+                "- Global base Ammo increased by 5% (except for {AbilityIcon|Ability=Wraith|Size=20} Wraith and Haze)"
             ],
             "Abrams": [
                 "- {AbilityIcon|Ability=Shoulder Charge|Size=20} Shoulder Charge speed increased by 25%",
@@ -3522,7 +3522,7 @@
                 "- Added a brief period before you can press the hotkey again to prevent accidental uses of drop down"
             ],
             "Alchemical Fire": [
-                "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's Pulse Grenade, Warden's {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)"
+                "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade, Warden's Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)"
             ],
             "Headshot Booster": [
                 "- Bonus health reduced from +50 to +40"
@@ -3561,14 +3561,14 @@
             "Titanic Magazine": [
                 "- No longer has 10% reload penalty"
             ],
-            "Slowing Bullets": [
-                "- {AbilityIcon|Ability=Silencer|Size=20} Silencer: Now requires Slowing Bullets (total cost from 6500 to 7700)"
-            ],
             "Silencer": [
                 "- Now requires {AbilityIcon|Ability=Slowing Bullets|Size=20} Slowing Bullets (total cost from 6500 to 7700)",
                 "- Innately gives 25% slow for 1.3s",
                 "- Active no longer applies 30% slow for 2s",
                 "- Weapon damage reduced from 25% to 15%"
+            ],
+            "Slowing Bullets": [
+                "- Now requires {AbilityIcon|Ability=Slowing Bullets|Size=20} Slowing Bullets (total cost from 6500 to 7700)"
             ],
             "Frenzy": [
                 "- Active spirit resist increased from 30% to 40%"
@@ -3590,7 +3590,7 @@
             ],
             "Bullet Lifesteal": [
                 "- Lifesteal increased from 24% to 26%",
-                "- {AbilityIcon|Ability=Leech|Size=20} Leech: Bullet Lifesteal increased from 30% to 35%"
+                "- {AbilityIcon|Ability=Bullet Lifesteal|Size=20} Bullet Lifesteal increased from 30% to 35%"
             ],
             "Health Nova": [
                 "- Now grants +10% weapon damage"
@@ -3667,7 +3667,7 @@
             ],
             "Stake": [
                 "- Fixed Vindicta's {AbilityIcon|Ability=Stake|Size=20} Stake sometimes moving units that aren't supposed to be moved",
-                "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's Pulse Grenade, Warden's {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)"
+                "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade, Warden's Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)"
             ],
             "Guided Owl": [
                 "- Fixed bugs with {AbilityIcon|Ability=Guided Owl|Size=20} Guided Owl and pause",
@@ -3677,33 +3677,33 @@
                 "- {AbilityIcon|Ability=Guided Owl|Size=20} Guided Owl T1 is now +100 damage",
                 "- {AbilityIcon|Ability=Guided Owl|Size=20} Guided Owl collision size reduced"
             ],
-            "Pulse": [
-                "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's Pulse Grenade, Warden's {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)",
-                "- Fixed {AbilityIcon|Ability=Pulse Grenade|Size=20} Pulse Grenade not going where you had targeted if you moved quickly during the cast"
+            "Alchemical Flask": [
+                "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade, Warden's Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)"
             ],
             "Pulse Grenade": [
-                "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's Pulse Grenade, Warden's {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)",
-                "- Fixed {AbilityIcon|Ability=Pulse Grenade|Size=20} Pulse Grenade not going where you had targeted if you moved quickly during the cast"
+                "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade, Warden's Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)",
+                "- Fixed {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade not going where you had targeted if you moved quickly during the cast"
             ],
             "Kudzu Bomb": [
-                "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's Pulse Grenade, Warden's {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)",
+                "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade, Warden's Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)",
                 "- Fixed {AbilityIcon|Ability=Kudzu Bomb|Size=20} Kudzu Bomb not going where you had targeted if you moved quickly during the cast"
             ],
-            "Alchemical Flask": [
-                "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's Pulse Grenade, Warden's {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)"
-            ],
-            "Life Drain": [
-                "- Fixed ability-based lifesteals not granting life from damage caused to shields (affects things like Hyperbeam T3, Siphon, {AbilityIcon|Ability=Scorn|Size=20} Scorn, Life Drain, Flog and Concussive Combustion T3)"
+            "Pulse": [
+                "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade, Warden's Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)",
+                "- Fixed {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade not going where you had targeted if you moved quickly during the cast"
             ],
             "Concussive Combustion": [
-                "- Fixed ability-based lifesteals not granting life from damage caused to shields (affects things like Hyperbeam T3, Siphon, {AbilityIcon|Ability=Scorn|Size=20} Scorn, Life Drain, Flog and Concussive Combustion T3)"
-            ],
-            "Flog": [
-                "- Fixed ability-based lifesteals not granting life from damage caused to shields (affects things like Hyperbeam T3, Siphon, {AbilityIcon|Ability=Scorn|Size=20} Scorn, Life Drain, Flog and Concussive Combustion T3)"
+                "- Fixed ability-based lifesteals not granting life from damage caused to shields (affects things like Hyperbeam T3, Siphon, Scorn, {AbilityIcon|Ability=Life Drain|Size=20} Life Drain, Flog and Concussive Combustion T3)"
             ],
             "Scorn": [
-                "- Fixed ability-based lifesteals not granting life from damage caused to shields (affects things like Hyperbeam T3, Siphon, {AbilityIcon|Ability=Scorn|Size=20} Scorn, Life Drain, Flog and Concussive Combustion T3)",
+                "- Fixed ability-based lifesteals not granting life from damage caused to shields (affects things like Hyperbeam T3, Siphon, Scorn, {AbilityIcon|Ability=Life Drain|Size=20} Life Drain, Flog and Concussive Combustion T3)",
                 "- Fixed {AbilityIcon|Ability=Scorn|Size=20} Scorn not healing you against shields"
+            ],
+            "Flog": [
+                "- Fixed ability-based lifesteals not granting life from damage caused to shields (affects things like Hyperbeam T3, Siphon, Scorn, {AbilityIcon|Ability=Life Drain|Size=20} Life Drain, Flog and Concussive Combustion T3)"
+            ],
+            "Life Drain": [
+                "- Fixed ability-based lifesteals not granting life from damage caused to shields (affects things like Hyperbeam T3, Siphon, Scorn, {AbilityIcon|Ability=Life Drain|Size=20} Life Drain, Flog and Concussive Combustion T3)"
             ],
             "Shoulder Charge": [
                 "- {AbilityIcon|Ability=Shoulder Charge|Size=20} Shoulder Charge speed increased by 25%",
@@ -3878,7 +3878,7 @@
             ],
             "Wraith": [
                 "- Raised volume of Wraith {AbilityIcon|Ability=Card Trick|Size=20} Card Trick charge up sound effect",
-                "- Base ammo increased by 5% (except for {AbilityIcon|Ability=Haze|Size=20} Haze and Wraith)"
+                "- Base ammo increased by 5% (except for Haze and {AbilityIcon|Ability=Wraith|Size=20} Wraith)"
             ],
             "Infernus": [
                 "- Fixed a bug where Infernus could get stuck in his {AbilityIcon|Ability=Flame Dash|Size=20} Flame Dash pose",
@@ -3886,7 +3886,7 @@
             ],
             "Abrams": [
                 "- Added additional voice lines for {AbilityIcon|Ability=Abrams|Size=20} Abrams",
-                "- Shoulder Charge now considers Spectral Wall and {AbilityIcon|Ability=Frozen Shelter|Size=20} Frozen Shelter as walls",
+                "- Shoulder Charge now considers {AbilityIcon|Ability=Spectral Wall|Size=20} Spectral Wall and Frozen Shelter as walls",
                 "- {AbilityIcon|Ability=Infernal Resilience|Size=20} Infernal Resilience duration to regen increased from 14s to 16s (this is a nerf)",
                 "- {AbilityIcon|Ability=Infernal Resilience|Size=20} Infernal Resilience damage regenerated reduced from 18% to 17%",
                 "- {AbilityIcon|Ability=Infernal Resilience|Size=20} Infernal Resilience T3 increased from +8% to +9%",
@@ -3897,7 +3897,7 @@
                 "- {AbilityIcon|Ability=Seismic Impact|Size=20} Seismic Impact T3 is now Gains Unstoppable while in air and 3s after landing"
             ],
             "Haze": [
-                "- Base ammo increased by 5% (except for {AbilityIcon|Ability=Haze|Size=20} Haze and Wraith)",
+                "- Base ammo increased by 5% (except for Haze and {AbilityIcon|Ability=Wraith|Size=20} Wraith)",
                 "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger min sleep time reduced from 0.3 to 0.2",
                 "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger wake-up time reduced from 0.15 to 0.1",
                 "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger projectile size reduced by 10%",
@@ -3919,7 +3919,7 @@
             ],
             "Dynamo": [
                 "- Gun damage growth increased from 0.8 to 0.9",
-                "- {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse spirit power scaling increased from 1.2 to 1.4",
+                "- Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse spirit power scaling increased from 1.2 to 1.4",
                 "- {AbilityIcon|Ability=Singularity|Size=20} Singularity duration reduced from 3 to 2.75"
             ],
             "Ivy": [
@@ -3955,7 +3955,7 @@
             ],
             "Paradox": [
                 "- {AbilityIcon|Ability=Time Wall|Size=20} Time Wall projectile stop duration reduced from 1.25s to 1s",
-                "- {AbilityIcon|Ability=Pulse Grenade|Size=20} Pulse Grenade amp duration increased from 6s to 8s",
+                "- {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade amp duration increased from 6s to 8s",
                 "- {AbilityIcon|Ability=Paradoxical Swap|Size=20} Paradoxical Swap projectile size reduced by 10%"
             ],
             "Seven": [
@@ -4201,16 +4201,16 @@
                 "- Fixed a bug where Infernus could get stuck in his {AbilityIcon|Ability=Flame Dash|Size=20} Flame Dash pose",
                 "- Fixed a speed exploit with Infernus {AbilityIcon|Ability=Flame Dash|Size=20} Flame Dash"
             ],
+            "Frozen Shelter": [
+                "- Shoulder Charge now considers {AbilityIcon|Ability=Spectral Wall|Size=20} Spectral Wall and Frozen Shelter as walls"
+            ],
             "Shoulder Charge": [
-                "- Shoulder Charge now considers Spectral Wall and {AbilityIcon|Ability=Frozen Shelter|Size=20} Frozen Shelter as walls"
+                "- Shoulder Charge now considers {AbilityIcon|Ability=Spectral Wall|Size=20} Spectral Wall and Frozen Shelter as walls"
             ],
             "Spectral Wall": [
-                "- Shoulder Charge now considers Spectral Wall and {AbilityIcon|Ability=Frozen Shelter|Size=20} Frozen Shelter as walls",
+                "- Shoulder Charge now considers {AbilityIcon|Ability=Spectral Wall|Size=20} Spectral Wall and Frozen Shelter as walls",
                 "- {AbilityIcon|Ability=Spectral Wall|Size=20} Spectral Wall cooldown increased from 30s to 35s",
                 "- {AbilityIcon|Ability=Spectral Wall|Size=20} Spectral Wall segments that are touching the Rejuv will be destroyed"
-            ],
-            "Frozen Shelter": [
-                "- Shoulder Charge now considers Spectral Wall and {AbilityIcon|Ability=Frozen Shelter|Size=20} Frozen Shelter as walls"
             ],
             "Infernal Resilience": [
                 "- {AbilityIcon|Ability=Infernal Resilience|Size=20} Infernal Resilience duration to regen increased from 14s to 16s (this is a nerf)",
@@ -4227,12 +4227,12 @@
             "Hook": [
                 "- {AbilityIcon|Ability=Hook|Size=20} Hook speed reduced from 3000 to 2850"
             ],
-            "Pulse": [
-                "- {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse spirit power scaling increased from 1.2 to 1.4",
-                "- {AbilityIcon|Ability=Pulse Grenade|Size=20} Pulse Grenade amp duration increased from 6s to 8s"
-            ],
             "Kinetic Pulse": [
-                "- {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse spirit power scaling increased from 1.2 to 1.4"
+                "- Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse spirit power scaling increased from 1.2 to 1.4"
+            ],
+            "Pulse": [
+                "- Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse spirit power scaling increased from 1.2 to 1.4",
+                "- {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade amp duration increased from 6s to 8s"
             ],
             "Singularity": [
                 "- {AbilityIcon|Ability=Singularity|Size=20} Singularity duration reduced from 3 to 2.75"
@@ -4295,7 +4295,7 @@
                 "- {AbilityIcon|Ability=Time Wall|Size=20} Time Wall projectile stop duration reduced from 1.25s to 1s"
             ],
             "Pulse Grenade": [
-                "- {AbilityIcon|Ability=Pulse Grenade|Size=20} Pulse Grenade amp duration increased from 6s to 8s"
+                "- {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade amp duration increased from 6s to 8s"
             ],
             "Paradoxical Swap": [
                 "- {AbilityIcon|Ability=Paradoxical Swap|Size=20} Paradoxical Swap projectile size reduced by 10%"
@@ -4487,8 +4487,8 @@
                 "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam spirit scaling increased from 2.2 to 2.4"
             ],
             "Dynamo": [
-                "- {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse width increased from 4m to 4.5m",
-                "- {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse recharge time reduced from 6s to 5s",
+                "- Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse width increased from 4m to 4.5m",
+                "- Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse recharge time reduced from 6s to 5s",
                 "- {AbilityIcon|Ability=Rejuvenating Aurora|Size=20} Rejuvenating Aurora regen Spirit Power scaling increased from 0.4 to 0.5"
             ],
             "Grey Talon": [
@@ -4588,10 +4588,10 @@
             "Siphon Bullets": [
                 "- Weapon damage is no longer conditional on 15m, now always gives +40% Weapon Damage (previously gave +45% when close)"
             ],
-            "Spiritual Overflow": [
-                "- Now grants +10% {AbilityIcon|Ability=Spirit Lifesteal|Size=20} Spirit Lifesteal"
-            ],
             "Spirit Lifesteal": [
+                "- {AbilityIcon|Ability=Spiritual Overflow|Size=20} Spiritual Overflow: Now grants +10% Spirit Lifesteal"
+            ],
+            "Spiritual Overflow": [
                 "- Now grants +10% {AbilityIcon|Ability=Spirit Lifesteal|Size=20} Spirit Lifesteal"
             ],
             "Extra Regen": [
@@ -4697,14 +4697,14 @@
         },
         "Abilities": {
             "General": [],
-            "Quantum Entanglement": [
-                "- Fixed various abilities not showing the cast preview correctly on the first use ({AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets, Quantum Entanglement, etc)"
-            ],
             "Mini Turret": [
-                "- Fixed various abilities not showing the cast preview correctly on the first use ({AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets, Quantum Entanglement, etc)",
+                "- Fixed various abilities not showing the cast preview correctly on the first use (Mini Turrets, {AbilityIcon|Ability=Quantum Entanglement|Size=20} Quantum Entanglement, etc)",
                 "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets no longer target immune structures",
                 "- Fixed Health Nova not working on {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets (when Health Nova was cast by McGinnis)",
                 "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turret base HP increased from +50 to +75"
+            ],
+            "Quantum Entanglement": [
+                "- Fixed various abilities not showing the cast preview correctly on the first use (Mini Turrets, {AbilityIcon|Ability=Quantum Entanglement|Size=20} Quantum Entanglement, etc)"
             ],
             "Ground Strike": [
                 "- Fixed Lash's {AbilityIcon|Ability=Ground Strike|Size=20} Ground Strike sometimes causing the hero to be stuck for the rest of the match",
@@ -4755,13 +4755,13 @@
                 "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam duration now scales with Spirit (0.08)",
                 "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam spirit scaling increased from 2.2 to 2.4"
             ],
-            "Pulse": [
-                "- {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse width increased from 4m to 4.5m",
-                "- {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse recharge time reduced from 6s to 5s"
-            ],
             "Kinetic Pulse": [
-                "- {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse width increased from 4m to 4.5m",
-                "- {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse recharge time reduced from 6s to 5s"
+                "- Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse width increased from 4m to 4.5m",
+                "- Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse recharge time reduced from 6s to 5s"
+            ],
+            "Pulse": [
+                "- Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse width increased from 4m to 4.5m",
+                "- Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse recharge time reduced from 6s to 5s"
             ],
             "Rejuvenating Aurora": [
                 "- {AbilityIcon|Ability=Rejuvenating Aurora|Size=20} Rejuvenating Aurora regen Spirit Power scaling increased from 0.4 to 0.5"
@@ -5041,10 +5041,10 @@
             "Dynamo": [
                 "- Remastered Abrams, {AbilityIcon|Ability=Pocket|Size=20} Pocket, and Dynamo weapon fire sounds",
                 "- {AbilityIcon|Ability=Rejuvenating Aurora|Size=20} Rejuvenating Aurora can now be canceled by using stamina instead of needing to manually exit first (pre T3)",
-                "- Fixed {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse sometimes getting caught on stairs",
+                "- Fixed Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse sometimes getting caught on stairs",
                 "- {AbilityIcon|Ability=Singularity|Size=20} Singularity now has a 0.1s cast point",
-                "- {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse width increased from 4.5m to 5m",
-                "- {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse T3 increased from +115 Damage to +125"
+                "- Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse width increased from 4.5m to 5m",
+                "- Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse T3 increased from +115 Damage to +125"
             ],
             "Pocket": [
                 "- Remastered Abrams, {AbilityIcon|Ability=Pocket|Size=20} Pocket, and Dynamo weapon fire sounds",
@@ -5087,7 +5087,7 @@
                 "- {AbilityIcon|Ability=Arctic Beam|Size=20} Arctic Beam now slows Fire Rate (same values as slow)",
                 "- {AbilityIcon|Ability=Arctic Beam|Size=20} Arctic Beam max slow reduced from 90% to 60%",
                 "- {AbilityIcon|Ability=Arctic Beam|Size=20} Arctic Beam time to reach max slow increased from 1.2s to 2s",
-                "- {AbilityIcon|Ability=Frozen Shelter|Size=20} Frozen Shelter can now be cast while using Arctic Beam"
+                "- Frozen Shelter can now be cast while using {AbilityIcon|Ability=Arctic Beam|Size=20} Arctic Beam"
             ],
             "Mo & Krill": [
                 "- {AbilityIcon|Ability=Scorn|Size=20} Scorn T3 now affects all damage types"
@@ -5131,7 +5131,7 @@
                 "- {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask T2 changed from -10s Cooldown to Drains 1 Stamina",
                 "- {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask T3 now also reduces cooldown by -7s",
                 "- {AbilityIcon|Ability=Binding Word|Size=20} Binding Word immobilize duration reduced from 2s to 1.75",
-                "- {AbilityIcon|Ability=Binding Word|Size=20} Binding Word now has a quick cast behavior (same as Static Charge)"
+                "- Binding Word now has a quick cast behavior (same as {AbilityIcon|Ability=Static Charge|Size=20} Static Charge)"
             ],
             "Yamato": [
                 "- Base melee damage increased by 10%",
@@ -5180,7 +5180,7 @@
                 "- {AbilityIcon|Ability=Fire Rate|Size=20} Fire Rate reduced from 24% to 20%"
             ],
             "Fire Rate": [
-                "- {AbilityIcon|Ability=Active Reload|Size=20} Active Reload: Fire Rate reduced from 24% to 20%",
+                "- {AbilityIcon|Ability=Fire Rate|Size=20} Fire Rate reduced from 24% to 20%",
                 "- {AbilityIcon|Ability=Ricochet|Size=20} Ricochet: Fire Rate increased from +8% to +12%",
                 "- {AbilityIcon|Ability=Superior Stamina|Size=20} Superior Stamina: Fire Rate reduced from 10% to 7%",
                 "- {AbilityIcon|Ability=Withering Whip|Size=20} Withering Whip: Now applies -40% Fire Rate instead of a Disarm",
@@ -5219,7 +5219,7 @@
                 "- Now grants +15% {AbilityIcon|Ability=Bullet Armor|Size=20} Bullet Armor"
             ],
             "Bullet Armor": [
-                "- Now grants +15% {AbilityIcon|Ability=Bullet Armor|Size=20} Bullet Armor"
+                "- {AbilityIcon|Ability=Point Blank|Size=20} Point Blank: Now grants +15% Bullet Armor"
             ],
             "Escalating Resilience": [
                 "- Max Bullet Resist increased from 30% to 36%"
@@ -5427,7 +5427,7 @@
                 "- {AbilityIcon|Ability=Arctic Beam|Size=20} Arctic Beam now slows Fire Rate (same values as slow)",
                 "- {AbilityIcon|Ability=Arctic Beam|Size=20} Arctic Beam max slow reduced from 90% to 60%",
                 "- {AbilityIcon|Ability=Arctic Beam|Size=20} Arctic Beam time to reach max slow increased from 1.2s to 2s",
-                "- {AbilityIcon|Ability=Frozen Shelter|Size=20} Frozen Shelter can now be cast while using Arctic Beam"
+                "- Frozen Shelter can now be cast while using {AbilityIcon|Ability=Arctic Beam|Size=20} Arctic Beam"
             ],
             "Flame Dash": [
                 "- Holding M1 down while {AbilityIcon|Ability=Flame Dash|Size=20} Flame Dash ends will now cause you to fire your gun instead of requiring you to let go and press again"
@@ -5464,9 +5464,9 @@
             ],
             "Pulse": [
                 "- Weakened Patron now has a Torment {AbilityIcon|Ability=Pulse|Size=20} Pulse style effect, hitting up to 2 enemies in the pit for 75 damage per second",
-                "- Fixed {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse sometimes getting caught on stairs",
-                "- {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse width increased from 4.5m to 5m",
-                "- {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse T3 increased from +115 Damage to +125"
+                "- Fixed Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse sometimes getting caught on stairs",
+                "- Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse width increased from 4.5m to 5m",
+                "- Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse T3 increased from +115 Damage to +125"
             ],
             "Bounce Pad": [
                 "- Added {AbilityIcon|Ability=Bounce Pad|Size=20} Bounce Pads in various areas of the map that launch you in a defined direction",
@@ -5490,9 +5490,9 @@
                 "- {AbilityIcon|Ability=Rejuvenating Aurora|Size=20} Rejuvenating Aurora can now be canceled by using stamina instead of needing to manually exit first (pre T3)"
             ],
             "Kinetic Pulse": [
-                "- Fixed {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse sometimes getting caught on stairs",
-                "- {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse width increased from 4.5m to 5m",
-                "- {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse T3 increased from +115 Damage to +125"
+                "- Fixed Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse sometimes getting caught on stairs",
+                "- Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse width increased from 4.5m to 5m",
+                "- Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse T3 increased from +115 Damage to +125"
             ],
             "Singularity": [
                 "- {AbilityIcon|Ability=Singularity|Size=20} Singularity now has a 0.1s cast point"
@@ -5521,7 +5521,7 @@
                 "- Now has a new ultimate ability, {AbilityIcon|Ability=Air Drop|Size=20} Air Drop. Take flight with an Ally (or self-cast to carry a bomb). You fly and drop the ally or bomb onto an area, dealing damage, slowing, and silencing enemies. Ivy and the ally gain a bullet shield when they are dropped. Allies can drop by themselves at any time. When using the ability without an ally (carrying a bomb), it has a 1 second cast time."
             ],
             "Frozen Shelter": [
-                "- {AbilityIcon|Ability=Frozen Shelter|Size=20} Frozen Shelter can now be cast while using Arctic Beam"
+                "- Frozen Shelter can now be cast while using {AbilityIcon|Ability=Arctic Beam|Size=20} Arctic Beam"
             ],
             "Flog": [
                 "- {AbilityIcon|Ability=Flog|Size=20} Flog cooldown reduced from 30s to 25s",
@@ -5566,7 +5566,7 @@
             "Static Charge": [
                 "- Fixed multiple instances of {AbilityIcon|Ability=Static Charge|Size=20} Static Charge not working correctly",
                 "- {AbilityIcon|Ability=Static Charge|Size=20} Static Charge stun delay reduced from 4s to 3.5s",
-                "- {AbilityIcon|Ability=Binding Word|Size=20} Binding Word now has a quick cast behavior (same as Static Charge)"
+                "- Binding Word now has a quick cast behavior (same as {AbilityIcon|Ability=Static Charge|Size=20} Static Charge)"
             ],
             "Lightning Ball": [
                 "- {AbilityIcon|Ability=Lightning Ball|Size=20} Lightning Ball duration increased from 4s to 5s"
@@ -5600,7 +5600,7 @@
             "Binding Word": [
                 "- {AbilityIcon|Ability=Binding Word|Size=20} Binding Word no longer drains 1 stamina",
                 "- {AbilityIcon|Ability=Binding Word|Size=20} Binding Word immobilize duration reduced from 2s to 1.75",
-                "- {AbilityIcon|Ability=Binding Word|Size=20} Binding Word now has a quick cast behavior (same as Static Charge)"
+                "- Binding Word now has a quick cast behavior (same as {AbilityIcon|Ability=Static Charge|Size=20} Static Charge)"
             ],
             "Alchemical Flask": [
                 "- {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask cooldown reduced from 16s to 13s",
@@ -5899,7 +5899,7 @@
             ],
             "Dynamo": [
                 "- {AbilityIcon|Ability=Rejuvenating Aurora|Size=20} Rejuvenating Aurora can now be canceled by using Parry",
-                "- Fixed {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse not traveling properly when cast near corners",
+                "- Fixed Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse not traveling properly when cast near corners",
                 "- Gun damage reduced from 15 to 13",
                 "- {AbilityIcon|Ability=Singularity|Size=20} Singularity cast time increased from 0.1 to 0.2",
                 "- {AbilityIcon|Ability=Singularity|Size=20} Singularity range reduced from 9m to 8m"
@@ -6056,7 +6056,7 @@
             ],
             "High-Velocity Mag": [
                 "- Bullet Velocity reduced from +35% to +30% (now has an upgrade)",
-                "- Added new T3 Weapon Item, {AbilityIcon|Ability=Headhunter|Size=20} Headhunter: Requires High-Velocity Mag. Grants +50% Bullet Velocity, +15% Weapon Damage and +150 Bullet Shield. Passive cooldown: Landing a headshot on heroes deals bonus +140 Damage, heals you for +8% Max HP and grants +2 m/s for 3 seconds. Cooldown: 6 seconds."
+                "- Added new T3 Weapon Item, Headhunter: Requires {AbilityIcon|Ability=High-Velocity Mag|Size=20} High-Velocity Mag. Grants +50% Bullet Velocity, +15% Weapon Damage and +150 Bullet Shield. Passive cooldown: Landing a headshot on heroes deals bonus +140 Damage, heals you for +8% Max HP and grants +2 m/s for 3 seconds. Cooldown: 6 seconds."
             ],
             "Active Reload": [
                 "- Lifesteal reduced from 30% to 22%",
@@ -6113,7 +6113,7 @@
                 "- Active duration increased from 5s to 6s"
             ],
             "Headhunter": [
-                "- Added new T3 Weapon Item, {AbilityIcon|Ability=Headhunter|Size=20} Headhunter: Requires High-Velocity Mag. Grants +50% Bullet Velocity, +15% Weapon Damage and +150 Bullet Shield. Passive cooldown: Landing a headshot on heroes deals bonus +140 Damage, heals you for +8% Max HP and grants +2 m/s for 3 seconds. Cooldown: 6 seconds."
+                "- Added new T3 Weapon Item, Headhunter: Requires {AbilityIcon|Ability=High-Velocity Mag|Size=20} High-Velocity Mag. Grants +50% Bullet Velocity, +15% Weapon Damage and +150 Bullet Shield. Passive cooldown: Landing a headshot on heroes deals bonus +140 Damage, heals you for +8% Max HP and grants +2 m/s for 3 seconds. Cooldown: 6 seconds."
             ],
             "Siphon Bullets": [
                 "- Weapon Damage reduced from 40% to 28%"
@@ -6151,13 +6151,13 @@
             "Reactive Barrier": [
                 "- Duration reduced from 13s to 9s"
             ],
+            "Leech": [
+                "- {AbilityIcon|Ability=Healing Booster|Size=20} Healing Booster: Now has also 15% Heal Reduction Resist (Leech no longer has it)",
+                "- No longer has 30% Heal Reduction Resist"
+            ],
             "Healing Booster": [
                 "- Now has also 15% Heal Reduction Resist ({AbilityIcon|Ability=Leech|Size=20} Leech no longer has it)",
                 "- No longer has +6% Bullet Resist"
-            ],
-            "Leech": [
-                "- Now has also 15% Heal Reduction Resist ({AbilityIcon|Ability=Leech|Size=20} Leech no longer has it)",
-                "- No longer has 30% Heal Reduction Resist"
             ],
             "Superior Stamina": [
                 "- Air Jump/Dash Distance reduced from +40% to +30%"
@@ -6320,11 +6320,11 @@
             "Rejuvenating Aurora": [
                 "- {AbilityIcon|Ability=Rejuvenating Aurora|Size=20} Rejuvenating Aurora can now be canceled by using Parry"
             ],
-            "Pulse": [
-                "- Fixed {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse not traveling properly when cast near corners"
-            ],
             "Kinetic Pulse": [
-                "- Fixed {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse not traveling properly when cast near corners"
+                "- Fixed Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse not traveling properly when cast near corners"
+            ],
+            "Pulse": [
+                "- Fixed Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse not traveling properly when cast near corners"
             ],
             "Charged Shot": [
                 "- {AbilityIcon|Ability=Charged Shot|Size=20} Charged Shot collision size reduced by 8%",
@@ -6634,7 +6634,7 @@
             "Dynamo": [
                 "- {AbilityIcon|Ability=Rejuvenating Aurora|Size=20} Rejuvenating Aurora no longer gets canceled when stamina is used",
                 "- {AbilityIcon|Ability=Rejuvenating Aurora|Size=20} Rejuvenating Aurora T3 reduced from 4% to 3.8%",
-                "- {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse T1 reduced from 40% slow to 35%",
+                "- Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse T1 reduced from 40% slow to 35%",
                 "- {AbilityIcon|Ability=Quantum Entanglement|Size=20} Quantum Entanglement cooldown increased from 11s to 12s"
             ],
             "Grey Talon": [
@@ -6876,7 +6876,7 @@
             "Healing Rite": [
                 "- Now grants +3 Spirit Power",
                 "- Now requires {AbilityIcon|Ability=Healing Rite|Size=20} Healing Rite",
-                "- No longer requires {AbilityIcon|Ability=Healing Rite|Size=20} Healing Rite"
+                "- {AbilityIcon|Ability=Rescue Beam|Size=20} Rescue Beam: No longer requires Healing Rite"
             ],
             "Spirit Lifesteal": [
                 "- {AbilityIcon|Ability=Enduring Spirit|Size=20} Enduring Spirit: Spirit Lifesteal increased from 8% to 10%"
@@ -6986,14 +6986,14 @@
                 "- Fixed {AbilityIcon|Ability=Seismic Impact|Size=20} Seismic Impact getting stuck on ceilings like in the mid boss room"
             ],
             "Malice": [
-                "- Updated Lady Geist Blood Bomb, Life Drain, Malice, and {AbilityIcon|Ability=Soul Exchange|Size=20} Soul Exchange sounds",
+                "- Updated Lady Geist Blood Bomb, {AbilityIcon|Ability=Life Drain|Size=20} Life Drain, Malice, and Soul Exchange sounds",
                 "- Fixed a recent bug with {AbilityIcon|Ability=Malice|Size=20} Malice that caused multiple blood shards to be absorbed by 1 hero rather than pass through and hit others (it didn't stack that way in any case)"
             ],
-            "Life Drain": [
-                "- Updated Lady Geist Blood Bomb, Life Drain, Malice, and {AbilityIcon|Ability=Soul Exchange|Size=20} Soul Exchange sounds"
-            ],
             "Soul Exchange": [
-                "- Updated Lady Geist Blood Bomb, Life Drain, Malice, and {AbilityIcon|Ability=Soul Exchange|Size=20} Soul Exchange sounds"
+                "- Updated Lady Geist Blood Bomb, {AbilityIcon|Ability=Life Drain|Size=20} Life Drain, Malice, and Soul Exchange sounds"
+            ],
+            "Life Drain": [
+                "- Updated Lady Geist Blood Bomb, {AbilityIcon|Ability=Life Drain|Size=20} Life Drain, Malice, and Soul Exchange sounds"
             ],
             "Shoulder Charge": [
                 "- Added {AbilityIcon|Ability=Shoulder Charge|Size=20} Shoulder Charge wall impact effects",
@@ -7021,11 +7021,11 @@
                 "- {AbilityIcon|Ability=Rejuvenating Aurora|Size=20} Rejuvenating Aurora no longer gets canceled when stamina is used",
                 "- {AbilityIcon|Ability=Rejuvenating Aurora|Size=20} Rejuvenating Aurora T3 reduced from 4% to 3.8%"
             ],
-            "Pulse": [
-                "- {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse T1 reduced from 40% slow to 35%"
-            ],
             "Kinetic Pulse": [
-                "- {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse T1 reduced from 40% slow to 35%"
+                "- Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse T1 reduced from 40% slow to 35%"
+            ],
+            "Pulse": [
+                "- Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse T1 reduced from 40% slow to 35%"
             ],
             "Quantum Entanglement": [
                 "- {AbilityIcon|Ability=Quantum Entanglement|Size=20} Quantum Entanglement cooldown increased from 11s to 12s"
@@ -7409,7 +7409,7 @@
             "General": [],
             "Mirage": [
                 "- Added new hero, {AbilityIcon|Ability=Mirage|Size=20} Mirage.",
-                "- Bots can now choose to play Lady Geist, {AbilityIcon|Ability=Mirage|Size=20} Mirage, Shiv, and Warden"
+                "- Bots can now choose to play Lady Geist, Mirage, Shiv, and {AbilityIcon|Ability=Warden|Size=20} Warden"
             ],
             "Dynamo": [
                 "- Updated {AbilityIcon|Ability=Viscous|Size=20} Viscous icon to look more different from Dynamo",
@@ -7444,7 +7444,7 @@
                 "- Fixed some items that didn't proc before: Tesla Bullets, {AbilityIcon|Ability=Lucky Shot|Size=20} Lucky Shot, Mystic Shot",
                 "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance now more accurately shows who it is shooting",
                 "- Fixed {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance sometimes not obeying line of sight accurately",
-                "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance bullets are now affected by Time Wall",
+                "- Bullet Dance bullets are now affected by {AbilityIcon|Ability=Time Wall|Size=20} Time Wall",
                 "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance evasion reduced from 50% to 25%",
                 "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance fire rate reduced from 25% to 15%"
             ],
@@ -7457,7 +7457,7 @@
             ],
             "Shiv": [
                 "- Turned off a {AbilityIcon|Ability=Shiv|Size=20} Shiv line where he referenced slowing down enemies when he wasn't actually doing so",
-                "- Bots can now choose to play Lady Geist, {AbilityIcon|Ability=Mirage|Size=20} Mirage, Shiv, and Warden",
+                "- Bots can now choose to play Lady Geist, Mirage, Shiv, and {AbilityIcon|Ability=Warden|Size=20} Warden",
                 "- {AbilityIcon|Ability=Slice and Dice|Size=20} Slice and Dice T2 reduced from +85 to +75",
                 "- {AbilityIcon|Ability=Killing Blow|Size=20} Killing Blow Rage buildup per spirit damage reduced from 0.02 to 0.013",
                 "- {AbilityIcon|Ability=Killing Blow|Size=20} Killing Blow Rage drain rate increased from 0.3 to 0.35",
@@ -7485,7 +7485,7 @@
                 "- {AbilityIcon|Ability=Infernus|Size=20} Infernus will no longer appear in every bot match"
             ],
             "Lady Geist": [
-                "- Bots can now choose to play Lady Geist, {AbilityIcon|Ability=Mirage|Size=20} Mirage, Shiv, and Warden",
+                "- Bots can now choose to play Lady Geist, Mirage, Shiv, and {AbilityIcon|Ability=Warden|Size=20} Warden",
                 "- {AbilityIcon|Ability=Life Drain|Size=20} Life Drain cooldown reduced from 42s to 30s",
                 "- {AbilityIcon|Ability=Malice|Size=20} Malice cooldown reduced from 6.25s to 6s",
                 "- {AbilityIcon|Ability=Malice|Size=20} Malice T1 improved from -2.75s Cooldown to -3s",
@@ -7493,7 +7493,7 @@
                 "- Sprint increased from 1 to 1.5"
             ],
             "Warden": [
-                "- Bots can now choose to play Lady Geist, {AbilityIcon|Ability=Mirage|Size=20} Mirage, Shiv, and Warden",
+                "- Bots can now choose to play Lady Geist, Mirage, Shiv, and {AbilityIcon|Ability=Warden|Size=20} Warden",
                 "- {AbilityIcon|Ability=Binding Word|Size=20} Binding Word escape range and escape time increased by 15%",
                 "- {AbilityIcon|Ability=Last Stand|Size=20} Last Stand spirit scaling increased from 0.9 to 1.2"
             ],
@@ -7519,7 +7519,7 @@
                 "- {AbilityIcon|Ability=Burrow|Size=20} Burrow T3 speed reduced from +3 to +2"
             ],
             "Paradox": [
-                "- {AbilityIcon|Ability=Pulse Grenade|Size=20} Pulse Grenade T3 now also grants +2% Damage Amp",
+                "- {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade T3 now also grants +2% Damage Amp",
                 "- Fixed being unable to be damaged by multiple {AbilityIcon|Ability=Time Wall|Size=20} Time Walls"
             ],
             "Pocket": [
@@ -7556,13 +7556,13 @@
         "Items": {
             "General": [],
             "Quicksilver Reload": [
-                "- Fixed Quicksilver Reload bonus damage not working correctly with things like {AbilityIcon|Ability=Scorn|Size=20} Scorn and Flog",
+                "- Fixed Quicksilver Reload bonus damage not working correctly with things like Scorn and {AbilityIcon|Ability=Flog|Size=20} Flog",
                 "- No longer triggers if your ammo is at max value already"
             ],
             "Ricochet": [
                 "- Fixed {AbilityIcon|Ability=Ricochet|Size=20} Ricochet not respecting LOS when picking the targets",
                 "- {AbilityIcon|Ability=Fire Rate|Size=20} Fire Rate reduced from 12% to 10%",
-                "- {AbilityIcon|Ability=Return Fire|Size=20} Return Fire: Fixed Ricochet'd bullets not returning the right amount of damage"
+                "- Fixed {AbilityIcon|Ability=Ricochet|Size=20} Ricochet'd bullets not returning the right amount of damage"
             ],
             "Unstoppable": [
                 "- Updated {AbilityIcon|Ability=Unstoppable|Size=20} Unstoppable effects to be clearer at cast time",
@@ -7591,7 +7591,7 @@
             ],
             "High-Velocity Mag": [
                 "- Bullet Velocity reduced from +30% to +25%",
-                "- Now requires {AbilityIcon|Ability=High-Velocity Mag|Size=20} High-Velocity Mag"
+                "- {AbilityIcon|Ability=Pristine Emblem|Size=20} Pristine Emblem: Now requires High-Velocity Mag"
             ],
             "Restorative Shot": [
                 "- Cooldown reduced from 6.2s to 5.5s"
@@ -7601,7 +7601,7 @@
             ],
             "Headshot Booster": [
                 "- {AbilityIcon|Ability=Fire Rate|Size=20} Fire Rate reduced from +5% to +4%",
-                "- {AbilityIcon|Ability=Headhunter|Size=20} Headhunter: Now requires Headshot Booster"
+                "- Now requires {AbilityIcon|Ability=Headshot Booster|Size=20} Headshot Booster"
             ],
             "Kinetic Dash": [
                 "- {AbilityIcon|Ability=Fire Rate|Size=20} Fire Rate reduced from 25% to 20%",
@@ -7722,10 +7722,10 @@
                 "- Duration reduced from 35s to 30s",
                 "- Max stacks reduced from 12 to 10"
             ],
-            "Health Regen": [
-                "- {AbilityIcon|Ability=Spirit Strike|Size=20} Spirit Strike: No longer grants +0.8 Health Regen"
-            ],
             "Spirit Strike": [
+                "- No longer grants +0.8 {AbilityIcon|Ability=Health Regen|Size=20} Health Regen"
+            ],
+            "Health Regen": [
                 "- No longer grants +0.8 {AbilityIcon|Ability=Health Regen|Size=20} Health Regen"
             ],
             "Mystic Reach": [
@@ -7769,7 +7769,7 @@
             "Refresher": [
                 "- Bullet Resist increased from 8% to 16%",
                 "- Spirit Resist reduced from 16% to 8%",
-                "- {AbilityIcon|Ability=Echo Shard|Size=20} Echo Shard: Now has a 0.3s cast delay (like Refresher)"
+                "- Now has a 0.3s cast delay (like {AbilityIcon|Ability=Refresher|Size=20} Refresher)"
             ],
             "Echo Shard": [
                 "- Now has a 0.3s cast delay (like {AbilityIcon|Ability=Refresher|Size=20} Refresher)"
@@ -7792,11 +7792,11 @@
             "Frozen Shelter": [
                 "- Added frosted shell effect on the rejuv crystal when {AbilityIcon|Ability=Frozen Shelter|Size=20} Frozen Shelter is active"
             ],
-            "Flog": [
-                "- Fixed Quicksilver Reload bonus damage not working correctly with things like {AbilityIcon|Ability=Scorn|Size=20} Scorn and Flog"
-            ],
             "Scorn": [
-                "- Fixed Quicksilver Reload bonus damage not working correctly with things like {AbilityIcon|Ability=Scorn|Size=20} Scorn and Flog"
+                "- Fixed Quicksilver Reload bonus damage not working correctly with things like Scorn and {AbilityIcon|Ability=Flog|Size=20} Flog"
+            ],
+            "Flog": [
+                "- Fixed Quicksilver Reload bonus damage not working correctly with things like Scorn and {AbilityIcon|Ability=Flog|Size=20} Flog"
             ],
             "Flying Cloak": [
                 "- Added timer sound to the last couple seconds of {AbilityIcon|Ability=Flying Cloak|Size=20} Flying Cloak"
@@ -7871,12 +7871,12 @@
             "Bullet Dance": [
                 "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance now more accurately shows who it is shooting",
                 "- Fixed {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance sometimes not obeying line of sight accurately",
-                "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance bullets are now affected by Time Wall",
+                "- Bullet Dance bullets are now affected by {AbilityIcon|Ability=Time Wall|Size=20} Time Wall",
                 "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance evasion reduced from 50% to 25%",
                 "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance fire rate reduced from 25% to 15%"
             ],
             "Time Wall": [
-                "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance bullets are now affected by Time Wall",
+                "- Bullet Dance bullets are now affected by {AbilityIcon|Ability=Time Wall|Size=20} Time Wall",
                 "- Fixed being unable to be damaged by multiple {AbilityIcon|Ability=Time Wall|Size=20} Time Walls"
             ],
             "Stone Form": [
@@ -7921,11 +7921,11 @@
                 "- {AbilityIcon|Ability=Burrow|Size=20} Burrow base speed increased from 3 to 4",
                 "- {AbilityIcon|Ability=Burrow|Size=20} Burrow T3 speed reduced from +3 to +2"
             ],
-            "Pulse": [
-                "- {AbilityIcon|Ability=Pulse Grenade|Size=20} Pulse Grenade T3 now also grants +2% Damage Amp"
-            ],
             "Pulse Grenade": [
-                "- {AbilityIcon|Ability=Pulse Grenade|Size=20} Pulse Grenade T3 now also grants +2% Damage Amp"
+                "- {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade T3 now also grants +2% Damage Amp"
+            ],
+            "Pulse": [
+                "- {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade T3 now also grants +2% Damage Amp"
             ],
             "Affliction": [
                 "- {AbilityIcon|Ability=Affliction|Size=20} Affliction no longer goes through walls, now respects line of sight"
@@ -8132,11 +8132,11 @@
             "Mirage": [
                 "- Urn now drops when teleporting with Mirage's {AbilityIcon|Ability=Traveler|Size=20} Traveler"
             ],
-            "Wraith": [
-                "- Fixed Wraith Cards, {AbilityIcon|Ability=Shiv|Size=20} Shiv Rage and lifesteal from increasing by shooting the shop"
-            ],
             "Shiv": [
-                "- Fixed Wraith Cards, {AbilityIcon|Ability=Shiv|Size=20} Shiv Rage and lifesteal from increasing by shooting the shop"
+                "- Fixed {AbilityIcon|Ability=Wraith|Size=20} Wraith Cards, Shiv Rage and lifesteal from increasing by shooting the shop"
+            ],
+            "Wraith": [
+                "- Fixed {AbilityIcon|Ability=Wraith|Size=20} Wraith Cards, Shiv Rage and lifesteal from increasing by shooting the shop"
             ]
         },
         "Items": {
@@ -8169,7 +8169,7 @@
                 "- Bullet radius reduced from 8 to 6",
                 "- {AbilityIcon|Ability=Tornado|Size=20} Tornado time for victims to reach max height reduced from 0.3s to 0.2s",
                 "- {AbilityIcon|Ability=Tornado|Size=20} Tornado lift duration reduced from 1.2s to 1.1s",
-                "- Fixed Tornado being castable while busy (such as while channeling {AbilityIcon|Ability=Traveler|Size=20} Traveler)",
+                "- Fixed {AbilityIcon|Ability=Tornado|Size=20} Tornado being castable while busy (such as while channeling Traveler)",
                 "- {AbilityIcon|Ability=Djinn's Mark|Size=20} Djinn's Mark T1 now only applies the slow when the multiplier is 2x or higher",
                 "- {AbilityIcon|Ability=Djinn's Mark|Size=20} Djinn's Mark damage is now treated as a DoT in terms of zipline rules (doesn't prevent ziplining or knock you off)",
                 "- Fixed {AbilityIcon|Ability=Djinn's Mark|Size=20} Djinn's Mark applying bullet procs with Return Fire"
@@ -8200,10 +8200,10 @@
             "Tornado": [
                 "- {AbilityIcon|Ability=Tornado|Size=20} Tornado time for victims to reach max height reduced from 0.3s to 0.2s",
                 "- {AbilityIcon|Ability=Tornado|Size=20} Tornado lift duration reduced from 1.2s to 1.1s",
-                "- Fixed Tornado being castable while busy (such as while channeling {AbilityIcon|Ability=Traveler|Size=20} Traveler)"
+                "- Fixed {AbilityIcon|Ability=Tornado|Size=20} Tornado being castable while busy (such as while channeling Traveler)"
             ],
             "Traveler": [
-                "- Fixed Tornado being castable while busy (such as while channeling {AbilityIcon|Ability=Traveler|Size=20} Traveler)"
+                "- Fixed {AbilityIcon|Ability=Tornado|Size=20} Tornado being castable while busy (such as while channeling Traveler)"
             ],
             "Djinn's Mark": [
                 "- {AbilityIcon|Ability=Djinn's Mark|Size=20} Djinn's Mark T1 now only applies the slow when the multiplier is 2x or higher",

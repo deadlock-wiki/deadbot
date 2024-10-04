@@ -68,10 +68,10 @@
         "Dynamo": [
             "- Remastered Abrams, {AbilityIcon|Ability=Pocket|Size=20} Pocket, and Dynamo weapon fire sounds",
             "- {AbilityIcon|Ability=Rejuvenating Aurora|Size=20} Rejuvenating Aurora can now be canceled by using stamina instead of needing to manually exit first (pre T3)",
-            "- Fixed {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse sometimes getting caught on stairs",
+            "- Fixed Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse sometimes getting caught on stairs",
             "- {AbilityIcon|Ability=Singularity|Size=20} Singularity now has a 0.1s cast point",
-            "- {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse width increased from 4.5m to 5m",
-            "- {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse T3 increased from +115 Damage to +125"
+            "- Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse width increased from 4.5m to 5m",
+            "- Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse T3 increased from +115 Damage to +125"
         ],
         "Pocket": [
             "- Remastered Abrams, {AbilityIcon|Ability=Pocket|Size=20} Pocket, and Dynamo weapon fire sounds",
@@ -114,7 +114,7 @@
             "- {AbilityIcon|Ability=Arctic Beam|Size=20} Arctic Beam now slows Fire Rate (same values as slow)",
             "- {AbilityIcon|Ability=Arctic Beam|Size=20} Arctic Beam max slow reduced from 90% to 60%",
             "- {AbilityIcon|Ability=Arctic Beam|Size=20} Arctic Beam time to reach max slow increased from 1.2s to 2s",
-            "- {AbilityIcon|Ability=Frozen Shelter|Size=20} Frozen Shelter can now be cast while using Arctic Beam"
+            "- Frozen Shelter can now be cast while using {AbilityIcon|Ability=Arctic Beam|Size=20} Arctic Beam"
         ],
         "Mo & Krill": [
             "- {AbilityIcon|Ability=Scorn|Size=20} Scorn T3 now affects all damage types"
@@ -158,7 +158,7 @@
             "- {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask T2 changed from -10s Cooldown to Drains 1 Stamina",
             "- {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask T3 now also reduces cooldown by -7s",
             "- {AbilityIcon|Ability=Binding Word|Size=20} Binding Word immobilize duration reduced from 2s to 1.75",
-            "- {AbilityIcon|Ability=Binding Word|Size=20} Binding Word now has a quick cast behavior (same as Static Charge)"
+            "- Binding Word now has a quick cast behavior (same as {AbilityIcon|Ability=Static Charge|Size=20} Static Charge)"
         ],
         "Yamato": [
             "- Base melee damage increased by 10%",
@@ -207,7 +207,7 @@
             "- {AbilityIcon|Ability=Fire Rate|Size=20} Fire Rate reduced from 24% to 20%"
         ],
         "Fire Rate": [
-            "- {AbilityIcon|Ability=Active Reload|Size=20} Active Reload: Fire Rate reduced from 24% to 20%",
+            "- {AbilityIcon|Ability=Fire Rate|Size=20} Fire Rate reduced from 24% to 20%",
             "- {AbilityIcon|Ability=Ricochet|Size=20} Ricochet: Fire Rate increased from +8% to +12%",
             "- {AbilityIcon|Ability=Superior Stamina|Size=20} Superior Stamina: Fire Rate reduced from 10% to 7%",
             "- {AbilityIcon|Ability=Withering Whip|Size=20} Withering Whip: Now applies -40% Fire Rate instead of a Disarm",
@@ -246,7 +246,7 @@
             "- Now grants +15% {AbilityIcon|Ability=Bullet Armor|Size=20} Bullet Armor"
         ],
         "Bullet Armor": [
-            "- Now grants +15% {AbilityIcon|Ability=Bullet Armor|Size=20} Bullet Armor"
+            "- {AbilityIcon|Ability=Point Blank|Size=20} Point Blank: Now grants +15% Bullet Armor"
         ],
         "Escalating Resilience": [
             "- Max Bullet Resist increased from 30% to 36%"
@@ -454,7 +454,7 @@
             "- {AbilityIcon|Ability=Arctic Beam|Size=20} Arctic Beam now slows Fire Rate (same values as slow)",
             "- {AbilityIcon|Ability=Arctic Beam|Size=20} Arctic Beam max slow reduced from 90% to 60%",
             "- {AbilityIcon|Ability=Arctic Beam|Size=20} Arctic Beam time to reach max slow increased from 1.2s to 2s",
-            "- {AbilityIcon|Ability=Frozen Shelter|Size=20} Frozen Shelter can now be cast while using Arctic Beam"
+            "- Frozen Shelter can now be cast while using {AbilityIcon|Ability=Arctic Beam|Size=20} Arctic Beam"
         ],
         "Flame Dash": [
             "- Holding M1 down while {AbilityIcon|Ability=Flame Dash|Size=20} Flame Dash ends will now cause you to fire your gun instead of requiring you to let go and press again"
@@ -491,9 +491,9 @@
         ],
         "Pulse": [
             "- Weakened Patron now has a Torment {AbilityIcon|Ability=Pulse|Size=20} Pulse style effect, hitting up to 2 enemies in the pit for 75 damage per second",
-            "- Fixed {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse sometimes getting caught on stairs",
-            "- {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse width increased from 4.5m to 5m",
-            "- {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse T3 increased from +115 Damage to +125"
+            "- Fixed Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse sometimes getting caught on stairs",
+            "- Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse width increased from 4.5m to 5m",
+            "- Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse T3 increased from +115 Damage to +125"
         ],
         "Bounce Pad": [
             "- Added {AbilityIcon|Ability=Bounce Pad|Size=20} Bounce Pads in various areas of the map that launch you in a defined direction",
@@ -517,9 +517,9 @@
             "- {AbilityIcon|Ability=Rejuvenating Aurora|Size=20} Rejuvenating Aurora can now be canceled by using stamina instead of needing to manually exit first (pre T3)"
         ],
         "Kinetic Pulse": [
-            "- Fixed {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse sometimes getting caught on stairs",
-            "- {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse width increased from 4.5m to 5m",
-            "- {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse T3 increased from +115 Damage to +125"
+            "- Fixed Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse sometimes getting caught on stairs",
+            "- Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse width increased from 4.5m to 5m",
+            "- Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse T3 increased from +115 Damage to +125"
         ],
         "Singularity": [
             "- {AbilityIcon|Ability=Singularity|Size=20} Singularity now has a 0.1s cast point"
@@ -548,7 +548,7 @@
             "- Now has a new ultimate ability, {AbilityIcon|Ability=Air Drop|Size=20} Air Drop. Take flight with an Ally (or self-cast to carry a bomb). You fly and drop the ally or bomb onto an area, dealing damage, slowing, and silencing enemies. Ivy and the ally gain a bullet shield when they are dropped. Allies can drop by themselves at any time. When using the ability without an ally (carrying a bomb), it has a 1 second cast time."
         ],
         "Frozen Shelter": [
-            "- {AbilityIcon|Ability=Frozen Shelter|Size=20} Frozen Shelter can now be cast while using Arctic Beam"
+            "- Frozen Shelter can now be cast while using {AbilityIcon|Ability=Arctic Beam|Size=20} Arctic Beam"
         ],
         "Flog": [
             "- {AbilityIcon|Ability=Flog|Size=20} Flog cooldown reduced from 30s to 25s",
@@ -593,7 +593,7 @@
         "Static Charge": [
             "- Fixed multiple instances of {AbilityIcon|Ability=Static Charge|Size=20} Static Charge not working correctly",
             "- {AbilityIcon|Ability=Static Charge|Size=20} Static Charge stun delay reduced from 4s to 3.5s",
-            "- {AbilityIcon|Ability=Binding Word|Size=20} Binding Word now has a quick cast behavior (same as Static Charge)"
+            "- Binding Word now has a quick cast behavior (same as {AbilityIcon|Ability=Static Charge|Size=20} Static Charge)"
         ],
         "Lightning Ball": [
             "- {AbilityIcon|Ability=Lightning Ball|Size=20} Lightning Ball duration increased from 4s to 5s"
@@ -627,7 +627,7 @@
         "Binding Word": [
             "- {AbilityIcon|Ability=Binding Word|Size=20} Binding Word no longer drains 1 stamina",
             "- {AbilityIcon|Ability=Binding Word|Size=20} Binding Word immobilize duration reduced from 2s to 1.75",
-            "- {AbilityIcon|Ability=Binding Word|Size=20} Binding Word now has a quick cast behavior (same as Static Charge)"
+            "- Binding Word now has a quick cast behavior (same as {AbilityIcon|Ability=Static Charge|Size=20} Static Charge)"
         ],
         "Alchemical Flask": [
             "- {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask cooldown reduced from 16s to 13s",
