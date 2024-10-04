@@ -102,13 +102,13 @@ def main():
         1,
     ]
 
-    if args.decompile or os.getenv('DECOMPILE', False) in true_args:
+    if args.decompile or (os.getenv('DECOMPILE', False) in true_args):
         print('Decompiling source files...')
         decompile.decompile(args.dl_path, args.workdir, args.output, args.decompiler_cmd)
     else:
         print('! Skipping Decompiler !')
 
-    if args.bot_push or os.getenv('BOT_PUSH', False) in true_args:
+    if args.bot_push or (os.getenv('BOT_PUSH', False) in true_args):
         print('Running DeadBot...')
         bot = DeadBot()
         bot.push_lane()
