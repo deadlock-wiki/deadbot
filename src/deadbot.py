@@ -65,7 +65,6 @@ def parse_arguments():
         '--output',
         help='Output directory (also set with OUTPUT_DIR environment variable)',
         default=os.getenv('OUTPUT_DIR', os.path.abspath(os.getcwd()) + '/output-data'),
-        required=True,
     )
     parser.add_argument(
         '--decompiler_cmd',
