@@ -16,3 +16,9 @@ jobs:
       # Update output format to enable automatic inline annotations.
       - name: Run Ruff
         run: ruff check --output-format=github .
+      - name: Run poetry build
+        run: |
+          python3 -m pip install poetry
+          python3 -m poetry install
+          python3 -m poetry check
+          python3 -m poetry build

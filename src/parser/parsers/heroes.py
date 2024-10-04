@@ -26,7 +26,6 @@ class HeroParser:
 
                 hero_stats = {
                     'Name': self.localizations.get(hero_key, None),
-                    'Disabled': hero_value['m_bDisabled'],
                     'BoundAbilities': self._parse_hero_abilities(hero_value),
                     'InDevelopment': hero_value['m_bInDevelopment'],
                     'IsDisabled': hero_value['m_bDisabled'],
@@ -84,7 +83,60 @@ class HeroParser:
 
                 all_hero_stats[hero_key] = json_utils.sort_dict(hero_stats)
 
-        return all_hero_stats
+        # Write meaningful stats to json file
+        meaningful_stats = self._get_meaningful_stats(all_hero_stats)
+
+        return all_hero_stats, meaningful_stats
+
+    def _get_meaningful_stats(self, all_hero_stats):
+        """
+        Gets list of meaningful stats that are non-constant stats.
+
+        Returns meaningful_stats dict
+
+        Meaningful stats are ones that are either scaled by level/power increase, 
+        or have differing base values across the hero pool
+
+        These are displayed on the deadlocked.wiki/Hero_Comparison page, among others in the future.
+        """
+        # Storing in dict with bool entry instead of list so its hashable on the frontend
+
+        heroes_data = all_hero_stats.copy()
+        stats_previous_value = {}
+        meaningful_stats = {}
+
+        # Iterate heroes
+        for hero_key, hero_data in heroes_data.items():
+            # Iterate hero stats
+            for stat_key, stat_value in hero_data.items():
+                # Must not be a container type, nor a bool
+                if isinstance(stat_value, dict) or isinstance(stat_value, list):
+                    continue
+
+                # Ensure the data isn't a localization key
+                if isinstance(stat_value, str) and (
+                    any(str_to_match in stat_value for str_to_match in ['hero_', 'weapon_'])
+                    or stat_key == 'Name'
+                ):
+                    continue
+
+                # Add the stat's value to the dict
+                if stat_key not in stats_previous_value:
+                    stats_previous_value[stat_key] = stat_value
+
+                # If its already tracked, and is different to current value, mark as meaningful
+                else:
+                    if stats_previous_value[stat_key] != stat_value:
+                        meaningful_stats[stat_key] = True
+
+            # If it has any scaling stats, mark them as meaningful
+            scaling_containers = ['LevelScaling', 'SpiritScaling']
+            for scaling_container in scaling_containers:
+                if scaling_container in hero_data:
+                    for level_key in hero_data[scaling_container].keys():
+                        meaningful_stats[level_key] = True
+
+        return meaningful_stats
 
     def _parse_hero_abilities(self, hero_value):
         bound_abilities = hero_value['m_mapBoundAbilities']
@@ -131,7 +183,34 @@ class HeroParser:
         weapon_stats['DPS'] = (
             weapon_stats['BulletDamage']
             * weapon_stats['RoundsPerSecond']
-            * weapon_stats.get('BulletsPerShot', 1)
+            * weapon_stats['BulletsPerShot']
+        )
+
+        # Calc sustained DPS
+        if weapon_stats['ReloadSingle']:
+            # If reloading 1 bullet at a time, reload time is actually per bullet
+            time_to_reload = weapon_stats['ReloadTime'] * weapon_stats['ClipSize']
+        else:
+            time_to_reload = weapon_stats['ReloadTime']
+
+        # All reload actions have ReloadDelay played first,
+        # but typically only single bullet reloads have a non-zero delay
+        # i.e.
+        # ReloadDelay of .5,
+        # ReloadTime of 1,
+        # ClipSize of 10,
+        # =time to reload 1 bullet is 1.5s, time to reload 10 bullets is 10.5s
+        time_to_reload += weapon_stats['ReloadDelay']
+        time_to_empty_clip = weapon_stats['ClipSize'] / weapon_stats['RoundsPerSecond']
+        damage_from_clip = (
+            weapon_stats['BulletDamage'] * weapon_stats['BulletsPerShot'] * weapon_stats['ClipSize']
+        )
+        weapon_stats['SustainedDPS'] = damage_from_clip / (time_to_empty_clip + time_to_reload)
+
+        weapon_stats['WeaponName'] = weapon_prim_id
+        # i.e. citadel_weapon_kelvin_set to citadel_weapon_hero_kelvin_set
+        weapon_stats['WeaponDescription'] = weapon_prim_id.replace(
+            'citadel_weapon_', 'citadel_weapon_hero_'
         )
 
         # Parse weapon types
