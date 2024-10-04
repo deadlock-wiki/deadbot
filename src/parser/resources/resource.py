@@ -6,7 +6,8 @@ import utils.json_utils as json_utils
 import json
 
 class Resource:
-    resource_path = os.path.join(get_config_value('OUTPUT_DIR'), 'resources')
+    output_path = get_config_value('OUTPUT_DIR')
+    resource_path = os.path.join(output_path, 'resources')
 
     # Save all object's of a given class from memory to json file
     @classmethod

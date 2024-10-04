@@ -16,5 +16,5 @@ class Item (resource.Resource):
     
     @classmethod
     def save_chart(cls):
-        with open(cls.resource_path + '/item-component-tree.txt', 'w') as f:
+        with open(cls.output_path + '/item-component-tree.txt', 'w') as f:
             f.write(str(cls.chart))

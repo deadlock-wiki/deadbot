@@ -18,7 +18,7 @@ class Attribute (resource.Resource):
 
     @classmethod
     def save_meaningful_stats(cls):
-        path = cls.resource_path + '/meaningful-stats.json'
+        path = cls.output_path + '/meaningful-stats.json'
         # Ensure it matches the current list of meaningful stats, and raise a warning if not
         # File diff will also appear in git
         if os.path.exists and not json_utils.compare_json_file_to_dict(path, cls.meaningful_stats):
@@ -32,4 +32,4 @@ class Attribute (resource.Resource):
 
     @classmethod
     def save_order_lists(cls):
-        json_utils.write(cls.resource_path+'/stat-infobox-order.json', cls.order_lists)
+        json_utils.write(cls.output_path+'/stat-infobox-order.json', cls.order_lists)
