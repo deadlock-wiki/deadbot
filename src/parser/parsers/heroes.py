@@ -94,7 +94,7 @@ class HeroParser:
 
         Returns meaningful_stats dict
 
-        Meaningful stats are ones that are either scaled by level/power increase, 
+        Meaningful stats are ones that are either scaled by level/power increase,
         or have differing base values across the hero pool
 
         These are displayed on the deadlocked.wiki/Hero_Comparison page, among others in the future.
