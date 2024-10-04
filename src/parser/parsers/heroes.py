@@ -77,6 +77,22 @@ class HeroParser:
                         k: v for k, v in hero_stats['LevelScaling'].items() if v != 0.0
                     }
 
+                # Parse DPS and Sustained DPS level scaling
+                if 'DPS' in weapon_stats:
+                    dps_stats = self._get_dps_stats(weapon_stats)
+                    scaling_containers = ['LevelScaling', 'SpiritScaling']
+                    dps_types = ['burst', 'sustained']
+                    dps_types_localized = ['DPS', 'SustainedDPS']
+
+                    for scaling_container in scaling_containers:
+                        for dps_type, dps_type_localized in zip(dps_types, dps_types_localized):
+                            dps_scaling = self._calc_dps_scaling(
+                                dps_stats, hero_stats[scaling_container], dps_type
+                            )
+
+                            if dps_scaling != 0.0:
+                                hero_stats[scaling_container][dps_type_localized] = dps_scaling
+
                 hero_stats['WeaponName'] = 'citadel_weapon_' + hero_key + '_set'
                 # i.e. citadel_weapon_hero_kelvin_set
                 hero_stats['WeaponDescription'] = hero_stats['WeaponName'] + '_desc'
@@ -180,32 +196,10 @@ class HeroParser:
             #'BulletRadius': w['m_flBulletRadius'] / ENGINE_UNITS_PER_METER,
         }
 
-        weapon_stats['DPS'] = (
-            weapon_stats['BulletDamage']
-            * weapon_stats['RoundsPerSecond']
-            * weapon_stats['BulletsPerShot']
-        )
+        dps_stats = self._get_dps_stats(weapon_stats)
 
-        # Calc sustained DPS
-        if weapon_stats['ReloadSingle']:
-            # If reloading 1 bullet at a time, reload time is actually per bullet
-            time_to_reload = weapon_stats['ReloadTime'] * weapon_stats['ClipSize']
-        else:
-            time_to_reload = weapon_stats['ReloadTime']
-
-        # All reload actions have ReloadDelay played first,
-        # but typically only single bullet reloads have a non-zero delay
-        # i.e.
-        # ReloadDelay of .5,
-        # ReloadTime of 1,
-        # ClipSize of 10,
-        # =time to reload 1 bullet is 1.5s, time to reload 10 bullets is 10.5s
-        time_to_reload += weapon_stats['ReloadDelay']
-        time_to_empty_clip = weapon_stats['ClipSize'] / weapon_stats['RoundsPerSecond']
-        damage_from_clip = (
-            weapon_stats['BulletDamage'] * weapon_stats['BulletsPerShot'] * weapon_stats['ClipSize']
-        )
-        weapon_stats['SustainedDPS'] = damage_from_clip / (time_to_empty_clip + time_to_reload)
+        weapon_stats['DPS'] = self._calc_dps(dps_stats, 'burst')
+        weapon_stats['SustainedDPS'] = self._calc_dps(dps_stats, 'sustained')
 
         weapon_stats['WeaponName'] = weapon_prim_id
         # i.e. citadel_weapon_kelvin_set to citadel_weapon_hero_kelvin_set
@@ -220,6 +214,74 @@ class HeroParser:
             weapon_stats['WeaponTypes'] = ['Attribute_' + wtype for wtype in types]
 
         return weapon_stats
+
+    def _get_dps_stats(self, weapon_stats):
+        """Returns a dictionary of stats used to calculate DPS"""
+        # TODO: These (among others) should be grouped under a "Weapon" key in hero data
+        return {
+            'ReloadSingle': weapon_stats['ReloadSingle'],
+            'ReloadDelay': weapon_stats['ReloadDelay'],
+            'ReloadTime': weapon_stats['ReloadTime'],
+            'ClipSize': weapon_stats['ClipSize'],
+            'RoundsPerSecond': weapon_stats['RoundsPerSecond'],
+            'BulletDamage': weapon_stats['BulletDamage'],
+            'BulletsPerShot': weapon_stats['BulletsPerShot'],
+        }
+
+    def _calc_dps(self, dps_stats, type='burst'):
+        """Calculates Burst or Sustained DPS of a weapon"""
+
+        # All reload actions have ReloadDelay played first,
+        # but typically only single bullet reloads have a non-zero delay
+        # i.e.
+        # ReloadDelay of .5,
+        # ReloadTime of 1,
+        # ClipSize of 10,
+        # =time to reload 1 bullet is 1.5s, time to reload 10 bullets is 10.5s
+
+        # Abbreivated dictionary for easier access
+        d = dps_stats.copy()
+
+        if type == 'burst':
+            return d['BulletDamage'] * d['RoundsPerSecond'] * d['BulletsPerShot']
+
+        elif type == 'sustained':
+            if d['ReloadSingle']:
+                # If reloading 1 bullet at a time, reload time is actually per bullet
+                time_to_reload = d['ReloadTime'] * d['ClipSize']
+            else:
+                time_to_reload = d['ReloadTime']
+            time_to_reload += d['ReloadDelay']
+            time_to_empty_clip = d['ClipSize'] / d['RoundsPerSecond']
+            # More bullets per shot doesn't consume more bullets in the clip, 
+            # so think of it as bullet per bullet
+            damage_from_clip = d['BulletDamage'] * d['BulletsPerShot'] * d['ClipSize']
+            return damage_from_clip / (time_to_empty_clip + time_to_reload)
+
+        else:
+            raise Exception('Invalid DPS type, must be one of: ' + ', '.join(['burst', 'sustained']))
+
+    def _calc_dps_scaling(self, dps_stats_, scalings, type='burst'):
+        """
+        Calc DPS level/spirit scaling based on the scalars.
+
+        i.e. with bullet dmg scaling
+        Dps scaling = dps * bullet dmg scaling / bullet dmg
+        """
+        # Scalings example is the content of SpiritScaling or LevelScaling
+        # Displayed on deadlocked.wiki/Hero_Comparison
+        dps_stats = dps_stats_.copy()
+        dps_stats_scaled = dps_stats_.copy()
+
+        # Increase all stats by the scalar
+        for scalar_key, scalar_value in scalings.items():
+            if scalar_key in dps_stats_scaled:
+                dps_stats_scaled[scalar_key] += scalar_value
+
+        scaled_dps = self._calc_dps(dps_stats_scaled, type)
+        dps = self._calc_dps(dps_stats, type)
+
+        return scaled_dps - dps
 
     def _parse_spirit_scaling(self, hero_value):
         if 'm_mapScalingStats' not in hero_value:
