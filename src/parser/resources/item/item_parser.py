@@ -110,11 +110,8 @@ class ItemParser:
         # Create and save Item objects
         Item.hashToObjs(all_items)
         Item.saveObjects(free_memory=True)
-
-        Item.loadObjects() #if commented out, the following line will throw an error
-        print(Item.objects['armor_upgrade_t4'].getProp('Cost'))
-
-        return (all_items, chart)
+        Item.set_chart(chart)
+        Item.save_chart()
 
     # Add items to mermaid tree
     def _add_children_to_tree(self, parent_key, child_keys):

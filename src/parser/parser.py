@@ -176,18 +176,11 @@ class Parser:
 
     def _parse_items(self):
         print('Parsing Items...')
-        (parsed_items, item_component_chart) = items.ItemParser(
+        items.ItemParser(
             self.data['scripts']['abilities'],
             self.data['scripts']['generic_data'],
             self.localizations[self.language],
         ).run()
-
-        json_utils.write(
-            self.OUTPUT_DIR + '/json/item-data.json', json_utils.sort_dict(parsed_items)
-        )
-
-        with open(self.OUTPUT_DIR + '/item-component-tree.txt', 'w') as f:
-            f.write(str(item_component_chart))
 
     def _parse_attributes(self):
         print('Parsing Attributes...')
