@@ -13,4 +13,4 @@ jobs:
         with:
           event-type: data_sync
           repository: deadlock-wiki/deadlock-data
-          token: ${{GITHUB_TOKEN}}
+          token: ${{github.token}}
