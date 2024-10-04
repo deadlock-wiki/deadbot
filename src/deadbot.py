@@ -94,10 +94,6 @@ def parse_arguments():
         "--bucket",
         help="S3 bucket name to push to (overrides BUCKET environment variable)", 
         default=os.getenv('BUCKET','deadlock-game-files'))
-    parser.add_argument(
-        "-c", "--cleanup", 
-        help="Cleanup output files (overrides CLEANUP environment variable)", 
-        default=os.getenv('CLEANUP',False))
 
     return parser.parse_args()
 
@@ -169,30 +165,7 @@ def main():
     else:
         print('! Skipping Decompiler !')
 
-    if args.bot_push or os.getenv('BOT_PUSH', False) in true_args:
-        print('Running DeadBot...')
-        bot = DeadBot()
-        bot.push_lane()
-    else:
-        print('! Skipping DeadBot !')
-
-
-if __name__ == '__main__':
-
-    args = parse_arguments()
-
-    if args.decompile in [True,"true","True","TRUE"]:
-        print("Decompiling source files...")
-        decompile.decompile(
-            args.dl_path,
-            args.workdir,
-            args.output,
-            args.decompiler_cmd
-        )
-    else:
-        print("! Skipping Decompiler !")
-    
-    if args.parse in [True,"true","True","TRUE"]:
+    if args.parse or os.getenv('PARSE', False) in true_args:
         print("Parsing decompiled files...")
         game_parser = parser.Parser(args.workdir,args.output)
         game_parser.run()
@@ -201,14 +174,13 @@ if __name__ == '__main__':
         csv_writer.export_json_file_to_csv('hero-data', args.output)
     else:
         print("! Skipping Parser !")
-    
-    if args.bot_push in [True,"true","True","TRUE"]:
-        print("Running DeadBot...")
+
+    if args.bot_push or os.getenv('BOT_PUSH', False) in true_args:
+        print('Running DeadBot...')
         bot = DeadBot()
-        bot.run()
+        bot.push_lane()
     else:
-        print("! Skipping DeadBot !")
-    
+        print('! Skipping DeadBot !')
 
     if args.iam_key and args.iam_secret:
         parser.S3(
@@ -218,9 +190,7 @@ if __name__ == '__main__':
             args.iam_secret
         ).write()
 
-    if args.cleanup in [True,"true","True","TRUE"]:
-        cmd = 'rm -rf '+ args.workdir
-        print("Command: "+ cmd)
-        os.system(cmd)
-
     print("\nDone!")
+
+if __name__ == '__main__':
+    main()
