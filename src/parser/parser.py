@@ -89,9 +89,10 @@ class Parser:
             elif group != 'heroes':
                 current_value = self.localizations[language][key]
                 print(
-                    f'Warning: In Key `{key}` with value `{value}` already exists in `{language}` localization '
-                    + f'data with value `{current_value}`.'
+                    f'Warning: In {language} localization under key `{key}`, '
+                    + f'value `{current_value}` was replaced with `{value}`.'
                 )
+                self.localizations[language][key] = value
 
     def run(self):
         print('Parsing...')
