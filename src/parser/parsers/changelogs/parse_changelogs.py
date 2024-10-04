@@ -91,11 +91,6 @@ class ChangelogParser:
 
         return changelog
 
-    def _read_local_logs(self, version):
-        # files just
-        f = open(self.CHANGELOGS_DIR + f'{version}.txt', 'r', encoding='utf8')
-        return f.read()
-
     def _get_resources(self):
         resources = {}
         heroes = json_utils.read(self.OUTPUT_DIR + '/json/hero-data.json')

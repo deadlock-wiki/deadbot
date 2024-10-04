@@ -64,10 +64,10 @@ class ChangelogFetcher:
             os.makedirs(out_dir, exist_ok=True)
         for file in files:
             date = file.replace('.txt', '')
-            with open(self.CHANGELOGS_DIR + f'{version}.txt', 'r', encoding='utf8') as f:
+            with open(self.CHANGELOGS_DIR + f'{date}.txt', 'r', encoding='utf8') as f:
                 changelogs = f.read()
                 self.changelogs_by_date[date] = changelogs
-                with open(self.CHANGELOGS_DIR + f'txt/{version}.txt', 'r', encoding='utf8') as f_out:
+                with open(self.CHANGELOGS_DIR + f'txt/{date}.txt', 'r', encoding='utf8') as f_out:
                     f_out.write(changelogs)
 
     def fetch_changelogs(self, txt_path, rss_feed):
