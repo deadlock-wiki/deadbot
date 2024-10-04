@@ -7,3 +7,8 @@ if [ -f ".env" ]; then
 fi
 
 python3 src/deadbot.py
+
+# cleanup
+if [ "$CLEANUP" = true ]; then
+    rm -r $WORKDIR
+fi
