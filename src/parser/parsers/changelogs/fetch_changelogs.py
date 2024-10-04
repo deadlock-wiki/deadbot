@@ -59,8 +59,9 @@ class ChangelogFetcher:
 
     def fetch_changelogs(self):
         self.changelogs_by_date = {}
-        if self.CHANGELOGS_DIR:
-            self.process_local_changelogs()
         if self.RSS_URL:
             self.fetch_forum_changelogs()
+        # Since txt files run last, they will overwrite any rss logs with matching dates
+        if self.CHANGELOGS_DIR:
+            self.process_local_changelogs()
         return self.changelogs_by_date

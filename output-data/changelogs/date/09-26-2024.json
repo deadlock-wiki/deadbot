@@ -568,7 +568,9 @@
     },
     "General Changes": {
         "General": [
+            "hero_mirage.png",
             "- Added an initial Anti-Cheat detection system. When a user is detected as cheating, during the game session the opponents will be given a choice between banning the user immediately and ending the match or turning the cheater into a frog for the rest of the game and then banning them afterwards. The system is set to conservative detection levels as we work on a v2 anti-cheat system that is more extensive. We will turn on the banning of users in a couple of days after the update is out. When a match is ended this way, the results will not count for other players.",
+            "two_buttons_abrams.png",
             "- Added global quickcast support. You can now configure your abilities and/or items to be on quickcast mode globally. You can also customize each ability individually to be quickcast or not. This also supports grenade style abilities.",
             "- Hero specific keybinds now say the ability name instead of ability 1-4",
             "- Added Zipline hotkey that can be independently bound from space/jump",
@@ -672,13 +674,18 @@
         "General": [
             "- Outer lanes at the middle of the map pushed further away from the inner lanes",
             "- Added connection from canal near the urn platforms through the Radio Station and Apartment buildings",
+            "radio_station_connection.jpg",
             "- Reworked interior corridors of Fish Market/Nursery to exit to the buildings sooner",
             "- Added interior room partition from the Fish Market/Nursery to the Shops",
             "- Moved rope to the Fish Market/Nursery rooftop to the back of the building",
             "- Removed upper interior hallway from rope to the Fish Market/Nursery rooftops",
             "- Moved truck from in front of archway with cosmic veil to the back of the Fish Market/Nursery",
+            "fish_market_changes.jpg",
             "- Redesigned outer lane path (ziplines and trooper nodes) from Walker to Guardian on Amber Yellow and Sapphire Purple",
-            "- Added interior passage beside Subway Entrance to the outer lanes"
+            "amber_yellow_patch.png",
+            "amber_purple_patch.png",
+            "- Added interior passage beside Subway Entrance to the outer lanes",
+            "subway_entrance_connection.jpg "
         ]
     }
 }
