@@ -65,7 +65,7 @@ class AbilityParser:
 
             all_abilities[ability_key] = json_utils.sort_dict(formatted_ability_data)
 
-        Ability.hash_to_objs(all_abilities)
+        Ability.store_resources(all_abilities)
         Ability.save_objects()
 
     def _parse_upgrades(self, ability_data, upgrade_sets):

@@ -106,7 +106,7 @@ class HeroParser:
         # Write meaningful stats to json file
         meaningful_stats = self._get_meaningful_stats(all_hero_stats)
 
-        Hero.hash_to_objs(all_hero_stats)
+        Hero.store_resources(all_hero_stats)
         Hero.save_objects()
         Attribute.meaningful_stats = meaningful_stats
         Attribute.save_meaningful_stats()

@@ -49,7 +49,7 @@ class Resource:
                 obj.data = obj_data
 
     @classmethod
-    def hash_to_objs(cls, hash):
+    def store_resources(cls, hash):
         for key, value in hash.items():
             obj = cls(key)
             obj.data = value

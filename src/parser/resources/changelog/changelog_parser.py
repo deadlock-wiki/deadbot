@@ -30,7 +30,7 @@ class ChangelogParser:
             changelog = self.run(date)
             changelogs_by_date[date] = changelog
 
-        Changelog.hash_to_objs(changelogs_by_date)
+        Changelog.store_resources(changelogs_by_date)
         Changelog.save_objects()
 
         # Changelog rework will be done soon, the above is not necessary currently,

@@ -60,7 +60,7 @@ class AttributeParser:
             if category in all_attributes
         }
 
-        Attribute.hash_to_objs(all_attributes)
+        Attribute.store_resources(all_attributes)
         Attribute.order_lists = order_lists
         Attribute.save_order_lists()
         Attribute.save_objects()

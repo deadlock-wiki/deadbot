@@ -108,7 +108,7 @@ class ItemParser:
         chart = MermaidDiagram(title='Items', nodes=self.nodes, links=self.links)
 
         # Create and save Item objects
-        Item.hash_to_objs(all_items)
+        Item.store_resources(all_items)
         Item.chart = chart
         Item.save_chart()
         Item.save_objects(free_memory=True)

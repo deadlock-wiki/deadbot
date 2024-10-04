@@ -60,7 +60,7 @@ class AbilityUiParser:
 
         # Only write to ability_ui.json for English
         if self.language == 'english':
-            AbilityUI.hash_to_objs(output)
+            AbilityUI.store_resources(output)
             AbilityUI.save_objects()
 
         return self.localization_updates
