@@ -4,6 +4,9 @@ from os import listdir
 from os.path import isfile, join
 import datetime
 from .changelog_objects import Changelog
+from ..hero.hero_objects import Hero
+from ..item.item_objects import Item
+from ..ability.ability_objects import Ability
 
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
@@ -115,9 +118,12 @@ class ChangelogParser:
 
     def _get_resources(self):
         resources = {}
-        heroes = json_utils.read(self.OUTPUT_DIR + '/json/hero-data.json')
-        items = json_utils.read(self.OUTPUT_DIR + '/json/item-data.json')
-        abilities = json_utils.read(self.OUTPUT_DIR + '/json/ability-data.json')
+        Hero.loadObjects()
+        Item.loadObjects()
+        Ability.loadObjects()
+        heroes = Hero.objsToHash()
+        items = Item.objsToHash()
+        abilities = Ability.objsToHash()
 
         for key in heroes:
             heroes[key]['Type'] = 'Heroes'

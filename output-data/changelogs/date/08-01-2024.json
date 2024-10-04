@@ -82,8 +82,8 @@
             "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam spirit scaling increased from 2.2 to 2.4"
         ],
         "Dynamo": [
-            "- Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse width increased from 4m to 4.5m",
-            "- Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse recharge time reduced from 6s to 5s",
+            "- {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse width increased from 4m to 4.5m",
+            "- {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse recharge time reduced from 6s to 5s",
             "- {AbilityIcon|Ability=Rejuvenating Aurora|Size=20} Rejuvenating Aurora regen Spirit Power scaling increased from 0.4 to 0.5"
         ],
         "Grey Talon": [
@@ -183,10 +183,10 @@
         "Siphon Bullets": [
             "- Weapon damage is no longer conditional on 15m, now always gives +40% Weapon Damage (previously gave +45% when close)"
         ],
-        "Spirit Lifesteal": [
-            "- {AbilityIcon|Ability=Spiritual Overflow|Size=20} Spiritual Overflow: Now grants +10% Spirit Lifesteal"
-        ],
         "Spiritual Overflow": [
+            "- Now grants +10% {AbilityIcon|Ability=Spirit Lifesteal|Size=20} Spirit Lifesteal"
+        ],
+        "Spirit Lifesteal": [
             "- Now grants +10% {AbilityIcon|Ability=Spirit Lifesteal|Size=20} Spirit Lifesteal"
         ],
         "Extra Regen": [
@@ -292,14 +292,14 @@
     },
     "Abilities": {
         "General": [],
+        "Quantum Entanglement": [
+            "- Fixed various abilities not showing the cast preview correctly on the first use ({AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets, Quantum Entanglement, etc)"
+        ],
         "Mini Turret": [
-            "- Fixed various abilities not showing the cast preview correctly on the first use (Mini Turrets, {AbilityIcon|Ability=Quantum Entanglement|Size=20} Quantum Entanglement, etc)",
+            "- Fixed various abilities not showing the cast preview correctly on the first use ({AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets, Quantum Entanglement, etc)",
             "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets no longer target immune structures",
             "- Fixed Health Nova not working on {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets (when Health Nova was cast by McGinnis)",
             "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turret base HP increased from +50 to +75"
-        ],
-        "Quantum Entanglement": [
-            "- Fixed various abilities not showing the cast preview correctly on the first use (Mini Turrets, {AbilityIcon|Ability=Quantum Entanglement|Size=20} Quantum Entanglement, etc)"
         ],
         "Ground Strike": [
             "- Fixed Lash's {AbilityIcon|Ability=Ground Strike|Size=20} Ground Strike sometimes causing the hero to be stuck for the rest of the match",
@@ -350,13 +350,13 @@
             "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam duration now scales with Spirit (0.08)",
             "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam spirit scaling increased from 2.2 to 2.4"
         ],
-        "Kinetic Pulse": [
-            "- Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse width increased from 4m to 4.5m",
-            "- Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse recharge time reduced from 6s to 5s"
-        ],
         "Pulse": [
-            "- Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse width increased from 4m to 4.5m",
-            "- Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse recharge time reduced from 6s to 5s"
+            "- {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse width increased from 4m to 4.5m",
+            "- {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse recharge time reduced from 6s to 5s"
+        ],
+        "Kinetic Pulse": [
+            "- {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse width increased from 4m to 4.5m",
+            "- {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse recharge time reduced from 6s to 5s"
         ],
         "Rejuvenating Aurora": [
             "- {AbilityIcon|Ability=Rejuvenating Aurora|Size=20} Rejuvenating Aurora regen Spirit Power scaling increased from 0.4 to 0.5"

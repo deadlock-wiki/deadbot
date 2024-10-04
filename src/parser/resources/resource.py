@@ -51,5 +51,17 @@ class Resource:
             obj = cls(key)
             obj.data = value
 
+    # Placeholder for use in ChangelogsParser
+    # After changelog rework, this will be removed
+    @classmethod
+    def objsToHash(cls):
+        hash = {}
+        for obj_key, obj in cls.objects.items():
+            for attr in obj.__dict__['data']:
+                if obj_key not in hash:
+                    hash[obj_key] = {}
+                hash[obj_key][attr] = obj.data[attr]
+        return hash
+
     def getProp(self, prop):
         return self.data.get(prop, None)

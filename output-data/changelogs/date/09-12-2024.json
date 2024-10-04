@@ -20,7 +20,7 @@
         "Dynamo": [
             "- {AbilityIcon|Ability=Rejuvenating Aurora|Size=20} Rejuvenating Aurora no longer gets canceled when stamina is used",
             "- {AbilityIcon|Ability=Rejuvenating Aurora|Size=20} Rejuvenating Aurora T3 reduced from 4% to 3.8%",
-            "- Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse T1 reduced from 40% slow to 35%",
+            "- {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse T1 reduced from 40% slow to 35%",
             "- {AbilityIcon|Ability=Quantum Entanglement|Size=20} Quantum Entanglement cooldown increased from 11s to 12s"
         ],
         "Grey Talon": [
@@ -262,7 +262,7 @@
         "Healing Rite": [
             "- Now grants +3 Spirit Power",
             "- Now requires {AbilityIcon|Ability=Healing Rite|Size=20} Healing Rite",
-            "- {AbilityIcon|Ability=Rescue Beam|Size=20} Rescue Beam: No longer requires Healing Rite"
+            "- No longer requires {AbilityIcon|Ability=Healing Rite|Size=20} Healing Rite"
         ],
         "Spirit Lifesteal": [
             "- {AbilityIcon|Ability=Enduring Spirit|Size=20} Enduring Spirit: Spirit Lifesteal increased from 8% to 10%"
@@ -372,14 +372,14 @@
             "- Fixed {AbilityIcon|Ability=Seismic Impact|Size=20} Seismic Impact getting stuck on ceilings like in the mid boss room"
         ],
         "Malice": [
-            "- Updated Lady Geist Blood Bomb, {AbilityIcon|Ability=Life Drain|Size=20} Life Drain, Malice, and Soul Exchange sounds",
+            "- Updated Lady Geist Blood Bomb, Life Drain, Malice, and {AbilityIcon|Ability=Soul Exchange|Size=20} Soul Exchange sounds",
             "- Fixed a recent bug with {AbilityIcon|Ability=Malice|Size=20} Malice that caused multiple blood shards to be absorbed by 1 hero rather than pass through and hit others (it didn't stack that way in any case)"
         ],
-        "Soul Exchange": [
-            "- Updated Lady Geist Blood Bomb, {AbilityIcon|Ability=Life Drain|Size=20} Life Drain, Malice, and Soul Exchange sounds"
-        ],
         "Life Drain": [
-            "- Updated Lady Geist Blood Bomb, {AbilityIcon|Ability=Life Drain|Size=20} Life Drain, Malice, and Soul Exchange sounds"
+            "- Updated Lady Geist Blood Bomb, Life Drain, Malice, and {AbilityIcon|Ability=Soul Exchange|Size=20} Soul Exchange sounds"
+        ],
+        "Soul Exchange": [
+            "- Updated Lady Geist Blood Bomb, Life Drain, Malice, and {AbilityIcon|Ability=Soul Exchange|Size=20} Soul Exchange sounds"
         ],
         "Shoulder Charge": [
             "- Added {AbilityIcon|Ability=Shoulder Charge|Size=20} Shoulder Charge wall impact effects",
@@ -407,11 +407,11 @@
             "- {AbilityIcon|Ability=Rejuvenating Aurora|Size=20} Rejuvenating Aurora no longer gets canceled when stamina is used",
             "- {AbilityIcon|Ability=Rejuvenating Aurora|Size=20} Rejuvenating Aurora T3 reduced from 4% to 3.8%"
         ],
-        "Kinetic Pulse": [
-            "- Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse T1 reduced from 40% slow to 35%"
-        ],
         "Pulse": [
-            "- Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse T1 reduced from 40% slow to 35%"
+            "- {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse T1 reduced from 40% slow to 35%"
+        ],
+        "Kinetic Pulse": [
+            "- {AbilityIcon|Ability=Kinetic Pulse|Size=20} Kinetic Pulse T1 reduced from 40% slow to 35%"
         ],
         "Quantum Entanglement": [
             "- {AbilityIcon|Ability=Quantum Entanglement|Size=20} Quantum Entanglement cooldown increased from 11s to 12s"

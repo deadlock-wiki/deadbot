@@ -15,18 +15,18 @@
         ],
         "Vindicta": [
             "- Fixed Vindicta's {AbilityIcon|Ability=Stake|Size=20} Stake sometimes moving units that aren't supposed to be moved",
-            "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade, Warden's Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)",
+            "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's Pulse Grenade, Warden's {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)",
             "- {AbilityIcon|Ability=Crow Familiar|Size=20} Crow Familiar duration spirit power scaling reduced from 0.07 to 0.05",
             "- Gun damage growth increased from 0.7 to 0.85"
         ],
         "Paradox": [
-            "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade, Warden's Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)",
+            "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's Pulse Grenade, Warden's {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)",
             "- Fixed {AbilityIcon|Ability=Time Wall|Size=20} Time Wall projectiles and bullets being stuck in the wall for its full duration instead of for the shorter time stop duration",
             "- {AbilityIcon|Ability=Kinetic Carbine|Size=20} Kinetic Carbine collision radius reduced by 10%",
-            "- Fixed {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade not going where you had targeted if you moved quickly during the cast"
+            "- Fixed {AbilityIcon|Ability=Pulse Grenade|Size=20} Pulse Grenade not going where you had targeted if you moved quickly during the cast"
         ],
         "Ivy": [
-            "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade, Warden's Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)",
+            "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's Pulse Grenade, Warden's {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)",
             "- Base damage growth increased from 0.35 to 0.55",
             "- {AbilityIcon|Ability=Watcher's Covenant|Size=20} Watcher's Covenant replicated healing reduced from 45% to 35%",
             "- {AbilityIcon|Ability=Watcher's Covenant|Size=20} Watcher's Covenant bullet lifesteal now scales with spirit power (0.18)",
@@ -35,16 +35,16 @@
             "- Fixed {AbilityIcon|Ability=Kudzu Bomb|Size=20} Kudzu Bomb not going where you had targeted if you moved quickly during the cast"
         ],
         "Warden": [
-            "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade, Warden's Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)",
+            "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's Pulse Grenade, Warden's {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)",
             "- Reload time no longer scales with spirit power",
             "- Now innately gains additive fire rate from spirit power (scale factor is 0.015)"
         ],
-        "Haze": [
-            "- Global base Ammo increased by 5% (except for {AbilityIcon|Ability=Wraith|Size=20} Wraith and Haze)",
-            "- Ammo scaling with spirit power reduced from 0.6 to 0.5"
-        ],
         "Wraith": [
-            "- Global base Ammo increased by 5% (except for {AbilityIcon|Ability=Wraith|Size=20} Wraith and Haze)"
+            "- Global base Ammo increased by 5% (except for Wraith and {AbilityIcon|Ability=Haze|Size=20} Haze)"
+        ],
+        "Haze": [
+            "- Global base Ammo increased by 5% (except for Wraith and {AbilityIcon|Ability=Haze|Size=20} Haze)",
+            "- Ammo scaling with spirit power reduced from 0.6 to 0.5"
         ],
         "Abrams": [
             "- {AbilityIcon|Ability=Shoulder Charge|Size=20} Shoulder Charge speed increased by 25%",
@@ -112,7 +112,7 @@
             "- Added a brief period before you can press the hotkey again to prevent accidental uses of drop down"
         ],
         "Alchemical Fire": [
-            "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade, Warden's Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)"
+            "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's Pulse Grenade, Warden's {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)"
         ],
         "Headshot Booster": [
             "- Bonus health reduced from +50 to +40"
@@ -151,14 +151,14 @@
         "Titanic Magazine": [
             "- No longer has 10% reload penalty"
         ],
+        "Slowing Bullets": [
+            "- {AbilityIcon|Ability=Silencer|Size=20} Silencer: Now requires Slowing Bullets (total cost from 6500 to 7700)"
+        ],
         "Silencer": [
             "- Now requires {AbilityIcon|Ability=Slowing Bullets|Size=20} Slowing Bullets (total cost from 6500 to 7700)",
             "- Innately gives 25% slow for 1.3s",
             "- Active no longer applies 30% slow for 2s",
             "- Weapon damage reduced from 25% to 15%"
-        ],
-        "Slowing Bullets": [
-            "- Now requires {AbilityIcon|Ability=Slowing Bullets|Size=20} Slowing Bullets (total cost from 6500 to 7700)"
         ],
         "Frenzy": [
             "- Active spirit resist increased from 30% to 40%"
@@ -180,7 +180,7 @@
         ],
         "Bullet Lifesteal": [
             "- Lifesteal increased from 24% to 26%",
-            "- {AbilityIcon|Ability=Bullet Lifesteal|Size=20} Bullet Lifesteal increased from 30% to 35%"
+            "- {AbilityIcon|Ability=Leech|Size=20} Leech: Bullet Lifesteal increased from 30% to 35%"
         ],
         "Health Nova": [
             "- Now grants +10% weapon damage"
@@ -257,7 +257,7 @@
         ],
         "Stake": [
             "- Fixed Vindicta's {AbilityIcon|Ability=Stake|Size=20} Stake sometimes moving units that aren't supposed to be moved",
-            "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade, Warden's Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)"
+            "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's Pulse Grenade, Warden's {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)"
         ],
         "Guided Owl": [
             "- Fixed bugs with {AbilityIcon|Ability=Guided Owl|Size=20} Guided Owl and pause",
@@ -267,33 +267,33 @@
             "- {AbilityIcon|Ability=Guided Owl|Size=20} Guided Owl T1 is now +100 damage",
             "- {AbilityIcon|Ability=Guided Owl|Size=20} Guided Owl collision size reduced"
         ],
-        "Alchemical Flask": [
-            "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade, Warden's Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)"
+        "Pulse": [
+            "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's Pulse Grenade, Warden's {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)",
+            "- Fixed {AbilityIcon|Ability=Pulse Grenade|Size=20} Pulse Grenade not going where you had targeted if you moved quickly during the cast"
         ],
         "Pulse Grenade": [
-            "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade, Warden's Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)",
-            "- Fixed {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade not going where you had targeted if you moved quickly during the cast"
+            "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's Pulse Grenade, Warden's {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)",
+            "- Fixed {AbilityIcon|Ability=Pulse Grenade|Size=20} Pulse Grenade not going where you had targeted if you moved quickly during the cast"
         ],
         "Kudzu Bomb": [
-            "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade, Warden's Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)",
+            "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's Pulse Grenade, Warden's {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)",
             "- Fixed {AbilityIcon|Ability=Kudzu Bomb|Size=20} Kudzu Bomb not going where you had targeted if you moved quickly during the cast"
         ],
-        "Pulse": [
-            "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade, Warden's Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)",
-            "- Fixed {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade not going where you had targeted if you moved quickly during the cast"
-        ],
-        "Concussive Combustion": [
-            "- Fixed ability-based lifesteals not granting life from damage caused to shields (affects things like Hyperbeam T3, Siphon, Scorn, {AbilityIcon|Ability=Life Drain|Size=20} Life Drain, Flog and Concussive Combustion T3)"
-        ],
-        "Scorn": [
-            "- Fixed ability-based lifesteals not granting life from damage caused to shields (affects things like Hyperbeam T3, Siphon, Scorn, {AbilityIcon|Ability=Life Drain|Size=20} Life Drain, Flog and Concussive Combustion T3)",
-            "- Fixed {AbilityIcon|Ability=Scorn|Size=20} Scorn not healing you against shields"
-        ],
-        "Flog": [
-            "- Fixed ability-based lifesteals not granting life from damage caused to shields (affects things like Hyperbeam T3, Siphon, Scorn, {AbilityIcon|Ability=Life Drain|Size=20} Life Drain, Flog and Concussive Combustion T3)"
+        "Alchemical Flask": [
+            "- Fixed the following abilities changing their launch direction if the player snapped their camera quickly during the cast time: Ivy's Kudzu Bomb, Paradox's Pulse Grenade, Warden's {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask, Vindicta's Stake, Alchemical Fire (T3 Weapon item)"
         ],
         "Life Drain": [
-            "- Fixed ability-based lifesteals not granting life from damage caused to shields (affects things like Hyperbeam T3, Siphon, Scorn, {AbilityIcon|Ability=Life Drain|Size=20} Life Drain, Flog and Concussive Combustion T3)"
+            "- Fixed ability-based lifesteals not granting life from damage caused to shields (affects things like Hyperbeam T3, Siphon, {AbilityIcon|Ability=Scorn|Size=20} Scorn, Life Drain, Flog and Concussive Combustion T3)"
+        ],
+        "Concussive Combustion": [
+            "- Fixed ability-based lifesteals not granting life from damage caused to shields (affects things like Hyperbeam T3, Siphon, {AbilityIcon|Ability=Scorn|Size=20} Scorn, Life Drain, Flog and Concussive Combustion T3)"
+        ],
+        "Flog": [
+            "- Fixed ability-based lifesteals not granting life from damage caused to shields (affects things like Hyperbeam T3, Siphon, {AbilityIcon|Ability=Scorn|Size=20} Scorn, Life Drain, Flog and Concussive Combustion T3)"
+        ],
+        "Scorn": [
+            "- Fixed ability-based lifesteals not granting life from damage caused to shields (affects things like Hyperbeam T3, Siphon, {AbilityIcon|Ability=Scorn|Size=20} Scorn, Life Drain, Flog and Concussive Combustion T3)",
+            "- Fixed {AbilityIcon|Ability=Scorn|Size=20} Scorn not healing you against shields"
         ],
         "Shoulder Charge": [
             "- {AbilityIcon|Ability=Shoulder Charge|Size=20} Shoulder Charge speed increased by 25%",

@@ -46,7 +46,7 @@
             "- Fixed certain rooftops allowing turrets to be built on them"
         ],
         "Paradox": [
-            "- Fixed a bug that could cause all of Paradox {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade\u2019s pulses to go off at once",
+            "- Fixed a bug that could cause all of Paradox {AbilityIcon|Ability=Pulse Grenade|Size=20} Pulse Grenade\u2019s pulses to go off at once",
             "- Improved visibility of {AbilityIcon|Ability=Paradox|Size=20} Paradox\u2019s bullet and travel path",
             "- Added custom tracer and muzzle flash for {AbilityIcon|Ability=Paradox|Size=20} Paradox\u2019s gun",
             "- {AbilityIcon|Ability=Kinetic Carbine|Size=20} Kinetic Carbine Max Damage Amp reduced from 125% to 100%",
@@ -77,7 +77,7 @@
             "- Fixed missing VO for {AbilityIcon|Ability=Yamato|Size=20} Yamato ability use/upgrades",
             "- Shadow Explosion renamed to {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation and reworked into a new ability",
             "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation no longer has radius impact behavior",
-            "- Shadow Transformation now gives you 4.5s of invulnerability after the initial 2s invulnerable channel period. You transform and refresh your abilities, improving ability speeds by 60% and gaining unlimited ammo. \"Ability Speeds\" affects {AbilityIcon|Ability=Power Slash|Size=20} Power Slash cast time, Flying Strike flying time, and Crimson Slash cast time.",
+            "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation now gives you 4.5s of invulnerability after the initial 2s invulnerable channel period. You transform and refresh your abilities, improving ability speeds by 60% and gaining unlimited ammo. \"Ability Speeds\" affects Power Slash cast time, Flying Strike flying time, and Crimson Slash cast time.",
             "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation cooldown increased from 90s to 100s",
             "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation T2 is now +4 m/s during Shadow Form",
             "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation T3 is now +1s duration"
@@ -220,11 +220,11 @@
         "Medicinal Specter": [
             "- Fixed upgrading McGinnis\u2019s {AbilityIcon|Ability=Medicinal Specter|Size=20} Medicinal Specter to T3 while active causing it to heal everyone to full instantly"
         ],
-        "Pulse Grenade": [
-            "- Fixed a bug that could cause all of Paradox {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade\u2019s pulses to go off at once"
-        ],
         "Pulse": [
-            "- Fixed a bug that could cause all of Paradox {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade\u2019s pulses to go off at once"
+            "- Fixed a bug that could cause all of Paradox {AbilityIcon|Ability=Pulse Grenade|Size=20} Pulse Grenade\u2019s pulses to go off at once"
+        ],
+        "Pulse Grenade": [
+            "- Fixed a bug that could cause all of Paradox {AbilityIcon|Ability=Pulse Grenade|Size=20} Pulse Grenade\u2019s pulses to go off at once"
         ],
         "Storm Cloud": [
             "- Allies now compliment teammates when they see impressive use of channeled abilities (for instance, Gigawatt killing three people with {AbilityIcon|Ability=Storm Cloud|Size=20} Storm Cloud)"
@@ -317,19 +317,19 @@
         "Shadow Transformation": [
             "- Shadow Explosion renamed to {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation and reworked into a new ability",
             "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation no longer has radius impact behavior",
-            "- Shadow Transformation now gives you 4.5s of invulnerability after the initial 2s invulnerable channel period. You transform and refresh your abilities, improving ability speeds by 60% and gaining unlimited ammo. \"Ability Speeds\" affects {AbilityIcon|Ability=Power Slash|Size=20} Power Slash cast time, Flying Strike flying time, and Crimson Slash cast time.",
+            "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation now gives you 4.5s of invulnerability after the initial 2s invulnerable channel period. You transform and refresh your abilities, improving ability speeds by 60% and gaining unlimited ammo. \"Ability Speeds\" affects Power Slash cast time, Flying Strike flying time, and Crimson Slash cast time.",
             "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation cooldown increased from 90s to 100s",
             "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation T2 is now +4 m/s during Shadow Form",
             "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation T3 is now +1s duration"
         ],
+        "Power Slash": [
+            "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation now gives you 4.5s of invulnerability after the initial 2s invulnerable channel period. You transform and refresh your abilities, improving ability speeds by 60% and gaining unlimited ammo. \"Ability Speeds\" affects Power Slash cast time, Flying Strike flying time, and Crimson Slash cast time."
+        ],
         "Flying Strike": [
-            "- Shadow Transformation now gives you 4.5s of invulnerability after the initial 2s invulnerable channel period. You transform and refresh your abilities, improving ability speeds by 60% and gaining unlimited ammo. \"Ability Speeds\" affects {AbilityIcon|Ability=Power Slash|Size=20} Power Slash cast time, Flying Strike flying time, and Crimson Slash cast time."
+            "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation now gives you 4.5s of invulnerability after the initial 2s invulnerable channel period. You transform and refresh your abilities, improving ability speeds by 60% and gaining unlimited ammo. \"Ability Speeds\" affects Power Slash cast time, Flying Strike flying time, and Crimson Slash cast time."
         ],
         "Crimson Slash": [
-            "- Shadow Transformation now gives you 4.5s of invulnerability after the initial 2s invulnerable channel period. You transform and refresh your abilities, improving ability speeds by 60% and gaining unlimited ammo. \"Ability Speeds\" affects {AbilityIcon|Ability=Power Slash|Size=20} Power Slash cast time, Flying Strike flying time, and Crimson Slash cast time."
-        ],
-        "Power Slash": [
-            "- Shadow Transformation now gives you 4.5s of invulnerability after the initial 2s invulnerable channel period. You transform and refresh your abilities, improving ability speeds by 60% and gaining unlimited ammo. \"Ability Speeds\" affects {AbilityIcon|Ability=Power Slash|Size=20} Power Slash cast time, Flying Strike flying time, and Crimson Slash cast time."
+            "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation now gives you 4.5s of invulnerability after the initial 2s invulnerable channel period. You transform and refresh your abilities, improving ability speeds by 60% and gaining unlimited ammo. \"Ability Speeds\" affects Power Slash cast time, Flying Strike flying time, and Crimson Slash cast time."
         ]
     },
     "General Changes": {
