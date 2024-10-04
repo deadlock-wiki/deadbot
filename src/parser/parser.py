@@ -158,12 +158,9 @@ class Parser:
 
     def _parse_attributes(self):
         print('Parsing Attributes...')
-        (parsed_attributes, attribute_orders) = attributes.AttributeParser(
+        attributes.AttributeParser(
             self.data['scripts']['heroes'], self.localizations[self.language]
         ).run()
-
-        json_utils.write(self.OUTPUT_DIR + '/json/attribute-data.json', parsed_attributes)
-        json_utils.write(self.OUTPUT_DIR + '/json/stat-infobox-order.json', attribute_orders)
 
     def _parse_changelogs(self):
         print('Parsing Changelogs...')

@@ -62,9 +62,8 @@ class AttributeParser:
 
         Attribute.hashToObjs(all_attributes)
         Attribute.order_lists = order_lists
+        Attribute.save_order_lists()
         Attribute.saveObjects()
-
-        return (all_attributes, order_lists)
 
     def _map_to_unlocalized(self, all_attributes):
         """

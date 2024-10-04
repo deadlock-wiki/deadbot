@@ -32,4 +32,4 @@ class Attribute (resource.Resource):
 
     @classmethod
     def save_order_lists(cls):
-        json_utils.write(cls.order_lists)
+        json_utils.write(cls.resource_path+'/stat-infobox-order.json', cls.order_lists)
