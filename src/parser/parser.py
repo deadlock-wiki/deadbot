@@ -7,7 +7,7 @@ from resources.changelog import changelog_parser as changelogs
 from resources.hero import hero_parser as heroes
 from resources.item import item_parser as items
 from resources.localization import localization_parser as localizations
-from parsers import ability_ui
+from resources.ability import abilityui_parser
 
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -103,7 +103,7 @@ class Parser:
         print('Parsing...')
         self._parse_abilities()
         self._parse_heroes()
-        #self._parsed_ability_ui(parsed_heroes)
+        self._parse_ability_ui()
         self._parse_items()
         self._parse_attributes()
         self._parse_changelogs()
@@ -131,22 +131,16 @@ class Parser:
         ).run()
 
 
-    def _parsed_ability_ui(self, parsed_heroes):
+    def _parse_ability_ui(self):
         print('Parsing Ability UI...')
 
         for language in self.languages:
-            (parsed_ability_ui, changed_localizations) = ability_ui.AbilityUiParser(
+            changed_localizations = abilityui_parser.AbilityUiParser(
                 self.data['scripts']['abilities'],
-                parsed_heroes,
                 language,
                 self.localizations,
             ).run()
-
             self.localizations[language].update(changed_localizations)
-
-            # Only write to ability_ui.json for English
-            if language == 'english':
-                json_utils.write(self.OUTPUT_DIR + '/json/ability_ui.json', parsed_ability_ui)
 
     def _parse_items(self):
         print('Parsing Items...')

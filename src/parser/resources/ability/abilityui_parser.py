@@ -1,5 +1,7 @@
 import sys
 import os
+from .ability_objects import AbilityUI
+from ..hero.hero_objects import Hero
 
 # bring parent modules in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
@@ -9,7 +11,7 @@ import utils.string_utils as string_utils
 
 class AbilityUiParser:
     """
-    Takes in parsed hero data (hero-data.json) and for each hero, format their abilities for
+    Takes in parsed hero_data data (hero_data-data.json) and for each hero_data, format their abilities for
     display in the Wiki Ability Cards
     This is with the aim of matching the in-game layout
 
@@ -29,9 +31,10 @@ class AbilityUiParser:
     top corners of the ability card
     """
 
-    def __init__(self, abilities, parsed_heroes, language, localizations):
+    def __init__(self, abilities, language, localizations):
         self.abilities = abilities
-        self.parsed_heroes = parsed_heroes
+        Hero.loadObjects()
+        self.parsed_heroes = Hero.objects
         self.language = language
         self.localizations = localizations
         self.localization_updates = {}
@@ -39,12 +42,13 @@ class AbilityUiParser:
     def run(self):
         output = {}
         for self.hero_key, hero in self.parsed_heroes.items():
+            hero_data = hero.data
             # skip disabled heroes
-            if hero['IsDisabled']:
+            if hero_data['IsDisabled']:
                 continue
 
-            hero_abilities = {'Name': hero['Name']}
-            for self.ability_index, ability in hero['BoundAbilities'].items():
+            hero_abilities = {'Name': hero_data['Name']}
+            for self.ability_index, ability in hero_data['BoundAbilities'].items():
                 try:
                     parsed_ui = self._parse_ability_ui(ability)
                     if parsed_ui is not None:
@@ -54,7 +58,14 @@ class AbilityUiParser:
 
             output[self.hero_key] = hero_abilities
 
-        return (output, self.localization_updates)
+        # Only write to ability_ui.json for English
+        if self.language == 'english':
+            AbilityUI.hashToObjs(output)
+            AbilityUI.saveObjects()
+
+        return self.localization_updates
+
+        
 
     def _parse_ability_ui(self, parsed_ability):
         parsed_ui = {
@@ -82,7 +93,7 @@ class AbilityUiParser:
         raw_ability = self.abilities[parsed_ability['Key']]
 
         # Some heroes do not have ui information, so are likely unplayable or in development
-        # TODO - a check for if hero is in development to make sure
+        # TODO - a check for if hero_data is in development to make sure
         if 'm_AbilityTooltipDetails' not in raw_ability:
             return None
 
