@@ -15,7 +15,7 @@ class HeroParser:
     def __init__(self, hero_data, abilities_data, localizations):
         self.hero_data = hero_data
         self.abilities_data = abilities_data
-        Ability.loadObjects()
+        Ability.load_objects()
         self.parsed_abilities = Ability.objects
         self.localizations = localizations
 
@@ -106,8 +106,8 @@ class HeroParser:
         # Write meaningful stats to json file
         meaningful_stats = self._get_meaningful_stats(all_hero_stats)
 
-        Hero.hashToObjs(all_hero_stats)
-        Hero.saveObjects()
+        Hero.hash_to_objs(all_hero_stats)
+        Hero.save_objects()
         Attribute.meaningful_stats = meaningful_stats
         Attribute.save_meaningful_stats()
 

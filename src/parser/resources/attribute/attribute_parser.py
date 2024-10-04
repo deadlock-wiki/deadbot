@@ -60,10 +60,10 @@ class AttributeParser:
             if category in all_attributes
         }
 
-        Attribute.hashToObjs(all_attributes)
+        Attribute.hash_to_objs(all_attributes)
         Attribute.order_lists = order_lists
         Attribute.save_order_lists()
-        Attribute.saveObjects()
+        Attribute.save_objects()
 
     def _map_to_unlocalized(self, all_attributes):
         """

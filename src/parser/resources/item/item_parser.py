@@ -108,10 +108,10 @@ class ItemParser:
         chart = MermaidDiagram(title='Items', nodes=self.nodes, links=self.links)
 
         # Create and save Item objects
-        Item.hashToObjs(all_items)
+        Item.hash_to_objs(all_items)
         Item.chart = chart
         Item.save_chart()
-        Item.saveObjects(free_memory=True)
+        Item.save_objects(free_memory=True)
 
     # Add items to mermaid tree
     def _add_children_to_tree(self, parent_key, child_keys):

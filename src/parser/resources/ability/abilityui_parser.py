@@ -33,7 +33,7 @@ class AbilityUiParser:
 
     def __init__(self, abilities, language, localizations):
         self.abilities = abilities
-        Hero.loadObjects()
+        Hero.load_objects()
         self.parsed_heroes = Hero.objects
         self.language = language
         self.localizations = localizations
@@ -60,8 +60,8 @@ class AbilityUiParser:
 
         # Only write to ability_ui.json for English
         if self.language == 'english':
-            AbilityUI.hashToObjs(output)
-            AbilityUI.saveObjects()
+            AbilityUI.hash_to_objs(output)
+            AbilityUI.save_objects()
 
         return self.localization_updates
 

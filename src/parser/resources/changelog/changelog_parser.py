@@ -30,8 +30,8 @@ class ChangelogParser:
             changelog = self.run(date)
             changelogs_by_date[date] = changelog
 
-        Changelog.hashToObjs(changelogs_by_date)
-        Changelog.saveObjects()
+        Changelog.hash_to_objs(changelogs_by_date)
+        Changelog.save_objects()
 
         # Changelog rework will be done soon, the above is not necessary currently,
         # just used for illustration purposes and completionsim currently
@@ -118,12 +118,12 @@ class ChangelogParser:
 
     def _get_resources(self):
         resources = {}
-        Hero.loadObjects()
-        Item.loadObjects()
-        Ability.loadObjects()
-        heroes = Hero.objsToHash()
-        items = Item.objsToHash()
-        abilities = Ability.objsToHash()
+        Hero.load_objects()
+        Item.load_objects()
+        Ability.load_objects()
+        heroes = Hero.objs_to_hash()
+        items = Item.objs_to_hash()
+        abilities = Ability.objs_to_hash()
 
         for key in heroes:
             heroes[key]['Type'] = 'Heroes'

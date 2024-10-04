@@ -18,7 +18,7 @@ class Localization(resource.Resource):
 
     # Override
     @classmethod
-    def saveObjects(cls, free_memory=True):
+    def save_objects(cls, free_memory=True):
         localization_path = os.path.join(cls.resource_path, 'localizations')
         for lang, lang_obj in cls.objects.items():
             json_utils.write(os.path.join(localization_path, lang + '.json'), lang_obj.data)
@@ -27,7 +27,7 @@ class Localization(resource.Resource):
             cls.objects = {}
 
     @classmethod
-    def loadObjects(cls):
+    def load_objects(cls):
         localization_path = os.path.join(cls.resource_path, 'localizations')
         os.makedirs(localization_path, exist_ok=True)
 

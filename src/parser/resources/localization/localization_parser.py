@@ -17,6 +17,6 @@ class LocalizationParser:
         all_localizations = {}
         for language, language_data in self.localizations_data.items():
             all_localizations[language] = json_utils.sort_dict(language_data)
-        Localization.hashToObjs(json_utils.sort_dict(all_localizations))
+        Localization.hash_to_objs(json_utils.sort_dict(all_localizations))
         # Localization.save_all_langs()
-        Localization.saveObjects()
+        Localization.save_objects()

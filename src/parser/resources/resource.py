@@ -13,7 +13,7 @@ class Resource:
 
     # Save all object's of a given class from memory to json file
     @classmethod
-    def saveObjects(cls, free_memory=True):
+    def save_objects(cls, free_memory=True):
         class_name_str = cls.__name__
 
         os.makedirs(Resource.resource_path, exist_ok=True)
@@ -35,7 +35,7 @@ class Resource:
 
     # Load all object's of a given class from json file to memory
     @classmethod
-    def loadObjects(cls):
+    def load_objects(cls):
         class_name_str = cls.__name__
 
         os.makedirs(Resource.resource_path, exist_ok=True)
@@ -49,7 +49,7 @@ class Resource:
                 obj.data = obj_data
 
     @classmethod
-    def hashToObjs(cls, hash):
+    def hash_to_objs(cls, hash):
         for key, value in hash.items():
             obj = cls(key)
             obj.data = value
@@ -57,7 +57,7 @@ class Resource:
     # Placeholder for use in ChangelogsParser
     # After changelog rework, this will be removed
     @classmethod
-    def objsToHash(cls):
+    def objs_to_hash(cls):
         hash = {}
         for obj_key, obj in cls.objects.items():
             for attr in obj.__dict__['data']:
@@ -66,5 +66,5 @@ class Resource:
                 hash[obj_key][attr] = obj.data[attr]
         return hash
 
-    def getProp(self, prop):
+    def get_prop(self, prop):
         return self.data.get(prop, None)
