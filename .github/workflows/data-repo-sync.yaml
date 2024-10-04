@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger data repo to sync
+        # https://github.com/marketplace/actions/repository-dispatch
         uses: peter-evans/repository-dispatch@v3
         with:
           event-type: data_sync
