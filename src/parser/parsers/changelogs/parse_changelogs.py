@@ -1,67 +1,23 @@
 import sys
 import os
-from os import listdir
-from os.path import isfile, join
-from html.parser import HTMLParser
 import datetime
-import feedparser
+import fetch_changelogs
 
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import utils.json_utils as json_utils
 
-from .constants import OUTPUT_DIR
-
-
-
-class HTMLTagRemover(HTMLParser):
-    # https://www.slingacademy.com/article/python-ways-to-remove-html-tags-from-a-string#Using_HTMLParser
-    def __init__(self):
-        super().__init__()
-        self.result = []
-
-    def handle_data(self, data):
-        self.result.append(data)
-
-    def get_text(self):
-        return ''.join(self.result)
-
 
 class ChangelogParser:
-    def __init__(self):
+    def __init__(self, output_dir):
         self.CHANGELOGS_DIR = os.path.join(os.path.dirname(__file__), '../raw-changelogs/')
-        self.OUTPUT_DIR = OUTPUT_DIR
+        self.OUTPUT_DIR = output_dir
         self.OUTPUT_CHANGELOGS = self.OUTPUT_DIR + '/changelogs'
         self.resources = self._get_resources()
 
-    # download rss feed from changelog forum and parse entries
-    def fetch_forum_changelogs(self):
-        print('Fetching Changelog RSS feed')
-        # Forum Link: https://forums.playdeadlock.com/forums/changelog.10/
-        f_url = 'https://forums.playdeadlock.com/forums/changelog.10/index.rss'
-        # fetches first page, last 20 entries date-wise
-        feed = feedparser.parse(f_url)
-        for entry in feed.entries:
-            # Dependent on thread title being in the format "mm-dd-yyyy Update"
-            date = entry.title.replace(' Update', '')
-            html_remover = HTMLTagRemover()
-            # Potential for more than one post, we just grab the first
-            html_remover.feed(entry.content[0].value)
-            self.changelogs_by_date[date] = self.run(date, html_remover.get_text())
-
-    def process_local_changelogs(self):
-        files = [f for f in listdir(self.CHANGELOGS_DIR) if isfile(join(self.CHANGELOGS_DIR, f))]
-        for file in files:
-            date = file.replace('.txt', '')
-            changelog = self.run(date, self._read_local_logs(date))
-            self.changelogs_by_date[date] = changelog
-
-    def run_all(self, fetch_rss=False):
-        self.changelogs_by_date = {}
-        if fetch_rss:
-            self.fetch_forum_changelogs()
-        self.process_local_changelogs()
-
+    def run_all(self, txt=True, rss=True):
+        for key, val in fetch_changelogs.ChangelogFetcher(self.OUTPUT_DIR).items():
+            self.changelogs_by_date[key] = self.run(key, val)
         # take parsed changelogs and transform them into some other useful formats
         self._create_resource_changelogs()
         self._create_changelog_db_data()

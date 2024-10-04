@@ -124,9 +124,9 @@ class Parser:
             self.OUTPUT_DIR + '/json/hero-meaningful-stats.json', parsed_meaningful_stats
         ):
             print(
-                "Warning: Non-constant stats have changed. " + 
-                "Please update [[Module:HeroData]]'s write_hero_comparison_table " +
-                "lua function for the [[Hero Comparison]] page."
+                'Warning: Non-constant stats have changed. '
+                + "Please update [[Module:HeroData]]'s write_hero_comparison_table "
+                + 'lua function for the [[Hero Comparison]] page.'
             )
 
         json_utils.write(
@@ -195,7 +195,7 @@ class Parser:
 
     def _parse_changelogs(self):
         print('Parsing Changelogs...')
-        changelogs.ChangelogParser().run_all(fetch_rss=True)
+        changelogs.ChangelogParser(self.OUTPUT_DIR).run_all()
 
 
 if __name__ == '__main__':
