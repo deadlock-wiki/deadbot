@@ -226,7 +226,7 @@ class HeroParser:
 
     def _get_dps_stats(self, weapon_stats):
         """Returns a dictionary of stats used to calculate DPS"""
-        # TODO: These should be grouped under a "Weapon" key in hero data, among other things
+        # TODO: These (among others) should be grouped under a "Weapon" key in hero data
         return {
             'ReloadSingle': weapon_stats['ReloadSingle'],
             'ReloadDelay': weapon_stats['ReloadDelay'],
@@ -262,7 +262,7 @@ class HeroParser:
                 time_to_reload = d['ReloadTime']
             time_to_reload += d['ReloadDelay']
             time_to_empty_clip = d['ClipSize'] / d['RoundsPerSecond']
-            # More bullets per shot doesn't consume more bullets in the clip,
+            # More bullets per shot doesn't consume more bullets in the clip, 
             # so think of it as bullet per bullet
             damage_from_clip = d['BulletDamage'] * d['BulletsPerShot'] * d['ClipSize']
             return damage_from_clip / (time_to_empty_clip + time_to_reload)
@@ -277,8 +277,8 @@ class HeroParser:
         i.e. with bullet dmg scaling
         Dps scaling = dps * bullet dmg scaling / bullet dmg
         """
-        # Scalars i.e content of SpiritScaling
-        # Mostly so it can be displayed on deadlocked.wiki/Hero_Comparison
+        # Scalings example is the content of SpiritScaling or LevelScaling
+        # Displayed on deadlocked.wiki/Hero_Comparison
         dps_stats = dps_stats_.copy()
         dps_stats_scaled = dps_stats_.copy()
 
@@ -287,7 +287,6 @@ class HeroParser:
             if scalar_key in dps_stats_scaled:
                 dps_stats_scaled[scalar_key] += scalar_value
 
-        # unscaled_dps = self._calc_dps(dps_stats_, type)
         scaled_dps = self._calc_dps(dps_stats_scaled, type)
         dps = self._calc_dps(dps_stats, type)
 
