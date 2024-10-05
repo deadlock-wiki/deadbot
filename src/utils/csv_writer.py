@@ -1,8 +1,5 @@
 import pandas as pd
 import os
-from dotenv import load_dotenv
-
-load_dotenv()
 
 def export_json_file_to_csv(file_name, OUTPUT_DIR):
     os.makedirs(f'{OUTPUT_DIR}/json',exist_ok=True)
