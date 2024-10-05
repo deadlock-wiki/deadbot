@@ -9,7 +9,7 @@ import resources.resource as resource
 class Changelog(resource.Resource):
     objects = {}
 
-    # changelog restructure will require most of this to change, 
+    # changelog restructure will require most of this to change,
     # these attributes are placeholders
     def __init__(self, key):
         self.Key = key

@@ -12,12 +12,12 @@ class Item(resource.Resource):
 
     def __init__(self, key):
         self.Key = key
-        self.Name = ""
-        self.Description = ""
-        self.Cost = ""
-        self.Tier = ""
-        self.Activation = ""
-        self.Slot = ""
+        self.Name = ''
+        self.Description = ''
+        self.Cost = ''
+        self.Tier = ''
+        self.Activation = ''
+        self.Slot = ''
         self.Components = []
         self.TargetTypes = []
         self.ShopFilters = []

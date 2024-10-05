@@ -11,14 +11,14 @@ class Hero(resource.Resource):
 
     def __init__(self, key):
         self.Key = key
-        self.Name = ""
+        self.Name = ''
         self.LevelScaling = {}
         self.SpiritScaling = {}
-        self.Lore = ""
-        self.Role = ""
-        self.Playstyle = ""
+        self.Lore = ''
+        self.Role = ''
+        self.Playstyle = ''
         self.BoundAbilities = []
-        
+
         self.InDevelopment = None
         self.IsDisabled = None
 

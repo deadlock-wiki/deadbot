@@ -177,9 +177,9 @@ class HeroParser:
             bound_ability_obj = self.parsed_abilities[bound_ability_key]
             # Later, we need to restructure how heros reference ability data, this is a temporary fix
             bound_ability_hash = {}
-            bound_ability_hash["Key"] = bound_ability_obj.Key
-            bound_ability_hash["Name"] = bound_ability_obj.Name
-            bound_ability_hash["Upgrades"] = bound_ability_obj.Upgrades
+            bound_ability_hash['Key'] = bound_ability_obj.Key
+            bound_ability_hash['Name'] = bound_ability_obj.Name
+            bound_ability_hash['Upgrades'] = bound_ability_obj.Upgrades
             for key, value in bound_ability_obj.Data.items():
                 bound_ability_hash[key] = value
             abilities[ability_position] = bound_ability_hash
@@ -273,7 +273,7 @@ class HeroParser:
                 time_to_reload = d['ReloadTime']
             time_to_reload += d['ReloadDelay']
             time_to_empty_clip = d['ClipSize'] / d['RoundsPerSecond']
-            # More bullets per shot doesn't consume more bullets in the clip, 
+            # More bullets per shot doesn't consume more bullets in the clip,
             # so think of it as bullet per bullet
             damage_from_clip = d['BulletDamage'] * d['BulletsPerShot'] * d['ClipSize']
             return damage_from_clip / (time_to_empty_clip + time_to_reload)

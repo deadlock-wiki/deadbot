@@ -11,7 +11,7 @@ class Ability(resource.Resource):
 
     def __init__(self, key):
         self.Key = key
-        self.Name = ""
+        self.Name = ''
         self.Upgrades = []
         self.Data = {}
 
@@ -23,7 +23,7 @@ class AbilityUI(resource.Resource):
 
     def __init__(self, key):
         self.Key = key
-        self.Name = ""
+        self.Name = ''
         self.Data = {}
 
         AbilityUI.objects[key] = self

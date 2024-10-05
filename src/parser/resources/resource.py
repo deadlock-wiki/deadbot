@@ -11,12 +11,12 @@ class Resource:
     output_path = get_config_value('OUTPUT_DIR')
     resource_path = os.path.join(output_path, 'resources')
 
-    
     @classmethod
     def save_objects(cls, move_data_attr_up_layer=False, free_memory=True):
         """
         Save all object's of a given class from memory to json file
-        :param move_data_attr_up_layer: If False, doesn't move the data attribute up a layer in the json file
+        :param move_data_attr_up_layer: If False, doesn't move the data 
+        attribute up a layer in the json file
         :param free_memory: If True, clears the objects hash after saving
         """
 
@@ -90,7 +90,7 @@ class Resource:
                     else:
                         obj.Data[attr] = obj_data[attr]
 
-    # Store all object's of a given class from a hash to memory, 
+    # Store all object's of a given class from a hash to memory,
     # where 1st level is the object key, and 2nd level is its attributes
     @classmethod
     def store_resources(cls, hash):
