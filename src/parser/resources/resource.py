@@ -11,9 +11,40 @@ class Resource:
     output_path = get_config_value('OUTPUT_DIR')
     resource_path = os.path.join(output_path, 'resources')
 
-    # Save all object's of a given class from memory to json file
+    
     @classmethod
-    def save_objects(cls, free_memory=True):
+    def save_objects(cls, move_data_attr_up_layer=False, free_memory=True):
+        """
+        Save all object's of a given class from memory to json file
+        :param move_data_attr_up_layer: If False, doesn't move the data attribute up a layer in the json file
+        :param free_memory: If True, clears the objects hash after saving
+        """
+
+        """
+        move_data_attr_up_layer = False (default)
+        {
+            obj_key: {
+                Key: obj_key,
+                attr1: value,
+                attr2: value,
+                ...
+                Data: {
+                    unassigned_attr1: value
+                }
+            },
+        }
+
+        move_data_attr_up_layer = True
+        {
+            obj_key: {
+                Key: obj_key,
+                attr1: value,
+                attr2: value,
+                ...
+                unassigned_attr1: value
+            },
+        }
+        """
         class_name_str = cls.__name__
 
         os.makedirs(Resource.resource_path, exist_ok=True)
@@ -22,10 +53,14 @@ class Resource:
         # Convert hash of objects to hash of hashes
         hash = {}
         for obj_key, obj in cls.objects.items():
-            for attr in obj.__dict__['data']:
-                if obj_key not in hash:
-                    hash[obj_key] = {}
-                hash[obj_key][attr] = obj.data[attr]
+            if move_data_attr_up_layer:
+                hash[obj_key] = obj.__dict__
+                hash[obj_key].update(obj.Data)
+                hash[obj_key].pop('Data', None)
+            else:
+                hash[obj_key] = obj.__dict__
+            # Remove 'Key' attribute
+            hash[obj_key].pop('Key', None)
 
         # Write to file
         json_utils.write(path, hash)
@@ -36,6 +71,9 @@ class Resource:
     # Load all object's of a given class from json file to memory
     @classmethod
     def load_objects(cls):
+        """
+        Load all object's of a given class from json file to memory
+        """
         class_name_str = cls.__name__
 
         os.makedirs(Resource.resource_path, exist_ok=True)
@@ -46,25 +84,35 @@ class Resource:
             data = json.load(json_file)
             for obj_key, obj_data in data.items():
                 obj = cls(obj_key)
-                obj.data = obj_data
+                for attr in obj_data:
+                    if attr in obj.__dict__:
+                        setattr(obj, attr, obj_data[attr])
+                    else:
+                        obj.Data[attr] = obj_data[attr]
 
+    # Store all object's of a given class from a hash to memory, 
+    # where 1st level is the object key, and 2nd level is its attributes
     @classmethod
     def store_resources(cls, hash):
-        for key, value in hash.items():
-            obj = cls(key)
-            obj.data = value
+        for obj_key, obj_data in hash.items():
+            obj = cls(obj_key)
+            for key, value in obj_data.items():
+                # If the key is an attribute the object has, store it in the attribute
+                if key in obj.__dict__:
+                    setattr(obj, key, value)
+                else:
+                    # Otherwise put it in the data attribute
+                    obj.Data[key] = value
 
     # Placeholder for use in ChangelogsParser
     # After changelog rework, this will be removed
     @classmethod
     def objs_to_hash(cls):
         hash = {}
+        # Iterate objects
         for obj_key, obj in cls.objects.items():
-            for attr in obj.__dict__['data']:
-                if obj_key not in hash:
-                    hash[obj_key] = {}
-                hash[obj_key][attr] = obj.data[attr]
+            hash[obj_key] = obj.__dict__
         return hash
 
     def get_prop(self, prop):
-        return self.data.get(prop, None)
+        return self.get(prop, None)

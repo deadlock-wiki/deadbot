@@ -171,7 +171,15 @@ class HeroParser:
             # ignore any abilities without any parsed data
             if bound_ability_key not in self.parsed_abilities.keys():
                 continue
-            abilities[ability_position] = self.parsed_abilities[bound_ability_key].data
+            bound_ability_obj = self.parsed_abilities[bound_ability_key]
+            # Later, we need to restructure how heros reference ability data, this is a temporary fix
+            bound_ability_hash = {}
+            bound_ability_hash["Key"] = bound_ability_obj.Key
+            bound_ability_hash["Name"] = bound_ability_obj.Name
+            bound_ability_hash["Upgrades"] = bound_ability_obj.Upgrades
+            for key, value in bound_ability_obj.Data.items():
+                bound_ability_hash[key] = value
+            abilities[ability_position] = bound_ability_hash
 
         mapped_abilities = self._map_attr_names(abilities, maps.get_bound_abilities)
 

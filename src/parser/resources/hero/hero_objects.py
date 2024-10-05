@@ -10,7 +10,18 @@ class Hero(resource.Resource):
     objects = {}
 
     def __init__(self, key):
-        self.key = key
-        self.data = {}
+        self.Key = key
+        self.Name = ""
+        self.LevelScaling = {}
+        self.SpiritScaling = {}
+        self.Lore = ""
+        self.Role = ""
+        self.Playstyle = ""
+        self.BoundAbilities = []
+        
+        self.InDevelopment = None
+        self.IsDisabled = None
+
+        self.Data = {}
 
         Hero.objects[key] = self

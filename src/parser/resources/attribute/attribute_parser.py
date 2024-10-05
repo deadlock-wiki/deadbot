@@ -63,7 +63,7 @@ class AttributeParser:
         Attribute.store_resources(all_attributes)
         Attribute.order_lists = order_lists
         Attribute.save_order_lists()
-        Attribute.save_objects()
+        Attribute.save_objects(move_data_attr_up_layer=True)
 
     def _map_to_unlocalized(self, all_attributes):
         """

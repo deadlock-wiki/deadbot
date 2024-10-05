@@ -11,8 +11,18 @@ class Item(resource.Resource):
     chart = None
 
     def __init__(self, key):
-        self.key = key
-        self.data = {}
+        self.Key = key
+        self.Name = ""
+        self.Description = ""
+        self.Cost = ""
+        self.Tier = ""
+        self.Activation = ""
+        self.Slot = ""
+        self.Components = []
+        self.TargetTypes = []
+        self.ShopFilters = []
+        self.Disabled = True
+        self.Data = {}
 
         Item.objects[key] = self
 

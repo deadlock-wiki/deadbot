@@ -42,13 +42,12 @@ class AbilityUiParser:
     def run(self):
         output = {}
         for self.hero_key, hero in self.parsed_heroes.items():
-            hero_data = hero.data
             # skip disabled heroes
-            if hero_data['IsDisabled']:
+            if hero.IsDisabled:
                 continue
 
-            hero_abilities = {'Name': hero_data['Name']}
-            for self.ability_index, ability in hero_data['BoundAbilities'].items():
+            hero_abilities = {'Name': hero.Name}
+            for self.ability_index, ability in hero.BoundAbilities.items():
                 try:
                     parsed_ui = self._parse_ability_ui(ability)
                     if parsed_ui is not None:

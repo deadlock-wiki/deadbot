@@ -13,8 +13,8 @@ class Attribute(resource.Resource):
     meaningful_stats = {}
 
     def __init__(self, key):
-        self.key = key
-        self.data = {}
+        self.Key = key
+        self.Data = {}
 
         Attribute.objects[key] = self
 

@@ -111,7 +111,7 @@ class ItemParser:
         Item.store_resources(all_items)
         Item.chart = chart
         Item.save_chart()
-        Item.save_objects(free_memory=True)
+        Item.save_objects()
 
     # Add items to mermaid tree
     def _add_children_to_tree(self, parent_key, child_keys):
