@@ -1,9 +1,6 @@
 import os
-import sys
 
 from .parsers import abilities, ability_ui, items, heroes, changelogs, localizations, attributes
-# bring utils module in scope
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from utils import json_utils
 
 

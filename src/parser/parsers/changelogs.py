@@ -1,11 +1,8 @@
-import sys
 import os
 from os import listdir
 from os.path import isfile, join
 import datetime
 
-# bring utils module in scope
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import utils.json_utils as json_utils
 
 

@@ -1,8 +1,4 @@
-import sys
-import os
 
-# bring utils module in scope
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 import parser.maps as maps
 import utils.json_utils as json_utils
 from parser.constants import ENGINE_UNITS_PER_METER
