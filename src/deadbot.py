@@ -5,6 +5,7 @@ import argparse
 from utils import pages
 from decompiler import decompile
 
+
 """
 DeadBot pulls all aggregated data for heros, items ,buildings and more to populate
 attribute values on the deadlock wiki via the MediaWiki API
@@ -12,7 +13,6 @@ attribute values on the deadlock wiki via the MediaWiki API
 A DeadBot user has been created for this purpose, so the password will be needed
 to run this locally. However local usage should be limited exclusively to testing
 """
-
 
 class DeadBot:
     def __init__(self):
@@ -61,6 +61,12 @@ def parse_arguments():
         default=os.getenv('WORK_DIR', os.path.abspath(os.getcwd()) + '/decompiled-data'),
     )
     parser.add_argument(
+        '-n',
+        '--inputdir',
+        help='Input directory for things like changelogs and wiki pages (also set with OUTPUT_DIR environment variable)',
+        default=os.getenv('INPUT_DIR', os.path.abspath(os.getcwd()) + '/input-data'),
+    )
+    parser.add_argument(
         '-o',
         '--output',
         help='Output directory (also set with OUTPUT_DIR environment variable)',
@@ -86,6 +92,19 @@ def parse_arguments():
         help='Push current data to wiki (also set with BOT_PUSH environment variable)',
     )
 
+    group = parser.add_argument_group('changelogs')
+    group.add_argument(
+        '-c',
+        '--changelogs',
+        default=os.getenv('CHANGELOGS', os.path.abspath(os.getcwd()) + '/input-data/raw-changelogs'),
+        help='Fetch and parse forum and locally stored raw changelogs Deadlock game files. (also set with RCHANGELOGS environment variable)',
+    )
+    group.add_argument(
+        '-k',
+        '--skip_rss',
+        action='store_true',
+        help='Fetch and parse forum and locally stored raw changelogs Deadlock game files. (also set with RCHANGELOGS environment variable)',
+    )    
     return parser.parse_args()
 
 
@@ -107,6 +126,13 @@ def main():
         decompile.decompile(args.dl_path, args.workdir, args.output, args.decompiler_cmd)
     else:
         print('! Skipping Decompiler !')
+
+    if args.changelogs:
+        print('Parsing Changelogs...')
+        parse_changelogs.ChangelogParser(self.OUTPUT_DIR)
+        rss_url = 'https://forums.playdeadlock.com/forums/changelog.10/index.rss'
+        if skip_rss:
+            rss_url=None
 
     if args.bot_push or os.getenv('BOT_PUSH', False) in true_args:
         print('Running DeadBot...')

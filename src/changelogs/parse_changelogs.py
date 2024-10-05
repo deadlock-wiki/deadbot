@@ -7,19 +7,15 @@ import utils.json_utils as json_utils
 
 class ChangelogParser:
     def __init__(self, output_dir):
-        self.CHANGELOGS_DIR = os.path.join(os.path.dirname(__file__), '../raw-changelogs/')
         self.OUTPUT_DIR = output_dir
         self.OUTPUT_CHANGELOGS = self.OUTPUT_DIR + '/changelogs'
         self.resources = self._get_resources()
         self.changelogs_by_date = {}
 
-    def run_all(self, txt=True, rss=True):
-        log_fetch = ChangelogFetcher(self.OUTPUT_DIR) 
-        for key, val in log_fetch.fetch_changelogs().items():
-            self.changelogs_by_date[key] = self.run(key, val)
+    def run_all(self, list_changelogs, txt_path=None, rss_feed=None):
         # take parsed changelogs and transform them into some other useful formats
         self._create_resource_changelogs()
-        self._create_changelog_db_data()
+        self._create_changelog_db_data()   
 
     def run(self, version, logs):
         changelog_lines = logs.split('\n')

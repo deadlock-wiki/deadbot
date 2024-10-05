@@ -193,10 +193,6 @@ class Parser:
         json_utils.write(self.OUTPUT_DIR + '/json/attribute-data.json', parsed_attributes)
         json_utils.write(self.OUTPUT_DIR + '/json/stat-infobox-order.json', attribute_orders)
 
-    def _parse_changelogs(self):
-        print('Parsing Changelogs...')
-        parse_changelogs.ChangelogParser(self.OUTPUT_DIR).run_all()
-
 
 if __name__ == '__main__':
     parser = Parser()

@@ -10,15 +10,24 @@ class ChangelogFetcher:
     def __init__(
         self,
         output_dir,
-        txt_path=os.path.join(os.path.dirname(__file__), '../../raw-changelogs/'),
-        rss_feed='https://forums.playdeadlock.com/forums/changelog.10/index.rss',
+        txt_path=None,
+        rss_feed=None,
     ):
         self.CHANGELOGS_DIR = txt_path
         self.RSS_URL = rss_feed
         self.OUTPUT_CHANGELOGS = output_dir + '/raw-changelogs'
         self.changelogs_by_date = {}
 
-    def fetch_update_html(self, link):
+    def fetch_changelogs(self):
+        self.changelogs_by_date = {}
+        if self.RSS_URL:
+            self.fetch_forum_changelogs()
+        # Since txt files run last, they will overwrite any rss logs with matching dates
+        if self.CHANGELOGS_DIR:
+            self.process_local_changelogs()
+        return self.changelogs_by_date
+
+    def _fetch_update_html(self, link):
         html = request.urlopen(link).read()
         soup = BeautifulSoup(html, features='html.parser')
         entries = []
@@ -28,7 +37,7 @@ class ChangelogFetcher:
         return entries
 
     # download rss feed from changelog forum and parse entries
-    def fetch_forum_changelogs(self):
+    def _fetch_forum_changelogs(self):
         print('Parsing Changelog RSS feed')
         # fetches 20 most recent entries
         feed = feedparser.parse(self.RSS_URL)
@@ -43,7 +52,7 @@ class ChangelogFetcher:
             with open(out_dir + f'/{date}.txt', 'w', encoding='utf8') as f_out:
                 f_out.write(full_text)
 
-    def process_local_changelogs(self):
+    def _process_local_changelogs(self):
         print('Parsing Changelog txt files')
         files = [f for f in listdir(self.CHANGELOGS_DIR) if isfile(join(self.CHANGELOGS_DIR, f))]
         out_dir = self.OUTPUT_CHANGELOGS + '/txt'
@@ -57,11 +66,3 @@ class ChangelogFetcher:
                 with open(out_dir + f'/{date}.txt', 'w', encoding='utf8') as f_out:
                     f_out.write(changelogs)
 
-    def fetch_changelogs(self):
-        self.changelogs_by_date = {}
-        if self.RSS_URL:
-            self.fetch_forum_changelogs()
-        # Since txt files run last, they will overwrite any rss logs with matching dates
-        if self.CHANGELOGS_DIR:
-            self.process_local_changelogs()
-        return self.changelogs_by_date
