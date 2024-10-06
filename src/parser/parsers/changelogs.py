@@ -71,7 +71,7 @@ class ChangelogParser:
                 continue
 
             # find if a resource can be assigned a changelog line
-            tags = {}
+            tags = []
             group = current_heading
             for resource_key in self.resources:
                 resource = self.resources[resource_key]
@@ -96,7 +96,7 @@ class ChangelogParser:
                     else:
                         hyperlink = resource_name
 
-                    tags = self._register_tag(tags, tag=resource_name, hyperlink=hyperlink, is_group_tag=False)
+                    tags = self._register_tag(tags, tag=resource_name, is_group_tag=False)
 
                     # Also register the resource type
                     tags = self._register_tag(tags, tag=resource_type)
@@ -123,9 +123,9 @@ class ChangelogParser:
 
             # if no tag is found, assign to default group
             if len(tags) == 0:
-                tags[default_category] = default_category
+                tags.append(default_category)
 
-            for tag, hyperlink in tags.items():
+            for tag in tags:
                 # strip redundant prefix as it is already grouped under resource_name
                 if line.startswith(f'- {tag}: '):
                     line = line.replace(f'{tag}: ', '')
@@ -175,7 +175,7 @@ class ChangelogParser:
             for index, log in enumerate(logs):
                 tags = log['Tags']
                 description = log['Description']
-                for tag, hyperlink in tags.items():
+                for tag in tags:
                     resource_found = False
                     if tag in description:
                         resource_found = True
@@ -193,19 +193,14 @@ class ChangelogParser:
 
         return new_changelog
 
-    def _register_tag(self, tags, tag, is_group_tag=True, hyperlink=None):
+    def _register_tag(self, tags, tag, is_group_tag=True):
         """
         Registers a tag to the changelog's unique current tags, 
         and to the static unique list of tags.
         """
-        
-        # Determine the hyperlink
-        # default to tag
-        if hyperlink is None:
-            hyperlink = tag
 
         if tag not in tags:
-            tags[tag] = hyperlink
+            tags.append(tag)
 
         if tag not in self.unique_tags:
             self.unique_tags.append(tag)
