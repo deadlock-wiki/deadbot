@@ -1,6 +1,7 @@
 import boto3
 import glob
 
+
 class S3:
     def __init__(self, data_dir, bucket_name, aws_access_key_id, aws_secret_access_key):
         self.client = boto3.client(

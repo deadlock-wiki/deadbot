@@ -48,6 +48,7 @@ def remove_subclass(path):
     with open(path, 'w') as f:
         f.write(content)
 
+
 # remove subclass and write to json file
 def process_file(path, out_path):
     remove_subclass(path)

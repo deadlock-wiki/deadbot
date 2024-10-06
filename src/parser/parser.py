@@ -5,7 +5,12 @@ from utils import json_utils
 
 
 class Parser:
-    def __init__(self, work_dir, output_dir, language='english',):
+    def __init__(
+        self,
+        work_dir,
+        output_dir,
+        language='english',
+    ):
         # constants
         self.OUTPUT_DIR = output_dir
         # Directory with decompiled data

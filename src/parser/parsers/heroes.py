@@ -1,4 +1,3 @@
-
 import parser.maps as maps
 import utils.json_utils as json_utils
 from constants import ENGINE_UNITS_PER_METER
@@ -249,7 +248,7 @@ class HeroParser:
                 time_to_reload = d['ReloadTime']
             time_to_reload += d['ReloadDelay']
             time_to_empty_clip = d['ClipSize'] / d['RoundsPerSecond']
-            # More bullets per shot doesn't consume more bullets in the clip, 
+            # More bullets per shot doesn't consume more bullets in the clip,
             # so think of it as bullet per bullet
             damage_from_clip = d['BulletDamage'] * d['BulletsPerShot'] * d['ClipSize']
             return damage_from_clip / (time_to_empty_clip + time_to_reload)

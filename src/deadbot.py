@@ -44,14 +44,13 @@ class DeadBot:
             print(f"No changes made to '{page.name}'")
 
 
-
-
 def act_gamefile_parse(args):
     game_parser = parser.Parser(args.workdir, args.output)
     game_parser.run()
     print('Exporting to CSV...')
     csv_writer.export_json_file_to_csv('item-data', args.output)
     csv_writer.export_json_file_to_csv('hero-data', args.output)
+
 
 def act_changelog_parse(args):
     ch_fetcher = fetch_changelogs.ChangelogFetcher()
@@ -67,6 +66,7 @@ def act_changelog_parse(args):
     ch_parser = parse_changelogs.ChangelogParser(args.output)
     ch_parser.run_all(ch_fetcher.changelogs_by_date)
     return ch_parser
+
 
 def main():
     args = constants.ARGS
