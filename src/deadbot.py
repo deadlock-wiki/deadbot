@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 import os
 import mwclient
-import argparse
+
 from utils import pages, csv_writer
 from decompiler import decompile
+import constants
 from changelogs import parse_changelogs, fetch_changelogs
 from parser import parser
 
@@ -15,6 +16,7 @@ attribute values on the deadlock wiki via the MediaWiki API
 A DeadBot user has been created for this purpose, so the password will be needed
 to run this locally. However local usage should be limited exclusively to testing
 """
+
 
 class DeadBot:
     def __init__(self):
@@ -42,163 +44,63 @@ class DeadBot:
             print(f"No changes made to '{page.name}'")
 
 
-def parse_arguments():
-    parser = argparse.ArgumentParser(
-        prog='DeadBot',
-        description='Bot that lives to serve deadlocked.wiki',
-        epilog='Process Deadlock game files and extract data and stats',
-    )
+def act_changelog_parse(args):
+    ch_fetcher = fetch_changelogs.ChangelogFetcher()
+    # setup the rss url
+    if not args.skip_rss:
+        ch_fetcher.get_rss(constants.CHANGELOG_RSS_URL)
+    # create fetcher and parser
+    ch_fetcher.get_txt(args.inputdir + '/raw-changelogs')
+    # save combined changelogs to output
+    ch_fetcher.changelogs_to_file(args.output + '/changelogs/raw')
 
-    # Setup / Base config Flags
-    group_base = parser.add_argument_group('path configs')
-    group_base.add_argument(
-        '-i',
-        '--dl_path',
-        help='Path to Deadlock game files (also set with DEADLOCK_PATH environment variable)',
-        default=os.getenv('DEADLOCK_PATH'),
-    )
-    group_base.add_argument(
-        '-w',
-        '--workdir',
-        help='Directory for temp working files (also set with WORK_DIR environment variable)',
-        default=os.getenv('WORK_DIR', os.path.abspath(os.getcwd()) + '/decompiled-data'),
-    )
-    group_base.add_argument(
-        '-n',
-        '--inputdir',
-        help='Input directory for changelogs and wiki pages (also set with OUTPUT_DIR env variable)',
-        default=os.getenv('INPUT_DIR', os.path.abspath(os.getcwd()) + '/input-data'),
-    )
-    group_base.add_argument(
-        '-o',
-        '--output',
-        help='Output directory (also set with OUTPUT_DIR environment variable)',
-        default=os.getenv('OUTPUT_DIR', os.path.abspath(os.getcwd()) + '/output-data'),
-    )
-    group_base.add_argument(
-        '--decompiler_cmd',
-        help='Command for Valve Resource Format tool (also set with DECOMPILER_CMD env variable)',
-        default=os.getenv('DECOMPILER_CMD', 'tools/Decompiler'),
-    )
+    # Now that we gathered the changelogs, extract out data
+    ch_parser = parse_changelogs.ChangelogParser(args.output)
+    ch_parser.run_all(ch_fetcher.changelogs_by_date)
+    return ch_parser
 
-    # s3 config
-    group_s3 = parser.add_argument_group('s3 config')
-    group_s3.add_argument(
-        '--iam_key',
-        help='AWS iam key for updating bucket (overrides IAM_KEY environment variable)',
-        default=os.getenv('IAM_KEY'),
-    )
-    group_s3.add_argument(
-        '--iam_secret',
-        help='AWS iam secret for updating bucket (overrides IAM_SECRET environment variable)',
-        default=os.getenv('IAM_SECRET'),
-    )
-    group_s3.add_argument(
-        '--bucket',
-        help='S3 bucket name to push to (overrides BUCKET environment variable)',
-        default=os.getenv('BUCKET', 'deadlock-game-files'),
-    )
 
-    # Operational Flags
-    group_actions = parser.add_argument_group('bot actions')
-    group_actions.add_argument(
-        '-d',
-        '--decompile',
-        action='store_true',
-        help='Decompiles Deadlock game files. (also set with DECOMPILE environment variable)',
-    )
-    group_actions.add_argument(
-        '-p',
-        '--parse',
-        action='store_true',
-        help='Parses decompiled game files into json and csv (overrides PARSE env variable)',
-    )
-    group_actions.add_argument(
-        '-b',
-        '--bot_push',
-        action='store_true',
-        help='Push current data to wiki (also set with BOT_PUSH environment variable)',
-    )
-    group_actions.add_argument(
-        '-s',
-        '--s3_push',
-        action='store_true',
-        help='Push current data to s3',
-    )
-
-    group = parser.add_argument_group('changelogs')
-    group.add_argument(
-        '-c',
-        '--changelogs',
-        action='store_true',
-        help='Fetch/parse forum and locally stored changelogs. (also set with CHLOGS env variable)',
-    )
-    group.add_argument(
-        '-k',
-        '--skip_rss',
-        action='store_true',
-        help='Fetch and parse forum and locally stored raw changelogs Deadlock game files.',
-    )    
-    return parser.parse_args()
+def act_gamefile_parse(args):
+    game_parser = parser.Parser(args.workdir, args.output)
+    game_parser.run()
+    print('Exporting to CSV...')
+    csv_writer.export_json_file_to_csv('item-data', args.output)
+    csv_writer.export_json_file_to_csv('hero-data', args.output)
 
 
 def main():
-    args = parse_arguments()
+    args = constants.ARGS
 
-    true_args = [
-        True,
-        'true',
-        'True',
-        'TRUE',
-        't',
-        'T',
-        1,
-    ]
-
-    if args.decompile or os.getenv('DECOMPILE', False) in true_args:
+    if args.decompile or os.getenv('DECOMPILE', False) in constants.TRUE_THO:
         print('Decompiling source files...')
         decompile.decompile(args.dl_path, args.workdir, args.output, args.decompiler_cmd)
     else:
         print('! Skipping Decompiler !')
 
-    if args.changelogs or (os.getenv('CHLOGS', False) in true_args):
-        print('Parsing Changelogs...')
-        ch_fetcher = fetch_changelogs.ChangelogFetcher()
-        # setup the rss url
-        if not args.skip_rss:
-            rss_url = 'https://forums.playdeadlock.com/forums/changelog.10/index.rss'    
-            ch_fetcher.get_rss(rss_url)
-        # create fetcher and parser
-        ch_fetcher.get_txt(args.inputdir + '/raw-changelogs')
-        # save combined changelogs to output
-        ch_fetcher.changelogs_to_file(args.output + '/changelogs/raw')
-        
-        # Now that we gathered the changelogs, extract out data
-        ch_parser = parse_changelogs.ChangelogParser(args.output)
-        ch_parser.run_all(ch_fetcher.changelogs_by_date)
-
-    if args.parse or os.getenv('PARSE', False) in true_args:
+    if args.parse or os.getenv('PARSE', False) in constants.TRUE_THO:
         print('Parsing decompiled files...')
-        game_parser = parser.Parser(args.workdir, args.output)
-        game_parser.run()
-        print('Exporting to CSV...')
-        csv_writer.export_json_file_to_csv('item-data', args.output)
-        csv_writer.export_json_file_to_csv('hero-data', args.output)
+
     else:
         print('! Skipping Parser !')
 
-    if args.bot_push or os.getenv('BOT_PUSH', False) in true_args:
+    if args.changelogs or (os.getenv('CHLOGS', False) in constants.TRUE_THO):
+        print('Parsing Changelogs...')
+        act_changelog_parse(args)
+    else:
+        print('! Skipping Changelogs !')
+
+    if args.bot_push or os.getenv('BOT_PUSH', False) in constants.TRUE_THO:
         print('Running DeadBot...')
         bot = DeadBot()
         bot.push_lane()
     else:
         print('! Skipping DeadBot !')
 
-    if args.s3_push or os.getenv('S3_PUSH', False) in true_args:
+    if args.s3_push or os.getenv('S3_PUSH', False) in constants.TRUE_THO:
         if args.iam_key and args.iam_secret:
             parser.S3(args.output, args.bucket, args.iam_key, args.iam_secret).write()
         else:
-            print("Error: iam_key and iam_secret must be set for s3")
+            print('Error: iam_key and iam_secret must be set for s3')
 
     print('\nDone!')
 
