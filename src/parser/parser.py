@@ -1,6 +1,6 @@
 import os
 
-from parsers import abilities, ability_ui, items, heroes, localizations, attributes
+from .parsers import abilities, ability_ui, items, heroes, localizations, attributes
 from utils import json_utils
 
 
