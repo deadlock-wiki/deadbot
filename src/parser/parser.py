@@ -2,7 +2,6 @@ import os
 import sys
 
 from parsers import abilities, ability_ui, items, heroes, localizations, attributes
-from parsers.changelogs import parse_changelogs
 
 # bring utils module in scope
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))

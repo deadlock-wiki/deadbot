@@ -1,19 +1,19 @@
-import os
 import datetime
-from .fetch_changelogs import ChangelogFetcher
 
 import utils.json_utils as json_utils
 
 
 class ChangelogParser:
-    def __init__(self, output_dir):
+    def __init__(self, output_dir, changelogs_by_date={}):
         self.OUTPUT_DIR = output_dir
         self.OUTPUT_CHANGELOGS = self.OUTPUT_DIR + '/changelogs'
         self.resources = self._get_resources()
-        self.changelogs_by_date = {}
+        self.changelogs_by_date = changelogs_by_date
 
-    def run_all(self, list_changelogs, txt_path=None, rss_feed=None):
+    def run_all(self):
         # take parsed changelogs and transform them into some other useful formats
+        for date, changelog in self.changelogs_by_date.items():
+            self.run(date, changelog)
         self._create_resource_changelogs()
         self._create_changelog_db_data()   
 

@@ -4,6 +4,8 @@ import argparse
 
 from utils import pages
 from decompiler import decompile
+from changelogs import parse_changelogs, fetch_changelogs
+
 
 
 """
@@ -63,7 +65,7 @@ def parse_arguments():
     parser.add_argument(
         '-n',
         '--inputdir',
-        help='Input directory for things like changelogs and wiki pages (also set with OUTPUT_DIR environment variable)',
+        help='Input directory for changelogs and wiki pages (also set with OUTPUT_DIR env variable)',
         default=os.getenv('INPUT_DIR', os.path.abspath(os.getcwd()) + '/input-data'),
     )
     parser.add_argument(
@@ -96,14 +98,14 @@ def parse_arguments():
     group.add_argument(
         '-c',
         '--changelogs',
-        default=os.getenv('CHANGELOGS', os.path.abspath(os.getcwd()) + '/input-data/raw-changelogs'),
-        help='Fetch and parse forum and locally stored raw changelogs Deadlock game files. (also set with RCHANGELOGS environment variable)',
+        default=os.getenv('CHLOGS', os.path.abspath(os.getcwd()) + '/input-data/raw-changelogs'),
+        help='Fetch/parse forum and locally stored changelogs. (also set with CHLOGS env variable)',
     )
     group.add_argument(
         '-k',
         '--skip_rss',
         action='store_true',
-        help='Fetch and parse forum and locally stored raw changelogs Deadlock game files. (also set with RCHANGELOGS environment variable)',
+        help='Fetch and parse forum and locally stored raw changelogs Deadlock game files.',
     )    
     return parser.parse_args()
 
@@ -129,10 +131,19 @@ def main():
 
     if args.changelogs:
         print('Parsing Changelogs...')
-        parse_changelogs.ChangelogParser(self.OUTPUT_DIR)
+        # setup the rss url
         rss_url = 'https://forums.playdeadlock.com/forums/changelog.10/index.rss'
-        if skip_rss:
+        if args.skip_rss:
             rss_url=None
+        # create fetcher and parser
+        ch_fetcher = fetch_changelogs.ChangelogFetcher(
+                        args.output,
+                        txt_path=args.inputdir, 
+                        rss_feed=rss_url
+                    )
+        ch_parser = parse_changelogs.ChangelogParser(args.output, ch_fetcher.fetch_changelogs())
+        ch_parser.run_all()
+
 
     if args.bot_push or os.getenv('BOT_PUSH', False) in true_args:
         print('Running DeadBot...')
