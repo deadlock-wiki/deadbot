@@ -10,15 +10,15 @@ import utils.json_utils as json_utils
 
 from .constants import OUTPUT_DIR
 from .items import is_enabled
-from utils.localization import Localization
 
 
 class ChangelogParser:
-    def __init__(self):
+    def __init__(self, localization_data):
         self.CHANGELOGS_DIR = os.path.join(os.path.dirname(__file__), '../raw-changelogs/')
         self.OUTPUT_DIR = OUTPUT_DIR
         self.OUTPUT_CHANGELOGS = self.OUTPUT_DIR + '/changelogs'
         self.resources = self._get_resources()
+        self.localization = localization_data #english
 
         self.unique_tags = ['General']
         self.unique_tag_groups = ['General']
@@ -27,10 +27,6 @@ class ChangelogParser:
         # all tags from a resource have icons embedded
         # only tag groups are displayed for /Changelogs page,
         # allowing users to see compact list of pages that have changelogs
-
-        self.localization = Localization()
-
-        self.localization = Localization()
 
     def run_all(self):
         changelogs_by_date = {}
@@ -48,7 +44,7 @@ class ChangelogParser:
         print('Unique Tag Groups:', self.unique_tag_groups)
 
         # TESTING
-        print(self.localization._localize('CitadelCategoryWeapon', lang='english'))
+        print(self.localization['CitadelCategoryWeapon'])
 
     def run(self, version):
         logs = self._read_logs(version)
@@ -109,9 +105,7 @@ class ChangelogParser:
                     # currently these are also a heading, this check makes it future proof
                     if resource_type == 'Items':
                         item_slot = resource['Slot']  # i.e. Tech
-                        localized_item_slot = self.localization._localize(
-                            'CitadelCategory' + item_slot, lang='english'
-                        )
+                        localized_item_slot = self.localization['CitadelCategory'+item_slot]
                         slot_str = localized_item_slot + ' Items'
                         tags = self._register_tag(tags, tag=slot_str)
 
