@@ -1,5 +1,8 @@
 import os
 import argparse
+from dotenv import load_dotenv
+
+load_dotenv()
 
 ARG_PARSER = argparse.ArgumentParser(
     prog='DeadBot',
