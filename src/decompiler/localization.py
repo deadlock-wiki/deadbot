@@ -1,7 +1,6 @@
 import json
 import os
 
-
 def process_files(input_folder, output_folder):
     # Iterate all localizations in the input_folder
     for filename in os.listdir(input_folder):

@@ -167,7 +167,3 @@ class ChangelogParser:
             sorted_changelogs[key] = changelogs[key]
 
         return sorted_changelogs
-
-
-if __name__ == '__main__':
-    ChangelogParser().run_all()
