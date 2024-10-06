@@ -98,7 +98,7 @@ def parse_arguments():
     group.add_argument(
         '-c',
         '--changelogs',
-        default=os.getenv('CHLOGS', os.path.abspath(os.getcwd()) + '/input-data/raw-changelogs'),
+        action='store_true',
         help='Fetch/parse forum and locally stored changelogs. (also set with CHLOGS env variable)',
     )
     group.add_argument(
@@ -129,19 +129,20 @@ def main():
     else:
         print('! Skipping Decompiler !')
 
-    if args.changelogs:
+    if args.changelogs or (os.getenv('CHLOGS', False) in true_args):
         print('Parsing Changelogs...')
+        ch_fetcher = fetch_changelogs.ChangelogFetcher()
         # setup the rss url
         rss_url = 'https://forums.playdeadlock.com/forums/changelog.10/index.rss'
         if args.skip_rss:
             rss_url=None
         # create fetcher and parser
-        ch_fetcher = fetch_changelogs.ChangelogFetcher(
-                        args.output,
-                        txt_path=args.inputdir, 
-                        rss_feed=rss_url
-                    )
-        ch_parser = parse_changelogs.ChangelogParser(args.output, ch_fetcher.fetch_changelogs())
+        ch_fetcher = fetch_changelogs.ChangelogFetcher(txt_path=args.inputdir, rss_feed=rss_url)
+        changelogs = ch_fetcher.fetch_changelogs()
+        ch_fetcher.changelogs_to_file(args.output)
+        
+        # Now that we gathered the changelogs, extract out data
+        ch_parser = parse_changelogs.ChangelogParser(args.output, changelogs)
         ch_parser.run_all()
 
 

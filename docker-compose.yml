@@ -13,6 +13,7 @@ services:
       CLEANUP: true
     volumes:
       - "./decompiled-data:/work"
+      - "./input-data:/input"
       - "./output-data:/output"
     #
     # - 'C:\Program Files (x86)\Steam\steamapps\common\Deadlock':'/data:ro'
