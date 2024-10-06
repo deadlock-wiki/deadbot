@@ -7,12 +7,9 @@ if [ -f ".env" ]; then
 fi
 
 if [ "$DECOMPILE" = true ]; then
-    cd src/parser/decompiler
-    echo "Decompiling source files..."
-    bash decompile.sh
-    cd ../../..
-else
-    echo "! Skipping Decompiler !"
+    cd src
+    python3 deadbot.py --decompile=true --deadbot=false
+    cd ..
 fi
 
 if [ "$PARSE" = true ]; then
@@ -26,11 +23,8 @@ fi
 
 if [ "$BOT_PUSH" = true ]; then
     cd src
-    echo "Running DeadBot..."
-    python3 deadbot.py
+    python3 deadbot.py  # uses BOT_PUSH env var
     cd ..
-else
-    echo "! Skipping DeadBot !"
 fi
 
 # cleanup
