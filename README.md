@@ -32,8 +32,8 @@ Some data has been processed and formatted for google sheets:\
 <summary>`deadbot.py -h`</summary>
 
 ```sh
-usage: DeadBot [-h] [-i DL_PATH] [-w WORKDIR] [-o OUTPUT] [--decompiler_cmd DECOMPILER_CMD] [--iam_key IAM_KEY]
-               [--iam_secret IAM_SECRET] [--bucket BUCKET] [-d] [-p] [-b] [-s]
+usage: DeadBot [-h] [-i DL_PATH] [-w WORKDIR] [-n INPUTDIR] [-o OUTPUT] [--decompiler_cmd DECOMPILER_CMD] [--iam_key IAM_KEY]
+               [--iam_secret IAM_SECRET] [--bucket BUCKET] [-d] [-p] [-b] [-s] [-c] [-k]
 
 Bot that lives to serve deadlocked.wiki
 
@@ -45,6 +45,8 @@ path configs:
                         Path to Deadlock game files (also set with DEADLOCK_PATH environment variable)
   -w WORKDIR, --workdir WORKDIR
                         Directory for temp working files (also set with WORK_DIR environment variable)
+  -n INPUTDIR, --inputdir INPUTDIR
+                        Input directory for changelogs and wiki pages (also set with OUTPUT_DIR env variable)
   -o OUTPUT, --output OUTPUT
                         Output directory (also set with OUTPUT_DIR environment variable)
   --decompiler_cmd DECOMPILER_CMD
@@ -61,6 +63,8 @@ bot actions:
   -p, --parse           Parses decompiled game files into json and csv (overrides PARSE env variable)
   -b, --bot_push        Push current data to wiki (also set with BOT_PUSH environment variable)
   -s, --s3_push         Push current data to s3
+  -c, --changelogs      Fetch/parse forum and locally stored changelogs. (also set with CHLOGS env variable)
+  -k, --skip_rss        Fetch and parse forum and locally stored raw changelogs Deadlock game files.
 
 Process Deadlock game files and extract data and stats
 ```
