@@ -7,9 +7,7 @@ from urllib import request
 
 
 class ChangelogFetcher:
-    def __init__(
-        self
-    ):
+    def __init__(self):
         self.changelogs_by_date = {}
 
     def get_rss(self, rss_url):
@@ -20,7 +18,7 @@ class ChangelogFetcher:
     def get_txt(self, changelog_path):
         self._process_local_changelogs(changelog_path)
         return self.changelogs_by_date
-    
+
     def changelogs_to_file(self, output_dir):
         for date, changelog in self.changelogs_by_date.items():
             os.makedirs(output_dir, exist_ok=True)
@@ -53,6 +51,6 @@ class ChangelogFetcher:
         print(f'Found {str(len(files))} changelog entries in `{changelog_path}`')
         for file in files:
             date = file.replace('.txt', '')
-            with open(changelog_path+ f'/{date}.txt', 'r', encoding='utf8') as f:
+            with open(changelog_path + f'/{date}.txt', 'r', encoding='utf8') as f:
                 changelogs = f.read()
                 self.changelogs_by_date[date] = changelogs

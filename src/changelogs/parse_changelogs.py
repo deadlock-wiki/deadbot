@@ -16,7 +16,7 @@ class ChangelogParser:
         for date, changelog in dict_changelogs.items():
             self.run(date, changelog)
         self._create_resource_changelogs()
-        self._create_changelog_db_data()   
+        self._create_changelog_db_data()
 
     def run(self, version, logs):
         changelog_lines = logs.split('\n')
@@ -64,7 +64,7 @@ class ChangelogParser:
                 changelog_dict[current_heading]['General'].append(line)
 
         changelog_with_icons = self._embed_icons(changelog_dict)
-        os.makedirs(self.OUTPUT_CHANGELOGS,exist_ok=True)
+        os.makedirs(self.OUTPUT_CHANGELOGS, exist_ok=True)
         json_utils.write(self.OUTPUT_CHANGELOGS + f'/date/{version}.json', changelog_with_icons)
         return changelog_with_icons
 
