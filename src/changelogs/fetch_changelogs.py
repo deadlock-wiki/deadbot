@@ -8,27 +8,23 @@ from urllib import request
 
 class ChangelogFetcher:
     def __init__(
-        self,
-        txt_path=None,
-        rss_feed=None,
+        self
     ):
-        self.CHANGELOGS_DIR = txt_path
-        self.RSS_URL = rss_feed
         self.changelogs_by_date = {}
 
-    def fetch_changelogs(self):
-        self.changelogs_by_date = {}
-        if self.RSS_URL:
-            self._fetch_forum_changelogs()
-        # Since txt files run last, they will overwrite any rss logs with matching dates
-        if self.CHANGELOGS_DIR:
-            self._process_local_changelogs()
+    def get_rss(self, rss_url):
+        self.RSS_URL = rss_url
+        self._fetch_forum_changelogs()
+        return self.changelogs_by_date
+
+    def get_txt(self, changelog_path):
+        self._process_local_changelogs(changelog_path)
         return self.changelogs_by_date
     
     def changelogs_to_file(self, output_dir):
         for date, changelog in self.changelogs_by_date.items():
-            os.makedirs(output_dir + '/changelogs/raw', exist_ok=True)
-            with open(output_dir + f'/changelogs/raw/{date}.txt', 'w', encoding='utf8') as f_out:
+            os.makedirs(output_dir, exist_ok=True)
+            with open(output_dir + f'/{date}.txt', 'w', encoding='utf8') as f_out:
                 f_out.write(changelog)
 
     def _fetch_update_html(self, link):
@@ -51,11 +47,12 @@ class ChangelogFetcher:
             full_text = '\n---\n'.join(self._fetch_update_html(entry.link))
             self.changelogs_by_date[date] = full_text
 
-    def _process_local_changelogs(self):
+    def _process_local_changelogs(self, changelog_path):
         print('Parsing Changelog txt files')
-        files = [f for f in listdir(self.CHANGELOGS_DIR) if isfile(join(self.CHANGELOGS_DIR, f))]
+        files = [f for f in listdir(changelog_path) if isfile(join(changelog_path, f))]
+        print(f'Found {str(len(files))} changelog entries in `{changelog_path}`')
         for file in files:
             date = file.replace('.txt', '')
-            with open(self.CHANGELOGS_DIR + f'{date}.txt', 'r', encoding='utf8') as f:
+            with open(changelog_path+ f'/{date}.txt', 'r', encoding='utf8') as f:
                 changelogs = f.read()
                 self.changelogs_by_date[date] = changelogs
