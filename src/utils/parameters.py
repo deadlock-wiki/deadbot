@@ -104,10 +104,22 @@ def arg_group_action(parser):
     return group_actions
 
 
-def load_arguments(parser):
+def load_arguments():
     # Setup / Base config Flags
-    arg_group_base(parser)
-    arg_group_s3(parser)
+    arg_group_base(ARG_PARSER)
+    arg_group_s3(ARG_PARSER)
     # Operational Flags
-    arg_group_action(parser)
-    return parser.parse_args()
+    arg_group_action(ARG_PARSER)
+    args = ARG_PARSER.parse_args()
+    # environment var checks for flags
+    if not args.decompile:
+        args.decompile = os.getenv('DECOMPILE', False)
+    if not args.parse:
+        args.parse = os.getenv('PARSE', False)
+    if not args.changelogs:
+        args.changelogs = os.getenv('CHLOGS', False)
+    if not args.bot_push:
+        args.bot_push = os.getenv('BOT_PUSH', False)
+    if not args.s3_push:
+        args.s3_push = os.getenv('S3_PUSH', False)
+    return args

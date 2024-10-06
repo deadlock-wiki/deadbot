@@ -53,50 +53,52 @@ def act_gamefile_parse(args):
 
 
 def act_changelog_parse(args):
-    ch_fetcher = fetch_changelogs.ChangelogFetcher()
-    # setup the rss url
+    chlog_fetcher = fetch_changelogs.ChangelogFetcher()
+    # fetch / process rss + forum content
     if not args.skip_rss:
-        ch_fetcher.get_rss(constants.CHANGELOG_RSS_URL)
+        chlog_fetcher.get_rss(constants.CHANGELOG_RSS_URL)
     # create fetcher and parser
-    ch_fetcher.get_txt(args.inputdir + '/raw-changelogs')
+    chlog_fetcher.get_txt(args.inputdir + '/raw-changelogs')
     # save combined changelogs to output
-    ch_fetcher.changelogs_to_file(args.output + '/changelogs/raw')
+    chlog_fetcher.changelogs_to_file(args.output + '/changelogs/raw')
 
     # Now that we gathered the changelogs, extract out data
-    ch_parser = parse_changelogs.ChangelogParser(args.output)
-    ch_parser.run_all(ch_fetcher.changelogs_by_date)
-    return ch_parser
+    chlog_parser = parse_changelogs.ChangelogParser(args.output)
+    chlog_parser.run_all(chlog_fetcher.changelogs_by_date)
+    return chlog_parser
 
 
 def main():
+    # load arguments from constants file
     args = constants.ARGS
 
-    if args.decompile or os.getenv('DECOMPILE', False) in constants.TRUE_THO:
+    # go though args and see what actions to perform
+    if args.decompile in constants.TRUE_THO:
         print('Decompiling source files...')
         decompile.decompile(args.dl_path, args.workdir, args.output, args.decompiler_cmd)
     else:
         print('! Skipping Decompiler !')
 
-    if args.parse or os.getenv('PARSE', False) in constants.TRUE_THO:
+    if args.parse in constants.TRUE_THO:
         print('Parsing decompiled files...')
         act_gamefile_parse(args)
     else:
         print('! Skipping Parser !')
 
-    if args.changelogs or (os.getenv('CHLOGS', False) in constants.TRUE_THO):
+    if args.changelogs in constants.TRUE_THO:
         print('Parsing Changelogs...')
         act_changelog_parse(args)
     else:
         print('! Skipping Changelogs !')
 
-    if args.bot_push or os.getenv('BOT_PUSH', False) in constants.TRUE_THO:
+    if args.bot_push in constants.TRUE_THO:
         print('Running DeadBot...')
         bot = DeadBot()
         bot.push_lane()
     else:
         print('! Skipping DeadBot !')
 
-    if args.s3_push or os.getenv('S3_PUSH', False) in constants.TRUE_THO:
+    if args.s3_push in constants.TRUE_THO:
         if args.iam_key and args.iam_secret:
             parser.S3(args.output, args.bucket, args.iam_key, args.iam_secret).write()
         else:
