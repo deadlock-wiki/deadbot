@@ -17,7 +17,7 @@ Some data has been processed and formatted for google sheets:\
     2. Add to ~/.bash_profile - `export PATH="$PATH:<python_path>/Python311/Scripts"`
 
 3. `python3 -m pip install poetry`
-4. `poetry install`
+4. `python3 -m poetry install`
 5. `python3 -m pre_commit install`
 6. Download Decompiler.exe for your particular OS from https://github.com/ValveResourceFormat/ValveResourceFormat/releases 
    1. Extract decompiler into a folder and update `.env`
