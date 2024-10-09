@@ -10,12 +10,12 @@ class ChangelogFetcher:
     def __init__(self):
         self.changelogs_by_date = {}
 
-    def get_rss(self, rss_url):
+    def get_rss(self, rss_url, update_Existing = False):
         self.RSS_URL = rss_url
-        self._fetch_forum_changelogs()
+        self._fetch_forum_changelogs(update_Existing)
         return self.changelogs_by_date
 
-    def get_txt(self, changelog_path):
+    def get_txt(self, changelog_path, update_Existing = True):
         self._process_local_changelogs(changelog_path)
         return self.changelogs_by_date
 
@@ -35,14 +35,20 @@ class ChangelogFetcher:
         return entries
 
     # download rss feed from changelog forum and parse entries
-    def _fetch_forum_changelogs(self):
+    def _fetch_forum_changelogs(self, update_Existing = False):
         print('Parsing Changelog RSS feed')
         # fetches 20 most recent entries
         feed = feedparser.parse(self.RSS_URL)
         for entry in feed.entries:
             # Dependent on thread title being in the format "mm-dd-yyyy Update"
             date = entry.title.replace(' Update', '')
-            full_text = '\n---\n'.join(self._fetch_update_html(entry.link))
+            # Only update the existing if it doesn't already exist in the dict
+            if not update_Existing and (date in self.changelogs_by_date.keys()):
+                continue
+            try:
+                full_text = '\n---\n'.join(self._fetch_update_html(entry.link))
+            except:
+                print(f'Issue with parsing RSS feed item {entry.link}')
             self.changelogs_by_date[date] = full_text
 
     def _process_local_changelogs(self, changelog_path):
@@ -51,6 +57,9 @@ class ChangelogFetcher:
         print(f'Found {str(len(files))} changelog entries in `{changelog_path}`')
         for file in files:
             date = file.replace('.txt', '')
-            with open(changelog_path + f'/{date}.txt', 'r', encoding='utf8') as f:
-                changelogs = f.read()
-                self.changelogs_by_date[date] = changelogs
+            try:
+                with open(changelog_path + f'/{date}.txt', 'r', encoding='utf8') as f:
+                    changelogs = f.read()
+                    self.changelogs_by_date[date] = changelogs
+            except:
+                print(f'Issue with {file}, skipping')
