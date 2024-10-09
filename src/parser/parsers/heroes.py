@@ -92,6 +92,9 @@ class HeroParser:
                 # i.e. citadel_weapon_hero_kelvin_set
                 hero_stats['WeaponDescription'] = hero_stats['WeaponName'] + '_desc'
 
+                if 'm_RecommendedUpgrades' in hero_value:
+                    hero_stats['RecommendedItems'] = hero_value['m_RecommendedUpgrades']
+
                 all_hero_stats[hero_key] = json_utils.sort_dict(hero_stats)
 
         # Write meaningful stats to json file
