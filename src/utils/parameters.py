@@ -93,7 +93,7 @@ def arg_group_action(parser):
         '-c',
         '--changelogs',
         action='store_true',
-        help='Fetch/parse forum and locally stored changelogs. (also set with CHANGELOGS env variable)',
+        help='Fetch/parse forum and local changelogs. (also set with CHANGELOGS env variable)',
     )
     return group_actions
 

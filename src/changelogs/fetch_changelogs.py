@@ -49,7 +49,7 @@ class ChangelogFetcher:
                 continue
             try:
                 full_text = '\n---\n'.join(self._fetch_update_html(entry.link))
-            except:
+            except Exception:
                 print(f'Issue with parsing RSS feed item {entry.link}')
             self.changelogs_by_date[date] = full_text
         if skip_num > 0:
@@ -65,5 +65,5 @@ class ChangelogFetcher:
                 with open(changelog_path + f'/{date}.txt', 'r', encoding='utf8') as f:
                     changelogs = f.read()
                     self.changelogs_by_date[date] = changelogs
-            except:
+            except Exception:
                 print(f'Issue with {file}, skipping')
