@@ -8,6 +8,7 @@ services:
     environment:
       # runtime config
       DECOMPILE: true
+      CHANGELOGS: true
       PARSE: true
       BOT_PUSH: false
       CLEANUP: true
