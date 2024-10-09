@@ -65,8 +65,7 @@ bot actions:
   -p, --parse           Parses decompiled game files into json and csv (overrides PARSE env variable)
   -b, --bot_push        Push current data to wiki (also set with BOT_PUSH environment variable)
   -s, --s3_push         Push current data to s3
-  -c, --changelogs      Fetch/parse forum and locally stored changelogs. (also set with CHLOGS env variable)
-  -k, --skip_rss        Fetch and parse forum and locally stored raw changelogs Deadlock game files.
+  -c, --changelogs      Fetch/parse forum and locally stored changelogs. (also set with CHANGELOGS env variable)
 
 Process Deadlock game files and extract data and stats
 ```

@@ -93,7 +93,7 @@ def arg_group_action(parser):
         '-c',
         '--changelogs',
         action='store_true',
-        help='Fetch/parse forum and locally stored changelogs. (also set with CHLOGS env variable)',
+        help='Fetch/parse forum and locally stored changelogs. (also set with CHANGELOGS env variable)',
     )
     return group_actions
 
@@ -111,7 +111,7 @@ def load_arguments():
     if not args.parse:
         args.parse = os.getenv('PARSE', False)
     if not args.changelogs:
-        args.changelogs = os.getenv('CHLOGS', False)
+        args.changelogs = os.getenv('CHANGELOGS', False)
     if not args.bot_push:
         args.bot_push = os.getenv('BOT_PUSH', False)
     if not args.s3_push:
