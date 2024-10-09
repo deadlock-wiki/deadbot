@@ -95,12 +95,6 @@ def arg_group_action(parser):
         action='store_true',
         help='Fetch/parse forum and locally stored changelogs. (also set with CHLOGS env variable)',
     )
-    group_actions.add_argument(
-        '-k',
-        '--skip_rss',
-        action='store_true',
-        help='Fetch and parse forum and locally stored raw changelogs Deadlock game files.',
-    )
     return group_actions
 
 
