@@ -39,17 +39,21 @@ class ChangelogFetcher:
         print('Parsing Changelog RSS feed')
         # fetches 20 most recent entries
         feed = feedparser.parse(self.RSS_URL)
+        skip_num = 0
         for entry in feed.entries:
             # Dependent on thread title being in the format "mm-dd-yyyy Update"
             date = entry.title.replace(' Update', '')
             # Only update the existing if it doesn't already exist in the dict
             if not update_Existing and (date in self.changelogs_by_date.keys()):
+                skip_num += 1
                 continue
             try:
                 full_text = '\n---\n'.join(self._fetch_update_html(entry.link))
             except:
                 print(f'Issue with parsing RSS feed item {entry.link}')
             self.changelogs_by_date[date] = full_text
+        if skip_num > 0:
+            print(f'Skipped {skip_num} RSS items that already exists')
 
     def _process_local_changelogs(self, changelog_path):
         print('Parsing Changelog txt files')
