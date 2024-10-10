@@ -1,0 +1,743 @@
+{
+    "Other": {
+        "General": []
+    },
+    "Heroes": {
+        "General": [],
+        "Dynamo": [
+            "- Certain heroes now have a higher priority at being in dual lanes ({AbilityIcon|Ability=Ivy|Size=20} Ivy and Dynamo atm)",
+            "- If you're {AbilityIcon|Ability=Dynamo|Size=20} Dynamo or Krill, you can now ping during your ult to alert your allies",
+            "- {AbilityIcon|Ability=Quantum Entanglement|Size=20} Quantum Entanglement cooldown increased from 12.5s to 15s",
+            "- {AbilityIcon|Ability=Quantum Entanglement|Size=20} Quantum Entanglement T3 now also also reduces cooldown by 4s",
+            "- Fixed Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse T2 tooltip to clarify that it affects bullets only and not melee damage"
+        ],
+        "Ivy": [
+            "- Certain heroes now have a higher priority at being in dual lanes ({AbilityIcon|Ability=Ivy|Size=20} Ivy and Dynamo atm)",
+            "- New heavy melee anims added to Mo & Krill and {AbilityIcon|Ability=Ivy|Size=20} Ivy",
+            "- Improved default camera position",
+            "- Take {AbilityIcon|Ability=Flight|Size=20} Flight control keys are now similar to Vindicta's",
+            "- Fixed some issues with control on Take {AbilityIcon|Ability=Flight|Size=20} Flight when near a wall"
+        ],
+        "Yamato": [
+            "- Replaced the temp {AbilityIcon|Ability=Yamato|Size=20} Yamato VO with a new translation spoken by a native actress",
+            "- Yamato's Flying Strike now also cancels when the target is out of world (like with {AbilityIcon|Ability=Quantum Entanglement|Size=20} Quantum Entanglement)",
+            "- {AbilityIcon|Ability=Power Slash|Size=20} Power Slash cooldown increased from 8.5s to 10.5s",
+            "- {AbilityIcon|Ability=Power Slash|Size=20} Power Slash T2 now also reduces cooldown by 2s",
+            "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation no longer grants you bullet and spirit resist",
+            "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation duration reduced from 4.5s to 4s"
+        ],
+        "Shiv": [
+            "- Fixed Shiv's {AbilityIcon|Ability=Killing Blow|Size=20} Killing Blow sometimes sending him into orbit",
+            "- Fixed Shiv's Killing Blow continuing to do damage while being teleported by {AbilityIcon|Ability=Quantum Entanglement|Size=20} Quantum Entanglement",
+            "- {AbilityIcon|Ability=Slice and Dice|Size=20} Slice and Dice Spirit damage scaling increased from 1.2 to 1.3",
+            "- {AbilityIcon|Ability=Slice and Dice|Size=20} Slice and Dice T1 improved from -3.75s to -4s",
+            "- Rage decay rate reduced from 0.35 to 0.25",
+            "- Rage buffer duration increased from 7s to 12s (how long it stays before starting to decay)"
+        ],
+        "Lash": [
+            "- Lash's {AbilityIcon|Ability=Death Slam|Size=20} Death Slam now has clearer visual states to indicate when someone is successfully locked in",
+            "- Base bullet damage reduced from 10 to 9",
+            "- {AbilityIcon|Ability=Flog|Size=20} Flog Heal vs heroes reduced from 80% to 70%",
+            "- {AbilityIcon|Ability=Flog|Size=20} Flog Heal vs creeps reduced from 30% to 25%"
+        ],
+        "Grey Talon": [
+            "- Fixed some cases where {AbilityIcon|Ability=Grey Talon|Size=20} Grey Talon's trap effects would be stuck in the world",
+            "- Updated {AbilityIcon|Ability=Grey Talon|Size=20} Grey Talon root effect for trap",
+            "- Updated {AbilityIcon|Ability=Grey Talon|Size=20} Grey Talon updated firing, projectile, impact effects",
+            "- Arrow cycle time increased from 0.45s to 0.55s (overall dps unchanged)",
+            "- Fixed {AbilityIcon|Ability=Rain of Arrows|Size=20} Rain of Arrows alternate cast causing you to hit the ground soon after cast",
+            "- Fixed {AbilityIcon|Ability=Guided Owl|Size=20} Guided Owl colliding with nearby objects during cast",
+            "- {AbilityIcon|Ability=Fire Rate|Size=20} Fire Rate no longer scales with Spirit Power",
+            "- Base bullet damage now scales with Spirit Power (0.1)",
+            "- {AbilityIcon|Ability=Guided Owl|Size=20} Guided Owl 3s grace period for kill increased to 4s",
+            "- Fixed {AbilityIcon|Ability=Guided Owl|Size=20} Guided Owl grace period still requiring that he gets the kill, rather than the target just die",
+            "- Movespeed no longer scales with Spirit Power",
+            "- Base stamina increased from 3 to 4"
+        ],
+        "McGinnis": [
+            "- Updated McGinnis Heavy {AbilityIcon|Ability=Barrage|Size=20} Barrage sound",
+            "- No longer has +25% Spirit Resist",
+            "- Now has +15% Bullet Resist",
+            "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets T1 no longer grants +1 charge",
+            "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets duration reduced from 30s to 24s",
+            "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets cooldown reduced from 30s to 24s",
+            "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets health scaling reduced from 30% to 20%",
+            "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets recharge time reduced from 5s to 3s",
+            "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets cast range increased from 15m to 20m",
+            "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turret damage reduction against troopers/neutrals increased from -40% to -50%",
+            "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turret damage reduction against objectives increased from -60% to -70%",
+            "- Fixed Ricochet not bouncing off of {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets",
+            "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turret spawn time reduced from 1s to 0.25s",
+            "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turret attack delay reduced from 0.35s to 0.2s",
+            "- Heavy {AbilityIcon|Ability=Barrage|Size=20} Barrage radius increased from 4.5m to 5m"
+        ],
+        "Kelvin": [
+            "- Updated {AbilityIcon|Ability=Kelvin|Size=20} Kelvin weapon fire audio"
+        ],
+        "Infernus": [
+            "- Updated {AbilityIcon|Ability=Infernus|Size=20} Infernus weapon fire audio",
+            "- {AbilityIcon|Ability=Catalyst|Size=20} Catalyst Damage Amp reduced from 25% to 20%",
+            "- {AbilityIcon|Ability=Catalyst|Size=20} Catalyst T3 Damage Amp increased from 15% to 20%"
+        ],
+        "Abrams": [
+            "- {AbilityIcon|Ability=Abrams|Size=20} Abrams Life Siphon fades to 50% opacity after initial start to improve visibility",
+            "- Base health reduced from 600 to 570",
+            "- Health per boon increased from 32 to 34 (1048 vs 1046 total)",
+            "- Fixed shoulder charge sensitivity bugs that allowed you to turn more than intended",
+            "- {AbilityIcon|Ability=Seismic Impact|Size=20} Seismic Impact now allows for some very minor movement to help nudge around small objects"
+        ],
+        "Mirage": [
+            "- {AbilityIcon|Ability=Mirage|Size=20} Mirage still loves the Djinn, but he yells about them less frequently",
+            "- Mirage {AbilityIcon|Ability=Djinn's Mark|Size=20} Djinn's Mark effects revisions to reduce noise on the victim and appear more clearly for Mirage",
+            "- {AbilityIcon|Ability=Tornado|Size=20} Tornado now uses a range for its travel distance instead of a travel duration (scales with range increase)",
+            "- Enemies that have already been hit by {AbilityIcon|Ability=Fire Scarabs|Size=20} Fire Scarabs now let the next scarab projectile pass through them",
+            "- {AbilityIcon|Ability=Djinn's Mark|Size=20} Djinn's Mark base damage reduced from 16 to 12",
+            "- {AbilityIcon|Ability=Djinn's Mark|Size=20} Djinn's Mark scaling from spirit power increased from 0.4 to 0.55",
+            "- {AbilityIcon|Ability=Djinn's Mark|Size=20} Djinn's Mark reveal duration increased from 2s to 3s",
+            "- {AbilityIcon|Ability=Traveler|Size=20} Traveler now causes your camera to move to the destination during the channel",
+            "- {AbilityIcon|Ability=Traveler|Size=20} Traveler T1 is now \"+2 m/s\" (was -20s cd)",
+            "- {AbilityIcon|Ability=Traveler|Size=20} Traveler T2 is now \"-30s cd\" (was +2 m/s)",
+            "- {AbilityIcon|Ability=Traveler|Size=20} Traveler T3 fire rate increased from 20% to 30%"
+        ],
+        "Bebop": [
+            "- Added new custom charge and light melee and parry animations for {AbilityIcon|Ability=Bebop|Size=20} Bebop",
+            "- {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb growth increased from 2.5% to 4% per stack",
+            "- {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb now loses 2 stacks on death",
+            "- {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb now has 15 max stacks",
+            "- {AbilityIcon|Ability=Hook|Size=20} Hook range increased from 25m to 30m",
+            "- {AbilityIcon|Ability=Hook|Size=20} Hook now also hits enemy troopers, killing them instantly",
+            "- Fixed some cases where {AbilityIcon|Ability=Hook|Size=20} Hook would grab players from around corners",
+            "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam movement slow reduced from 30% to 25%",
+            "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam duration no longer scales with Spirit Power",
+            "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam duration increased from 8s to 10s",
+            "- Uppercut now applies a 15% {AbilityIcon|Ability=Fire Rate|Size=20} Fire Rate slow in the landing radius for 5s. Scales with Spirit Power (0.2)"
+        ],
+        "Mo & Krill": [
+            "- New heavy melee anims added to Mo & Krill and {AbilityIcon|Ability=Ivy|Size=20} Ivy",
+            "- {AbilityIcon|Ability=Combo|Size=20} Combo T1 now grants +30% Bullet Resist While Channeling (no longer grants -28s CD)",
+            "- {AbilityIcon|Ability=Combo|Size=20} Combo cooldown reduced from 95s to 75s"
+        ],
+        "Lady Geist": [
+            "- Adjusted Lady Geist {AbilityIcon|Ability=Life Drain|Size=20} Life Drain to lower visual obstruction but increase awareness when it first latches",
+            "- Fixed a bug that could cause some units to take more damage than intended with {AbilityIcon|Ability=Essence Bomb|Size=20} Essence Bomb when multiple targets are hit",
+            "- {AbilityIcon|Ability=Life Drain|Size=20} Life Drain can now be alternate-casted on allied heroes",
+            "- Added double tap accidental protection for {AbilityIcon|Ability=Life Drain|Size=20} Life Drain to help against instant cancellations",
+            "- {AbilityIcon|Ability=Malice|Size=20} Malice slow duration reduced from 6s to 4s",
+            "- {AbilityIcon|Ability=Malice|Size=20} Malice amp duration reduced from 16s to 13s",
+            "- You can now see how many {AbilityIcon|Ability=Malice|Size=20} Malice stacks you have on you as the opponent"
+        ],
+        "Haze": [
+            "- {AbilityIcon|Ability=Fixation|Size=20} Fixation max stacks increased from 30 to 40",
+            "- {AbilityIcon|Ability=Fixation|Size=20} Fixation T3 reduced from +0.2 to +0.15",
+            "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance no longer grants +15% Fire Rate",
+            "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance base ability now grants 2 Targets Hit Per Shot",
+            "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance base ability no longer grants +25% Evasion",
+            "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance T3 now grants +40% Evasion and +2 {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance Speed"
+        ],
+        "Vindicta": [
+            "- Ivy: Take {AbilityIcon|Ability=Flight|Size=20} Flight control keys are now similar to Vindicta's",
+            "- Reverted recent falloff damage changes",
+            "- Fall off increased from 58m (default) to 64m",
+            "- Bullet damage growth per boon reduced from 0.79 to 0.55",
+            "- {AbilityIcon|Ability=Flight|Size=20} Flight duration no longer scales with Spirit Power",
+            "- {AbilityIcon|Ability=Flight|Size=20} Flight T2 now increases flight duration by 6s",
+            "- {AbilityIcon|Ability=Flight|Size=20} Flight bonus move speed above base now scales at 50% effectiveness",
+            "- No longer has -10% base bullet resist",
+            "- Health growth per boon reduced from 20 to 15",
+            "- Gun cycle time increased from 0.22 to 0.26 (dps rescaled to remain the same, after the above changes are calculated in)",
+            "- {AbilityIcon|Ability=Stake|Size=20} Stake duration reduced from 2s to 1.75s",
+            "- {AbilityIcon|Ability=Assassinate|Size=20} Assassinate bonus souls is now unsecured",
+            "- Shooting while flying now has similar speed impact as on the ground",
+            "- {AbilityIcon|Ability=Flight|Size=20} Flight air acceleration decreased a little",
+            "- {AbilityIcon|Ability=Crow Familiar|Size=20} Crow Familiar % damage no longer affects Mid Boss"
+        ],
+        "Paradox": [
+            "- Bullet growth per boon increased from 0.33 to 0.45",
+            "- {AbilityIcon|Ability=Time Wall|Size=20} Time Wall bullet duration reduced from 1s to 0.7s",
+            "- Fixed {AbilityIcon|Ability=Time Wall|Size=20} Time Wall not being spawned when looking down while casting",
+            "- {AbilityIcon|Ability=Paradoxical Swap|Size=20} Paradoxical Swap cooldown increased from 48s to 65s",
+            "- {AbilityIcon|Ability=Paradoxical Swap|Size=20} Paradoxical Swap range reduced from 30m to 25m",
+            "- {AbilityIcon|Ability=Paradoxical Swap|Size=20} Paradoxical Swap T1 now reduces cooldown by 15s",
+            "- {AbilityIcon|Ability=Paradoxical Swap|Size=20} Paradoxical Swap T3 now increases range by 20m",
+            "- {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade radius reduced from 7m to 6m",
+            "- {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade Damage Amp per Stack increased from 5% to 6%",
+            "- {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade T3 no longer increases Damage Amp by 2%",
+            "- {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade T3 now also increases the radius by 1m per pulse"
+        ],
+        "Pocket": [
+            "- Shotgun falloff start reduced from 22m to 16m",
+            "- {AbilityIcon|Ability=Enchanter's Satchel|Size=20} Enchanter's Satchel damage now respects line of sight",
+            "- {AbilityIcon|Ability=Enchanter's Satchel|Size=20} Enchanter's Satchel now shows an aoe indicator for Pocket while channeling",
+            "- {AbilityIcon|Ability=Affliction|Size=20} Affliction DPS Spirit Power scaling reduced from 0.4 to 0.34",
+            "- {AbilityIcon|Ability=Barrage|Size=20} Barrage radius reduced from 6.5m to 4.5m",
+            "- {AbilityIcon|Ability=Barrage|Size=20} Barrage T3 now also increases radius by 2m"
+        ],
+        "Seven": [
+            "- Base regen increased from 1.5 to 3",
+            "- Movespeed scaling with Spirit Power reduced from 0.028 to 0.02",
+            "- Can now use dash while in {AbilityIcon|Ability=Storm Cloud|Size=20} Storm Cloud to adjust your position",
+            "- {AbilityIcon|Ability=Lightning Ball|Size=20} Lightning Ball T3 increased from +1m to +2m"
+        ],
+        "Viscous": [
+            "- {AbilityIcon|Ability=Goo Ball|Size=20} Goo Ball no longer triggers on hit effect while in Ethereal Shift",
+            "- Fixed Superior Stamina dash count not working with {AbilityIcon|Ability=Goo Ball|Size=20} Goo Ball",
+            "- {AbilityIcon|Ability=Goo Ball|Size=20} Goo Ball stun duration reduced from 1s to 0.7s",
+            "- {AbilityIcon|Ability=Splatter|Size=20} Splatter base damage reduced from 100 to 90",
+            "- {AbilityIcon|Ability=Splatter|Size=20} Splatter T2 reduced from +70 to +60",
+            "- {AbilityIcon|Ability=Splatter|Size=20} Splatter Spirit damage scale increased from 1.5 to 1.9",
+            "- Fixed Instant Cast not working for {AbilityIcon|Ability=Puddle Punch|Size=20} Puddle Punch"
+        ],
+        "Warden": [
+            "- {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask cooldown reduced from 14s to 12s",
+            "- {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask damage increased from 55 to 65",
+            "- {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask T1 is now +1 Stamina Reduction",
+            "- {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask T2 is now +50 Damage",
+            "- {AbilityIcon|Ability=Last Stand|Size=20} Last Stand channel duration reduced from 2.2s to 2s",
+            "- {AbilityIcon|Ability=Last Stand|Size=20} Last Stand range increased from 12m to 13m"
+        ],
+        "Wraith": [
+            "- {AbilityIcon|Ability=Card Trick|Size=20} Card Trick spirit scale reduced from 1.2 to 1.1",
+            "- {AbilityIcon|Ability=Card Trick|Size=20} Card Trick generation via melee reduced by 50%"
+        ]
+    },
+    "Items": {
+        "General": [],
+        "Debuff Reducer": [
+            "- Fixed {AbilityIcon|Ability=Debuff Reducer|Size=20} Debuff Reducer causing Teleporters to be faster"
+        ],
+        "Return Fire": [
+            "- Added {AbilityIcon|Ability=Return Fire|Size=20} Return Fire proc sound",
+            "- Added {AbilityIcon|Ability=Return Fire|Size=20} Return Fire cast sound",
+            "- Cooldown increased from 25s to 30s",
+            "- Active bullet resist reduced from 25% to 20%"
+        ],
+        "Metal Skin": [
+            "- Added {AbilityIcon|Ability=Metal Skin|Size=20} Metal Skin proc sound",
+            "- Revised {AbilityIcon|Ability=Metal Skin|Size=20} Metal Skin cast sound"
+        ],
+        "Healing Rite": [
+            "- Added {AbilityIcon|Ability=Healing Rite|Size=20} Healing Rite cast sound",
+            "- Regen duration increased from 17s to 19s (same total heal)"
+        ],
+        "Rescue Beam": [
+            "- Added {AbilityIcon|Ability=Rescue Beam|Size=20} Rescue Beam heal and pull loop sounds",
+            "- Cast range reduced from 36m to 32m"
+        ],
+        "Health Nova": [
+            "- Added {AbilityIcon|Ability=Health Nova|Size=20} Health Nova cast sound",
+            "- Spirit Power increased from +4 to +6"
+        ],
+        "Colossus": [
+            "- Added {AbilityIcon|Ability=Colossus|Size=20} Colossus cast and loop sounds"
+        ],
+        "Echo Shard": [
+            "- Added echo to {AbilityIcon|Ability=Echo Shard|Size=20} Echo Shard cast sound"
+        ],
+        "Silence Glyph": [
+            "- Added {AbilityIcon|Ability=Silence Glyph|Size=20} Silence Glyph cast and hit sounds"
+        ],
+        "Ammo Scavenger": [
+            "- Added {AbilityIcon|Ability=Ammo Scavenger|Size=20} Ammo Scavenger proc sound",
+            "- Spirit Power Per Soul reduced from 2 to 1",
+            "- Max Stacks increased from 10 to 20"
+        ],
+        "Restorative Shot": [
+            "- Added {AbilityIcon|Ability=Restorative Shot|Size=20} Restorative Shot proc sound",
+            "- Weapon Damage reduced from 8% to 7%"
+        ],
+        "Toxic Bullets": [
+            "- Added {AbilityIcon|Ability=Toxic Bullets|Size=20} Toxic Bullets proc variations",
+            "- Buildup is now 15% slower"
+        ],
+        "Spiritual Overflow": [
+            "- Improved visibility on {AbilityIcon|Ability=Spiritual Overflow|Size=20} Spiritual Overflow effects when heroes are airborne",
+            "- No longer grants +20% {AbilityIcon|Ability=Fire Rate|Size=20} Fire Rate",
+            "- Upon activation, grants +35% {AbilityIcon|Ability=Fire Rate|Size=20} Fire Rate",
+            "- Activated Spirit Power increased from +45 to +50"
+        ],
+        "Fire Rate": [
+            "- Golden Statues now have a tier 3 upgrade at 25 minutes (+2.5% {AbilityIcon|Ability=Fire Rate|Size=20} Fire Rate, +8% Ammo, 1.5% CD Reduction, +7% Weapon Damage, 40 Health, +5 Spirit Power)",
+            "- {AbilityIcon|Ability=Spiritual Overflow|Size=20} Spiritual Overflow: No longer grants +20% Fire Rate",
+            "- {AbilityIcon|Ability=Spiritual Overflow|Size=20} Spiritual Overflow: Upon activation, grants +35% Fire Rate",
+            "- {AbilityIcon|Ability=Extra Stamina|Size=20} Extra Stamina: Fire Rate reduced from 7% to 6%",
+            "- Uppercut now applies a 15% {AbilityIcon|Ability=Fire Rate|Size=20} Fire Rate slow in the landing radius for 5s. Scales with Spirit Power (0.2)",
+            "- {AbilityIcon|Ability=Fire Rate|Size=20} Fire Rate no longer scales with Spirit Power",
+            "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance no longer grants +15% Fire Rate"
+        ],
+        "Enduring Speed": [
+            "- All heroes' movespeed increased by 0.3 ({AbilityIcon|Ability=Enduring Speed|Size=20} Enduring Speed reduced by 0.3)",
+            "- Movespeed bonus reduced from 1.4 to 1.1 (all heroes movement speed increased by 0.3)",
+            "- Slow resist reduced from 40% to 35%"
+        ],
+        "Spirit Lifesteal": [
+            "- Bullet and {AbilityIcon|Ability=Spirit Lifesteal|Size=20} Spirit Lifesteal now stack diminishingly"
+        ],
+        "Monster Rounds": [
+            "- Weapon Damage vs NPCs reduced from 35% to 30%"
+        ],
+        "Basic Magazine": [
+            "- Ammo increased from 24% to 26%"
+        ],
+        "Melee Charge": [
+            "- Cooldown increased from 10.5s to 16s"
+        ],
+        "Long Range": [
+            "- Ammo increase from 20% to 25%"
+        ],
+        "Tesla Bullets": [
+            "- Spirit scaling increased from 0.13 to 0.16"
+        ],
+        "Alchemical Fire": [
+            "- Now behaves like other grenades and does not bounce off walls",
+            "- Base DPS increased from 45 to 55"
+        ],
+        "Frenzy": [
+            "- Low HP threshold increased from 40% to 50%"
+        ],
+        "Ricochet": [
+            "- Range reduced from 14m to 11m",
+            "- Fixed Ricochet not bouncing off of {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets"
+        ],
+        "Silencer": [
+            "- Spirit Power increased from 12 to 18"
+        ],
+        "Vampiric Burst": [
+            "- Added ammo on active increased from +50% to +75%",
+            "- Cooldown reduced from 37s to 34s"
+        ],
+        "Extra Regen": [
+            "- Regen increased from 2.8 to 3",
+            "- Ammo increased from 8% to 10%"
+        ],
+        "Extra Stamina": [
+            "- Stamina Recovery increased from 14% to 16%",
+            "- {AbilityIcon|Ability=Fire Rate|Size=20} Fire Rate reduced from 7% to 6%",
+            "- Now gives +25 Health"
+        ],
+        "Extra Health": [
+            "- Weapon Damage increased from 5% to 6%"
+        ],
+        "Restorative Locket": [
+            "- Spirit Resist increased from 8% to 10%",
+            "- Now grants +1 Sprint"
+        ],
+        "Combat Barrier": [
+            "- Weapon Damage reduced from 25% to 22%"
+        ],
+        "Fortitude": [
+            "- Health increased from +300 to +325"
+        ],
+        "Lifestrike": [
+            "- Heal increased from 55% of melee damage to 65%"
+        ],
+        "Superior Stamina": [
+            "- Stamina Recovery increased from 20% to 25%",
+            "- Fixed Superior Stamina dash count not working with {AbilityIcon|Ability=Goo Ball|Size=20} Goo Ball"
+        ],
+        "Veil Walker": [
+            "- Speed increased from 3 to 4"
+        ],
+        "Majestic Leap": [
+            "- Cooldown increased from 23s to 26s"
+        ],
+        "Leech": [
+            "- Weapon Damage increase from +15% to +20%",
+            "- Spirit Power increased from +12 to +18"
+        ],
+        "Siphon Bullets": [
+            "- HP Steal Per Bullet increased from 45 to 50"
+        ],
+        "Extra Spirit": [
+            "- Spirit Power increased from 9 to 10"
+        ],
+        "Withering Whip": [
+            "- No longer grants +50 Health",
+            "- Now grants +100 Bullet Shield",
+            "- Cooldown reduced from 26s to 22s"
+        ],
+        "Cold Front": [
+            "- Cooldown reduced from 34s to 28s"
+        ],
+        "Escalating Exposure": [
+            "- {AbilityIcon|Ability=Mystic Vulnerability|Size=20} Mystic Vulnerability: Fixed it stacking with Escalating Exposure",
+            "- Spirit Resist On Damage reduced from -15% to -12%",
+            "- Amp Per Stack reduced from 6% to 5%",
+            "- Duration reduced from 15s to 12s"
+        ],
+        "Mystic Vulnerability": [
+            "- Fixed it stacking with {AbilityIcon|Ability=Escalating Exposure|Size=20} Escalating Exposure"
+        ],
+        "Slowing Hex": [
+            "- Slow reduced from 30% to 25%"
+        ],
+        "Improved Spirit": [
+            "- Spirit Power increased from +23 to +28"
+        ],
+        "Improved Burst": [
+            "- Max Health damage reduced from 9% to 7%"
+        ],
+        "Knockdown": [
+            "- Cooldown reduced from 48s to 40s"
+        ],
+        "Ethereal Shift": [
+            "- Can no longer end it early",
+            "- {AbilityIcon|Ability=Goo Ball|Size=20} Goo Ball no longer triggers on hit effect while in Ethereal Shift"
+        ],
+        "Torment Pulse": [
+            "- {AbilityIcon|Ability=Pulse|Size=20} Pulse interval is now fixed and does not get reduced with cooldown reduction"
+        ],
+        "Superior Cooldown": [
+            "- Now grants +100 Spirit Shield"
+        ],
+        "Refresher": [
+            "- Cooldown increased from 212s to 230s"
+        ],
+        "Mystic Reverb": [
+            "- Slow reduced from 50% to 40%"
+        ]
+    },
+    "Abilities": {
+        "General": [],
+        "Killing Blow": [
+            "- Fixed Shiv's {AbilityIcon|Ability=Killing Blow|Size=20} Killing Blow sometimes sending him into orbit",
+            "- Fixed Shiv's Killing Blow continuing to do damage while being teleported by {AbilityIcon|Ability=Quantum Entanglement|Size=20} Quantum Entanglement"
+        ],
+        "Quantum Entanglement": [
+            "- Fixed Shiv's Killing Blow continuing to do damage while being teleported by {AbilityIcon|Ability=Quantum Entanglement|Size=20} Quantum Entanglement",
+            "- Fixed {AbilityIcon|Ability=Quantum Entanglement|Size=20} Quantum Entanglement's camera position anims not being smooth",
+            "- Yamato's Flying Strike now also cancels when the target is out of world (like with {AbilityIcon|Ability=Quantum Entanglement|Size=20} Quantum Entanglement)",
+            "- {AbilityIcon|Ability=Quantum Entanglement|Size=20} Quantum Entanglement cooldown increased from 12.5s to 15s",
+            "- {AbilityIcon|Ability=Quantum Entanglement|Size=20} Quantum Entanglement T3 now also also reduces cooldown by 4s"
+        ],
+        "Flying Strike": [
+            "- Yamato's Flying Strike now also cancels when the target is out of world (like with {AbilityIcon|Ability=Quantum Entanglement|Size=20} Quantum Entanglement)"
+        ],
+        "Death Slam": [
+            "- Lash's {AbilityIcon|Ability=Death Slam|Size=20} Death Slam now has clearer visual states to indicate when someone is successfully locked in"
+        ],
+        "Heavy Barrage": [
+            "- Updated McGinnis Heavy {AbilityIcon|Ability=Barrage|Size=20} Barrage sound",
+            "- Heavy {AbilityIcon|Ability=Barrage|Size=20} Barrage radius increased from 4.5m to 5m"
+        ],
+        "Barrage": [
+            "- Updated McGinnis Heavy {AbilityIcon|Ability=Barrage|Size=20} Barrage sound",
+            "- Heavy {AbilityIcon|Ability=Barrage|Size=20} Barrage radius increased from 4.5m to 5m",
+            "- {AbilityIcon|Ability=Barrage|Size=20} Barrage radius reduced from 6.5m to 4.5m",
+            "- {AbilityIcon|Ability=Barrage|Size=20} Barrage T3 now also increases radius by 2m"
+        ],
+        "Siphon Life": [
+            "- Added improvements for meleeing while using {AbilityIcon|Ability=Siphon Life|Size=20} Siphon Life (book now floats and hand makes a fist)"
+        ],
+        "Rain of Arrows": [
+            "- Updated {AbilityIcon|Ability=Rain of Arrows|Size=20} Rain of Arrows effects",
+            "- Fixed {AbilityIcon|Ability=Rain of Arrows|Size=20} Rain of Arrows alternate cast causing you to hit the ground soon after cast"
+        ],
+        "Life Drain": [
+            "- Adjusted Lady Geist {AbilityIcon|Ability=Life Drain|Size=20} Life Drain to lower visual obstruction but increase awareness when it first latches",
+            "- {AbilityIcon|Ability=Life Drain|Size=20} Life Drain can now be alternate-casted on allied heroes",
+            "- Added double tap accidental protection for {AbilityIcon|Ability=Life Drain|Size=20} Life Drain to help against instant cancellations"
+        ],
+        "Catalyst": [
+            "- Inferno {AbilityIcon|Ability=Catalyst|Size=20} Catalyst effect revisions to help show range better",
+            "- {AbilityIcon|Ability=Catalyst|Size=20} Catalyst Damage Amp reduced from 25% to 20%",
+            "- {AbilityIcon|Ability=Catalyst|Size=20} Catalyst T3 Damage Amp increased from 15% to 20%"
+        ],
+        "Djinn's Mark": [
+            "- Mirage {AbilityIcon|Ability=Djinn's Mark|Size=20} Djinn's Mark effects revisions to reduce noise on the victim and appear more clearly for Mirage",
+            "- {AbilityIcon|Ability=Djinn's Mark|Size=20} Djinn's Mark base damage reduced from 16 to 12",
+            "- {AbilityIcon|Ability=Djinn's Mark|Size=20} Djinn's Mark scaling from spirit power increased from 0.4 to 0.55",
+            "- {AbilityIcon|Ability=Djinn's Mark|Size=20} Djinn's Mark reveal duration increased from 2s to 3s"
+        ],
+        "Pulse": [
+            "- {AbilityIcon|Ability=Pulse|Size=20} Pulse interval is now fixed and does not get reduced with cooldown reduction",
+            "- Fixed Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse T2 tooltip to clarify that it affects bullets only and not melee damage",
+            "- {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade radius reduced from 7m to 6m",
+            "- {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade Damage Amp per Stack increased from 5% to 6%",
+            "- {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade T3 no longer increases Damage Amp by 2%",
+            "- {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade T3 now also increases the radius by 1m per pulse"
+        ],
+        "Seismic Impact": [
+            "- {AbilityIcon|Ability=Seismic Impact|Size=20} Seismic Impact now allows for some very minor movement to help nudge around small objects"
+        ],
+        "Sticky Bomb": [
+            "- {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb growth increased from 2.5% to 4% per stack",
+            "- {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb now loses 2 stacks on death",
+            "- {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb now has 15 max stacks"
+        ],
+        "Hook": [
+            "- {AbilityIcon|Ability=Hook|Size=20} Hook range increased from 25m to 30m",
+            "- {AbilityIcon|Ability=Hook|Size=20} Hook now also hits enemy troopers, killing them instantly",
+            "- Fixed some cases where {AbilityIcon|Ability=Hook|Size=20} Hook would grab players from around corners"
+        ],
+        "Hyper Beam": [
+            "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam movement slow reduced from 30% to 25%",
+            "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam duration no longer scales with Spirit Power",
+            "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam duration increased from 8s to 10s"
+        ],
+        "Kinetic Pulse": [
+            "- Fixed Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse T2 tooltip to clarify that it affects bullets only and not melee damage"
+        ],
+        "Guided Owl": [
+            "- Fixed {AbilityIcon|Ability=Guided Owl|Size=20} Guided Owl colliding with nearby objects during cast",
+            "- {AbilityIcon|Ability=Guided Owl|Size=20} Guided Owl 3s grace period for kill increased to 4s",
+            "- Fixed {AbilityIcon|Ability=Guided Owl|Size=20} Guided Owl grace period still requiring that he gets the kill, rather than the target just die"
+        ],
+        "Fixation": [
+            "- {AbilityIcon|Ability=Fixation|Size=20} Fixation max stacks increased from 30 to 40",
+            "- {AbilityIcon|Ability=Fixation|Size=20} Fixation T3 reduced from +0.2 to +0.15"
+        ],
+        "Bullet Dance": [
+            "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance no longer grants +15% Fire Rate",
+            "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance base ability now grants 2 Targets Hit Per Shot",
+            "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance base ability no longer grants +25% Evasion",
+            "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance T3 now grants +40% Evasion and +2 {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance Speed"
+        ],
+        "Flight": [
+            "- Take {AbilityIcon|Ability=Flight|Size=20} Flight control keys are now similar to Vindicta's",
+            "- Fixed some issues with control on Take {AbilityIcon|Ability=Flight|Size=20} Flight when near a wall",
+            "- {AbilityIcon|Ability=Flight|Size=20} Flight duration no longer scales with Spirit Power",
+            "- {AbilityIcon|Ability=Flight|Size=20} Flight T2 now increases flight duration by 6s",
+            "- {AbilityIcon|Ability=Flight|Size=20} Flight bonus move speed above base now scales at 50% effectiveness",
+            "- {AbilityIcon|Ability=Flight|Size=20} Flight air acceleration decreased a little"
+        ],
+        "Essence Bomb": [
+            "- Fixed a bug that could cause some units to take more damage than intended with {AbilityIcon|Ability=Essence Bomb|Size=20} Essence Bomb when multiple targets are hit"
+        ],
+        "Malice": [
+            "- {AbilityIcon|Ability=Malice|Size=20} Malice slow duration reduced from 6s to 4s",
+            "- {AbilityIcon|Ability=Malice|Size=20} Malice amp duration reduced from 16s to 13s",
+            "- You can now see how many {AbilityIcon|Ability=Malice|Size=20} Malice stacks you have on you as the opponent"
+        ],
+        "Flog": [
+            "- {AbilityIcon|Ability=Flog|Size=20} Flog Heal vs heroes reduced from 80% to 70%",
+            "- {AbilityIcon|Ability=Flog|Size=20} Flog Heal vs creeps reduced from 30% to 25%"
+        ],
+        "Mini Turret": [
+            "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets T1 no longer grants +1 charge",
+            "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets duration reduced from 30s to 24s",
+            "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets cooldown reduced from 30s to 24s",
+            "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets health scaling reduced from 30% to 20%",
+            "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets recharge time reduced from 5s to 3s",
+            "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets cast range increased from 15m to 20m",
+            "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turret damage reduction against troopers/neutrals increased from -40% to -50%",
+            "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turret damage reduction against objectives increased from -60% to -70%",
+            "- Fixed Ricochet not bouncing off of {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets",
+            "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turret spawn time reduced from 1s to 0.25s",
+            "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turret attack delay reduced from 0.35s to 0.2s"
+        ],
+        "Tornado": [
+            "- {AbilityIcon|Ability=Tornado|Size=20} Tornado now uses a range for its travel distance instead of a travel duration (scales with range increase)"
+        ],
+        "Fire Scarabs": [
+            "- Enemies that have already been hit by {AbilityIcon|Ability=Fire Scarabs|Size=20} Fire Scarabs now let the next scarab projectile pass through them"
+        ],
+        "Traveler": [
+            "- {AbilityIcon|Ability=Traveler|Size=20} Traveler now causes your camera to move to the destination during the channel",
+            "- {AbilityIcon|Ability=Traveler|Size=20} Traveler T1 is now \"+2 m/s\" (was -20s cd)",
+            "- {AbilityIcon|Ability=Traveler|Size=20} Traveler T2 is now \"-30s cd\" (was +2 m/s)",
+            "- {AbilityIcon|Ability=Traveler|Size=20} Traveler T3 fire rate increased from 20% to 30%"
+        ],
+        "Combo": [
+            "- {AbilityIcon|Ability=Combo|Size=20} Combo T1 now grants +30% Bullet Resist While Channeling (no longer grants -28s CD)",
+            "- {AbilityIcon|Ability=Combo|Size=20} Combo cooldown reduced from 95s to 75s"
+        ],
+        "Time Wall": [
+            "- {AbilityIcon|Ability=Time Wall|Size=20} Time Wall bullet duration reduced from 1s to 0.7s",
+            "- Fixed {AbilityIcon|Ability=Time Wall|Size=20} Time Wall not being spawned when looking down while casting"
+        ],
+        "Paradoxical Swap": [
+            "- {AbilityIcon|Ability=Paradoxical Swap|Size=20} Paradoxical Swap cooldown increased from 48s to 65s",
+            "- {AbilityIcon|Ability=Paradoxical Swap|Size=20} Paradoxical Swap range reduced from 30m to 25m",
+            "- {AbilityIcon|Ability=Paradoxical Swap|Size=20} Paradoxical Swap T1 now reduces cooldown by 15s",
+            "- {AbilityIcon|Ability=Paradoxical Swap|Size=20} Paradoxical Swap T3 now increases range by 20m"
+        ],
+        "Pulse Grenade": [
+            "- {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade radius reduced from 7m to 6m",
+            "- {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade Damage Amp per Stack increased from 5% to 6%",
+            "- {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade T3 no longer increases Damage Amp by 2%",
+            "- {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade T3 now also increases the radius by 1m per pulse"
+        ],
+        "Enchanter's Satchel": [
+            "- {AbilityIcon|Ability=Enchanter's Satchel|Size=20} Enchanter's Satchel damage now respects line of sight",
+            "- {AbilityIcon|Ability=Enchanter's Satchel|Size=20} Enchanter's Satchel now shows an aoe indicator for Pocket while channeling"
+        ],
+        "Affliction": [
+            "- {AbilityIcon|Ability=Affliction|Size=20} Affliction DPS Spirit Power scaling reduced from 0.4 to 0.34"
+        ],
+        "Storm Cloud": [
+            "- Can now use dash while in {AbilityIcon|Ability=Storm Cloud|Size=20} Storm Cloud to adjust your position"
+        ],
+        "Lightning Ball": [
+            "- {AbilityIcon|Ability=Lightning Ball|Size=20} Lightning Ball T3 increased from +1m to +2m"
+        ],
+        "Slice and Dice": [
+            "- {AbilityIcon|Ability=Slice and Dice|Size=20} Slice and Dice Spirit damage scaling increased from 1.2 to 1.3",
+            "- {AbilityIcon|Ability=Slice and Dice|Size=20} Slice and Dice T1 improved from -3.75s to -4s"
+        ],
+        "Stake": [
+            "- {AbilityIcon|Ability=Stake|Size=20} Stake duration reduced from 2s to 1.75s"
+        ],
+        "Assassinate": [
+            "- {AbilityIcon|Ability=Assassinate|Size=20} Assassinate bonus souls is now unsecured"
+        ],
+        "Crow Familiar": [
+            "- {AbilityIcon|Ability=Crow Familiar|Size=20} Crow Familiar % damage no longer affects Mid Boss"
+        ],
+        "Goo Ball": [
+            "- {AbilityIcon|Ability=Goo Ball|Size=20} Goo Ball no longer triggers on hit effect while in Ethereal Shift",
+            "- Fixed Superior Stamina dash count not working with {AbilityIcon|Ability=Goo Ball|Size=20} Goo Ball",
+            "- {AbilityIcon|Ability=Goo Ball|Size=20} Goo Ball stun duration reduced from 1s to 0.7s"
+        ],
+        "Splatter": [
+            "- {AbilityIcon|Ability=Splatter|Size=20} Splatter base damage reduced from 100 to 90",
+            "- {AbilityIcon|Ability=Splatter|Size=20} Splatter T2 reduced from +70 to +60",
+            "- {AbilityIcon|Ability=Splatter|Size=20} Splatter Spirit damage scale increased from 1.5 to 1.9"
+        ],
+        "Puddle Punch": [
+            "- Fixed Instant Cast not working for {AbilityIcon|Ability=Puddle Punch|Size=20} Puddle Punch"
+        ],
+        "Alchemical Flask": [
+            "- {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask cooldown reduced from 14s to 12s",
+            "- {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask damage increased from 55 to 65",
+            "- {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask T1 is now +1 Stamina Reduction",
+            "- {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask T2 is now +50 Damage"
+        ],
+        "Last Stand": [
+            "- {AbilityIcon|Ability=Last Stand|Size=20} Last Stand channel duration reduced from 2.2s to 2s",
+            "- {AbilityIcon|Ability=Last Stand|Size=20} Last Stand range increased from 12m to 13m"
+        ],
+        "Card Trick": [
+            "- {AbilityIcon|Ability=Card Trick|Size=20} Card Trick spirit scale reduced from 1.2 to 1.1",
+            "- {AbilityIcon|Ability=Card Trick|Size=20} Card Trick generation via melee reduced by 50%"
+        ],
+        "Power Slash": [
+            "- {AbilityIcon|Ability=Power Slash|Size=20} Power Slash cooldown increased from 8.5s to 10.5s",
+            "- {AbilityIcon|Ability=Power Slash|Size=20} Power Slash T2 now also reduces cooldown by 2s"
+        ],
+        "Shadow Transformation": [
+            "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation no longer grants you bullet and spirit resist",
+            "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation duration reduced from 4.5s to 4s"
+        ]
+    },
+    "Ranked Mode": {
+        "General": [
+            "- Added Ranked mode",
+            "We are experimenting with a different approach to Ranked during early development, we expect to iterate on it in the future. The focus of this mode will be on concentrating players into specific time windows where they can opt into games where the primary focus is on game quality.",
+            "You must have 50 games played in order to enter this mode. If you have any behavior related restrictions (voice/text bans, report misuse, etc), you will be unable to queue into this mode.",
+            "The queue will be solo only at the moment and will be open from 1pm-4pm and 7pm-10pm in the respective time zones every day. Each region will have multiple time zones you can select from to find what best fits your schedule (you can only change your selection once per week). Players will be automatically assigned the server in that region that provides the best ping for the players in the match.",
+            "When in this mode, you will only be matched with players that have the same medal as you. There are 11 medals in total with 6 levels in each. Everyone's medal and levels will be displayed in these ranked games.",
+            "Every Tuesday at 8PM GMT we will run an algorithm that calculates everyone's performance together at the same time based on the games you've played, how the opponents you played against ended up faring in subsequent games, etc. As such, medals will only be updated once per week, to allow for analysis of a wide set of match data together at once for a more accurate review of your skill (rather than a fixed numerical addition/subtraction on a per game basis).",
+            "In order to make sure there are enough data to cross reference with other players, you must play at least 7 games in order to be eligible to receive a rank for that week. If at any time you didn't have 7 games played in the previous week, your medal will be marked as undefined until you play enough and earn a new medal the following Tuesday.",
+            "The ranked queue will first open next Tuesday, October 15th at 8PM GMT. The first medals will be granted globally the following Tuesday, October 22nd 8PM GMT. You'll have a panel that shows you the history of your previous medals."
+        ]
+    },
+    "General Changes": {
+        "General": [
+            "- Added a 3rd casting mode, Quick Cast (shows range/radius/etc on key down, then on key up acts like Instant Cast). The three casting modes are now Instant Cast, Quick Cast, and Confirm Cast.",
+            "View attachment quick_cast_modes.mp4",
+            "- Added input buffering for ability usage (so if you cast an ability and then quickly cast another ability during its cast time, the next one will fire instead of the input being dropped)",
+            "View attachment input_buffering.mp4",
+            "- Now displaying a unique ID for builds in the description section of the build browser.  You can click on it to copy the Build ID to the clipboard to share specific builds with friends.",
+            "- If you enter a Build ID in the search box of the build browser, it will show all of the builds for the current hero by the author of that build.",
+            "- For private lobbies, added the ability to swap players on both teams with a button press. In addition players can be randomly shuffled across the two teams, and if lanes are being assigned, can be shuffled within the teams.",
+            "- Added \"Allow Duplicate Heroes\" setting in Private Lobbies",
+            "- Added per-player voice volume slider (accessible by clicking on a player via the ESC menu)",
+            "- Pausing is no longer allowed in the first three minutes of the game",
+            "- Added Thai and Indonesian localization",
+            "- Added Stomp AoE range indication as the Walker is about to use the ability",
+            "- Updated the way status effects are shown above the healthbar",
+            "- Fixed troopers being unreliable to shoot while on the zipline",
+            "- Fixed an Unsecured Souls bug where it gave extra bounty directly to the dying hero carrying unsecured souls",
+            "- Fixed AFK kick detection not working properly",
+            "- Added Crit Bonus Scale tooltip to the Weapon stats in the shop",
+            "- Fixed ESC key not working on the private lobbies page",
+            "- Fixed respawn music not playing while spectating another player",
+            "- Fixed a bug where the bot that would pick up the Urn was not the closest one, just the one that was in the highest player slot",
+            "- Fixed Streamer mode not persisting between game relaunches",
+            "- Keybinds in settings now selects the hero you're playing when you navigate to the Keybinds tab",
+            "- Rescue beam now shows heal indicator if you heal someone with it",
+            "- Steam notifications moved to the top-left from the bottom-right, to avoid minimap overlap",
+            "- Continue to have mouse look enabled while M3 is pressed but before the ping wheel shows up",
+            "- Enabled Middle Mouse for \"pinging\" minimap",
+            "- Enabled the ability to middle mouse click players on the top bar",
+            "- Fixed Pausing not working when using hero specific key binds",
+            "- Updated ground strike preview cone to have a little more information on shape & outer bounds",
+            "- Abandon Match is now only an available option once you have disconnected from the game server. Bringing up the menu while connected to a game now gives you the option to Disconnect rather than Abandon immediately",
+            "- Fixed issues with Bots not using ziplines properly",
+            "- Added Guardian and Walker death notification sound for all players",
+            "- Improved panning resolution of bullet whizby sounds and shortened the max play distance to the local player",
+            "- Fixed hero death UI sound playing inconsistently",
+            "- Added bullet evasion sound effects",
+            "- Improved clarity for hero roster selection VO",
+            "- Walker laser animation updated slightly, raising the forearms to better reveal the eye socket weakpoint to players on the ground",
+            "- Re-enabled weapon-specific reload sounds",
+            "- Added a distance fade to Soul Shredder debuff effect and tweaked colors to reduce visual noise",
+            "- Reworked visual effects for puddle punch",
+            "- Updated \"getting started\" VO for the ability points tab to match the text",
+            "- Fixed a bunch of bugs that were impacting how VO was playing in a match.  Now a bunch of hero VO that was previously getting squashed/cut off should play properly (for instance certain lines where allies commented on ability usage, the patrons giving compliments for assists/team healing, etc).",
+            "- The patron once again will warn you when your Walkers are under attack",
+            "- The patron now will sometimes offer words of encouragement when you level up instead of when you destroy a Guardian or Walker",
+            "- Increased the time you need to carry the urn before the urn nags about not being delivered",
+            "- Fixed more instances of the wrong name for a hero being called out",
+            "- Adjusted Trooper tracer and muzzle effects for better alignment and lower visual noise",
+            "- Trooper death effects resolve quicker and more cleanly",
+            "- Soul jar effect carry and dropoff revisions to reduce visual noise for carrier",
+            "- New Imports Building",
+            "- New Taxi Stand building",
+            "- Replaced old retaining wall",
+            "- Replaced block-in park bridges"
+        ]
+    },
+    "Misc Gameplay": {
+        "General": [
+            "- Troopers attack range vs Lane Guardians reduced from 13.5m to 12m (they get closer to it)",
+            "- Players now need to be within 19m (above the ramp) to attack a Lane Guardian",
+            "- Guardians now take 70% less damage from troopers at the start of the game; this reduces by 10% per minute (max at +30% increased damage at 10 min)",
+            "- Guardian damage vs players increased by 20%",
+            "- Medium Camps spawn time changed from 7 min to 5 min",
+            "- Hard Camps spawn time changed from 7 min to 8 min",
+            "- Teleporters open time changed from 10 min to 8 min",
+            "- Trooper spawn/bounty lane end time changed from 10 min to 8 min",
+            "- Vaults spawn time/interval changed from 10/5 to 8/4",
+            "- Golden Statues and Breakables spawn time changed from 3 min to 2 min",
+            "- Golden Statues bonuses upgrade time changed from 15 min to 10 min",
+            "- Golden Statue Health buff increased from 15/20 to 20/30",
+            "- Mid Boss now has 15 regen",
+            "- Mid Boss creep buff rescaled from 70% to 50/70/90% for the 1/2/3rd mid boss death (further deaths don't increase)",
+            "- Mid Boss rejuv respawn rescaled from 50% to 40/50/60% for the 1/2/3rd mid boss death (further deaths don't increase)",
+            "- Urn now causes the runner to be revealed on the minimap",
+            "- Heavy Melee against the urn runner now causes them to drop the urn",
+            "- Urn delivery now gives each player on your team a Golden Statue permanent buff",
+            "- Urn bounty increased by 15%",
+            "- Urn now falls down from the sky a little bit faster",
+            "- Comeback formula weighted a bit less on team vs team net worth calculation and more on the strength of the dying hero (regardless of lead)",
+            "- Percentage of deniable orbs from objectives for Guardian/Walker/Patron/Shrines rescaled from 54.55/66.67/100/0% to 35%",
+            "- Shields no longer reduce damage or get depleted by NPC units (Troopers, Bosses etc, but still takes damage from player summoned units)",
+            "- Teleporters now grant +3 m/s for 5s after arriving at the other side",
+            "- Updated teleporter locations",
+            "- Moved teleporters to travel between outer lane Walkers",
+            "- Added teleporters in the underground tunnels",
+            "- Changed underground teleporters to go between Subway and Tunnel on the same side of the map",
+            "- Widened stairs from Shrines back to the player spawn area",
+            "- Added ledge to mantle back up to the player spawn area from the pit",
+            "- Added bridge and stair to the upper level of the Subway Entrance building from the outer lane Walker arenas",
+            "- Added upper level connection through the Subway Entrance building",
+            "- Moved Guardians back slightly further from stairs down to the canal",
+            "- Widened channels surrounding Mid Temple slightly",
+            "- Widened archways between Mid Temple channels",
+            "- Garage and Night Club: Changed ropes so that they take you to the second floor and added back stairs to take you to the roof"
+        ]
+    },
+    "Weapon Items": {
+        "General": []
+    },
+    "Vitality Items": {
+        "General": []
+    },
+    "Spirit Items": {
+        "General": []
+    },
+    "Hero Changes": {
+        "General": []
+    }
+}
