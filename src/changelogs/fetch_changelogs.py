@@ -10,12 +10,12 @@ class ChangelogFetcher:
     def __init__(self):
         self.changelogs_by_date = {}
 
-    def get_rss(self, rss_url, update_Existing = False):
+    def get_rss(self, rss_url, update_existing = False):
         self.RSS_URL = rss_url
-        self._fetch_forum_changelogs(update_Existing)
+        self._fetch_forum_changelogs(update_existing)
         return self.changelogs_by_date
 
-    def get_txt(self, changelog_path, update_Existing = True):
+    def get_txt(self, changelog_path):
         self._process_local_changelogs(changelog_path)
         return self.changelogs_by_date
 
@@ -35,7 +35,7 @@ class ChangelogFetcher:
         return entries
 
     # download rss feed from changelog forum and parse entries
-    def _fetch_forum_changelogs(self, update_Existing = False):
+    def _fetch_forum_changelogs(self, update_existing = False):
         print('Parsing Changelog RSS feed')
         # fetches 20 most recent entries
         feed = feedparser.parse(self.RSS_URL)
@@ -44,7 +44,7 @@ class ChangelogFetcher:
             # Dependent on thread title being in the format "mm-dd-yyyy Update"
             date = entry.title.replace(' Update', '')
             # Only update the existing if it doesn't already exist in the dict
-            if not update_Existing and (date in self.changelogs_by_date.keys()):
+            if not update_existing and (date in self.changelogs_by_date.keys()):
                 skip_num += 1
                 continue
             try:

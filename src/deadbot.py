@@ -58,7 +58,7 @@ def act_changelog_parse(args):
     #load existing changelogs
     chlog_fetcher.get_txt(changelog_output)
     # fetch / process rss + forum content
-    chlog_fetcher.get_rss(constants.CHANGELOG_RSS_URL, update_Existing=False)
+    chlog_fetcher.get_rss(constants.CHANGELOG_RSS_URL, update_existing=False)
     # create fetcher and parser
     chlog_fetcher.get_txt(args.inputdir + '/raw-changelogs')
     # save combined changelogs to output
