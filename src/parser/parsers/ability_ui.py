@@ -1,9 +1,4 @@
-import sys
-import os
-
-# bring parent modules in scope
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
-import maps as maps
+import parser.maps as maps
 import utils.string_utils as string_utils
 
 
