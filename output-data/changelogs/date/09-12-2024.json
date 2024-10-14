@@ -261,7 +261,7 @@
         ],
         "Healing Rite": [
             "- Now grants +3 Spirit Power",
-            "- Now requires {AbilityIcon|Ability=Healing Rite|Size=20} Healing Rite",
+            "- Health Nova: Now requires {AbilityIcon|Ability=Healing Rite|Size=20} Healing Rite",
             "- {AbilityIcon|Ability=Rescue Beam|Size=20} Rescue Beam: No longer requires Healing Rite"
         ],
         "Spirit Lifesteal": [
@@ -272,11 +272,6 @@
         ],
         "Melee Lifesteal": [
             "- Melee damage reduced from 15% to 13%"
-        ],
-        "Health Nova": [
-            "- Now requires {AbilityIcon|Ability=Healing Rite|Size=20} Healing Rite",
-            "- Now grants +4 Spirit Power",
-            "- Range reduced from 18m to 15m"
         ],
         "Rescue Beam": [
             "- Heal reduced from 30% to 26%",
@@ -645,7 +640,10 @@
         ]
     },
     "Vitality Items": {
-        "General": []
+        "General": [
+            "- Health Nova: Now grants +4 Spirit Power",
+            "- Health Nova: Range reduced from 18m to 15m"
+        ]
     },
     "Spirit Items": {
         "General": []

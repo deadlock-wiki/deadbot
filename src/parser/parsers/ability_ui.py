@@ -445,6 +445,7 @@ class AbilityUiParser:
             'BarbedWireRadius_label': 'Radius_label',
             'BarbedWireDamagePerMeter_label': 'DamagePerMeter_label',
             'BuildUpDuration_label': 'BuildupDuration_label',
+            'MeleeAttackSpeedBonus_label': 'NanoShadowMeleeAttackSpeedBonus_label',
             # capital "L" for some reason...
             'TechArmorDamageReduction_label': 'TechArmorDamageReduction_Label',
             'DamageAbsorb_label': 'DamageAbsorb_Label',
