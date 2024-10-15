@@ -148,20 +148,7 @@ KEYBIND_MAP = {
 }
 
 LOCALIZATION_OVERRIDE_MAP = {
-    'HealthSwapBuffDuration': 'SelfBuffDuration',
-    'PounceDebuffRadius': 'ExplodeRadius',
-    'DamageMissingPercentHealth': 'DamagePercentHealth',
-    'AirDropExplodeRadius': 'OnLandDamageRadius',
-    'AirDropBulletArmorReduction': 'BulletArmorReduction',
-    'AirDropDebuff02Duration': 'BulletArmorReductionDuration',
-    'AirDropSilenceDuration': 'SilenceDuration',
-    'NormalDPS_scale': 'NormalDPS',
-    'HotDPS_scale': 'HotDPS',
-    'Damage_scale': 'Damage',
     'MaxChargeDuration': 'SpeedBoostDuration',
-    'PulseGrenadeDamageAmplificationPerStack': 'DamageAmplificationPerStack',
-    'MirageDjinnsMarkMaxStacks': 'MaxStacks',
-    'SandPhantomProcCooldown': 'ProcCooldown',
 }
 
 
