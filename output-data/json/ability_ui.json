@@ -1261,6 +1261,12 @@
                 },
                 "Alt": [
                     {
+                        "Key": "LifeDrainHealthMult",
+                        "Name": "Damage to Heal",
+                        "Value": 100,
+                        "Type": "healing"
+                    },
+                    {
                         "Key": "MaxRange",
                         "Name": "Max Tether Range",
                         "Value": 30,
@@ -1288,17 +1294,10 @@
                     "Type": "move_speed"
                 }
             },
-            "Health": {
-                "LifeDrainHealthMult": {
-                    "Name": "Damage to Heal",
-                    "Value": 100,
-                    "Type": "healing"
-                }
-            },
             "Other": {
                 "AbilityUnitTargetLimit": {
                     "Name": null,
-                    "Value": 1
+                    "Value": 10
                 },
                 "MoveSpeedReduction": {
                     "Name": null,
@@ -4841,15 +4840,11 @@
                 },
                 "BonusDamagePctPerPlayerHit": {
                     "Name": null,
-                    "Value": 4
+                    "Value": 3
                 },
                 "BonusLossPerDeath": {
                     "Name": null,
                     "Value": 2
-                },
-                "BonusMaxStacks": {
-                    "Name": null,
-                    "Value": 15
                 }
             },
             "AbilityCastRange": {
@@ -5015,7 +5010,7 @@
             "Cast": {
                 "AbilityChannelTime": {
                     "Name": "Channel Duration",
-                    "Value": 10,
+                    "Value": 11,
                     "Type": "cast"
                 }
             },
