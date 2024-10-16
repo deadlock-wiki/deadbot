@@ -10,7 +10,7 @@ class ChangelogFetcher:
     def __init__(self):
         self.changelogs_by_date = {}
 
-    def get_rss(self, rss_url, update_existing = False):
+    def get_rss(self, rss_url, update_existing=False):
         self.RSS_URL = rss_url
         self._fetch_forum_changelogs(update_existing)
         return self.changelogs_by_date
@@ -35,7 +35,7 @@ class ChangelogFetcher:
         return entries
 
     # download rss feed from changelog forum and parse entries
-    def _fetch_forum_changelogs(self, update_existing = False):
+    def _fetch_forum_changelogs(self, update_existing=False):
         print('Parsing Changelog RSS feed')
         # fetches 20 most recent entries
         feed = feedparser.parse(self.RSS_URL)
