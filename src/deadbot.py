@@ -7,6 +7,7 @@ from decompiler import decompile
 import constants
 from changelogs import parse_changelogs, fetch_changelogs
 from parser import parser
+from parser.s3 import S3
 
 
 """
@@ -56,7 +57,7 @@ def act_changelog_parse(args):
     changelog_output = args.output + '/changelogs/raw'
     os.makedirs(changelog_output,exist_ok=True)
     chlog_fetcher = fetch_changelogs.ChangelogFetcher()
-    #load existing changelogs
+    # load existing changelogs
     chlog_fetcher.get_txt(changelog_output)
     # fetch / process rss + forum content
     chlog_fetcher.get_rss(constants.CHANGELOG_RSS_URL, update_existing=False)
@@ -103,7 +104,7 @@ def main():
 
     if args.s3_push in constants.TRUE_THO:
         if args.iam_key and args.iam_secret:
-            parser.S3(args.output, args.bucket, args.iam_key, args.iam_secret).write()
+            S3(args.output, args.bucket, args.iam_key, args.iam_secret).write()
         else:
             print('Error: iam_key and iam_secret must be set for s3')
 

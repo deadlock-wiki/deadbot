@@ -332,7 +332,9 @@
             {
                 "AbilityCharges": 1
             },
-            {},
+            {
+                "Damage": 65
+            },
             {
                 "AbilityCooldownBetweenCharge": -3,
                 "Scale": {
@@ -887,7 +889,7 @@
         "AbilityCastRange": 20,
         "AbilityCooldown": 30.0,
         "AbilityDuration": 2,
-        "AbilityUnitTargetLimit": 1,
+        "AbilityUnitTargetLimit": 10,
         "ChannelMoveSpeed": 50,
         "Key": "ability_life_drain",
         "LifeDrainHealthMult": 100,
@@ -1719,7 +1721,7 @@
     },
     "citadel_ability_bebop_laser_beam": {
         "AbilityCastDelay": 1.0,
-        "AbilityChannelTime": 10,
+        "AbilityChannelTime": 11,
         "AbilityCooldown": 130.0,
         "AbilityUnitTargetLimit": 1,
         "AirSpeedMax": 70,
@@ -2492,7 +2494,7 @@
             },
             {
                 "DPS": 70,
-                "ShockRadius": "2m"
+                "ShockRadius": "1m"
             }
         ]
     },
@@ -2925,8 +2927,8 @@
         "Name": "Killing Blow",
         "NonPlayerRageScale": 0.2,
         "PauseOnTargetTime": 0.66,
-        "RageDrainDelayDuration": 12,
-        "RageDrainRate": 0.25,
+        "RageDrainDelayDuration": 10,
+        "RageDrainRate": 0.3,
         "RagePerHeavyMelee": 3.5,
         "RagePerLightMelee": 1.5,
         "RagePerSpiritDamage": 0.013,
@@ -2974,9 +2976,8 @@
         "AbilityCooldown": 19.0,
         "AbilityDuration": 3.0,
         "AbilityUnitTargetLimit": 1,
-        "BonusDamagePctPerPlayerHit": 4,
+        "BonusDamagePctPerPlayerHit": 3,
         "BonusLossPerDeath": 2,
-        "BonusMaxStacks": 15,
         "ChannelMoveSpeed": 50,
         "Damage": 120,
         "FuseTime": 3.0,

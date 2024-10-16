@@ -417,9 +417,8 @@
                 "AbilityCooldown": 19.0,
                 "AbilityDuration": 3.0,
                 "AbilityUnitTargetLimit": 1,
-                "BonusDamagePctPerPlayerHit": 4,
+                "BonusDamagePctPerPlayerHit": 3,
                 "BonusLossPerDeath": 2,
-                "BonusMaxStacks": 15,
                 "ChannelMoveSpeed": 50,
                 "Damage": 120,
                 "FuseTime": 3.0,
@@ -468,7 +467,7 @@
             },
             "4": {
                 "AbilityCastDelay": 1.0,
-                "AbilityChannelTime": 10,
+                "AbilityChannelTime": 11,
                 "AbilityCooldown": 130.0,
                 "AbilityUnitTargetLimit": 1,
                 "AirSpeedMax": 70,
@@ -505,9 +504,9 @@
                 "ZoomTime": 0.1
             }
         },
-        "BulletArmorDamageReduction": 10.0,
         "BulletDamage": 5.3,
         "BulletGravityScale": 0.8,
+        "BulletResist": 10.0,
         "BulletSpeed": 508.0,
         "BulletsPerShot": 1,
         "ClipSize": 66,
@@ -1405,9 +1404,9 @@
                 ]
             }
         },
-        "BulletArmorDamageReduction": 15.0,
         "BulletDamage": 7.15,
         "BulletGravityScale": 0.8,
+        "BulletResist": 15.0,
         "BulletSpeed": 533.4,
         "BulletsPerShot": 1,
         "ClipSize": 66,
@@ -1652,7 +1651,7 @@
                 "AbilityCastRange": 20,
                 "AbilityCooldown": 30.0,
                 "AbilityDuration": 2,
-                "AbilityUnitTargetLimit": 1,
+                "AbilityUnitTargetLimit": 10,
                 "ChannelMoveSpeed": 50,
                 "Key": "ability_life_drain",
                 "LifeDrainHealthMult": 100,
@@ -1836,7 +1835,7 @@
                     },
                     {
                         "DPS": 70,
-                        "ShockRadius": "2m"
+                        "ShockRadius": "1m"
                     }
                 ]
             },
@@ -2462,7 +2461,7 @@
         "LightMeleeDamage": 63,
         "Lore": "hero_hornet_lore",
         "MaxHealth": 550,
-        "MaxMoveSpeed": 8.3,
+        "MaxMoveSpeed": 9,
         "MoveAcceleration": 4,
         "Name": "Vindicta",
         "Playstyle": "hero_hornet_playstyle",
@@ -3086,9 +3085,9 @@
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
         "SustainedDPS": 49.48697711128651,
-        "TechArmorDamageReduction": 10.0,
         "TechDuration": 0,
         "TechRange": 0,
+        "TechResist": 10.0,
         "WeaponDescription": "citadel_weapon_hero_kelvin_set_desc",
         "WeaponName": "citadel_weapon_hero_kelvin_set",
         "WeaponPowerScale": 1,
@@ -3477,9 +3476,9 @@
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
         "SustainedDPS": 27.1875,
-        "TechArmorDamageReduction": 15.0,
         "TechDuration": 0,
         "TechRange": 0,
+        "TechResist": 15.0,
         "WeaponDescription": "citadel_weapon_hero_lash_set_desc",
         "WeaponName": "citadel_weapon_hero_lash_set",
         "WeaponPowerScale": 1,
@@ -3933,7 +3932,9 @@
                     {
                         "AbilityCharges": 1
                     },
-                    {},
+                    {
+                        "Damage": 65
+                    },
                     {
                         "AbilityCooldownBetweenCharge": -3,
                         "Scale": {
@@ -4514,8 +4515,8 @@
                 "Name": "Killing Blow",
                 "NonPlayerRageScale": 0.2,
                 "PauseOnTargetTime": 0.66,
-                "RageDrainDelayDuration": 12,
-                "RageDrainRate": 0.25,
+                "RageDrainDelayDuration": 10,
+                "RageDrainRate": 0.3,
                 "RagePerHeavyMelee": 3.5,
                 "RagePerLightMelee": 1.5,
                 "RagePerSpiritDamage": 0.013,
@@ -4967,9 +4968,9 @@
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
         "SustainedDPS": 46.27403846153846,
-        "TechArmorDamageReduction": -15.0,
         "TechDuration": 0,
         "TechRange": 0,
+        "TechResist": -15.0,
         "WeaponDescription": "citadel_weapon_hero_synth_set_desc",
         "WeaponName": "citadel_weapon_hero_synth_set",
         "WeaponPowerScale": 1,
