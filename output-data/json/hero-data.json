@@ -145,7 +145,6 @@
         "BulletSpeed": 635.0,
         "BulletsPerShot": 1,
         "ClipSize": 10,
-        "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 71.55555555555557,
@@ -168,7 +167,7 @@
         "LightMeleeDamage": 63,
         "Lore": "hero_astro_lore",
         "MaxHealth": 625,
-        "MaxMoveSpeed": 8.3,
+        "MaxMoveSpeed": 8,
         "MoveAcceleration": 4,
         "Name": "Holliday",
         "Playstyle": "hero_astro_playstyle",
@@ -230,7 +229,7 @@
                 "AbilityCooldown": 37.0,
                 "AbilityDuration": 1.2,
                 "AbilityUnitTargetLimit": 1,
-                "CameraTurnRateMax": 200,
+                "CameraDistance": 450,
                 "ChannelMoveSpeed": 50,
                 "ChargeDragVerticalOffset": 30,
                 "ChargeRadius": 2.2,
@@ -308,7 +307,6 @@
         "BulletSpeed": 609.5999503938,
         "BulletsPerShot": 9,
         "ClipSize": 9,
-        "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 70.125,
@@ -322,7 +320,7 @@
         "IsDisabled": false,
         "LevelScaling": {
             "BulletDamage": 0.251429,
-            "Health": 34.0,
+            "Health": 32.0,
             "LightMeleeDamage": 2.671429,
             "HeavyMeleeDamage": 4.91882165079365,
             "DPS": 3.7714349999999968,
@@ -330,8 +328,8 @@
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_atlas_lore",
-        "MaxHealth": 570,
-        "MaxMoveSpeed": 6.8,
+        "MaxHealth": 600,
+        "MaxMoveSpeed": 6.5,
         "MoveAcceleration": 4,
         "Name": "Abrams",
         "Playstyle": "hero_atlas_playstyle",
@@ -386,8 +384,6 @@
                 "BuffGunRangePercent": 100,
                 "ChannelMoveSpeed": 50,
                 "EnemyHeroTossVelocity": 20,
-                "ExplodeDebuffDuration": 5,
-                "FireRateSlow": 15,
                 "ForceReductionOnAngleDown": 0.75,
                 "Key": "citadel_ability_uppercut",
                 "LandingDamage": 80,
@@ -417,8 +413,7 @@
                 "AbilityCooldown": 19.0,
                 "AbilityDuration": 3.0,
                 "AbilityUnitTargetLimit": 1,
-                "BonusDamagePctPerPlayerHit": 3,
-                "BonusLossPerDeath": 2,
+                "BonusDamagePctPerPlayerHit": 2.5,
                 "ChannelMoveSpeed": 50,
                 "Damage": 120,
                 "FuseTime": 3.0,
@@ -438,7 +433,7 @@
                 ]
             },
             "3": {
-                "AbilityCastRange": 30,
+                "AbilityCastRange": 25,
                 "AbilityCooldown": 23.0,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
@@ -467,7 +462,7 @@
             },
             "4": {
                 "AbilityCastDelay": 1.0,
-                "AbilityChannelTime": 11,
+                "AbilityChannelTime": 8,
                 "AbilityCooldown": 130.0,
                 "AbilityUnitTargetLimit": 1,
                 "AirSpeedMax": 70,
@@ -485,7 +480,7 @@
                 "Interval": 0.1,
                 "Key": "citadel_ability_bebop_laser_beam",
                 "Name": "Hyper Beam",
-                "SlowPercent": 25,
+                "SlowPercent": 30,
                 "SlowTargetDuration": 0.5,
                 "TrackingSpeed": 55,
                 "Upgrades": [
@@ -504,13 +499,12 @@
                 "ZoomTime": 0.1
             }
         },
-        "BulletArmorDamageReduction": 10.0,
         "BulletDamage": 5.3,
         "BulletGravityScale": 0.8,
+        "BulletResist": 10.0,
         "BulletSpeed": 508.0,
         "BulletsPerShot": 1,
         "ClipSize": 66,
-        "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 66.25,
@@ -535,7 +529,7 @@
         "LightMeleeDamage": 63,
         "Lore": "hero_bebop_lore",
         "MaxHealth": 650.0,
-        "MaxMoveSpeed": 6.55,
+        "MaxMoveSpeed": 6.25,
         "MoveAcceleration": 4,
         "Name": "Bebop",
         "Playstyle": "hero_bebop_playstyle",
@@ -671,7 +665,6 @@
         "BulletSpeed": 571.5,
         "BulletsPerShot": 1,
         "ClipSize": 30,
-        "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 61.11111111111111,
@@ -694,7 +687,7 @@
         "LightMeleeDamage": 63,
         "Lore": "hero_bomber_lore",
         "MaxHealth": 550,
-        "MaxMoveSpeed": 7.3,
+        "MaxMoveSpeed": 7,
         "MoveAcceleration": 4,
         "Name": "Bomber",
         "Playstyle": "hero_bomber_playstyle",
@@ -827,7 +820,6 @@
         "BulletSpeed": 635.0,
         "BulletsPerShot": 1,
         "ClipSize": 24,
-        "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 16.333333333333336,
@@ -847,7 +839,7 @@
         "LightMeleeDamage": 63,
         "Lore": "hero_cadence_lore",
         "MaxHealth": 650,
-        "MaxMoveSpeed": 7.3,
+        "MaxMoveSpeed": 7,
         "MoveAcceleration": 4,
         "Name": "Cadence",
         "Playstyle": "hero_cadence_playstyle",
@@ -884,7 +876,7 @@
                 "AbilityUnitTargetLimit": 1,
                 "BossDamagePercent": 50,
                 "ChannelMoveSpeed": 50,
-                "DamageAmplificationPerStack": 6,
+                "DamageAmplificationPerStack": 5,
                 "DebuffDuration": 8.0,
                 "Key": "citadel_ability_chrono_pulse_grenade",
                 "MovementSlowDuration": 2.0,
@@ -892,8 +884,7 @@
                 "PulseDamage": 45,
                 "PulseInterval": 0.8,
                 "Pulses": 4,
-                "Radius": 6,
-                "RadiusIncreasePerPulse": 0,
+                "Radius": 7,
                 "SlowPercent": 30,
                 "Upgrades": [
                     {
@@ -904,7 +895,7 @@
                     },
                     {
                         "PulseDamage": 45,
-                        "RadiusIncreasePerPulse": "1m"
+                        "DamageAmplificationPerStack": 2
                     }
                 ]
             },
@@ -925,7 +916,7 @@
                 "Key": "citadel_ability_chrono_time_wall",
                 "MovementSlowPct": 80,
                 "Name": "Time Wall",
-                "TimeScaleDuration": 0.7,
+                "TimeScaleDuration": 1.0,
                 "TimeWallDepth": 0.5,
                 "TimeWallDepthVisualScale": 0.16,
                 "TimeWallFormationTime": 0.5,
@@ -982,8 +973,8 @@
             },
             "4": {
                 "AbilityCastDelay": 0.15,
-                "AbilityCastRange": 25,
-                "AbilityCooldown": 65.0,
+                "AbilityCastRange": 30,
+                "AbilityCooldown": 48.0,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
                 "DistanceToMaxTime": 30,
@@ -993,18 +984,19 @@
                 "MinSwapTime": 0.5,
                 "Name": "Paradoxical Swap",
                 "SpellLifesteal": 100,
+                "SpellLifestealNonHero": 25,
                 "SwapTime": 1.5,
                 "SwapTotalDamage": 125,
                 "TickRate": 0.25,
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -15
+                        "AbilityCastRange": "15m"
                     },
                     {
                         "SwapTotalDamage": 100
                     },
                     {
-                        "AbilityCastRange": "20m"
+                        "AbilityCooldown": -14.0
                     }
                 ]
             }
@@ -1014,7 +1006,6 @@
         "BulletSpeed": 411.47999999999996,
         "BulletsPerShot": 1,
         "ClipSize": 40,
-        "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 25.71428571428571,
@@ -1027,17 +1018,17 @@
         "InDevelopment": false,
         "IsDisabled": false,
         "LevelScaling": {
-            "BulletDamage": 0.45,
+            "BulletDamage": 0.33,
             "Health": 40.0,
             "LightMeleeDamage": 2.671429,
             "HeavyMeleeDamage": 4.91882165079365,
-            "DPS": 1.6071428571428577,
-            "SustainedDPS": 1.305767138193687
+            "DPS": 1.1785714285714306,
+            "SustainedDPS": 0.9575625680087043
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_chrono_lore",
         "MaxHealth": 550,
-        "MaxMoveSpeed": 6.8,
+        "MaxMoveSpeed": 6.5,
         "MoveAcceleration": 4,
         "Name": "Paradox",
         "Playstyle": "hero_chrono_playstyle",
@@ -1118,7 +1109,7 @@
             },
             "2": {
                 "AbilityCastRange": 9,
-                "AbilityCooldown": 15,
+                "AbilityCooldown": 12.5,
                 "AbilityUnitTargetLimit": 1,
                 "AllyDistance": 9,
                 "ChannelMoveSpeed": 50,
@@ -1135,8 +1126,7 @@
                         "FireRateBonus": 25
                     },
                     {
-                        "BonusClipSizePercent": 120,
-                        "AbilityCooldown": -4
+                        "BonusClipSizePercent": 120
                     }
                 ],
                 "VoidTime": 1.4
@@ -1197,7 +1187,6 @@
         "BulletSpeed": 320.03999999999996,
         "BulletsPerShot": 1,
         "ClipSize": 18,
-        "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 52.0,
@@ -1220,7 +1209,7 @@
         "LightMeleeDamage": 63,
         "Lore": "hero_dynamo_lore",
         "MaxHealth": 650,
-        "MaxMoveSpeed": 6.8,
+        "MaxMoveSpeed": 6.5,
         "MoveAcceleration": 4,
         "Name": "Dynamo",
         "Playstyle": "hero_dynamo_playstyle",
@@ -1270,34 +1259,35 @@
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.2,
-                "AbilityCastRange": 20,
+                "AbilityCastRange": 15,
                 "AbilityCharges": 1,
-                "AbilityCooldown": 24.0,
-                "AbilityCooldownBetweenCharge": 3,
+                "AbilityCooldown": 30.0,
+                "AbilityCooldownBetweenCharge": 5,
                 "AbilityUnitTargetLimit": 1,
                 "AttackConeAngle": 10,
                 "AttackSpeedMult": 100,
                 "BossDamagePercentIncoming": 50,
-                "BossDamagePercentOutgoing": 30,
+                "BossDamagePercentOutgoing": 40,
                 "Key": "citadel_ability_shieldedsentry",
                 "ModelScale": 0.8,
                 "Name": "Mini Turret",
-                "NonHeroDamagePercentOutgoing": 50,
+                "NonHeroDamagePercentOutgoing": 60,
                 "TechResist": 60,
                 "TickRate": 0.5,
                 "TrackingSpeed": 125,
-                "TurretAttackDelay": 0.2,
+                "TurretAttackDelay": 0.35,
                 "TurretAttackFalloffEnd": 35,
                 "TurretAttackFalloffStart": 20,
                 "TurretAttackRange": 25,
                 "TurretBaseHealth": 75,
                 "TurretDPS": 60,
                 "TurretDecayDamagePerSecond": 20,
-                "TurretDeployTime": 0.25,
-                "TurretHealthScaling": 20,
-                "TurretLifetime": 24,
+                "TurretDeployTime": 1,
+                "TurretHealthScaling": 30,
+                "TurretLifetime": 30,
                 "Upgrades": [
                     {
+                        "AbilityCharges": 1,
                         "MoveSlowPercent": 25,
                         "SlowDuration": 1.3
                     },
@@ -1377,7 +1367,7 @@
                 "DamagePerRocket": 30,
                 "DetonateTimer": 5,
                 "ExplosionFalloffDisabled": 1,
-                "ExplosionRadius": 5,
+                "ExplosionRadius": 4.5,
                 "GrenadesPerSecond": 6,
                 "IntervalRampUpStart": 0.35,
                 "IntervalRampUpTime": 0.3,
@@ -1404,13 +1394,11 @@
                 ]
             }
         },
-        "BulletArmorDamageReduction": 15.0,
         "BulletDamage": 7.15,
         "BulletGravityScale": 0.8,
         "BulletSpeed": 533.4,
         "BulletsPerShot": 1,
         "ClipSize": 66,
-        "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 35.75,
@@ -1433,7 +1421,7 @@
         "LightMeleeDamage": 63,
         "Lore": "hero_forge_lore",
         "MaxHealth": 550,
-        "MaxMoveSpeed": 6.8,
+        "MaxMoveSpeed": 6.5,
         "MoveAcceleration": 4,
         "Name": "McGinnis",
         "Playstyle": "hero_forge_playstyle",
@@ -1471,6 +1459,7 @@
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
         "SustainedDPS": 28.6173438447544,
+        "TechArmorDamageReduction": 25.0,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_forge_set_desc",
@@ -1569,7 +1558,6 @@
         "BulletSpeed": 635.0,
         "BulletsPerShot": 1,
         "ClipSize": 15,
-        "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 58.0,
@@ -1589,7 +1577,7 @@
         "LightMeleeDamage": 63,
         "Lore": "hero_genericperson_lore",
         "MaxHealth": 550,
-        "MaxMoveSpeed": 7.3,
+        "MaxMoveSpeed": 7,
         "MoveAcceleration": 4,
         "Name": "Generic Person",
         "Playstyle": "hero_genericperson_playstyle",
@@ -1651,7 +1639,7 @@
                 "AbilityCastRange": 20,
                 "AbilityCooldown": 30.0,
                 "AbilityDuration": 2,
-                "AbilityUnitTargetLimit": 10,
+                "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
                 "Key": "ability_life_drain",
                 "LifeDrainHealthMult": 100,
@@ -1678,14 +1666,14 @@
                 "AbilityPostCastDuration": 0.3,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": -1,
-                "DebuffDuration": 13,
+                "DebuffDuration": 16,
                 "HealthToDamage": 32,
                 "Key": "ability_blood_shards",
                 "MaxStacks": 5,
                 "MoveSpeedPenaltyPerStack": 20,
                 "Name": "Malice",
                 "NumBloodShards": 3,
-                "SlowDuration": 4,
+                "SlowDuration": 6,
                 "SpreadAngleDegrees": 6,
                 "Upgrades": [
                     {
@@ -1736,7 +1724,6 @@
         "BulletSpeed": 828.04,
         "BulletsPerShot": 1,
         "ClipSize": 13,
-        "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 55.55555555555556,
@@ -1759,7 +1746,7 @@
         "LightMeleeDamage": 63,
         "Lore": "hero_ghost_lore",
         "MaxHealth": 650,
-        "MaxMoveSpeed": 6.3,
+        "MaxMoveSpeed": 6,
         "MoveAcceleration": 4,
         "Name": "Lady Geist",
         "Playstyle": "hero_ghost_playstyle",
@@ -1807,7 +1794,7 @@
     "hero_gigawatt": {
         "AbilityResourceMax": 0,
         "AbilityResourceRegenPerSecond": 0,
-        "BaseHealthRegen": 3.0,
+        "BaseHealthRegen": 1.5,
         "BaseWeaponDamageIncrease": 0,
         "BoundAbilities": {
             "1": {
@@ -1835,7 +1822,7 @@
                     },
                     {
                         "DPS": 70,
-                        "ShockRadius": "2m"
+                        "ShockRadius": "1m"
                     }
                 ]
             },
@@ -1932,7 +1919,6 @@
         "BulletSpeed": 635.0,
         "BulletsPerShot": 1,
         "ClipSize": 29,
-        "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": -35.0,
         "CrouchSpeed": 4.75,
         "DPS": 46.0,
@@ -1955,7 +1941,7 @@
         "LightMeleeDamage": 63,
         "Lore": "hero_gigawatt_lore",
         "MaxHealth": 550,
-        "MaxMoveSpeed": 7.3,
+        "MaxMoveSpeed": 7,
         "MoveAcceleration": 4,
         "Name": "Seven",
         "Playstyle": "hero_gigawatt_playstyle",
@@ -1987,7 +1973,7 @@
         "Role": "hero_gigawatt_role",
         "RoundsPerSecond": 4.0,
         "SpiritScaling": {
-            "MaxMoveSpeed": 0.023
+            "MaxMoveSpeed": 0.028
         },
         "SprintSpeed": 0,
         "Stamina": 3,
@@ -2074,7 +2060,6 @@
         "BulletSpeed": 406.4,
         "BulletsPerShot": 1,
         "ClipSize": 22,
-        "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 116.0,
@@ -2094,7 +2079,7 @@
         "LightMeleeDamage": 63,
         "Lore": "hero_gunslinger_lore",
         "MaxHealth": 550,
-        "MaxMoveSpeed": 7.3,
+        "MaxMoveSpeed": 7,
         "MoveAcceleration": 4,
         "Name": "Gunslinger",
         "Playstyle": "hero_gunslinger_playstyle",
@@ -2189,7 +2174,7 @@
                 "ChannelMoveSpeed": 50,
                 "DamageBonusFixedPerStack": 0.2,
                 "Key": "ability_stacking_damage",
-                "MaxStacks": 40,
+                "MaxStacks": 30,
                 "Name": "Fixation",
                 "Upgrades": [
                     {
@@ -2208,7 +2193,7 @@
                         "MaxStacks": 40
                     },
                     {
-                        "DamageBonusFixedPerStack": 0.15
+                        "DamageBonusFixedPerStack": 0.2
                     }
                 ]
             },
@@ -2217,12 +2202,14 @@
                 "AbilityChannelTime": 3.0,
                 "AbilityCooldown": 138.0,
                 "AbilityUnitTargetLimit": 1,
+                "BonusFireRate": 15,
                 "ChannelMoveSpeed": 4,
+                "EvasionPercent": 25,
                 "Key": "ability_bullet_flurry",
                 "Name": "Bullet Dance",
                 "OverrideBulletRadius": 10,
                 "Radius": 15,
-                "TargetsPerTick": 2,
+                "TargetsPerTick": 1,
                 "Upgrades": [
                     {
                         "WeaponDamageBonus": 7
@@ -2231,8 +2218,7 @@
                         "AbilityCooldown": -38.0
                     },
                     {
-                        "EvasionPercent": 40,
-                        "ChannelMoveSpeed": "2m"
+                        "TargetsPerTick": 1
                     }
                 ],
                 "WeaponDamageBonus": 2
@@ -2243,7 +2229,6 @@
         "BulletSpeed": 762.0,
         "BulletsPerShot": 1,
         "ClipSize": 25,
-        "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 56.0,
@@ -2266,7 +2251,7 @@
         "LightMeleeDamage": 63,
         "Lore": "hero_haze_lore",
         "MaxHealth": 500.0,
-        "MaxMoveSpeed": 8.3,
+        "MaxMoveSpeed": 8.0,
         "MoveAcceleration": 4,
         "Name": "Haze",
         "Playstyle": "hero_haze_playstyle",
@@ -2324,7 +2309,7 @@
                 "AbilityCooldown": 42.0,
                 "AbilityUnitTargetLimit": 1,
                 "CaptureRadius": 8,
-                "ChainDuration": 1.75,
+                "ChainDuration": 2.0,
                 "ChainLength": 8,
                 "ChannelMoveSpeed": 50,
                 "Damage": 60,
@@ -2362,7 +2347,7 @@
                         "BonusClipSizePercent": 50
                     },
                     {
-                        "AbilityDuration": 6
+                        "AbilityCooldown": -14.0
                     },
                     {
                         "MagicDamagePerBullet": 12.0
@@ -2433,17 +2418,17 @@
                 "WeaponDamageBonus": 13
             }
         },
-        "BulletDamage": 17.68,
+        "BulletDamage": 15,
         "BulletGravityScale": 0.8,
+        "BulletResist": -10.0,
         "BulletSpeed": 889.0,
         "BulletsPerShot": 1,
         "ClipSize": 22,
-        "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
-        "DPS": 67.99999999999999,
+        "DPS": 68.18181818181819,
         "FalloffBias": 0.5,
-        "FalloffEndRange": 64.000126,
+        "FalloffEndRange": 44.99991,
         "FalloffEndScale": 0.1,
         "FalloffStartRange": 21.996399999999998,
         "FalloffStartScale": 1.0,
@@ -2451,17 +2436,17 @@
         "InDevelopment": false,
         "IsDisabled": false,
         "LevelScaling": {
-            "BulletDamage": 0.55,
+            "BulletDamage": 0.785714,
             "Health": 20.0,
             "LightMeleeDamage": 2.671429,
             "HeavyMeleeDamage": 4.91882165079365,
-            "DPS": 2.1153846153846274,
-            "SustainedDPS": 1.4014361825341695
+            "DPS": 3.571427272727277,
+            "SustainedDPS": 2.2292633479494484
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_hornet_lore",
         "MaxHealth": 550,
-        "MaxMoveSpeed": 9,
+        "MaxMoveSpeed": 8,
         "MoveAcceleration": 4,
         "Name": "Vindicta",
         "Playstyle": "hero_hornet_playstyle",
@@ -2491,13 +2476,13 @@
         "ReloadSpeed": 0,
         "ReloadTime": 2.914,
         "Role": "hero_hornet_role",
-        "RoundsPerSecond": 3.846153846153846,
+        "RoundsPerSecond": 4.545454545454546,
         "SpiritScaling": {},
         "SprintSpeed": 0,
         "Stamina": 2,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
-        "SustainedDPS": 45.04980310400741,
+        "SustainedDPS": 42.55867939128192,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_hornet_set_desc",
@@ -2523,7 +2508,7 @@
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 18,
                 "Damage": 50,
-                "DamageAmplification": 20,
+                "DamageAmplification": 25,
                 "DebuffDuration": 8,
                 "FlameHeightOffGround": 50,
                 "GrowthPerMeter": 0.5,
@@ -2542,7 +2527,7 @@
                         "LifestealPercentHero": 15
                     },
                     {
-                        "DamageAmplification": 20,
+                        "DamageAmplification": 15,
                         "HealAmpReceivePenaltyPercent": -40,
                         "HealAmpRegenPenaltyPercent": -40
                     }
@@ -2634,7 +2619,6 @@
         "BulletSpeed": 660.4,
         "BulletsPerShot": 1,
         "ClipSize": 27,
-        "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 66.0,
@@ -2657,7 +2641,7 @@
         "LightMeleeDamage": 63,
         "Lore": "hero_inferno_lore",
         "MaxHealth": 600,
-        "MaxMoveSpeed": 6.8,
+        "MaxMoveSpeed": 6.5,
         "MoveAcceleration": 4,
         "Name": "Infernus",
         "Playstyle": "hero_inferno_playstyle",
@@ -2836,7 +2820,6 @@
         "BulletSpeed": 508.0,
         "BulletsPerShot": 1,
         "ClipSize": 16,
-        "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 108.16666666666667,
@@ -2856,7 +2839,7 @@
         "LightMeleeDamage": 63,
         "Lore": "hero_kali_lore",
         "MaxHealth": 550,
-        "MaxMoveSpeed": 7.3,
+        "MaxMoveSpeed": 7,
         "MoveAcceleration": 4,
         "Name": "Kali",
         "Playstyle": "hero_kali_playstyle",
@@ -3027,7 +3010,6 @@
         "BulletSpeed": 254.0,
         "BulletsPerShot": 1,
         "ClipSize": 15,
-        "CritDamageBonusScale": 0.8,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 83.6,
@@ -3050,7 +3032,7 @@
         "LightMeleeDamage": 63,
         "Lore": "hero_kelvin_lore",
         "MaxHealth": 600.0,
-        "MaxMoveSpeed": 6.8,
+        "MaxMoveSpeed": 6.5,
         "MoveAcceleration": 4,
         "Name": "Kelvin",
         "Playstyle": "hero_kelvin_playstyle",
@@ -3189,7 +3171,7 @@
             "4": {
                 "AbilityCastRange": 5,
                 "AbilityChannelTime": 2.5,
-                "AbilityCooldown": 75.0,
+                "AbilityCooldown": 95.0,
                 "AbilityUnitTargetLimit": 1,
                 "BonusHealthOnKill": 30,
                 "DPS": 60,
@@ -3197,7 +3179,7 @@
                 "Name": "Combo",
                 "Upgrades": [
                     {
-                        "BulletResist": 30
+                        "AbilityCooldown": -28.0
                     },
                     {
                         "AbilityChannelTime": 0.75
@@ -3214,7 +3196,6 @@
         "BulletSpeed": 320.03999999999996,
         "BulletsPerShot": 4,
         "ClipSize": 20,
-        "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 80.0,
@@ -3237,7 +3218,7 @@
         "LightMeleeDamage": 63,
         "Lore": "hero_krill_lore",
         "MaxHealth": 700,
-        "MaxMoveSpeed": 8.1,
+        "MaxMoveSpeed": 7.8,
         "MoveAcceleration": 4,
         "Name": "Mo & Krill",
         "Playstyle": "hero_krill_playstyle",
@@ -3356,8 +3337,8 @@
                 "AbilityUnitTargetLimit": 30,
                 "ChannelMoveSpeed": 50,
                 "Damage": 65,
-                "HealPctVsHeroes": 70,
-                "HealPctVsNonHeroes": 25,
+                "HealPctVsHeroes": 80,
+                "HealPctVsNonHeroes": 30,
                 "Key": "ability_lash_flog",
                 "Name": "Flog",
                 "TargetingConeAngle": 30,
@@ -3414,15 +3395,14 @@
                 ]
             }
         },
-        "BulletDamage": 9,
+        "BulletDamage": 10,
         "BulletGravityScale": 0.8,
         "BulletSpeed": 635.0,
         "BulletsPerShot": 1,
         "ClipSize": 29,
-        "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
-        "DPS": 36.0,
+        "DPS": 40.0,
         "FalloffBias": 0.5,
         "FalloffEndRange": 57.5056,
         "FalloffEndScale": 0.1,
@@ -3437,12 +3417,12 @@
             "LightMeleeDamage": 2.671429,
             "HeavyMeleeDamage": 4.91882165079365,
             "DPS": 2.828572000000001,
-            "SustainedDPS": 2.136161145833338
+            "SustainedDPS": 2.1361611458333343
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_lash_lore",
         "MaxHealth": 550,
-        "MaxMoveSpeed": 7.3,
+        "MaxMoveSpeed": 7,
         "MoveAcceleration": 4,
         "Name": "Lash",
         "Playstyle": "hero_lash_playstyle",
@@ -3475,7 +3455,7 @@
         "Stamina": 3,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
-        "SustainedDPS": 27.1875,
+        "SustainedDPS": 30.208333333333336,
         "TechArmorDamageReduction": 15.0,
         "TechDuration": 0,
         "TechRange": 0,
@@ -3495,8 +3475,8 @@
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.0,
-                "AbilityCastRange": 20,
                 "AbilityCooldown": 32.0,
+                "AbilityDuration": 0.75,
                 "AbilityUnitTargetLimit": 1,
                 "BossDamagePercent": 50,
                 "ChannelMoveSpeed": 20,
@@ -3506,6 +3486,7 @@
                 "DistanceAboveGround": 2,
                 "DropDownRate": 10,
                 "EnemyLiftDuration": 0.2,
+                "ForwardOffset": 125,
                 "HoldInPlaceDuration": 1.1,
                 "Key": "mirage_tornado",
                 "LiftHeight": 3,
@@ -3573,8 +3554,8 @@
                 "Name": "Djinn's Mark",
                 "ProcChance": 100,
                 "ProcCooldown": 2.5,
-                "ProcDamageBase": 12,
-                "RevealDuration": 3.0,
+                "ProcDamageBase": 16,
+                "RevealDuration": 2.0,
                 "Upgrades": [
                     {
                         "MovementSpeedSlow": 80,
@@ -3605,13 +3586,13 @@
                 "SearchRadius": 30,
                 "Upgrades": [
                     {
+                        "AbilityCooldown": -20.0
+                    },
+                    {
                         "BonusMoveSpeed": "2m"
                     },
                     {
-                        "AbilityCooldown": -30.0
-                    },
-                    {
-                        "BonusFireRate": 30
+                        "BonusFireRate": 20
                     }
                 ]
             }
@@ -3621,7 +3602,6 @@
         "BulletSpeed": 828.04,
         "BulletsPerShot": 1,
         "ClipSize": 16,
-        "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 51.42857142857143,
@@ -3644,7 +3624,7 @@
         "LightMeleeDamage": 63,
         "Lore": "hero_mirage_lore",
         "MaxHealth": 550,
-        "MaxMoveSpeed": 7.3,
+        "MaxMoveSpeed": 7,
         "MoveAcceleration": 4,
         "Name": "Mirage",
         "Playstyle": "hero_mirage_playstyle",
@@ -3732,16 +3712,17 @@
             "2": {
                 "AbilityCastDelay": 0.2,
                 "AbilityCastRange": 14,
-                "AbilityCharges": 2,
-                "AbilityCooldown": 26.0,
-                "AbilityCooldownBetweenCharge": 8,
-                "AbilityPostCastDuration": 0.4,
+                "AbilityCharges": 1,
+                "AbilityCooldown": 32.0,
+                "AbilityCooldownBetweenCharge": 10,
+                "AbilityPostCastDuration": 0.25,
                 "AbilityUnitTargetLimit": 1,
                 "CameraDistance": 250,
                 "ChannelMoveSpeed": 50,
                 "Damage": 60,
-                "DoublePounceTime": 3,
-                "ExplodeRadius": 6,
+                "ExplodeRadius": 4,
+                "FriendlyRechargeTime": 3,
+                "FriendlyTargetCD": 16.0,
                 "JumpHeight": 3,
                 "Key": "ability_nano_pounce",
                 "MinTimeToTarget": 0.5,
@@ -3756,18 +3737,56 @@
                     },
                     {
                         "FireRateSlow": 30,
-                        "ActiveReloadPercent": 20
+                        "ExplodeRadius": "6m"
                     },
                     {
                         "AbilityCharges": 1,
-                        "Damage": 60
+                        "ActiveReloadPercent": 25
                     }
                 ]
             },
             "3": {
                 "AbilityCastDelay": 0.2,
-                "AbilityCooldown": 40.0,
-                "AbilityDuration": 8,
+                "AbilityCooldown": 60.0,
+                "AbilityUnitTargetLimit": 1,
+                "ActiveRadius": 20,
+                "CatActivateDuration": 1.5,
+                "ChannelMoveSpeed": 50,
+                "DPS": 30,
+                "DamageTick": 0.5,
+                "HealAmpReceivePenaltyPercent": -20,
+                "HealAmpRegenPenaltyPercent": -20,
+                "InactiveRadius": 20,
+                "Key": "ability_nano_proximity_ritual",
+                "MinResummonCooldown": 5,
+                "Name": "Perched Predator",
+                "RecallCooldown": 8,
+                "RecallRange": 5,
+                "StatueArmTime": 1.0,
+                "StatueHealth": 200,
+                "StatueHeldRegen": 40,
+                "StatueLifetime": 60,
+                "TargetLifesteal": 30,
+                "TargetLifestealNonHero": 10,
+                "TickInterval": 0.1,
+                "Upgrades": [
+                    {
+                        "StatueHealth": 200
+                    },
+                    {
+                        "DPS": 30
+                    },
+                    {
+                        "DamageAmplification": 35,
+                        "HealAmpReceivePenaltyPercent": -30,
+                        "HealAmpRegenPenaltyPercent": -30
+                    }
+                ]
+            },
+            "4": {
+                "AbilityCastDelay": 0.2,
+                "AbilityCooldown": 95.0,
+                "AbilityDuration": 12,
                 "AbilityUnitTargetLimit": 1,
                 "BonusFireRate": 20,
                 "BulletArmorReductionDuration": 6,
@@ -3775,58 +3794,22 @@
                 "BulletArmorReductionLight": 5,
                 "ChannelMoveSpeed": 50,
                 "InvisAlertWhenFading": 1,
-                "Key": "ability_nano_shadow_step",
-                "MeleeAttackSpeedBonus": 20,
-                "Name": "Shadow Step",
+                "InvisMoveSpeedMod": 1,
+                "Key": "ability_nano_ult_shadow",
+                "MeleeAttackSpeedBonus": 40,
+                "Name": "Queen of Shadows",
                 "RevealOnDamageDuration": 0.25,
-                "RevealOnSpottedDuration": 0.75,
-                "SpottedRadius": 2,
+                "RevealOnSpottedDuration": 1.0,
+                "SpottedRadius": 15,
                 "Upgrades": [
                     {
                         "StaminaCooldownReduction": 30
                     },
                     {
-                        "SlowResistancePercent": 40
+                        "PurgeOnActivate": 1
                     },
                     {
                         "SilenceOnHeavyDuration": 3
-                    }
-                ]
-            },
-            "4": {
-                "AbilityCastDelay": 0.2,
-                "AbilityCooldown": 80.0,
-                "AbilityUnitTargetLimit": 1,
-                "ActiveRadius": 25,
-                "CatActivateDuration": 2.0,
-                "ChannelMoveSpeed": 50,
-                "DPS": 40,
-                "DamageTick": 0.5,
-                "HealAmpReceivePenaltyPercent": -20,
-                "HealAmpRegenPenaltyPercent": -20,
-                "Key": "ability_nano_proximity_ritual",
-                "Name": "Ava",
-                "RecallCooldown": 5,
-                "StatueArmTime": 1.0,
-                "StatueHealth": 500,
-                "StatueHeldRegen": 40,
-                "StatueLifetime": 60,
-                "TargetLifesteal": 15,
-                "TargetLifestealNonHero": 5,
-                "TickInterval": 0.1,
-                "Upgrades": [
-                    {
-                        "TargetLifesteal": 21,
-                        "TargetLifestealNonHero": 7
-                    },
-                    {
-                        "DPS": 40,
-                        "VictimDamageReduction": -20
-                    },
-                    {
-                        "DamageAmplification": 35,
-                        "HealAmpReceivePenaltyPercent": -30,
-                        "HealAmpRegenPenaltyPercent": -30
                     }
                 ]
             }
@@ -3836,7 +3819,6 @@
         "BulletSpeed": 317.5,
         "BulletsPerShot": 5,
         "ClipSize": 18,
-        "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 75.0,
@@ -3859,7 +3841,7 @@
         "LightMeleeDamage": 63,
         "Lore": "hero_nano_lore",
         "MaxHealth": 550,
-        "MaxMoveSpeed": 7.3,
+        "MaxMoveSpeed": 7,
         "MoveAcceleration": 4,
         "Name": "Calico",
         "Playstyle": "hero_nano_playstyle",
@@ -3949,9 +3931,9 @@
                 "AbilityDuration": 7,
                 "AbilityUnitTargetLimit": 1,
                 "AirSpeedMax": 150,
-                "AltJumpSpeed": 12,
+                "AltJumpSpeed": 10,
                 "BulletSplitShot": 5,
-                "FallSpeedMax": 15,
+                "FallSpeedMax": 30,
                 "FxRadius": 4,
                 "JumpPitch": -60,
                 "JumpSpeed": 27.5,
@@ -4027,12 +4009,11 @@
                 ]
             }
         },
-        "BulletDamage": 30.25,
+        "BulletDamage": 24.75,
         "BulletGravityScale": 0.8,
         "BulletSpeed": 495.3,
         "BulletsPerShot": 1,
         "ClipSize": 17,
-        "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 55.0,
@@ -4049,13 +4030,13 @@
             "Health": 27.0,
             "LightMeleeDamage": 2.671429,
             "HeavyMeleeDamage": 4.91882165079365,
-            "DPS": 2.571429090909092,
-            "SustainedDPS": 2.054945470085471
+            "DPS": 3.1428577777777846,
+            "SustainedDPS": 2.4042862000000014
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_orion_lore",
         "MaxHealth": 550,
-        "MaxMoveSpeed": 6.3,
+        "MaxMoveSpeed": 6,
         "MoveAcceleration": 4,
         "Name": "Grey Talon",
         "Playstyle": "hero_orion_playstyle",
@@ -4085,17 +4066,19 @@
         "ReloadSpeed": 0,
         "ReloadTime": 2.35,
         "Role": "hero_orion_role",
-        "RoundsPerSecond": 1.8181818181818181,
+        "RoundsPerSecond": 2.2222222222222223,
         "SpiritScaling": {
-            "BulletDamage": 0.1,
-            "DPS": 0.18181818181817988,
-            "SustainedDPS": 0.14529914529914834
+            "MaxMoveSpeed": 0.04,
+            "RoundsPerSecond": 0.00625,
+            "FireRate": 0.25,
+            "DPS": 0.15468750000000142,
+            "SustainedDPS": 0.09046719902314493
         },
         "SprintSpeed": 0,
-        "Stamina": 4,
+        "Stamina": 3,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
-        "SustainedDPS": 43.952991452991455,
+        "SustainedDPS": 42.075,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_orion_set_desc",
@@ -4229,7 +4212,6 @@
         "BulletSpeed": 320.03999999999996,
         "BulletsPerShot": 4,
         "ClipSize": 14,
-        "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 72.0,
@@ -4249,7 +4231,7 @@
         "LightMeleeDamage": 63,
         "Lore": "hero_rutger_lore",
         "MaxHealth": 550,
-        "MaxMoveSpeed": 7.3,
+        "MaxMoveSpeed": 7,
         "MoveAcceleration": 4,
         "Name": "Rutger",
         "Playstyle": "hero_rutger_playstyle",
@@ -4271,137 +4253,6 @@
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_rutger_set_desc",
         "WeaponName": "citadel_weapon_hero_rutger_set",
-        "WeaponPowerScale": 1
-    },
-    "hero_shieldguy": {
-        "AbilityResourceMax": 0,
-        "AbilityResourceRegenPerSecond": 0,
-        "BaseHealthRegen": 2.0,
-        "BaseWeaponDamageIncrease": 0,
-        "BoundAbilities": {
-            "1": {
-                "AbilityCooldown": 26.0,
-                "AbilityUnitTargetLimit": 1,
-                "ChannelMoveSpeed": 50,
-                "Key": "ability_shieldguy_ability01",
-                "Name": null,
-                "Upgrades": [
-                    {
-                        "AbilityCooldown": 0
-                    },
-                    {
-                        "AbilityCooldown": 0
-                    },
-                    {
-                        "AbilityCooldown": 0
-                    }
-                ]
-            },
-            "2": {
-                "AbilityCooldown": 26.0,
-                "AbilityUnitTargetLimit": 1,
-                "ChannelMoveSpeed": 50,
-                "Key": "ability_shieldguy_ability02",
-                "Name": null,
-                "Upgrades": [
-                    {
-                        "AbilityCooldown": 0
-                    },
-                    {
-                        "AbilityCooldown": 0
-                    },
-                    {
-                        "AbilityCooldown": 0
-                    }
-                ]
-            },
-            "3": {
-                "AbilityCooldown": 26.0,
-                "AbilityUnitTargetLimit": 1,
-                "ChannelMoveSpeed": 50,
-                "Key": "ability_shieldguy_ability03",
-                "Name": null,
-                "Upgrades": [
-                    {
-                        "AbilityCooldown": 0
-                    },
-                    {
-                        "AbilityCooldown": 0
-                    },
-                    {
-                        "AbilityCooldown": 0
-                    }
-                ]
-            },
-            "4": {
-                "AbilityCooldown": 127.0,
-                "AbilityUnitTargetLimit": 1,
-                "ChannelMoveSpeed": 50,
-                "Key": "ability_shieldguy_ult",
-                "Name": null,
-                "Upgrades": [
-                    {
-                        "AbilityCooldown": 0
-                    },
-                    {
-                        "AbilityCooldown": 0
-                    },
-                    {
-                        "AbilityCooldown": 0
-                    }
-                ]
-            }
-        },
-        "BulletDamage": 5.5,
-        "BulletGravityScale": 0,
-        "BulletSpeed": 571.5,
-        "BulletsPerShot": 1,
-        "ClipSize": 30,
-        "CritDamageBonusScale": 1.0,
-        "CritDamageReceivedScale": 0.0,
-        "CrouchSpeed": 4.75,
-        "DPS": 61.11111111111111,
-        "FalloffBias": 0.5,
-        "FalloffEndRange": 57.5056,
-        "FalloffEndScale": 0.1,
-        "FalloffStartRange": 21.996399999999998,
-        "FalloffStartScale": 1.0,
-        "HeavyMeleeDamage": 116,
-        "InDevelopment": true,
-        "IsDisabled": true,
-        "LevelScaling": {
-            "BulletDamage": 0.124929,
-            "Health": 41.0,
-            "LightMeleeDamage": 2.671429,
-            "HeavyMeleeDamage": 4.91882165079365,
-            "DPS": 1.3881000000000014,
-            "SustainedDPS": 0.7207442307692311
-        },
-        "LightMeleeDamage": 63,
-        "Lore": "hero_shieldguy_lore",
-        "MaxHealth": 550,
-        "MaxMoveSpeed": 7.3,
-        "MoveAcceleration": 4,
-        "Name": "Shield Guy",
-        "Playstyle": "hero_shieldguy_playstyle",
-        "ProcBuildUpRateScale": 1,
-        "ReloadDelay": 0,
-        "ReloadMovespeed": 1.0,
-        "ReloadSingle": false,
-        "ReloadSpeed": 0,
-        "ReloadTime": 2.5,
-        "Role": "hero_shieldguy_role",
-        "RoundsPerSecond": 11.11111111111111,
-        "SpiritScaling": {},
-        "SprintSpeed": 0,
-        "Stamina": 3,
-        "StaminaCooldown": 5.0,
-        "StaminaRegenPerSecond": 0.2,
-        "SustainedDPS": 31.73076923076923,
-        "TechDuration": 0,
-        "TechRange": 0,
-        "WeaponDescription": "citadel_weapon_hero_shieldguy_set_desc",
-        "WeaponName": "citadel_weapon_hero_shieldguy_set",
         "WeaponPowerScale": 1
     },
     "hero_shiv": {
@@ -4459,7 +4310,7 @@
                 "TechCleaveExpireTime": 0.35,
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -4
+                        "AbilityCooldown": -3.75
                     },
                     {
                         "ImpactDamage": 75
@@ -4513,8 +4364,8 @@
                 "Name": "Killing Blow",
                 "NonPlayerRageScale": 0.2,
                 "PauseOnTargetTime": 0.66,
-                "RageDrainDelayDuration": 12,
-                "RageDrainRate": 0.25,
+                "RageDrainDelayDuration": 7,
+                "RageDrainRate": 0.35,
                 "RagePerHeavyMelee": 3.5,
                 "RagePerLightMelee": 1.5,
                 "RagePerSpiritDamage": 0.013,
@@ -4539,7 +4390,6 @@
         "BulletSpeed": 609.6,
         "BulletsPerShot": 6,
         "ClipSize": 10,
-        "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 65.14285714285714,
@@ -4562,7 +4412,7 @@
         "LightMeleeDamage": 63,
         "Lore": "hero_shiv_lore",
         "MaxHealth": 600.0,
-        "MaxMoveSpeed": 7.3,
+        "MaxMoveSpeed": 7,
         "MoveAcceleration": 4,
         "Name": "Shiv",
         "Playstyle": "hero_shiv_playstyle",
@@ -4743,7 +4593,6 @@
         "BulletSpeed": 231.14,
         "BulletsPerShot": 1,
         "ClipSize": 20,
-        "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 55.0,
@@ -4766,7 +4615,7 @@
         "LightMeleeDamage": 63,
         "Lore": "hero_slork_lore",
         "MaxHealth": 550,
-        "MaxMoveSpeed": 7.3,
+        "MaxMoveSpeed": 7,
         "MoveAcceleration": 4,
         "Name": "Fathom",
         "Playstyle": "hero_slork_playstyle",
@@ -4812,7 +4661,7 @@
                 "MoveSlowPercent": 30,
                 "Name": "Barrage",
                 "ProjectileAmount": 4,
-                "Radius": 4.5,
+                "Radius": 6.5,
                 "SlowDuration": 1.5,
                 "Upgrades": [
                     {
@@ -4822,8 +4671,7 @@
                         "AbilityCooldown": -14.0
                     },
                     {
-                        "AmpPercentPerStack": 4,
-                        "Radius": "2m"
+                        "AmpPercentPerStack": 4
                     }
                 ]
             },
@@ -4906,14 +4754,13 @@
         "BulletSpeed": 558.8,
         "BulletsPerShot": 7,
         "ClipSize": 11,
-        "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 70.0,
         "FalloffBias": 0.5,
         "FalloffEndRange": 45.72,
         "FalloffEndScale": 0.1,
-        "FalloffStartRange": 15.999993400000001,
+        "FalloffStartRange": 21.996399999999998,
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": false,
@@ -4929,7 +4776,7 @@
         "LightMeleeDamage": 63,
         "Lore": "hero_synth_lore",
         "MaxHealth": 550,
-        "MaxMoveSpeed": 7.3,
+        "MaxMoveSpeed": 7,
         "MoveAcceleration": 4,
         "Name": "Pocket",
         "Playstyle": "hero_synth_playstyle",
@@ -5065,7 +4912,6 @@
         "BulletSpeed": 635.0,
         "BulletsPerShot": 1,
         "ClipSize": 15,
-        "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 58.0,
@@ -5085,7 +4931,7 @@
         "LightMeleeDamage": 63,
         "Lore": "hero_targetdummy_lore",
         "MaxHealth": 3000,
-        "MaxMoveSpeed": 7.3,
+        "MaxMoveSpeed": 7,
         "MoveAcceleration": 4,
         "Name": "TargetDummy",
         "Playstyle": "hero_targetdummy_playstyle",
@@ -5242,7 +5088,6 @@
         "BulletSpeed": 571.5,
         "BulletsPerShot": 1,
         "ClipSize": 33,
-        "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 64.28571428571428,
@@ -5265,7 +5110,7 @@
         "LightMeleeDamage": 63,
         "Lore": "hero_tengu_lore",
         "MaxHealth": 550,
-        "MaxMoveSpeed": 7.3,
+        "MaxMoveSpeed": 7,
         "MoveAcceleration": 4,
         "Name": "Ivy",
         "Playstyle": "hero_tengu_playstyle",
@@ -5433,7 +5278,6 @@
         "BulletSpeed": 124.46,
         "BulletsPerShot": 1,
         "ClipSize": 6,
-        "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 57.00000000000001,
@@ -5453,7 +5297,7 @@
         "LightMeleeDamage": 63,
         "Lore": "hero_thumper_lore",
         "MaxHealth": 550,
-        "MaxMoveSpeed": 7.3,
+        "MaxMoveSpeed": 7,
         "MoveAcceleration": 4,
         "Name": "Thumper",
         "Playstyle": "hero_thumper_playstyle",
@@ -5618,7 +5462,6 @@
         "BulletSpeed": 406.4,
         "BulletsPerShot": 1,
         "ClipSize": 50,
-        "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 68.33333333333333,
@@ -5641,7 +5484,7 @@
         "LightMeleeDamage": 63,
         "Lore": "hero_tokamak_lore",
         "MaxHealth": 550,
-        "MaxMoveSpeed": 7.3,
+        "MaxMoveSpeed": 7,
         "MoveAcceleration": 4,
         "Name": "Tokamak",
         "Playstyle": "hero_tokamak_playstyle",
@@ -5678,7 +5521,7 @@
                 "AbilityUnitTargetLimit": 1,
                 "BossDamagePercent": 50,
                 "ChannelMoveSpeed": 50,
-                "Damage": 90,
+                "Damage": 100,
                 "DetonateCooldown": 0.15,
                 "Key": "viscous_goo_grenade",
                 "Name": "Splatter",
@@ -5692,7 +5535,7 @@
                         "AbilityCooldown": -5.75
                     },
                     {
-                        "Damage": 60,
+                        "Damage": 70,
                         "Radius": "1m"
                     },
                     {
@@ -5791,7 +5634,7 @@
                 "Name": "Goo Ball",
                 "ParticleRadiusMultiplier": 1.2,
                 "Radius": null,
-                "StunDuration": 0.7,
+                "StunDuration": 1,
                 "TechResist": 70,
                 "TickRate": 0.25,
                 "Upgrades": [
@@ -5812,7 +5655,6 @@
         "BulletSpeed": 254.0,
         "BulletsPerShot": 1,
         "ClipSize": 20,
-        "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 60.0,
@@ -5835,7 +5677,7 @@
         "LightMeleeDamage": 63,
         "Lore": "hero_viscous_lore",
         "MaxHealth": 550,
-        "MaxMoveSpeed": 7.3,
+        "MaxMoveSpeed": 7,
         "MoveAcceleration": 4,
         "Name": "Viscous",
         "Playstyle": "hero_viscous_playstyle",
@@ -5889,10 +5731,10 @@
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 0.1,
-                "AbilityCooldown": 12.0,
+                "AbilityCooldown": 14.0,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
-                "Damage": 65,
+                "Damage": 55,
                 "DebuffDuration": 6,
                 "ForwardVelocity": 800,
                 "Key": "ability_warden_crowd_control",
@@ -5902,10 +5744,10 @@
                 "Radius": 6.5,
                 "Upgrades": [
                     {
-                        "StaminaReduction": 1
+                        "Damage": 40
                     },
                     {
-                        "Damage": 50
+                        "StaminaReduction": 1
                     },
                     {
                         "FireRateSlow": 35,
@@ -5966,7 +5808,7 @@
                 ]
             },
             "4": {
-                "AbilityCastDelay": 2,
+                "AbilityCastDelay": 2.25,
                 "AbilityCooldown": 138.0,
                 "AbilityDuration": 6,
                 "AbilityUnitTargetLimit": 1,
@@ -5979,7 +5821,7 @@
                 "Name": "Last Stand",
                 "PulseDPS": 100,
                 "PulseInterval": 0.5,
-                "Radius": 13,
+                "Radius": 12,
                 "Upgrades": [
                     {
                         "Radius": "3m"
@@ -5998,7 +5840,6 @@
         "BulletSpeed": 213.35999999999999,
         "BulletsPerShot": 1,
         "ClipSize": 17,
-        "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 79.2,
@@ -6021,7 +5862,7 @@
         "LightMeleeDamage": 63,
         "Lore": "hero_warden_lore",
         "MaxHealth": 550,
-        "MaxMoveSpeed": 6.3,
+        "MaxMoveSpeed": 6.0,
         "MoveAcceleration": 4,
         "Name": "Warden",
         "Playstyle": "hero_warden_playstyle",
@@ -6089,8 +5930,8 @@
                 "CardResourceGenPctScale": 106.0,
                 "CardResourcePerBulletCrit": 6,
                 "CardResourcePerBulletHit": 4,
-                "CardResourcePerHeavyMelee": 25,
-                "CardResourcePerLightMelee": 10,
+                "CardResourcePerHeavyMelee": 50,
+                "CardResourcePerLightMelee": 20,
                 "ChannelMoveSpeed": 50,
                 "Damage": 80,
                 "Key": "citadel_ability_card_toss",
@@ -6192,7 +6033,6 @@
         "BulletSpeed": 571.5,
         "BulletsPerShot": 1,
         "ClipSize": 52,
-        "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 61.11111111111111,
@@ -6215,7 +6055,7 @@
         "LightMeleeDamage": 63,
         "Lore": "hero_wraith_lore",
         "MaxHealth": 550,
-        "MaxMoveSpeed": 7.3,
+        "MaxMoveSpeed": 7,
         "MoveAcceleration": 4,
         "Name": "Wraith",
         "Playstyle": "hero_wraith_playstyle",
@@ -6372,7 +6212,6 @@
         "BulletSpeed": 635.0,
         "BulletsPerShot": 1,
         "ClipSize": 10,
-        "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 71.42857142857143,
@@ -6395,7 +6234,7 @@
         "LightMeleeDamage": 63,
         "Lore": "hero_wrecker_lore",
         "MaxHealth": 550,
-        "MaxMoveSpeed": 7.3,
+        "MaxMoveSpeed": 7,
         "MoveAcceleration": 4,
         "Name": "Wrecker",
         "Playstyle": "hero_wrecker_playstyle",
@@ -6557,7 +6396,6 @@
         "BulletSpeed": 406.4,
         "BulletsPerShot": 1,
         "ClipSize": 20,
-        "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 54.0,
@@ -6577,7 +6415,7 @@
         "LightMeleeDamage": 63,
         "Lore": "hero_yakuza_lore",
         "MaxHealth": 550,
-        "MaxMoveSpeed": 7.3,
+        "MaxMoveSpeed": 7,
         "MoveAcceleration": 4,
         "Name": "The Boss",
         "Playstyle": "hero_yakuza_playstyle",
@@ -6609,7 +6447,7 @@
         "BoundAbilities": {
             "1": {
                 "AbilityCastDelay": 1.4,
-                "AbilityCooldown": 10.5,
+                "AbilityCooldown": 8.5,
                 "AbilityPostCastDuration": 0.4,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
@@ -6629,8 +6467,7 @@
                     },
                     {
                         "SlowDuration": 3,
-                        "SlowPercent": 40,
-                        "AbilityCooldown": -2
+                        "SlowPercent": 40
                     },
                     {
                         "FullChargeDamage": 200
@@ -6688,13 +6525,15 @@
             "4": {
                 "AbilityChannelTime": 2,
                 "AbilityCooldown": 106.0,
-                "AbilityDuration": 4,
+                "AbilityDuration": 4.5,
                 "AbilityPostCastDuration": 0.6,
                 "AbilitySpeedPct": 60,
                 "AbilityUnitTargetLimit": 1,
                 "BonusMoveSpeed": 0,
+                "BulletResist": 40,
                 "Key": "citadel_ability_infinity_slash",
                 "Name": "Shadow Transformation",
+                "TechResist": 40,
                 "Upgrades": [
                     {
                         "AbilityCooldown": -28.0
@@ -6713,7 +6552,6 @@
         "BulletSpeed": 254.0,
         "BulletsPerShot": 5,
         "ClipSize": 12,
-        "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 70.625,
@@ -6736,7 +6574,7 @@
         "LightMeleeDamage": 69,
         "Lore": "hero_yamato_lore",
         "MaxHealth": 500.0,
-        "MaxMoveSpeed": 8.3,
+        "MaxMoveSpeed": 8.0,
         "MoveAcceleration": 4,
         "Name": "Yamato",
         "Playstyle": "hero_yamato_playstyle",
