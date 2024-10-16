@@ -78,12 +78,10 @@ def get_hero_attr(value):
     if value.startswith('E'):
         value = value[len('E') :]
 
-    remaps = {'WeaponPower': 'BaseWeaponDamageIncrease', 'ClipSizeBonus': 'ClipSize'}
-
-    if value in remaps:
-        return remaps[value]
-
-    remaps = {'WeaponPower': 'BaseWeaponDamageIncrease', 'ClipSizeBonus': 'ClipSize'}
+    remaps = {'WeaponPower': 'BaseWeaponDamageIncrease', 
+              'ClipSizeBonus': 'ClipSize',
+              'BulletArmorDamageReduction': 'BulletResist',
+              'TechArmorDamageReduction': 'TechResist'}
 
     if value in remaps:
         return remaps[value]
@@ -148,20 +146,7 @@ KEYBIND_MAP = {
 }
 
 LOCALIZATION_OVERRIDE_MAP = {
-    'HealthSwapBuffDuration': 'SelfBuffDuration',
-    'PounceDebuffRadius': 'ExplodeRadius',
-    'DamageMissingPercentHealth': 'DamagePercentHealth',
-    'AirDropExplodeRadius': 'OnLandDamageRadius',
-    'AirDropBulletArmorReduction': 'BulletArmorReduction',
-    'AirDropDebuff02Duration': 'BulletArmorReductionDuration',
-    'AirDropSilenceDuration': 'SilenceDuration',
-    'NormalDPS_scale': 'NormalDPS',
-    'HotDPS_scale': 'HotDPS',
-    'Damage_scale': 'Damage',
     'MaxChargeDuration': 'SpeedBoostDuration',
-    'PulseGrenadeDamageAmplificationPerStack': 'DamageAmplificationPerStack',
-    'MirageDjinnsMarkMaxStacks': 'MaxStacks',
-    'SandPhantomProcCooldown': 'ProcCooldown',
 }
 
 
