@@ -1,0 +1,630 @@
+[
+    {
+        "Description": "General Changes:",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "==",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "- Added a Recommend A Friend button to the dashboard that you can use to send us requests for people to include in our playtesting",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "- Added a Resources page to the dashboard which contains a browsable item shop",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "- Added overhead text display when another hero uses active items",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "- The hotkeys F1-F5 to change cameras to allied heroes now maps directly to the order of heroes on the top bar left to right",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "- Added the Patron to the spectate-when-dead cycle if the enemy is in your base or everyone on your team is dead",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "- Added support for Flex Items in the Hero Sandbox",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "- Increased the range of the mouse sensitivity slider from 0.5->4.0 to 0.05->8.0",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "- Increased the default framerate cap from 120 to 400",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "- Improved UI display when endgame objectives are being attacked",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "- Added music for when the base is under attack",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "- Changed the local player icon on the the minimap to always be on top of enemy icons",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "- Shop music will now only play for shops players can access",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "- Postgame graphs now default to team stats rather than individual",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "- Added borders around hero icons on the minimap when watching replays/spectating",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "- Top bar now shows incoming players before they are fully connected",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "- Added console command to hide the bar at the bottom in replays ('citadel_hide_replay_hud 1' to hide it, 'citadel_hide_replay_hud 0' to bring it back)",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "- Various VOIP improvements",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "- Fixed open mic threshold",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "- Fixed various consistency issues with the presentation of Souls terminology, icons, etc",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "- Fixed {{Icon|Flying Cloak}} Flying Cloak teleporting players into geometry or out of the world",
+        "Tags": [
+            "Flying Cloak",
+            "Abilities"
+        ]
+    },
+    {
+        "Description": "- Fixed {{Icon|Warp Stone}} Warp Stone teleporting you through geometry",
+        "Tags": [
+            "Warp Stone",
+            "Items",
+            "Weapon Items"
+        ]
+    },
+    {
+        "Description": "- Fixed {{Icon|Fixation}} Fixation decimal point display",
+        "Tags": [
+            "Fixation",
+            "Abilities"
+        ]
+    },
+    {
+        "Description": "- Fixed Parry animation not playing",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "- Fixed various issues with the spectate UI display",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "- Removed the slow climbing vertical recoil on {{Icon|Yamato}} Yamato's alt fire",
+        "Tags": [
+            "Yamato",
+            "Heroes"
+        ]
+    },
+    {
+        "Description": "- Fixed AP count not showing if you are dead, spectating a team mate or when holding alt/tab to upgrade your abilities",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "Gameplay Changes:",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "==",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "- Troopers DPS vs Lane Guardians reduced from 44 to 36",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "- Objectives now have 80% damage reduction anti-backdoor defense when there haven't been creeps nearby in a while",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "- The uncapturable zipline nodes near your base now extend out 2 more nodes (this means attackers can't capture ziplines quite as close to the enemy base)",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "- You are now silenced while carrying the Urn",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "- Urn bounty increased from 900 + 160/minute to 900 + 200/minute",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "- Vaults base bounty increased from 150 to 200",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "- Base Health increased from 550 to 600",
+        "Tags": [
+            "Abrams",
+            "Heroes"
+        ]
+    },
+    {
+        "Description": "- Siphon DPS increased from 24 to 35",
+        "Tags": [
+            "Abrams",
+            "Heroes"
+        ]
+    },
+    {
+        "Description": "- Weapon no longer has horizontal/vertical recoil",
+        "Tags": [
+            "Bebop",
+            "Heroes"
+        ]
+    },
+    {
+        "Description": "- {{Icon|Singularity}} Singularity DPS increased from 48 to 60",
+        "Tags": [
+            "Dynamo",
+            "Heroes",
+            "Singularity",
+            "Abilities"
+        ]
+    },
+    {
+        "Description": "- {{Icon|Singularity}} Singularity T3 Max HP DPS increased from 3.2% to 3.8%",
+        "Tags": [
+            "Dynamo",
+            "Heroes",
+            "Singularity",
+            "Abilities"
+        ]
+    },
+    {
+        "Description": "- Charge Shot damage increased from 95 to 105",
+        "Tags": [
+            "Grey Talon",
+            "Heroes"
+        ]
+    },
+    {
+        "Description": "- Charge Shot T2 damage reduced from 80 to 70",
+        "Tags": [
+            "Grey Talon",
+            "Heroes"
+        ]
+    },
+    {
+        "Description": "- {{Icon|Guided Owl}} Guided Owl damage increased from 200 to 300",
+        "Tags": [
+            "Grey Talon",
+            "Heroes",
+            "Guided Owl",
+            "Abilities"
+        ]
+    },
+    {
+        "Description": "- {{Icon|Bullet Dance}} Bullet Dance bonus Fire Rate reduced from +30 to +20",
+        "Tags": [
+            "Haze",
+            "Heroes",
+            "Bullet Dance",
+            "Abilities"
+        ]
+    },
+    {
+        "Description": "- {{Icon|Smoke Bomb}} Smoke Bomb duration scaling from Spirit improved from 0.2 to 0.3",
+        "Tags": [
+            "Haze",
+            "Heroes",
+            "Smoke Bomb",
+            "Abilities"
+        ]
+    },
+    {
+        "Description": "- {{Icon|Catalyst}} Catalyst no longer slows {{Icon|Infernus}} Infernus to 1.3 m/s during the cast delay",
+        "Tags": [
+            "Infernus",
+            "Heroes",
+            "Catalyst",
+            "Abilities"
+        ]
+    },
+    {
+        "Description": "- {{Icon|Concussive Combustion}} Concussive Combustion damage increased from 130 to 160",
+        "Tags": [
+            "Infernus",
+            "Heroes",
+            "Concussive Combustion",
+            "Abilities"
+        ]
+    },
+    {
+        "Description": "- {{Icon|Frost Grenade}} Frost Grenade T3 bonus damage increased from +100 to +175",
+        "Tags": [
+            "Kelvin",
+            "Heroes",
+            "Frost Grenade",
+            "Abilities"
+        ]
+    },
+    {
+        "Description": "- Blood Bomb damage increased from 80 to 100",
+        "Tags": [
+            "Lady Geist",
+            "Heroes"
+        ]
+    },
+    {
+        "Description": "- Blood Bomb T2 damage increased from +65 to +70",
+        "Tags": [
+            "Lady Geist",
+            "Heroes"
+        ]
+    },
+    {
+        "Description": "- Blood Bomb tooltip fixed to reference the correct self damage type and that it can be reduced with armor",
+        "Tags": [
+            "Lady Geist",
+            "Heroes"
+        ]
+    },
+    {
+        "Description": "- {{Icon|Malice}} Malice damage amp per shard increased from 10% to 15%",
+        "Tags": [
+            "Lady Geist",
+            "Heroes",
+            "Malice",
+            "Abilities"
+        ]
+    },
+    {
+        "Description": "- {{Icon|Grapple}} Grapple cooldown reduced from 55 to 45",
+        "Tags": [
+            "Lash",
+            "Heroes",
+            "Grapple",
+            "Abilities"
+        ]
+    },
+    {
+        "Description": "- {{Icon|Flog}} Flog Damage increased from 55 to 65",
+        "Tags": [
+            "Lash",
+            "Heroes",
+            "Flog",
+            "Abilities"
+        ]
+    },
+    {
+        "Description": "- {{Icon|Flog}} Flog lifesteal from heroes increased from 70% to 80% of damage dealt",
+        "Tags": [
+            "Lash",
+            "Heroes",
+            "Flog",
+            "Abilities"
+        ]
+    },
+    {
+        "Description": "- {{Icon|Flog}} Flog lifesteal from non-heroes reduced from 35% to 30% of damage dealt",
+        "Tags": [
+            "Lash",
+            "Heroes",
+            "Flog",
+            "Abilities"
+        ]
+    },
+    {
+        "Description": "- {{Icon|Death Slam}} Death Slam T1 from +3m to +5m",
+        "Tags": [
+            "Lash",
+            "Heroes",
+            "Death Slam",
+            "Abilities"
+        ]
+    },
+    {
+        "Description": "- Fixed {{Icon|Death Slam}} Death Slam's targeting cone not finding enemies near the edges",
+        "Tags": [
+            "Lash",
+            "Heroes",
+            "Death Slam",
+            "Abilities"
+        ]
+    },
+    {
+        "Description": "- Fixed {{Icon|Death Slam}} Death Slam to only target enemies who stay in the targeting cone",
+        "Tags": [
+            "Lash",
+            "Heroes",
+            "Death Slam",
+            "Abilities"
+        ]
+    },
+    {
+        "Description": "- {{Icon|Heavy {{Icon|Barrage}} Barrage}} Heavy {{Icon|Barrage}} Barrage now reduces your speed rather than setting it to a low cap (by itself this change isn't a buff or a nerf, but it allows you to buy items to move faster during the ultimate)",
+        "Tags": [
+            "McGinnis",
+            "Heroes",
+            "Heavy Barrage",
+            "Abilities",
+            "Barrage"
+        ]
+    },
+    {
+        "Description": "- {{Icon|Heavy {{Icon|Barrage}} Barrage}} Heavy {{Icon|Barrage}} Barrage camera interaction with {{Icon|Fleetfoot}} Fleetfoot Boots has been fixed",
+        "Tags": [
+            "McGinnis",
+            "Heroes",
+            "Fleetfoot",
+            "Items",
+            "Weapon Items",
+            "Heavy Barrage",
+            "Abilities",
+            "Barrage"
+        ]
+    },
+    {
+        "Description": "- {{Icon|Sand Blast}} Sand Blast range increased from 25m to 30m",
+        "Tags": [
+            "Mo & Krill",
+            "Heroes",
+            "Sand Blast",
+            "Abilities"
+        ]
+    },
+    {
+        "Description": "- {{Icon|Sand Blast}} Sand Blast width increased from 3m to 5m",
+        "Tags": [
+            "Mo & Krill",
+            "Heroes",
+            "Sand Blast",
+            "Abilities"
+        ]
+    },
+    {
+        "Description": "- {{Icon|Sand Blast}} Sand Blast is now permissive with small obstructions in the way",
+        "Tags": [
+            "Mo & Krill",
+            "Heroes",
+            "Sand Blast",
+            "Abilities"
+        ]
+    },
+    {
+        "Description": "- {{Icon|Burrow}} Burrow no longer loses its state as you change elevations",
+        "Tags": [
+            "Mo & Krill",
+            "Heroes",
+            "Burrow",
+            "Abilities"
+        ]
+    },
+    {
+        "Description": "- {{Icon|Burrow}} Burrow now knocks enemies up when you come up",
+        "Tags": [
+            "Mo & Krill",
+            "Heroes",
+            "Burrow",
+            "Abilities"
+        ]
+    },
+    {
+        "Description": "- {{Icon|Combo}} Combo DPS increased from 50 to 60",
+        "Tags": [
+            "Mo & Krill",
+            "Heroes",
+            "Combo",
+            "Abilities"
+        ]
+    },
+    {
+        "Description": "- No longer listed as a recommended new player hero",
+        "Tags": [
+            "Mo & Krill",
+            "Heroes"
+        ]
+    },
+    {
+        "Description": "- Base Bullet Damage reduced from 15 to 14",
+        "Tags": [
+            "Vindicta",
+            "Heroes"
+        ]
+    },
+    {
+        "Description": "- Bullet Damage gained per boon reduced from 0.88 to 0.7 (these are gained occasionally as you earn souls, up to 11 times)",
+        "Tags": [
+            "Vindicta",
+            "Heroes"
+        ]
+    },
+    {
+        "Description": "- {{Icon|Stake}} Stake T1 bonus duration reduced from +1.5s to +1.0s",
+        "Tags": [
+            "Vindicta",
+            "Heroes",
+            "Stake",
+            "Abilities"
+        ]
+    },
+    {
+        "Description": "- Is now a recommended hero for new players",
+        "Tags": [
+            "Vindicta",
+            "Heroes"
+        ]
+    },
+    {
+        "Description": "- {{Icon|Crimson Slash}} Crimson Slash radius increased from 11m to 12m",
+        "Tags": [
+            "Yamato",
+            "Heroes",
+            "Crimson Slash",
+            "Abilities"
+        ]
+    },
+    {
+        "Description": "- {{Icon|Crimson Slash}} Crimson Slash fire rate debuff duration increased from 3s to 4s",
+        "Tags": [
+            "Yamato",
+            "Heroes",
+            "Crimson Slash",
+            "Abilities"
+        ]
+    },
+    {
+        "Description": "- {{Icon|Crimson Slash}} Crimson Slash T2 changed from \"-5s Cooldown\" to \"10% Max Health heal on hero hit\"",
+        "Tags": [
+            "Yamato",
+            "Heroes",
+            "Crimson Slash",
+            "Abilities"
+        ]
+    },
+    {
+        "Description": "- {{Icon|Crimson Slash}} Crimson Slash T3 changed from \"12% Max Health heal on hero hit\" to \"-6s Cooldown\"",
+        "Tags": [
+            "Yamato",
+            "Heroes",
+            "Crimson Slash",
+            "Abilities"
+        ]
+    },
+    {
+        "Description": "- {{Icon|Power Slash}} Power Slash T1 Bullet Resist increased from 40% to 60%",
+        "Tags": [
+            "Yamato",
+            "Heroes",
+            "Power Slash",
+            "Abilities"
+        ]
+    },
+    {
+        "Description": "- {{Icon|Flying Strike}} Flying Strike cooldown reduced from 35 to 20",
+        "Tags": [
+            "Yamato",
+            "Heroes",
+            "Flying Strike",
+            "Abilities"
+        ]
+    },
+    {
+        "Description": "- {{Icon|Flying Strike}} Flying Strike T2 changed from \"-15s Cooldown\" to \"+20 Cast Range\"",
+        "Tags": [
+            "Yamato",
+            "Heroes",
+            "Flying Strike",
+            "Abilities"
+        ]
+    },
+    {
+        "Description": "- {{Icon|Flying Strike}} Flying Strike range no longer scales with Spirit",
+        "Tags": [
+            "Yamato",
+            "Heroes",
+            "Flying Strike",
+            "Abilities"
+        ]
+    },
+    {
+        "Description": "- Shadow Explosion bonus Spirit per victim increased from 10 to 15",
+        "Tags": [
+            "Yamato",
+            "Heroes"
+        ]
+    },
+    {
+        "Description": "- Shadow Explosion bonus Fire Rate per victim increased from 5 to 10",
+        "Tags": [
+            "Yamato",
+            "Heroes"
+        ]
+    },
+    {
+        "Description": "- Shadow Explosion buff duration increased from 8s to 15s",
+        "Tags": [
+            "Yamato",
+            "Heroes"
+        ]
+    }
+]

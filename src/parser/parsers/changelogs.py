@@ -46,18 +46,15 @@ class ChangelogParser:
         # TESTING
         print(self.localization['CitadelCategoryWeapon'])
 
+        self._group_tags()
+
     def run(self, version):
         logs = self._read_logs(version)
         changelog_lines = logs.split('\n')
 
-        current_heading = 'Other'
-        default_category = 'General'
-        changelog_dict = {
-            current_heading: [],
-            'Heroes': [],
-            'Items': [],
-            'Abilities': [],
-        }
+        current_heading = ''
+        default_tag = 'Other'
+        changelog_out = []
 
         for line in changelog_lines:
             if line is None or line == '':
@@ -66,13 +63,10 @@ class ChangelogParser:
             # if heading is found, update current heading
             if line.startswith('[ '):
                 current_heading = line[2:-2]
-                current_heading = self._validate_heading(current_heading)
-                changelog_dict[current_heading] = []
                 continue
 
             # find if a resource can be assigned a changelog line
             tags = []
-            group = current_heading
             for resource_key in self.resources:
                 resource = self.resources[resource_key]
                 resource_type = resource['Type']
@@ -88,14 +82,6 @@ class ChangelogParser:
                 # Determine if the line is about this resource
                 # resource (i.e. hero) name in english is found in the line
                 if resource_name in line:
-                    group = resource_type
-
-                    # Determine hyperlink
-                    if resource_type == 'Abilities':
-                        hyperlink = resource_name+'#<AbilityNum>'
-                    else:
-                        hyperlink = resource_name
-
                     tags = self._register_tag(tags, tag=resource_name, is_group_tag=False)
 
                     # Also register the resource type
@@ -117,30 +103,71 @@ class ChangelogParser:
                     tags = self._register_tag(tags, tag=tag_to_search)
 
             # Also register heading as a tag
-            heading_tag = self._heading_to_tag(current_heading)
-            if heading_tag is not None:
-                tags = self._register_tag(tags, tag=heading_tag)
+            if current_heading != '':
+                heading_tag = self._heading_to_tag(current_heading)
+                if heading_tag is not None:
+                    tags = self._register_tag(tags, tag=heading_tag)
 
             # if no tag is found, assign to default group
             if len(tags) == 0:
-                tags.append(default_category)
+                tags = self._register_tag(tags, tag=default_tag)
 
             for tag in tags:
                 # strip redundant prefix as it is already grouped under resource_name
                 if line.startswith(f'- {tag}: '):
                     line = line.replace(f'{tag}: ', '')
 
-            changelog_dict[group].append({'Description': line, 'Tags': tags})
+            changelog_out.append({'Description': line, 'Tags': tags})
 
-        changelog_with_icons = changelog_dict
-        changelog_with_icons = self._embed_icons(changelog_dict)
+        changelog_with_icons = changelog_out
+        changelog_with_icons = self._embed_icons(changelog_out)
 
-        json_utils.write(self.OUTPUT_CHANGELOGS + f'/date/{version}.json', changelog_with_icons)
+        json_utils.write(self.OUTPUT_CHANGELOGS + f'/date/edit-me/{version}.json', changelog_with_icons)
         return changelog_with_icons
 
-    def _validate_heading(self, heading):
+    def _group_tags(self):
         """
-        Validates the heading to accomodate for excess verbage or typos.
+        Restructures /edit-me changelogs from
+        [
+            {
+                "Description": "Added new ability: {{Icon|Siphon Life}} Siphon Life",
+                "Tags": ["Abilities", "Siphon Life"]
+            },
+            {
+                "Description": "Added new ability: {{Icon|Shoulder Bash}} Shoulder Bash",
+                "Tags": ["Abilities", "Shoulder Bash"]
+            }
+        ]
+        to
+        {
+            "Abilities": "Added new ability: {{Icon|Siphon Life}} Siphon Life\nAdded new ability: {{Icon|Shoulder Bash}} Shoulder Bash"
+        }
+        """
+
+        for file in os.listdir(self.OUTPUT_CHANGELOGS + '/date/edit-me/'):
+            changelog = json_utils.read(self.OUTPUT_CHANGELOGS + f'/date/edit-me/{file}')
+
+            new_changelog = {}
+            # Initialize all unique tags to empty string
+            for unique_tag in self.unique_tags:
+                new_changelog[unique_tag] = ""
+                
+            # Group changelog by tags
+            for log in changelog:
+                for tag in log['Tags']:
+                    new_changelog[tag] += f"{log['Description']}\n"
+
+            # Remove empty tags
+            for tag in self.unique_tags:
+                if new_changelog[tag] == "":
+                    new_changelog.pop(tag)
+
+            json_utils.write(self.OUTPUT_CHANGELOGS + f'/date/upload-me/{file}', new_changelog)
+
+    def _heading_to_tag(self, heading):
+        """
+        Converts a heading to a tag, i.e. Hero and Heroes don't need to be separate tags,
+        New Items doesn't need to be a tag at all, etc
         """
         # i.e. 'Map Changes' > 'Map'
         strs_to_replace_with_blank = [' Changes', ' Change']
@@ -151,13 +178,10 @@ class ChangelogParser:
         if heading.endswith(' Gamepla'):
             heading = heading.replace(' Gamepla', ' Gameplay')
 
-        return heading
+        # Remove ' Gameplay' suffix
+        if heading.endswith(' Gameplay'):
+            heading = heading.replace(' Gameplay', '')
 
-    def _heading_to_tag(self, heading):
-        """
-        Converts a heading to a tag, i.e. Hero and Heroes don't need to be separate tags,
-        New Items doesn't need to be a tag at all, etc
-        """
         if heading == 'Hero':
             heading = 'Heroes'
         elif heading == 'New Items':
@@ -165,31 +189,25 @@ class ChangelogParser:
 
         return heading
 
-    # "Icon" is appended to i.e. "Hero" to make the template, "HeroIcon"
-    resource_type_to_template_map = {'Heroes': 'Hero', 'Items': 'Item', 'Abilities': 'Ability'}
-
     # mass find and replace of any resource names with the ability icon template
     def _embed_icons(self, changelog):
         new_changelog = changelog.copy()
-        for header, logs in changelog.items():
-            for index, log in enumerate(logs):
-                tags = log['Tags']
-                description = log['Description']
-                for tag in tags:
-                    resource_found = False
-                    if tag in description:
-                        resource_found = True
-                    if not resource_found:
-                        continue
+        for index, log in enumerate(changelog):
+            tags = log['Tags']
+            description = log['Description']
+            for tag in tags:
+                # resource_found = False
+                # if tag in description:
+                #     resource_found = True
+                # if not resource_found:
+                #     continue
 
-                    if header in self.resource_type_to_template_map:
-                        resource_type_singular = self.resource_type_to_template_map[header]
-                        # "Ability" group to "AbilityIcon" template
-                        template = resource_type_singular + 'Icon'
+                
+                template = 'Icon'
 
-                        icon = '{{' + template + '|' + tag + '}}'
-                        description = description.replace(tag, f'{icon} {tag}')
-                        new_changelog[header][index]['Description'] = description
+                icon = '{{' + template + '|' + tag + '}}'
+                description = description.replace(tag, f'{icon} {tag}')
+                new_changelog[index]['Description'] = description
 
         return new_changelog
 

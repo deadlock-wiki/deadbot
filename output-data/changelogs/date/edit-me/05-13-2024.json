@@ -1,0 +1,52 @@
+[
+    {
+        "Description": "We\u2019ve heard a lot of feedback on matchmaking quality recently, especially with parties that include a wide range of skill spread and the impact they have on matches. We think it\u2019s important to try to improve these as best we can so everyone can have fun playing. Options are a bit limited right now in general due to small queue sizes, but we have a few adjustments we are doing in today\u2019s update that we hope will give us more potential to optimize and tweak the system in the immediate future. These changes will need continual tuning over the coming days, so the impact may not be fully visible today.",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "- The match will no longer start at a fixed time immediately after 12 players are in the queue, sometimes it might start faster sometimes it might start slower, depending on the distribution of players in the queue. There will still be an upper bound for how long it waits, for practical reasons, but it won\u2019t automatically start asap if it knows the match won\u2019t be good. Conversely, if the match is already reasonable it won\u2019t wait unnecessarily to start it.\u200b",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "\u200b",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "- Parties that have too high of a gap between the players in them will often make for a bad experience for both teams, but especially the opponents. When we detect that your party has this composition, we will present a warning letting you know that this will result in a more difficult match for your party and might also take longer to find a game, so you can decide if you value the group/social aspect more or not. In terms of specific matchmaking changes, in cases where the party has a large gap in skill, the party\u2019s overall skill will now be biased closer to the best player\u2019s values rather than the average. This will make it less likely that the system grabs lower skilled players for the opposing team just because your party was ok with wide variance.\u200b",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "This update also has a couple of fixes that we are moving up from our usual end of week patch:",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "- We fixed a bug when combining shields and resistance that caused you to take too much damage. Previously there was a bug where if you take a high amount of damage, the remaining damage after shield reduction would pass through as pure damage instead of being reduced by resist. An example of this is someone dealing 800 spirit damage to you and you having 80 Spirit Shield and 45% Spirit Resistance. With the bug, the 800 would be reduced to 720 from the shield, and then you would lose 720 health. With the fix, the shield now reduces the damage to 720 as usual, but the remaining amount then gets reduced by 45% to 396 health lost instead of 720.\u200b",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "\u200b",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "- We are also nerfing {{Icon|Alchemical Fire}} Alchemical Fire. It now deals 40% less damage to non-heroes and the cooldown is increased from 25s to 37s.\u200b",
+        "Tags": [
+            "Alchemical Fire",
+            "Items",
+            "Weapon Items"
+        ]
+    }
+]
