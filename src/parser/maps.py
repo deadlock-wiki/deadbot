@@ -80,7 +80,8 @@ def get_hero_attr(value):
 
     remaps = {'WeaponPower': 'BaseWeaponDamageIncrease', 
               'ClipSizeBonus': 'ClipSize',
-              'BulletArmorDamageReduction': 'BulletResist'}
+              'BulletArmorDamageReduction': 'BulletResist',
+              'TechArmorDamageReduction': 'TechResist'}
 
     if value in remaps:
         return remaps[value]
