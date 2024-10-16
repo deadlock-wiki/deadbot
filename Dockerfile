@@ -27,20 +27,15 @@ COPY . .
 RUN python3 -m poetry install
 
 # runtime config
-ENV DECOMPILE=false
-ENV PARSE=false
-ENV CHANGELOGS=false
+ENV DECOMPILE=true
+ENV PARSE=true
 ENV BOT_PUSH=false
 ENV BOT_WIKI_PASSWORD='hunter2'
-ENV S3_PUSH=false
-ENV IAM_KEY=''
-ENV IAM_SECRET=''
-ENV BUCKET='deadlock-game-files'
+ENV CLEANUP=true
 
 # directory config
 ENV DEADLOCK_PATH="/data"
 ENV WORK_DIR="/work"
-ENV INPUT_DIR="/input"
 ENV OUTPUT_DIR="/output"
 
-ENTRYPOINT [ "python3", "src/deadbot.py" ]
+ENTRYPOINT [ "sh", "/repo/main.sh" ]

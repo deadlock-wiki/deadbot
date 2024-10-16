@@ -1,5 +1,9 @@
+import sys
 import os
 
+# bring utils module in scope
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
+import maps as maps
 import utils.json_utils as json_utils
 
 
@@ -9,7 +13,6 @@ class LocalizationParser:
         self.localizations_data = localization_data
 
     def run(self):
-        os.makedirs(self.OUTPUT_DIR + '/localizations', exist_ok=True)
         for language, language_data in self.localizations_data.items():
             json_utils.write(
                 self.OUTPUT_DIR + '/localizations/' + language + '.json',
