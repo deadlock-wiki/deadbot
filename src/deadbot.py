@@ -55,6 +55,7 @@ def act_gamefile_parse(args):
 
 def act_changelog_parse(args):
     changelog_output = args.output + '/changelogs/raw'
+    os.makedirs(changelog_output,exist_ok=True)
     chlog_fetcher = fetch_changelogs.ChangelogFetcher()
     # load existing changelogs
     chlog_fetcher.get_txt(changelog_output)

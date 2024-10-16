@@ -57,6 +57,10 @@ class ChangelogFetcher:
 
     def _process_local_changelogs(self, changelog_path):
         print('Parsing Changelog txt files')
+        # Make sure path exists
+        if not os.path.isdir(changelog_path):
+            print(f'Issue opening changelog dir `{changelog_path}`')
+            return
         files = [f for f in listdir(changelog_path) if isfile(join(changelog_path, f))]
         print(f'Found {str(len(files))} changelog entries in `{changelog_path}`')
         for file in files:

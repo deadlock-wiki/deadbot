@@ -1,7 +1,7 @@
 version: '3'
 services:
   deadbot:
-    image: ghcr.io/deadlock_wiki/deadbot
+    image: ghcr.io/deadlock-wiki/deadbot:latest
     build:
       context: .
       dockerfile: ./Dockerfile
