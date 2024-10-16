@@ -109,6 +109,12 @@ class ChangelogParser:
             if len(tags) == 0:
                 tags = self._register_tag(tags, tag=self.default_tag)
 
+            # Replace hyphen with asterisk for bullet points on wiki
+            prefixes = ['- ', ' - ']
+            for prefix in prefixes:
+                if line.startswith(prefix):
+                    line = '* ' + line[len(prefix):]
+
             changelog_out.append({'Description': line, 'Tags': tags})
 
         changelog_with_icons = changelog_out
@@ -153,7 +159,7 @@ class ChangelogParser:
                 #     continue
 
                 
-                template = 'Icon'
+                template = 'PageRef'
 
                 icon = '{{' + template + '|' + tag + '}}'
                 description = description.replace(tag, f'{icon} {tag}')
