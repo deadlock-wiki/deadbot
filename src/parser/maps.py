@@ -78,12 +78,10 @@ def get_hero_attr(value):
     if value.startswith('E'):
         value = value[len('E') :]
 
-    remaps = {'WeaponPower': 'BaseWeaponDamageIncrease', 'ClipSizeBonus': 'ClipSize'}
-
-    if value in remaps:
-        return remaps[value]
-
-    remaps = {'WeaponPower': 'BaseWeaponDamageIncrease', 'ClipSizeBonus': 'ClipSize'}
+    remaps = {'WeaponPower': 'BaseWeaponDamageIncrease', 
+              'ClipSizeBonus': 'ClipSize',
+              'BulletArmorDamageReduction': 'BulletResist',
+              'TechArmorDamageReduction': 'TechResist'}
 
     if value in remaps:
         return remaps[value]
