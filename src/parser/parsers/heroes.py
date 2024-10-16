@@ -253,8 +253,6 @@ class HeroParser:
         total_cycle_time = d['CycleTime'] + d['BulletsPerBurst'] * d['BurstInterShotInterval']
 
         if type == 'burst':
-            if d['BulletDamage'] == 9:
-                print(d['BulletDamage'], d['BulletsPerShot'], d['BulletsPerBurst'], total_cycle_time)
             return d['BulletDamage'] * d['BulletsPerShot'] * d['BulletsPerBurst'] / (total_cycle_time)
 
         elif type == 'sustained':
