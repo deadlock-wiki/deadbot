@@ -191,12 +191,14 @@ class HeroParser:
             'FalloffBias': w['m_flDamageFalloffBias'],
             'BulletGravityScale': w['m_flBulletGravityScale'],
             'BulletsPerShot': w['m_iBullets'],
+            'BulletsPerBurst': w.get('m_iBurstShotCount', 1),
+            'BurstInterShotInterval': w.get('m_flIntraBurstCycleTime', 0),
             #'BulletRadius': w['m_flBulletRadius'] / ENGINE_UNITS_PER_METER,
         }
 
         dps_stats = self._get_dps_stats(weapon_stats)
 
-        weapon_stats['DPS'] = self._calc_dps(dps_stats, 'burst')
+        weapon_stats['DPS'] = self._calc_dps(dps_stats, 'burst') 
         weapon_stats['SustainedDPS'] = self._calc_dps(dps_stats, 'sustained')
 
         weapon_stats['WeaponName'] = weapon_prim_id
@@ -221,13 +223,19 @@ class HeroParser:
             'ReloadDelay': weapon_stats['ReloadDelay'],
             'ReloadTime': weapon_stats['ReloadTime'],
             'ClipSize': weapon_stats['ClipSize'],
-            'RoundsPerSecond': weapon_stats['RoundsPerSecond'],
+            'CycleTime': 1/weapon_stats['RoundsPerSecond'],
+            'BurstInterShotInterval': weapon_stats['BurstInterShotInterval'],
             'BulletDamage': weapon_stats['BulletDamage'],
             'BulletsPerShot': weapon_stats['BulletsPerShot'],
+            'BulletsPerBurst': weapon_stats['BulletsPerBurst'],
         }
 
     def _calc_dps(self, dps_stats, type='burst'):
         """Calculates Burst or Sustained DPS of a weapon"""
+        # Burst, not to be confused with burst as in burst fire, but rather
+        # a burst of damage where delta time is 0
+        # sustained has delta time of infinity
+        # meaning, sustained takes into account time-to-empty clip and reload time
 
         # All reload actions have ReloadDelay played first,
         # but typically only single bullet reloads have a non-zero delay
@@ -237,11 +245,17 @@ class HeroParser:
         # ClipSize of 10,
         # =time to reload 1 bullet is 1.5s, time to reload 10 bullets is 10.5s
 
+        # BurstInterShotInterval represents time between shots in a burst
+
         # Abbreivated dictionary for easier access
         d = dps_stats.copy()
 
+        total_cycle_time = d['CycleTime'] + d['BulletsPerBurst'] * d['BurstInterShotInterval']
+
         if type == 'burst':
-            return d['BulletDamage'] * d['RoundsPerSecond'] * d['BulletsPerShot']
+            if d['BulletDamage'] == 9:
+                print(d['BulletDamage'], d['BulletsPerShot'], d['BulletsPerBurst'], total_cycle_time)
+            return d['BulletDamage'] * d['BulletsPerShot'] * d['BulletsPerBurst'] / (total_cycle_time)
 
         elif type == 'sustained':
             if d['ReloadSingle']:
@@ -250,9 +264,10 @@ class HeroParser:
             else:
                 time_to_reload = d['ReloadTime']
             time_to_reload += d['ReloadDelay']
-            time_to_empty_clip = d['ClipSize'] / d['RoundsPerSecond']
+            time_to_empty_clip = d['ClipSize'] / d['BulletsPerBurst'] * (total_cycle_time)
             # More bullets per shot doesn't consume more bullets in the clip,
             # so think of it as bullet per bullet
+            # BulletsPerBurst does consume more bullets in the clip
             damage_from_clip = d['BulletDamage'] * d['BulletsPerShot'] * d['ClipSize']
             return damage_from_clip / (time_to_empty_clip + time_to_reload)
 
