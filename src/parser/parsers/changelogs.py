@@ -19,9 +19,9 @@ class ChangelogParser:
         self.OUTPUT_CHANGELOGS = self.OUTPUT_DIR + '/changelogs'
         self.resources = self._get_resources()
         self.localization = localization_data #english
-
-        self.unique_tags = ['General']
-        self.unique_tag_groups = ['General']
+        self.default_tag = 'Other'
+        self.unique_tags = [self.default_tag]
+        self.unique_tag_groups = [self.default_tag]
         # i.e. Abilities is a tag group and a tag, Siphon Life is just a tag
         # i.e. Heroes is a tag group and a tag, Abrams is just a tag
         # all tags from a resource have icons embedded
@@ -46,14 +46,11 @@ class ChangelogParser:
         # TESTING
         print(self.localization['CitadelCategoryWeapon'])
 
-        self._group_tags()
-
     def run(self, version):
         logs = self._read_logs(version)
         changelog_lines = logs.split('\n')
 
         current_heading = ''
-        default_tag = 'Other'
         changelog_out = []
 
         for line in changelog_lines:
@@ -110,84 +107,37 @@ class ChangelogParser:
 
             # if no tag is found, assign to default group
             if len(tags) == 0:
-                tags = self._register_tag(tags, tag=default_tag)
-
-            for tag in tags:
-                # strip redundant prefix as it is already grouped under resource_name
-                if line.startswith(f'- {tag}: '):
-                    line = line.replace(f'{tag}: ', '')
+                tags = self._register_tag(tags, tag=self.default_tag)
 
             changelog_out.append({'Description': line, 'Tags': tags})
 
         changelog_with_icons = changelog_out
         changelog_with_icons = self._embed_icons(changelog_out)
 
-        json_utils.write(self.OUTPUT_CHANGELOGS + f'/date/edit-me/{version}.json', changelog_with_icons)
+        json_utils.write(self.OUTPUT_CHANGELOGS + f'/date/{version}.json', changelog_with_icons)
         return changelog_with_icons
-
-    def _group_tags(self):
-        """
-        Restructures /edit-me changelogs from
-        [
-            {
-                "Description": "Added new ability: {{Icon|Siphon Life}} Siphon Life",
-                "Tags": ["Abilities", "Siphon Life"]
-            },
-            {
-                "Description": "Added new ability: {{Icon|Shoulder Bash}} Shoulder Bash",
-                "Tags": ["Abilities", "Shoulder Bash"]
-            }
-        ]
-        to
-        {
-            "Abilities": "Added new ability: {{Icon|Siphon Life}} Siphon Life\nAdded new ability: {{Icon|Shoulder Bash}} Shoulder Bash"
-        }
-        """
-
-        for file in os.listdir(self.OUTPUT_CHANGELOGS + '/date/edit-me/'):
-            changelog = json_utils.read(self.OUTPUT_CHANGELOGS + f'/date/edit-me/{file}')
-
-            new_changelog = {}
-            # Initialize all unique tags to empty string
-            for unique_tag in self.unique_tags:
-                new_changelog[unique_tag] = ""
-                
-            # Group changelog by tags
-            for log in changelog:
-                for tag in log['Tags']:
-                    new_changelog[tag] += f"{log['Description']}\n"
-
-            # Remove empty tags
-            for tag in self.unique_tags:
-                if new_changelog[tag] == "":
-                    new_changelog.pop(tag)
-
-            json_utils.write(self.OUTPUT_CHANGELOGS + f'/date/upload-me/{file}', new_changelog)
 
     def _heading_to_tag(self, heading):
         """
         Converts a heading to a tag, i.e. Hero and Heroes don't need to be separate tags,
         New Items doesn't need to be a tag at all, etc
         """
-        # i.e. 'Map Changes' > 'Map'
-        strs_to_replace_with_blank = [' Changes', ' Change']
-        for str_to_replace in strs_to_replace_with_blank:
-            heading = heading.replace(str_to_replace, '')
 
-        # Correct " Gamepla" suffix to " Gameplay"
-        if heading.endswith(' Gamepla'):
-            heading = heading.replace(' Gamepla', ' Gameplay')
+        # Remove ' Changes' suffix, i.e. 'Hero Changes' -> 'Heroes'
+        heading = heading.replace(' Changes', '')
 
-        # Remove ' Gameplay' suffix
-        if heading.endswith(' Gameplay'):
-            heading = heading.replace(' Gameplay', '')
+        map = {
+            "Hero Gameplay": "Heroes",
+            "Hero Gamepla": "Heroes",
+            "Hero": "Heroes",
+            "Item Gameplay": "Items",
+            "New Items": "Items",
+            "Misc Gameplay": self.default_tag,
+            "General": self.default_tag,
+            "General Change": self.default_tag
+        }
 
-        if heading == 'Hero':
-            heading = 'Heroes'
-        elif heading == 'New Items':
-            return None
-
-        return heading
+        return map.get(heading, heading)
 
     # mass find and replace of any resource names with the ability icon template
     def _embed_icons(self, changelog):
