@@ -100,8 +100,7 @@ class ChangelogParser:
 
             changelog_out.append({'Description': line, 'Tags': tags})
 
-        changelog_with_icons = changelog_dict
-        changelog_with_icons = self._embed_icons(changelog_dict)
+        changelog_with_icons = self._embed_icons(changelog_out)
         os.makedirs(self.OUTPUT_CHANGELOGS, exist_ok=True)
         json_utils.write(self.OUTPUT_CHANGELOGS + f'/date/{version}.json', changelog_with_icons)
         return changelog_with_icons
