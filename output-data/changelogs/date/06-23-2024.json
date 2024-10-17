@@ -1,57 +1,33 @@
-[
-    {
-        "Description": "* {{PageRef|Spirit Strike}} Spirit Strike: Melee damage reduced from 20% to 15%",
-        "Tags": [
-            "Spirit Strike",
-            "Items",
-            "Spirit Items"
+{
+    "Other": {
+        "General": [
+            "- There is no longer a reinforcement trooper wave after Guardians and Walkers die"
         ]
     },
-    {
-        "Description": "* {{PageRef|Melee Charge}} Melee Charge: No longer grants +15% Melee Damage",
-        "Tags": [
-            "Melee Charge",
-            "Items",
-            "Weapon Items"
+    "Heroes": {
+        "General": [],
+        "Yamato": [
+            "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation now causes you to be unable to die during the buff"
         ]
     },
-    {
-        "Description": "* {{PageRef|Veil Walker}} Veil Walker: Bullet Shield reduced from +200 to +150",
-        "Tags": [
-            "Veil Walker",
-            "Items",
-            "Vitality Items"
+    "Items": {
+        "General": [],
+        "Spirit Strike": [
+            "- Melee damage reduced from 20% to 15%"
+        ],
+        "Melee Charge": [
+            "- No longer grants +15% Melee Damage"
+        ],
+        "Veil Walker": [
+            "- Bullet Shield reduced from +200 to +150",
+            "- Shield restore now takes 5s to fully regen",
+            "- Cooldown increased from 20s to 25s"
         ]
     },
-    {
-        "Description": "* {{PageRef|Veil Walker}} Veil Walker: Shield restore now takes 5s to fully regen",
-        "Tags": [
-            "Veil Walker",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Veil Walker}} Veil Walker: Cooldown increased from 20s to 25s",
-        "Tags": [
-            "Veil Walker",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Yamato}} Yamato: {{PageRef|Shadow Transformation}} Shadow Transformation now causes you to be unable to die during the buff",
-        "Tags": [
-            "Yamato",
-            "Heroes",
-            "Shadow Transformation",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* There is no longer a reinforcement trooper wave after Guardians and Walkers die",
-        "Tags": [
-            "Other"
+    "Abilities": {
+        "General": [],
+        "Shadow Transformation": [
+            "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation now causes you to be unable to die during the buff"
         ]
     }
-]
+}

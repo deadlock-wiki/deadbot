@@ -1,31 +1,29 @@
-[
-    {
-        "Description": "* Outer ziplines hero speed increased by 20% relative to inner lanes (same as troopers on outer lanes zipline being faster)",
-        "Tags": [
-            "Other"
+{
+    "Other": {
+        "General": [
+            "- Outer ziplines hero speed increased by 20% relative to inner lanes (same as troopers on outer lanes zipline being faster)",
+            "- Initial respawn reduced from 12s to 8s"
         ]
     },
-    {
-        "Description": "* Initial respawn reduced from 12s to 8s",
-        "Tags": [
-            "Other"
+    "Heroes": {
+        "General": [],
+        "Mirage": [
+            "- Urn now drops when teleporting with Mirage's {AbilityIcon|Ability=Traveler|Size=20} Traveler"
+        ],
+        "Shiv": [
+            "- Fixed {AbilityIcon|Ability=Wraith|Size=20} Wraith Cards, Shiv Rage and lifesteal from increasing by shooting the shop"
+        ],
+        "Wraith": [
+            "- Fixed {AbilityIcon|Ability=Wraith|Size=20} Wraith Cards, Shiv Rage and lifesteal from increasing by shooting the shop"
         ]
     },
-    {
-        "Description": "* Urn now drops when teleporting with {{PageRef|Mirage}} Mirage's {{PageRef|Traveler}} Traveler",
-        "Tags": [
-            "Mirage",
-            "Heroes",
-            "Traveler",
-            "Abilities"
-        ]
+    "Items": {
+        "General": []
     },
-    {
-        "Description": "* Fixed {{PageRef|Wraith}} Wraith Cards, {{PageRef|Shiv}} Shiv Rage and lifesteal from increasing by shooting the shop",
-        "Tags": [
-            "Shiv",
-            "Heroes",
-            "Wraith"
+    "Abilities": {
+        "General": [],
+        "Traveler": [
+            "- Urn now drops when teleporting with Mirage's {AbilityIcon|Ability=Traveler|Size=20} Traveler"
         ]
     }
-]
+}

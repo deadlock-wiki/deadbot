@@ -1,1288 +1,457 @@
-[
-    {
-        "Description": "* Added EU servers and matchmaking region. EU testing times are Mon-Thur 5PM to 3AM and Fri-Sun 3PM to 3AM. Times listed are Central European Summer Time (GMT+2).",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Removed the invite requirement of Steam friends having been on your list for a number of days (affected normal user cases often where friends weren't on the Steam list, and we have other metrics and tools on the backend now that we can use to filter for other cases)",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Added search functionality to the shop. You can now search by item name or by individual stat such as 'Ammo', 'Lifesteal', or 'Spirit Power'.",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* The game will now let you know when it is safe to abandon (usually if one person has been disconnected for a while)",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Your personal builds are now always sorted to the top of the in-game Builds dropdown",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Various network related improvements when there is packet loss",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Preferred heroes in your roster are now remember on the client across sessions",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Fixed chat wheel not working during the post-game sequence",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Updated the entrance to the underground tunnels from the outer lanes to look more like a subway entrance",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Re-enabled ultra wide UI mode",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Added street names and symbols to the Zipline UI",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Updated {{PageRef|Sleep Dagger}} Sleep Dagger and {{PageRef|Silence Glyph}} Silence Glyph tooltips to clarify that they do not cancel channeling abilities",
-        "Tags": [
-            "Silence Glyph",
-            "Items",
-            "Spirit Items",
-            "Sleep Dagger",
-            "Abilities",
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Updated reload animations for {{PageRef|Warden}} Warden, {{PageRef|Dynamo}} Dynamo, and {{PageRef|Ivy}} Ivy",
-        "Tags": [
-            "Dynamo",
-            "Heroes",
-            "Ivy",
-            "Warden",
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Improved visibility of Inferno's {{PageRef|Concussive Combustion}} Concussive Combustion",
-        "Tags": [
-            "Concussive Combustion",
-            "Abilities",
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Fixed the unit target UI not showing up for instant-cast abilities (MoKrill ult, {{PageRef|Lady Geist}} Lady Geist ult, {{PageRef|Bebop}} Bebop bomb)",
-        "Tags": [
-            "Bebop",
-            "Heroes",
-            "Lady Geist",
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Fixed the unit target UI not showing the activation button hint",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Added a Cosmic Veil to the hero demo map",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Added {{PageRef|Ethereal Shift}} Ethereal Shift sounds",
-        "Tags": [
-            "Ethereal Shift",
-            "Items",
-            "Spirit Items",
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Added wind sound when on the Zipline",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Rejuv buff is now only granted to the players that are alive. Players that are dead will have their respawn times cut in half from their current values.",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Footsteps are now quieter when obstructed by level geometry",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Dash-Down is now double tap CTRL instead of CTRL+SHIFT",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Vault bounty increased from 300 to 330",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Fixed various bugs with {{PageRef|Headshot Booster}} Headshot Booster and {{PageRef|Sharpshooter}} Sharpshooter",
-        "Tags": [
-            "Headshot Booster",
-            "Items",
-            "Weapon Items",
-            "Sharpshooter",
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Added another entrance/exit to the underground tunnels from the warehouse interiors",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Enclosed the exterior Medium Neutral Camp with fencing in front of the Theater to match the Amber side Cab Stand",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Added two more veils on each side:",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "1) Between the Drug Store and the Market on Amber, between the Hotel and Pharmacy on Sapphire",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "2) Between the exterior Strong Neutral Camps and the outer lane near the T2",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Added a new T1 Spirit item, {{PageRef|Infuser}} Infuser",
-        "Tags": [
-            "Infuser",
-            "Items",
-            "Spirit Items"
-        ]
-    },
-    {
-        "Description": "+8% Spirit Resist",
-        "Tags": [
-            "Items"
-        ]
-    },
-    {
-        "Description": "+10% Ammo",
-        "Tags": [
-            "Items"
-        ]
-    },
-    {
-        "Description": "Active: Gain 12 Spirit and 20% {{PageRef|Spirit Lifesteal}} Spirit Lifesteal for 6 seconds. Cooldown: 35s",
-        "Tags": [
-            "Spirit Lifesteal",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* Added a new T1 Weapon item, {{PageRef|Ammo Scavenger}} Ammo Scavenger",
-        "Tags": [
-            "Ammo Scavenger",
-            "Items",
-            "Spirit Items"
-        ]
-    },
-    {
-        "Description": "+20% Ammo",
-        "Tags": [
-            "Items"
-        ]
-    },
-    {
-        "Description": "+50 Health",
-        "Tags": [
-            "Items"
-        ]
-    },
-    {
-        "Description": "Passive: Anytime you secure or deny a Soul, you get 2 ammo back and have +20% Fire Rate for 4 seconds.",
-        "Tags": [
-            "Items"
-        ]
-    },
-    {
-        "Description": "* Added a new T2 Weapon item, {{PageRef|Active Reload}} Active Reload",
-        "Tags": [
-            "Active Reload",
-            "Items",
-            "Weapon Items"
-        ]
-    },
-    {
-        "Description": "-20% Reload Time",
-        "Tags": [
-            "Items"
-        ]
-    },
-    {
-        "Description": "+8% Weapon Damage",
-        "Tags": [
-            "Items"
-        ]
-    },
-    {
-        "Description": "Passive: Pressing the reload key during the halfway point of a reload will cause you to instantly regain your magazine and grant you +30% {{PageRef|Bullet Lifesteal}} Bullet Lifesteal and +15% Fire Rate for 6s. The reload UI has an indicator for the trigger window. Cooldown: 25s",
-        "Tags": [
-            "Bullet Lifesteal",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "Inspired by https://project8.dev/threads/item-idea-trick-reload.2652/",
-        "Tags": [
-            "Items"
-        ]
-    },
-    {
-        "Description": "* Added a new T2 Weapon item, {{PageRef|Veil Walker}} Veil Walker",
-        "Tags": [
-            "Veil Walker",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "+15% Ammo",
-        "Tags": [
-            "Items"
-        ]
-    },
-    {
-        "Description": "+8% Weapon Damage",
-        "Tags": [
-            "Items"
-        ]
-    },
-    {
-        "Description": "+200 Bullet Shield",
-        "Tags": [
-            "Items"
-        ]
-    },
-    {
-        "Description": "* Passive: Walking through a Cosmic Veil causes you to become invisible with +3 m/s for 4 seconds and grants you +30% Fire Rate for your next magazine. Cosmic Veils regenerate any shields you have. Cooldown: 20s",
-        "Tags": [
-            "Items"
-        ]
-    },
-    {
-        "Description": "* Added a new T2 Weapon item, {{PageRef|Melee Charge}} Melee Charge",
-        "Tags": [
-            "Melee Charge",
-            "Items",
-            "Weapon Items"
-        ]
-    },
-    {
-        "Description": "+15% Melee Damage",
-        "Tags": [
-            "Items"
-        ]
-    },
-    {
-        "Description": "+10% Weapon Power",
-        "Tags": [
-            "Items"
-        ]
-    },
-    {
-        "Description": "+75 Health",
-        "Tags": [
-            "Items"
-        ]
-    },
-    {
-        "Description": "Passive: Hitting an enemy with a heavy melee reloads your weapon",
-        "Tags": [
-            "Items"
-        ]
-    },
-    {
-        "Description": "Passive: Increases your heavy melee charge distance by 40%",
-        "Tags": [
-            "Items"
-        ]
-    },
-    {
-        "Description": "Inspired by https://project8.dev/threads/bayonet.5372/ and https://project8.dev/threads/comple...-category-item-that-buffs-charged-melee.5957/",
-        "Tags": [
-            "Items"
-        ]
-    },
-    {
-        "Description": "* Added a new T4 Vitality item, {{PageRef|Colossus}} Colossus",
-        "Tags": [
-            "Colossus",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "+500 HP",
-        "Tags": [
-            "Items"
-        ]
-    },
-    {
-        "Description": "+20% Melee Damage",
-        "Tags": [
-            "Items"
-        ]
-    },
-    {
-        "Description": "+20% Weapon Damage",
-        "Tags": [
-            "Items"
-        ]
-    },
-    {
-        "Description": "Active: Gain 40% Bullet and Spirit Resist and apply 20% movement slow to enemies within 10m. Your model size grows by 10%. Lasts 7 seconds. Cooldown: 65s",
-        "Tags": [
-            "Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Healing Rite}} Healing Rite: Duration increased from 15s to 17s (total regen increased from 350 to 370)",
-        "Tags": [
-            "Healing Rite",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Extra Spirit}} Extra Spirit: Spirit Power increased from +6 to +7",
-        "Tags": [
-            "Extra Spirit",
-            "Items",
-            "Spirit Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Extra Charge}} Extra Charge: Now grants +7% Cooldown Reduction For Charged Abilities",
-        "Tags": [
-            "Extra Charge",
-            "Items",
-            "Spirit Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Extra Charge}} Extra Charge: No longer grants +6 Spirit to Charged Abilities",
-        "Tags": [
-            "Extra Charge",
-            "Items",
-            "Spirit Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Swift Striker}} Swift Striker: Negative bullet resist reduced from -6% to -5%",
-        "Tags": [
-            "Swift Striker",
-            "Items",
-            "Weapon Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Mystic Shot}} Mystic Shot: Spirit scaling increased from 0.45 to 0.6",
-        "Tags": [
-            "Mystic Shot",
-            "Items",
-            "Weapon Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Enduring Speed}} Enduring Speed: Slow resist increased from 35% to 40%",
-        "Tags": [
-            "Enduring Speed",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Enduring Speed}} Enduring Speed: Now grants +1.5 HP Regen",
-        "Tags": [
-            "Enduring Speed",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Healing Booster}} Healing Booster: Spirit Resist reduced from 8% to 7%",
-        "Tags": [
-            "Healing Booster",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Healing Booster}} Healing Booster: Now provides +7% Bullet Resist",
-        "Tags": [
-            "Healing Booster",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Return Fire}} Return Fire: Cooldown reduced from 30s to 24s",
-        "Tags": [
-            "Return Fire",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Restorative Locket}} Restorative Locket: Fixed the max stack limit not being followed",
-        "Tags": [
-            "Restorative Locket",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Restorative Locket}} Restorative Locket: Max stacks increased from 15 to 18",
-        "Tags": [
-            "Restorative Locket",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Bullet Resist Shredder}} Bullet Resist Shredder: Bullet Resist Reduction increased from -10% to -12%",
-        "Tags": [
-            "Bullet Resist Shredder",
-            "Items",
-            "Spirit Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Bullet Resist Shredder}} Bullet Resist Shredder: Bullet Resist Reduction duration increased from 5s to 6s",
-        "Tags": [
-            "Bullet Resist Shredder",
-            "Items",
-            "Spirit Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Decay}} Decay: Cooldown reduced from 27s to 25s",
-        "Tags": [
-            "Decay",
-            "Items",
-            "Spirit Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Suppressor}} Suppressor: Duration reduced from 4s to 2.5s",
-        "Tags": [
-            "Suppressor",
-            "Items",
-            "Spirit Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Mystic Slow}} Mystic Slow: Duration increased from 2s to 2.5s",
-        "Tags": [
-            "Mystic Slow",
-            "Items",
-            "Spirit Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Titanic Magazine}} Titanic Magazine: Ammo increased from 65% to 75%",
-        "Tags": [
-            "Titanic Magazine",
-            "Items",
-            "Weapon Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Ethereal Shift}} Ethereal Shift: Cooldown reduced from 35s to 30s",
-        "Tags": [
-            "Ethereal Shift",
-            "Items",
-            "Spirit Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Rescue Beam}} Rescue Beam: Cast range increased from 40m to 45m",
-        "Tags": [
-            "Rescue Beam",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Rescue Beam}} Rescue Beam: Cooldown reduced from 45s to 40s",
-        "Tags": [
-            "Rescue Beam",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Silence Glyph}} Silence Glyph: Cooldown reduced from 35s to 30s",
-        "Tags": [
-            "Silence Glyph",
-            "Items",
-            "Spirit Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Superior Stamina}} Superior Stamina: Stamina increased from +2 to +3",
-        "Tags": [
-            "Superior Stamina",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Superior Stamina}} Superior Stamina: Fire Rate increased from +12% to +15%",
-        "Tags": [
-            "Superior Stamina",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Superior Stamina}} Superior Stamina: Spirit Bonus after 2nd jump/dash increased from +20 to +25",
-        "Tags": [
-            "Superior Stamina",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Lifestrike}} Lifestrike: Slow duration increased from 1.5s to 2s",
-        "Tags": [
-            "Lifestrike",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Lifestrike}} Lifestrike: Heal increased from 40% of damage to 45%",
-        "Tags": [
-            "Lifestrike",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Majestic Leap}} Majestic Leap: Cooldown increased from 20s to 26s",
-        "Tags": [
-            "Majestic Leap",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Majestic Leap}} Majestic Leap: Damage cooldown window increased from 4s to 5s",
-        "Tags": [
-            "Majestic Leap",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Majestic Leap}} Majestic Leap: Fixed cooldown reduction affecting the damage cooldown",
-        "Tags": [
-            "Majestic Leap",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Knockdown}} Knockdown: Cooldown reduced from 40s to 30s",
-        "Tags": [
-            "Knockdown",
-            "Items",
-            "Spirit Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Improved Spirit}} Improved Spirit: Spirit Power increased from +15 to +18",
-        "Tags": [
-            "Improved Spirit",
-            "Items",
-            "Spirit Items"
-        ]
-    },
-    {
-        "Description": "* Tesla: Bounce radius increased from 7m to 9m",
-        "Tags": [
-            "Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Burst Fire}} Burst Fire: Now increases your slide distance and duration by 25%",
-        "Tags": [
-            "Burst Fire",
-            "Items",
-            "Weapon Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Metal Skin}} Metal Skin: Now prevents all weapon damage instead of blocking bullets (this allows procs to go through)",
-        "Tags": [
-            "Metal Skin",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Inhibitor}} Inhibitor: Moved from Weapon tree to Vitality",
-        "Tags": [
-            "Inhibitor",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Inhibitor}} Inhibitor: No longer requires the component {{PageRef|Slowing Bullets}} Slowing Bullets",
-        "Tags": [
-            "Inhibitor",
-            "Items",
-            "Vitality Items",
-            "Slowing Bullets",
-            "Weapon Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Inhibitor}} Inhibitor: Now has +175 Health",
-        "Tags": [
-            "Inhibitor",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Inhibitor}} Inhibitor: Weapon Damage reduced from 30% to 20%",
-        "Tags": [
-            "Inhibitor",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Crippling Headshot}} Crippling Headshot: Bullet and {{PageRef|Spirit Lifesteal}} Spirit Lifesteal reduced from 15% to 10%",
-        "Tags": [
-            "Crippling Headshot",
-            "Items",
-            "Weapon Items",
-            "Spirit Lifesteal",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Unstoppable}} Unstoppable: Active Spirit Resistance reduced from 40% to 20%",
-        "Tags": [
-            "Unstoppable",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Ricochet}} Ricochet: {{PageRef|Ricochet}} Ricochet Damage increased from 40% to 45%",
-        "Tags": [
-            "Ricochet",
-            "Items",
-            "Weapon Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Ricochet}} Ricochet: Ammo increased from 30% to 35%",
-        "Tags": [
-            "Ricochet",
-            "Items",
-            "Weapon Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Vampiric Burst}} Vampiric Burst: Now grants +150 Health",
-        "Tags": [
-            "Vampiric Burst",
-            "Items",
-            "Weapon Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Vampiric Burst}} Vampiric Burst: Weapon Damage increased from 20% to 25%",
-        "Tags": [
-            "Vampiric Burst",
-            "Items",
-            "Weapon Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Vampiric Burst}} Vampiric Burst: Can now be cast while busy (such as while you are shooting)",
-        "Tags": [
-            "Vampiric Burst",
-            "Items",
-            "Weapon Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Siphon Bullets}} Siphon Bullets: Max HP Steal increased from 40 to 45",
-        "Tags": [
-            "Siphon Bullets",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Spiritual Overflow}} Spiritual Overflow: Cooldown reduction increased from 10% to 15%",
-        "Tags": [
-            "Spiritual Overflow",
-            "Items",
-            "Weapon Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Spiritual Overflow}} Spiritual Overflow: Bonus Spirit Power increased from +35 to +40",
-        "Tags": [
-            "Spiritual Overflow",
-            "Items",
-            "Weapon Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Frenzy}} Frenzy: Low HP Spirit Resist increased from +25% to +30%",
-        "Tags": [
-            "Frenzy",
-            "Items",
-            "Weapon Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Frenzy}} Frenzy: Fixed tooltip on Spirit Resist missing the %",
-        "Tags": [
-            "Frenzy",
-            "Items",
-            "Weapon Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Shadow Weave}} Shadow Weave: Now grants +30% Ammo",
-        "Tags": [
-            "Shadow Weave",
-            "Items",
-            "Weapon Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Shadow Weave}} Shadow Weave: Ambush Fire Rate increased from +50% to +60%",
-        "Tags": [
-            "Shadow Weave",
-            "Items",
-            "Weapon Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Shadow Weave}} Shadow Weave: Ambush Spirit Power increased from +40 to +55",
-        "Tags": [
-            "Shadow Weave",
-            "Items",
-            "Weapon Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Shadow Weave}} Shadow Weave: Invisibility no longer plays footstep sounds (general change)",
-        "Tags": [
-            "Shadow Weave",
-            "Items",
-            "Weapon Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Shadow Weave}} Shadow Weave: Casting the item immediately puts you into Sprint mode",
-        "Tags": [
-            "Shadow Weave",
-            "Items",
-            "Weapon Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Leech}} Leech: Now grants +7 Spirit",
-        "Tags": [
-            "Leech",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Mystic Reverb}} Mystic Reverb: Delayed damage increased from 30% to 40%",
-        "Tags": [
-            "Mystic Reverb",
-            "Items",
-            "Spirit Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Boundless Spirit}} Boundless Spirit: Spirit Power increased from +55 to +60",
-        "Tags": [
-            "Boundless Spirit",
-            "Items",
-            "Spirit Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Boundless Spirit}} Boundless Spirit: Bonus Health increased from +175 to +200",
-        "Tags": [
-            "Boundless Spirit",
-            "Items",
-            "Spirit Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Abrams}} Abrams: Improved misc issues with {{PageRef|Seismic Impact}} Seismic Impact collision",
-        "Tags": [
-            "Abrams",
-            "Heroes",
-            "Seismic Impact",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Abrams}} Abrams: {{PageRef|Seismic Impact}} Seismic Impact can be held for up to 3 seconds. Press the ability again anytime to land.",
-        "Tags": [
-            "Abrams",
-            "Heroes",
-            "Seismic Impact",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Bebop}} Bebop: {{PageRef|Hook}} Hook hitbox reduced from 36 inches to 33",
-        "Tags": [
-            "Bebop",
-            "Heroes",
-            "Hook",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Bebop}} Bebop: {{PageRef|Hyper Beam}} Hyper Beam cooldown increased from 100s to 110s",
-        "Tags": [
-            "Bebop",
-            "Heroes",
-            "Hyper Beam",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Dynamo}} Dynamo: {{PageRef|Rejuvenating Aurora}} Rejuvenating Aurora move speed increased from 3.8 to 4.2",
-        "Tags": [
-            "Dynamo",
-            "Heroes",
-            "Rejuvenating Aurora",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Dynamo}} Dynamo: {{PageRef|Singularity}} Singularity T1 radius reduced from +3m to +2m",
-        "Tags": [
-            "Dynamo",
-            "Heroes",
-            "Singularity",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Dynamo}} Dynamo: {{PageRef|Singularity}} Singularity falls 70% slower when {{PageRef|Majestic Leap}} Majestic Leap down is used (similar to the hero falling slower normally when casting the ability from an elevation)",
-        "Tags": [
-            "Dynamo",
-            "Heroes",
-            "Majestic Leap",
-            "Items",
-            "Vitality Items",
-            "Singularity",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Grey Talon}} Grey Talon: Fixed {{PageRef|Charged Shot}} Charged Shot being evaded by {{PageRef|Haze}} Haze's {{PageRef|Bullet Dance}} Bullet Dance",
-        "Tags": [
-            "Haze",
-            "Heroes",
-            "Grey Talon",
-            "Bullet Dance",
-            "Abilities",
-            "Charged Shot"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Grey Talon}} Grey Talon: {{PageRef|Rain of Arrows}} Rain of Arrows cooldown increased from 30s to 33s",
-        "Tags": [
-            "Grey Talon",
-            "Heroes",
-            "Rain of Arrows",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Grey Talon}} Grey Talon: {{PageRef|Guided Owl}} Guided Owl can now explode in the air by pressing the release key",
-        "Tags": [
-            "Grey Talon",
-            "Heroes",
-            "Guided Owl",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Haze}} Haze: {{PageRef|Sleep Dagger}} Sleep Dagger cooldown reduced from 29s to 27s",
-        "Tags": [
-            "Haze",
-            "Heroes",
-            "Sleep Dagger",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Haze}} Haze: {{PageRef|Sleep Dagger}} Sleep Dagger T2 cooldown changed from -15s to -13s",
-        "Tags": [
-            "Haze",
-            "Heroes",
-            "Sleep Dagger",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Haze}} Haze: {{PageRef|Smoke Bomb}} Smoke Bomb T2 changed to \"Replenishes stamina on cast and grants +40% Stamina Regen\"",
-        "Tags": [
-            "Haze",
-            "Heroes",
-            "Smoke Bomb",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Haze}} Haze: {{PageRef|Fixation}} Fixation bonus damage no longer ignores bullet falloff",
-        "Tags": [
-            "Haze",
-            "Heroes",
-            "Fixation",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Haze}} Haze: {{PageRef|Bullet Dance}} Bullet Dance cast point reduced from 0.8s to 0.4s",
-        "Tags": [
-            "Haze",
-            "Heroes",
-            "Bullet Dance",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Haze}} Haze: {{PageRef|Bullet Dance}} Bullet Dance move speed increased from 3.5 to 4",
-        "Tags": [
-            "Haze",
-            "Heroes",
-            "Bullet Dance",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Infernus}} Infernus: Fixed {{PageRef|Flame Dash}} Flame Dash duration not being affected by duration extender",
-        "Tags": [
-            "Infernus",
-            "Heroes",
-            "Flame Dash",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Ivy}} Ivy: {{PageRef|Kudzu Bomb}} Kudzu Bomb now does 50% less damage to objectives",
-        "Tags": [
-            "Ivy",
-            "Heroes",
-            "Kudzu Bomb",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Kelvin}} Kelvin: {{PageRef|Arctic Beam}} Arctic Beam movespeed limit is now applied via a reduction rather than a speed cap (to allow items to be combined for faster movement like {{PageRef|Surge of Power}} Surge of Power)",
-        "Tags": [
-            "Kelvin",
-            "Heroes",
-            "Surge of Power",
-            "Items",
-            "Spirit Items",
-            "Arctic Beam",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Lady Geist}} Lady Geist: {{PageRef|Essence Bomb}} Essence Bomb no longer starts decaying the arm time while in the air",
-        "Tags": [
-            "Lady Geist",
-            "Heroes",
-            "Essence Bomb",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Lady Geist}} Lady Geist: {{PageRef|Essence Bomb}} Essence Bomb arm time reduced from 1s to 0.5s (this is a nerf for long distance bombs)",
-        "Tags": [
-            "Lady Geist",
-            "Heroes",
-            "Essence Bomb",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Lady Geist}} Lady Geist: {{PageRef|Soul Exchange}} Soul Exchange T3 changed to \"After swap gain +40% Fire Rate and +40% Spirit Resistance for 8s\"",
-        "Tags": [
-            "Lady Geist",
-            "Heroes",
-            "Soul Exchange",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Lash}} Lash: Fixed it being possible to lose your full lock on with {{PageRef|Death Slam}} Death Slam sometimes if you look away",
-        "Tags": [
-            "Lash",
-            "Heroes",
-            "Death Slam",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|McGinnis}} McGinnis: Turret range reduced from 30m to 25m",
-        "Tags": [
-            "McGinnis",
-            "Heroes"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|McGinnis}} McGinnis: Turret HP scaling reduced from 40% to 30% (affects initial HP too)",
-        "Tags": [
-            "McGinnis",
-            "Heroes"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|McGinnis}} McGinnis: Turret cooldown reduced from 35s to 30s",
-        "Tags": [
-            "McGinnis",
-            "Heroes"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|McGinnis}} McGinnis: Turret Charge Time reduced from 8s to 6s",
-        "Tags": [
-            "McGinnis",
-            "Heroes"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|McGinnis}} McGinnis: Base Spirit Resist increased from 20% to 25%",
-        "Tags": [
-            "McGinnis",
-            "Heroes"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|McGinnis}} McGinnis: Base Regen increased from 1 to 2",
-        "Tags": [
-            "McGinnis",
-            "Heroes"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|McGinnis}} McGinnis: {{PageRef|Spectral Wall}} Spectral Wall cooldown reduced from 35s to 30s",
-        "Tags": [
-            "McGinnis",
-            "Heroes",
-            "Spectral Wall",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|McGinnis}} McGinnis: {{PageRef|Heavy {{PageRef|Barrage}} Barrage}} Heavy {{PageRef|Barrage}} Barrage cooldown reduced from 110s to 100s",
-        "Tags": [
-            "McGinnis",
-            "Heroes",
-            "Heavy Barrage",
-            "Abilities",
-            "Barrage"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Mo & Krill}} Mo & Krill: You can now cast items and {{PageRef|Scorn}} Scorn while spinning out of {{PageRef|Burrow}} Burrow",
-        "Tags": [
-            "Mo & Krill",
-            "Heroes",
-            "Burrow",
-            "Abilities",
-            "Scorn"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Mo & Krill}} Mo & Krill: {{PageRef|Combo}} Combo bonus health per kill increased from 25 to 30",
-        "Tags": [
-            "Mo & Krill",
-            "Heroes",
-            "Combo",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Paradox}} Paradox: {{PageRef|Kinetic Carbine}} Kinetic Carbine cooldown increased from 22s to 24s",
-        "Tags": [
-            "Paradox",
-            "Heroes",
-            "Kinetic Carbine",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Paradox}} Paradox: {{PageRef|Paradox}} {{PageRef|Paradoxical Swap}} Paradoxical Swap cooldown increased from 35s to 45s",
-        "Tags": [
-            "Paradox",
-            "Heroes",
-            "Paradoxical Swap",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Pocket}} Pocket: {{PageRef|Barrage}} Barrage base damage reduced from 40 to 35",
-        "Tags": [
-            "Pocket",
-            "Heroes",
-            "Barrage",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Pocket}} Pocket: {{PageRef|Barrage}} Barrage T1 reduced from +20 to +15",
-        "Tags": [
-            "Pocket",
-            "Heroes",
-            "Barrage",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Pocket}} Pocket: Fixed a recent change causing {{PageRef|Enchanter's Satchel}} Enchanter's Satchel to not play damage at the destination when teleporting with {{PageRef|Flying Cloak}} Flying Cloak",
-        "Tags": [
-            "Pocket",
-            "Heroes",
-            "Flying Cloak",
-            "Abilities",
-            "Enchanter's Satchel"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Seven}} Seven: {{PageRef|Static Charge}} Static Charge now uses the new instant cast option that {{PageRef|Bebop}} Bebop Bomb uses",
-        "Tags": [
-            "Bebop",
-            "Heroes",
-            "Seven",
-            "Static Charge",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Seven}} Seven: {{PageRef|Power Surge}} Power Surge spirit scaling increased from 0.1 to 0.2 (new total with T3 is now from 0.5 to 0.6)",
-        "Tags": [
-            "Seven",
-            "Heroes",
-            "Power Surge",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Vindicta}} Vindicta: {{PageRef|Crow Familiar}} Crow Familiar debuff duration increased from 5s to 6s",
-        "Tags": [
-            "Vindicta",
-            "Heroes",
-            "Crow Familiar",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Vindicta}} Vindicta: {{PageRef|Assassinate}} Assassinate bonus damage increased from 130 to 145",
-        "Tags": [
-            "Vindicta",
-            "Heroes",
-            "Assassinate",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Yamato}} Yamato: {{PageRef|Shadow Transformation}} Shadow Transformation now provides 80% Damage Resistance and 80% Debuff Resistance instead of invulnerability during the post-channel buff",
-        "Tags": [
-            "Yamato",
-            "Heroes",
-            "Shadow Transformation",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Yamato}} Yamato: {{PageRef|Shadow Transformation}} Shadow Transformation cooldown reduced from 110s to 100s",
-        "Tags": [
-            "Yamato",
-            "Heroes",
-            "Shadow Transformation",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Yamato}} Yamato: {{PageRef|Shadow Transformation}} Shadow Transformation T3 increased from +1s to +1.5s",
-        "Tags": [
-            "Yamato",
-            "Heroes",
-            "Shadow Transformation",
-            "Abilities"
-        ]
+{
+    "Other": {
+        "General": []
+    },
+    "Heroes": {
+        "General": [],
+        "Dynamo": [
+            "- Updated reload animations for {AbilityIcon|Ability=Warden|Size=20} Warden, Dynamo, and Ivy",
+            "- {AbilityIcon|Ability=Rejuvenating Aurora|Size=20} Rejuvenating Aurora move speed increased from 3.8 to 4.2",
+            "- {AbilityIcon|Ability=Singularity|Size=20} Singularity T1 radius reduced from +3m to +2m",
+            "- {AbilityIcon|Ability=Singularity|Size=20} Singularity falls 70% slower when Majestic Leap down is used (similar to the hero falling slower normally when casting the ability from an elevation)"
+        ],
+        "Ivy": [
+            "- Updated reload animations for {AbilityIcon|Ability=Warden|Size=20} Warden, Dynamo, and Ivy",
+            "- {AbilityIcon|Ability=Kudzu Bomb|Size=20} Kudzu Bomb now does 50% less damage to objectives"
+        ],
+        "Warden": [
+            "- Updated reload animations for {AbilityIcon|Ability=Warden|Size=20} Warden, Dynamo, and Ivy"
+        ],
+        "Bebop": [
+            "- Fixed the unit target UI not showing up for instant-cast abilities (MoKrill ult, {AbilityIcon|Ability=Lady Geist|Size=20} Lady Geist ult, Bebop bomb)",
+            "- {AbilityIcon|Ability=Hook|Size=20} Hook hitbox reduced from 36 inches to 33",
+            "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam cooldown increased from 100s to 110s",
+            "- Seven: {AbilityIcon|Ability=Static Charge|Size=20} Static Charge now uses the new instant cast option that Bebop Bomb uses"
+        ],
+        "Lady Geist": [
+            "- Fixed the unit target UI not showing up for instant-cast abilities (MoKrill ult, {AbilityIcon|Ability=Lady Geist|Size=20} Lady Geist ult, Bebop bomb)",
+            "- {AbilityIcon|Ability=Essence Bomb|Size=20} Essence Bomb no longer starts decaying the arm time while in the air",
+            "- {AbilityIcon|Ability=Essence Bomb|Size=20} Essence Bomb arm time reduced from 1s to 0.5s (this is a nerf for long distance bombs)",
+            "- {AbilityIcon|Ability=Soul Exchange|Size=20} Soul Exchange T3 changed to \"After swap gain +40% Fire Rate and +40% Spirit Resistance for 8s\""
+        ],
+        "Abrams": [
+            "- Improved misc issues with {AbilityIcon|Ability=Seismic Impact|Size=20} Seismic Impact collision",
+            "- {AbilityIcon|Ability=Seismic Impact|Size=20} Seismic Impact can be held for up to 3 seconds. Press the ability again anytime to land."
+        ],
+        "Haze": [
+            "- Grey Talon: Fixed {AbilityIcon|Ability=Charged Shot|Size=20} Charged Shot being evaded by Haze's Bullet Dance",
+            "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger cooldown reduced from 29s to 27s",
+            "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger T2 cooldown changed from -15s to -13s",
+            "- {AbilityIcon|Ability=Smoke Bomb|Size=20} Smoke Bomb T2 changed to \"Replenishes stamina on cast and grants +40% Stamina Regen\"",
+            "- {AbilityIcon|Ability=Fixation|Size=20} Fixation bonus damage no longer ignores bullet falloff",
+            "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance cast point reduced from 0.8s to 0.4s",
+            "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance move speed increased from 3.5 to 4"
+        ],
+        "Grey Talon": [
+            "- Fixed {AbilityIcon|Ability=Charged Shot|Size=20} Charged Shot being evaded by Haze's Bullet Dance",
+            "- {AbilityIcon|Ability=Rain of Arrows|Size=20} Rain of Arrows cooldown increased from 30s to 33s",
+            "- {AbilityIcon|Ability=Guided Owl|Size=20} Guided Owl can now explode in the air by pressing the release key"
+        ],
+        "Infernus": [
+            "- Fixed {AbilityIcon|Ability=Flame Dash|Size=20} Flame Dash duration not being affected by duration extender"
+        ],
+        "Kelvin": [
+            "- {AbilityIcon|Ability=Arctic Beam|Size=20} Arctic Beam movespeed limit is now applied via a reduction rather than a speed cap (to allow items to be combined for faster movement like Surge of Power)"
+        ],
+        "Lash": [
+            "- Fixed it being possible to lose your full lock on with {AbilityIcon|Ability=Death Slam|Size=20} Death Slam sometimes if you look away"
+        ],
+        "McGinnis": [
+            "- Turret range reduced from 30m to 25m",
+            "- Turret HP scaling reduced from 40% to 30% (affects initial HP too)",
+            "- Turret cooldown reduced from 35s to 30s",
+            "- Turret Charge Time reduced from 8s to 6s",
+            "- Base Spirit Resist increased from 20% to 25%",
+            "- Base Regen increased from 1 to 2",
+            "- {AbilityIcon|Ability=Spectral Wall|Size=20} Spectral Wall cooldown reduced from 35s to 30s",
+            "- Heavy {AbilityIcon|Ability=Barrage|Size=20} Barrage cooldown reduced from 110s to 100s"
+        ],
+        "Mo & Krill": [
+            "- You can now cast items and {AbilityIcon|Ability=Scorn|Size=20} Scorn while spinning out of Burrow",
+            "- {AbilityIcon|Ability=Combo|Size=20} Combo bonus health per kill increased from 25 to 30"
+        ],
+        "Paradox": [
+            "- {AbilityIcon|Ability=Kinetic Carbine|Size=20} Kinetic Carbine cooldown increased from 22s to 24s",
+            "- {AbilityIcon|Ability=Paradoxical Swap|Size=20} Paradoxical Swap cooldown increased from 35s to 45s"
+        ],
+        "Pocket": [
+            "- {AbilityIcon|Ability=Barrage|Size=20} Barrage base damage reduced from 40 to 35",
+            "- {AbilityIcon|Ability=Barrage|Size=20} Barrage T1 reduced from +20 to +15",
+            "- Fixed a recent change causing {AbilityIcon|Ability=Enchanter's Satchel|Size=20} Enchanter's Satchel to not play damage at the destination when teleporting with Flying Cloak"
+        ],
+        "Seven": [
+            "- {AbilityIcon|Ability=Static Charge|Size=20} Static Charge now uses the new instant cast option that Bebop Bomb uses",
+            "- {AbilityIcon|Ability=Power Surge|Size=20} Power Surge spirit scaling increased from 0.1 to 0.2 (new total with T3 is now from 0.5 to 0.6)"
+        ],
+        "Vindicta": [
+            "- {AbilityIcon|Ability=Crow Familiar|Size=20} Crow Familiar debuff duration increased from 5s to 6s",
+            "- {AbilityIcon|Ability=Assassinate|Size=20} Assassinate bonus damage increased from 130 to 145"
+        ],
+        "Yamato": [
+            "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation now provides 80% Damage Resistance and 80% Debuff Resistance instead of invulnerability during the post-channel buff",
+            "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation cooldown reduced from 110s to 100s",
+            "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation T3 increased from +1s to +1.5s"
+        ]
+    },
+    "Items": {
+        "General": [],
+        "Silence Glyph": [
+            "- Updated {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger and Silence Glyph tooltips to clarify that they do not cancel channeling abilities",
+            "- Cooldown reduced from 35s to 30s"
+        ],
+        "Ethereal Shift": [
+            "- Added {AbilityIcon|Ability=Ethereal Shift|Size=20} Ethereal Shift sounds",
+            "- Cooldown reduced from 35s to 30s"
+        ],
+        "Headshot Booster": [
+            "- Fixed various bugs with Headshot Booster and {AbilityIcon|Ability=Sharpshooter|Size=20} Sharpshooter"
+        ],
+        "Sharpshooter": [
+            "- Fixed various bugs with Headshot Booster and {AbilityIcon|Ability=Sharpshooter|Size=20} Sharpshooter"
+        ],
+        "Infuser": [
+            "- Added a new T1 Spirit item, {AbilityIcon|Ability=Infuser|Size=20} Infuser"
+        ],
+        "Spirit Lifesteal": [
+            "Active: Gain 12 Spirit and 20% {AbilityIcon|Ability=Spirit Lifesteal|Size=20} Spirit Lifesteal for 6 seconds. Cooldown: 35s",
+            "- Bullet and {AbilityIcon|Ability=Spirit Lifesteal|Size=20} Spirit Lifesteal reduced from 15% to 10%"
+        ],
+        "Ammo Scavenger": [
+            "- Added a new T1 Weapon item, {AbilityIcon|Ability=Ammo Scavenger|Size=20} Ammo Scavenger"
+        ],
+        "Fire Rate": [
+            "Passive: Anytime you secure or deny a Soul, you get 2 ammo back and have +20% {AbilityIcon|Ability=Fire Rate|Size=20} Fire Rate for 4 seconds.",
+            "Passive: Pressing the reload key during the halfway point of a reload will cause you to instantly regain your magazine and grant you +30% {AbilityIcon|Ability=Bullet Lifesteal|Size=20} Bullet Lifesteal and +15% Fire Rate for 6s. The reload UI has an indicator for the trigger window. Cooldown: 25s",
+            "- Passive: Walking through a Cosmic Veil causes you to become invisible with +3 m/s for 4 seconds and grants you +30% {AbilityIcon|Ability=Fire Rate|Size=20} Fire Rate for your next magazine. Cosmic Veils regenerate any shields you have. Cooldown: 20s",
+            "- {AbilityIcon|Ability=Superior Stamina|Size=20} Superior Stamina: Fire Rate increased from +12% to +15%",
+            "- {AbilityIcon|Ability=Shadow Weave|Size=20} Shadow Weave: Ambush Fire Rate increased from +50% to +60%",
+            "- {AbilityIcon|Ability=Soul Exchange|Size=20} Soul Exchange T3 changed to \"After swap gain +40% Fire Rate and +40% Spirit Resistance for 8s\""
+        ],
+        "Active Reload": [
+            "- Added a new T2 Weapon item, {AbilityIcon|Ability=Active Reload|Size=20} Active Reload"
+        ],
+        "Bullet Lifesteal": [
+            "Passive: Pressing the reload key during the halfway point of a reload will cause you to instantly regain your magazine and grant you +30% {AbilityIcon|Ability=Bullet Lifesteal|Size=20} Bullet Lifesteal and +15% Fire Rate for 6s. The reload UI has an indicator for the trigger window. Cooldown: 25s"
+        ],
+        "Veil Walker": [
+            "- Added a new T2 Weapon item, {AbilityIcon|Ability=Veil Walker|Size=20} Veil Walker"
+        ],
+        "Melee Charge": [
+            "- Added a new T2 Weapon item, {AbilityIcon|Ability=Melee Charge|Size=20} Melee Charge"
+        ],
+        "Colossus": [
+            "- Added a new T4 Vitality item, {AbilityIcon|Ability=Colossus|Size=20} Colossus"
+        ],
+        "Healing Rite": [
+            "- Duration increased from 15s to 17s (total regen increased from 350 to 370)"
+        ],
+        "Extra Spirit": [
+            "- Spirit Power increased from +6 to +7"
+        ],
+        "Extra Charge": [
+            "- Now grants +7% Cooldown Reduction For Charged Abilities",
+            "- No longer grants +6 Spirit to Charged Abilities"
+        ],
+        "Swift Striker": [
+            "- Negative bullet resist reduced from -6% to -5%"
+        ],
+        "Mystic Shot": [
+            "- Spirit scaling increased from 0.45 to 0.6"
+        ],
+        "Enduring Speed": [
+            "- Slow resist increased from 35% to 40%",
+            "- Now grants +1.5 HP Regen"
+        ],
+        "Healing Booster": [
+            "- Spirit Resist reduced from 8% to 7%",
+            "- Now provides +7% Bullet Resist"
+        ],
+        "Return Fire": [
+            "- Cooldown reduced from 30s to 24s"
+        ],
+        "Restorative Locket": [
+            "- Fixed the max stack limit not being followed",
+            "- Max stacks increased from 15 to 18"
+        ],
+        "Bullet Resist Shredder": [
+            "- Bullet Resist Reduction increased from -10% to -12%",
+            "- Bullet Resist Reduction duration increased from 5s to 6s"
+        ],
+        "Decay": [
+            "- Cooldown reduced from 27s to 25s"
+        ],
+        "Suppressor": [
+            "- Duration reduced from 4s to 2.5s"
+        ],
+        "Mystic Slow": [
+            "- Duration increased from 2s to 2.5s"
+        ],
+        "Titanic Magazine": [
+            "- Ammo increased from 65% to 75%"
+        ],
+        "Rescue Beam": [
+            "- Cast range increased from 40m to 45m",
+            "- Cooldown reduced from 45s to 40s"
+        ],
+        "Superior Stamina": [
+            "- Stamina increased from +2 to +3",
+            "- {AbilityIcon|Ability=Fire Rate|Size=20} Fire Rate increased from +12% to +15%",
+            "- Spirit Bonus after 2nd jump/dash increased from +20 to +25"
+        ],
+        "Lifestrike": [
+            "- Slow duration increased from 1.5s to 2s",
+            "- Heal increased from 40% of damage to 45%"
+        ],
+        "Majestic Leap": [
+            "- Cooldown increased from 20s to 26s",
+            "- Damage cooldown window increased from 4s to 5s",
+            "- Fixed cooldown reduction affecting the damage cooldown",
+            "- {AbilityIcon|Ability=Singularity|Size=20} Singularity falls 70% slower when Majestic Leap down is used (similar to the hero falling slower normally when casting the ability from an elevation)"
+        ],
+        "Knockdown": [
+            "- Cooldown reduced from 40s to 30s"
+        ],
+        "Improved Spirit": [
+            "- Spirit Power increased from +15 to +18"
+        ],
+        "Burst Fire": [
+            "- Now increases your slide distance and duration by 25%"
+        ],
+        "Metal Skin": [
+            "- Now prevents all weapon damage instead of blocking bullets (this allows procs to go through)"
+        ],
+        "Inhibitor": [
+            "- Moved from Weapon tree to Vitality",
+            "- No longer requires the component {AbilityIcon|Ability=Slowing Bullets|Size=20} Slowing Bullets",
+            "- Now has +175 Health",
+            "- Weapon Damage reduced from 30% to 20%"
+        ],
+        "Slowing Bullets": [
+            "- No longer requires the component {AbilityIcon|Ability=Slowing Bullets|Size=20} Slowing Bullets"
+        ],
+        "Crippling Headshot": [
+            "- Bullet and {AbilityIcon|Ability=Spirit Lifesteal|Size=20} Spirit Lifesteal reduced from 15% to 10%"
+        ],
+        "Unstoppable": [
+            "- Active Spirit Resistance reduced from 40% to 20%"
+        ],
+        "Ricochet": [
+            "- {AbilityIcon|Ability=Ricochet|Size=20} Ricochet Damage increased from 40% to 45%",
+            "- Ammo increased from 30% to 35%"
+        ],
+        "Vampiric Burst": [
+            "- Now grants +150 Health",
+            "- Weapon Damage increased from 20% to 25%",
+            "- Can now be cast while busy (such as while you are shooting)"
+        ],
+        "Siphon Bullets": [
+            "- Max HP Steal increased from 40 to 45"
+        ],
+        "Spiritual Overflow": [
+            "- Cooldown reduction increased from 10% to 15%",
+            "- Bonus Spirit Power increased from +35 to +40"
+        ],
+        "Frenzy": [
+            "- Low HP Spirit Resist increased from +25% to +30%",
+            "- Fixed tooltip on Spirit Resist missing the %"
+        ],
+        "Shadow Weave": [
+            "- Now grants +30% Ammo",
+            "- Ambush {AbilityIcon|Ability=Fire Rate|Size=20} Fire Rate increased from +50% to +60%",
+            "- Ambush Spirit Power increased from +40 to +55",
+            "- Invisibility no longer plays footstep sounds (general change)",
+            "- Casting the item immediately puts you into Sprint mode"
+        ],
+        "Leech": [
+            "- Now grants +7 Spirit"
+        ],
+        "Mystic Reverb": [
+            "- Delayed damage increased from 30% to 40%"
+        ],
+        "Boundless Spirit": [
+            "- Spirit Power increased from +55 to +60",
+            "- Bonus Health increased from +175 to +200"
+        ],
+        "Smoke": [
+            "- {AbilityIcon|Ability=Smoke Bomb|Size=20} Smoke Bomb T2 changed to \"Replenishes stamina on cast and grants +40% Stamina Regen\""
+        ],
+        "Surge of Power": [
+            "- {AbilityIcon|Ability=Arctic Beam|Size=20} Arctic Beam movespeed limit is now applied via a reduction rather than a speed cap (to allow items to be combined for faster movement like Surge of Power)"
+        ]
+    },
+    "Abilities": {
+        "General": [],
+        "Sleep Dagger": [
+            "- Updated {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger and Silence Glyph tooltips to clarify that they do not cancel channeling abilities",
+            "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger cooldown reduced from 29s to 27s",
+            "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger T2 cooldown changed from -15s to -13s"
+        ],
+        "Concussive Combustion": [
+            "- Improved visibility of Inferno's {AbilityIcon|Ability=Concussive Combustion|Size=20} Concussive Combustion"
+        ],
+        "Seismic Impact": [
+            "- Improved misc issues with {AbilityIcon|Ability=Seismic Impact|Size=20} Seismic Impact collision",
+            "- {AbilityIcon|Ability=Seismic Impact|Size=20} Seismic Impact can be held for up to 3 seconds. Press the ability again anytime to land."
+        ],
+        "Hook": [
+            "- {AbilityIcon|Ability=Hook|Size=20} Hook hitbox reduced from 36 inches to 33"
+        ],
+        "Hyper Beam": [
+            "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam cooldown increased from 100s to 110s"
+        ],
+        "Rejuvenating Aurora": [
+            "- {AbilityIcon|Ability=Rejuvenating Aurora|Size=20} Rejuvenating Aurora move speed increased from 3.8 to 4.2"
+        ],
+        "Singularity": [
+            "- {AbilityIcon|Ability=Singularity|Size=20} Singularity T1 radius reduced from +3m to +2m",
+            "- {AbilityIcon|Ability=Singularity|Size=20} Singularity falls 70% slower when Majestic Leap down is used (similar to the hero falling slower normally when casting the ability from an elevation)"
+        ],
+        "Bullet Dance": [
+            "- Fixed {AbilityIcon|Ability=Charged Shot|Size=20} Charged Shot being evaded by Haze's Bullet Dance",
+            "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance cast point reduced from 0.8s to 0.4s",
+            "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance move speed increased from 3.5 to 4"
+        ],
+        "Charged Shot": [
+            "- Fixed {AbilityIcon|Ability=Charged Shot|Size=20} Charged Shot being evaded by Haze's Bullet Dance"
+        ],
+        "Rain of Arrows": [
+            "- {AbilityIcon|Ability=Rain of Arrows|Size=20} Rain of Arrows cooldown increased from 30s to 33s"
+        ],
+        "Guided Owl": [
+            "- {AbilityIcon|Ability=Guided Owl|Size=20} Guided Owl can now explode in the air by pressing the release key"
+        ],
+        "Smoke Bomb": [
+            "- {AbilityIcon|Ability=Smoke Bomb|Size=20} Smoke Bomb T2 changed to \"Replenishes stamina on cast and grants +40% Stamina Regen\""
+        ],
+        "Fixation": [
+            "- {AbilityIcon|Ability=Fixation|Size=20} Fixation bonus damage no longer ignores bullet falloff"
+        ],
+        "Flame Dash": [
+            "- Fixed {AbilityIcon|Ability=Flame Dash|Size=20} Flame Dash duration not being affected by duration extender"
+        ],
+        "Kudzu Bomb": [
+            "- {AbilityIcon|Ability=Kudzu Bomb|Size=20} Kudzu Bomb now does 50% less damage to objectives"
+        ],
+        "Arctic Beam": [
+            "- {AbilityIcon|Ability=Arctic Beam|Size=20} Arctic Beam movespeed limit is now applied via a reduction rather than a speed cap (to allow items to be combined for faster movement like Surge of Power)"
+        ],
+        "Essence Bomb": [
+            "- {AbilityIcon|Ability=Essence Bomb|Size=20} Essence Bomb no longer starts decaying the arm time while in the air",
+            "- {AbilityIcon|Ability=Essence Bomb|Size=20} Essence Bomb arm time reduced from 1s to 0.5s (this is a nerf for long distance bombs)"
+        ],
+        "Soul Exchange": [
+            "- {AbilityIcon|Ability=Soul Exchange|Size=20} Soul Exchange T3 changed to \"After swap gain +40% Fire Rate and +40% Spirit Resistance for 8s\""
+        ],
+        "Death Slam": [
+            "- Fixed it being possible to lose your full lock on with {AbilityIcon|Ability=Death Slam|Size=20} Death Slam sometimes if you look away"
+        ],
+        "Spectral Wall": [
+            "- {AbilityIcon|Ability=Spectral Wall|Size=20} Spectral Wall cooldown reduced from 35s to 30s"
+        ],
+        "Heavy Barrage": [
+            "- Heavy {AbilityIcon|Ability=Barrage|Size=20} Barrage cooldown reduced from 110s to 100s"
+        ],
+        "Barrage": [
+            "- Heavy {AbilityIcon|Ability=Barrage|Size=20} Barrage cooldown reduced from 110s to 100s",
+            "- {AbilityIcon|Ability=Barrage|Size=20} Barrage base damage reduced from 40 to 35",
+            "- {AbilityIcon|Ability=Barrage|Size=20} Barrage T1 reduced from +20 to +15"
+        ],
+        "Burrow": [
+            "- You can now cast items and {AbilityIcon|Ability=Scorn|Size=20} Scorn while spinning out of Burrow"
+        ],
+        "Scorn": [
+            "- You can now cast items and {AbilityIcon|Ability=Scorn|Size=20} Scorn while spinning out of Burrow"
+        ],
+        "Combo": [
+            "- {AbilityIcon|Ability=Combo|Size=20} Combo bonus health per kill increased from 25 to 30"
+        ],
+        "Kinetic Carbine": [
+            "- {AbilityIcon|Ability=Kinetic Carbine|Size=20} Kinetic Carbine cooldown increased from 22s to 24s"
+        ],
+        "Paradoxical Swap": [
+            "- {AbilityIcon|Ability=Paradoxical Swap|Size=20} Paradoxical Swap cooldown increased from 35s to 45s"
+        ],
+        "Flying Cloak": [
+            "- Fixed a recent change causing {AbilityIcon|Ability=Enchanter's Satchel|Size=20} Enchanter's Satchel to not play damage at the destination when teleporting with Flying Cloak"
+        ],
+        "Enchanter's Satchel": [
+            "- Fixed a recent change causing {AbilityIcon|Ability=Enchanter's Satchel|Size=20} Enchanter's Satchel to not play damage at the destination when teleporting with Flying Cloak"
+        ],
+        "Static Charge": [
+            "- {AbilityIcon|Ability=Static Charge|Size=20} Static Charge now uses the new instant cast option that Bebop Bomb uses"
+        ],
+        "Power Surge": [
+            "- {AbilityIcon|Ability=Power Surge|Size=20} Power Surge spirit scaling increased from 0.1 to 0.2 (new total with T3 is now from 0.5 to 0.6)"
+        ],
+        "Crow Familiar": [
+            "- {AbilityIcon|Ability=Crow Familiar|Size=20} Crow Familiar debuff duration increased from 5s to 6s"
+        ],
+        "Assassinate": [
+            "- {AbilityIcon|Ability=Assassinate|Size=20} Assassinate bonus damage increased from 130 to 145"
+        ],
+        "Shadow Transformation": [
+            "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation now provides 80% Damage Resistance and 80% Debuff Resistance instead of invulnerability during the post-channel buff",
+            "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation cooldown reduced from 110s to 100s",
+            "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation T3 increased from +1s to +1.5s"
+        ]
+    },
+    "General Changes": {
+        "General": [
+            "- Added EU servers and matchmaking region. EU testing times are Mon-Thur 5PM to 3AM and Fri-Sun 3PM to 3AM. Times listed are Central European Summer Time (GMT+2).",
+            "- Removed the invite requirement of Steam friends having been on your list for a number of days (affected normal user cases often where friends weren't on the Steam list, and we have other metrics and tools on the backend now that we can use to filter for other cases)",
+            "- Added search functionality to the shop. You can now search by item name or by individual stat such as 'Ammo', 'Lifesteal', or 'Spirit Power'.",
+            "- The game will now let you know when it is safe to abandon (usually if one person has been disconnected for a while)",
+            "- Your personal builds are now always sorted to the top of the in-game Builds dropdown",
+            "- Various network related improvements when there is packet loss",
+            "- Preferred heroes in your roster are now remember on the client across sessions",
+            "- Fixed chat wheel not working during the post-game sequence",
+            "- Updated the entrance to the underground tunnels from the outer lanes to look more like a subway entrance",
+            "- Re-enabled ultra wide UI mode",
+            "- Added street names and symbols to the Zipline UI",
+            "- Fixed the unit target UI not showing the activation button hint",
+            "- Added a Cosmic Veil to the hero demo map",
+            "- Added wind sound when on the Zipline"
+        ]
+    },
+    "Misc Gameplay": {
+        "General": [
+            "- Rejuv buff is now only granted to the players that are alive. Players that are dead will have their respawn times cut in half from their current values.",
+            "- Footsteps are now quieter when obstructed by level geometry",
+            "- Dash-Down is now double tap CTRL instead of CTRL+SHIFT",
+            "- Vault bounty increased from 300 to 330",
+            "- Added another entrance/exit to the underground tunnels from the warehouse interiors",
+            "- Enclosed the exterior Medium Neutral Camp with fencing in front of the Theater to match the Amber side Cab Stand",
+            "- Added two more veils on each side:",
+            "1) Between the Drug Store and the Market on Amber, between the Hotel and Pharmacy on Sapphire",
+            "2) Between the exterior Strong Neutral Camps and the outer lane near the T2"
+        ]
+    },
+    "Item Gameplay": {
+        "General": [
+            "+8% Spirit Resist",
+            "+10% Ammo",
+            "+20% Ammo",
+            "+50 Health",
+            "-20% Reload Time",
+            "+8% Weapon Damage",
+            "Inspired by https://project8.dev/threads/item-idea-trick-reload.2652/",
+            "+15% Ammo",
+            "+8% Weapon Damage",
+            "+200 Bullet Shield",
+            "+15% Melee Damage",
+            "+10% Weapon Power",
+            "+75 Health",
+            "Passive: Hitting an enemy with a heavy melee reloads your weapon",
+            "Passive: Increases your heavy melee charge distance by 40%",
+            "Inspired by https://project8.dev/threads/bayonet.5372/ and https://project8.dev/threads/comple...-category-item-that-buffs-charged-melee.5957/",
+            "+500 HP",
+            "+20% Melee Damage",
+            "+20% Weapon Damage",
+            "Active: Gain 40% Bullet and Spirit Resist and apply 20% movement slow to enemies within 10m. Your model size grows by 10%. Lasts 7 seconds. Cooldown: 65s",
+            "- Tesla: Bounce radius increased from 7m to 9m"
+        ]
+    },
+    "Hero Gameplay": {
+        "General": []
     }
-]
+}

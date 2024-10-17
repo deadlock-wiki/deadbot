@@ -1,112 +1,49 @@
-[
-    {
-        "Description": "* Fixed {{PageRef|High-Velocity Mag}} High-Velocity Mag affecting some abilities",
-        "Tags": [
-            "High-Velocity Mag",
-            "Items",
-            "Weapon Items"
+{
+    "Other": {
+        "General": [
+            "- Fixed shotgun heroes applying buildup effects like toxic bullets instantly on ricocheted enemies",
+            "- Parrying a Guardian now causes it to stop trying to repeatedly melee (and get parried over and over), and instead causes the boss to start shooting shortly there after"
         ]
     },
-    {
-        "Description": "* {{PageRef|Silence Glyph}} Silence Glyph: Damage reduced from 150 to 100",
-        "Tags": [
-            "Silence Glyph",
-            "Items",
-            "Spirit Items"
+    "Heroes": {
+        "General": [],
+        "Ivy": [
+            "- {AbilityIcon|Ability=Air Drop|Size=20} Air Drop now silences the ally being carried until they are released"
+        ],
+        "Shiv": [
+            "- {AbilityIcon|Ability=Bloodletting|Size=20} Bloodletting incoming damage deferred reduced from 40% to 35%"
         ]
     },
-    {
-        "Description": "* {{PageRef|Silence Glyph}} Silence Glyph: Spirit damage scaling reduced from 1.5 to 1.0",
-        "Tags": [
-            "Silence Glyph",
-            "Items",
-            "Spirit Items"
+    "Items": {
+        "General": [],
+        "High-Velocity Mag": [
+            "- Fixed {AbilityIcon|Ability=High-Velocity Mag|Size=20} High-Velocity Mag affecting some abilities"
+        ],
+        "Silence Glyph": [
+            "- Damage reduced from 150 to 100",
+            "- Spirit damage scaling reduced from 1.5 to 1.0",
+            "- Cast range reduced from 40m to 25m",
+            "- Sprint reduced from 2 to 1",
+            "- Spirit Shield reduced from +225 to +200"
+        ],
+        "Reactive Barrier": [
+            "- Cooldown increased from 20s to 30s"
+        ],
+        "Return Fire": [
+            "- Bullet damage returned reduced form 80% to 70%"
+        ],
+        "Siphon Bullets": [
+            "- Dying with {AbilityIcon|Ability=Siphon Bullets|Size=20} Siphon Bullets stacks will now cause you to lose 2 stacks no matter who killed you (rather than returning 1 only if the victim killed you back)",
+            "- Fixed {AbilityIcon|Ability=Siphon Bullets|Size=20} Siphon Bullets acting as spirit damage for procs"
         ]
     },
-    {
-        "Description": "* {{PageRef|Silence Glyph}} Silence Glyph: Cast range reduced from 40m to 25m",
-        "Tags": [
-            "Silence Glyph",
-            "Items",
-            "Spirit Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Silence Glyph}} Silence Glyph: Sprint reduced from 2 to 1",
-        "Tags": [
-            "Silence Glyph",
-            "Items",
-            "Spirit Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Silence Glyph}} Silence Glyph: Spirit Shield reduced from +225 to +200",
-        "Tags": [
-            "Silence Glyph",
-            "Items",
-            "Spirit Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Reactive Barrier}} Reactive Barrier: Cooldown increased from 20s to 30s",
-        "Tags": [
-            "Reactive Barrier",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Return Fire}} Return Fire: Bullet damage returned reduced form 80% to 70%",
-        "Tags": [
-            "Return Fire",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* Dying with {{PageRef|Siphon Bullets}} Siphon Bullets stacks will now cause you to lose 2 stacks no matter who killed you (rather than returning 1 only if the victim killed you back)",
-        "Tags": [
-            "Siphon Bullets",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* Fixed {{PageRef|Siphon Bullets}} Siphon Bullets acting as spirit damage for procs",
-        "Tags": [
-            "Siphon Bullets",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Ivy}} Ivy: {{PageRef|Air Drop}} Air Drop now silences the ally being carried until they are released",
-        "Tags": [
-            "Ivy",
-            "Heroes",
-            "Air Drop",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Shiv}} Shiv: {{PageRef|Bloodletting}} Bloodletting incoming damage deferred reduced from 40% to 35%",
-        "Tags": [
-            "Shiv",
-            "Heroes",
-            "Bloodletting",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* Fixed shotgun heroes applying buildup effects like toxic bullets instantly on ricocheted enemies",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Parrying a Guardian now causes it to stop trying to repeatedly melee (and get parried over and over), and instead causes the boss to start shooting shortly there after",
-        "Tags": [
-            "Other"
+    "Abilities": {
+        "General": [],
+        "Air Drop": [
+            "- {AbilityIcon|Ability=Air Drop|Size=20} Air Drop now silences the ally being carried until they are released"
+        ],
+        "Bloodletting": [
+            "- {AbilityIcon|Ability=Bloodletting|Size=20} Bloodletting incoming damage deferred reduced from 40% to 35%"
         ]
     }
-]
+}

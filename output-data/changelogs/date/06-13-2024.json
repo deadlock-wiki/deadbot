@@ -1,1060 +1,351 @@
-[
-    {
-        "Description": "* Voice/Text chat is now opt-in. There is a prompt pre-match for joining the chat, or you can control it at any time from the ESC menu during a match.",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* You can now press ESC to mute individual players. Muted accounts will not be alerted, and mutes will persist across games.",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Parties can now set their in-game chat mode to be Party-only, All Team or Chat Disabled (if using discord or other programs)",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Spirit stat has now been renamed to Spirit Power with updated icon",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Top bar now highlights your lane partner and lane enemies during the laning phase",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Increased difficulty for hard mode bots",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Added sandbox option for spawning neutrals",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Improved the camera when using {{PageRef|Dynamo}} Dynamo's {{PageRef|Quantum Entanglement}} Quantum Entanglement",
-        "Tags": [
-            "Dynamo",
-            "Heroes",
-            "Quantum Entanglement",
-            "Abilities",
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Added overhead number counter effect for opponents to see the stacks of {{PageRef|Berserker}} Berserker",
-        "Tags": [
-            "Berserker",
-            "Items",
-            "Weapon Items",
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Increased the range the enemy-candle-behind-wall indicator shows up from 25m to 35m",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Fixed ping wheel randomly coming up instantly instead of doing an in-world ping",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Added ping indicator on the HUD indicating the direction the ping came from (enabled by default in settings)",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Ping Wheel context slot will now show nothing if there is no context currently",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Added new UI indicating how many friends you have that are in the game",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Improved visibility of the edge of {{PageRef|Dynamo}} Dynamo's {{PageRef|Singularity}} Singularity",
-        "Tags": [
-            "Dynamo",
-            "Heroes",
-            "Singularity",
-            "Abilities",
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Fixed various issues with bots getting stuck",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Fixed Build descriptions not showing up properly with the in-game tooltip version",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Moved HUD elements closer to center for ultra wide monitors",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Added heal and kill events to the contextual ping wheel slot",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Fixed AP not showing when you have your hero selected",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Fixed TAB/ALT not bringing up your abilities when spectating the Patron",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Added indicator for burrow damage radius for the local player",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Fixed {{PageRef|Affliction}} Affliction sometimes becoming lethal when combined with {{PageRef|Escalating Exposure}} Escalating Exposure",
-        "Tags": [
-            "Escalating Exposure",
-            "Items",
-            "Spirit Items",
-            "Affliction",
-            "Abilities",
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Fixed {{PageRef|Yamato}} Yamato's {{PageRef|Crimson Slash}} Crimson Slash visual direction being wrong sometimes",
-        "Tags": [
-            "Yamato",
-            "Heroes",
-            "Crimson Slash",
-            "Abilities",
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Added Patron VO for when allied or enemy base guardians are destroyed",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Adjusted the builds drop down in-game to be more clear it can be changed there",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Fixed {{PageRef|Dynamo}} Dynamo's {{PageRef|Singularity}} Singularity moving the Mid Boss",
-        "Tags": [
-            "Dynamo",
-            "Heroes",
-            "Singularity",
-            "Abilities",
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Fixed various bugs with Shifting Shroud",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Added a new \"major damage\" sound effect to indicate large instances of damage to the local player",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Fixed {{PageRef|Lash}} Lash's {{PageRef|Ground Strike}} Ground Strike T3 not being accurate in the tooltip",
-        "Tags": [
-            "Lash",
-            "Heroes",
-            "Ground Strike",
-            "Abilities",
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Fixed {{PageRef|Diviner's Kevlar}} Diviner's Kevlar gaining the Bullet Shield buff if the ultimate was manually cancelled",
-        "Tags": [
-            "Diviner's Kevlar",
-            "Items",
-            "Spirit Items",
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Updated effects for {{PageRef|Unstoppable}} Unstoppable",
-        "Tags": [
-            "Unstoppable",
-            "Items",
-            "Vitality Items",
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Minor improvements to visibility of {{PageRef|Pocket}} Pocket's {{PageRef|Affliction}} Affliction cast",
-        "Tags": [
-            "Pocket",
-            "Heroes",
-            "Affliction",
-            "Abilities",
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Updated effects to {{PageRef|Alchemical Fire}} Alchemical Fire to make it less noisy",
-        "Tags": [
-            "Alchemical Fire",
-            "Items",
-            "Weapon Items",
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Reload anims now play correctly in relation to the reload timer. Previously they would end prematurely if reloads were paused during dash/melee/abilities",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Fixed some bugs with {{PageRef|Pocket}} Pocket/channeling",
-        "Tags": [
-            "Pocket",
-            "Heroes",
-            "Other"
-        ]
-    },
-    {
-        "Description": "* A few buildings are 2-3 stories taller",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Added new effects for {{PageRef|Knockdown}} Knockdown",
-        "Tags": [
-            "Knockdown",
-            "Items",
-            "Spirit Items",
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Added new effects for {{PageRef|Vampiric Burst}} Vampiric Burst",
-        "Tags": [
-            "Vampiric Burst",
-            "Items",
-            "Weapon Items",
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Fixed {{PageRef|Mo & Krill}} Mo & Krill gaining {{PageRef|Reactive Barrier}} Reactive Barrier buff while channeling the ultimate",
-        "Tags": [
-            "Mo & Krill",
-            "Heroes",
-            "Reactive Barrier",
-            "Items",
-            "Vitality Items",
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Added instructional text to the bottom of the ping wheel container reminding that they can customize it in settings",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Changed {{PageRef|Ivy}} Ivy's True Form ability name to {{PageRef|Stone Form}} Stone Form",
-        "Tags": [
-            "Ivy",
-            "Heroes",
-            "Stone Form",
-            "Abilities",
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Fixed bugs that were keeping some heroes desperation ability use lines from playing correctly (casting an ability when you're below 10% should play different VO)",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Fixed several instances of ability use VO getting swallowed up by SFX",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Boosted volume of ult cast VO",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Added various ambient sounds - walla, birds, drones - and overall mix tweaks",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Iterated on binding word sound effects",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Added {{PageRef|Curse}} Curse item selection start, loop, and end sounds",
-        "Tags": [
-            "Curse",
-            "Items",
-            "Spirit Items",
-            "Other"
-        ]
-    },
-    {
-        "Description": "* The Patrons no longer care about the well being of the Urn Runner, and so they will stop asking you to protect them (patrons will no longer call out the urn being picked up)",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Added two new underground tunnels, one on each side of the map. The tunnels connect the underground shop to the Bodega area on Amber and the Theater area on Sapphire.",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Added two new teleporters, one on each outer lane (behind the Chapel and behind the Firehouse)",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Urn reward now has a comeback component where it gives extra gold for the team that is behind based on the magnitude",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* A small share of the comeback portion of hero kill bounty is now given to each other player outside of just the kill/assist players. This also makes the amount the killer gets be more consistent, previously the amount could vary significantly based on how many people were involved. The killer and assist players still get the bigger shares.",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Kill assist window increased from 7s to 10s",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Rejuvenator is no longer area pick up and now requires someone to heavy melee it to pick it up after it's dropped to the ground",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Rejuvenator will no longer stop dropping if it touches player created geometry (like Ice Dome) and always goes down to the target position",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* You can air-dash downward by pressing CTRL+SHIFT while in the air",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Successful parry reduces the cooldown from 1s to 0.5s (unsuccessful parry cd is still 6s)",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Heroes}} Heroes HP growth per boon increased by +5 (there are 11 instances of these). This is not done for {{PageRef|Abrams}} Abrams or {{PageRef|Dynamo}} Dynamo.",
-        "Tags": [
-            "Abrams",
-            "Heroes",
-            "Dynamo",
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Post lane medic troopers will heal other troopers if a hero within range is full hp",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Post lane medic troopers' hero heal increased from 40 to 80",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Base zipline speed increased by 5%",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* If the Soul Urn is dropped it goes back to its original spot a little bit faster",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Healing/Spawn area in the base now has its defense damage go up over time",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Carrying the Soul Urn no longer causes you to get slowed briefly by 50% when you get shot",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Carrying the Soul Urn now always slows you by 15%",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Carrying the Soul Urn now also silences your items",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* The silence effect for Soul Urn now applies as you start channeling to pick it up (0.5s after touching it, to prevent accidental walk overs)",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* Base side doors near the healing area now open a lot faster",
-        "Tags": [
-            "Other"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Mystic Burst}} Mystic Burst: No longer grants +3 Spirit Power",
-        "Tags": [
-            "Mystic Burst",
-            "Items",
-            "Spirit Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Mystic Burst}} Mystic Burst: No longer grants +1 Sprint",
-        "Tags": [
-            "Mystic Burst",
-            "Items",
-            "Spirit Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Mystic Burst}} Mystic Burst: Now grants +40 Spirit Shield",
-        "Tags": [
-            "Mystic Burst",
-            "Items",
-            "Spirit Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Mystic Burst}} Mystic Burst: Now grants +6% Weapon Power",
-        "Tags": [
-            "Mystic Burst",
-            "Items",
-            "Spirit Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Headshot Booster}} Headshot Booster: Bonus headshot damage reduced from 50 to 45",
-        "Tags": [
-            "Headshot Booster",
-            "Items",
-            "Weapon Items"
-        ]
-    },
-    {
-        "Description": "* Medic Bullets: Healing from heroes increased from 25 to 30",
-        "Tags": [
-            "Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Extra Health}} Extra Health: Health increased from 125 to 135",
-        "Tags": [
-            "Extra Health",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Divine Barrier}} Divine Barrier: No longer grants +2 Sprint",
-        "Tags": [
-            "Divine Barrier",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Divine Barrier}} Divine Barrier: Bullet Resist reduced from 10% to 7%",
-        "Tags": [
-            "Divine Barrier",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Divine Barrier}} Divine Barrier: Cooldown increased from 20 to 30",
-        "Tags": [
-            "Divine Barrier",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Divine Barrier}} Divine Barrier: Active Move Speed reduced from 3 to 2",
-        "Tags": [
-            "Divine Barrier",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Enchanter's Barrier}} Enchanter's Barrier: Shield increased from 275 to 300",
-        "Tags": [
-            "Enchanter's Barrier",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Bullet Resist Shredder}} Bullet Resist Shredder: Debuff duration increased from 4s to 5s",
-        "Tags": [
-            "Bullet Resist Shredder",
-            "Items",
-            "Spirit Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Healbane}} Healbane: Bonus HP increased from 50 to 75",
-        "Tags": [
-            "Healbane",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Healing Booster}} Healing Booster: No longer grants +50 HP",
-        "Tags": [
-            "Healing Booster",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Healing Booster}} Healing Booster: Now grants +8% Spirit Resist",
-        "Tags": [
-            "Healing Booster",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Swift Striker}} Swift Striker: Armor penalty reduced from -7% to -6%",
-        "Tags": [
-            "Swift Striker",
-            "Items",
-            "Weapon Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Fleetfoot}} Fleetfoot: Cooldown increased from 20s to 22s",
-        "Tags": [
-            "Fleetfoot",
-            "Items",
-            "Weapon Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Reactive Barrier}} Reactive Barrier: Cooldown reduced from 25s to 20s",
-        "Tags": [
-            "Reactive Barrier",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Cold Front}} Cold Front: Time to expand reduced from 1.5s to 0.75s",
-        "Tags": [
-            "Cold Front",
-            "Items",
-            "Spirit Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Majestic Leap}} Majestic Leap: Cooldown increased from 15s to 20s",
-        "Tags": [
-            "Majestic Leap",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Majestic Leap}} Majestic Leap: Drop down speed reduced from 51 to 36",
-        "Tags": [
-            "Majestic Leap",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Burst Fire}} Burst Fire: Cooldown reduced from 10s to 9s",
-        "Tags": [
-            "Burst Fire",
-            "Items",
-            "Weapon Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Rescue Beam}} Rescue Beam: No longer grants movement speed",
-        "Tags": [
-            "Rescue Beam",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Rescue Beam}} Rescue Beam: Active has been reworked. Now channels for 3 seconds, healing you and the target for up to 25% of Max HP. If you click the ally again during that time, you will pull them to you. Has 40m cast range and 45s cooldown. Can be self cast.",
-        "Tags": [
-            "Rescue Beam",
-            "Items",
-            "Vitality Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Tesla Bullets}} Tesla Bullets: Internal cooldown reduced from 0.4s to 0.35s",
-        "Tags": [
-            "Tesla Bullets",
-            "Items",
-            "Weapon Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Mystic Slow}} Mystic Slow: Bonus HP increased from +75 to +100",
-        "Tags": [
-            "Mystic Slow",
-            "Items",
-            "Spirit Items"
-        ]
-    },
-    {
-        "Description": "* Shifting Shroud: Renamed to {{PageRef|Ethereal Shift}} Ethereal Shift",
-        "Tags": [
-            "Ethereal Shift",
-            "Items",
-            "Spirit Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Warp Stone}} Warp Stone: Fixed some cases where it would fail to cast near objects",
-        "Tags": [
-            "Warp Stone",
-            "Items",
-            "Weapon Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Escalating Resilience}} Escalating Resilience: Stacks share a duration now and each new stack refreshes it",
-        "Tags": [
-            "Escalating Resilience",
-            "Items",
-            "Weapon Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Escalating Resilience}} Escalating Resilience: Duration reduced from 15s to 10s",
-        "Tags": [
-            "Escalating Resilience",
-            "Items",
-            "Weapon Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Escalating Resilience}} Escalating Resilience: Max resistance reduced from 36% to 30%",
-        "Tags": [
-            "Escalating Resilience",
-            "Items",
-            "Weapon Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Alchemical Fire}} Alchemical Fire: Cooldown reduced from 34s to 30s",
-        "Tags": [
-            "Alchemical Fire",
-            "Items",
-            "Weapon Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Crippling Headshot}} Crippling Headshot: Bullet and Spirit resistance reduction reduced from 35% to 30%",
-        "Tags": [
-            "Crippling Headshot",
-            "Items",
-            "Weapon Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Boundless Spirit}} Boundless Spirit: Spirit Power increased from +50 to +55",
-        "Tags": [
-            "Boundless Spirit",
-            "Items",
-            "Spirit Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Boundless Spirit}} Boundless Spirit: Now grants +175 Health",
-        "Tags": [
-            "Boundless Spirit",
-            "Items",
-            "Spirit Items"
-        ]
-    },
-    {
-        "Description": "* Richochet: Ammo increased from +25% to +30%",
-        "Tags": [
-            "Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Vampiric Burst}} Vampiric Burst: Lifesteal increased from 70% to 80%",
-        "Tags": [
-            "Vampiric Burst",
-            "Items",
-            "Weapon Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Refresher}} Refresher: Now has a 0.3s cast time",
-        "Tags": [
-            "Refresher",
-            "Items",
-            "Spirit Items"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Abrams}} Abrams: Base health regen reduced from 2 to 1",
-        "Tags": [
-            "Abrams",
-            "Heroes"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Abrams}} Abrams: {{PageRef|Infernal Resilience}} Infernal Resilience T1 reduced from +2 HP Regen to +1.5",
-        "Tags": [
-            "Abrams",
-            "Heroes",
-            "Infernal Resilience",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Bebop}} Bebop: {{PageRef|Sticky Bomb}} Sticky Bomb base damage reduced from 130 to 120",
-        "Tags": [
-            "Bebop",
-            "Heroes",
-            "Sticky Bomb",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Bebop}} Bebop: {{PageRef|Hook}} Hook grab radius reduced from 40 inches to 36",
-        "Tags": [
-            "Bebop",
-            "Heroes",
-            "Hook",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Bebop}} Bebop: {{PageRef|Hyper Beam}} Hyper Beam movement and dash slow increased from 30% to 40%",
-        "Tags": [
-            "Bebop",
-            "Heroes",
-            "Hyper Beam",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Bebop}} Bebop: {{PageRef|Hyper Beam}} Hyper Beam DPS increased from 210 to 220",
-        "Tags": [
-            "Bebop",
-            "Heroes",
-            "Hyper Beam",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Bebop}} Bebop: {{PageRef|Hyper Beam}} Hyper Beam tracking speed increased by 10%",
-        "Tags": [
-            "Bebop",
-            "Heroes",
-            "Hyper Beam",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Dynamo}} Dynamo: {{PageRef|Singularity}} Singularity radius reduced from 10m to 9m",
-        "Tags": [
-            "Dynamo",
-            "Heroes",
-            "Singularity",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Grey Talon}} Grey Talon: {{PageRef|Guided Owl}} Guided Owl cooldown reduced from 130s to 120s",
-        "Tags": [
-            "Grey Talon",
-            "Heroes",
-            "Guided Owl",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Haze}} Haze: {{PageRef|Sleep Dagger}} Sleep Dagger damage Spirit growth increased from 2.5 to 2.8",
-        "Tags": [
-            "Haze",
-            "Heroes",
-            "Sleep Dagger",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Haze}} Haze: {{PageRef|Sleep Dagger}} Sleep Dagger T3 is now -12% Bullet Resistance for 6 seconds",
-        "Tags": [
-            "Haze",
-            "Heroes",
-            "Sleep Dagger",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Haze}} Haze: {{PageRef|Smoke Bomb}} Smoke Bomb T1 increased from +4 m/s Invis Sprint Speed to +5",
-        "Tags": [
-            "Haze",
-            "Heroes",
-            "Smoke Bomb",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Haze}} Haze: {{PageRef|Smoke Bomb}} Smoke Bomb causes your footsteps to be silent",
-        "Tags": [
-            "Haze",
-            "Heroes",
-            "Smoke Bomb",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Ivy}} Ivy: {{PageRef|Watcher's Covenant}} Watcher's Covenant replicated healing reduced from 55% to 45%",
-        "Tags": [
-            "Ivy",
-            "Heroes",
-            "Watcher's Covenant",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Ivy}} Ivy: {{PageRef|Watcher's Covenant}} Watcher's Covenant no longer provides +2 m/s in the base ability",
-        "Tags": [
-            "Ivy",
-            "Heroes",
-            "Watcher's Covenant",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Ivy}} Ivy: {{PageRef|Watcher's Covenant}} Watcher's Covenant T2 movement bonus increased from +2 m/s to +3",
-        "Tags": [
-            "Ivy",
-            "Heroes",
-            "Watcher's Covenant",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Kelvin}} Kelvin: {{PageRef|Frozen Shelter}} Frozen Shelter movement speed slow increased from 25% to 35%",
-        "Tags": [
-            "Kelvin",
-            "Heroes",
-            "Frozen Shelter",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Kelvin}} Kelvin: Can now dismiss {{PageRef|Frozen Shelter}} Frozen Shelter while channeling other abilities ({{PageRef|Arctic Beam}} Arctic Beam)",
-        "Tags": [
-            "Kelvin",
-            "Heroes",
-            "Frozen Shelter",
-            "Abilities",
-            "Arctic Beam"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Lash}} Lash: {{PageRef|Ground Strike}} Ground Strike base damage reduced from 110 to 90",
-        "Tags": [
-            "Lash",
-            "Heroes",
-            "Ground Strike",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Lash}} Lash: {{PageRef|Ground Strike}} Ground Strike damage per meter increased from 6 to 6.75",
-        "Tags": [
-            "Lash",
-            "Heroes",
-            "Ground Strike",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Lash}} Lash: {{PageRef|Ground Strike}} Ground Strike now reduced scaling after 25m height to 4.5",
-        "Tags": [
-            "Lash",
-            "Heroes",
-            "Ground Strike",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|McGinnis}} McGinnis: {{PageRef|Mini Turret}} Mini Turret charge delay reduced from 10s to 8s",
-        "Tags": [
-            "McGinnis",
-            "Heroes",
-            "Mini Turret",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|McGinnis}} McGinnis: Fixed {{PageRef|Echo Shard}} Echo Shard to be compatible with {{PageRef|Spectral Wall}} Spectral Wall again (Activating echo shard resets the ability so you can cast it again and not have to cancel your first one. After casting the 2nd, using cancel will remove the first wall first)",
-        "Tags": [
-            "McGinnis",
-            "Heroes",
-            "Echo Shard",
-            "Items",
-            "Spirit Items",
-            "Spectral Wall",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|McGinnis}} McGinnis: Can now dismiss {{PageRef|Spectral Wall}} Spectral Wall while channeling other abilities ({{PageRef|Heavy {{PageRef|Barrage}} Barrage}} Heavy {{PageRef|Barrage}} Barrage)",
-        "Tags": [
-            "McGinnis",
-            "Heroes",
-            "Spectral Wall",
-            "Abilities",
-            "Heavy Barrage",
-            "Barrage"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Mo & Krill}} Mo & Krill: HP Growth per boon reduced from 48 to 42",
-        "Tags": [
-            "Mo & Krill",
-            "Heroes"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Mo & Krill}} Mo & Krill: {{PageRef|Combo}} Combo now grants 25 max hp each time a target dies during it",
-        "Tags": [
-            "Mo & Krill",
-            "Heroes",
-            "Combo",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Seven}} Seven: {{PageRef|Storm Cloud}} Storm Cloud initial radius increased from 10m to 12m",
-        "Tags": [
-            "Seven",
-            "Heroes",
-            "Storm Cloud",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Seven}} Seven: {{PageRef|Storm Cloud}} Storm Cloud T2 bonus radius reduced from 12m to 10m",
-        "Tags": [
-            "Seven",
-            "Heroes",
-            "Storm Cloud",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Yamato}} Yamato: {{PageRef|Power Slash}} Power Slash T3 bonus damage reduced from +210 to +200",
-        "Tags": [
-            "Yamato",
-            "Heroes",
-            "Power Slash",
-            "Abilities"
-        ]
-    },
-    {
-        "Description": "* {{PageRef|Yamato}} Yamato: {{PageRef|Shadow Transformation}} Shadow Transformation cooldown increased from 100 to 110",
-        "Tags": [
-            "Yamato",
-            "Heroes",
-            "Shadow Transformation",
-            "Abilities"
-        ]
+{
+    "Other": {
+        "General": []
+    },
+    "Heroes": {
+        "General": [],
+        "Dynamo": [
+            "- Improved the camera when using Dynamo's {AbilityIcon|Ability=Quantum Entanglement|Size=20} Quantum Entanglement",
+            "- Improved visibility of the edge of Dynamo's {AbilityIcon|Ability=Singularity|Size=20} Singularity",
+            "- Fixed Dynamo's {AbilityIcon|Ability=Singularity|Size=20} Singularity moving the Mid Boss",
+            "- Heroes HP growth per boon increased by +5 (there are 11 instances of these). This is not done for Abrams or {AbilityIcon|Ability=Dynamo|Size=20} Dynamo.",
+            "- {AbilityIcon|Ability=Singularity|Size=20} Singularity radius reduced from 10m to 9m"
+        ],
+        "Yamato": [
+            "- Fixed Yamato's {AbilityIcon|Ability=Crimson Slash|Size=20} Crimson Slash visual direction being wrong sometimes",
+            "- {AbilityIcon|Ability=Power Slash|Size=20} Power Slash T3 bonus damage reduced from +210 to +200",
+            "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation cooldown increased from 100 to 110"
+        ],
+        "Lash": [
+            "- Fixed Lash's {AbilityIcon|Ability=Ground Strike|Size=20} Ground Strike T3 not being accurate in the tooltip",
+            "- {AbilityIcon|Ability=Ground Strike|Size=20} Ground Strike base damage reduced from 110 to 90",
+            "- {AbilityIcon|Ability=Ground Strike|Size=20} Ground Strike damage per meter increased from 6 to 6.75",
+            "- {AbilityIcon|Ability=Ground Strike|Size=20} Ground Strike now reduced scaling after 25m height to 4.5"
+        ],
+        "Pocket": [
+            "- Minor improvements to visibility of Pocket's {AbilityIcon|Ability=Affliction|Size=20} Affliction cast",
+            "- Fixed some bugs with {AbilityIcon|Ability=Pocket|Size=20} Pocket/channeling"
+        ],
+        "Mo & Krill": [
+            "- Fixed Mo & Krill gaining {AbilityIcon|Ability=Reactive Barrier|Size=20} Reactive Barrier buff while channeling the ultimate",
+            "- HP Growth per boon reduced from 48 to 42",
+            "- {AbilityIcon|Ability=Combo|Size=20} Combo now grants 25 max hp each time a target dies during it"
+        ],
+        "Ivy": [
+            "- Changed Ivy's True Form ability name to {AbilityIcon|Ability=Stone Form|Size=20} Stone Form",
+            "- {AbilityIcon|Ability=Watcher's Covenant|Size=20} Watcher's Covenant replicated healing reduced from 55% to 45%",
+            "- {AbilityIcon|Ability=Watcher's Covenant|Size=20} Watcher's Covenant no longer provides +2 m/s in the base ability",
+            "- {AbilityIcon|Ability=Watcher's Covenant|Size=20} Watcher's Covenant T2 movement bonus increased from +2 m/s to +3"
+        ],
+        "Abrams": [
+            "- Heroes HP growth per boon increased by +5 (there are 11 instances of these). This is not done for Abrams or {AbilityIcon|Ability=Dynamo|Size=20} Dynamo.",
+            "- Base health regen reduced from 2 to 1",
+            "- {AbilityIcon|Ability=Infernal Resilience|Size=20} Infernal Resilience T1 reduced from +2 HP Regen to +1.5"
+        ],
+        "Bebop": [
+            "- {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb base damage reduced from 130 to 120",
+            "- {AbilityIcon|Ability=Hook|Size=20} Hook grab radius reduced from 40 inches to 36",
+            "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam movement and dash slow increased from 30% to 40%",
+            "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam DPS increased from 210 to 220",
+            "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam tracking speed increased by 10%"
+        ],
+        "Grey Talon": [
+            "- {AbilityIcon|Ability=Guided Owl|Size=20} Guided Owl cooldown reduced from 130s to 120s"
+        ],
+        "Haze": [
+            "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger damage Spirit growth increased from 2.5 to 2.8",
+            "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger T3 is now -12% Bullet Resistance for 6 seconds",
+            "- {AbilityIcon|Ability=Smoke Bomb|Size=20} Smoke Bomb T1 increased from +4 m/s Invis Sprint Speed to +5",
+            "- {AbilityIcon|Ability=Smoke Bomb|Size=20} Smoke Bomb causes your footsteps to be silent"
+        ],
+        "Kelvin": [
+            "- {AbilityIcon|Ability=Frozen Shelter|Size=20} Frozen Shelter movement speed slow increased from 25% to 35%",
+            "- Can now dismiss Frozen Shelter while channeling other abilities ({AbilityIcon|Ability=Arctic Beam|Size=20} Arctic Beam)"
+        ],
+        "McGinnis": [
+            "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turret charge delay reduced from 10s to 8s",
+            "- Fixed Echo Shard to be compatible with {AbilityIcon|Ability=Spectral Wall|Size=20} Spectral Wall again (Activating echo shard resets the ability so you can cast it again and not have to cancel your first one. After casting the 2nd, using cancel will remove the first wall first)",
+            "- Can now dismiss Spectral Wall while channeling other abilities (Heavy {AbilityIcon|Ability=Barrage|Size=20} Barrage)"
+        ],
+        "Seven": [
+            "- {AbilityIcon|Ability=Storm Cloud|Size=20} Storm Cloud initial radius increased from 10m to 12m",
+            "- {AbilityIcon|Ability=Storm Cloud|Size=20} Storm Cloud T2 bonus radius reduced from 12m to 10m"
+        ]
+    },
+    "Items": {
+        "General": [],
+        "Berserker": [
+            "- Added overhead number counter effect for opponents to see the stacks of {AbilityIcon|Ability=Berserker|Size=20} Berserker"
+        ],
+        "Escalating Exposure": [
+            "- Fixed {AbilityIcon|Ability=Affliction|Size=20} Affliction sometimes becoming lethal when combined with Escalating Exposure"
+        ],
+        "Diviner's Kevlar": [
+            "- Fixed {AbilityIcon|Ability=Diviner's Kevlar|Size=20} Diviner's Kevlar gaining the Bullet Shield buff if the ultimate was manually cancelled"
+        ],
+        "Unstoppable": [
+            "- Updated effects for {AbilityIcon|Ability=Unstoppable|Size=20} Unstoppable"
+        ],
+        "Alchemical Fire": [
+            "- Updated effects to {AbilityIcon|Ability=Alchemical Fire|Size=20} Alchemical Fire to make it less noisy",
+            "- Cooldown reduced from 34s to 30s"
+        ],
+        "Knockdown": [
+            "- Added new effects for {AbilityIcon|Ability=Knockdown|Size=20} Knockdown"
+        ],
+        "Vampiric Burst": [
+            "- Added new effects for {AbilityIcon|Ability=Vampiric Burst|Size=20} Vampiric Burst",
+            "- Lifesteal increased from 70% to 80%"
+        ],
+        "Reactive Barrier": [
+            "- Fixed Mo & Krill gaining {AbilityIcon|Ability=Reactive Barrier|Size=20} Reactive Barrier buff while channeling the ultimate",
+            "- Cooldown reduced from 25s to 20s"
+        ],
+        "Curse": [
+            "- Added {AbilityIcon|Ability=Curse|Size=20} Curse item selection start, loop, and end sounds"
+        ],
+        "Mystic Burst": [
+            "- No longer grants +3 Spirit Power",
+            "- No longer grants +1 Sprint",
+            "- Now grants +40 Spirit Shield",
+            "- Now grants +6% Weapon Power"
+        ],
+        "Headshot Booster": [
+            "- Bonus headshot damage reduced from 50 to 45"
+        ],
+        "Extra Health": [
+            "- Health increased from 125 to 135"
+        ],
+        "Divine Barrier": [
+            "- No longer grants +2 Sprint",
+            "- Bullet Resist reduced from 10% to 7%",
+            "- Cooldown increased from 20 to 30",
+            "- Active Move Speed reduced from 3 to 2"
+        ],
+        "Enchanter's Barrier": [
+            "- Shield increased from 275 to 300"
+        ],
+        "Bullet Resist Shredder": [
+            "- Debuff duration increased from 4s to 5s"
+        ],
+        "Healbane": [
+            "- Bonus HP increased from 50 to 75"
+        ],
+        "Healing Booster": [
+            "- No longer grants +50 HP",
+            "- Now grants +8% Spirit Resist"
+        ],
+        "Swift Striker": [
+            "- Armor penalty reduced from -7% to -6%"
+        ],
+        "Fleetfoot": [
+            "- Cooldown increased from 20s to 22s"
+        ],
+        "Cold Front": [
+            "- Time to expand reduced from 1.5s to 0.75s"
+        ],
+        "Majestic Leap": [
+            "- Cooldown increased from 15s to 20s",
+            "- Drop down speed reduced from 51 to 36"
+        ],
+        "Burst Fire": [
+            "- Cooldown reduced from 10s to 9s"
+        ],
+        "Rescue Beam": [
+            "- No longer grants movement speed",
+            "- Active has been reworked. Now channels for 3 seconds, healing you and the target for up to 25% of Max HP. If you click the ally again during that time, you will pull them to you. Has 40m cast range and 45s cooldown. Can be self cast."
+        ],
+        "Tesla Bullets": [
+            "- Internal cooldown reduced from 0.4s to 0.35s"
+        ],
+        "Mystic Slow": [
+            "- Bonus HP increased from +75 to +100"
+        ],
+        "Ethereal Shift": [
+            "- Shifting Shroud: Renamed to {AbilityIcon|Ability=Ethereal Shift|Size=20} Ethereal Shift"
+        ],
+        "Warp Stone": [
+            "- Fixed some cases where it would fail to cast near objects"
+        ],
+        "Escalating Resilience": [
+            "- Stacks share a duration now and each new stack refreshes it",
+            "- Duration reduced from 15s to 10s",
+            "- Max resistance reduced from 36% to 30%"
+        ],
+        "Crippling Headshot": [
+            "- Bullet and Spirit resistance reduction reduced from 35% to 30%"
+        ],
+        "Boundless Spirit": [
+            "- Spirit Power increased from +50 to +55",
+            "- Now grants +175 Health"
+        ],
+        "Refresher": [
+            "- Now has a 0.3s cast time"
+        ],
+        "Smoke": [
+            "- {AbilityIcon|Ability=Smoke Bomb|Size=20} Smoke Bomb T1 increased from +4 m/s Invis Sprint Speed to +5",
+            "- {AbilityIcon|Ability=Smoke Bomb|Size=20} Smoke Bomb causes your footsteps to be silent"
+        ],
+        "Echo Shard": [
+            "- Fixed Echo Shard to be compatible with {AbilityIcon|Ability=Spectral Wall|Size=20} Spectral Wall again (Activating echo shard resets the ability so you can cast it again and not have to cancel your first one. After casting the 2nd, using cancel will remove the first wall first)"
+        ]
+    },
+    "Abilities": {
+        "General": [],
+        "Quantum Entanglement": [
+            "- Improved the camera when using Dynamo's {AbilityIcon|Ability=Quantum Entanglement|Size=20} Quantum Entanglement"
+        ],
+        "Singularity": [
+            "- Improved visibility of the edge of Dynamo's {AbilityIcon|Ability=Singularity|Size=20} Singularity",
+            "- Fixed Dynamo's {AbilityIcon|Ability=Singularity|Size=20} Singularity moving the Mid Boss",
+            "- {AbilityIcon|Ability=Singularity|Size=20} Singularity radius reduced from 10m to 9m"
+        ],
+        "Affliction": [
+            "- Fixed {AbilityIcon|Ability=Affliction|Size=20} Affliction sometimes becoming lethal when combined with Escalating Exposure",
+            "- Minor improvements to visibility of Pocket's {AbilityIcon|Ability=Affliction|Size=20} Affliction cast"
+        ],
+        "Crimson Slash": [
+            "- Fixed Yamato's {AbilityIcon|Ability=Crimson Slash|Size=20} Crimson Slash visual direction being wrong sometimes"
+        ],
+        "Ground Strike": [
+            "- Fixed Lash's {AbilityIcon|Ability=Ground Strike|Size=20} Ground Strike T3 not being accurate in the tooltip",
+            "- {AbilityIcon|Ability=Ground Strike|Size=20} Ground Strike base damage reduced from 110 to 90",
+            "- {AbilityIcon|Ability=Ground Strike|Size=20} Ground Strike damage per meter increased from 6 to 6.75",
+            "- {AbilityIcon|Ability=Ground Strike|Size=20} Ground Strike now reduced scaling after 25m height to 4.5"
+        ],
+        "Stone Form": [
+            "- Changed Ivy's True Form ability name to {AbilityIcon|Ability=Stone Form|Size=20} Stone Form"
+        ],
+        "Infernal Resilience": [
+            "- {AbilityIcon|Ability=Infernal Resilience|Size=20} Infernal Resilience T1 reduced from +2 HP Regen to +1.5"
+        ],
+        "Sticky Bomb": [
+            "- {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb base damage reduced from 130 to 120"
+        ],
+        "Hook": [
+            "- {AbilityIcon|Ability=Hook|Size=20} Hook grab radius reduced from 40 inches to 36"
+        ],
+        "Hyper Beam": [
+            "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam movement and dash slow increased from 30% to 40%",
+            "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam DPS increased from 210 to 220",
+            "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam tracking speed increased by 10%"
+        ],
+        "Guided Owl": [
+            "- {AbilityIcon|Ability=Guided Owl|Size=20} Guided Owl cooldown reduced from 130s to 120s"
+        ],
+        "Sleep Dagger": [
+            "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger damage Spirit growth increased from 2.5 to 2.8",
+            "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger T3 is now -12% Bullet Resistance for 6 seconds"
+        ],
+        "Smoke Bomb": [
+            "- {AbilityIcon|Ability=Smoke Bomb|Size=20} Smoke Bomb T1 increased from +4 m/s Invis Sprint Speed to +5",
+            "- {AbilityIcon|Ability=Smoke Bomb|Size=20} Smoke Bomb causes your footsteps to be silent"
+        ],
+        "Watcher's Covenant": [
+            "- {AbilityIcon|Ability=Watcher's Covenant|Size=20} Watcher's Covenant replicated healing reduced from 55% to 45%",
+            "- {AbilityIcon|Ability=Watcher's Covenant|Size=20} Watcher's Covenant no longer provides +2 m/s in the base ability",
+            "- {AbilityIcon|Ability=Watcher's Covenant|Size=20} Watcher's Covenant T2 movement bonus increased from +2 m/s to +3"
+        ],
+        "Frozen Shelter": [
+            "- {AbilityIcon|Ability=Frozen Shelter|Size=20} Frozen Shelter movement speed slow increased from 25% to 35%",
+            "- Can now dismiss Frozen Shelter while channeling other abilities ({AbilityIcon|Ability=Arctic Beam|Size=20} Arctic Beam)"
+        ],
+        "Arctic Beam": [
+            "- Can now dismiss Frozen Shelter while channeling other abilities ({AbilityIcon|Ability=Arctic Beam|Size=20} Arctic Beam)"
+        ],
+        "Mini Turret": [
+            "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turret charge delay reduced from 10s to 8s"
+        ],
+        "Spectral Wall": [
+            "- Fixed Echo Shard to be compatible with {AbilityIcon|Ability=Spectral Wall|Size=20} Spectral Wall again (Activating echo shard resets the ability so you can cast it again and not have to cancel your first one. After casting the 2nd, using cancel will remove the first wall first)",
+            "- Can now dismiss Spectral Wall while channeling other abilities (Heavy {AbilityIcon|Ability=Barrage|Size=20} Barrage)"
+        ],
+        "Heavy Barrage": [
+            "- Can now dismiss Spectral Wall while channeling other abilities (Heavy {AbilityIcon|Ability=Barrage|Size=20} Barrage)"
+        ],
+        "Barrage": [
+            "- Can now dismiss Spectral Wall while channeling other abilities (Heavy {AbilityIcon|Ability=Barrage|Size=20} Barrage)"
+        ],
+        "Combo": [
+            "- {AbilityIcon|Ability=Combo|Size=20} Combo now grants 25 max hp each time a target dies during it"
+        ],
+        "Storm Cloud": [
+            "- {AbilityIcon|Ability=Storm Cloud|Size=20} Storm Cloud initial radius increased from 10m to 12m",
+            "- {AbilityIcon|Ability=Storm Cloud|Size=20} Storm Cloud T2 bonus radius reduced from 12m to 10m"
+        ],
+        "Power Slash": [
+            "- {AbilityIcon|Ability=Power Slash|Size=20} Power Slash T3 bonus damage reduced from +210 to +200"
+        ],
+        "Shadow Transformation": [
+            "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation cooldown increased from 100 to 110"
+        ]
+    },
+    "General Change": {
+        "General": [
+            "- Voice/Text chat is now opt-in. There is a prompt pre-match for joining the chat, or you can control it at any time from the ESC menu during a match.",
+            "- You can now press ESC to mute individual players. Muted accounts will not be alerted, and mutes will persist across games.",
+            "- Parties can now set their in-game chat mode to be Party-only, All Team or Chat Disabled (if using discord or other programs)",
+            "- Spirit stat has now been renamed to Spirit Power with updated icon",
+            "- Top bar now highlights your lane partner and lane enemies during the laning phase",
+            "- Increased difficulty for hard mode bots",
+            "- Added sandbox option for spawning neutrals",
+            "- Increased the range the enemy-candle-behind-wall indicator shows up from 25m to 35m",
+            "- Fixed ping wheel randomly coming up instantly instead of doing an in-world ping",
+            "- Added ping indicator on the HUD indicating the direction the ping came from (enabled by default in settings)",
+            "- Ping Wheel context slot will now show nothing if there is no context currently",
+            "- Added new UI indicating how many friends you have that are in the game",
+            "- Fixed various issues with bots getting stuck",
+            "- Fixed Build descriptions not showing up properly with the in-game tooltip version",
+            "- Moved HUD elements closer to center for ultra wide monitors",
+            "- Added heal and kill events to the contextual ping wheel slot",
+            "- Fixed AP not showing when you have your hero selected",
+            "- Fixed TAB/ALT not bringing up your abilities when spectating the Patron",
+            "- Added indicator for burrow damage radius for the local player",
+            "- Added Patron VO for when allied or enemy base guardians are destroyed",
+            "- Adjusted the builds drop down in-game to be more clear it can be changed there",
+            "- Fixed various bugs with Shifting Shroud",
+            "- Added a new \"major damage\" sound effect to indicate large instances of damage to the local player",
+            "- Reload anims now play correctly in relation to the reload timer. Previously they would end prematurely if reloads were paused during dash/melee/abilities",
+            "- A few buildings are 2-3 stories taller",
+            "- Added instructional text to the bottom of the ping wheel container reminding that they can customize it in settings",
+            "- Fixed bugs that were keeping some heroes desperation ability use lines from playing correctly (casting an ability when you're below 10% should play different VO)",
+            "- Fixed several instances of ability use VO getting swallowed up by SFX",
+            "- Boosted volume of ult cast VO",
+            "- Added various ambient sounds - walla, birds, drones - and overall mix tweaks",
+            "- Iterated on binding word sound effects",
+            "- The Patrons no longer care about the well being of the Urn Runner, and so they will stop asking you to protect them (patrons will no longer call out the urn being picked up)"
+        ]
+    },
+    "Misc Gameplay": {
+        "General": [
+            "- Added two new underground tunnels, one on each side of the map. The tunnels connect the underground shop to the Bodega area on Amber and the Theater area on Sapphire.",
+            "- Added two new teleporters, one on each outer lane (behind the Chapel and behind the Firehouse)",
+            "- Urn reward now has a comeback component where it gives extra gold for the team that is behind based on the magnitude",
+            "- A small share of the comeback portion of hero kill bounty is now given to each other player outside of just the kill/assist players. This also makes the amount the killer gets be more consistent, previously the amount could vary significantly based on how many people were involved. The killer and assist players still get the bigger shares.",
+            "- Kill assist window increased from 7s to 10s",
+            "- Rejuvenator is no longer area pick up and now requires someone to heavy melee it to pick it up after it's dropped to the ground",
+            "- Rejuvenator will no longer stop dropping if it touches player created geometry (like Ice Dome) and always goes down to the target position",
+            "- You can air-dash downward by pressing CTRL+SHIFT while in the air",
+            "- Successful parry reduces the cooldown from 1s to 0.5s (unsuccessful parry cd is still 6s)",
+            "- Post lane medic troopers will heal other troopers if a hero within range is full hp",
+            "- Post lane medic troopers' hero heal increased from 40 to 80",
+            "- Base zipline speed increased by 5%",
+            "- If the Soul Urn is dropped it goes back to its original spot a little bit faster",
+            "- Healing/Spawn area in the base now has its defense damage go up over time",
+            "- Carrying the Soul Urn no longer causes you to get slowed briefly by 50% when you get shot",
+            "- Carrying the Soul Urn now always slows you by 15%",
+            "- Carrying the Soul Urn now also silences your items",
+            "- The silence effect for Soul Urn now applies as you start channeling to pick it up (0.5s after touching it, to prevent accidental walk overs)",
+            "- Base side doors near the healing area now open a lot faster"
+        ]
+    },
+    "Item Gameplay": {
+        "General": [
+            "- Medic Bullets: Healing from heroes increased from 25 to 30",
+            "- Richochet: Ammo increased from +25% to +30%"
+        ]
+    },
+    "Hero Gameplay": {
+        "General": []
     }
-]
+}
