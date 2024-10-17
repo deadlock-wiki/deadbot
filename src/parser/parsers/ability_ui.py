@@ -1,9 +1,4 @@
-import sys
-import os
-
-# bring parent modules in scope
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
-import maps as maps
+import parser.maps as maps
 import utils.string_utils as string_utils
 
 
@@ -56,19 +51,22 @@ class AbilityUiParser:
 
         return (output, self.localization_updates)
 
-    def _parse_ability_ui(self, parsed_ability):
+    def _parse_ability_ui(self, ability):
+        self.ability = ability
+        self.ability_key = ability['Key']
+
         parsed_ui = {
-            'Key': parsed_ability['Key'],
-            'Name': self._get_localized_string(parsed_ability['Key']),
+            'Key': self.ability_key,
+            'Name': self._get_localized_string(self.ability_key),
         }
 
-        ability_desc_key = parsed_ability['Key'] + '_desc'
+        ability_desc_key = self.ability_key + '_desc'
         # some description keys are not found as they have a specific description per info section
         if ability_desc_key in self.localizations[self.language]:
-            ability_desc = self._get_localized_string(parsed_ability['Key'] + '_desc')
+            ability_desc = self._get_localized_string(self.ability_key + '_desc')
             # required variables to insert into the description
             format_vars = (
-                parsed_ability,
+                self.ability,
                 maps.KEYBIND_MAP,
                 {'ability_key': self.ability_index},
                 {'hero_name': self._get_localized_string(self.hero_key)},
@@ -79,7 +77,7 @@ class AbilityUiParser:
             # update localization file with formatted description
             self.localization_updates[ability_desc_key] = ability_desc
 
-        raw_ability = self.abilities[parsed_ability['Key']]
+        raw_ability = self._get_raw_ability()
 
         # Some heroes do not have ui information, so are likely unplayable or in development
         # TODO - a check for if hero is in development to make sure
@@ -126,7 +124,7 @@ class AbilityUiParser:
                     description = self._get_localized_string(desc_key)
                     # required variables to insert into the description
                     format_vars = (
-                        parsed_ability,
+                        self.ability,
                         maps.KEYBIND_MAP,
                         {'ability_key': self.ability_index},
                         {'hero_name': self._get_localized_string(self.hero_key)},
@@ -140,20 +138,20 @@ class AbilityUiParser:
 
             # some blocks might just be a description
             if 'm_vecAbilityPropertiesBlock' in info_section:
-                parsed_info_section['Main'] = self._parse_main_block(info_section, parsed_ability)
+                parsed_info_section['Main'] = self._parse_main_block(info_section)
 
             if 'm_vecBasicProperties' in info_section:
-                parsed_info_section['Alt'] = self._parse_alt_block(info_section, parsed_ability)
+                parsed_info_section['Alt'] = self._parse_alt_block(info_section)
 
             parsed_ui[f'Info{index+1}'] = parsed_info_section
 
-        parsed_ui['Upgrades'] = self._parse_upgrades(parsed_ability)
+        parsed_ui['Upgrades'] = self._parse_upgrades()
 
-        parsed_ui.update(self._parse_rest_of_data(parsed_ability))
+        parsed_ui.update(self._parse_rest_of_data())
 
         return parsed_ui
 
-    def _parse_main_block(self, info_section, parsed_ability):
+    def _parse_main_block(self, info_section):
         main_block = {'Props': []}
 
         props_block = info_section['m_vecAbilityPropertiesBlock']
@@ -181,28 +179,28 @@ class AbilityUiParser:
 
                 attr_key = parsed_prop['key']
                 if attr_key is None:
-                    raise Exception(f"Missing value for ability {parsed_ability['Name']}")
+                    raise Exception(f"Missing value for ability {self.ability['Name']}")
 
                 # This is probably an upgrade attr that is not tagged as such, so it will
                 # not be shown in the main block
-                if attr_key not in parsed_ability:
+                if attr_key not in self.ability:
                     continue
 
-                raw_ability = self._get_raw_ability_attr(parsed_ability['Key'], attr_key)
+                raw_attr = self._get_raw_ability_attr(attr_key)
 
                 prop_object.update(
                     {
                         'Key': attr_key,
                         'Name': self._get_localized_string(attr_key + '_label'),
-                        'Value': parsed_ability[attr_key],
+                        'Value': self.ability[attr_key],
                     }
                 )
 
-                attr_type = raw_ability.get('m_strCSSClass')
+                attr_type = raw_attr.get('m_strCSSClass')
                 if attr_type is not None:
                     prop_object['Type'] = attr_type
 
-                scale = self._get_scale(parsed_ability['Key'], attr_key)
+                scale = self._get_scale(attr_key)
                 if scale is not None:
                     prop_object['Scale'] = scale
                 self.used_attributes.append(attr_key)
@@ -211,10 +209,10 @@ class AbilityUiParser:
 
         return main_block
 
-    def _parse_ability_prop(self, ability):
+    def _parse_ability_prop(self, ability_prop):
         attribute = {'key': None, 'requires_upgrade': False}
 
-        for attr, value in ability.items():
+        for attr, value in ability_prop.items():
             match attr:
                 case 'm_strStatusEffectValue':
                     attribute['key'] = value
@@ -236,7 +234,7 @@ class AbilityUiParser:
 
         return attribute
 
-    def _parse_alt_block(self, info_section, parsed_ability):
+    def _parse_alt_block(self, info_section):
         alt_block = []
         for prop in info_section['m_vecBasicProperties']:
             prop_object = {
@@ -247,13 +245,13 @@ class AbilityUiParser:
             if name is not None:
                 prop_object['Name'] = name
 
-            prop_object['Value'] = parsed_ability.get(prop)
+            prop_object['Value'] = self.ability.get(prop)
 
-            attr_type = self._get_raw_ability_attr(parsed_ability['Key'], prop).get('m_strCSSClass')
+            attr_type = self._get_raw_ability_attr(prop).get('m_strCSSClass')
             if attr_type is not None:
                 prop_object['Type'] = attr_type
 
-            scale = self._get_scale(parsed_ability['Key'], prop)
+            scale = self._get_scale(prop)
             if scale is not None:
                 prop_object['Scale'] = scale
 
@@ -263,7 +261,7 @@ class AbilityUiParser:
 
         return alt_block
 
-    def _parse_rest_of_data(self, parsed_ability):
+    def _parse_rest_of_data(self):
         """
         Parse any data that has not been included in the main or alt block of the info section
         """
@@ -280,10 +278,10 @@ class AbilityUiParser:
             'Other': {},
         }
 
-        for prop in parsed_ability:
+        for prop in self.ability:
             data = {
                 'Name': self._get_ability_display_name(prop),
-                'Value': parsed_ability.get(prop),
+                'Value': self.ability.get(prop),
             }
 
             # These props are directly referenced and should live on the top level
@@ -303,13 +301,13 @@ class AbilityUiParser:
             if prop in self.used_attributes:
                 continue
 
-            raw_ability = self._get_raw_ability_attr(parsed_ability['Key'], prop)
+            raw_attr = self._get_raw_ability_attr(prop)
 
-            attr_type = raw_ability.get('m_strCSSClass')
+            attr_type = raw_attr.get('m_strCSSClass')
             if attr_type is not None:
                 data['Type'] = attr_type
 
-            scale = self._get_scale(parsed_ability['Key'], prop)
+            scale = self._get_scale(prop)
             if scale is not None:
                 data['Scale'] = scale
 
@@ -354,11 +352,11 @@ class AbilityUiParser:
 
         return cleared_data
 
-    def _parse_upgrades(self, parsed_ability):
+    def _parse_upgrades(self):
         parsed_upgrades = []
-        for index, upgrade in enumerate(parsed_ability['Upgrades']):
+        for index, upgrade in enumerate(self.ability['Upgrades']):
             # Description key includes t1, t2, and t3 denoting the upgrade tier
-            desc_key = f'{parsed_ability["Key"]}_t{index+1}_desc'
+            desc_key = f'{self.ability["Key"]}_t{index+1}_desc'
 
             # this key in particular is not accurate to the one in game
             ignore_desc_key = False
@@ -366,16 +364,7 @@ class AbilityUiParser:
                 ignore_desc_key = True
 
             if desc_key in self.localizations[self.language] and not ignore_desc_key:
-                upgrade_desc = self._get_localized_string(desc_key)
-                # required variables to insert into the description
-                format_vars = (
-                    upgrade,
-                    maps.KEYBIND_MAP,
-                    {'ability_key': self.ability_index},
-                    {'hero_name': self._get_localized_string(self.hero_key)},
-                )
-
-                upgrade_desc = string_utils.format_description(upgrade_desc, *format_vars)
+                upgrade_desc = self._format_desc(desc_key, upgrade)
 
                 # update localization file with formatted description
                 self.localization_updates[desc_key] = upgrade_desc
@@ -385,14 +374,14 @@ class AbilityUiParser:
 
         return parsed_upgrades
 
-    def _get_scale(self, ability_key, attr):
+    def _get_scale(self, attr):
         """
         Get scale data for the ability attribute, which will refer to how the value of the attribute
         scales with another stat, usually Spirit
         """
-        raw_ability = self._get_raw_ability_attr(ability_key, attr)
-        if 'm_subclassScaleFunction' in raw_ability:
-            raw_scale = raw_ability['m_subclassScaleFunction']
+        raw_attr = self._get_raw_ability_attr(attr)
+        if 'm_subclassScaleFunction' in raw_attr:
+            raw_scale = raw_attr['m_subclassScaleFunction']
             # Only include scale with a value, as not sure what
             # any others mean so far.
             if 'm_flStatScale' in raw_scale:
@@ -440,8 +429,48 @@ class AbilityUiParser:
 
         return self._get_localized_string(localized_key)
 
-    def _get_raw_ability_attr(self, ability_key, attr_key):
-        return self.abilities[ability_key]['m_mapAbilityProperties'][attr_key]
+    def _get_raw_ability_attr(self, attr_key):
+        return self._get_raw_ability()['m_mapAbilityProperties'].get(attr_key)
+
+    # def _get_raw_ability_upgrade(self, ability_key, upgrade_index):
+    #     raw_ability =  self._get_raw_ability(ability_key)
+    #     return raw_ability['m_vecAbilityUpgrades'][upgrade_index]['m_vecPropertyUpgrades']
+
+    def _get_raw_ability(self):
+        return self.abilities[self.ability_key]
+
+    def _format_desc(self, desc_key, data):
+        """Formats a localized descriptions with ability data
+
+        Args:
+            desc_key (string): key linking to the localized string in the localization data
+            data (dict): a set of data for replacing variable names in the description
+        """
+        desc = self._get_localized_string(desc_key)
+
+        # check all attributes in data, and see if they have a localization mapping
+        overrides = {}
+        for attr, value in data.items():
+            raw_attr = self._get_raw_ability_attr(attr)
+            if raw_attr is None:
+                continue
+
+            # if a token override is found, add it to the set of data for replacement
+            token_override = raw_attr.get('m_strLocTokenOverride')
+            if token_override is not None:
+                overrides[token_override] = value
+
+        # required variables to insert into the description
+        format_vars = (
+            overrides,
+            data,
+            maps.KEYBIND_MAP,
+            {'ability_key': self.ability_index},
+            {'hero_name': self._get_localized_string(self.hero_key)},
+        )
+
+        formatted_desc = string_utils.format_description(desc, *format_vars)
+        return formatted_desc
 
     def _get_localized_string(self, key):
         OVERRIDES = {
@@ -450,6 +479,7 @@ class AbilityUiParser:
             'BarbedWireRadius_label': 'Radius_label',
             'BarbedWireDamagePerMeter_label': 'DamagePerMeter_label',
             'BuildUpDuration_label': 'BuildupDuration_label',
+            'MeleeAttackSpeedBonus_label': 'NanoShadowMeleeAttackSpeedBonus_label',
             # capital "L" for some reason...
             'TechArmorDamageReduction_label': 'TechArmorDamageReduction_Label',
             'DamageAbsorb_label': 'DamageAbsorb_Label',
