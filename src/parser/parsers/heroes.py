@@ -223,7 +223,7 @@ class HeroParser:
             'ReloadDelay': weapon_stats['ReloadDelay'],
             'ReloadTime': weapon_stats['ReloadTime'],
             'ClipSize': weapon_stats['ClipSize'],
-            'CycleTime': 1 / weapon_stats['RoundsPerSecond'],
+            'RoundsPerSecond': weapon_stats['RoundsPerSecond'],
             'BurstInterShotInterval': weapon_stats['BurstInterShotInterval'],
             'BulletDamage': weapon_stats['BulletDamage'],
             'BulletsPerShot': weapon_stats['BulletsPerShot'],
@@ -250,7 +250,8 @@ class HeroParser:
         # Abbreivated dictionary for easier access
         d = dps_stats.copy()
 
-        total_cycle_time = d['CycleTime'] + d['BulletsPerBurst'] * d['BurstInterShotInterval']
+        cycle_time = 1 / d['RoundsPerSecond']
+        total_cycle_time = cycle_time + d['BulletsPerBurst'] * d['BurstInterShotInterval']
 
         if type == 'burst':
             return (
