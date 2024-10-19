@@ -4,15 +4,18 @@ import os
 
 def read(path):
     """Read data from a JSON file to memory"""
-    with open(path) as f:
+    # Explicitly specify encoding='utf-8' to handle non-ASCII characters correctly
+    with open(path, 'r', encoding='utf-8') as f:
         return json.load(f)
 
 
 def write(path, data):
     """Write data to a JSON file"""
+    # Ensure directory exists
     os.makedirs(os.path.dirname(path), exist_ok=True)
-    with open(path, 'w') as outfile:
-        json.dump(data, outfile, indent=4)
+    # Use encoding='utf-8' to prevent Unicode characters from being escaped
+    with open(path, 'w', encoding='utf-8') as outfile:
+        json.dump(data, outfile, indent=4, ensure_ascii=False)
 
 
 # Remove keys from a dictionary at the specified depth
