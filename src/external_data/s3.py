@@ -12,8 +12,11 @@ class S3:
 
         self.bucket_name = bucket_name
 
-    def read(self, folder):
+    def list_files(self, folder):
         return self.client.list_objects_v2(Bucket=self.bucket_name, Prefix=folder).get('Contents')
+
+    def download(self, key, path):
+        return self.client.download_file(self.bucket_name, key, path)
 
     def write(self, export_folder, data_directory):
         # get all files in data directory
