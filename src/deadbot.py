@@ -76,7 +76,7 @@ def main():
     # load arguments from constants file
     args = constants.ARGS
 
-    data_transfer = DataTransfer(args.output, args.bucket, args.iam_key, args.iam_secret)
+    data_transfer = DataTransfer(args.workdir, args.bucket, args.iam_key, args.iam_secret)
 
     if args.import_files in constants.TRUE_THO:
         if args.iam_key and args.iam_secret:
