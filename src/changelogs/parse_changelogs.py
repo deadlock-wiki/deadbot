@@ -1,37 +1,24 @@
-import sys
 import os
-from os import listdir
-from os.path import isfile, join
 import datetime
 
-# bring utils module in scope
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import utils.json_utils as json_utils
-
-from .constants import OUTPUT_DIR
 
 
 class ChangelogParser:
-    def __init__(self):
-        self.CHANGELOGS_DIR = os.path.join(os.path.dirname(__file__), '../raw-changelogs/')
-        self.OUTPUT_DIR = OUTPUT_DIR
-        self.OUTPUT_CHANGELOGS = self.OUTPUT_DIR+'/changelogs'
+    def __init__(self, output_dir):
+        self.OUTPUT_DIR = output_dir
+        self.OUTPUT_CHANGELOGS = self.OUTPUT_DIR + '/changelogs'
         self.resources = self._get_resources()
+        self.changelogs_by_date = {}
 
-    def run_all(self):
-        changelogs_by_date = {}
-        files = [f for f in listdir(self.CHANGELOGS_DIR) if isfile(join(self.CHANGELOGS_DIR, f))]
-        for file in files:
-            date = file.replace('.txt', '')
-            changelog = self.run(date)
-            changelogs_by_date[date] = changelog
-
+    def run_all(self, dict_changelogs):
         # take parsed changelogs and transform them into some other useful formats
-        self._create_resource_changelogs(changelogs_by_date)
-        self._create_changelog_db_data(changelogs_by_date)
+        for date, changelog in dict_changelogs.items():
+            self.run(date, changelog)
+        self._create_resource_changelogs()
+        self._create_changelog_db_data()
 
-    def run(self, version):
-        logs = self._read_logs(version)
+    def run(self, version, logs):
         changelog_lines = logs.split('\n')
 
         current_heading = 'Other'
@@ -77,7 +64,7 @@ class ChangelogParser:
                 changelog_dict[current_heading]['General'].append(line)
 
         changelog_with_icons = self._embed_icons(changelog_dict)
-
+        os.makedirs(self.OUTPUT_CHANGELOGS, exist_ok=True)
         json_utils.write(self.OUTPUT_CHANGELOGS + f'/date/{version}.json', changelog_with_icons)
         return changelog_with_icons
 
@@ -100,16 +87,11 @@ class ChangelogParser:
 
         return changelog
 
-    def _read_logs(self, version):
-        # files just
-        f = open(self.CHANGELOGS_DIR + f'{version}.txt', 'r', encoding='utf8')
-        return f.read()
-
     def _get_resources(self):
         resources = {}
-        heroes = json_utils.read(self.OUTPUT_DIR+'/json/hero-data.json')
-        items = json_utils.read(self.OUTPUT_DIR+'/json/item-data.json')
-        abilities = json_utils.read(self.OUTPUT_DIR+'/json/ability-data.json')
+        heroes = json_utils.read(self.OUTPUT_DIR + '/json/hero-data.json')
+        items = json_utils.read(self.OUTPUT_DIR + '/json/item-data.json')
+        abilities = json_utils.read(self.OUTPUT_DIR + '/json/ability-data.json')
 
         for key in heroes:
             heroes[key]['Type'] = 'Heroes'
@@ -128,9 +110,9 @@ class ChangelogParser:
 
     # Creates historic changelog for each resource (eg. heroes, items etc.)
     # using each parsed changelog
-    def _create_resource_changelogs(self, changelogs_by_date):
+    def _create_resource_changelogs(self):
         hero_changelogs = {}
-        for date, changelog in changelogs_by_date.items():
+        for date, changelog in self.changelogs_by_date.items():
             for hero, changes in changelog['Heroes'].items():
                 if hero not in hero_changelogs:
                     hero_changelogs[hero] = {}
@@ -143,7 +125,7 @@ class ChangelogParser:
             )
 
         item_changelogs = {}
-        for date, changelog in changelogs_by_date.items():
+        for date, changelog in self.changelogs_by_date.items():
             for item, changes in changelog['Items'].items():
                 if item not in item_changelogs:
                     item_changelogs[item] = {}
@@ -157,9 +139,9 @@ class ChangelogParser:
 
     # Convert changelogs to an array of rows, with the plan to upload
     # them to a database (TODO)
-    def _create_changelog_db_data(self, changelogs):
+    def _create_changelog_db_data(self):
         rows = []
-        for date, changelog in changelogs.items():
+        for date, changelog in self.changelogs_by_date.items():
             for header, log_groups in changelog.items():
                 for group_name, logs in log_groups.items():
                     for index, log in enumerate(logs):
@@ -185,7 +167,3 @@ class ChangelogParser:
             sorted_changelogs[key] = changelogs[key]
 
         return sorted_changelogs
-
-
-if __name__ == '__main__':
-    ChangelogParser().run_all()

@@ -1,9 +1,4 @@
-import sys
-import os
-
-# bring utils module in scope
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
-import maps as maps
+import parser.maps as maps
 import utils.json_utils as json_utils
 import utils.num_utils as num_utils
 
@@ -92,7 +87,7 @@ class AbilityParser:
                             scale_type = upgrade[key]
 
                 # TODO - handle different types of upgrades
-                if upgrade_type is None:
+                if upgrade_type in ['EAddToBase', None]:
                     parsed_upgrade_set[prop] = value
                 elif upgrade_type == 'EAddToScale':
                     parsed_upgrade_set['Scale'] = {

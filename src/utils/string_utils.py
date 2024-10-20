@@ -3,7 +3,7 @@ import os
 import re
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-import maps
+import parser.maps as maps
 
 
 def format_description(description, *data_sets):
@@ -37,6 +37,10 @@ def format_description(description, *data_sets):
     return _replace_variables(description, data)
 
 
+# Keys to ignore errors, as they are manually verified as having no valid override
+IGNORE_KEYS = ['BonusMaxStacks']
+
+
 # format description with data. eg. "When you are above {s:LifeThreshold}% health"
 # should become "When you are above 20% health"
 def _replace_variables(desc, data):
@@ -51,7 +55,11 @@ def _replace_variables(desc, data):
                 return value[: -len('m')]
 
             return value
-        return f'UNKNOWN[{key}]'
+
+        if key in IGNORE_KEYS:
+            return f'UNKNOWN[{key}]'
+
+        raise Exception(f'Data not found for "{key}"')
 
     formatted_desc = re.sub(r'\[?\{s:(.*?)\}\]?', replace_match, desc)
     return formatted_desc

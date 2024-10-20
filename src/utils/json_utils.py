@@ -51,4 +51,7 @@ def is_json_serializable(obj):
 
 def compare_json_file_to_dict(json_file, dict):
     """Compare a JSON file to a dictionary"""
-    return read(json_file) == dict
+    try:
+        return read(json_file) == dict
+    except Exception:
+        return False
