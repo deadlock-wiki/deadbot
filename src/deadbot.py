@@ -7,7 +7,7 @@ from decompiler import decompile
 import constants
 from changelogs import parse_changelogs, fetch_changelogs
 from parser import parser
-from parser.s3 import S3
+from external_data.data_transfer import DataTransfer
 
 
 """
@@ -55,7 +55,7 @@ def act_gamefile_parse(args):
 
 def act_changelog_parse(args):
     changelog_output = args.output + '/changelogs/raw'
-    os.makedirs(changelog_output,exist_ok=True)
+    os.makedirs(changelog_output, exist_ok=True)
     chlog_fetcher = fetch_changelogs.ChangelogFetcher()
     # load existing changelogs
     chlog_fetcher.get_txt(changelog_output)
@@ -75,6 +75,15 @@ def act_changelog_parse(args):
 def main():
     # load arguments from constants file
     args = constants.ARGS
+
+    data_transfer = DataTransfer(args.output, args.bucket, args.iam_key, args.iam_secret)
+
+    if args.import_files in constants.TRUE_THO:
+        if args.iam_key and args.iam_secret:
+            print('Importing game files...')
+            data_transfer.import_data(version='5282')
+        else:
+            print('[ERROR] iam_key and iam_secret must be set for s3')
 
     # go though args and see what actions to perform
     if args.decompile in constants.TRUE_THO:
@@ -104,9 +113,9 @@ def main():
 
     if args.s3_push in constants.TRUE_THO:
         if args.iam_key and args.iam_secret:
-            S3(args.output, args.bucket, args.iam_key, args.iam_secret).write()
+            data_transfer.export_data()
         else:
-            print('Error: iam_key and iam_secret must be set for s3')
+            print('[ERROR] iam_key and iam_secret must be set for s3')
 
     print('\nDone!')
 
