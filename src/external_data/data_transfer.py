@@ -3,6 +3,12 @@ from .s3 import S3
 
 
 class DataTransfer:
+    """
+    Handles import and export of decompiled game data to and from an S3 bucket.
+    This bucket stores a historic record of each game version, with a top-level folder named
+    after the build number (eg. 5282)
+    """
+
     def __init__(self, data_dir, bucket_name, aws_access_key_id, aws_secret_access_key):
         self.DATA_DIR = data_dir
         self.s3 = S3(bucket_name, aws_access_key_id, aws_secret_access_key)
