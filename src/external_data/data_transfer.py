@@ -1,4 +1,5 @@
 import os
+import shutil
 from .s3 import S3
 
 
@@ -24,9 +25,15 @@ class DataTransfer:
             versions = self._get_versions()
             version = max(versions)
 
+        print(f'Importing game files for version {version}...')
+
         files = self.s3.list_files(version)
         if files is None:
             raise Exception(f'No data found for version {version}')
+
+        # clear data directory before importing
+        if os.path.exists(self.DATA_DIR):
+            shutil.rmtree(self.DATA_DIR)
 
         for obj in files:
             key = obj['Key']
