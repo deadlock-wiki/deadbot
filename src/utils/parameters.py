@@ -46,7 +46,7 @@ def arg_group_base(parser):
     group_base.add_argument(
         '--build_num',
         help='Build number of the game files to be used. Defaults to current build',
-        default=os.getenv('BUILD_NUM', 'current'),
+        default=os.getenv('BUILD_NUM', None),
     )
 
 

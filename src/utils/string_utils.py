@@ -68,3 +68,16 @@ def _replace_variables(desc, data):
 def remove_letters(input_string):
     """Remove letters from a string. Eg. -4.5m -> -4.5"""
     return re.sub(r'[^0-9.\-]', '', input_string)
+
+
+def is_truthy(string):
+    TRUE_THO = [
+        True,
+        'true',
+        'True',
+        'TRUE',
+        't',
+        'T',
+        1,
+    ]
+    return string in TRUE_THO
