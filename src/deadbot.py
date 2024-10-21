@@ -80,8 +80,7 @@ def main():
 
     if args.import_files in constants.TRUE_THO:
         if args.iam_key and args.iam_secret:
-            print('Importing game files...')
-            data_transfer.import_data()
+            data_transfer.import_data(version=args.build_num)
         else:
             print('[ERROR] iam_key and iam_secret must be set for s3')
 
