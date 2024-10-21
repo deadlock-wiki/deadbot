@@ -27,9 +27,10 @@ COPY . .
 RUN python3 -m poetry install
 
 # runtime config
+ENV IMPORT_FILES=true
 ENV DECOMPILE=false
-ENV PARSE=false
-ENV CHANGELOGS=false
+ENV PARSE=true
+ENV CHANGELOGS=true
 ENV BOT_PUSH=false
 
 ENV CLEANUP=true
@@ -45,7 +46,6 @@ ENV BOT_WIKI_USER=$BOT_WIKI_USER
 ENV BOT_WIKI_PASS=$BOT_WIKI_PASS
 
 # directory config
-ENV USE_LOCAL_FILES=$USE_LOCAL_FILES
 ENV DEADLOCK_PATH="/data"
 ENV WORK_DIR="/work"
 ENV INPUT_DIR="/input"
