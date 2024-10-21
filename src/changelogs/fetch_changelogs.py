@@ -4,15 +4,16 @@ from os.path import isfile, join
 import feedparser
 from bs4 import BeautifulSoup
 from urllib import request
+from utils import json_utils
 
 
 class ChangelogFetcher:
     def __init__(self):
         self.changelogs_by_date = {}
 
-    def get_rss(self, rss_url, update_existing=False):
+    def get_rss(self, rss_url, output_dir, update_existing=False):
         self.RSS_URL = rss_url
-        self._fetch_forum_changelogs(update_existing)
+        self._fetch_forum_changelogs(output_dir, update_existing)
         return self.changelogs_by_date
 
     def get_txt(self, changelog_path):
@@ -35,7 +36,11 @@ class ChangelogFetcher:
         return entries
 
     # download rss feed from changelog forum and parse entries
-    def _fetch_forum_changelogs(self, update_existing=False):
+    def _fetch_forum_changelogs(self, output_dir, update_existing=False):
+        changelogs = {}
+        #layer1: version # as assigned by developers
+        #layer2: date
+
         print('Parsing Changelog RSS feed')
         # fetches 20 most recent entries
         feed = feedparser.parse(self.RSS_URL)
@@ -51,9 +56,14 @@ class ChangelogFetcher:
                 full_text = '\n---\n'.join(self._fetch_update_html(entry.link))
             except Exception:
                 print(f'Issue with parsing RSS feed item {entry.link}')
+            version = entry.link.split('.')[-1].split('/')[0]
             self.changelogs_by_date[date] = full_text
+            changelogs[version] = {'date': date, 'link': entry.link}
+
         if skip_num > 0:
             print(f'Skipped {skip_num} RSS items that already exists')
+
+        json_utils.write(output_dir + 'changelogs.json', changelogs)
 
     def _process_local_changelogs(self, changelog_path):
         print('Parsing Changelog txt files')
