@@ -7,7 +7,17 @@ class DataTransfer:
         self.DATA_DIR = data_dir
         self.s3 = S3(bucket_name, aws_access_key_id, aws_secret_access_key)
 
-    def import_data(self, version='current'):
+    def import_data(self, version=None):
+        """Import decompiled game data from an S3 bucket into the local data directory
+
+        Args:
+            version (str, optional): Build number to retrieve game files for. Defaults to None.
+        """
+        # get latest version if none is specified
+        if not version:
+            versions = self._get_versions()
+            version = max(versions)
+
         files = self.s3.list_files(version)
         if files is None:
             raise Exception(f'No data found for version {version}')
@@ -30,6 +40,7 @@ class DataTransfer:
             self.s3.download(key, local_file_path)
 
     def export_data(self):
+        """Export local decompiled game data to an S3 bucket"""
         version = self._get_current_version()
         if version in self._get_versions():
             print(f'Version {version} already exists on s3')
