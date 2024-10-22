@@ -1,0 +1,522 @@
+{
+    "Other": {
+        "General": []
+    },
+    "Heroes": {
+        "General": [],
+        "Pocket": [
+            "- Updated effects on {AbilityIcon|Ability=Pocket|Size=20} Pocket effects to improve visibility",
+            "- Base bullet resistance improved from -20% to -15%",
+            "- Base gun damage reduced from 5.6 to 5.0",
+            "- Gun damage growth increased from 0.35 to 0.4"
+        ],
+        "Grey Talon": [
+            "- Added new cast effect for Grey Talon's {AbilityIcon|Ability=Guided Owl|Size=20} Guided Owl",
+            "- {AbilityIcon|Ability=Charged Shot|Size=20} Charged Shot damage reduced from 115 to 105",
+            "- {AbilityIcon|Ability=Charged Shot|Size=20} Charged Shot spirit scaling increased from 1.3 to 1.6"
+        ],
+        "Warden": [
+            "- Added Warden {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask cast, projectile, and impact sound effects",
+            "- Reverted a change from last update to Warden's {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask \u2013 it now launches where the reticle is aiming at the end of the cast"
+        ],
+        "Wraith": [
+            "- Raised volume of Wraith {AbilityIcon|Ability=Card Trick|Size=20} Card Trick charge up sound effect",
+            "- Base ammo increased by 5% (except for Haze and {AbilityIcon|Ability=Wraith|Size=20} Wraith)"
+        ],
+        "Infernus": [
+            "- Fixed a bug where Infernus could get stuck in his {AbilityIcon|Ability=Flame Dash|Size=20} Flame Dash pose",
+            "- Fixed a speed exploit with Infernus {AbilityIcon|Ability=Flame Dash|Size=20} Flame Dash"
+        ],
+        "Abrams": [
+            "- Added additional voice lines for {AbilityIcon|Ability=Abrams|Size=20} Abrams",
+            "- Shoulder Charge now considers {AbilityIcon|Ability=Spectral Wall|Size=20} Spectral Wall and Frozen Shelter as walls",
+            "- {AbilityIcon|Ability=Infernal Resilience|Size=20} Infernal Resilience duration to regen increased from 14s to 16s (this is a nerf)",
+            "- {AbilityIcon|Ability=Infernal Resilience|Size=20} Infernal Resilience damage regenerated reduced from 18% to 17%",
+            "- {AbilityIcon|Ability=Infernal Resilience|Size=20} Infernal Resilience T3 increased from +8% to +9%",
+            "- Improved reliability of {AbilityIcon|Ability=Seismic Impact|Size=20} Seismic Impact",
+            "- {AbilityIcon|Ability=Seismic Impact|Size=20} Seismic Impact base radius increased from 6m to 9m",
+            "- {AbilityIcon|Ability=Seismic Impact|Size=20} Seismic Impact T1 changed from +4m Impact Radius to -40s Cooldown",
+            "- {AbilityIcon|Ability=Seismic Impact|Size=20} Seismic Impact T3 moved to T2 (was -70s Cooldown)",
+            "- {AbilityIcon|Ability=Seismic Impact|Size=20} Seismic Impact T3 is now Gains Unstoppable while in air and 3s after landing"
+        ],
+        "Haze": [
+            "- Base ammo increased by 5% (except for Haze and {AbilityIcon|Ability=Wraith|Size=20} Wraith)",
+            "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger min sleep time reduced from 0.3 to 0.2",
+            "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger wake-up time reduced from 0.15 to 0.1",
+            "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger projectile size reduced by 10%",
+            "- {AbilityIcon|Ability=Fixation|Size=20} Fixation T1 and T2 swapped",
+            "- {AbilityIcon|Ability=Fixation|Size=20} Fixation damage per stack reduced from 0.25 to 0.2",
+            "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance fire rate increased from +20% to +25%",
+            "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance radius increased from 14m to 15m"
+        ],
+        "Bebop": [
+            "- Base HP regen increased from 1 to 2.5",
+            "- No longer has 24% base bullet resistance",
+            "- Now gains +2% Bullet Resistance per boon (happens 11 times)",
+            "- {AbilityIcon|Ability=Hook|Size=20} Hook speed reduced from 3000 to 2850",
+            "- Uppercut horizontal distance knockback on enemy heroes is reduced from 25m to 20m",
+            "- Fixed enemies being able to use heavy melee to cancel Uppercut's momentum",
+            "- Hyperbeam is now very wide in the area right in front of the hero, then narrows into the current size a few meters away",
+            "- Hyperbeam Spirit Power damage scaling increased from 1.96 to 2.2",
+            "- Hyperbeam T2 increased from +120 to +140"
+        ],
+        "Dynamo": [
+            "- Gun damage growth increased from 0.8 to 0.9",
+            "- Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse spirit power scaling increased from 1.2 to 1.4",
+            "- {AbilityIcon|Ability=Singularity|Size=20} Singularity duration reduced from 3 to 2.75"
+        ],
+        "Ivy": [
+            "- Base damage reduced from 5.0 to 4.5",
+            "- {AbilityIcon|Ability=Kudzu Bomb|Size=20} Kudzu Bomb DPS spirit scaling increased from 0.4 to 0.6",
+            "- {AbilityIcon|Ability=Watcher's Covenant|Size=20} Watcher's Covenant replicated healing reduced from 35% to 30%"
+        ],
+        "Kelvin": [
+            "- {AbilityIcon|Ability=Frost Grenade|Size=20} Frost Grenade cooldown reduced from 23s to 21s",
+            "- {AbilityIcon|Ability=Ice Path|Size=20} Ice Path trail duration increased from 15s to 18s",
+            "- {AbilityIcon|Ability=Arctic Beam|Size=20} Arctic Beam T3 now hits up to 2 additional targets"
+        ],
+        "Lady Geist": [
+            "- Base bullet damage reduced from 28 to 25",
+            "- Bullet damage growth increased from 1.84 to 2.1",
+            "- {AbilityIcon|Ability=Essence Bomb|Size=20} Essence Bomb T2 reduced from +70 to +60",
+            "- {AbilityIcon|Ability=Essence Bomb|Size=20} Essence Bomb T3 increased from 20% to 22%",
+            "- {AbilityIcon|Ability=Life Drain|Size=20} Life Drain self slow reduced from -40% to -25%",
+            "- {AbilityIcon|Ability=Soul Exchange|Size=20} Soul Exchange can be cast on enemies that are lower health. It will always steal a minimum of 30% of their current health."
+        ],
+        "Lash": [
+            "- {AbilityIcon|Ability=Grapple|Size=20} Grapple weapon damage is now added into the T2 instead of in the base",
+            "- {AbilityIcon|Ability=Ground Strike|Size=20} Ground Strike radius reduced from 13m to 11m",
+            "- {AbilityIcon|Ability=Death Slam|Size=20} Death Slam grab time reduced from 0.8s to 0.6s",
+            "- {AbilityIcon|Ability=Death Slam|Size=20} Death Slam cast range increased from 14m to 18m",
+            "- {AbilityIcon|Ability=Death Slam|Size=20} Death Slam throw distance reduced from 20m to 12m",
+            "- {AbilityIcon|Ability=Death Slam|Size=20} Death Slam T1 changed from +4m Cast Range to +8m Throw Distance"
+        ],
+        "McGinnis": [
+            "- {AbilityIcon|Ability=Spectral Wall|Size=20} Spectral Wall cooldown increased from 30s to 35s",
+            "- Base melee damage reduced by 20%",
+            "- {AbilityIcon|Ability=Spectral Wall|Size=20} Spectral Wall segments that are touching the Rejuv will be destroyed"
+        ],
+        "Paradox": [
+            "- {AbilityIcon|Ability=Time Wall|Size=20} Time Wall projectile stop duration reduced from 1.25s to 1s",
+            "- {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade amp duration increased from 6s to 8s",
+            "- {AbilityIcon|Ability=Paradoxical Swap|Size=20} Paradoxical Swap projectile size reduced by 10%"
+        ],
+        "Seven": [
+            "- Base regen increased from 1 to 1.5",
+            "- Base bullet resistance reduced from 20% to 8%",
+            "- Now gains +1% Bullet Resistance per boon (happens 11 times)",
+            "- {AbilityIcon|Ability=Power Surge|Size=20} Power Surge scaling reduced from 0.2 to 0.16"
+        ]
+    },
+    "Items": {
+        "General": [],
+        "Cold Front": [
+            "- Added new {AbilityIcon|Ability=Cold Front|Size=20} Cold Front visual effects"
+        ],
+        "Echo Shard": [
+            "- Added new {AbilityIcon|Ability=Echo Shard|Size=20} Echo Shard visual effects",
+            "- Now grants +10% Bullet Resistance"
+        ],
+        "Refresher": [
+            "- Added new {AbilityIcon|Ability=Refresher|Size=20} Refresher visual effects"
+        ],
+        "Knockdown": [
+            "- Added {AbilityIcon|Ability=Knockdown|Size=20} Knockdown select, cast, delay, and impact sound effects",
+            "- Cast range reduced from 50m to 35m"
+        ],
+        "Restorative Shot": [
+            "- Bullet Resist reduced from 8% to 7%"
+        ],
+        "Fire Rate": [
+            "- {AbilityIcon|Ability=Headshot Booster|Size=20} Headshot Booster: Fire Rate reduced from 6% to 5%",
+            "- {AbilityIcon|Ability=Rapid Rounds|Size=20} Rapid Rounds (new T1 Weapon item): +12% Fire Rate, +1 Sprint, -40 HP",
+            "- {AbilityIcon|Ability=Extra Stamina|Size=20} Extra Stamina: Fire Rate reduced from 8% to 7%"
+        ],
+        "Headshot Booster": [
+            "- {AbilityIcon|Ability=Fire Rate|Size=20} Fire Rate reduced from 6% to 5%"
+        ],
+        "Rapid Rounds": [
+            "- {AbilityIcon|Ability=Rapid Rounds|Size=20} Rapid Rounds (new T1 Weapon item): +12% Fire Rate, +1 Sprint, -40 HP"
+        ],
+        "Fleetfoot": [
+            "- Now gives +25% Slide Distance"
+        ],
+        "Mystic Shot": [
+            "- Now gives +4 Spirit"
+        ],
+        "Active Reload": [
+            "- Cooldown reduced from 21s to 17s",
+            "- Initial grace period increased from 0.2s to 0.3s"
+        ],
+        "Berserker": [
+            "- Bullet Resist reduced from 10% to 8%"
+        ],
+        "Kinetic Dash": [
+            "- Cooldown reduced from 12s to 10s"
+        ],
+        "Veil Walker": [
+            "- Moved to T3 Vitality",
+            "- Moved from T2 Weapon to T3 Vitality",
+            "- Invisibility and speed duration increased from 4s to 5s",
+            "- Cooldown reduced from 25s to 20s",
+            "- Bullet Shield Health increased from 150 to 185",
+            "- Now gives +185 Spirit Shield Health"
+        ],
+        "Burst Fire": [
+            "- Now gives +2 m/s Move Speed during the 3s active"
+        ],
+        "Escalating Resilience": [
+            "- No longer grants +14% Ammo",
+            "- Stack duration increased from 14s to 20s"
+        ],
+        "Point Blank": [
+            "- Bullet Shield Health increased from 225 to 250"
+        ],
+        "Alchemical Fire": [
+            "- Spirit Power increased from +5 to +7"
+        ],
+        "Sharpshooter": [
+            "- Ammo increased from 15% to 20%"
+        ],
+        "Titanic Magazine": [
+            "- Ammo increased from 90% to 100%"
+        ],
+        "Siphon Bullets": [
+            "- Max frequency improved from 1s to 0.8s"
+        ],
+        "Silencer": [
+            "- No longer provides +20% Ammo"
+        ],
+        "Ricochet": [
+            "- Now gives +100 Health"
+        ],
+        "Frenzy": [
+            "- Low Health Spirit Resist increased from 40% to 45%"
+        ],
+        "Vampiric Burst": [
+            "- Active now adds +50% to your clip one time on cast. If you are reloading, it interrupts that process and gives you +50% to your clip.",
+            "- Cooldown increased from 24s to 35s"
+        ],
+        "Healing Rite": [
+            "- Active now gives +2 Sprint"
+        ],
+        "Extra Health": [
+            "- Health increased from +150 to +160"
+        ],
+        "Extra Stamina": [
+            "- {AbilityIcon|Ability=Fire Rate|Size=20} Fire Rate reduced from 8% to 7%"
+        ],
+        "Extra Regen": [
+            "- Regen increased from 2.3 to 2.5"
+        ],
+        "Melee Lifesteal": [
+            "- Works against creeps for 25% effectiveness"
+        ],
+        "Healbane": [
+            "- Heal on hero kill reduced from 400 to 350"
+        ],
+        "Divine Barrier": [
+            "- Cast range increased from 25m to 30m"
+        ],
+        "Bullet Lifesteal": [
+            "- Health increased from +50 to +75"
+        ],
+        "Spirit Lifesteal": [
+            "- No longer grants +8 Spirit Power",
+            "- Now grants +75 Health"
+        ],
+        "Debuff Reducer": [
+            "- Weapon Damage reduced from 10% to 6%"
+        ],
+        "Fortitude": [
+            "- Bonus health increased from +250 to +275"
+        ],
+        "Superior Stamina": [
+            "- Air Jump/Dash Distance increased from +30% to +50%"
+        ],
+        "Rescue Beam": [
+            "- Cooldown reduced from 35s to 30s",
+            "- Heal amount increased from 25% to 30%"
+        ],
+        "Majestic Leap": [
+            "- Health increased from +75 to +100"
+        ],
+        "Lifestrike": [
+            "- Works against creeps for 25% effectiveness"
+        ],
+        "Leech": [
+            "- Bonus health increased from 150 to 175",
+            "- Spirit Power increased from +10 to +12",
+            "- Weapon Damage increased from +12% to +15%"
+        ],
+        "Shadow Weave": [
+            "- Invis sprint speed reduced from +5 to +2"
+        ],
+        "Phantom Strike": [
+            "- No longer grants +200 Health",
+            "- Now grants +15% Bullet Resist",
+            "- Weapon Damage increased from 20% to 30%",
+            "- No longer grants Bullet Shield on teleport",
+            "- Now disarms the enemy for the slow duration (3s)"
+        ],
+        "Rebirth": [
+            "- {AbilityIcon|Ability=Soul Rebirth|Size=20} Soul Rebirth (new T4 Vitality item): After you die, you will respawn in 4 seconds where you died with 40% of your Max Health. Cooldown: 220s. Also innately grants +20% Weapon Damage and +10% Cooldown Reduction."
+        ],
+        "Soul Rebirth": [
+            "- {AbilityIcon|Ability=Soul Rebirth|Size=20} Soul Rebirth (new T4 Vitality item): After you die, you will respawn in 4 seconds where you died with 40% of your Max Health. Cooldown: 220s. Also innately grants +20% Weapon Damage and +10% Cooldown Reduction."
+        ],
+        "Ammo Scavenger": [
+            "- Spirit Power Per Soul reduced from 3 to 2"
+        ],
+        "Infuser": [
+            "- Spirit Resistance reduced from 8% to 7%"
+        ],
+        "Spirit Strike": [
+            "- Passive replaced. Now causes your melee against heroes to deal +30 Spirit damage and applies -10% Spirit Resist to the target for 8 seconds. Cooldown: 8"
+        ],
+        "Slowing Hex": [
+            "- Sprint reduced from +2 to +1"
+        ],
+        "Improved Cooldown": [
+            "- Cooldown Reduction increased from +13% to +14%"
+        ],
+        "Withering Whip": [
+            "- Cast Range increased from 17m to 18m"
+        ],
+        "Silence Glyph": [
+            "- Now grants +2 Sprint",
+            "- Now reduces Spirit Resist instead of providing Spirit Amplification"
+        ],
+        "Improved Spirit": [
+            "- Spirit Power increased from +18 to +21"
+        ],
+        "Torment Pulse": [
+            "- Target count increased from 1 to 2",
+            "- Fixed sometimes waking up neutrals"
+        ],
+        "Rapid Recharge": [
+            "- Bonus Ability Charges increased from +2 to +3"
+        ],
+        "Superior Cooldown": [
+            "- Imbued Cooldown Reduction increased from +30% to +32%",
+            "- Non-Imbued Cooldown Reduction increased from +20% to +22%"
+        ],
+        "Surge of Power": [
+            "- Cooldown reduced from 12s to 10s"
+        ],
+        "Ethereal Shift": [
+            "- Fixed a bug that could prevent you from shooting when you came out"
+        ],
+        "Diviner's Kevlar": [
+            "- Cooldown reduction increased from +8% to +12%"
+        ],
+        "Mystic Reverb": [
+            "- Slow now applies in the radius around the target",
+            "- Radius increased from 12m to 16m"
+        ],
+        "Escalating Exposure": [
+            "- Now grants +125 Health"
+        ],
+        "Curse": [
+            "- No longer grants +20% Ammo"
+        ],
+        "Unstoppable": [
+            "- {AbilityIcon|Ability=Seismic Impact|Size=20} Seismic Impact T3 is now Gains Unstoppable while in air and 3s after landing"
+        ]
+    },
+    "Abilities": {
+        "General": [],
+        "Guided Owl": [
+            "- Added new cast effect for Grey Talon's {AbilityIcon|Ability=Guided Owl|Size=20} Guided Owl"
+        ],
+        "Alchemical Flask": [
+            "- Added Warden {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask cast, projectile, and impact sound effects",
+            "- Reverted a change from last update to Warden's {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask \u2013 it now launches where the reticle is aiming at the end of the cast"
+        ],
+        "Card Trick": [
+            "- Raised volume of Wraith {AbilityIcon|Ability=Card Trick|Size=20} Card Trick charge up sound effect"
+        ],
+        "Flame Dash": [
+            "- Fixed a bug where Infernus could get stuck in his {AbilityIcon|Ability=Flame Dash|Size=20} Flame Dash pose",
+            "- Fixed a speed exploit with Infernus {AbilityIcon|Ability=Flame Dash|Size=20} Flame Dash"
+        ],
+        "Frozen Shelter": [
+            "- Shoulder Charge now considers {AbilityIcon|Ability=Spectral Wall|Size=20} Spectral Wall and Frozen Shelter as walls"
+        ],
+        "Shoulder Charge": [
+            "- Shoulder Charge now considers {AbilityIcon|Ability=Spectral Wall|Size=20} Spectral Wall and Frozen Shelter as walls"
+        ],
+        "Spectral Wall": [
+            "- Shoulder Charge now considers {AbilityIcon|Ability=Spectral Wall|Size=20} Spectral Wall and Frozen Shelter as walls",
+            "- {AbilityIcon|Ability=Spectral Wall|Size=20} Spectral Wall cooldown increased from 30s to 35s",
+            "- {AbilityIcon|Ability=Spectral Wall|Size=20} Spectral Wall segments that are touching the Rejuv will be destroyed"
+        ],
+        "Infernal Resilience": [
+            "- {AbilityIcon|Ability=Infernal Resilience|Size=20} Infernal Resilience duration to regen increased from 14s to 16s (this is a nerf)",
+            "- {AbilityIcon|Ability=Infernal Resilience|Size=20} Infernal Resilience damage regenerated reduced from 18% to 17%",
+            "- {AbilityIcon|Ability=Infernal Resilience|Size=20} Infernal Resilience T3 increased from +8% to +9%"
+        ],
+        "Seismic Impact": [
+            "- Improved reliability of {AbilityIcon|Ability=Seismic Impact|Size=20} Seismic Impact",
+            "- {AbilityIcon|Ability=Seismic Impact|Size=20} Seismic Impact base radius increased from 6m to 9m",
+            "- {AbilityIcon|Ability=Seismic Impact|Size=20} Seismic Impact T1 changed from +4m Impact Radius to -40s Cooldown",
+            "- {AbilityIcon|Ability=Seismic Impact|Size=20} Seismic Impact T3 moved to T2 (was -70s Cooldown)",
+            "- {AbilityIcon|Ability=Seismic Impact|Size=20} Seismic Impact T3 is now Gains Unstoppable while in air and 3s after landing"
+        ],
+        "Hook": [
+            "- {AbilityIcon|Ability=Hook|Size=20} Hook speed reduced from 3000 to 2850"
+        ],
+        "Kinetic Pulse": [
+            "- Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse spirit power scaling increased from 1.2 to 1.4"
+        ],
+        "Pulse": [
+            "- Kinetic {AbilityIcon|Ability=Pulse|Size=20} Pulse spirit power scaling increased from 1.2 to 1.4",
+            "- {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade amp duration increased from 6s to 8s"
+        ],
+        "Singularity": [
+            "- {AbilityIcon|Ability=Singularity|Size=20} Singularity duration reduced from 3 to 2.75"
+        ],
+        "Charged Shot": [
+            "- {AbilityIcon|Ability=Charged Shot|Size=20} Charged Shot damage reduced from 115 to 105",
+            "- {AbilityIcon|Ability=Charged Shot|Size=20} Charged Shot spirit scaling increased from 1.3 to 1.6"
+        ],
+        "Sleep Dagger": [
+            "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger min sleep time reduced from 0.3 to 0.2",
+            "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger wake-up time reduced from 0.15 to 0.1",
+            "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger projectile size reduced by 10%"
+        ],
+        "Fixation": [
+            "- {AbilityIcon|Ability=Fixation|Size=20} Fixation T1 and T2 swapped",
+            "- {AbilityIcon|Ability=Fixation|Size=20} Fixation damage per stack reduced from 0.25 to 0.2"
+        ],
+        "Bullet Dance": [
+            "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance fire rate increased from +20% to +25%",
+            "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance radius increased from 14m to 15m"
+        ],
+        "Kudzu Bomb": [
+            "- {AbilityIcon|Ability=Kudzu Bomb|Size=20} Kudzu Bomb DPS spirit scaling increased from 0.4 to 0.6"
+        ],
+        "Watcher's Covenant": [
+            "- {AbilityIcon|Ability=Watcher's Covenant|Size=20} Watcher's Covenant replicated healing reduced from 35% to 30%"
+        ],
+        "Frost Grenade": [
+            "- {AbilityIcon|Ability=Frost Grenade|Size=20} Frost Grenade cooldown reduced from 23s to 21s"
+        ],
+        "Ice Path": [
+            "- {AbilityIcon|Ability=Ice Path|Size=20} Ice Path trail duration increased from 15s to 18s"
+        ],
+        "Arctic Beam": [
+            "- {AbilityIcon|Ability=Arctic Beam|Size=20} Arctic Beam T3 now hits up to 2 additional targets"
+        ],
+        "Essence Bomb": [
+            "- {AbilityIcon|Ability=Essence Bomb|Size=20} Essence Bomb T2 reduced from +70 to +60",
+            "- {AbilityIcon|Ability=Essence Bomb|Size=20} Essence Bomb T3 increased from 20% to 22%"
+        ],
+        "Life Drain": [
+            "- {AbilityIcon|Ability=Life Drain|Size=20} Life Drain self slow reduced from -40% to -25%"
+        ],
+        "Soul Exchange": [
+            "- {AbilityIcon|Ability=Soul Exchange|Size=20} Soul Exchange can be cast on enemies that are lower health. It will always steal a minimum of 30% of their current health."
+        ],
+        "Grapple": [
+            "- {AbilityIcon|Ability=Grapple|Size=20} Grapple weapon damage is now added into the T2 instead of in the base"
+        ],
+        "Ground Strike": [
+            "- {AbilityIcon|Ability=Ground Strike|Size=20} Ground Strike radius reduced from 13m to 11m"
+        ],
+        "Death Slam": [
+            "- {AbilityIcon|Ability=Death Slam|Size=20} Death Slam grab time reduced from 0.8s to 0.6s",
+            "- {AbilityIcon|Ability=Death Slam|Size=20} Death Slam cast range increased from 14m to 18m",
+            "- {AbilityIcon|Ability=Death Slam|Size=20} Death Slam throw distance reduced from 20m to 12m",
+            "- {AbilityIcon|Ability=Death Slam|Size=20} Death Slam T1 changed from +4m Cast Range to +8m Throw Distance"
+        ],
+        "Time Wall": [
+            "- {AbilityIcon|Ability=Time Wall|Size=20} Time Wall projectile stop duration reduced from 1.25s to 1s"
+        ],
+        "Pulse Grenade": [
+            "- {AbilityIcon|Ability=Pulse|Size=20} Pulse Grenade amp duration increased from 6s to 8s"
+        ],
+        "Paradoxical Swap": [
+            "- {AbilityIcon|Ability=Paradoxical Swap|Size=20} Paradoxical Swap projectile size reduced by 10%"
+        ],
+        "Power Surge": [
+            "- {AbilityIcon|Ability=Power Surge|Size=20} Power Surge scaling reduced from 0.2 to 0.16"
+        ]
+    },
+    "General Changes": {
+        "General": [
+            "- Accounts that are banned for cheating will now have all their invited accounts banned as well",
+            "- The Damage Report's Damage List now aggregates damage from all units, and displays both hero and ability icons",
+            "- You can view per-hero damage in the Damage Report by hovering the damage type breakdown above each hero portrait",
+            "- Added a 'Compact' Damage Report mode that shows less information but takes up less space. This is the default after dying.",
+            "- Clicking the top bar will now toggle the Damage Report between minimized, compact, and full view",
+            "- Opening the shop now always minimizes the Damage Report",
+            "- Updated effects for heavy melee",
+            "- Updated bullet resist debuff effects",
+            "- Raised volume of party invite, join, and roster select sound effects",
+            "- Guardians now fade out from the world 10 seconds after dying",
+            "- Fixed a bug that allowed you to shoot through walls",
+            "- Fixed a bug that allowed your gun to be very accurate while holding tab",
+            "- Reworked building just outside Amber's base in the Yellow lane to match Sapphire Purple",
+            "- Started replacing older style rollup doors with new ones with larger dimensions",
+            "- Improved game startup time",
+            "- ALT+SPACE can now be used to select the previous player when spectating",
+            "- Changed spectator camera to not force itself into roaming mode for up/down key pressed (forward/back/side only)",
+            "- Removed voice lines / fixed text that referenced the urn being delivered to the temple",
+            "- Added Midboss arrive, low health, and death sound effects",
+            "- Removed pause cooldown while in Sandbox",
+            "- Added a small delay so kill lines play after death sound effects rather than under them"
+        ]
+    },
+    "Misc Gameplay": {
+        "General": [
+            "- Reworked the mid temple area as well adding various different entrances to it",
+            "- Reworked the upper mid temple area and the drop down entrances to the bottom pit",
+            "- Changed the neutrals in the top mid temple area to a strong, a medium and a small creep (2 of these)",
+            "- The bridges are now a bit wider and have higher side walls that reduce extended line of sight",
+            "- Base entrance window area can no longer be invaded from the outside by double jumping",
+            "- Reduced the front entrances to the two single story buildings from 2 to 1 (entrances are larger)",
+            "- Added more juke spots",
+            "- Removed the long fx trail from unsecured souls on your hero so it doesn't give away your position when juking/hiding",
+            "- Sounds occluded by level geometry will now be quieter",
+            "- Powerup spawn locations moved to the bridges",
+            "- Powerup buff duration increased from 130s to 150s",
+            "- Golden Statues level 2 drops now happen at 15 minutes instead of 20",
+            "- Increased golden statue drop chance by 4%",
+            "- Guardian HP increased by 10%",
+            "- Guardian melee no longer does a double instant melee attack sometimes",
+            "- Guardian melee attack no longer has a splash range much larger than its visuals",
+            "- Walker in mid lanes health increased by 12%",
+            "- Walker stomp can no longer be dodged with double jump",
+            "- Walker stomp area increased a bit",
+            "- Weakened Patron health increased by 20%",
+            "- Mid Boss starting health increased from 4500 to 5000",
+            "- Mid Boss health gained per minute increased from 200 to 275",
+            "- Rejuv drop time reduced from 12.5s to 9s",
+            "- Midboss makes a global sound when at 35% hp",
+            "- Reworked comeback formula to be less weighted towards team vs team net worth and more towards the net worth of the dying hero compared to the average of your team (regardless if your team is leading or not)",
+            "- T2 items cost increased from 1200 to 1250",
+            "- T4 Items cost reduced from 6500 to 6300",
+            "- Vitality base health bonus increased from 8/12/16/20% to 11/14/17/20%",
+            "- Can no longer use the Teleporter while carrying the Urn",
+            "- Teleporter now has the same damage rules as zipline (DoT no longer prevents usage)",
+            "- Cooldown reduction now stacks diminishingly",
+            "- Reduced the momentum coming off of the zipline a bit"
+        ]
+    },
+    "Weapon Items": {
+        "General": []
+    },
+    "Vitality Items": {
+        "General": [
+            "- Health Nova: Cooldown reduced from 65s to 60s",
+            "- Health Nova: Now heals over 2s instead of 3s"
+        ]
+    },
+    "Spirit Items": {
+        "General": []
+    },
+    "Hero Gameplay": {
+        "General": []
+    }
+}
