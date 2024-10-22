@@ -9,21 +9,22 @@ from utils import json_utils
 
 class ChangelogFetcher:
     def __init__(self):
-        self.changelogs_by_date = {}
+        self.changelogs_by_version = {}
 
     def get_rss(self, rss_url, output_dir, update_existing=False):
         self.RSS_URL = rss_url
         self._fetch_forum_changelogs(output_dir, update_existing)
-        return self.changelogs_by_date
+
+        return self.changelogs_by_version
 
     def get_txt(self, changelog_path):
         self._process_local_changelogs(changelog_path)
-        return self.changelogs_by_date
+        return self.changelogs_by_version
 
     def changelogs_to_file(self, output_dir):
-        for date, changelog in self.changelogs_by_date.items():
+        for version, changelog in self.changelogs_by_version.items():
             os.makedirs(output_dir, exist_ok=True)
-            with open(output_dir + f'/{date}.txt', 'w', encoding='utf8') as f_out:
+            with open(output_dir + f'/{version}.txt', 'w', encoding='utf8') as f_out:
                 f_out.write(changelog)
 
     def _fetch_update_html(self, link):
@@ -48,16 +49,21 @@ class ChangelogFetcher:
         for entry in feed.entries:
             # Dependent on thread title being in the format "mm-dd-yyyy Update"
             date = entry.title.replace(' Update', '')
+            # Replace last 10 characters, i.e. "10-18-2024 2" to "10-18-2024"
             # Only update the existing if it doesn't already exist in the dict
-            if not update_existing and (date in self.changelogs_by_date.keys()):
+            version = entry.link.split('.')[-1].split('/')[0]
+            if not update_existing and (version in self.changelogs_by_version.keys()):
                 skip_num += 1
                 continue
             try:
                 full_text = '\n---\n'.join(self._fetch_update_html(entry.link))
             except Exception:
                 print(f'Issue with parsing RSS feed item {entry.link}')
-            version = entry.link.split('.')[-1].split('/')[0]
-            self.changelogs_by_date[date] = full_text
+            if version == None or version == '':
+                print(date, entry.link)
+            if version in self.changelogs_by_version.keys():
+                print(f'Issue with version {version}, already exists')
+            self.changelogs_by_version[version] = full_text
             changelogs[version] = {'date': date, 'link': entry.link}
 
         if skip_num > 0:
@@ -74,10 +80,10 @@ class ChangelogFetcher:
         files = [f for f in listdir(changelog_path) if isfile(join(changelog_path, f))]
         print(f'Found {str(len(files))} changelog entries in `{changelog_path}`')
         for file in files:
-            date = file.replace('.txt', '')
+            version = file.replace('.txt', '')
             try:
-                with open(changelog_path + f'/{date}.txt', 'r', encoding='utf8') as f:
+                with open(changelog_path + f'/{version}.txt', 'r', encoding='utf8') as f:
                     changelogs = f.read()
-                    self.changelogs_by_date[date] = changelogs
+                    self.changelogs_by_version[version] = changelogs
             except Exception:
                 print(f'Issue with {file}, skipping')
