@@ -3,10 +3,39 @@ on:
   push:
     branches: [ master, develop ]
   pull_request:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch name'
+        required: true
+        default: 'develop'
 
 jobs:
-  parse:
+  get-branch:
+    name: Get working branch
     runs-on: ubuntu-latest
+    outputs:
+      extract_branch: ${{ steps.extract_branch.outputs.branch }}
+    steps:
+      - name: Branch used
+        id: branch
+        run: |
+          if [[ "${GITHUB_EVENT_NAME}" == "push" ]]; then
+            echo "::set-output name=branch::${{ github.ref_name  }}"
+          elif [[ "${GITHUB_EVENT_NAME}" == "pull_request" ]]; then
+            echo "::set-output name=branch::${{ github.head_ref }}"
+          elif [[ "${GITHUB_EVENT_NAME}" == "workflow_dispatch" ]]; then 
+            echo "::set-output name=branch::${{ github.event.inputs.branch }}"
+          else
+            echo "::set-output name=branch::INVALID_EVENT_BRANCH_UNKNOWN"
+          fi
+
+  parse:
+    name: Parse and Publish Deadlock game data
+    runs-on: ubuntu-latest
+    needs: get-branch
+    environment: 
+      BRANCH: ${{ needs.get-branch.outputs.branch }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -41,7 +70,7 @@ jobs:
           
       - name: Switch to same branch name, create if not found
         working-directory: deadlock-data
-        run: git switch -c ${{ github.ref_name }}
+        run: git switch -c $BRANCH
 
       - name: Copy files to data repo
         run: cp -r ./deadbot/output-data ./deadlock-data/data/current
