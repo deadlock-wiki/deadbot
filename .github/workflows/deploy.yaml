@@ -84,6 +84,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
+          echo ${{ secrets.GH_TOKEN }}
           git add -A
           git commit -m "Test commit" || echo "No changes to commit"
           git push origin HEAD  
