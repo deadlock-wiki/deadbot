@@ -64,7 +64,9 @@ class DataTransfer:
         self.s3.write(version, self.DATA_DIR)
 
     def _get_current_version(self):
-        version_text = open(self.DATA_DIR + '/version.txt', 'r').read()
+        with open(self.DATA_DIR + '/version.txt', 'r') as f:
+            version_text = f.read()
+
         keyvalue_pairs = version_text.split('\n')
 
         version_data = {}
