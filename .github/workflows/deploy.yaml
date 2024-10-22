@@ -1,8 +1,8 @@
 name: Deploy
-on: pull_request
-  # push:
-  #   branches: [ master, develop ]
-  # pull_request:
+on: 
+  push:
+    branches: [ master, develop ]
+  pull_request:
 
 jobs:
   parse:
@@ -14,7 +14,6 @@ jobs:
 
       - name: Install Python
         uses: actions/setup-python@v5
-        working-directory: deadbot
         with:
           python-version: "3.11"
 
@@ -49,3 +48,4 @@ jobs:
         run: |
           git add -A
           git commit -m "Test commit"
+          git push origin HEAD  
