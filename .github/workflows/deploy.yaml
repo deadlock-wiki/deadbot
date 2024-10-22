@@ -15,7 +15,7 @@ jobs:
     name: Get working branch
     runs-on: ubuntu-latest
     outputs:
-      extract_branch: ${{ steps.extract_branch.outputs.branch }}
+      branch: ${{ steps.branch.outputs.branch }}
     steps:
       - name: Branch used
         id: branch
