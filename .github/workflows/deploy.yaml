@@ -1,8 +1,8 @@
 name: Deploy
-on:
-  push:
-    branches: [ master, develop ]
-  pull_request:
+on: pull_request
+  # push:
+  #   branches: [ master, develop ]
+  # pull_request:
 
 jobs:
   parse:
