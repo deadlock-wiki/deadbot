@@ -68,7 +68,7 @@ def act_changelog_parse(args):
 
     # Now that we gathered the changelogs, extract out data
     chlog_parser = parse_changelogs.ChangelogParser(args.output)
-    chlog_parser.run_all(chlog_fetcher.changelogs_by_date)
+    chlog_parser.run_all(chlog_fetcher.changelogs_by_version)
     return chlog_parser
 
 
