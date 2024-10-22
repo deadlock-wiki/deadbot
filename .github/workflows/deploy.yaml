@@ -1,39 +1,52 @@
 name: Deploy
 on:
   push:
-    branches: [ "master", "develop" ]
+    branches: [ master, develop ]
   pull_request:
-    branches: [ "master", "develop" ]
+    types: [opened, synchronize, reopened]
 
 jobs:
   parse:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          path: deadbot
+
       - name: Install Python
         uses: actions/setup-python@v5
+        working-directory: deadbot
         with:
           python-version: "3.11"
 
-      - name: Build
+      - name: Build Deadbot
         run: docker-compose build
-      
-      - name: Run Deadbot
-        run: 
+        working-directory: deadbot 
         env:
           IAM_KEY: ${{ secrets.IAM_KEY }}
           IAM_SECRET: ${{ secrets.IAM_SECRET }}
           BOT_WIKI_USER: ${{ secrets.BOT_WIKI_USER }}
           BOT_WIKI_PASS: ${{ secrets.BOT_WIKI_PASS }}
+      
+      # - name: Run Deadbot
+      #   run: docker-compose up
+      #   working-directory: deadbot 
 
       - name: Checkout deadlock-data repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
-          repository: git@github.com:deadlock-wiki/deadbot.git
-          ref: ${{ github.ref_name }}
+          repository: git@github.com:deadlock-wiki/deadlock-data.git
+          path: deadlock-data
+          
+      - name: Switch to same branch name, create if not found
+        working-directory: deadlock-data
+        run: git switch -c ${{ github.ref_name }}
 
       - name: Copy files to data repo
-        run: cp -r ./output-data ../deadlock-data/data/current
+        run: cp -r ./deadbot/output-data ./deadlock-data/data/current
 
       - name: Commit and push changes
-        run: cd ../deadlock-data & git add -A & git commit -m "Deadbot Update"
+        working-directory: deadlock-data 
+        run: |
+          git add -A
+          git commit -m "Test commit"
