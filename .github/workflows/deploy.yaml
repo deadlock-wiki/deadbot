@@ -36,7 +36,7 @@ jobs:
       - name: Checkout deadlock-data repo
         uses: actions/checkout@v4
         with:
-          repository: git@github.com:deadlock-wiki/deadlock-data.git
+          repository: deadlock-wiki/deadlock-data
           path: deadlock-data
           
       - name: Switch to same branch name, create if not found
