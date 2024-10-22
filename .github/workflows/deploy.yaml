@@ -73,6 +73,12 @@ jobs:
       - name: Copy files to data repo
         run: cp -r ./deadbot/output-data ./deadlock-data/data/current
 
+      - name: Configure Git
+        working-directory: deadlock-data 
+        run: |
+          git config --global user.email "deadbot@gmail.com"
+          git config --global user.name "deadbot"
+          
       - name: Commit and push changes
         working-directory: deadlock-data 
         run: |
