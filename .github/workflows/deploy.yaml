@@ -83,6 +83,7 @@ jobs:
       - name: Commit and push changes
         working-directory: deadlock-data 
         run: |
+          git pull
           git add -A
           git commit -m "Re-parsed game files" || echo "No changes to commit"
           git push origin HEAD  
