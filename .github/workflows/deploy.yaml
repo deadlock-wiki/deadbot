@@ -78,6 +78,7 @@ jobs:
           git config --global user.name "Deadbot0"
         
       - name: Pull branch
+        working-directory: deadlock-data 
         run: git pull origin ${{ needs.get-branch.outputs.branch }} -X ours     
 
       - name: Copy files to data repo
