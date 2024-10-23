@@ -55,10 +55,10 @@ def act_gamefile_parse(args):
 
 def act_changelog_parse(args):
     changelog_output = args.output + '/changelogs/'
-    os.makedirs(changelog_output,exist_ok=True)
+    os.makedirs(changelog_output, exist_ok=True)
     chlog_fetcher = fetch_changelogs.ChangelogFetcher()
     # load existing changelogs
-    chlog_fetcher.get_txt(os.path.join(changelog_output,'raw'))
+    chlog_fetcher.get_txt(os.path.join(changelog_output, 'raw'))
     # fetch / process rss + forum content
     chlog_fetcher.get_rss(constants.CHANGELOG_RSS_URL, update_existing=False)
     # create fetcher and parser

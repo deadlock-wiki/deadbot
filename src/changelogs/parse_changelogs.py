@@ -1,7 +1,7 @@
 import os
-import datetime
 
 import utils.json_utils as json_utils
+
 
 class ChangelogParser:
     def __init__(self, output_dir):
@@ -20,7 +20,7 @@ class ChangelogParser:
             self.run(version, changelog)
 
         print('Unique Tag Groups:', self.unique_tag_groups)
-        #print('Unique Tags:', self.unique_tags)
+        # print('Unique Tags:', self.unique_tags)
 
         self._write_unique_tag_groups(self.unique_tag_groups)
 
@@ -63,7 +63,7 @@ class ChangelogParser:
                     # currently these are also a heading, this check makes it future proof
                     if resource_type == 'Items':
                         item_slot = resource['Slot']  # i.e. Tech
-                        localized_item_slot = self.localization_en['CitadelCategory'+item_slot]
+                        localized_item_slot = self.localization_en['CitadelCategory' + item_slot]
                         slot_str = localized_item_slot + ' Items'
                         tags = self._register_tag(tags, tag=slot_str)
 
@@ -88,15 +88,15 @@ class ChangelogParser:
             prefixes = ['- ', ' - ']
             for prefix in prefixes:
                 if line.startswith(prefix):
-                    line = '* ' + line[len(prefix):]
-            
+                    line = '* ' + line[len(prefix) :]
+
             changelog_out.append({'Description': line, 'Tags': tags})
 
         changelog_with_icons = self._embed_icons(changelog_out)
         os.makedirs(self.OUTPUT_CHANGELOGS, exist_ok=True)
         json_utils.write(self.OUTPUT_CHANGELOGS + f'/versions/{version}.json', changelog_with_icons)
         return changelog_with_icons
-    
+
     def _heading_to_tag(self, heading):
         """
         Converts a heading to a tag, i.e. Hero and Heroes don't need to be separate tags,
@@ -107,14 +107,14 @@ class ChangelogParser:
         heading = heading.replace(' Changes', '')
 
         map = {
-            "Hero Gameplay": "Heroes",
-            "Hero Gamepla": "Heroes",
-            "Hero": "Heroes",
-            "Item Gameplay": "Items",
-            "New Items": "Items",
-            "Misc Gameplay": self.default_tag,
-            "General": self.default_tag,
-            "General Change": self.default_tag
+            'Hero Gameplay': 'Heroes',
+            'Hero Gamepla': 'Heroes',
+            'Hero': 'Heroes',
+            'Item Gameplay': 'Items',
+            'New Items': 'Items',
+            'Misc Gameplay': self.default_tag,
+            'General': self.default_tag,
+            'General Change': self.default_tag,
         }
 
         # headings in this list are not converted to tags
@@ -123,10 +123,10 @@ class ChangelogParser:
             return None
 
         return map.get(heading, heading)
-    
+
     def _register_tag(self, tags, tag, is_group_tag=True):
         """
-        Registers a tag to the changelog's unique current tags, 
+        Registers a tag to the changelog's unique current tags,
         and to the static unique list of tags.
         """
 
@@ -155,7 +155,7 @@ class ChangelogParser:
                 new_changelog[index]['Description'] = description
 
         return changelog
-    
+
     def _write_unique_tag_groups(self, unique_tag_groups):
         # Read existing tag groups
         tag_groups_path = self.OUTPUT_CHANGELOGS + '/tag_groups.json'
@@ -164,9 +164,12 @@ class ChangelogParser:
 
             # Print a warning if the data is different
             if existing_tag_groups != unique_tag_groups:
-                print('WARNING: Unique tag groups are different from existing tag groups. \n'+
-                    'Clean up any new ones if necessary by referring to ChangelogParser._heading_to_tag()')
-                
+                print(
+                    'WARNING: Unique tag groups are different from existing tag groups. \n'
+                    + 'Clean up any new ones if necessary by referring to '+
+                    'ChangelogParser._heading_to_tag()'
+                )
+
         # Write the new ones to file
         json_utils.write(tag_groups_path, unique_tag_groups)
 
@@ -190,6 +193,6 @@ class ChangelogParser:
         resources.update(abilities)
 
         return resources
-    
+
     def get_lang_en(self):
         return json_utils.read(self.OUTPUT_DIR + '/localizations/english.json')
