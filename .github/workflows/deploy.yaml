@@ -69,7 +69,7 @@ jobs:
           
       - name: Switch to same branch name, create if not found
         working-directory: deadlock-data
-        run: git switch -c ${{ needs.get-branch.outputs.branch }}
+        run: git switch --track ${{ needs.get-branch.outputs.branch }}
 
       - name: Copy files to data repo
         run: cp -r ./deadbot/output-data ./deadlock-data/data/current
@@ -83,7 +83,6 @@ jobs:
       - name: Commit and push changes
         working-directory: deadlock-data 
         run: |
-          git branch --set-upstream-to=${{ needs.get-branch.outputs.branch }}
           git fetch
           git pull
           git add -A
