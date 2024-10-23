@@ -96,10 +96,8 @@ jobs:
           sudo apt-get install -y gh
 
       - name: Create a Pull Request
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          gh auth login --with-token <<< "$GITHUB_TOKEN" 
+          gh auth login --with-token <<< ${{ secrets.GH_TOKEN }}
           gh pr create \
             --head ${{ needs.get-branch.outputs.branch }} \
             --base develop \
