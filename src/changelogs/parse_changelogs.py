@@ -151,7 +151,7 @@ class ChangelogParser:
                 template = 'PageRef'
 
                 icon = '{{' + template + '|' + tag + '}}'
-                description = description.replace(tag, f'{icon} {tag}')
+                description = description.replace(tag, icon)
                 new_changelog[index]['Description'] = description
 
         return changelog
