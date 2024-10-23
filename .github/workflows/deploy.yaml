@@ -65,6 +65,7 @@ jobs:
         with:
           repository: deadlock-wiki/deadlock-data
           path: deadlock-data
+          token:  ${{ secrets.GH_TOKEN }}
           
       - name: Switch to same branch name, create if not found
         working-directory: deadlock-data
@@ -76,15 +77,12 @@ jobs:
       - name: Configure Git
         working-directory: deadlock-data 
         run: |
-          git config --global user.email "deadbot@gmail.com"
-          git config --global user.name "deadbot"
+          git config --global user.email "deadbot1101@gmail.com"
+          git config --global user.name "Deadbot0"
           
       - name: Commit and push changes
         working-directory: deadlock-data 
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          echo ${{ secrets.GH_TOKEN }}
           git add -A
           git commit -m "Test commit" || echo "No changes to commit"
           git push origin HEAD  
