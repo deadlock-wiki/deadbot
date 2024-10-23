@@ -83,7 +83,7 @@ jobs:
       - name: Commit and push changes
         working-directory: deadlock-data 
         run: |
-          git branch --set-upstream-to=origin/${{ needs.get-branch.outputs.branch }}
+          git branch --set-upstream-to=${{ needs.get-branch.outputs.branch }}
           git fetch
           git pull
           git add -A
