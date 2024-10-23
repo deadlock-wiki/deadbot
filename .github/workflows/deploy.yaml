@@ -83,12 +83,10 @@ jobs:
       - name: Commit and push changes
         working-directory: deadlock-data 
         run: |
-          git branch --set-upstream-to=origin/${{ needs.get-branch.outputs.branch }}
-          git fetch
-          git pull
+          git fetch origin feature/github-action-to-parse-game-files          
           git add -A
           git commit -m "Re-parsed game files" || echo "No changes to commit"
-          git push origin HEAD  
+          git push origin ${{ needs.get-branch.outputs.branch }}
 
       - name: Install GitHub CLI
         run: |
