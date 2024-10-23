@@ -83,7 +83,7 @@ jobs:
       - name: Commit and push changes
         working-directory: deadlock-data 
         run: |
-          git branch --set-upstream-to=origin/<branch> ${{ needs.get-branch.outputs.branch }}
+          git branch --set-upstream-to=origin/${{ needs.get-branch.outputs.branch }} ${{ needs.get-branch.outputs.branch }}
           git pull
           git add -A
           git commit -m "Re-parsed game files" || echo "No changes to commit"
