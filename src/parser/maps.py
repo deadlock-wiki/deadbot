@@ -78,10 +78,12 @@ def get_hero_attr(value):
     if value.startswith('E'):
         value = value[len('E') :]
 
-    remaps = {'WeaponPower': 'BaseWeaponDamageIncrease', 
-              'ClipSizeBonus': 'ClipSize',
-              'BulletArmorDamageReduction': 'BulletResist',
-              'TechArmorDamageReduction': 'TechResist'}
+    remaps = {
+        'WeaponPower': 'BaseWeaponDamageIncrease',
+        'ClipSizeBonus': 'ClipSize',
+        'BulletArmorDamageReduction': 'BulletResist',
+        'TechArmorDamageReduction': 'TechResist',
+    }
 
     if value in remaps:
         return remaps[value]
@@ -111,6 +113,7 @@ LEVEL_MOD_MAP = {
     'MODIFIER_VALUE_BASE_MELEE_DAMAGE_FROM_LEVEL': 'MeleeDamage',
     'MODIFIER_VALUE_BASE_HEALTH_FROM_LEVEL': 'Health',
     'MODIFIER_VALUE_TECH_DAMAGE_PERCENT': 'TechDamagePerc',
+    'MODIFIER_VALUE_TECH_ARMOR_DAMAGE_RESIST': 'SpiritResist',
     'MODIFIER_VALUE_BULLET_ARMOR_DAMAGE_RESIST': 'BulletResist',
     'MODIFIER_VALUE_BONUS_ATTACK_RANGE': 'BonusAttackRange',
 }
@@ -171,6 +174,7 @@ SCALE_TYPE_MAP = {
     'ETechCooldown': 'cooldown',
     'EBulletDamage': 'damage',
     'ETechDuration': 'duration',
+    'EWeaponDamageScale': 'weapon_damage',
 }
 
 
