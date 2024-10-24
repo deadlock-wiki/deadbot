@@ -1,13 +1,20 @@
 import os
 import decompiler.kv3_to_json as kv3_to_json
 import decompiler.localization as localization
+import filecmp
 
 
 def decompile(DEADLOCK_PATH, WORK_DIR, OUTPUT_DIR, DECOMPILER_CMD):
     # Define paths
     os.makedirs(WORK_DIR, exist_ok=True)
-    os.system(f'cp "{DEADLOCK_PATH}/game/citadel/steam.inf" "{WORK_DIR}/version.txt"')
-    os.system(f'cp "{DEADLOCK_PATH}/game/citadel/steam.inf" "{OUTPUT_DIR}/version.txt"')
+    steam_inf_path = f'{DEADLOCK_PATH}/game/citadel/steam.inf'
+    version_path = f'{WORK_DIR}/version.txt'
+
+    # if the version files match, nothing to do
+    if filecmp.cmp(steam_inf_path, version_path):
+        print('version.txt and steam.inf have the same content.')
+        if not force: return
+    os.system(f'cp "{steam_inf_path}" "{version_path}"')
 
     # Define files to be decompiled and processed
     files = ['scripts/heroes', 'scripts/abilities', 'scripts/generic_data', 'scripts/misc']
