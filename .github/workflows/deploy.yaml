@@ -75,7 +75,7 @@ jobs:
       - name: Switch to same branch name, create if not found
         working-directory: deadlock-data
         run: |
-          git fetch --all
+          git pull origin ${{ needs.get-branch.outputs.branch }} || echo "Ignoring non-existent branch ${{ needs.get-branch.outputs.branch }}"
           git switch -c ${{ needs.get-branch.outputs.branch }}
           git push --set-upstream origin ${{ needs.get-branch.outputs.branch }}
 
