@@ -79,10 +79,8 @@ jobs:
         
       - name: Switch to same branch name, create if not found
         working-directory: deadlock-data
-        run: |
-          git switch -c ${{ needs.get-branch.outputs.branch }}
-          git push
-          
+        run: git switch --track origin/${{ needs.get-branch.outputs.branch }}
+
       - name: Pull branch
         working-directory: deadlock-data 
         run: git pull origin ${{ needs.get-branch.outputs.branch }} -X ours     
