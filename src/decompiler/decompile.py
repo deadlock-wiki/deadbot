@@ -7,7 +7,6 @@ def decompile(DEADLOCK_PATH, WORK_DIR, OUTPUT_DIR, DECOMPILER_CMD):
     # Define paths
     os.makedirs(WORK_DIR, exist_ok=True)
     os.system(f'cp "{DEADLOCK_PATH}/game/citadel/steam.inf" "{WORK_DIR}/version.txt"')
-    os.system(f'cp "{DEADLOCK_PATH}/game/citadel/steam.inf" "{OUTPUT_DIR}/version.txt"')
 
     # Define files to be decompiled and processed
     files = ['scripts/heroes', 'scripts/abilities', 'scripts/generic_data', 'scripts/misc']

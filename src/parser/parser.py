@@ -1,5 +1,5 @@
 import os
-
+import shutil
 from .parsers import abilities, ability_ui, items, heroes, localizations, attributes
 from utils import json_utils
 
@@ -31,6 +31,8 @@ class Parser:
 
         self._load_vdata()
         self._load_localizations()
+
+        shutil.copy(f'{self.DATA_DIR}/version.txt', f'{self.OUTPUT_DIR}/version.txt')
 
     def _load_vdata(self):
         # Convert .vdata_c to .vdata and .json
