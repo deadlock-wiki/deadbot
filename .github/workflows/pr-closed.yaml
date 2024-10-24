@@ -20,14 +20,14 @@ jobs:
         working-directory: deadlock-data 
         run: |
           gh auth login --with-token <<< ${{ secrets.GH_TOKEN }}
-          pr_url=$(
+          pr_num=$(
             gh pr list \
               --head ${{ github.head_ref }} \
-              --json number | jq .number
+              --json number | jq .[0].number
           )
-          echo "pr_url=$pr_url" >> $GITHUB_OUTPUT
+          echo "pr_num=$pr_num" >> $GITHUB_OUTPUT
 
       - name: Close deadlock-data PR
         working-directory: deadlock-data 
         run: |
-          gh pr close ${{ steps.create_data_pr.outputs.pr_url }}
+          gh pr close ${{ steps.create_data_pr.outputs.pr_num }}
