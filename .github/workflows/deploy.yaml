@@ -49,12 +49,7 @@ jobs:
       - name: Build Deadbot
         run: docker-compose build
         working-directory: deadbot 
-        env:
-          IAM_KEY: ${{ secrets.IAM_KEY }}
-          IAM_SECRET: ${{ secrets.IAM_SECRET }}
-          BOT_WIKI_USER: ${{ secrets.BOT_WIKI_USER }}
-          BOT_WIKI_PASS: ${{ secrets.BOT_WIKI_PASS }}
-      
+
       - name: Run Deadbot
         run: docker-compose up
         working-directory: deadbot
@@ -62,6 +57,10 @@ jobs:
           IMPORT_FILES: true
           DECOMPILE: false
           BOT_PUSH: ${{ needs.get-branch.outputs.branch }} == master
+          IAM_KEY: ${{ secrets.IAM_KEY }}
+          IAM_SECRET: ${{ secrets.IAM_SECRET }}
+          BOT_WIKI_USER: ${{ secrets.BOT_WIKI_USER }}
+          BOT_WIKI_PASS: ${{ secrets.BOT_WIKI_PASS }}
 
       - name: Checkout deadlock-data repo
         uses: actions/checkout@v4
