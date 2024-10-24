@@ -32,8 +32,7 @@ class DataTransfer:
             raise Exception(f'No data found for version {version}')
 
         # clear data directory before importing
-        if os.path.exists(self.DATA_DIR):
-            shutil.rmtree(self.DATA_DIR)
+        self._clear_folder(self.DATA_DIR)
 
         for obj in files:
             key = obj['Key']
@@ -80,3 +79,15 @@ class DataTransfer:
 
     def _get_versions(self):
         return self.s3.get_folders()
+
+    def _clear_folder(self, folder):
+        # Remove all files and subdirectories within the folder
+        for filename in os.listdir(folder):
+            file_path = os.path.join(folder, filename)
+            try:
+                if os.path.isfile(file_path) or os.path.islink(file_path):
+                    os.unlink(file_path)  # Remove file or link
+                elif os.path.isdir(file_path):
+                    shutil.rmtree(file_path)  # Remove directory
+            except Exception as e:
+                print(f'Failed to delete {file_path}. Reason: {e}')
