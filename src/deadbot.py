@@ -89,7 +89,7 @@ def main():
 
     if is_truthy(args.decompile):
         print('Decompiling source files...')
-        decompile.decompile(args.dl_path, args.workdir, args.output, args.decompiler_cmd)
+        decompile.decompile(args.dl_path, args.workdir, args.decompiler_cmd)
     else:
         print('! Skipping Decompiler !')
 

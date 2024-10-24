@@ -4,7 +4,19 @@ import decompiler.localization as localization
 import filecmp
 
 
-def decompile(DEADLOCK_PATH, WORK_DIR, OUTPUT_DIR, DECOMPILER_CMD):
+def decompile(DEADLOCK_PATH, WORK_DIR, DECOMPILER_CMD, force=False):
+    """
+    Decompiles deadlock game files and generated parsed output.
+    
+    Args:
+        DEADLOCK_PATH (str): The path to the deadlock game files.
+        WORK_DIR (str): The working directory for the decompilation process.
+        DECOMPILER_CMD (str): The command used to run the decompiler.
+    
+    Returns:
+        None
+    """
+
     # Define paths
     os.makedirs(WORK_DIR, exist_ok=True)
     steam_inf_path = f'{DEADLOCK_PATH}/game/citadel/steam.inf'
