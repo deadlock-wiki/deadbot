@@ -105,9 +105,8 @@ def arg_group_action(parser):
         help='Fetch/parse forum and local changelogs. (also set with CHANGELOGS env variable)',
     )
     group_actions.add_argument(
-        '-f',
         '--force',
-        actions='store_true',
+        action='store_true',
         help='Decompile even if game and workdir versions match',
     )
     return group_actions
