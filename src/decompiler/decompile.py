@@ -7,12 +7,12 @@ import filecmp
 def decompile(DEADLOCK_PATH, WORK_DIR, DECOMPILER_CMD, force=False):
     """
     Decompiles deadlock game files and generated parsed output.
-    
+
     Args:
         DEADLOCK_PATH (str): The path to the deadlock game files.
         WORK_DIR (str): The working directory for the decompilation process.
         DECOMPILER_CMD (str): The command used to run the decompiler.
-    
+
     Returns:
         None
     """
@@ -25,7 +25,8 @@ def decompile(DEADLOCK_PATH, WORK_DIR, DECOMPILER_CMD, force=False):
     # if the version files match, nothing to do
     if filecmp.cmp(steam_inf_path, version_path):
         print('version.txt and steam.inf have the same content.')
-        if not force: return
+        if not force:
+            return
     os.system(f'cp "{steam_inf_path}" "{version_path}"')
 
     # Define files to be decompiled and processed
