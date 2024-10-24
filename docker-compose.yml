@@ -9,10 +9,10 @@ services:
       # runtime config
       IMPORT_FILES: ${IMPORT_FILES}
       DECOMPILE: ${DECOMPILE}
-      CHANGELOGS: true
-      PARSE: true
+      CHANGELOGS: 'true'
+      PARSE: 'true'
       BOT_PUSH: ${BOT_PUSH}
-      CLEANUP: true
+      CLEANUP: 'true'
     volumes:
       - "./decompiled-data:/work"
       - "./input-data:/input"
