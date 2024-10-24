@@ -1,0 +1,94 @@
+version: '3'
+services:
+  deadbot:
+    image: ghcr.io/deadlock-wiki/deadbot:latest
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      # runtime config
+      DECOMPILE: false
+      PARSE: false
+      CHANGELOGS: true
+      BOT_PUSH: false
+      CLEANUP: false
+    volumes:
+      - scratch:/work
+      - "/mnt/SteamLibrary/steamapps/common/Deadlock:/data:ro"
+      - "./output-data:/output"
+      - "./input-data:/input"
+
+  test1:
+    image: ghcr.io/deadlock-wiki/deadbot:latest
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      # runtime config
+      DECOMPILE: true
+      PARSE: false
+      CHANGELOGS: false
+      BOT_PUSH: false
+      CLEANUP: false
+    volumes:
+      - scratch:/work
+      - "/mnt/SteamLibrary/steamapps/common/Deadlock:/data:ro"
+      - "./output-data:/output"
+      - "./input-data:/input"
+
+  test2:
+    image: ghcr.io/deadlock-wiki/deadbot:latest
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      # runtime config
+      DECOMPILE: false
+      PARSE: true
+      CHANGELOGS: false
+      BOT_PUSH: false
+      CLEANUP: false
+    volumes:
+      - scratch:/work
+      - "/mnt/SteamLibrary/steamapps/common/Deadlock:/data:ro"
+      - "./output-data:/output"
+      - "./input-data:/input"
+
+  test3:
+    image: ghcr.io/deadlock-wiki/deadbot:latest
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      # runtime config
+      DECOMPILE: false
+      PARSE: false
+      CHANGELOGS: true
+      BOT_PUSH: false
+      CLEANUP: false
+    volumes:
+      - scratch:/work
+      - "/mnt/SteamLibrary/steamapps/common/Deadlock:/data:ro"
+      - "./output-data:/output"
+      - "./input-data:/input"
+
+  test4:
+    image: ghcr.io/deadlock-wiki/deadbot:latest
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      # runtime config
+      DECOMPILE: false
+      PARSE: false
+      CHANGELOGS: false
+      BOT_PUSH: false
+      CLEANUP: false
+    volumes:
+      - scratch:/work
+      - "/mnt/SteamLibrary/steamapps/common/Deadlock:/data:ro"
+      - "./output-data:/output"
+      - "./input-data:/input"
+
+volumes:
+  scratch:
