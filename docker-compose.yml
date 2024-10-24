@@ -5,6 +5,14 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
+    environment:
+      # runtime config
+      IMPORT_FILES: ${IMPORT_FILES}
+      DECOMPILE: ${DECOMPILE}
+      CHANGELOGS: true
+      PARSE: true
+      BOT_PUSH: ${BOT_PUSH}
+      CLEANUP: true
     volumes:
       - "./decompiled-data:/work"
       - "./input-data:/input"
