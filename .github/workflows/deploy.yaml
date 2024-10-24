@@ -120,4 +120,6 @@ jobs:
         if: github.event_name == 'pull_request' 
         working-directory: deadbot 
         run: |
-          gh pr edit ${{ github.event.number }} --add-body "_Parsed data in [deadlock-data PR](https://github.com/deadlock-wiki/deadbot/pull/${{ steps.create_pr.outputs.docker_tag }})_"
+          current_body=$(gh pr view ${{ github.event.number }} --json body -q ".body")
+          new_body="$current_body\n\n_Parsed data in [deadlock-data PR](https://github.com/deadlock-wiki/deadbot/pull/${{ steps.create_pr.outputs.pr_number }})_"
+          gh pr edit ${{ github.event.number }} --body "$new_body"  
