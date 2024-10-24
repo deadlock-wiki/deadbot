@@ -69,11 +69,7 @@ jobs:
         with:
           repository: deadlock-wiki/deadlock-data
           path: deadlock-data
-          token:  ${{ secrets.GH_TOKEN }}
-          
-      - name: Switch to same branch name, create if not found
-        working-directory: deadlock-data
-        run: git switch -c ${{ needs.get-branch.outputs.branch }}
+          token:  ${{ secrets.GH_TOKEN }}          
 
       - name: Configure Git
         working-directory: deadlock-data 
@@ -81,6 +77,12 @@ jobs:
           git config --global user.email "deadbot1101@gmail.com"
           git config --global user.name "Deadbot0"
         
+      - name: Switch to same branch name, create if not found
+        working-directory: deadlock-data
+        run: |
+          git switch -c ${{ needs.get-branch.outputs.branch }}
+          git push
+          
       - name: Pull branch
         working-directory: deadlock-data 
         run: git pull origin ${{ needs.get-branch.outputs.branch }} -X ours     
