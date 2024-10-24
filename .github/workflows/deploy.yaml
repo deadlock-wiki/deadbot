@@ -80,6 +80,7 @@ jobs:
       - name: Switch to same branch name, create if not found
         working-directory: deadlock-data
         run: |
+          git pull origin ${{ needs.get-branch.outputs.branch }} -X ours
           git switch -c ${{ needs.get-branch.outputs.branch }}
           git push --set-upstream origin ${{ needs.get-branch.outputs.branch }}
 
