@@ -1,0 +1,355 @@
+{
+    "Other": {
+        "General": []
+    },
+    "Heroes": {
+        "General": [],
+        "Pocket": [
+            "- Pocket {AbilityIcon|Ability=Affliction|Size=20} Affliction visual and sound effects reworked",
+            "- {AbilityIcon|Ability=Pocket|Size=20} Pocket Enchanter\u2019s Satchel visual effects updated",
+            "- Fixed a bug where {AbilityIcon|Ability=Pocket|Size=20} Pocket\u2019s briefcase would stop animating when the duration upgrade was taken",
+            "- Gun damage per bullet reduced from 6 to 5.6",
+            "- {AbilityIcon|Ability=Affliction|Size=20} Affliction DPS reduced from 30 to 26"
+        ],
+        "Dynamo": [
+            "- Updated Dynamo VO for {AbilityIcon|Ability=Quantum Entanglement|Size=20} Quantum Entanglement and a few other missing lines"
+        ],
+        "Kelvin": [
+            "- Fixed Ice Dome effects disappearing while still active if {AbilityIcon|Ability=Kelvin|Size=20} Kelvin dies during it",
+            "- {AbilityIcon|Ability=Frost Grenade|Size=20} Frost Grenade cooldown reduced from 30s to 26s"
+        ],
+        "Seven": [
+            "- Simplify some visuals with Seven\u2019s {AbilityIcon|Ability=Storm Cloud|Size=20} Storm Cloud radius indicator to help clarify the bounds",
+            "- {AbilityIcon|Ability=Power Surge|Size=20} Power Surge rebalanced around no longer reducing fire rate (similar shock value effectiveness as before)"
+        ],
+        "Abrams": [
+            "- Reduced chances that Leap gets stuck on geometry during the downward phase"
+        ],
+        "Bebop": [
+            "- No longer has an innate +15% Spirit Resist",
+            "- Now has innate +20% Bullet Resist",
+            "- {AbilityIcon|Ability=Hook|Size=20} Hook cooldown reduced from 27s to 22s",
+            "- {AbilityIcon|Ability=Hook|Size=20} Hook T3 reduced from -15s to -12s Cooldown",
+            "- {AbilityIcon|Ability=Hook|Size=20} Hook Speed increased from 2700 to 3000",
+            "- {AbilityIcon|Ability=Hook|Size=20} Hook Return Speed increased from 1800 to 2200",
+            "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam DPS increased from 180 to 210"
+        ],
+        "Grey Talon": [
+            "- {AbilityIcon|Ability=Charged Shot|Size=20} Charged Shot damage increased from 105 to 115",
+            "- {AbilityIcon|Ability=Rain of Arrows|Size=20} Rain of Arrows Multishot increased from 3 to 5"
+        ],
+        "Infernus": [
+            "- Fixed {AbilityIcon|Ability=Afterburn|Size=20} Afterburn refreshing from item damage"
+        ],
+        "Ivy": [
+            "- Base stamina increased from 3 to 4"
+        ],
+        "Lash": [
+            "- {AbilityIcon|Ability=Ground Strike|Size=20} Ground Strike now additionally damages enemies within 2m of Lash on impact",
+            "- {AbilityIcon|Ability=Ground Strike|Size=20} Ground Strike radius reduced from 16m to 14m",
+            "- {AbilityIcon|Ability=Ground Strike|Size=20} Ground Strike's ground preview now lines up under Lash when cast on the ground",
+            "- {AbilityIcon|Ability=Ground Strike|Size=20} Ground Strike T3 reduced from +100% to +85%",
+            "- Bullet Damage growth increased from 0.76 to 1.0",
+            "- {AbilityIcon|Ability=Death Slam|Size=20} Death Slam tether visuals now improved to communicate the different phases its in"
+        ],
+        "Lady Geist": [
+            "- {AbilityIcon|Ability=Malice|Size=20} Malice now comes out quicker and no longer slows you"
+        ],
+        "McGinnis": [
+            "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turret Spirit Resistance increased 50% to 60%",
+            "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turret Health increased from 30% to 40%",
+            "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turret T2 increased from +5m Range to +10m",
+            "- Fixed issues with Heavy {AbilityIcon|Ability=Barrage|Size=20} Barrage not damaging units within the target area"
+        ],
+        "Mo & Krill": [
+            "- Base HP increased from 650 to 700",
+            "- {AbilityIcon|Ability=Scorn|Size=20} Scorn damage increased from 40 to 50",
+            "- {AbilityIcon|Ability=Scorn|Size=20} Scorn T3 debuff duration increased from 10s to 16s",
+            "- {AbilityIcon|Ability=Sand Blast|Size=20} Sand Blast duration increased from 3.5s to 4s",
+            "- {AbilityIcon|Ability=Combo|Size=20} Combo T3 DPS increased from +30 to +40"
+        ],
+        "Paradox": [
+            "- {AbilityIcon|Ability=Time Wall|Size=20} Time Wall bullet freeze duration no longer increases with Spirit or Duration Extender",
+            "- {AbilityIcon|Ability=Time Wall|Size=20} Time Wall bullet freeze base duration reduced from 1.5 to 1.25",
+            "- {AbilityIcon|Ability=Time Wall|Size=20} Time Wall no longer deals damage to Mid Boss",
+            "- {AbilityIcon|Ability=Kinetic Carbine|Size=20} Kinetic Carbine: Max Damage Amp reduced from 150% to 125%",
+            "- {AbilityIcon|Ability=Kinetic Carbine|Size=20} Kinetic Carbine T3 no longer provides +50% Min Damage Amp",
+            "- {AbilityIcon|Ability=Kinetic Carbine|Size=20} Kinetic Carbine T3 reduced from +125% Max Damage to +75%"
+        ],
+        "Warden": [
+            "- {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask damage increased from 48 to 55"
+        ],
+        "Yamato": [
+            "- {AbilityIcon|Ability=Crimson Slash|Size=20} Crimson Slash cooldown reduced from 13s to 11s",
+            "- {AbilityIcon|Ability=Power Slash|Size=20} Power Slash physics/world collision reduced from 15 to 4 (allowing it to be more easily used near objects)",
+            "- Shadow Explosion radius increased from 14m to 16m",
+            "- Shadow Explosion {AbilityIcon|Ability=Fire Rate|Size=20} Fire Rate and Spirit buff duration increased from 15s to 20s",
+            "- Shadow Explosion T3 Spirit bonus increased from +10% to +15%",
+            "- Shadow Explosion T3 {AbilityIcon|Ability=Fire Rate|Size=20} Fire Rate bonus increased from +5% to +10%"
+        ]
+    },
+    "Items": {
+        "General": [],
+        "Divine Barrier": [
+            "- Updated {AbilityIcon|Ability=Divine Barrier|Size=20} Divine Barrier sound effects",
+            "- No longer restores any Stamina on the target (previously fully restored it)"
+        ],
+        "Fortitude": [
+            "- {AbilityIcon|Ability=Fortitude|Size=20} Fortitude now starts on cooldown to prevent purchasing and selling in the field for significant regen"
+        ],
+        "Decay": [
+            "- Updated {AbilityIcon|Ability=Decay|Size=20} Decay item sound effects",
+            "- Cooldown reduced from 25s to 22s",
+            "- Cast range increased from 20m to 30m"
+        ],
+        "Berserker": [
+            "- Updated {AbilityIcon|Ability=Berserker|Size=20} Berserker item visuals"
+        ],
+        "Restorative Locket": [
+            "- Fixed {AbilityIcon|Ability=Restorative Locket|Size=20} Restorative Locket Spirit Resist not working",
+            "- Max Stacks increased from 12 to 15",
+            "- Cooldown increased from 15s to 18s"
+        ],
+        "Spirit Strike": [
+            "- Buff duration increased from 12s to 18s",
+            "- Melee damage bonus increased from 15% to 20%"
+        ],
+        "Hollow Point Ward": [
+            "- Spirit Shield increased from +70 to +80"
+        ],
+        "Melee Lifesteal": [
+            "- Cooldown reduced from 10s to 8s"
+        ],
+        "Alchemical Fire": [
+            "- Min/Max DPS increased from 30/60 to 40/80"
+        ],
+        "Reactive Barrier": [
+            "- Barrier duration increased from 10s to 13s",
+            "- Cooldown reduced from 60s to 40s"
+        ],
+        "Fire Rate": [
+            "- {AbilityIcon|Ability=Return Fire|Size=20} Return Fire: No longer has Spirit and Fire Rate bonus during the active",
+            "- {AbilityIcon|Ability=Return Fire|Size=20} Return Fire: Now passively always gives +7 Spirit and +7% Fire Rate",
+            "- Shadow Explosion {AbilityIcon|Ability=Fire Rate|Size=20} Fire Rate and Spirit buff duration increased from 15s to 20s",
+            "- Shadow Explosion T3 {AbilityIcon|Ability=Fire Rate|Size=20} Fire Rate bonus increased from +5% to +10%",
+            "- Crate Powerups: Added {AbilityIcon|Ability=Fire Rate|Size=20} Fire Rate drop, provides +20% {AbilityIcon|Ability=Fire Rate|Size=20} Fire Rate for 25s"
+        ],
+        "Return Fire": [
+            "- No longer has Spirit and {AbilityIcon|Ability=Fire Rate|Size=20} Fire Rate bonus during the active",
+            "- Now passively always gives +7 Spirit and +7% {AbilityIcon|Ability=Fire Rate|Size=20} Fire Rate"
+        ],
+        "Slowing Hex": [
+            "- Cooldown reduced from 30s to 25s"
+        ],
+        "Enduring Speed": [
+            "- Movement Speed increased from 1 to 1.25"
+        ],
+        "Suppressor": [
+            "- Now provides +50 Health"
+        ],
+        "Warp Stone": [
+            "- No longer slows your hero for 3s",
+            "- Bullet Resist duration increased from 3s to 5s"
+        ],
+        "Withering Whip": [
+            "- Cast range increased from 12m to 20m"
+        ],
+        "Knockdown": [
+            "- Cooldown reduced from 55s to 50s",
+            "- Now provides +200 Spirit Shield"
+        ],
+        "Escalating Resilience": [
+            "- Resist per stack increased from 1% to 2%"
+        ],
+        "Superior Stamina": [
+            "- Spirit buff duration increased from 5s to 8s"
+        ],
+        "Lifestrike": [
+            "- Slow duration increased from 1s to 1.5s",
+            "- Cooldown reduced from 10s to 8s"
+        ],
+        "Heroic Aura": [
+            "- Active radius increased from 20m to 30m"
+        ],
+        "Curse": [
+            "- Now provides +15% Clip",
+            "- Duration increased from 3.5s to 3.75s"
+        ],
+        "Shadow Weave": [
+            "- Now provides +15 {AbilityIcon|Ability=Health Regen|Size=20} Health Regen"
+        ],
+        "Health Regen": [
+            "- Now provides +15 {AbilityIcon|Ability=Health Regen|Size=20} Health Regen",
+            "- Crate Powerups: Increased {AbilityIcon|Ability=Health Regen|Size=20} Health Regen drop from 1.25% Regen to 1.5%"
+        ],
+        "Phantom Strike": [
+            "- No longer passively provides +500 Bullet Shield",
+            "- Now provides +200 Health",
+            "- When using the active, gain a temporary +500 Bullet Shield for 7 seconds",
+            "- Now deals 200 damage on impact"
+        ],
+        "Vampiric Burst": [
+            "- Active {AbilityIcon|Ability=Bullet Lifesteal|Size=20} Bullet Lifesteal increased from 40% to 60%"
+        ],
+        "Bullet Lifesteal": [
+            "- Active {AbilityIcon|Ability=Bullet Lifesteal|Size=20} Bullet Lifesteal increased from 40% to 60%"
+        ],
+        "Unstoppable": [
+            "- Movement Speed increased from +1 to +1.25"
+        ],
+        "Spirit Lifesteal": [
+            "- {AbilityIcon|Ability=Mystic Reverb|Size=20} Mystic Reverb: Spirit Lifesteal increased from +10% to +15%"
+        ],
+        "Mystic Reverb": [
+            "- {AbilityIcon|Ability=Spirit Lifesteal|Size=20} Spirit Lifesteal increased from +10% to +15%",
+            "- Spirit Resist increased from +10% to +15%"
+        ],
+        "Crippling Headshot": [
+            "- Headshot Resistance Reduction increased from 30% to 35%"
+        ],
+        "Diviner's Kevlar": [
+            "- Channeling Spirit bonus increased from +40 to +50"
+        ],
+        "Duration Extender": [
+            "- {AbilityIcon|Ability=Time Wall|Size=20} Time Wall bullet freeze duration no longer increases with Spirit or Duration Extender"
+        ]
+    },
+    "Abilities": {
+        "General": [],
+        "Affliction": [
+            "- Pocket {AbilityIcon|Ability=Affliction|Size=20} Affliction visual and sound effects reworked",
+            "- {AbilityIcon|Ability=Affliction|Size=20} Affliction DPS reduced from 30 to 26"
+        ],
+        "Quantum Entanglement": [
+            "- Updated Dynamo VO for {AbilityIcon|Ability=Quantum Entanglement|Size=20} Quantum Entanglement and a few other missing lines"
+        ],
+        "Storm Cloud": [
+            "- Simplify some visuals with Seven\u2019s {AbilityIcon|Ability=Storm Cloud|Size=20} Storm Cloud radius indicator to help clarify the bounds"
+        ],
+        "Hook": [
+            "- {AbilityIcon|Ability=Hook|Size=20} Hook cooldown reduced from 27s to 22s",
+            "- {AbilityIcon|Ability=Hook|Size=20} Hook T3 reduced from -15s to -12s Cooldown",
+            "- {AbilityIcon|Ability=Hook|Size=20} Hook Speed increased from 2700 to 3000",
+            "- {AbilityIcon|Ability=Hook|Size=20} Hook Return Speed increased from 1800 to 2200"
+        ],
+        "Hyper Beam": [
+            "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam DPS increased from 180 to 210"
+        ],
+        "Charged Shot": [
+            "- {AbilityIcon|Ability=Charged Shot|Size=20} Charged Shot damage increased from 105 to 115"
+        ],
+        "Rain of Arrows": [
+            "- {AbilityIcon|Ability=Rain of Arrows|Size=20} Rain of Arrows Multishot increased from 3 to 5"
+        ],
+        "Frost Grenade": [
+            "- {AbilityIcon|Ability=Frost Grenade|Size=20} Frost Grenade cooldown reduced from 30s to 26s"
+        ],
+        "Afterburn": [
+            "- Fixed {AbilityIcon|Ability=Afterburn|Size=20} Afterburn refreshing from item damage"
+        ],
+        "Ground Strike": [
+            "- {AbilityIcon|Ability=Ground Strike|Size=20} Ground Strike now additionally damages enemies within 2m of Lash on impact",
+            "- {AbilityIcon|Ability=Ground Strike|Size=20} Ground Strike radius reduced from 16m to 14m",
+            "- {AbilityIcon|Ability=Ground Strike|Size=20} Ground Strike's ground preview now lines up under Lash when cast on the ground",
+            "- {AbilityIcon|Ability=Ground Strike|Size=20} Ground Strike T3 reduced from +100% to +85%"
+        ],
+        "Death Slam": [
+            "- {AbilityIcon|Ability=Death Slam|Size=20} Death Slam tether visuals now improved to communicate the different phases its in"
+        ],
+        "Malice": [
+            "- {AbilityIcon|Ability=Malice|Size=20} Malice now comes out quicker and no longer slows you"
+        ],
+        "Mini Turret": [
+            "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turret Spirit Resistance increased 50% to 60%",
+            "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turret Health increased from 30% to 40%",
+            "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turret T2 increased from +5m Range to +10m"
+        ],
+        "Heavy Barrage": [
+            "- Fixed issues with Heavy {AbilityIcon|Ability=Barrage|Size=20} Barrage not damaging units within the target area"
+        ],
+        "Barrage": [
+            "- Fixed issues with Heavy {AbilityIcon|Ability=Barrage|Size=20} Barrage not damaging units within the target area"
+        ],
+        "Scorn": [
+            "- {AbilityIcon|Ability=Scorn|Size=20} Scorn damage increased from 40 to 50",
+            "- {AbilityIcon|Ability=Scorn|Size=20} Scorn T3 debuff duration increased from 10s to 16s"
+        ],
+        "Sand Blast": [
+            "- {AbilityIcon|Ability=Sand Blast|Size=20} Sand Blast duration increased from 3.5s to 4s"
+        ],
+        "Combo": [
+            "- {AbilityIcon|Ability=Combo|Size=20} Combo T3 DPS increased from +30 to +40"
+        ],
+        "Time Wall": [
+            "- {AbilityIcon|Ability=Time Wall|Size=20} Time Wall bullet freeze duration no longer increases with Spirit or Duration Extender",
+            "- {AbilityIcon|Ability=Time Wall|Size=20} Time Wall bullet freeze base duration reduced from 1.5 to 1.25",
+            "- {AbilityIcon|Ability=Time Wall|Size=20} Time Wall no longer deals damage to Mid Boss"
+        ],
+        "Kinetic Carbine": [
+            "- Max Damage Amp reduced from 150% to 125%",
+            "- {AbilityIcon|Ability=Kinetic Carbine|Size=20} Kinetic Carbine T3 no longer provides +50% Min Damage Amp",
+            "- {AbilityIcon|Ability=Kinetic Carbine|Size=20} Kinetic Carbine T3 reduced from +125% Max Damage to +75%"
+        ],
+        "Power Surge": [
+            "- {AbilityIcon|Ability=Power Surge|Size=20} Power Surge rebalanced around no longer reducing fire rate (similar shock value effectiveness as before)"
+        ],
+        "Alchemical Flask": [
+            "- {AbilityIcon|Ability=Alchemical Flask|Size=20} Alchemical Flask damage increased from 48 to 55"
+        ],
+        "Crimson Slash": [
+            "- {AbilityIcon|Ability=Crimson Slash|Size=20} Crimson Slash cooldown reduced from 13s to 11s"
+        ],
+        "Power Slash": [
+            "- {AbilityIcon|Ability=Power Slash|Size=20} Power Slash physics/world collision reduced from 15 to 4 (allowing it to be more easily used near objects)"
+        ]
+    },
+    "General Changes": {
+        "General": [
+            "- Sandbox mode now supports entering it with your party",
+            "- Sandbox mode now has troopers spawning on the left side",
+            "- Added Search By Match ID to the Watch Tab",
+            "- Added Filter By Hero to the Watch Tab",
+            "- You can now see an indicator for enemy troopers when near them if they are behind a wall or offscreen (primarly improves tracking their positions during the lane)",
+            "- Map is now precached while in the queue to improve loading times into matches",
+            "- Visual and Audio updates to the shop",
+            "- Added a key for toggling replays being paused (defaults to P)",
+            "- Hero death voices are now broadcast more widely",
+            "- Fixed being unable to ping while casting or channeling",
+            "- Fixed various issues with hero abilities causing you to be stuck in walls",
+            "- Fixed players being able to kill themselves pre-match and run around in the map",
+            "- Fixed Stamina not appearing to regenerate while spectating",
+            "- Improve the text display when a replay is still processing after a match",
+            "- Fixed Walker boss moving around while the game is paused",
+            "- Fixed some controller input issues",
+            "- Fixed visual bug on Spirit Urn when dropping on the ground",
+            "- Fixed items not updating in the UI when purchased from the shop while spectating a teammate"
+        ]
+    },
+    "Item Gameplay Changes": {
+        "General": [
+            "- Quicksilver: Now passively has a +10% reload time penalty"
+        ]
+    },
+    "Hero Gameplay Changes": {
+        "General": []
+    },
+    "Misc Gameplay Changes": {
+        "General": [
+            "- Sprint is now always considered active as long as you are out of combat (haven\u2019t taken or dealt damage for 5s, healthbar is now a little transparent when out of combat).",
+            "- Fixed various inconsistencies and scenarios with how Sprint speed was calculated. Previously there were many conditions that could result in you losing the bonus.",
+            "- Patron (Weakened) now has 40hp/s regen when it has not taken damage for 30s",
+            "- Medic Troopers no longer use their heal on troopers if there is a hero within 30m",
+            "- Zipline Speed Boost cooldown reduced from 420s to 380s",
+            "- Damage over time no longer prevents zipline usage",
+            "- Adjusted how the Anti Backdoor system works. It does a little less % damage reduction now, but it regens \u201cbackdoor damage\u201d dealt to it over time. Backdoor damage is defined as any damage taken with no candle troopers within 50m in the last 20 seconds.",
+            "- Troopers run speed increased from 9.1 m/s to 10 m/s",
+            "- Troopers DPS vs Patrons reduced from 110 DPS to 80 DPS",
+            "- Troopers DPS vs Walkers from 110 DPS to 80 DPS",
+            "- Troopers DPS vs Base Guardians from 110 DPS to 80 DPS",
+            "- Crate Powerups: Removed Zipline buff as a potential drop",
+            "- Vault base bounty increased from 200 to 225",
+            "- Fixed some issues that allowed players to more easily camp players in the spawn area",
+            "Note: 10% of users will default to vulkan rendersystem. If you experience any issues related to this, you can report these on the forums and switch to dx11 in the video settings. Deadlock will eventually drop support for dx11 and render on vulkan exclusively."
+        ]
+    }
+}

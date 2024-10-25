@@ -1,0 +1,54 @@
+{
+    "Weapon": {
+        "attribute_order": [
+            "BulletDamage",
+            "BaseWeaponDamageIncrease",
+            "RoundsPerSecond",
+            "FireRate",
+            "ClipSize",
+            "ClipSizeIncrease",
+            "ReloadTime",
+            "ReloadSpeed",
+            "BulletSpeed",
+            "BulletSpeedIncrease",
+            "BulletLifesteal",
+            "CritDamageBonusScale",
+            "LightMeleeDamage",
+            "HeavyMeleeDamage"
+        ]
+    },
+    "Vitality": {
+        "attribute_order": [
+            "MaxHealth",
+            "BaseHealthRegen",
+            "BulletResist",
+            "TechResist",
+            "BulletShieldHealth",
+            "TechShieldHealth",
+            "MeleeResist",
+            "HealingOutput",
+            "DebuffResist",
+            "CritDamageReceivedScale",
+            "MaxMoveSpeed",
+            "SprintSpeed",
+            "StaminaCooldown",
+            "StaminaRegenIncrease",
+            "Stamina"
+        ]
+    },
+    "Spirit": {
+        "attribute_order": [
+            "TechCooldown",
+            "TechDuration",
+            "TechRange",
+            "TechLifesteal",
+            "MaxChargesIncrease",
+            "TechCooldownBetweenChargeUses"
+        ]
+    },
+    "category_order": [
+        "Weapon",
+        "Vitality",
+        "Spirit"
+    ]
+}
