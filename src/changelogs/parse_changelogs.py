@@ -171,7 +171,7 @@ class ChangelogParser:
                 )
 
         # Write the new ones to file
-        json_utils.write(tag_groups_path, unique_tag_groups)
+        json_utils.write(tag_groups_path, sorted(unique_tag_groups))
 
     def _get_resources(self):
         resources = {}
