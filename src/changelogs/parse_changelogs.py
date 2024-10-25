@@ -157,9 +157,6 @@ class ChangelogParser:
         return rows
 
     def _sort_object_by_date_key(self, changelogs):
-        # sorted_keys = sorted(
-        #     changelogs.keys(), key=lambda x: datetime.datetime.strptime(x, '%m-%d-%Y')
-        # )
         sorted_keys = changelogs.keys()
         sorted_changelogs = {}
         for key in reversed(sorted_keys):
