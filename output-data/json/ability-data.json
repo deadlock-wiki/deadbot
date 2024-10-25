@@ -964,10 +964,9 @@
         "AbilityPostCastDuration": 0.1,
         "AbilityUnitTargetLimit": 1,
         "AirDampingDuration": 1,
-        "BonusMoveSpeed": 25,
+        "BonusMoveSpeed": 4,
         "ChannelMoveSpeed": 50,
         "DamageAmpPercentage": 25,
-        "FallSpeedMax": 10,
         "Key": "ability_magician_animalcurse",
         "Name": "Rabbit Hex",
         "Radius": 0,
@@ -986,7 +985,7 @@
     },
     "ability_magician_cloneturret": {
         "AbilityCastDelay": 0.15,
-        "AbilityCastRange": 60,
+        "AbilityCastRange": 20,
         "AbilityChannelTime": 5,
         "AbilityCooldown": 30,
         "AbilityDuration": 5,
@@ -1674,9 +1673,6 @@
     "ability_viper_snakedash": {
         "AbilityUnitTargetLimit": 1,
         "ChannelMoveSpeed": 50,
-        "DashAirSpeed": 8,
-        "DashSpeed": 12,
-        "DashTime": 0.8,
         "Key": "ability_viper_snakedash",
         "Name": "Slither",
         "SlideScale": 10,
@@ -1688,7 +1684,7 @@
                 "SlideScale": 25
             },
             {
-                "SlideEvasionChance": 50
+                "SlideBulletEvasion": 50
             }
         ]
     },
@@ -2311,7 +2307,7 @@
                 "MaxSlowDuration": 0.5
             },
             {
-                "AbilityCooldown": -9.5,
+                "AbilityCooldown": -10,
                 "SpeedBoostDuration": 2
             },
             {
