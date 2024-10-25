@@ -1,4 +1,33 @@
 {
+    "10-24-2024": [
+        "- Bullet damage growth increased from 0.29 to 0.33",
+        "- No longer gains 1% Bullet Resist per boon",
+        "- Now gains 1% Spirit Resist per boon",
+        "- {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb now loses 20% of your stacks on death (rounds up)",
+        "- {AbilityIcon|Ability=Hook|Size=20} Hook now returns troopers 75% faster than normal"
+    ],
+    "10-11-2024": [
+        "- {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb no longer has a cap (was 15 stacks)",
+        "- {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb scaling per hero reduced from 4% to 3% (previous uncapped was 2.5%)",
+        "- {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb still loses 2 stacks on death",
+        "- Fixed some hook bugs causing it to sometimes not grab heroes near cover but still in collision range",
+        "- {AbilityIcon|Ability=Hook|Size=20} Hook collision against troopers reduced to 12 (default is 33)",
+        "- {AbilityIcon|Ability=Hook|Size=20} Hook no longer kills troopers (so you can bomb/uppercut/melee them)",
+        "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam duration increased from 10s to 11s"
+    ],
+    "10-10-2024": [
+        "- Added new custom charge and light melee and parry animations for {AbilityIcon|Ability=Bebop|Size=20} Bebop",
+        "- {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb growth increased from 2.5% to 4% per stack",
+        "- {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb now loses 2 stacks on death",
+        "- {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb now has 15 max stacks",
+        "- {AbilityIcon|Ability=Hook|Size=20} Hook range increased from 25m to 30m",
+        "- {AbilityIcon|Ability=Hook|Size=20} Hook now also hits enemy troopers, killing them instantly",
+        "- Fixed some cases where {AbilityIcon|Ability=Hook|Size=20} Hook would grab players from around corners",
+        "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam movement slow reduced from 30% to 25%",
+        "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam duration no longer scales with Spirit Power",
+        "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam duration increased from 8s to 10s",
+        "- Uppercut now applies a 15% {AbilityIcon|Ability=Fire Rate|Size=20} Fire Rate slow in the landing radius for 5s. Scales with Spirit Power (0.2)"
+    ],
     "09-26-2024": [
         "- Removed reason 31 of why {AbilityIcon|Ability=Lash|Size=20} Lash is better than Bebop and replaced it with reason 26 of why {AbilityIcon|Ability=Lash|Size=20} Lash is better than Bebop (fixed a bug with {AbilityIcon|Ability=Lash|Size=20} Lash's hero select lines)",
         "- {AbilityIcon|Ability=Hook|Size=20} Hook range reduced from 30m to 25m",
