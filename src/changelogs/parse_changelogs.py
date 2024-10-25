@@ -148,12 +148,24 @@ class ChangelogParser:
         for index, log in enumerate(changelog):
             tags = log['Tags']
             description = log['Description']
+            remaining_description = description
             for tag in tags:
                 template = 'PageRef'
 
                 icon = '{{' + template + '|' + tag + '}}'
-                description = description.replace(tag, icon)
-                new_changelog[index]['Description'] = description
+
+                if tag in remaining_description:
+                    description = description.replace(tag, icon)
+                    new_changelog[index]['Description'] = description
+
+                    # Remove it from the remaining description so that similarly named tags
+                    # don't get embedded inside the icon, i.e. preventing
+                    # {{PageRef|Heavy {{PageRef|Barrage}}}} from happening
+                    # when tags Barrage and Heavy Barrage are present
+                    # Most cases of this will still require manual fixing after its uploaded
+                    # though some are correct as is, such as 'Paradox' and 'Paradoxical Swap'
+                    remaining_description = remaining_description.replace(tag, '')
+                
 
         return changelog
 
