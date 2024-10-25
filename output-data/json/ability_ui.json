@@ -2942,7 +2942,7 @@
                     "MaxSlowDuration": 0.5
                 },
                 {
-                    "AbilityCooldown": -9.5,
+                    "AbilityCooldown": -10,
                     "SpeedBoostDuration": 2,
                     "DescKey": "citadel_ability_chrono_kinetic_carbine_t2_desc"
                 },
@@ -10551,7 +10551,7 @@
                     "SlideScale": 25
                 },
                 {
-                    "SlideEvasionChance": 50,
+                    "SlideBulletEvasion": 50,
                     "DescKey": "ability_viper_snakedash_t3_desc"
                 }
             ],
@@ -10566,18 +10566,6 @@
                 "AbilityUnitTargetLimit": {
                     "Name": null,
                     "Value": 1
-                },
-                "DashAirSpeed": {
-                    "Name": null,
-                    "Value": 8
-                },
-                "DashSpeed": {
-                    "Name": "Dash Speed",
-                    "Value": 12
-                },
-                "DashTime": {
-                    "Name": "Dash Time",
-                    "Value": 0.8
                 }
             }
         },
@@ -10859,7 +10847,7 @@
             },
             "AbilityCastRange": {
                 "Name": "Cast Range",
-                "Value": 60
+                "Value": 20
             },
             "AbilityCooldown": {
                 "Name": "Cooldown",
@@ -10890,7 +10878,8 @@
                         {
                             "Key": "BonusMoveSpeed",
                             "Name": "Move Speed",
-                            "Value": 25
+                            "Value": 4,
+                            "Type": "move_speed"
                         }
                     ]
                 },
@@ -10935,10 +10924,6 @@
                 "AirDampingDuration": {
                     "Name": null,
                     "Value": 1
-                },
-                "FallSpeedMax": {
-                    "Name": null,
-                    "Value": 10
                 },
                 "SelfBumpImpulse": {
                     "Name": null,

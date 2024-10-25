@@ -1,0 +1,126 @@
+{
+    "10-24-2024": [
+        "- {AbilityIcon|Ability=McGinnis|Size=20} McGinnis melee animation updates",
+        "- Gun spin decay rate improved from 0.65 to 0.25",
+        "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets cooldown reduced from 24s to 18s",
+        "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets spirit resist increased from 60% to 80%",
+        "- {AbilityIcon|Ability=Spectral Wall|Size=20} Spectral Wall slow reduced from 25% to 20%",
+        "- {AbilityIcon|Ability=Spectral Wall|Size=20} Spectral Wall T1 damage amp reduced from 25% to 15%",
+        "- Heavy {AbilityIcon|Ability=Barrage|Size=20} Barrage minimum range increased from 6m to 7m",
+        "- Heavy {AbilityIcon|Ability=Barrage|Size=20} Barrage cooldown increased from 106s to 140s",
+        "- Heavy {AbilityIcon|Ability=Barrage|Size=20} Barrage T2 cooldown improved from -47s to -50s",
+        "- Heavy {AbilityIcon|Ability=Barrage|Size=20} Barrage T1 slow reduced from 35% to 30%"
+    ],
+    "10-10-2024": [
+        "- Updated McGinnis Heavy {AbilityIcon|Ability=Barrage|Size=20} Barrage sound",
+        "- No longer has +25% Spirit Resist",
+        "- Now has +15% Bullet Resist",
+        "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets T1 no longer grants +1 charge",
+        "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets duration reduced from 30s to 24s",
+        "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets cooldown reduced from 30s to 24s",
+        "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets health scaling reduced from 30% to 20%",
+        "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets recharge time reduced from 5s to 3s",
+        "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets cast range increased from 15m to 20m",
+        "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turret damage reduction against troopers/neutrals increased from -40% to -50%",
+        "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turret damage reduction against objectives increased from -60% to -70%",
+        "- Fixed Ricochet not bouncing off of {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets",
+        "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turret spawn time reduced from 1s to 0.25s",
+        "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turret attack delay reduced from 0.35s to 0.2s",
+        "- Heavy {AbilityIcon|Ability=Barrage|Size=20} Barrage radius increased from 4.5m to 5m"
+    ],
+    "09-26-2024": [
+        "- Fixed looking up circumventing the min range on Wall and {AbilityIcon|Ability=Barrage|Size=20} Barrage",
+        "- Can now cast parry to cancel your ult",
+        "- Fixed various issues with {AbilityIcon|Ability=Spectral Wall|Size=20} Spectral Wall indoors and near walls spawning the wrong number of segments"
+    ],
+    "09-14-2024": [
+        "- {AbilityIcon|Ability=Medicinal Specter|Size=20} Medicinal Specter radius spirit power reduced from 0.07 to 0.05"
+    ],
+    "09-12-2024": [
+        "- Medicinal Spectre radius reduced from 6m to 5m",
+        "- Medicinal Spectre radius now grows with Spirit Power (0.07)",
+        "- Can no longer wall jump from {AbilityIcon|Ability=Spectral Wall|Size=20} Spectral Wall",
+        "- {AbilityIcon|Ability=Spectral Wall|Size=20} Spectral Wall min range reduced from 7m to 6m",
+        "- {AbilityIcon|Ability=Spectral Wall|Size=20} Spectral Wall duration reduced from 6s to 5s",
+        "- Heavy {AbilityIcon|Ability=Barrage|Size=20} Barrage spirit scaling increased from 0.3 to 0.35",
+        "- Heavy {AbilityIcon|Ability=Barrage|Size=20} Barrage min range reduced from 7m to 6m",
+        "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets bullet travel speed increased"
+    ],
+    "08-15-2024": [
+        "- Fixed targeting previews that draw a model (like {AbilityIcon|Ability=McGinnis|Size=20} McGinnis's turrets) to update every frame, instead of being fixed at 60hz",
+        "- Speed while shooting increased from 55% to 70%",
+        "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets now prioritize any heroes McGinnis is shooting at",
+        "- {AbilityIcon|Ability=Medicinal Specter|Size=20} Medicinal Specter duration Spirit Power scaling increased from 0.09 to 0.12",
+        "- Heavy {AbilityIcon|Ability=Barrage|Size=20} Barrage T1 changed to Rockets apply 35% slow"
+    ],
+    "08-01-2024": [
+        "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets no longer target immune structures",
+        "- Heavy {AbilityIcon|Ability=Barrage|Size=20} Barrage cast/aim behavior improved for indoors and close range",
+        "- Reverted recent melee damage reduction",
+        "- Fixed Health Nova not working on {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets (when Health Nova was cast by McGinnis)",
+        "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turret base HP increased from +50 to +75"
+    ],
+    "07-18-2024": [
+        "- {AbilityIcon|Ability=Spectral Wall|Size=20} Spectral Wall cooldown increased from 30s to 35s",
+        "- Base melee damage reduced by 20%",
+        "- {AbilityIcon|Ability=Spectral Wall|Size=20} Spectral Wall segments that are touching the Rejuv will be destroyed"
+    ],
+    "07-11-2024": [
+        "- Turrets receive full damage from enemy guns regardless of distance (fall off is not considered when taking damage)",
+        "- Turrets outgoing damage fall off distance window (20m-35m) now scales with range upgrades",
+        "- Turrets duration reduced from 40s to 30s"
+    ],
+    "06-27-2024": [
+        "- Updated {AbilityIcon|Ability=McGinnis|Size=20} McGinnis weapon sounds",
+        "- Fixed her gun having a recent regression that caused it to not have any spread",
+        "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turret damage reduced by up to 30% at 35m (now has bullet falloff from 20m to 35m)",
+        "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turret deploy time reduced from 2s to 1s",
+        "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turret now shows up on the minimap",
+        "- Medicinal Spectre can no longer be attacked",
+        "- {AbilityIcon|Ability=Spectral Wall|Size=20} Spectral Wall height increased by 2m",
+        "- {AbilityIcon|Ability=Spectral Wall|Size=20} Spectral Wall slow duration increased from 2s to 2.5s",
+        "- Fixed a bug with {AbilityIcon|Ability=Spectral Wall|Size=20} Spectral Wall that caused the Rejuvenator to instantly drop"
+    ],
+    "06-20-2024": [
+        "- Turret range reduced from 30m to 25m",
+        "- Turret HP scaling reduced from 40% to 30% (affects initial HP too)",
+        "- Turret cooldown reduced from 35s to 30s",
+        "- Turret Charge Time reduced from 8s to 6s",
+        "- Base Spirit Resist increased from 20% to 25%",
+        "- Base Regen increased from 1 to 2",
+        "- {AbilityIcon|Ability=Spectral Wall|Size=20} Spectral Wall cooldown reduced from 35s to 30s",
+        "- Heavy {AbilityIcon|Ability=Barrage|Size=20} Barrage cooldown reduced from 110s to 100s"
+    ],
+    "06-13-2024": [
+        "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turret charge delay reduced from 10s to 8s",
+        "- Fixed Echo Shard to be compatible with {AbilityIcon|Ability=Spectral Wall|Size=20} Spectral Wall again (Activating echo shard resets the ability so you can cast it again and not have to cancel your first one. After casting the 2nd, using cancel will remove the first wall first)",
+        "- Can now dismiss Spectral Wall while channeling other abilities (Heavy {AbilityIcon|Ability=Barrage|Size=20} Barrage)"
+    ],
+    "06-06-2024": [
+        "- {AbilityIcon|Ability=Spectral Wall|Size=20} Spectral Wall can now be dismissed early"
+    ],
+    "05-30-2024": [
+        "- Fixed some bugs that could cause {AbilityIcon|Ability=McGinnis|Size=20} McGinnis gun to be stuck",
+        "- Rocket {AbilityIcon|Ability=Barrage|Size=20} Barrage now does less damage to objectives similar to other ability damage"
+    ],
+    "05-23-2024": [
+        "- Fixed upgrading McGinnis\u2019s {AbilityIcon|Ability=Medicinal Specter|Size=20} Medicinal Specter to T3 while active causing it to heal everyone to full instantly",
+        "- Fixed certain rooftops allowing turrets to be built on them"
+    ],
+    "05-16-2024": [
+        "- {AbilityIcon|Ability=Return Fire|Size=20} Return Fire: Fixed not returning fire to McGinnis' sentries",
+        "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turret T1 is now +1 Charge and +25% Movement Slow",
+        "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turret T2 is now +10m Attack Range and +10% Fire Rate",
+        "- {AbilityIcon|Ability=Spectral Wall|Size=20} Spectral Wall cooldown reduced from 40s to 35s"
+    ],
+    "05-10-2024": [
+        "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turret Spirit Resistance increased 50% to 60%",
+        "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turret Health increased from 30% to 40%",
+        "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turret T2 increased from +5m Range to +10m",
+        "- Fixed issues with Heavy {AbilityIcon|Ability=Barrage|Size=20} Barrage not damaging units within the target area"
+    ],
+    "05-03-2024": [
+        "- Heavy {AbilityIcon|Ability=Barrage|Size=20} Barrage now reduces your speed rather than setting it to a low cap (by itself this change isn't a buff or a nerf, but it allows you to buy items to move faster during the ultimate)",
+        "- Heavy {AbilityIcon|Ability=Barrage|Size=20} Barrage camera interaction with Fleetfoot Boots has been fixed"
+    ]
+}

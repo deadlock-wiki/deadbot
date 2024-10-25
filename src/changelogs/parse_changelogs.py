@@ -1,5 +1,4 @@
 import os
-import datetime
 
 import utils.json_utils as json_utils
 
@@ -14,7 +13,7 @@ class ChangelogParser:
     def run_all(self, dict_changelogs):
         # take parsed changelogs and transform them into some other useful formats
         for date, changelog in dict_changelogs.items():
-            self.run(date, changelog)
+            self.changelogs_by_date[date] = self.run(date, changelog)
         self._create_resource_changelogs()
         self._create_changelog_db_data()
 
@@ -158,10 +157,10 @@ class ChangelogParser:
         return rows
 
     def _sort_object_by_date_key(self, changelogs):
-        sorted_keys = sorted(
-            changelogs.keys(), key=lambda x: datetime.datetime.strptime(x, '%m-%d-%Y')
-        )
-
+        # sorted_keys = sorted(
+        #     changelogs.keys(), key=lambda x: datetime.datetime.strptime(x, '%m-%d-%Y')
+        # )
+        sorted_keys = changelogs.keys()
         sorted_changelogs = {}
         for key in reversed(sorted_keys):
             sorted_changelogs[key] = changelogs[key]
