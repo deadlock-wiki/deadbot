@@ -1,4 +1,36 @@
 {
+    "10-24-2024": [
+        "- Added keybinds for \"Fly Up\" and \"Fly Down\".  Used for flying abilities like Ivy's {AbilityIcon|Ability=Air Drop|Size=20} Air Drop and Vindicta's Flight",
+        "- Gun cycle time improved from 0.26s to 0.22s",
+        "- Bullet damage growth per boon increased from 0.55 to 0.65",
+        "- Fire rate now scales with Spirit Power (0.14)",
+        "- {AbilityIcon|Ability=Assassinate|Size=20} Assassinate no longer splits to allies",
+        "- {AbilityIcon|Ability=Flight|Size=20} Flight duration increased from 8s to 12s",
+        "- {AbilityIcon|Ability=Flight|Size=20} Flight T2 duration increased from +6s to +8s",
+        "- {AbilityIcon|Ability=Assassinate|Size=20} Assassinate bullet radius increased from 3\" to 4\"",
+        "- {AbilityIcon|Ability=Assassinate|Size=20} Assassinate scope is now automatically canceled when Paradoxical Swap hits you",
+        "- {AbilityIcon|Ability=Assassinate|Size=20} Assassinate scope zoom level can now be cycled with right click. Use Ability key to unselect."
+    ],
+    "10-11-2024": [
+        "- Movespeed increased from 8.3 to 9"
+    ],
+    "10-10-2024": [
+        "- Ivy: Take {AbilityIcon|Ability=Flight|Size=20} Flight control keys are now similar to Vindicta's",
+        "- Reverted recent falloff damage changes",
+        "- Fall off increased from 58m (default) to 64m",
+        "- Bullet damage growth per boon reduced from 0.79 to 0.55",
+        "- {AbilityIcon|Ability=Flight|Size=20} Flight duration no longer scales with Spirit Power",
+        "- {AbilityIcon|Ability=Flight|Size=20} Flight T2 now increases flight duration by 6s",
+        "- {AbilityIcon|Ability=Flight|Size=20} Flight bonus move speed above base now scales at 50% effectiveness",
+        "- No longer has -10% base bullet resist",
+        "- Health growth per boon reduced from 20 to 15",
+        "- Gun cycle time increased from 0.22 to 0.26 (dps rescaled to remain the same, after the above changes are calculated in)",
+        "- {AbilityIcon|Ability=Stake|Size=20} Stake duration reduced from 2s to 1.75s",
+        "- {AbilityIcon|Ability=Assassinate|Size=20} Assassinate bonus souls is now unsecured",
+        "- Shooting while flying now has similar speed impact as on the ground",
+        "- {AbilityIcon|Ability=Flight|Size=20} Flight air acceleration decreased a little",
+        "- {AbilityIcon|Ability=Crow Familiar|Size=20} Crow Familiar % damage no longer affects Mid Boss"
+    ],
     "09-26-2024": [
         "- Gun cycle time increased from 0.19s to 0.22s (same overall dps)",
         "- {AbilityIcon|Ability=Stake|Size=20} Stake: distance enemies are allowed to move increased from 6m to 8m",
