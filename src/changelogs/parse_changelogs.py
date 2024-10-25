@@ -90,6 +90,10 @@ class ChangelogParser:
                 if line.startswith(prefix):
                     line = '* ' + line[len(prefix) :]
 
+            # Remove default tag if its not the only tag
+            if len(tags) > 1 and self.default_tag in tags:
+                tags.remove(self.default_tag)
+
             changelog_out.append({'Description': line, 'Tags': tags})
 
         changelog_with_icons = self._embed_icons(changelog_out)
