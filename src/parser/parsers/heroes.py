@@ -28,8 +28,7 @@ class HeroParser:
 
                 # Key is missing from released heroes
                 # Frontend will need to use if "m_bAvailableInHeroLabs or not m_bInDevelopment"
-                if 'm_bAvailableInHeroLabs' in hero_value:
-                    hero_stats['InHeroLabs'] = hero_value['m_bAvailableInHeroLabs']
+                hero_stats['InHeroLabs'] = hero_value.get('m_bAvailableInHeroLabs', False)
 
                 hero_stats.update(
                     self._map_attr_names(hero_value['m_mapStartingStats'], maps.get_hero_attr)
