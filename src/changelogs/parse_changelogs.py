@@ -131,22 +131,6 @@ class ChangelogParser:
         and to the static unique list of tags.
         """
 
-        # If the tag is in the text of another tag, i.e. "Pulse"
-        # in "Torment Pulse",
-        # the shorter tag will not be registered
-        # with the exception of a few tags
-        # i.e. Items and Weapon Items should both be valid tags
-        exception_tags = ['Items', 'Weapon Items', 'Vitality Items', 'Spirit Items']
-        if tag not in exception_tags:
-            for other_tag in tags:
-                # if its a shorter tag, don't register it
-                if tag in other_tag and tag != other_tag:
-                    return tags
-                # if its a longer tag, register it in place of the shorter
-                if other_tag in tag and tag != other_tag:
-                    tags.remove(other_tag)
-                    tags.append(tag)
-
         if tag not in tags:
             tags.append(tag)
 
