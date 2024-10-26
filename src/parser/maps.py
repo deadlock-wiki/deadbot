@@ -19,6 +19,7 @@ def get_target_type(value):
         raise Exception(f'{value} is not a valid target type')
     return TARGET_TYPE_MAP.get(value)
 
+
 SOUL_UNLOCK_MAP = {
     'm_unRequiredGold': 'RequiredGold',
     'EAbilityUnlocks': 'AbilityUnlocks',

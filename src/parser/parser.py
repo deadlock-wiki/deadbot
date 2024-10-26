@@ -105,13 +105,9 @@ class Parser:
 
     def _parse_soul_unlocks(self):
         print('Parsing Soul Unlocks...')
-        parsed_soul_unlocks = souls.SoulUnlockParser(
-            self.data['scripts']['heroes']
-        ).run()
+        parsed_soul_unlocks = souls.SoulUnlockParser(self.data['scripts']['heroes']).run()
 
-        json_utils.write(
-            self.OUTPUT_DIR + '/json/soul-unlock-data.json', parsed_soul_unlocks
-        )
+        json_utils.write(self.OUTPUT_DIR + '/json/soul-unlock-data.json', parsed_soul_unlocks)
 
     def _parse_localizations(self):
         print('Parsing Localizations...')
