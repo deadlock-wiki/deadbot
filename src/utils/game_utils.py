@@ -1,7 +1,3 @@
-import pandas as pd
-import os
-
-
 def load_game_info(game_info_path):
     """
     Loads steam game version info from steam.inf file.
@@ -19,6 +15,6 @@ def load_game_info(game_info_path):
                 split_line = line.strip().split('=')
                 # first item is the key, the rest are the value in case there's multiple `=`
                 version_info[split_line[0]] = split_line[1]
-    except:
-        print(f'[ERROR]: Issue opening game info file at {game_info_path}')
+    except Exception as e:
+        print(f'[ERROR]: Issue opening game info file at {game_info_path}: {e}')
     return version_info
