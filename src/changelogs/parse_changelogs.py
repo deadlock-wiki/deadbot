@@ -172,7 +172,6 @@ class ChangelogParser:
                     # Most cases of this will still require manual fixing after its uploaded
                     # though some are correct as is, such as 'Paradox' and 'Paradoxical Swap'
                     remaining_description = remaining_description.replace(tag, '')
-                
 
         return changelog
 
@@ -186,8 +185,8 @@ class ChangelogParser:
             if existing_tag_groups != unique_tag_groups:
                 print(
                     'WARNING: Unique tag groups are different from existing tag groups. \n'
-                    + 'Clean up any new ones if necessary by referring to '+
-                    'ChangelogParser._heading_to_tag()'
+                    + 'Clean up any new ones if necessary by referring to '
+                    + 'ChangelogParser._heading_to_tag()'
                 )
 
         # Write the new ones to file
@@ -225,8 +224,8 @@ class ChangelogParser:
             for _, ability_data in hero['BoundAbilities'].items():
                 if ability_data['Key'] == ability_key_to_search:
                     return self.localization_en[hero_key]
-            
+
         return None
-    
+
     def get_lang_en(self):
         return json_utils.read(self.OUTPUT_DIR + '/localizations/english.json')
