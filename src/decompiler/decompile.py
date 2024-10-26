@@ -2,6 +2,7 @@ import os
 import decompiler.kv3_to_json as kv3_to_json
 import decompiler.localization as localization
 import filecmp
+import utils.game_utils as g_util
 
 
 def decompile(DEADLOCK_PATH, WORK_DIR, DECOMPILER_CMD, force=False):
@@ -25,7 +26,8 @@ def decompile(DEADLOCK_PATH, WORK_DIR, DECOMPILER_CMD, force=False):
 
     # if the version files match, nothing to do
     if filecmp.cmp(steam_inf_path, version_path):
-        print('version.txt and steam.inf have the same content.')
+        game_version = g_util.load_game_info(steam_inf_path)
+        print(f'Version {game_version["ClientVersion"]} is already decompiled, skipping decompile step.')
         if not force:
             return
     os.system(f'cp "{steam_inf_path}" "{version_path}"')
