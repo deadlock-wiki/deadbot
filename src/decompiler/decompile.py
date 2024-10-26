@@ -12,6 +12,7 @@ def decompile(DEADLOCK_PATH, WORK_DIR, DECOMPILER_CMD, force=False):
         DEADLOCK_PATH (str): The path to the deadlock game files.
         WORK_DIR (str): The working directory for the decompilation process.
         DECOMPILER_CMD (str): The command used to run the decompiler.
+        force (bool): If true, will decompile files even if the version already exists
 
     Returns:
         None

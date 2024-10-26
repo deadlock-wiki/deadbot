@@ -107,7 +107,7 @@ def arg_group_action(parser):
     group_actions.add_argument(
         '--force',
         action='store_true',
-        help='Decompile even if game and workdir versions match',
+        help='Forces decompilation even if game files and workdir versions match',
     )
     return group_actions
 
