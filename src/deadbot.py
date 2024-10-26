@@ -2,11 +2,15 @@
 import os
 import mwclient
 
+from dotenv import load_dotenv
+load_dotenv()
+
 from utils import pages, csv_writer
 from decompiler import decompile
 import constants
 from changelogs import parse_changelogs, fetch_changelogs
 from parser import parser
+from parser.parsers import versions
 from external_data.data_transfer import DataTransfer
 from utils.string_utils import is_truthy
 
@@ -72,6 +76,13 @@ def act_changelog_parse(args):
     chlog_parser.run_all(chlog_fetcher.changelogs_by_date)
     return chlog_parser
 
+def act_parse_versions(args):
+    versions.VersionParser(args.output_dir,
+                           args.depot_downloader_cmd, 
+                           args.steam_username, 
+                           args.steam_password
+                           ).run()
+
 
 def main():
     # load arguments from constants file
@@ -104,6 +115,12 @@ def main():
         act_changelog_parse(args)
     else:
         print('! Skipping Changelogs !')
+
+    if is_truthy(args.parse_versions):
+        print('Parsing Versions...')
+        act_parse_versions(args)
+    else:
+        print('! Skipping Versions !')
 
     if is_truthy(args.bot_push):
         print('Running DeadBot...')
