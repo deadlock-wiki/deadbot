@@ -34,8 +34,8 @@ Run with `poetry run deadbot`
 <summary>`poetry run deadbot -h`</summary>
 
 ```sh
-usage: DeadBot [-h] [-i DL_PATH] [-w WORKDIR] [-n INPUTDIR] [-o OUTPUT] [--decompiler_cmd DECOMPILER_CMD] [--iam_key IAM_KEY]
-               [--iam_secret IAM_SECRET] [--bucket BUCKET] [-d] [-p] [-b] [-s] [-c] [-k]
+usage: DeadBot [-h] [-i DL_PATH] [-w WORKDIR] [-n INPUTDIR] [-o OUTPUT] [--decompiler_cmd DECOMPILER_CMD] [--import_files IMPORT_FILES]
+               [--build_num BUILD_NUM] [--iam_key IAM_KEY] [--iam_secret IAM_SECRET] [--bucket BUCKET] [-d] [-p] [-b] [-s] [-c] [--force]
 
 Bot that lives to serve deadlocked.wiki
 
@@ -53,6 +53,10 @@ path configs:
                         Output directory (also set with OUTPUT_DIR environment variable)
   --decompiler_cmd DECOMPILER_CMD
                         Command for Valve Resource Format tool (also set with DECOMPILER_CMD env variable)
+  --import_files IMPORT_FILES
+                        Import the decompiled game files from an S3 bucket
+  --build_num BUILD_NUM
+                        Build number of the game files to be used. Defaults to current build
 
 s3 config:
   --iam_key IAM_KEY     AWS iam key for updating bucket (overrides IAM_KEY environment variable)
@@ -65,7 +69,8 @@ bot actions:
   -p, --parse           Parses decompiled game files into json and csv (overrides PARSE env variable)
   -b, --bot_push        Push current data to wiki (also set with BOT_PUSH environment variable)
   -s, --s3_push         Push current data to s3
-  -c, --changelogs      Fetch/parse forum and locally stored changelogs. (also set with CHANGELOGS env variable)
+  -c, --changelogs      Fetch/parse forum and local changelogs. (also set with CHANGELOGS env variable)
+  --force               Forces decompilation even if game files and workdir versions match
 
 Process Deadlock game files and extract data and stats
 ```
