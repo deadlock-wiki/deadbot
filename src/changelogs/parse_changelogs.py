@@ -64,6 +64,13 @@ class ChangelogParser:
                         slot_str = localized_item_slot + ' Items'
                         tags = self._register_tag(tags, tag=slot_str)
 
+                    # If its an ability, register the hero as well
+                    if resource_type == 'Abilities':
+                        hero = self.get_hero_from_ability(resource_key)
+                        if hero is not None:
+                            tags = self._register_tag(tags, tag=hero, is_group_tag=False)
+                            tags = self._register_tag(tags, tag='Heroes')
+
             # check for other tags
             # all tags in this are counted as a tag group
             tags_to_search = ['Map']
@@ -205,7 +212,21 @@ class ChangelogParser:
         resources.update(items)
         resources.update(abilities)
 
+        self.heroes = heroes
+        self.items = items
+        self.abilities = abilities
+
         return resources
 
+    # Given an ability key, return the first hero that has that ability
+    def get_hero_from_ability(self, ability_key_to_search):
+        for hero_key in self.heroes:
+            hero = self.heroes[hero_key]
+            for _, ability_data in hero['BoundAbilities'].items():
+                if ability_data['Key'] == ability_key_to_search:
+                    return self.localization_en[hero_key]
+            
+        return None
+    
     def get_lang_en(self):
         return json_utils.read(self.OUTPUT_DIR + '/localizations/english.json')
