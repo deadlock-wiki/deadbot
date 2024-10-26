@@ -186,7 +186,9 @@ class ChangelogParser:
                 print(
                     'WARNING: Unique tag groups are different from existing tag groups. \n'
                     + 'Clean up any new ones if necessary by referring to '
-                    + 'ChangelogParser._heading_to_tag()'
+                    + 'ChangelogParser.run(). '
+                    + 'If a new unique group tag is to be added, '
+                    + 'add it to deadlocked.wiki/Template:Changelogs Navbox'
                 )
 
         # Write the new ones to file
