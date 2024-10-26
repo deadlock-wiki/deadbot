@@ -21,7 +21,7 @@ def get_target_type(value):
 
 
 SOUL_UNLOCK_MAP = {
-    'm_unRequiredGold': 'RequiredGold',
+    'm_unRequiredGold': 'RequiredSouls',
     'EAbilityUnlocks': 'AbilityUnlocks',
     'EAbilityPoints': 'AbilityPoints',
     'm_bUseStandardUpgrade': 'PowerIncrease',

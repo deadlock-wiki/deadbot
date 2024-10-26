@@ -2,6 +2,11 @@ from parser.maps import SOUL_UNLOCK_MAP
 
 
 class SoulUnlockParser:
+    """
+    Parses what is unlocked at certain soul thresholds
+
+    Such as ability unlocks, points, and power increases
+    """
     def __init__(self, heroes_data):
         self.heroes_data = heroes_data
 
@@ -45,7 +50,7 @@ class SoulUnlockParser:
         }
         mapped to
         {
-            RequiredGold = 400
+            RequiredSouls = 400
             PowerIncrease = true
             AbilityUnlocks = 1
             AbilityPoints = 1
