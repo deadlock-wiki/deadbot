@@ -321,7 +321,7 @@ class AbilityUiParser:
                 case 'range' | 'distance':
                     rest_of_data['Range'][prop] = data
 
-                case 'damage' | 'bullet_damage' | 'tech_damage':
+                case 'damage' | 'bullet_damage' | 'tech_damage' | 'melee_damage':
                     rest_of_data['Damage'][prop] = data
 
                 case 'healing' | 'health':

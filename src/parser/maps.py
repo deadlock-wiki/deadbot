@@ -111,8 +111,9 @@ def get_attr_manual_map():
 LEVEL_MOD_MAP = {
     'MODIFIER_VALUE_BASE_BULLET_DAMAGE_FROM_LEVEL': 'BulletDamage',
     'MODIFIER_VALUE_BASE_MELEE_DAMAGE_FROM_LEVEL': 'MeleeDamage',
-    'MODIFIER_VALUE_BASE_HEALTH_FROM_LEVEL': 'Health',
+    'MODIFIER_VALUE_BASE_HEALTH_FROM_LEVEL': 'MaxHealth',
     'MODIFIER_VALUE_TECH_DAMAGE_PERCENT': 'TechDamagePerc',
+    'MODIFIER_VALUE_TECH_ARMOR_DAMAGE_RESIST': 'TechResist',
     'MODIFIER_VALUE_BULLET_ARMOR_DAMAGE_RESIST': 'BulletResist',
     'MODIFIER_VALUE_BONUS_ATTACK_RANGE': 'BonusAttackRange',
 }
@@ -173,6 +174,7 @@ SCALE_TYPE_MAP = {
     'ETechCooldown': 'cooldown',
     'EBulletDamage': 'damage',
     'ETechDuration': 'duration',
+    'EWeaponDamageScale': 'weapon_damage',
 }
 
 
