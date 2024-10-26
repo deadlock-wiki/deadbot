@@ -7,6 +7,7 @@ class SoulUnlockParser:
 
     Such as ability unlocks, points, and power increases
     """
+
     def __init__(self, heroes_data):
         self.heroes_data = heroes_data
 
@@ -29,7 +30,9 @@ class SoulUnlockParser:
                     if parsed_soul_unlocks != hero_soul_unlocks:
                         raise ValueError(
                             'Soul unlocks do not match between heroes'
-                            + f'{hero_key_of_parsed_soul_unlocks} and {hero_key}'
+                            + f'{hero_key_of_parsed_soul_unlocks} and {hero_key}.'
+                            + ' May require a new data structure for the data '
+                            + 'and [[Module:SoulUnlock]]'
                         )
 
         return parsed_soul_unlocks
@@ -68,7 +71,7 @@ class SoulUnlockParser:
             else:
                 raise ValueError(
                     f'Unknown key {key} in soul unlock data. Please update SOUL_UNLOCK_MAP. '
-                    +'Map should contain all non-dict type keys'
+                    + 'Map should contain all non-dict type keys'
                 )
 
         return mapped_su_data
