@@ -59,9 +59,9 @@ def arg_group_base(parser):
         default=os.getenv('STEAM_PASSWORD', None),
     )
     group_base.add_argument(
-        '--depot_downloader_cmd',
-        help='Path to DepotDownloader executable (also set with DEPOT_DOWNLOADER_CMD environment variable)',
-        default=os.getenv('DEPOT_DOWNLOADER_CMD', None),
+        '--depot_downloader_dir',
+        help='Path to DepotDownloader executable (also set with depot_downloader_dir environment variable)',
+        default=os.getenv('depot_downloader_dir', None),
     )
     group_base.add_argument(
         '--parse_versions',

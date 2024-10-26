@@ -77,8 +77,8 @@ def act_changelog_parse(args):
     return chlog_parser
 
 def act_parse_versions(args):
-    versions.VersionParser(args.output_dir,
-                           args.depot_downloader_cmd, 
+    versions.VersionParser(args.output,
+                           args.depot_downloader_dir, 
                            args.steam_username, 
                            args.steam_password
                            ).run()
