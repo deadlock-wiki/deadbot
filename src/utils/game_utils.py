@@ -1,13 +1,14 @@
 import pandas as pd
 import os
 
+
 def load_game_info(game_info_path):
     """
     Loads steam game version info from steam.inf file.
 
     Args:
         game_info_path (str): path of the version file.  Usually named steam.inf or version.txt
-    
+
     Returns:
         dict of versions
     """
