@@ -1,6 +1,6 @@
 import os
 
-from .parsers import abilities, ability_ui, items, heroes, localizations, attributes
+from .parsers import abilities, ability_ui, items, heroes, localizations, attributes, souls
 from utils import json_utils
 
 
@@ -101,7 +101,14 @@ class Parser:
         self._parse_items()
         self._parse_attributes()
         self._parse_localizations()
+        self._parse_soul_unlocks()
         print('Done parsing')
+
+    def _parse_soul_unlocks(self):
+        print('Parsing Soul Unlocks...')
+        parsed_soul_unlocks = souls.SoulUnlockParser(self.data['scripts']['heroes']).run()
+
+        json_utils.write(self.OUTPUT_DIR + '/json/soul-unlock-data.json', parsed_soul_unlocks)
 
     def _parse_localizations(self):
         print('Parsing Localizations...')
