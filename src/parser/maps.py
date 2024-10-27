@@ -20,6 +20,14 @@ def get_target_type(value):
     return TARGET_TYPE_MAP.get(value)
 
 
+SOUL_UNLOCK_MAP = {
+    'm_unRequiredGold': 'RequiredSouls',
+    'EAbilityUnlocks': 'AbilityUnlocks',
+    'EAbilityPoints': 'AbilityPoints',
+    'm_bUseStandardUpgrade': 'PowerIncrease',
+}
+
+
 SLOT_TYPE_MAP = {
     'EItemSlotType_WeaponMod': 'Weapon',
     'EItemSlotType_Armor': 'Armor',
