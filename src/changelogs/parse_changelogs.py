@@ -37,11 +37,14 @@ class ChangelogParser:
                 changelog_out.append({'Description': f'<h4>{current_heading}</h4>', 'Tags': []})
                 continue
 
-            # parse line: replace hyphen with asterisk for bullet points on wiki
+            # parse line: 
+            # replace hyphen with asterisk for bullet points on wiki
             prefixes = ['- ', ' - ']
             for prefix in prefixes:
                 if line.startswith(prefix):
                     line = '* ' + line[len(prefix) :]
+            # replace -> with →
+            line = line.replace('->', '→')
 
             tags = self._parse_tags(current_heading, line)
 
