@@ -10,7 +10,7 @@ Some data has been processed and formatted for google sheets:\
 
 ## Installation
 
-### Setup
+### Setup 
 1. Install Python 3.11+
 2. **[OPTIONAL]** Add Python scripts dir to your environment. This lets you omit `python -m` when calling third-party modules
     1. Get <python_path> with `python -m site --user-base`
