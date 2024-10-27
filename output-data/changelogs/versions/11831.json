@@ -122,6 +122,8 @@
     {
         "Description": "* {{PageRef|Guardian}}s now fade out from the world 10 seconds after dying",
         "Tags": [
+            "Base Defenses",
+            "NPC",
             "Guardian"
         ]
     },
@@ -210,7 +212,7 @@
     {
         "Description": "* Added Midboss arrive, low health, and death sound effects",
         "Tags": [
-            "Mid-Boss"
+            "Other"
         ]
     },
     {
@@ -240,7 +242,7 @@
     {
         "Description": "* Changed the neutrals in the top mid temple area to a strong, a medium and a small creep (2 of these)",
         "Tags": [
-            "Other"
+            "Creep"
         ]
     },
     {
@@ -306,67 +308,81 @@
     {
         "Description": "* {{PageRef|Guardian}} HP increased by 10%",
         "Tags": [
+            "Base Defenses",
+            "NPC",
             "Guardian"
         ]
     },
     {
         "Description": "* {{PageRef|Guardian}} melee no longer does a double instant melee attack sometimes",
         "Tags": [
+            "Base Defenses",
+            "NPC",
             "Guardian"
         ]
     },
     {
         "Description": "* {{PageRef|Guardian}} melee attack no longer has a splash range much larger than its visuals",
         "Tags": [
+            "Base Defenses",
+            "NPC",
             "Guardian"
         ]
     },
     {
         "Description": "* {{PageRef|Walker}} in mid lanes health increased by 12%",
         "Tags": [
+            "Base Defenses",
+            "NPC",
             "Walker"
         ]
     },
     {
         "Description": "* {{PageRef|Walker}} stomp can no longer be dodged with double jump",
         "Tags": [
+            "Base Defenses",
+            "NPC",
             "Walker"
         ]
     },
     {
         "Description": "* {{PageRef|Walker}} stomp area increased a bit",
         "Tags": [
+            "Base Defenses",
+            "NPC",
             "Walker"
         ]
     },
     {
         "Description": "* Weakened {{PageRef|Patron}} health increased by 20%",
         "Tags": [
-            "Patron"
+            "Base Defenses",
+            "Patron",
+            "Weakened Patron"
         ]
     },
     {
         "Description": "* Mid Boss starting health increased from 4500 to 5000",
         "Tags": [
-            "Mid-Boss"
+            "Other"
         ]
     },
     {
         "Description": "* Mid Boss health gained per minute increased from 200 to 275",
         "Tags": [
-            "Mid-Boss"
+            "Other"
         ]
     },
     {
         "Description": "* Rejuv drop time reduced from 12.5s to 9s",
         "Tags": [
-            "Other"
+            "Rejuvenator"
         ]
     },
     {
         "Description": "* Midboss makes a global sound when at 35% hp",
         "Tags": [
-            "Mid-Boss"
+            "Other"
         ]
     },
     {
@@ -503,6 +519,8 @@
             "Veil Walker",
             "Items",
             "Vitality Items",
+            "Base Defenses",
+            "NPC",
             "Walker",
             "Weapon Items"
         ]
@@ -649,7 +667,8 @@
         "Tags": [
             "Melee Lifesteal",
             "Items",
-            "Vitality Items"
+            "Vitality Items",
+            "Creep"
         ]
     },
     {
@@ -663,12 +682,14 @@
     {
         "Description": "* Health Nova: Cooldown reduced from 65s to 60s",
         "Tags": [
+            "Items",
             "Vitality Items"
         ]
     },
     {
         "Description": "* Health Nova: Now heals over 2s instead of 3s",
         "Tags": [
+            "Items",
             "Vitality Items"
         ]
     },
@@ -718,6 +739,8 @@
             "Veil Walker",
             "Items",
             "Vitality Items",
+            "Base Defenses",
+            "NPC",
             "Walker"
         ]
     },
@@ -727,6 +750,8 @@
             "Veil Walker",
             "Items",
             "Vitality Items",
+            "Base Defenses",
+            "NPC",
             "Walker"
         ]
     },
@@ -736,6 +761,8 @@
             "Veil Walker",
             "Items",
             "Vitality Items",
+            "Base Defenses",
+            "NPC",
             "Walker"
         ]
     },
@@ -745,6 +772,8 @@
             "Veil Walker",
             "Items",
             "Vitality Items",
+            "Base Defenses",
+            "NPC",
             "Walker"
         ]
     },
@@ -754,6 +783,8 @@
             "Veil Walker",
             "Items",
             "Vitality Items",
+            "Base Defenses",
+            "NPC",
             "Walker"
         ]
     },
@@ -802,7 +833,8 @@
         "Tags": [
             "Lifestrike",
             "Items",
-            "Vitality Items"
+            "Vitality Items",
+            "Creep"
         ]
     },
     {
@@ -965,9 +997,9 @@
             "Items",
             "Spirit Items",
             "Pulse",
+            "Heroes",
             "Abilities",
-            "Rutger",
-            "Heroes"
+            "Rutger"
         ]
     },
     {
@@ -977,9 +1009,9 @@
             "Items",
             "Spirit Items",
             "Pulse",
+            "Heroes",
             "Abilities",
-            "Rutger",
-            "Heroes"
+            "Rutger"
         ]
     },
     {
@@ -1517,7 +1549,8 @@
             "McGinnis",
             "Heroes",
             "Spectral Wall",
-            "Abilities"
+            "Abilities",
+            "Rejuvenator"
         ]
     },
     {

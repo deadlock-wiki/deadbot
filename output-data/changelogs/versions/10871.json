@@ -81,18 +81,18 @@
         "Description": "* {{PageRef|Affliction}} now has an AoE indicator buildup during cast",
         "Tags": [
             "Affliction",
+            "Heroes",
             "Abilities",
-            "Pocket",
-            "Heroes"
+            "Pocket"
         ]
     },
     {
         "Description": "* {{PageRef|Affliction}} now has more toxic elements in the cast and linger",
         "Tags": [
             "Affliction",
+            "Heroes",
             "Abilities",
-            "Pocket",
-            "Heroes"
+            "Pocket"
         ]
     },
     {
@@ -173,9 +173,9 @@
         "Description": "* Fixed bugs with {{PageRef|Guided Owl}} and pause",
         "Tags": [
             "Guided Owl",
+            "Heroes",
             "Abilities",
-            "Grey Talon",
-            "Heroes"
+            "Grey Talon"
         ]
     },
     {
@@ -273,7 +273,9 @@
     {
         "Description": "* Reworked the core base area where the Weakened {{PageRef|Patron}} goes. It is now in a low terrain pit and requires attackers be inside the pit to do damage to it.",
         "Tags": [
-            "Patron"
+            "Base Defenses",
+            "Patron",
+            "Weakened Patron"
         ]
     },
     {
@@ -285,7 +287,9 @@
     {
         "Description": "* Increased Weakened {{PageRef|Patron}}'s out of combat (30s) regeneration from 40 to 80",
         "Tags": [
-            "Patron"
+            "Base Defenses",
+            "Patron",
+            "Weakened Patron"
         ]
     },
     {
@@ -315,12 +319,16 @@
     {
         "Description": "* {{PageRef|Guardian}} health increased by 10%",
         "Tags": [
+            "Base Defenses",
+            "NPC",
             "Guardian"
         ]
     },
     {
         "Description": "* Base {{PageRef|Guardian}} health increased by 10%",
         "Tags": [
+            "Base Defenses",
+            "NPC",
             "Guardian"
         ]
     },
@@ -429,14 +437,20 @@
         ]
     },
     {
-        "Description": "* Base {{PageRef|Guardian}} and Shrines bullet resist per nearby hero increased from 40/20/0/0% (for 0/1/2/3 people) to 60/40/20/0%",
+        "Description": "* Base {{PageRef|Guardian}} and {{PageRef|Shrine}}s bullet resist per nearby hero increased from 40/20/0/0% (for 0/1/2/3 people) to 60/40/20/0%",
         "Tags": [
-            "Guardian"
+            "Base Defenses",
+            "NPC",
+            "Guardian",
+            "Shrine"
         ]
     },
     {
         "Description": "* {{PageRef|Trooper}} gold sharing radius from the location of the soul orb increased from 50m to 60m",
         "Tags": [
+            "Base Defenses",
+            "NPC",
+            "Creep",
             "Trooper"
         ]
     },
@@ -444,9 +458,9 @@
         "Description": "* Fixed ability-based lifesteals not granting life from damage caused to shields (affects things like Hyperbeam T3, Siphon, {{PageRef|Scorn}}, {{PageRef|Life Drain}}, {{PageRef|Flog}} and {{PageRef|Concussive Combustion}} T3)",
         "Tags": [
             "Concussive Combustion",
+            "Heroes",
             "Abilities",
             "Infernus",
-            "Heroes",
             "Scorn",
             "Mo & Krill",
             "Flog",
@@ -500,6 +514,8 @@
     {
         "Description": "* Redesigned interior of new stairwells beside inner lane {{PageRef|Walker}}s",
         "Tags": [
+            "Base Defenses",
+            "NPC",
             "Walker"
         ]
     },
@@ -533,6 +549,8 @@
             "Veil Walker",
             "Items",
             "Vitality Items",
+            "Base Defenses",
+            "NPC",
             "Walker",
             "Weapon Items"
         ]
@@ -543,6 +561,8 @@
             "Veil Walker",
             "Items",
             "Vitality Items",
+            "Base Defenses",
+            "NPC",
             "Walker",
             "Weapon Items"
         ]
@@ -654,6 +674,7 @@
     {
         "Description": "* Sharp Shooter: Min distance reduced from 20m to 18m",
         "Tags": [
+            "Items",
             "Weapon Items"
         ]
     },
@@ -749,6 +770,7 @@
     {
         "Description": "* Health Nova: Now grants +10% weapon damage",
         "Tags": [
+            "Items",
             "Vitality Items"
         ]
     },

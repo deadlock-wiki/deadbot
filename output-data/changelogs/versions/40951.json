@@ -436,9 +436,9 @@
         "Description": "* Added victim-specific sound for {{PageRef|Static Charge}} the moment it is applied",
         "Tags": [
             "Static Charge",
+            "Heroes",
             "Abilities",
-            "Seven",
-            "Heroes"
+            "Seven"
         ]
     },
     {
@@ -499,19 +499,26 @@
     {
         "Description": "* AP is no longer granted for {{PageRef|Walker}}s",
         "Tags": [
+            "Base Defenses",
+            "NPC",
             "Walker"
         ]
     },
     {
-        "Description": "* Shrine/{{PageRef|Patron}} no longer have Soul/AP bounties",
+        "Description": "* {{PageRef|Shrine}}/{{PageRef|Patron}} no longer have Soul/AP bounties",
         "Tags": [
-            "Patron"
+            "Base Defenses",
+            "Patron",
+            "NPC",
+            "Shrine"
         ]
     },
     {
-        "Description": "* Shrine Flex Slot moved to \"All Shrines\"",
+        "Description": "* {{PageRef|Shrine}} Flex Slot moved to \"All {{PageRef|Shrine}}s\"",
         "Tags": [
-            "Other"
+            "Base Defenses",
+            "NPC",
+            "Shrine"
         ]
     },
     {
@@ -523,12 +530,18 @@
     {
         "Description": "* {{PageRef|Trooper}} Soul Orbs now have a 90ms buffer to allow the server to do better calculations on who shot the orb first, to minimize latency advantages for denying",
         "Tags": [
+            "Base Defenses",
+            "NPC",
+            "Creep",
             "Trooper"
         ]
     },
     {
         "Description": "* {{PageRef|Trooper}} soul changed from 50/50% in the kill/orb to 60/40%",
         "Tags": [
+            "Base Defenses",
+            "NPC",
+            "Creep",
             "Trooper"
         ]
     },
@@ -577,36 +590,49 @@
     {
         "Description": "* {{PageRef|Guardian}} attack range requirement changed from 20m to requiring you are above the ramp on high ground",
         "Tags": [
+            "Base Defenses",
+            "NPC",
             "Guardian"
         ]
     },
     {
         "Description": "* {{PageRef|Guardian}} resist vs troopers changed from starting at 70% and ending at -30% at 10 min to starting at 60% and ending at -35% at 8 minutes",
         "Tags": [
+            "Base Defenses",
+            "NPC",
             "Guardian"
         ]
     },
     {
         "Description": "* {{PageRef|Guardian}}s now have resist vs players starting at 40% and ending at -35% at 8 minutes",
         "Tags": [
+            "Base Defenses",
+            "NPC",
             "Guardian"
         ]
     },
     {
         "Description": "* {{PageRef|Walker}}s now have resist vs troopers starting at 60% and ending at -30% at 14 minutes",
         "Tags": [
+            "Base Defenses",
+            "NPC",
             "Walker"
         ]
     },
     {
         "Description": "* {{PageRef|Walker}}s now have resist vs players starting at 60% and ending at -30% at 14 minutes",
         "Tags": [
+            "Base Defenses",
+            "NPC",
             "Walker"
         ]
     },
     {
         "Description": "* {{PageRef|Trooper}}s now gain +40% Spirit Resist gradually over 25 minutes, goes to 70% at 50 minutes",
         "Tags": [
+            "Base Defenses",
+            "NPC",
+            "Creep",
             "Trooper"
         ]
     },
@@ -619,13 +645,13 @@
     {
         "Description": "* Backdoor protection removal now has a 20s buffer (so it doesn't go into protection mode immediately once creeps die)",
         "Tags": [
-            "Other"
+            "Creep"
         ]
     },
     {
         "Description": "* Mid Boss respawn timer decreases with subsequent boss kills, from 7 to 7/6/5 minutes",
         "Tags": [
-            "Mid-Boss"
+            "Other"
         ]
     },
     {
@@ -641,9 +667,12 @@
         ]
     },
     {
-        "Description": "* Base {{PageRef|Guardian}}s and Shrines no longer have out-of-combat regen",
+        "Description": "* Base {{PageRef|Guardian}}s and {{PageRef|Shrine}}s no longer have out-of-combat regen",
         "Tags": [
-            "Guardian"
+            "Base Defenses",
+            "NPC",
+            "Guardian",
+            "Shrine"
         ]
     },
     {
@@ -661,12 +690,18 @@
     {
         "Description": "* Medic {{PageRef|Trooper}} heal now has 2 charges; time between casts is 6s [does not consume a charge when healing other troopers, mainly affects waves pushing on their own]",
         "Tags": [
+            "Base Defenses",
+            "NPC",
+            "Creep",
             "Trooper"
         ]
     },
     {
         "Description": "* Medic {{PageRef|Trooper}} heal cooldown increased from 6s to 35s",
         "Tags": [
+            "Base Defenses",
+            "NPC",
+            "Creep",
             "Trooper"
         ]
     },
@@ -697,6 +732,8 @@
     {
         "Description": "* Connection hallways behind the Chapel and Firehouse now has an option to continue inside to the {{PageRef|Walker}} arenas",
         "Tags": [
+            "Base Defenses",
+            "NPC",
             "Walker"
         ]
     },
@@ -704,14 +741,16 @@
         "Description": "* Added a {{PageRef|Bounce Pad}} from these connection hallways to the front of the overpass",
         "Tags": [
             "Bounce Pad",
+            "Heroes",
             "Abilities",
-            "Holliday",
-            "Heroes"
+            "Holliday"
         ]
     },
     {
         "Description": "* Neutral camps beside Amber Purple and Sapphire Yellow {{PageRef|Walker}} arenas moved from the ground floor to the upper floor",
         "Tags": [
+            "Base Defenses",
+            "NPC",
             "Walker"
         ]
     },
@@ -1049,6 +1088,8 @@
             "Veil Walker",
             "Items",
             "Vitality Items",
+            "Base Defenses",
+            "NPC",
             "Walker"
         ]
     },
@@ -1058,6 +1099,8 @@
             "Veil Walker",
             "Items",
             "Vitality Items",
+            "Base Defenses",
+            "NPC",
             "Walker"
         ]
     },
@@ -2022,7 +2065,8 @@
             "Shiv",
             "Heroes",
             "Killing Blow",
-            "Abilities"
+            "Abilities",
+            "Creep"
         ]
     },
     {

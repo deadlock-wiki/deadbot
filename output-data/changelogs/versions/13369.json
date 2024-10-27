@@ -105,12 +105,18 @@
     {
         "Description": "* Fixed Candle {{PageRef|Trooper}}s near-death flash sometimes occurring while moving or doing other active animations",
         "Tags": [
+            "Base Defenses",
+            "NPC",
+            "Creep",
             "Trooper"
         ]
     },
     {
         "Description": "* Candle {{PageRef|Trooper}} behind-wall HUD indicator now also shows near-death state",
         "Tags": [
+            "Base Defenses",
+            "NPC",
+            "Creep",
             "Trooper"
         ]
     },
@@ -136,9 +142,9 @@
         "Description": "* Fixed various abilities not showing the cast preview correctly on the first use ({{PageRef|Mini Turret}}s, {{PageRef|Quantum Entanglement}}, etc)",
         "Tags": [
             "Mini Turret",
+            "Heroes",
             "Abilities",
             "McGinnis",
-            "Heroes",
             "Quantum Entanglement",
             "Dynamo"
         ]
@@ -170,9 +176,11 @@
         "Description": "* Fixed {{PageRef|Walker}}s having a pause at the end of their Rocket {{PageRef|Barrage}}",
         "Tags": [
             "Barrage",
+            "Heroes",
             "Abilities",
             "Pocket",
-            "Heroes",
+            "Base Defenses",
+            "NPC",
             "Walker"
         ]
     },
@@ -180,9 +188,9 @@
         "Description": "* Fixed multiple instances of \"{{PageRef|Killing Blow}}\" in the Damage Report",
         "Tags": [
             "Killing Blow",
+            "Heroes",
             "Abilities",
-            "Shiv",
-            "Heroes"
+            "Shiv"
         ]
     },
     {
@@ -195,9 +203,9 @@
         "Description": "* Fixed {{PageRef|Spectral Wall}} forcing itself into the first ability slot if its cooldown is refreshed",
         "Tags": [
             "Spectral Wall",
+            "Heroes",
             "Abilities",
-            "McGinnis",
-            "Heroes"
+            "McGinnis"
         ]
     },
     {
@@ -238,9 +246,11 @@
         ]
     },
     {
-        "Description": "* Fixed Shrines not having collision",
+        "Description": "* Fixed {{PageRef|Shrine}}s not having collision",
         "Tags": [
-            "Other"
+            "Base Defenses",
+            "NPC",
+            "Shrine"
         ]
     },
     {
@@ -423,6 +433,8 @@
     {
         "Description": "* Reworked the location of the {{PageRef|Walker}} on Amber Yellow and Sapphire Purple lanes. They are a little further towards the map edges. Nearby terrain has been reworked as well.",
         "Tags": [
+            "Base Defenses",
+            "NPC",
             "Walker"
         ]
     },
@@ -477,18 +489,24 @@
     {
         "Description": "* Added connection from the underground teleport station to the outer lane {{PageRef|Guardian}} (previously a juke spot)",
         "Tags": [
+            "Base Defenses",
+            "NPC",
             "Guardian"
         ]
     },
     {
         "Description": "* Added steam tunnel connection from Amber Blue {{PageRef|Guardian}} and Sapphire Orange {{PageRef|Guardian}} to Mid (one-way)",
         "Tags": [
+            "Base Defenses",
+            "NPC",
             "Guardian"
         ]
     },
     {
         "Description": "* Each trooper you shoot at will now consider you a higher priority than {{PageRef|Guardian}}s/{{PageRef|Walker}}s; that trooper will stop shooting the {{PageRef|Guardian}}s/{{PageRef|Walker}}s and consider you its target for a few seconds",
         "Tags": [
+            "Base Defenses",
+            "NPC",
             "Guardian",
             "Walker"
         ]
@@ -496,43 +514,54 @@
     {
         "Description": "* {{PageRef|Walker}} laser DPS vs troopers increased from 150 to 190",
         "Tags": [
+            "Base Defenses",
+            "NPC",
             "Walker"
         ]
     },
     {
         "Description": "* Parrying a {{PageRef|Guardian}} attack will no longer cause the {{PageRef|Guardian}} to be stunned",
         "Tags": [
+            "Base Defenses",
+            "NPC",
             "Guardian"
         ]
     },
     {
-        "Description": "* When Shrines are destroyed the {{PageRef|Patron}} gets more aggressive, moves faster, and does more damage",
+        "Description": "* When {{PageRef|Shrine}}s are destroyed the {{PageRef|Patron}} gets more aggressive, moves faster, and does more damage",
         "Tags": [
-            "Patron"
+            "Base Defenses",
+            "Patron",
+            "NPC",
+            "Shrine"
         ]
     },
     {
         "Description": "* Weakened {{PageRef|Patron}} HP regen increased from 80 to 120",
         "Tags": [
-            "Patron"
+            "Base Defenses",
+            "Patron",
+            "Weakened Patron"
         ]
     },
     {
         "Description": "* Weakened {{PageRef|Patron}} out of combat delay reduced from 30s to 20s",
         "Tags": [
-            "Patron"
+            "Base Defenses",
+            "Patron",
+            "Weakened Patron"
         ]
     },
     {
         "Description": "* Rejuv bonus reduced from 75% to 50% respawn time reduction",
         "Tags": [
-            "Other"
+            "Rejuvenator"
         ]
     },
     {
         "Description": "* Mid Boss health gained per minute increased from 350 to 425",
         "Tags": [
-            "Mid-Boss"
+            "Other"
         ]
     },
     {
@@ -604,6 +633,8 @@
     {
         "Description": "* Removed the tree in front of the {{PageRef|Walker}}s on Amber Orange and Sapphire Blue",
         "Tags": [
+            "Base Defenses",
+            "NPC",
             "Walker"
         ]
     },
@@ -616,6 +647,8 @@
     {
         "Description": "* Moved barrel cover barrier to block the {{PageRef|Guardian}} shop opening on Amber Purple and Sapphire Yellow",
         "Tags": [
+            "Base Defenses",
+            "NPC",
             "Guardian"
         ]
     },
@@ -863,6 +896,7 @@
     {
         "Description": "* Health Nova: Bonus HP increased from +50 to +75",
         "Tags": [
+            "Items",
             "Vitality Items"
         ]
     },
@@ -920,6 +954,8 @@
             "Veil Walker",
             "Items",
             "Vitality Items",
+            "Base Defenses",
+            "NPC",
             "Walker"
         ]
     },
@@ -929,6 +965,8 @@
             "Veil Walker",
             "Items",
             "Vitality Items",
+            "Base Defenses",
+            "NPC",
             "Walker"
         ]
     },
@@ -938,6 +976,8 @@
             "Veil Walker",
             "Items",
             "Vitality Items",
+            "Base Defenses",
+            "NPC",
             "Walker"
         ]
     },
@@ -1056,6 +1096,7 @@
     {
         "Description": "* Torment: Now has a regular cooldown that is reduced by cooldown reduction",
         "Tags": [
+            "Items",
             "Spirit Items"
         ]
     },
@@ -1215,7 +1256,8 @@
             "Dynamo",
             "Heroes",
             "Rejuvenating Aurora",
-            "Abilities"
+            "Abilities",
+            "Rejuvenator"
         ]
     },
     {

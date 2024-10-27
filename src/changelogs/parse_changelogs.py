@@ -87,15 +87,18 @@ class ChangelogParser:
                     hero = self.get_hero_from_ability(resource_key)
                     if hero is not None:
                         tags = self._register_tag(tags, tag=hero, is_group_tag=False)
-                        tags = self._register_tag(tags, tag='Heroes')
 
-        # check for other tags
-        # all tags in this are counted as a tag group
-        tags_to_search = ['Map', 'Trooper', 'Guardian', 'Mid-Boss', 'Midboss', 'Mid Boss', 
-                          'Rejuvenator', 'Walker', 'Patron', 'Shrine']
-        for tag_to_search in tags_to_search:
-            if tag_to_search in line:
-                tags = self._register_tag(tags, tag=tag_to_search)
+        # Register other tags
+        tags_match_text = ['Trooper', 'Guardian', 'Walker', 'Patron', 'Weakened Patron', 
+                          'Shrine', 'Mid-Boss', 'Map', 'Rejuvenator', 
+                          'Creep', 'Neutral']
+        tags_match_word = ['creep', 'neutral', 'Rejuv']
+        for tag in tags_match_text:
+            if tag in line:
+                tags = self._register_tag(tags, tag)
+        for tag in tags_match_word:
+            if tag in line.split(' '):
+                tags = self._register_tag(tags, tag)
 
         # Also register heading as a tag
         if current_heading != '':
@@ -112,6 +115,34 @@ class ChangelogParser:
         # otherwise, default tag may be added occasionally if its a heading
         if len(tags) > 1 and self.default_tag in tags:
             tags.remove(self.default_tag)
+
+        return tags
+    
+    def _assign_parents(self, tags, tag):
+        """
+        Assigns a tag's parents to the list of tags
+        """
+
+        # key = child
+        # value = parents to assign
+        # child, [parents] instead of parent, [children] for easier lookup
+        tag_parents = {
+            'Trooper': ['Base Defenses', 'NPC', 'Creep'],
+            'Guardian': ['Base Defenses', 'NPC'],
+            'Walker': ['Base Defenses', 'NPC'],
+            'Patron': ['Base Defenses'],
+            'Weakened Patron': ['Patron', 'Base Defenses'],
+            'Shrine': ['Base Defenses', 'NPC'],
+            'Mid-Boss': ['NPC'],
+            'Weapon Items': ['Items'],
+            'Vitality Items': ['Items'],
+            'Spirit Items': ['Items'],
+            'Abilities': ['Heroes'],
+        }
+        
+        if tag in tag_parents:
+            for parent in tag_parents[tag]:
+                tags = self._register_tag(tags, parent)
 
         return tags
 
@@ -133,6 +164,8 @@ class ChangelogParser:
             'General Change': self.default_tag,
             'Midboss': 'Mid-Boss',
             'Mid Boss': 'Mid-Boss',
+            'Rejuv': 'Rejuvenator',
+            'creep': 'Creep',
         }
 
         # headings in this list are not converted to tags
@@ -148,16 +181,21 @@ class ChangelogParser:
         and to the static unique list of tags.
         """
 
+        # Remap tag
         tag = self._remap_tag(tag)
         if tag is None:
             return tags
+        
+        # Assign its parents
+        tags = self._assign_parents(tags, tag)
 
+        # Add tag
         if tag not in tags:
             tags.append(tag)
 
+        # Add to unique lists
         if tag not in self.unique_tags:
             self.unique_tags.append(tag)
-
         if is_group_tag and tag not in self.unique_tag_groups:
             self.unique_tag_groups.append(tag)
 
@@ -199,9 +237,10 @@ class ChangelogParser:
             unique_tag_groups = sorted(unique_tag_groups)
             if existing_tag_groups != unique_tag_groups:
                 print(
-                    'WARNING: Unique tag groups are different from existing tag groups. \n'
+                    f'WARNING: Unique tag groups in {tag_groups_path} are '
+                    + 'different from existing tag groups. \n'
                     + 'Clean up any new ones if necessary by referring to '
-                    + 'ChangelogParser.run(). '
+                    + 'ChangelogParser._parse_tags(). '
                     + 'If a new unique group tag is to be added, '
                     + 'add it to deadlocked.wiki/Template:Changelogs Navbox'
                 )

@@ -63,9 +63,9 @@
         "Description": "* Fixed {{PageRef|Spectral Wall}} sometimes not spawning depending on the map geometry nearby",
         "Tags": [
             "Spectral Wall",
+            "Heroes",
             "Abilities",
-            "McGinnis",
-            "Heroes"
+            "McGinnis"
         ]
     },
     {
@@ -101,6 +101,8 @@
     {
         "Description": "* Fixed position of the \"All {{PageRef|Walker}}s Destroyed\" Flex slot to be the 2nd slot rather than the 4th",
         "Tags": [
+            "Base Defenses",
+            "NPC",
             "Walker"
         ]
     },
@@ -246,26 +248,37 @@
         ]
     },
     {
-        "Description": "* Base {{PageRef|Guardian}}s and Shrines now have +40% Bullet Resistance. They lose 20% for each enemy hero nearby (down to a minimum of 0% bullet resistance). When they haven't taken damage for 60 seconds, they regenerate 4% max hp per second.",
+        "Description": "* Base {{PageRef|Guardian}}s and {{PageRef|Shrine}}s now have +40% Bullet Resistance. They lose 20% for each enemy hero nearby (down to a minimum of 0% bullet resistance). When they haven't taken damage for 60 seconds, they regenerate 4% max hp per second.",
         "Tags": [
-            "Guardian"
+            "Base Defenses",
+            "NPC",
+            "Guardian",
+            "Shrine"
         ]
     },
     {
         "Description": "* Fixed {{PageRef|Walker}}s not using their stomp properly",
         "Tags": [
+            "Base Defenses",
+            "NPC",
             "Walker"
         ]
     },
     {
         "Description": "* {{PageRef|Trooper}}s now deal 25% less damage to other troopers",
         "Tags": [
+            "Base Defenses",
+            "NPC",
+            "Creep",
             "Trooper"
         ]
     },
     {
         "Description": "* {{PageRef|Trooper}}s spawn rate before 10 minutes is now the same as after 10 minutes (30s->25s)",
         "Tags": [
+            "Base Defenses",
+            "NPC",
+            "Creep",
             "Trooper"
         ]
     },
@@ -344,6 +357,8 @@
     {
         "Description": "* Inner lane {{PageRef|Walker}} arena (Amber Orange and Sapphire Blue):",
         "Tags": [
+            "Base Defenses",
+            "NPC",
             "Walker"
         ]
     },
@@ -356,6 +371,8 @@
     {
         "Description": "* Reworked stairs for defenders to reach the overpass to start near the {{PageRef|Walker}} and exit with line of sight down the lane",
         "Tags": [
+            "Base Defenses",
+            "NPC",
             "Walker"
         ]
     },
@@ -386,6 +403,8 @@
     {
         "Description": "* Moved the new cover barrier in front of the inner lane {{PageRef|Guardian}} closer to the {{PageRef|Guardian}}",
         "Tags": [
+            "Base Defenses",
+            "NPC",
             "Guardian"
         ]
     },

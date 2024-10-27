@@ -234,9 +234,9 @@
         "Description": "* Added frosted shell effect on the rejuv crystal when {{PageRef|Frozen Shelter}} is active",
         "Tags": [
             "Frozen Shelter",
+            "Heroes",
             "Abilities",
-            "Kelvin",
-            "Heroes"
+            "Kelvin"
         ]
     },
     {
@@ -248,6 +248,8 @@
     {
         "Description": "* Fixed {{PageRef|Guardian}} trying to shoot people unsuccessfully behind cover",
         "Tags": [
+            "Base Defenses",
+            "NPC",
             "Guardian"
         ]
     },
@@ -258,9 +260,9 @@
             "Items",
             "Spirit Items",
             "Scorn",
+            "Heroes",
             "Abilities",
             "Mo & Krill",
-            "Heroes",
             "Flog",
             "Lash"
         ]
@@ -269,9 +271,9 @@
         "Description": "* Added timer sound to the last couple seconds of {{PageRef|Flying Cloak}}",
         "Tags": [
             "Flying Cloak",
+            "Heroes",
             "Abilities",
-            "Pocket",
-            "Heroes"
+            "Pocket"
         ]
     },
     {
@@ -302,27 +304,27 @@
         "Description": "* Updated {{PageRef|Killing Blow}} effects",
         "Tags": [
             "Killing Blow",
+            "Heroes",
             "Abilities",
-            "Shiv",
-            "Heroes"
+            "Shiv"
         ]
     },
     {
         "Description": "* Updated {{PageRef|Lightning Ball}} effects to reduce some visual noise",
         "Tags": [
             "Lightning Ball",
+            "Heroes",
             "Abilities",
-            "Seven",
-            "Heroes"
+            "Seven"
         ]
     },
     {
         "Description": "* Fixed some issues with {{PageRef|Crimson Slash}} effect not appearing reliably",
         "Tags": [
             "Crimson Slash",
+            "Heroes",
             "Abilities",
-            "Yamato",
-            "Heroes"
+            "Yamato"
         ]
     },
     {
@@ -370,9 +372,9 @@
         "Description": "* Updated {{PageRef|Flying Strike}} effects to reduce some visual noise",
         "Tags": [
             "Flying Strike",
+            "Heroes",
             "Abilities",
-            "Yamato",
-            "Heroes"
+            "Yamato"
         ]
     },
     {
@@ -385,9 +387,9 @@
         "Description": "* Updated {{PageRef|Sleep Dagger}} projectile, impact and sleeping debuff visuals",
         "Tags": [
             "Sleep Dagger",
+            "Heroes",
             "Abilities",
-            "Haze",
-            "Heroes"
+            "Haze"
         ]
     },
     {
@@ -546,9 +548,9 @@
         "Description": "* Improved read on the connecting rope for {{PageRef|Flying Strike}} and reduced visual obstruction of the ending slash",
         "Tags": [
             "Flying Strike",
+            "Heroes",
             "Abilities",
-            "Yamato",
-            "Heroes"
+            "Yamato"
         ]
     },
     {
@@ -596,6 +598,9 @@
     {
         "Description": "* {{PageRef|Trooper}} damage reduction from {{PageRef|Guardian}}s reduced from 35% to 28% (they die a little faster to {{PageRef|Guardian}}s now)",
         "Tags": [
+            "Base Defenses",
+            "NPC",
+            "Creep",
             "Trooper",
             "Guardian"
         ]
@@ -603,13 +608,16 @@
     {
         "Description": "* {{PageRef|Trooper}} share radius reduced (from allied hero to allied hero 50m->40m, from orb to allied hero 40m->35m)",
         "Tags": [
+            "Base Defenses",
+            "NPC",
+            "Creep",
             "Trooper"
         ]
     },
     {
         "Description": "* Reverted recent creep sharing duplication changes (back to how it was over a week ago, we want to see if it's still an issue with the other changes in this patch)",
         "Tags": [
-            "Other"
+            "Creep"
         ]
     },
     {
@@ -639,18 +647,22 @@
     {
         "Description": "* Rejuv bonus creep HP increased from 50% to 70%",
         "Tags": [
-            "Other"
+            "Rejuvenator",
+            "Creep"
         ]
     },
     {
         "Description": "* Rejuv bonus is no longer consumed for dead players, they have it on their next life now",
         "Tags": [
-            "Other"
+            "Rejuvenator"
         ]
     },
     {
         "Description": "* {{PageRef|Trooper}}s no longer give half bounty when base guardians are destroyed for that lane",
         "Tags": [
+            "Base Defenses",
+            "NPC",
+            "Creep",
             "Trooper"
         ]
     },
@@ -675,6 +687,8 @@
     {
         "Description": "* {{PageRef|Guardian}}s now deal 10% more damage to players",
         "Tags": [
+            "Base Defenses",
+            "NPC",
             "Guardian"
         ]
     },
@@ -717,7 +731,7 @@
     {
         "Description": "* Added Rejuv drop on a loop in the sandbox mode",
         "Tags": [
-            "Other"
+            "Rejuvenator"
         ]
     },
     {
@@ -1032,6 +1046,7 @@
     {
         "Description": "* Health Nova: Weapon Damage increased from 10% to 12%",
         "Tags": [
+            "Items",
             "Vitality Items"
         ]
     },
@@ -1091,6 +1106,8 @@
             "Veil Walker",
             "Items",
             "Vitality Items",
+            "Base Defenses",
+            "NPC",
             "Walker"
         ]
     },
@@ -1335,9 +1352,9 @@
             "Items",
             "Spirit Items",
             "Pulse",
+            "Heroes",
             "Abilities",
-            "Rutger",
-            "Heroes"
+            "Rutger"
         ]
     },
     {
@@ -1347,9 +1364,9 @@
             "Items",
             "Spirit Items",
             "Pulse",
+            "Heroes",
             "Abilities",
-            "Rutger",
-            "Heroes"
+            "Rutger"
         ]
     },
     {
@@ -2194,6 +2211,8 @@
     {
         "Description": "* Redesigned outer lane path (ziplines and trooper nodes) from {{PageRef|Walker}} to {{PageRef|Guardian}} on Amber Yellow and Sapphire Purple",
         "Tags": [
+            "Base Defenses",
+            "NPC",
             "Guardian",
             "Walker",
             "Map"
