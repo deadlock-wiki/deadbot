@@ -21,7 +21,9 @@ Some data has been processed and formatted for google sheets:\
 5. `python3 -m pre_commit install`
 6. Download Decompiler.exe for your particular OS from https://github.com/ValveResourceFormat/ValveResourceFormat/releases 
    1. Extract decompiler into a folder and update `.env`
-7. Add the paths to Deadlock files and the Decompiler in `.env` using `.env.example` as an example
+7. Download DepotDownloader for your particular OS from https://github.com/SteamRE/DepotDownloader/releases
+    1. Extract DepotDownloader-(your-os)-x64 into a folder and update `.env`
+8. Add the paths to Deadlock files and the Decompiler in `.env` using `.env.example` as an example
 
 ### Usage
 
