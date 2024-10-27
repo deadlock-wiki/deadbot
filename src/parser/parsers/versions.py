@@ -48,48 +48,56 @@ class VersionParser:
         parsed_versions = {}
         num_versions = len(versions)
         curr_num_versions = 0
-        for manifest_id in versions:
-            # Run the depot_downloader command
-            subprocess_params = [
-                os.path.join(self.depot_downloader_dir,'./DepotDownloader'),
-                '-app', self.app_id,
-                '-depot', self.depot_id,
-                '-manifest', manifest_id,
-                '-username', self.steam_username,
-                '-password', self.steam_password,
-                '-remember-password',
-                '-filelist', 'input-data/steam_inf_path.txt',
-                '-dir', self.depot_downloader_output
-            ]
 
-            result = subprocess.run(subprocess_params, check=True, stdout=subprocess.PIPE, universal_newlines=True)
-            print(result)
-            steam_inf_path = os.path.join(self.depot_downloader_output, 'game', 'citadel', 'steam.inf')
-            if not os.path.exists(steam_inf_path):
-                raise Exception(f'Fatal error: {steam_inf_path} not found')
-            
-            # Open steam inf
-            with open(steam_inf_path, 'r') as file:
-                steam_inf = file.read()
-            
-            parsed_versions[manifest_id] = {}
+        try:
+            for manifest_id in versions:
+                # Run the depot_downloader command
+                subprocess_params = [
+                    os.path.join(self.depot_downloader_dir,'./DepotDownloader'),
+                    '-app', self.app_id,
+                    '-depot', self.depot_id,
+                    '-manifest', manifest_id,
+                    '-username', self.steam_username,
+                    '-password', self.steam_password,
+                    '-remember-password',
+                    '-filelist', 'input-data/steam_inf_path.txt',
+                    '-dir', self.depot_downloader_output
+                ]
 
-            # Parse each line
-            for line in steam_inf.split('\n'):
-                split_line = line.split('=')
-                if len(split_line) != 2:
-                    continue
-                key = split_line[0]
-                value = split_line[1]
-                parsed_versions[manifest_id][key] = value
+                result = subprocess.run(subprocess_params, check=True, stdout=subprocess.PIPE, universal_newlines=True)
+                steam_inf_path = os.path.join(self.depot_downloader_output, 'game', 'citadel', 'steam.inf')
+                if not os.path.exists(steam_inf_path):
+                    raise Exception(f'Fatal error: {steam_inf_path} not found')
+                
+                # Open steam inf
+                with open(steam_inf_path, 'r') as file:
+                    steam_inf = file.read()
+                
+                parsed_versions[manifest_id] = {}
 
-            curr_num_versions += 1
+                # Parse each line
+                for line in steam_inf.split('\n'):
+                    split_line = line.split('=')
+                    if len(split_line) != 2:
+                        continue
+                    key = split_line[0]
+                    value = split_line[1]
+                    parsed_versions[manifest_id][key] = value
+
+                curr_num_versions += 1
+
+                if self.verbose:
+                    print(f'({curr_num_versions}/{num_versions}): Parsed {manifest_id} which contained VersionDate {parsed_versions[manifest_id]["VersionDate"]}')
 
             if self.verbose:
-                print(f'({curr_num_versions}/{num_versions}): Parsed {manifest_id} which contained VersionDate {parsed_versions[manifest_id]["VersionDate"]}')
-
-        if self.verbose:
-            print(f'Parsed {len(parsed_versions)} new versions')
+                print(f'Parsed {len(parsed_versions)} new versions')
+        
+        except Exception as e:
+            # If any exception occurs in DepotDownloader,
+            # first save what's currently parsed
+            self._update(parsed_versions)
+            self._save()
+            raise e
 
         return parsed_versions
     
@@ -112,7 +120,6 @@ class VersionParser:
         self._load()
 
         missing_versions = self._get_missing_versions()
-        
         if len(missing_versions)>0:
             parsed_versions = self._parse(missing_versions)
 
