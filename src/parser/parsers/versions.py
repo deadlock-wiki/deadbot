@@ -64,7 +64,11 @@ class VersionParser:
                     '-dir', self.depot_downloader_output
                 ]
 
-                result = subprocess.run(subprocess_params, check=True, stdout=subprocess.PIPE, universal_newlines=True)
+                result = subprocess.run(subprocess_params, 
+                                        check=True, 
+                                        stdin=subprocess.PIPE, 
+                                        stdout=subprocess.PIPE, 
+                                        universal_newlines=True)
                 steam_inf_path = os.path.join(self.depot_downloader_output, 'game', 'citadel', 'steam.inf')
                 if not os.path.exists(steam_inf_path):
                     raise Exception(f'Fatal error: {steam_inf_path} not found')
@@ -94,6 +98,7 @@ class VersionParser:
         
         except Exception as e:
             # If any exception occurs in DepotDownloader,
+            # such as RateLimiting,
             # first save what's currently parsed
             self._update(parsed_versions)
             self._save()
@@ -102,10 +107,22 @@ class VersionParser:
         return parsed_versions
     
     def _update(self, new_versions):
+        old_versions = self.versions
+
         # Merge the parsed versions with the existing versions
         self.versions.update(new_versions)
 
+        if self.verbose:
+            if old_versions != self.versions:
+                print(f'Updated {len(new_versions)} new versions')
+            else:
+                print('No new versions to update')
+
     def _save(self):
+        # Order by ServerVersion numerically (not lexicographically)
+        # If a manifest is empty, it will be at the top
+        self.versions = {k: v for k, v in sorted(self.versions.items(), key=lambda item: int(item[1].get('ServerVersion', 0)))}
+
         # Save the versions to versions.json
         json_utils.write(self.versions_path, self.versions)
 
