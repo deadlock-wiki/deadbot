@@ -183,6 +183,7 @@ class ChangelogParser:
             existing_tag_groups = json_utils.read(tag_groups_path)
 
             # Print a warning if the data is different
+            unique_tag_groups = sorted(unique_tag_groups)
             if existing_tag_groups != unique_tag_groups:
                 print(
                     'WARNING: Unique tag groups are different from existing tag groups. \n'
@@ -193,7 +194,7 @@ class ChangelogParser:
                 )
 
         # Write the new ones to file
-        json_utils.write(tag_groups_path, sorted(unique_tag_groups))
+        json_utils.write(tag_groups_path, unique_tag_groups)
 
     def _get_resources(self):
         resources = {}
@@ -215,8 +216,6 @@ class ChangelogParser:
         resources.update(abilities)
 
         self.heroes = heroes
-        self.items = items
-        self.abilities = abilities
 
         return resources
 
