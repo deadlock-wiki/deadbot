@@ -45,7 +45,6 @@ class ChangelogParser:
             tags = self._parse_tags(current_heading, line)
 
             changelog_out.append({'Description': line, 'Tags': tags})
-            
 
         changelog_with_icons = self._embed_icons(changelog_out)
         os.makedirs(self.OUTPUT_CHANGELOGS, exist_ok=True)
@@ -89,9 +88,18 @@ class ChangelogParser:
                         tags = self._register_tag(tags, tag=hero, is_group_tag=False)
 
         # Register other tags
-        tags_match_text = ['Trooper', 'Guardian', 'Walker', 'Patron', 'Weakened Patron', 
-                           'Shrine', 'Mid-Boss', 'Map', 'Rejuvenator'
-                           'Creep', 'Neutral']
+        tags_match_text = [
+            'Trooper',
+            'Guardian',
+            'Walker',
+            'Patron',
+            'Weakened Patron',
+            'Shrine',
+            'Mid-Boss',
+            'Map',
+            'Rejuvenator' 'Creep',
+            'Neutral',
+        ]
         tags_match_word = ['creep', 'neutral', 'creeps', 'neutrals', 'Rejuv']
         for tag in tags_match_text:
             if tag in line:
@@ -117,7 +125,7 @@ class ChangelogParser:
             tags.remove(self.default_tag)
 
         return tags
-    
+
     def _assign_parents(self, tags, tag):
         """
         Assigns a tag's parents to the list of tags
@@ -140,9 +148,9 @@ class ChangelogParser:
             'Weapon Items': ['Items'],
             'Vitality Items': ['Items'],
             'Spirit Items': ['Items'],
-            'Abilities': ['Heroes'],    
+            'Abilities': ['Heroes'],
         }
-        
+
         if tag in tag_parents:
             for parent in tag_parents[tag]:
                 tags = self._register_tag(tags, parent)
@@ -191,7 +199,7 @@ class ChangelogParser:
         tag = self._remap_tag(tag)
         if tag is None:
             return tags
-        
+
         # Assign its parents
         tags = self._assign_parents(tags, tag)
 

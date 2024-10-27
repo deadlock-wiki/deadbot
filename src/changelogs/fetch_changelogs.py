@@ -7,18 +7,22 @@ from urllib import request
 from utils import json_utils
 from typing import TypedDict
 
+
 class Changelog(TypedDict):
     date: str
     link: str
+
 
 class ChangelogLine(TypedDict):
     Description: str
     Tags: list[str]
 
+
 class ChangelogFetcher:
     """
     Fetches changelogs from the deadlock forums and parses them into a dictionary
     """
+
     def __init__(self):
         self.changelog_lines: dict[str, ChangelogLine] = {}
         self.changelogs: dict[str, Changelog] = {}
