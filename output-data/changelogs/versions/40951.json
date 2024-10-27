@@ -509,7 +509,6 @@
         "Tags": [
             "Base Defenses",
             "Patron",
-            "NPC",
             "Shrine"
         ]
     },
@@ -517,7 +516,6 @@
         "Description": "* {{PageRef|Shrine}} Flex Slot moved to \"All {{PageRef|Shrine}}s\"",
         "Tags": [
             "Base Defenses",
-            "NPC",
             "Shrine"
         ]
     },
@@ -645,6 +643,7 @@
     {
         "Description": "* Backdoor protection removal now has a 20s buffer (so it doesn't go into protection mode immediately once creeps die)",
         "Tags": [
+            "NPC",
             "Creep"
         ]
     },
@@ -747,11 +746,13 @@
         ]
     },
     {
-        "Description": "* Neutral camps beside Amber Purple and Sapphire Yellow {{PageRef|Walker}} arenas moved from the ground floor to the upper floor",
+        "Description": "* {{PageRef|Neutral}} camps beside Amber Purple and Sapphire Yellow {{PageRef|Walker}} arenas moved from the ground floor to the upper floor",
         "Tags": [
             "Base Defenses",
             "NPC",
-            "Walker"
+            "Walker",
+            "Creep",
+            "Neutral"
         ]
     },
     {
@@ -763,7 +764,9 @@
     {
         "Description": "* Redesigned traversal from ground floor to upper floor of the Garage and Night Club to get to the Sinner's Sacrifice neutrals",
         "Tags": [
-            "Other"
+            "NPC",
+            "Creep",
+            "Neutral"
         ]
     },
     {
@@ -2066,6 +2069,7 @@
             "Heroes",
             "Killing Blow",
             "Abilities",
+            "NPC",
             "Creep"
         ]
     },

@@ -90,9 +90,9 @@ class ChangelogParser:
 
         # Register other tags
         tags_match_text = ['Trooper', 'Guardian', 'Walker', 'Patron', 'Weakened Patron', 
-                          'Shrine', 'Mid-Boss', 'Map', 'Rejuvenator', 
-                          'Creep', 'Neutral']
-        tags_match_word = ['creep', 'neutral', 'Rejuv']
+                           'Shrine', 'Mid-Boss', 'Map', 'Rejuvenator'
+                           'Creep', 'Neutral']
+        tags_match_word = ['creep', 'neutral', 'creeps', 'neutrals', 'Rejuv']
         for tag in tags_match_text:
             if tag in line:
                 tags = self._register_tag(tags, tag)
@@ -123,21 +123,24 @@ class ChangelogParser:
         Assigns a tag's parents to the list of tags
         """
 
+        # tags below are after _remap_tag() is called
         # key = child
         # value = parents to assign
         # child, [parents] instead of parent, [children] for easier lookup
         tag_parents = {
+            'Neutral': ['NPC', 'Creep'],
+            'Creep': ['NPC'],
             'Trooper': ['Base Defenses', 'NPC', 'Creep'],
             'Guardian': ['Base Defenses', 'NPC'],
             'Walker': ['Base Defenses', 'NPC'],
             'Patron': ['Base Defenses'],
             'Weakened Patron': ['Patron', 'Base Defenses'],
-            'Shrine': ['Base Defenses', 'NPC'],
+            'Shrine': ['Base Defenses'],
             'Mid-Boss': ['NPC'],
             'Weapon Items': ['Items'],
             'Vitality Items': ['Items'],
             'Spirit Items': ['Items'],
-            'Abilities': ['Heroes'],
+            'Abilities': ['Heroes'],    
         }
         
         if tag in tag_parents:
@@ -166,6 +169,9 @@ class ChangelogParser:
             'Mid Boss': 'Mid-Boss',
             'Rejuv': 'Rejuvenator',
             'creep': 'Creep',
+            'creeps': 'Creep',
+            'neutral': 'Neutral',
+            'neutrals': 'Neutral',
         }
 
         # headings in this list are not converted to tags
