@@ -125,7 +125,7 @@ class VersionParser:
         return parsed_versions
 
     def _update(self, new_versions):
-        old_versions = self.versions
+        old_versions = self.versions.copy()
 
         # Merge the parsed versions with the existing versions
         self.versions.update(new_versions)
