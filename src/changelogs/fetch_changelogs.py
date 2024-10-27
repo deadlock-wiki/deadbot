@@ -5,31 +5,36 @@ import feedparser
 from bs4 import BeautifulSoup
 from urllib import request
 from utils import json_utils
+from typing import TypedDict
 
+class Changelog(TypedDict):
+    date: str
+    link: str
+
+class ChangelogLine(TypedDict):
+    Description: str
+    Tags: list[str]
 
 class ChangelogFetcher:
+    """
+    Fetches changelogs from the deadlock forums and parses them into a dictionary
+    """
     def __init__(self):
-        self.changelogs_by_version = {}
-        # layer1: version # as assigned by developers
-        # layer2: content (reworked in another pr, not gonna bother writing temporary
-        # stuff here for layer2-4)
-
-        self.changelog_date_links = {}
-        # layer1: version # as assigned by developers
-        # layer2: date
+        self.changelog_lines: dict[str, ChangelogLine] = {}
+        self.changelogs: dict[str, Changelog] = {}
 
     def get_rss(self, rss_url, update_existing=False):
         self.RSS_URL = rss_url
         self._fetch_forum_changelogs(update_existing)
 
-        return self.changelogs_by_version
+        return self.changelog_lines
 
     def get_txt(self, changelog_path):
         self._process_local_changelogs(changelog_path)
-        return self.changelogs_by_version
+        return self.changelog_lines
 
     def changelogs_to_file(self, output_dir):
-        for version, changelog in self.changelogs_by_version.items():
+        for version, changelog in self.changelog_lines.items():
             raw_output_dir = os.path.join(output_dir, 'raw')
             os.makedirs(raw_output_dir, exist_ok=True)
             with open(raw_output_dir + f'/{version}.txt', 'w', encoding='utf8') as f_out:
@@ -43,15 +48,14 @@ class ChangelogFetcher:
         # many entries were manually added due to only the first page on the site has rss feed
         changelogs_path = output_dir + '/changelogs.json'
         existing_changelogs = json_utils.read(changelogs_path)
-        existing_changelogs.update(self.changelog_date_links)
+        existing_changelogs.update(self.changelogs)
 
-        # Sort existing_changelogs by key but numerically
+        # Sort the keys numerically, not lexicographically
         keys = list(existing_changelogs.keys())
-        # Sort the keys numerically, not lexiconically
         keys.sort(key=lambda x: int(x))
-        self.changelog_date_links = {key: existing_changelogs[key] for key in keys}
+        self.changelogs = {key: existing_changelogs[key] for key in keys}
 
-        json_utils.write(changelogs_path, self.changelog_date_links)
+        json_utils.write(changelogs_path, self.changelogs)
 
     def _fetch_update_html(self, link):
         html = request.urlopen(link).read()
@@ -86,18 +90,16 @@ class ChangelogFetcher:
             if version is None or version == '':
                 raise ValueError(f'Version {version} must not be blank/missing')
 
-            if not update_existing and (version in self.changelogs_by_version.keys()):
+            if not update_existing and (version in self.changelog_lines.keys()):
                 skip_num += 1
                 continue
             try:
                 full_text = '\n---\n'.join(self._fetch_update_html(entry.link))
             except Exception:
                 print(f'Issue with parsing RSS feed item {entry.link}')
-            if version is None or version == '':
-                print(date, entry.link)
 
-            self.changelogs_by_version[version] = full_text
-            self.changelog_date_links[version] = {'date': date, 'link': entry.link}
+            self.changelog_lines[version] = full_text
+            self.changelogs[version] = {'date': date, 'link': entry.link}
 
         if skip_num > 0:
             print(f'Skipped {skip_num} RSS items that already exists')
@@ -115,6 +117,6 @@ class ChangelogFetcher:
             try:
                 with open(changelog_path + f'/{version}.txt', 'r', encoding='utf8') as f:
                     changelogs = f.read()
-                    self.changelogs_by_version[version] = changelogs
+                    self.changelog_lines[version] = changelogs
             except Exception:
                 print(f'Issue with {file}, skipping')
