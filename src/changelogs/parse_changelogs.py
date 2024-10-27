@@ -31,88 +31,95 @@ class ChangelogParser:
             if line is None or line == '':
                 continue
 
-            # if heading is found, update current heading
+            # parse heading: if heading is found, update current heading
             if line.startswith('[ '):
                 current_heading = line[2:-2]
                 continue
 
-            # find if a resource can be assigned a changelog line
-            tags = []
-            for resource_key in self.resources:
-                resource = self.resources[resource_key]
-                resource_type = resource['Type']
-                resource_name = resource['Name']
-
-                if resource_name is None:
-                    continue
-
-                # Skip disabled items
-                if resource_type == 'Items' and resource.get('Disabled', False):
-                    continue
-
-                if resource_name in line:
-                    tags = self._register_tag(tags, tag=resource_name, is_group_tag=False)
-
-                    # Also register the resource type
-                    tags = self._register_tag(tags, tag=resource_type)
-
-                    # Also register 'Weapon Items', 'Spirit Items', etc. for item resources
-                    # currently these are also a heading, this check makes it future proof
-                    if resource_type == 'Items':
-                        item_slot = resource['Slot']  # i.e. Tech
-                        localized_item_slot = self.localization_en['CitadelCategory' + item_slot]
-                        slot_str = localized_item_slot + ' Items'
-                        tags = self._register_tag(tags, tag=slot_str)
-
-                    # If its an ability, register the hero as well
-                    if resource_type == 'Abilities':
-                        hero = self.get_hero_from_ability(resource_key)
-                        if hero is not None:
-                            tags = self._register_tag(tags, tag=hero, is_group_tag=False)
-                            tags = self._register_tag(tags, tag='Heroes')
-
-            # check for other tags
-            # all tags in this are counted as a tag group
-            tags_to_search = ['Map']
-            for tag_to_search in tags_to_search:
-                if tag_to_search in line:
-                    tags = self._register_tag(tags, tag=tag_to_search)
-
-            # Also register heading as a tag
-            if current_heading != '':
-                heading_tag = self._heading_to_tag(current_heading)
-                if heading_tag is not None:
-                    tags = self._register_tag(tags, tag=heading_tag)
-
-            # if no tag is found, assign to default group
-            if len(tags) == 0:
-                tags = self._register_tag(tags, tag=self.default_tag)
-
-            # Replace hyphen with asterisk for bullet points on wiki
+            # parse line: replace hyphen with asterisk for bullet points on wiki
             prefixes = ['- ', ' - ']
             for prefix in prefixes:
                 if line.startswith(prefix):
                     line = '* ' + line[len(prefix) :]
 
-            # Remove default tag if its not the only tag
-            if len(tags) > 1 and self.default_tag in tags:
-                tags.remove(self.default_tag)
+            tags = self._parse_tags(current_heading, line)
 
             changelog_out.append({'Description': line, 'Tags': tags})
+            
 
         changelog_with_icons = self._embed_icons(changelog_out)
         os.makedirs(self.OUTPUT_CHANGELOGS, exist_ok=True)
         json_utils.write(self.OUTPUT_CHANGELOGS + f'/versions/{version}.json', changelog_with_icons)
         return changelog_with_icons
 
-    def _heading_to_tag(self, heading):
-        """
-        Converts a heading to a tag, i.e. Hero and Heroes don't need to be separate tags,
-        New Items doesn't need to be a tag at all, etc
-        """
+    def _parse_tags(self, current_heading, line):
+        tags = []
 
-        # Remove ' Changes' suffix, i.e. 'Hero Changes' -> 'Heroes'
-        heading = heading.replace(' Changes', '')
+        # find if a resource can be assigned a changelog line
+        for resource_key in self.resources:
+            resource = self.resources[resource_key]
+            resource_type = resource['Type']
+            resource_name = resource['Name']
+
+            if resource_name is None:
+                continue
+
+            # Skip disabled items
+            if resource_type == 'Items' and resource.get('Disabled', False):
+                continue
+
+            if resource_name in line:
+                tags = self._register_tag(tags, tag=resource_name, is_group_tag=False)
+
+                # Also register the resource type
+                tags = self._register_tag(tags, tag=resource_type)
+
+                # Also register 'Weapon Items', 'Spirit Items', etc. for item resources
+                # currently these are also a heading, this check makes it future proof
+                if resource_type == 'Items':
+                    item_slot = resource['Slot']  # i.e. Tech
+                    localized_item_slot = self.localization_en['CitadelCategory' + item_slot]
+                    slot_str = localized_item_slot + ' Items'
+                    tags = self._register_tag(tags, tag=slot_str)
+
+                # If its an ability, register the hero as well
+                if resource_type == 'Abilities':
+                    hero = self.get_hero_from_ability(resource_key)
+                    if hero is not None:
+                        tags = self._register_tag(tags, tag=hero, is_group_tag=False)
+                        tags = self._register_tag(tags, tag='Heroes')
+
+        # check for other tags
+        # all tags in this are counted as a tag group
+        tags_to_search = ['Map', 'Trooper', 'Guardian', 'Mid-Boss', 'Midboss', 'Mid Boss', 
+                          'Rejuvenator', 'Walker', 'Patron', 'Shrine']
+        for tag_to_search in tags_to_search:
+            if tag_to_search in line:
+                tags = self._register_tag(tags, tag=tag_to_search)
+
+        # Also register heading as a tag
+        if current_heading != '':
+            # Remove ' Changes' suffix, i.e. 'Hero Changes' -> 'Heroes'
+            heading_tag = current_heading.replace(' Changes', '')
+            if heading_tag is not None:
+                tags = self._register_tag(tags, tag=heading_tag)
+
+        # if no tag is found, assign to default tag
+        if len(tags) == 0:
+            tags = self._register_tag(tags, tag=self.default_tag)
+
+        # Remove default tag if its not the only tag
+        # otherwise, default tag may be added occasionally if its a heading
+        if len(tags) > 1 and self.default_tag in tags:
+            tags.remove(self.default_tag)
+
+        return tags
+
+    def _remap_tag(self, tag):
+        """
+        Remaps tags as necessary, i.e. 'Hero Gameplay' -> 'Heroes',
+        'New Items' doesn't need to be a tag at all, etc
+        """
 
         map = {
             'Hero Gameplay': 'Heroes',
@@ -124,20 +131,26 @@ class ChangelogParser:
             'Misc Gamepla': self.default_tag,
             'General': self.default_tag,
             'General Change': self.default_tag,
+            'Midboss': 'Mid-Boss',
+            'Mid Boss': 'Mid-Boss',
         }
 
         # headings in this list are not converted to tags
-        headings_to_ignore = ['Ranked Mode']
-        if heading in headings_to_ignore:
+        tags_to_ignore = ['Ranked Mode']
+        if tag in tags_to_ignore:
             return None
 
-        return map.get(heading, heading)
+        return map.get(tag, tag)
 
     def _register_tag(self, tags, tag, is_group_tag=True):
         """
         Registers a tag to the changelog's current unique tags,
         and to the static unique list of tags.
         """
+
+        tag = self._remap_tag(tag)
+        if tag is None:
+            return tags
 
         if tag not in tags:
             tags.append(tag)
