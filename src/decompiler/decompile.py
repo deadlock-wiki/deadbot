@@ -1,13 +1,38 @@
 import os
 import decompiler.kv3_to_json as kv3_to_json
 import decompiler.localization as localization
+import filecmp
+import utils.game_utils as g_util
 
 
-def decompile(DEADLOCK_PATH, WORK_DIR, OUTPUT_DIR, DECOMPILER_CMD):
+def decompile(DEADLOCK_PATH, WORK_DIR, DECOMPILER_CMD, force=False):
+    """
+    Decompiles deadlock game files and generated parsed output.
+
+    Args:
+        DEADLOCK_PATH (str): The path to the deadlock game files.
+        WORK_DIR (str): The working directory for the decompilation process.
+        DECOMPILER_CMD (str): The command used to run the decompiler.
+        force (bool): If true, will decompile files even if the version already exists
+
+    Returns:
+        None
+    """
+
     # Define paths
     os.makedirs(WORK_DIR, exist_ok=True)
-    os.system(f'cp "{DEADLOCK_PATH}/game/citadel/steam.inf" "{WORK_DIR}/version.txt"')
-    os.system(f'cp "{DEADLOCK_PATH}/game/citadel/steam.inf" "{OUTPUT_DIR}/version.txt"')
+    steam_inf_path = f'{DEADLOCK_PATH}/game/citadel/steam.inf'
+    version_path = f'{WORK_DIR}/version.txt'
+
+    # if the version files match, nothing to do
+    if filecmp.cmp(steam_inf_path, version_path):
+        game_version = g_util.load_game_info(steam_inf_path)
+        print(
+            f'Version {game_version["ClientVersion"]} is already decompiled, skipping decompile step'
+        )
+        if not force:
+            return
+    os.system(f'cp "{steam_inf_path}" "{version_path}"')
 
     # Define files to be decompiled and processed
     files = ['scripts/heroes', 'scripts/abilities', 'scripts/generic_data', 'scripts/misc']

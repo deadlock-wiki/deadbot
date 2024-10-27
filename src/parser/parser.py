@@ -1,6 +1,6 @@
 import os
-
-from .parsers import abilities, ability_ui, items, heroes, localizations, attributes
+import shutil
+from .parsers import abilities, ability_ui, items, heroes, localizations, attributes, souls
 from utils import json_utils
 
 
@@ -31,6 +31,8 @@ class Parser:
 
         self._load_vdata()
         self._load_localizations()
+
+        shutil.copy(f'{self.DATA_DIR}/version.txt', f'{self.OUTPUT_DIR}/version.txt')
 
     def _load_vdata(self):
         # Convert .vdata_c to .vdata and .json
@@ -94,13 +96,21 @@ class Parser:
 
     def run(self):
         print('Parsing...')
+        os.system(f'cp "{self.DATA_DIR}/version.txt" "{self.OUTPUT_DIR}/version.txt"')
         parsed_abilities = self._parse_abilities()
         parsed_heroes = self._parse_heroes(parsed_abilities)
         self._parsed_ability_ui(parsed_heroes)
         self._parse_items()
         self._parse_attributes()
         self._parse_localizations()
+        self._parse_soul_unlocks()
         print('Done parsing')
+
+    def _parse_soul_unlocks(self):
+        print('Parsing Soul Unlocks...')
+        parsed_soul_unlocks = souls.SoulUnlockParser(self.data['scripts']['heroes']).run()
+
+        json_utils.write(self.OUTPUT_DIR + '/json/soul-unlock-data.json', parsed_soul_unlocks)
 
     def _parse_localizations(self):
         print('Parsing Localizations...')
