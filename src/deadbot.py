@@ -3,6 +3,7 @@ import os
 import mwclient
 
 from dotenv import load_dotenv
+
 load_dotenv()
 
 from utils import pages, csv_writer
@@ -76,12 +77,11 @@ def act_changelog_parse(args):
     chlog_parser.run_all(chlog_fetcher.changelogs_by_date)
     return chlog_parser
 
+
 def act_parse_versions(args):
-    versions.VersionParser(args.output,
-                           args.depot_downloader_dir, 
-                           args.steam_username, 
-                           args.steam_password
-                           ).run()
+    versions.VersionParser(
+        args.output, args.depot_downloader_dir, args.steam_username, args.steam_password
+    ).run()
 
 
 def main():

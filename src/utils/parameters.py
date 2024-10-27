@@ -50,22 +50,26 @@ def arg_group_base(parser):
     )
     group_base.add_argument(
         '--steam_username',
-        help='Steam username for downloading game files (also set with STEAM_USERNAME environment variable)',
+        help='Steam username for downloading game files (also set with STEAM_USERNAME '
+        +'environment variable)',
         default=os.getenv('STEAM_USERNAME', None),
     )
     group_base.add_argument(
         '--steam_password',
-        help='Steam password for downloading game files (also set with STEAM_PASSWORD environment variable)',
+        help='Steam password for downloading game files (also set with STEAM_PASSWORD environment'
+        +' variable)',
         default=os.getenv('STEAM_PASSWORD', None),
     )
     group_base.add_argument(
         '--depot_downloader_dir',
-        help='Path to DepotDownloader executable (also set with depot_downloader_dir environment variable)',
+        help='Path to DepotDownloader executable (also set with depot_downloader_dir environment'
+         +' variable)',
         default=os.getenv('depot_downloader_dir', None),
     )
     group_base.add_argument(
         '--parse_versions',
-        help='Parse version data to link data to manifest id (also set with PARSE_VERSIONS environment variable)',
+        help='Parse version data to link data to manifest id (also set with PARSE_VERSIONS '
+        +'environment variable)',
         default=os.getenv('PARSE_VERSIONS', False),
     )
 
