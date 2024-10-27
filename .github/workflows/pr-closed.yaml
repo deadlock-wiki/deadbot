@@ -1,0 +1,33 @@
+name: PR Closed
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  pr_closed:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout deadlock-data repo
+        uses: actions/checkout@v4
+        with:
+          repository: deadlock-wiki/deadlock-data
+          path: deadlock-data
+          token:  ${{ secrets.GH_TOKEN }}          
+
+      - name: Get deadlock-data PR url
+        id: create_data_pr
+        working-directory: deadlock-data 
+        run: |
+          gh auth login --with-token <<< ${{ secrets.GH_TOKEN }}
+          pr_num=$(
+            gh pr list \
+              --head ${{ github.head_ref }} \
+              --json number | jq .[0].number
+          )
+          echo "pr_num=$pr_num" >> $GITHUB_OUTPUT
+
+      - name: Close deadlock-data PR
+        working-directory: deadlock-data 
+        run: |
+          gh pr close ${{ steps.create_data_pr.outputs.pr_num }}

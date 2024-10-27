@@ -39,6 +39,15 @@ def arg_group_base(parser):
         help='Command for Valve Resource Format tool (also set with DECOMPILER_CMD env variable)',
         default=os.getenv('DECOMPILER_CMD', 'tools/Decompiler'),
     )
+    group_base.add_argument(
+        '--import_files',
+        help='Import the decompiled game files from an S3 bucket',
+    )
+    group_base.add_argument(
+        '--build_num',
+        help='Build number of the game files to be used. Defaults to current build',
+        default=os.getenv('BUILD_NUM', None),
+    )
 
 
 # Parameters and arguments and flags oh my
@@ -95,6 +104,11 @@ def arg_group_action(parser):
         action='store_true',
         help='Fetch/parse forum and local changelogs. (also set with CHANGELOGS env variable)',
     )
+    group_actions.add_argument(
+        '--force',
+        action='store_true',
+        help='Forces decompilation even if game files and workdir versions match',
+    )
     return group_actions
 
 
@@ -105,6 +119,7 @@ def load_arguments():
     # Operational Flags
     arg_group_action(ARG_PARSER)
     args = ARG_PARSER.parse_args()
+
     # environment var checks for flags
     if not args.decompile:
         args.decompile = os.getenv('DECOMPILE', False)
@@ -116,4 +131,6 @@ def load_arguments():
         args.bot_push = os.getenv('BOT_PUSH', False)
     if not args.s3_push:
         args.s3_push = os.getenv('S3_PUSH', False)
+    if not args.import_files:
+        args.import_files = os.getenv('IMPORT_FILES', False)
     return args

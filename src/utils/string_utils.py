@@ -38,7 +38,7 @@ def format_description(description, *data_sets):
 
 
 # Keys to ignore errors, as they are manually verified as having no valid override
-IGNORE_KEYS = ['BonusMaxStacks']
+IGNORE_KEYS = ['BonusMaxStacks', 'SlideEvasionChance']
 
 
 # format description with data. eg. "When you are above {s:LifeThreshold}% health"
@@ -68,3 +68,16 @@ def _replace_variables(desc, data):
 def remove_letters(input_string):
     """Remove letters from a string. Eg. -4.5m -> -4.5"""
     return re.sub(r'[^0-9.\-]', '', input_string)
+
+
+def is_truthy(string):
+    TRUE_THO = [
+        True,
+        'true',
+        'True',
+        'TRUE',
+        't',
+        'T',
+        1,
+    ]
+    return string in TRUE_THO

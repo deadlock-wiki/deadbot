@@ -7,7 +7,8 @@ from decompiler import decompile
 import constants
 from changelogs import parse_changelogs, fetch_changelogs
 from parser import parser
-from parser.s3 import S3
+from external_data.data_transfer import DataTransfer
+from utils.string_utils import is_truthy
 
 
 """
@@ -55,7 +56,7 @@ def act_gamefile_parse(args):
 
 def act_changelog_parse(args):
     changelog_output = args.output + '/changelogs/raw'
-    os.makedirs(changelog_output,exist_ok=True)
+    os.makedirs(changelog_output, exist_ok=True)
     chlog_fetcher = fetch_changelogs.ChangelogFetcher()
     # load existing changelogs
     chlog_fetcher.get_txt(changelog_output)
@@ -76,37 +77,46 @@ def main():
     # load arguments from constants file
     args = constants.ARGS
 
-    # go though args and see what actions to perform
-    if args.decompile in constants.TRUE_THO:
+    data_transfer = DataTransfer(args.workdir, args.bucket, args.iam_key, args.iam_secret)
+
+    if is_truthy(args.import_files):
+        if is_truthy(args.decompile):
+            print('[WARN] Skipping import as it will be overwritten by Decompile step')
+        elif args.iam_key and args.iam_secret:
+            data_transfer.import_data(version=args.build_num)
+        else:
+            print('[ERROR] iam_key and iam_secret must be set for s3')
+
+    if is_truthy(args.decompile):
         print('Decompiling source files...')
-        decompile.decompile(args.dl_path, args.workdir, args.output, args.decompiler_cmd)
+        decompile.decompile(args.dl_path, args.workdir, args.decompiler_cmd, args.force)
     else:
         print('! Skipping Decompiler !')
 
-    if args.parse in constants.TRUE_THO:
+    if is_truthy(args.parse):
         print('Parsing decompiled files...')
         act_gamefile_parse(args)
     else:
         print('! Skipping Parser !')
 
-    if args.changelogs in constants.TRUE_THO:
+    if is_truthy(args.changelogs):
         print('Parsing Changelogs...')
         act_changelog_parse(args)
     else:
         print('! Skipping Changelogs !')
 
-    if args.bot_push in constants.TRUE_THO:
+    if is_truthy(args.bot_push):
         print('Running DeadBot...')
         bot = DeadBot()
         bot.push_lane()
     else:
         print('! Skipping DeadBot !')
 
-    if args.s3_push in constants.TRUE_THO:
+    if is_truthy(args.s3_push):
         if args.iam_key and args.iam_secret:
-            S3(args.output, args.bucket, args.iam_key, args.iam_secret).write()
+            data_transfer.export_data()
         else:
-            print('Error: iam_key and iam_secret must be set for s3')
+            print('[ERROR] iam_key and iam_secret must be set for s3')
 
     print('\nDone!')
 

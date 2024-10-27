@@ -27,14 +27,14 @@ COPY . .
 RUN python3 -m poetry install
 
 # runtime config
+ENV IMPORT_FILES=true
 ENV DECOMPILE=false
-ENV PARSE=false
-ENV CHANGELOGS=false
+ENV PARSE=true
+ENV CHANGELOGS=true
 ENV BOT_PUSH=false
-ENV BOT_WIKI_PASSWORD='hunter2'
+ENV CLEANUP=true
 ENV S3_PUSH=false
-ENV IAM_KEY=''
-ENV IAM_SECRET=''
+
 ENV BUCKET='deadlock-game-files'
 
 # directory config

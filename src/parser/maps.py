@@ -20,6 +20,14 @@ def get_target_type(value):
     return TARGET_TYPE_MAP.get(value)
 
 
+SOUL_UNLOCK_MAP = {
+    'm_unRequiredGold': 'RequiredSouls',
+    'EAbilityUnlocks': 'AbilityUnlocks',
+    'EAbilityPoints': 'AbilityPoints',
+    'm_bUseStandardUpgrade': 'PowerIncrease',
+}
+
+
 SLOT_TYPE_MAP = {
     'EItemSlotType_WeaponMod': 'Weapon',
     'EItemSlotType_Armor': 'Armor',
@@ -78,10 +86,12 @@ def get_hero_attr(value):
     if value.startswith('E'):
         value = value[len('E') :]
 
-    remaps = {'WeaponPower': 'BaseWeaponDamageIncrease', 
-              'ClipSizeBonus': 'ClipSize',
-              'BulletArmorDamageReduction': 'BulletResist',
-              'TechArmorDamageReduction': 'TechResist'}
+    remaps = {
+        'WeaponPower': 'BaseWeaponDamageIncrease',
+        'ClipSizeBonus': 'ClipSize',
+        'BulletArmorDamageReduction': 'BulletResist',
+        'TechArmorDamageReduction': 'TechResist',
+    }
 
     if value in remaps:
         return remaps[value]
@@ -109,8 +119,9 @@ def get_attr_manual_map():
 LEVEL_MOD_MAP = {
     'MODIFIER_VALUE_BASE_BULLET_DAMAGE_FROM_LEVEL': 'BulletDamage',
     'MODIFIER_VALUE_BASE_MELEE_DAMAGE_FROM_LEVEL': 'MeleeDamage',
-    'MODIFIER_VALUE_BASE_HEALTH_FROM_LEVEL': 'Health',
+    'MODIFIER_VALUE_BASE_HEALTH_FROM_LEVEL': 'MaxHealth',
     'MODIFIER_VALUE_TECH_DAMAGE_PERCENT': 'TechDamagePerc',
+    'MODIFIER_VALUE_TECH_ARMOR_DAMAGE_RESIST': 'TechResist',
     'MODIFIER_VALUE_BULLET_ARMOR_DAMAGE_RESIST': 'BulletResist',
     'MODIFIER_VALUE_BONUS_ATTACK_RANGE': 'BonusAttackRange',
 }
@@ -171,6 +182,7 @@ SCALE_TYPE_MAP = {
     'ETechCooldown': 'cooldown',
     'EBulletDamage': 'damage',
     'ETechDuration': 'duration',
+    'EWeaponDamageScale': 'weapon_damage',
 }
 
 
