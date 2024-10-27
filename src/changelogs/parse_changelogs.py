@@ -121,6 +121,7 @@ class ChangelogParser:
             'Item Gameplay': 'Items',
             'New Items': 'Items',
             'Misc Gameplay': self.default_tag,
+            'Misc Gamepla': self.default_tag,
             'General': self.default_tag,
             'General Change': self.default_tag,
         }
