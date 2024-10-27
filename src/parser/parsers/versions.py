@@ -125,14 +125,14 @@ class VersionParser:
         return parsed_versions
 
     def _update(self, new_versions):
-        old_versions = self.versions.copy()
-
         # Merge the parsed versions with the existing versions
         self.versions.update(new_versions)
 
+        num_new_versions = len(new_versions)
+
         if self.verbose:
-            if old_versions != self.versions:
-                print(f'Updated {len(new_versions)} new versions')
+            if num_new_versions > 0:
+                print(f'Updated {num_new_versions} new versions')
             else:
                 print('No new versions to update')
 
