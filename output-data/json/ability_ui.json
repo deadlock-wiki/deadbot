@@ -668,7 +668,7 @@
                         {
                             "Key": "DPS",
                             "Name": "DPS",
-                            "Value": 110,
+                            "Value": 120,
                             "Type": "tech_damage",
                             "Scale": {
                                 "Value": 0.7,
@@ -2262,7 +2262,7 @@
                 },
                 "TechResist": {
                     "Name": "Spirit Resist",
-                    "Value": 80
+                    "Value": 70
                 },
                 "TickRate": {
                     "Name": null,
@@ -2447,7 +2447,7 @@
                     "DescKey": "citadel_ability_fissure_wall_t1_desc"
                 },
                 {
-                    "AbilityCooldown": -14.0
+                    "AbilityCooldown": -22.0
                 },
                 {
                     "WallStunDuration": 1,
@@ -2493,7 +2493,7 @@
             },
             "AbilityCooldown": {
                 "Name": "Cooldown",
-                "Value": 37.0
+                "Value": 46.0
             },
             "AbilityDuration": {
                 "Name": "Duration",
@@ -2691,7 +2691,7 @@
                 },
                 {
                     "PulseDamage": 45,
-                    "RadiusIncreasePerPulse": "1m",
+                    "RadiusIncreasePerPulse": "0.75m",
                     "DescKey": "citadel_ability_chrono_pulse_grenade_t3_desc"
                 }
             ],
@@ -3633,7 +3633,7 @@
             },
             "AbilityCooldown": {
                 "Name": "Cooldown",
-                "Value": 38.0
+                "Value": 42.0
             },
             "AbilityDuration": {
                 "Name": "Duration",
@@ -4791,7 +4791,7 @@
                             "Value": 120,
                             "Type": "tech_damage",
                             "Scale": {
-                                "Value": 0.91728,
+                                "Value": 1.2,
                                 "Type": "spirit"
                             }
                         },
@@ -4808,7 +4808,7 @@
             },
             "Upgrades": [
                 {
-                    "AbilityCooldown": -7.5
+                    "AbilityCooldown": -8
                 },
                 {
                     "Damage": 80
@@ -4818,6 +4818,13 @@
                     "DescKey": "citadel_ability_sticky_bomb_t3_desc"
                 }
             ],
+            "Duration": {
+                "KillCheckWindow": {
+                    "Name": null,
+                    "Value": 12.0,
+                    "Type": "duration"
+                }
+            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -4832,11 +4839,7 @@
                 },
                 "BonusDamagePctPerPlayerHit": {
                     "Name": null,
-                    "Value": 3
-                },
-                "BonusLossPerDeath": {
-                    "Name": null,
-                    "Value": 20
+                    "Value": 5
                 }
             },
             "AbilityCastRange": {
@@ -4845,7 +4848,7 @@
             },
             "AbilityCooldown": {
                 "Name": "Cooldown",
-                "Value": 19.0
+                "Value": 18.0
             },
             "AbilityDuration": {
                 "Name": "Duration",
@@ -6719,7 +6722,7 @@
             "Duration": {
                 "RageDrainRate": {
                     "Name": null,
-                    "Value": 0.3,
+                    "Value": 0.25,
                     "Type": "duration"
                 }
             },
@@ -6792,7 +6795,7 @@
                 },
                 "RagePerWeaponDamage": {
                     "Name": null,
-                    "Value": 0.015
+                    "Value": 0.017
                 },
                 "SlashRange": {
                     "Name": null,
@@ -6801,7 +6804,7 @@
             },
             "AbilityCastRange": {
                 "Name": "Cast Range",
-                "Value": 13
+                "Value": 14
             },
             "AbilityCooldown": {
                 "Name": "Cooldown",
@@ -7877,7 +7880,7 @@
                         {
                             "Key": "AbilityDuration",
                             "Name": "Duration",
-                            "Value": 4.0,
+                            "Value": 4,
                             "Type": "duration"
                         },
                         {
@@ -7928,11 +7931,11 @@
             },
             "AbilityCooldown": {
                 "Name": "Cooldown",
-                "Value": 90.0
+                "Value": 85.0
             },
             "AbilityDuration": {
                 "Name": "Duration",
-                "Value": 4.0
+                "Value": 4
             }
         }
     },
@@ -10274,10 +10277,6 @@
                     "Name": null,
                     "Value": 1
                 },
-                "DistanceToMaxTime": {
-                    "Name": null,
-                    "Value": 30
-                },
                 "InitialFreezeTime": {
                     "Name": null,
                     "Value": 0.0
@@ -10294,10 +10293,6 @@
                     "Name": "Invis Sprint Speed",
                     "Value": -99
                 },
-                "MinSwapTime": {
-                    "Name": null,
-                    "Value": 0.5
-                },
                 "RevealOnDamageDuration": {
                     "Name": null,
                     "Value": 0.5
@@ -10305,10 +10300,6 @@
                 "RevealOnSpottedDuration": {
                     "Name": null,
                     "Value": 3
-                },
-                "SwapTime": {
-                    "Name": null,
-                    "Value": 1.5
                 },
                 "TickRate": {
                     "Name": null,
