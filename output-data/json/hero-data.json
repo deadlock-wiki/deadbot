@@ -160,6 +160,7 @@
         "InDevelopment": true,
         "InHeroLabs": true,
         "IsDisabled": false,
+        "IsRecommended": false,
         "LevelScaling": {
             "BulletDamage": 1.492857,
             "MaxHealth": 33.0,
@@ -326,6 +327,7 @@
         "InDevelopment": false,
         "InHeroLabs": false,
         "IsDisabled": false,
+        "IsRecommended": true,
         "LevelScaling": {
             "BulletDamage": 0.251429,
             "MaxHealth": 34.0,
@@ -420,20 +422,20 @@
             },
             "2": {
                 "AbilityCastRange": 6,
-                "AbilityCooldown": 19.0,
+                "AbilityCooldown": 18.0,
                 "AbilityDuration": 3.0,
                 "AbilityUnitTargetLimit": 1,
-                "BonusDamagePctPerPlayerHit": 3,
-                "BonusLossPerDeath": 20,
+                "BonusDamagePctPerPlayerHit": 5,
                 "ChannelMoveSpeed": 50,
                 "Damage": 120,
                 "FuseTime": 3.0,
                 "Key": "citadel_ability_sticky_bomb",
+                "KillCheckWindow": 12.0,
                 "Name": "Sticky Bomb",
                 "Radius": 12,
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -7.5
+                        "AbilityCooldown": -8
                     },
                     {
                         "Damage": 80
@@ -532,6 +534,7 @@
         "InDevelopment": false,
         "InHeroLabs": false,
         "IsDisabled": false,
+        "IsRecommended": true,
         "LevelScaling": {
             "BulletDamage": 0.33,
             "MaxHealth": 41.0,
@@ -696,6 +699,7 @@
         "InDevelopment": true,
         "InHeroLabs": false,
         "IsDisabled": true,
+        "IsRecommended": false,
         "LevelScaling": {
             "BulletDamage": 0.124929,
             "MaxHealth": 41.0,
@@ -855,6 +859,7 @@
         "InDevelopment": true,
         "InHeroLabs": false,
         "IsDisabled": true,
+        "IsRecommended": false,
         "LevelScaling": {
             "MaxHealth": 41.0,
             "LightMeleeDamage": 2.671429,
@@ -919,7 +924,7 @@
                     },
                     {
                         "PulseDamage": 45,
-                        "RadiusIncreasePerPulse": "1m"
+                        "RadiusIncreasePerPulse": "0.75m"
                     }
                 ]
             },
@@ -1045,6 +1050,7 @@
         "InDevelopment": false,
         "InHeroLabs": false,
         "IsDisabled": false,
+        "IsRecommended": false,
         "LevelScaling": {
             "BulletDamage": 0.45,
             "MaxHealth": 40.0,
@@ -1231,6 +1237,7 @@
         "InDevelopment": false,
         "InHeroLabs": false,
         "IsDisabled": false,
+        "IsRecommended": true,
         "LevelScaling": {
             "BulletDamage": 0.707143,
             "MaxHealth": 44.0,
@@ -1305,7 +1312,7 @@
                 "ModelScale": 0.8,
                 "Name": "Mini Turret",
                 "NonHeroDamagePercentOutgoing": 50,
-                "TechResist": 80,
+                "TechResist": 70,
                 "TickRate": 0.5,
                 "TrackingSpeed": 125,
                 "TurretAttackDelay": 0.2,
@@ -1359,7 +1366,7 @@
             },
             "3": {
                 "AbilityCastRange": 50,
-                "AbilityCooldown": 37.0,
+                "AbilityCooldown": 46.0,
                 "AbilityDuration": 5,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
@@ -1381,7 +1388,7 @@
                         "DebuffDuration": 7
                     },
                     {
-                        "AbilityCooldown": -14.0
+                        "AbilityCooldown": -22.0
                     },
                     {
                         "WallStunDuration": 1
@@ -1447,6 +1454,7 @@
         "InDevelopment": false,
         "InHeroLabs": false,
         "IsDisabled": false,
+        "IsRecommended": true,
         "LevelScaling": {
             "BulletDamage": 0.345714,
             "MaxHealth": 41.0,
@@ -1609,6 +1617,7 @@
         "InDevelopment": true,
         "InHeroLabs": false,
         "IsDisabled": true,
+        "IsRecommended": false,
         "LevelScaling": {
             "MaxHealth": 41.0,
             "LightMeleeDamage": 2.671429,
@@ -1780,6 +1789,7 @@
         "InDevelopment": false,
         "InHeroLabs": false,
         "IsDisabled": false,
+        "IsRecommended": false,
         "LevelScaling": {
             "BulletDamage": 1.65,
             "MaxHealth": 41.0,
@@ -1937,7 +1947,7 @@
                 "BulletResistOnActive": 20,
                 "CameraDistance": 600,
                 "CloudHeight": 120,
-                "DPS": 110,
+                "DPS": 120,
                 "DamageInterval": 0.25,
                 "EndingSoonTime": 2,
                 "ExpandTime": 2,
@@ -1979,6 +1989,7 @@
         "InDevelopment": false,
         "InHeroLabs": false,
         "IsDisabled": false,
+        "IsRecommended": true,
         "LevelScaling": {
             "BulletDamage": 0.597143,
             "MaxHealth": 31.0,
@@ -2124,6 +2135,7 @@
         "InDevelopment": true,
         "InHeroLabs": false,
         "IsDisabled": true,
+        "IsRecommended": false,
         "LevelScaling": {
             "MaxHealth": 41.0,
             "LightMeleeDamage": 2.671429,
@@ -2296,6 +2308,7 @@
         "InDevelopment": false,
         "InHeroLabs": false,
         "IsDisabled": false,
+        "IsRecommended": true,
         "LevelScaling": {
             "BulletDamage": 0.223929,
             "MaxHealth": 27.0,
@@ -2492,6 +2505,7 @@
         "InDevelopment": false,
         "InHeroLabs": false,
         "IsDisabled": false,
+        "IsRecommended": true,
         "LevelScaling": {
             "BulletDamage": 0.65,
             "MaxHealth": 20.0,
@@ -2696,6 +2710,7 @@
         "InDevelopment": false,
         "InHeroLabs": false,
         "IsDisabled": false,
+        "IsRecommended": true,
         "LevelScaling": {
             "BulletDamage": 0.282857,
             "MaxHealth": 33.0,
@@ -2901,6 +2916,7 @@
         "InDevelopment": false,
         "InHeroLabs": false,
         "IsDisabled": true,
+        "IsRecommended": false,
         "LevelScaling": {
             "MaxHealth": 41.0,
             "LightMeleeDamage": 2.671429,
@@ -2971,7 +2987,7 @@
             },
             "2": {
                 "AbilityCastDelay": 0.2,
-                "AbilityCooldown": 38.0,
+                "AbilityCooldown": 42.0,
                 "AbilityDuration": 8,
                 "AbilityUnitTargetLimit": 1,
                 "CameraDistance": 250,
@@ -3095,6 +3111,7 @@
         "InDevelopment": false,
         "InHeroLabs": false,
         "IsDisabled": false,
+        "IsRecommended": true,
         "LevelScaling": {
             "BulletDamage": 0.707,
             "MaxHealth": 50.0,
@@ -3285,6 +3302,7 @@
         "InDevelopment": false,
         "InHeroLabs": false,
         "IsDisabled": false,
+        "IsRecommended": false,
         "LevelScaling": {
             "BulletDamage": 0.196429,
             "MaxHealth": 44.0,
@@ -3493,6 +3511,7 @@
         "InDevelopment": false,
         "InHeroLabs": false,
         "IsDisabled": false,
+        "IsRecommended": false,
         "LevelScaling": {
             "BulletDamage": 0.707143,
             "MaxHealth": 42.0,
@@ -3689,6 +3708,7 @@
         "InDevelopment": true,
         "InHeroLabs": true,
         "IsDisabled": false,
+        "IsRecommended": false,
         "LevelScaling": {
             "BulletDamage": 0.597143,
             "MaxHealth": 31.0,
@@ -3899,6 +3919,7 @@
         "InDevelopment": false,
         "InHeroLabs": false,
         "IsDisabled": false,
+        "IsRecommended": false,
         "LevelScaling": {
             "BulletDamage": 1.0,
             "MaxHealth": 41.0,
@@ -4126,6 +4147,7 @@
         "InDevelopment": true,
         "InHeroLabs": true,
         "IsDisabled": false,
+        "IsRecommended": false,
         "LevelScaling": {
             "BulletDamage": 0.124929,
             "MaxHealth": 41.0,
@@ -4328,6 +4350,7 @@
         "InDevelopment": false,
         "InHeroLabs": false,
         "IsDisabled": false,
+        "IsRecommended": true,
         "LevelScaling": {
             "BulletDamage": 1.414286,
             "MaxHealth": 27.0,
@@ -4371,10 +4394,10 @@
         "Role": "hero_orion_role",
         "RoundsPerSecond": 1.8181818181818181,
         "SpiritScaling": {
-            "MaxMoveSpeed": 0.04,
-            "BulletDamage": 0.13,
-            "DPS": 0.23636363636363455,
-            "SustainedDPS": 0.18888888888889
+            "MaxMoveSpeed": 0.032,
+            "BulletDamage": 0.12,
+            "DPS": 0.2181818181818258,
+            "SustainedDPS": 0.17435897435897374
         },
         "SprintSpeed": 0,
         "Stamina": 4,
@@ -4529,6 +4552,7 @@
         "InDevelopment": true,
         "InHeroLabs": false,
         "IsDisabled": true,
+        "IsRecommended": false,
         "LevelScaling": {
             "MaxHealth": 41.0,
             "LightMeleeDamage": 2.671429,
@@ -4660,6 +4684,7 @@
         "InDevelopment": true,
         "InHeroLabs": false,
         "IsDisabled": true,
+        "IsRecommended": false,
         "LevelScaling": {
             "BulletDamage": 0.124929,
             "MaxHealth": 41.0,
@@ -4786,7 +4811,7 @@
                 ]
             },
             "4": {
-                "AbilityCastRange": 13,
+                "AbilityCastRange": 14,
                 "AbilityCooldown": 95.0,
                 "AbilityPostCastDuration": 0.25,
                 "AbilityUnitTargetLimit": 1,
@@ -4805,11 +4830,11 @@
                 "NonPlayerRageScale": 0.1,
                 "PauseOnTargetTime": 0.66,
                 "RageDrainDelayDuration": 9,
-                "RageDrainRate": 0.3,
+                "RageDrainRate": 0.25,
                 "RagePerHeavyMelee": 2.75,
                 "RagePerLightMelee": 1.5,
                 "RagePerSpiritDamage": 0.013,
-                "RagePerWeaponDamage": 0.015,
+                "RagePerWeaponDamage": 0.017,
                 "SlashRange": 80,
                 "Upgrades": [
                     {
@@ -4845,6 +4870,7 @@
         "InDevelopment": false,
         "InHeroLabs": false,
         "IsDisabled": false,
+        "IsRecommended": false,
         "LevelScaling": {
             "BulletDamage": 0.314286,
             "MaxHealth": 35.0,
@@ -4996,19 +5022,16 @@
                 "AbilityCooldown": 50.0,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
-                "DistanceToMaxTime": 30,
                 "InitialFreezeTime": 0.0,
                 "InitialHeight": 350,
                 "InvisFadeToDuration": 0.25,
                 "InvisMoveSpeedMod": -99,
                 "Key": "fathom_reefdweller_harpoon",
-                "MinSwapTime": 0.5,
                 "Name": "Reefdweller Harpoon",
                 "OutOfCombatRegen": 3,
                 "RevealOnDamageDuration": 0.5,
                 "RevealOnSpottedDuration": 3,
                 "SpottedRadius": 999,
-                "SwapTime": 1.5,
                 "TickRate": 0.25,
                 "Upgrades": [
                     {
@@ -5043,6 +5066,7 @@
         "InDevelopment": true,
         "InHeroLabs": true,
         "IsDisabled": false,
+        "IsRecommended": false,
         "LevelScaling": {
             "BulletDamage": 0.573571,
             "MaxHealth": 41.0,
@@ -5209,6 +5233,7 @@
         "InDevelopment": false,
         "InHeroLabs": false,
         "IsDisabled": false,
+        "IsRecommended": false,
         "LevelScaling": {
             "BulletDamage": 0.314286,
             "MaxHealth": 31.0,
@@ -5371,6 +5396,7 @@
         "InDevelopment": true,
         "InHeroLabs": false,
         "IsDisabled": true,
+        "IsRecommended": false,
         "LevelScaling": {
             "MaxHealth": 41.0,
             "LightMeleeDamage": 2.671429,
@@ -5551,6 +5577,7 @@
         "InDevelopment": false,
         "InHeroLabs": false,
         "IsDisabled": false,
+        "IsRecommended": false,
         "LevelScaling": {
             "BulletDamage": 0.36,
             "MaxHealth": 35.0,
@@ -5745,6 +5772,7 @@
         "InDevelopment": true,
         "InHeroLabs": false,
         "IsDisabled": true,
+        "IsRecommended": false,
         "LevelScaling": {
             "MaxHealth": 41.0,
             "LightMeleeDamage": 2.671429,
@@ -5933,6 +5961,7 @@
         "InDevelopment": true,
         "InHeroLabs": false,
         "IsDisabled": true,
+        "IsRecommended": false,
         "LevelScaling": {
             "BulletDamage": 0.666836,
             "MaxHealth": 41.0,
@@ -6093,6 +6122,7 @@
         "InDevelopment": true,
         "InHeroLabs": false,
         "IsDisabled": true,
+        "IsRecommended": false,
         "LevelScaling": {
             "BulletDamage": 0.392857,
             "MaxHealth": 35.0,
@@ -6257,27 +6287,28 @@
         "BulletsPerBurst": 1,
         "BulletsPerShot": 1,
         "BurstInterShotInterval": 0,
-        "ClipSize": 16,
+        "ClipSize": 18,
         "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 200.0,
         "FalloffBias": 0.5,
-        "FalloffEndRange": 25.4,
+        "FalloffEndRange": 33.019999999999996,
         "FalloffEndScale": 0.1,
-        "FalloffStartRange": 10.16,
+        "FalloffStartRange": 12.7,
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": true,
         "InHeroLabs": true,
         "IsDisabled": false,
+        "IsRecommended": false,
         "LevelScaling": {
             "BulletDamage": 0.392857,
             "MaxHealth": 35.0,
             "LightMeleeDamage": 2.671429,
             "HeavyMeleeDamage": 4.91882165079365,
             "DPS": 6.54761666666667,
-            "SustainedDPS": 2.455356249999994
+            "SustainedDPS": 2.6385917910447603
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_viper_lore",
@@ -6316,7 +6347,7 @@
         "Stamina": 4,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
-        "SustainedDPS": 75.0,
+        "SustainedDPS": 80.59701492537313,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_viper_set_desc",
@@ -6489,6 +6520,7 @@
         "InDevelopment": false,
         "InHeroLabs": false,
         "IsDisabled": false,
+        "IsRecommended": false,
         "LevelScaling": {
             "BulletDamage": 0.9,
             "MaxHealth": 38.0,
@@ -6680,6 +6712,7 @@
         "InDevelopment": false,
         "InHeroLabs": false,
         "IsDisabled": false,
+        "IsRecommended": false,
         "LevelScaling": {
             "BulletDamage": 0.942857,
             "MaxHealth": 45.0,
@@ -6877,6 +6910,7 @@
         "InDevelopment": false,
         "InHeroLabs": false,
         "IsDisabled": false,
+        "IsRecommended": true,
         "LevelScaling": {
             "BulletDamage": 0.377143,
             "MaxHealth": 31.0,
@@ -7060,6 +7094,7 @@
         "InDevelopment": true,
         "InHeroLabs": true,
         "IsDisabled": false,
+        "IsRecommended": false,
         "LevelScaling": {
             "BulletDamage": 1.241429,
             "MaxHealth": 41.0,
@@ -7248,6 +7283,7 @@
         "InDevelopment": true,
         "InHeroLabs": false,
         "IsDisabled": true,
+        "IsRecommended": false,
         "LevelScaling": {
             "MaxHealth": 41.0,
             "LightMeleeDamage": 2.671429,
@@ -7366,8 +7402,8 @@
             },
             "4": {
                 "AbilityChannelTime": 2,
-                "AbilityCooldown": 90.0,
-                "AbilityDuration": 4.0,
+                "AbilityCooldown": 85.0,
+                "AbilityDuration": 4,
                 "AbilityPostCastDuration": 0.6,
                 "AbilitySpeedPct": 60,
                 "AbilityUnitTargetLimit": 1,
@@ -7407,6 +7443,7 @@
         "InDevelopment": false,
         "InHeroLabs": false,
         "IsDisabled": false,
+        "IsRecommended": false,
         "LevelScaling": {
             "BulletDamage": 0.353,
             "MaxHealth": 31.0,

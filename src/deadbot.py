@@ -2,6 +2,9 @@
 import os
 import mwclient
 
+from dotenv import load_dotenv
+load_dotenv()
+
 from utils import pages, csv_writer
 from decompiler import decompile
 import constants
