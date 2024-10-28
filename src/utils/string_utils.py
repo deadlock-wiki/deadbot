@@ -38,7 +38,7 @@ def format_description(description, *data_sets):
 
 
 # Keys to ignore errors, as they are manually verified as having no valid override
-IGNORE_KEYS = ['BonusMaxStacks', 'SlideEvasionChance']
+IGNORE_KEYS = ['BonusMaxStacks', 'SlideEvasionChance', 'BonusLossPerDeath']
 
 
 # format description with data. eg. "When you are above {s:LifeThreshold}% health"
