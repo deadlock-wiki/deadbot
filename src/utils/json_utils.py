@@ -10,7 +10,8 @@ def read(path):
     Returns:
         dict: The data from the JSON file.
     """
-    with open(path) as f:
+    # Explicitly specify encoding='utf-8' to handle non-ASCII characters correctly
+    with open(path, 'r', encoding='utf-8') as f:
         return json.load(f)
 
 
@@ -21,9 +22,11 @@ def write(path, data):
         path (str): The path to the JSON file.
         data (dict): The data to write to the JSON file.
     """
+    # Ensure directory exists
     os.makedirs(os.path.dirname(path), exist_ok=True)
-    with open(path, 'w') as outfile:
-        json.dump(data, outfile, indent=4)
+    # Use encoding='utf-8' to prevent Unicode characters from being escaped
+    with open(path, 'w', encoding='utf-8') as outfile:
+        json.dump(data, outfile, indent=4, ensure_ascii=False)
 
 
 # Remove keys from a dictionary at the specified depth
