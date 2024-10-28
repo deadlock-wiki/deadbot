@@ -420,20 +420,20 @@
             },
             "2": {
                 "AbilityCastRange": 6,
-                "AbilityCooldown": 19.0,
+                "AbilityCooldown": 18.0,
                 "AbilityDuration": 3.0,
                 "AbilityUnitTargetLimit": 1,
-                "BonusDamagePctPerPlayerHit": 3,
-                "BonusLossPerDeath": 20,
+                "BonusDamagePctPerPlayerHit": 5,
                 "ChannelMoveSpeed": 50,
                 "Damage": 120,
                 "FuseTime": 3.0,
                 "Key": "citadel_ability_sticky_bomb",
+                "KillCheckWindow": 12.0,
                 "Name": "Sticky Bomb",
                 "Radius": 12,
                 "Upgrades": [
                     {
-                        "AbilityCooldown": -7.5
+                        "AbilityCooldown": -8
                     },
                     {
                         "Damage": 80
@@ -919,7 +919,7 @@
                     },
                     {
                         "PulseDamage": 45,
-                        "RadiusIncreasePerPulse": "1m"
+                        "RadiusIncreasePerPulse": "0.75m"
                     }
                 ]
             },
@@ -1305,7 +1305,7 @@
                 "ModelScale": 0.8,
                 "Name": "Mini Turret",
                 "NonHeroDamagePercentOutgoing": 50,
-                "TechResist": 80,
+                "TechResist": 70,
                 "TickRate": 0.5,
                 "TrackingSpeed": 125,
                 "TurretAttackDelay": 0.2,
@@ -1359,7 +1359,7 @@
             },
             "3": {
                 "AbilityCastRange": 50,
-                "AbilityCooldown": 37.0,
+                "AbilityCooldown": 46.0,
                 "AbilityDuration": 5,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
@@ -1381,7 +1381,7 @@
                         "DebuffDuration": 7
                     },
                     {
-                        "AbilityCooldown": -14.0
+                        "AbilityCooldown": -22.0
                     },
                     {
                         "WallStunDuration": 1
@@ -1937,7 +1937,7 @@
                 "BulletResistOnActive": 20,
                 "CameraDistance": 600,
                 "CloudHeight": 120,
-                "DPS": 110,
+                "DPS": 120,
                 "DamageInterval": 0.25,
                 "EndingSoonTime": 2,
                 "ExpandTime": 2,
@@ -2971,7 +2971,7 @@
             },
             "2": {
                 "AbilityCastDelay": 0.2,
-                "AbilityCooldown": 38.0,
+                "AbilityCooldown": 42.0,
                 "AbilityDuration": 8,
                 "AbilityUnitTargetLimit": 1,
                 "CameraDistance": 250,
@@ -4371,10 +4371,10 @@
         "Role": "hero_orion_role",
         "RoundsPerSecond": 1.8181818181818181,
         "SpiritScaling": {
-            "MaxMoveSpeed": 0.04,
-            "BulletDamage": 0.13,
-            "DPS": 0.23636363636363455,
-            "SustainedDPS": 0.18888888888889
+            "MaxMoveSpeed": 0.032,
+            "BulletDamage": 0.12,
+            "DPS": 0.2181818181818258,
+            "SustainedDPS": 0.17435897435897374
         },
         "SprintSpeed": 0,
         "Stamina": 4,
@@ -4786,7 +4786,7 @@
                 ]
             },
             "4": {
-                "AbilityCastRange": 13,
+                "AbilityCastRange": 14,
                 "AbilityCooldown": 95.0,
                 "AbilityPostCastDuration": 0.25,
                 "AbilityUnitTargetLimit": 1,
@@ -4805,11 +4805,11 @@
                 "NonPlayerRageScale": 0.1,
                 "PauseOnTargetTime": 0.66,
                 "RageDrainDelayDuration": 9,
-                "RageDrainRate": 0.3,
+                "RageDrainRate": 0.25,
                 "RagePerHeavyMelee": 2.75,
                 "RagePerLightMelee": 1.5,
                 "RagePerSpiritDamage": 0.013,
-                "RagePerWeaponDamage": 0.015,
+                "RagePerWeaponDamage": 0.017,
                 "SlashRange": 80,
                 "Upgrades": [
                     {
@@ -4996,19 +4996,16 @@
                 "AbilityCooldown": 50.0,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
-                "DistanceToMaxTime": 30,
                 "InitialFreezeTime": 0.0,
                 "InitialHeight": 350,
                 "InvisFadeToDuration": 0.25,
                 "InvisMoveSpeedMod": -99,
                 "Key": "fathom_reefdweller_harpoon",
-                "MinSwapTime": 0.5,
                 "Name": "Reefdweller Harpoon",
                 "OutOfCombatRegen": 3,
                 "RevealOnDamageDuration": 0.5,
                 "RevealOnSpottedDuration": 3,
                 "SpottedRadius": 999,
-                "SwapTime": 1.5,
                 "TickRate": 0.25,
                 "Upgrades": [
                     {
@@ -6257,15 +6254,15 @@
         "BulletsPerBurst": 1,
         "BulletsPerShot": 1,
         "BurstInterShotInterval": 0,
-        "ClipSize": 16,
+        "ClipSize": 18,
         "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
         "DPS": 200.0,
         "FalloffBias": 0.5,
-        "FalloffEndRange": 25.4,
+        "FalloffEndRange": 33.019999999999996,
         "FalloffEndScale": 0.1,
-        "FalloffStartRange": 10.16,
+        "FalloffStartRange": 12.7,
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": true,
@@ -6277,7 +6274,7 @@
             "LightMeleeDamage": 2.671429,
             "HeavyMeleeDamage": 4.91882165079365,
             "DPS": 6.54761666666667,
-            "SustainedDPS": 2.455356249999994
+            "SustainedDPS": 2.6385917910447603
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_viper_lore",
@@ -6316,7 +6313,7 @@
         "Stamina": 4,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
-        "SustainedDPS": 75.0,
+        "SustainedDPS": 80.59701492537313,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_viper_set_desc",
@@ -7366,8 +7363,8 @@
             },
             "4": {
                 "AbilityChannelTime": 2,
-                "AbilityCooldown": 90.0,
-                "AbilityDuration": 4.0,
+                "AbilityCooldown": 85.0,
+                "AbilityDuration": 4,
                 "AbilityPostCastDuration": 0.6,
                 "AbilitySpeedPct": 60,
                 "AbilityUnitTargetLimit": 1,

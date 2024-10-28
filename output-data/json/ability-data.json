@@ -714,7 +714,7 @@
     },
     "ability_icepath": {
         "AbilityCastDelay": 0.2,
-        "AbilityCooldown": 38.0,
+        "AbilityCooldown": 42.0,
         "AbilityDuration": 8,
         "AbilityUnitTargetLimit": 1,
         "CameraDistance": 250,
@@ -2341,7 +2341,7 @@
             },
             {
                 "PulseDamage": 45,
-                "RadiusIncreasePerPulse": "1m"
+                "RadiusIncreasePerPulse": "0.75m"
             }
         ]
     },
@@ -2412,7 +2412,7 @@
     },
     "citadel_ability_fissure_wall": {
         "AbilityCastRange": 50,
-        "AbilityCooldown": 37.0,
+        "AbilityCooldown": 46.0,
         "AbilityDuration": 5,
         "AbilityUnitTargetLimit": 1,
         "ChannelMoveSpeed": 50,
@@ -2434,7 +2434,7 @@
                 "DebuffDuration": 7
             },
             {
-                "AbilityCooldown": -14.0
+                "AbilityCooldown": -22.0
             },
             {
                 "WallStunDuration": 1
@@ -2652,8 +2652,8 @@
     },
     "citadel_ability_infinity_slash": {
         "AbilityChannelTime": 2,
-        "AbilityCooldown": 90.0,
-        "AbilityDuration": 4.0,
+        "AbilityCooldown": 85.0,
+        "AbilityDuration": 4,
         "AbilityPostCastDuration": 0.6,
         "AbilitySpeedPct": 60,
         "AbilityUnitTargetLimit": 1,
@@ -3188,7 +3188,7 @@
         "ModelScale": 0.8,
         "Name": "Mini Turret",
         "NonHeroDamagePercentOutgoing": 50,
-        "TechResist": 80,
+        "TechResist": 70,
         "TickRate": 0.5,
         "TrackingSpeed": 125,
         "TurretAttackDelay": 0.2,
@@ -3300,7 +3300,7 @@
         ]
     },
     "citadel_ability_shiv_killing_blow": {
-        "AbilityCastRange": 13,
+        "AbilityCastRange": 14,
         "AbilityCooldown": 95.0,
         "AbilityPostCastDuration": 0.25,
         "AbilityUnitTargetLimit": 1,
@@ -3319,11 +3319,11 @@
         "NonPlayerRageScale": 0.1,
         "PauseOnTargetTime": 0.66,
         "RageDrainDelayDuration": 9,
-        "RageDrainRate": 0.3,
+        "RageDrainRate": 0.25,
         "RagePerHeavyMelee": 2.75,
         "RagePerLightMelee": 1.5,
         "RagePerSpiritDamage": 0.013,
-        "RagePerWeaponDamage": 0.015,
+        "RagePerWeaponDamage": 0.017,
         "SlashRange": 80,
         "Upgrades": [
             {
@@ -3364,20 +3364,20 @@
     },
     "citadel_ability_sticky_bomb": {
         "AbilityCastRange": 6,
-        "AbilityCooldown": 19.0,
+        "AbilityCooldown": 18.0,
         "AbilityDuration": 3.0,
         "AbilityUnitTargetLimit": 1,
-        "BonusDamagePctPerPlayerHit": 3,
-        "BonusLossPerDeath": 20,
+        "BonusDamagePctPerPlayerHit": 5,
         "ChannelMoveSpeed": 50,
         "Damage": 120,
         "FuseTime": 3.0,
         "Key": "citadel_ability_sticky_bomb",
+        "KillCheckWindow": 12.0,
         "Name": "Sticky Bomb",
         "Radius": 12,
         "Upgrades": [
             {
-                "AbilityCooldown": -7.5
+                "AbilityCooldown": -8
             },
             {
                 "Damage": 80
@@ -3428,7 +3428,7 @@
         "BulletResistOnActive": 20,
         "CameraDistance": 600,
         "CloudHeight": 120,
-        "DPS": 110,
+        "DPS": 120,
         "DamageInterval": 0.25,
         "EndingSoonTime": 2,
         "ExpandTime": 2,
@@ -3776,19 +3776,16 @@
         "AbilityCooldown": 50.0,
         "AbilityUnitTargetLimit": 1,
         "ChannelMoveSpeed": 50,
-        "DistanceToMaxTime": 30,
         "InitialFreezeTime": 0.0,
         "InitialHeight": 350,
         "InvisFadeToDuration": 0.25,
         "InvisMoveSpeedMod": -99,
         "Key": "fathom_reefdweller_harpoon",
-        "MinSwapTime": 0.5,
         "Name": "Reefdweller Harpoon",
         "OutOfCombatRegen": 3,
         "RevealOnDamageDuration": 0.5,
         "RevealOnSpottedDuration": 3,
         "SpottedRadius": 999,
-        "SwapTime": 1.5,
         "TickRate": 0.25,
         "Upgrades": [
             {
@@ -4191,57 +4188,6 @@
             },
             {
                 "AbilityCooldown": -7.5
-            }
-        ]
-    },
-    "slork_chomp": {
-        "AbilityCastRange": 10,
-        "AbilityCooldown": 35.0,
-        "AbilityDuration": 2.5,
-        "AbilityUnitTargetLimit": 1,
-        "BreakRange": 6,
-        "ChannelMoveSpeed": 50,
-        "CooldownOnMiss": 5.25,
-        "DPS": 24,
-        "DamagePercentHealth": 4,
-        "FollowDampingFactor": 5,
-        "HobbledMovementSlow": 15,
-        "Key": "slork_chomp",
-        "LiftHeight": 30,
-        "LiftHorizontal": -70,
-        "Name": "Chomp",
-        "TickRate": 0.5,
-        "Upgrades": [
-            {
-                "AbilityCooldown": -10.5
-            },
-            {
-                "ChompHealPercent": 150
-            },
-            {
-                "DamagePercentHealth": 6
-            }
-        ]
-    },
-    "slork_last_breath": {
-        "AbilityCooldown": 29.0,
-        "AbilityDuration": 8,
-        "AbilityUnitTargetLimit": 1,
-        "BlastRadius": 8,
-        "BurstDamage": 80,
-        "ChannelMoveSpeed": 50,
-        "DamageAbsorb": 120,
-        "Key": "slork_last_breath",
-        "Name": "Deep's Embrace",
-        "Upgrades": [
-            {
-                "AbilityCooldown": -8.5
-            },
-            {
-                "DamageAbsorb": 120
-            },
-            {
-                "BurstDamage": 120
             }
         ]
     },
