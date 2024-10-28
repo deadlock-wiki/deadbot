@@ -242,6 +242,8 @@ class ChangelogParser:
             tags = log['Tags']
             description = log['Description']
             remaining_description = description
+
+            # Check for tags that are in the description
             for tag in tags:
                 template = 'PageRef'
 
@@ -258,6 +260,16 @@ class ChangelogParser:
                     # Most cases of this will still require manual fixing after its uploaded
                     # though some are correct as is, such as 'Paradox' and 'Paradoxical Swap'
                     remaining_description = remaining_description.replace(tag, '')
+
+            # Check for remappable_texts that are in the description that 
+            # map to a tag that's in the tags list
+            # if so, add the icon {{PageRef|tag|alt_name=remappable_text}}
+            for remappable_text in self.tag_remap:
+                tag = self.tag_remap[remappable_text]
+                if remappable_text in remaining_description and tag in tags:
+                    icon = '{{' + template + '|' + tag + '|alt_name=' + remappable_text + '}}'
+                    description = description.replace(remappable_text, icon)
+                    new_changelog[index]['Description'] = description
 
         return changelog
 
