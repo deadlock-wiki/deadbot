@@ -25,13 +25,14 @@ def decompile(DEADLOCK_PATH, WORK_DIR, DECOMPILER_CMD, force=False):
     version_path = f'{WORK_DIR}/version.txt'
 
     # if the version files match, nothing to do
-    if filecmp.cmp(steam_inf_path, version_path):
+    if os.path.exists(version_path) and filecmp.cmp(steam_inf_path, version_path):
         game_version = g_util.load_game_info(steam_inf_path)
         print(
             f'Version {game_version["ClientVersion"]} is already decompiled, skipping decompile step'
         )
         if not force:
             return
+
     os.system(f'cp "{steam_inf_path}" "{version_path}"')
 
     # Define files to be decompiled and processed
