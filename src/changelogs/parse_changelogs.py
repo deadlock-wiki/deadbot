@@ -14,6 +14,75 @@ class ChangelogParser:
         self.unique_tags = [self.default_tag]
         self.unique_tag_groups = [self.default_tag]
 
+        # Tags to register if they are found in the changelog line
+        self.tags_match_text = [
+            'Trooper',
+            'Guardian',
+            'Walker',
+            'Patron',
+            'Weakened Patron',
+            'Weakened patron'
+            'Shrine',
+            'Mid-Boss',
+            'Midboss',
+            'MidBoss',
+            'Mid Boss',
+            'Mid boss',
+            'Map',
+            'Rejuvenator' 'Creep',
+            'Neutral',
+            'Denizen',
+        ]
+        self.tags_match_word = ['creep', 'neutral', 'creeps', 'neutrals', 'Rejuv']
+
+        # texts in this list are not converted to tags
+        # useful when they are otherwise added due to being a heading
+        self.tags_to_ignore = ['Ranked Mode']
+
+        # remaps tags to a more general tag
+        self.tag_remap  = {
+            'Hero Gameplay': 'Heroes',
+            'Hero Gamepla': 'Heroes',
+            'Hero': 'Heroes',
+            'Item Gameplay': 'Items',
+            'New Items': 'Items',
+            'Misc Gameplay': self.default_tag,
+            'Misc Gamepla': self.default_tag,
+            'General': self.default_tag,
+            'General Change': self.default_tag,
+            'MidBoss': 'Mid-Boss',
+            'Midboss': 'Mid-Boss',
+            'Mid Boss': 'Mid-Boss',
+            'Mid boss': 'Mid-Boss',
+            'Weakened patron': 'Weakened Patron',
+            'Rejuv': 'Rejuvenator',
+            'creep': 'Creep',
+            'creeps': 'Creep',
+            'neutral': 'Denizen',
+            'neutrals': 'Denizen',
+            'Neutral': 'Denizen',
+        }
+
+        # tags below are after _remap_tag() is called
+        # key = child
+        # value = parents to assign
+        # child, [parents] instead of parent, [children] for easier lookup
+        self.tag_parents = {
+            'Denizen': ['NPC', 'Creep'],
+            'Creep': ['NPC'],
+            'Trooper': ['Base Defenses', 'NPC', 'Creep'],
+            'Guardian': ['Base Defenses', 'NPC'],
+            'Walker': ['Base Defenses', 'NPC'],
+            'Patron': ['Base Defenses'],
+            'Weakened Patron': ['Patron', 'Base Defenses'],
+            'Shrine': ['Base Defenses'],
+            'Mid-Boss': ['NPC'],
+            'Weapon Items': ['Items'],
+            'Vitality Items': ['Items'],
+            'Spirit Items': ['Items'],
+            'Abilities': ['Heroes'],
+        }
+
     def run_all(self, dict_changelogs):
         # take parsed changelogs and transform them into some other useful formats
         for version, changelog in dict_changelogs.items():
@@ -91,29 +160,11 @@ class ChangelogParser:
                     if hero is not None:
                         tags = self._register_tag(tags, tag=hero, is_group_tag=False)
 
-        # Register other tags
-        tags_match_text = [
-            'Trooper',
-            'Guardian',
-            'Walker',
-            'Patron',
-            'Weakened Patron',
-            'Weakened patron'
-            'Shrine',
-            'Mid-Boss',
-            'Midboss',
-            'MidBoss',
-            'Mid Boss',
-            'Mid boss',
-            'Map',
-            'Rejuvenator' 'Creep',
-            'Neutral',
-        ]
-        tags_match_word = ['creep', 'neutral', 'creeps', 'neutrals', 'Rejuv']
-        for tag in tags_match_text:
+        
+        for tag in self.tags_match_text:
             if tag in line:
                 tags = self._register_tag(tags, tag)
-        for tag in tags_match_word:
+        for tag in self.tags_match_word:
             if tag in line.split(' '):
                 tags = self._register_tag(tags, tag)
 
@@ -140,66 +191,23 @@ class ChangelogParser:
         Assigns a tag's parents to the list of tags
         """
 
-        # tags below are after _remap_tag() is called
-        # key = child
-        # value = parents to assign
-        # child, [parents] instead of parent, [children] for easier lookup
-        tag_parents = {
-            'Neutral': ['NPC', 'Creep'],
-            'Creep': ['NPC'],
-            'Trooper': ['Base Defenses', 'NPC', 'Creep'],
-            'Guardian': ['Base Defenses', 'NPC'],
-            'Walker': ['Base Defenses', 'NPC'],
-            'Patron': ['Base Defenses'],
-            'Weakened Patron': ['Patron', 'Base Defenses'],
-            'Shrine': ['Base Defenses'],
-            'Mid-Boss': ['NPC'],
-            'Weapon Items': ['Items'],
-            'Vitality Items': ['Items'],
-            'Spirit Items': ['Items'],
-            'Abilities': ['Heroes'],
-        }
-
-        if tag in tag_parents:
-            for parent in tag_parents[tag]:
+        if tag in self.tag_parents:
+            for parent in self.tag_parents[tag]:
                 tags = self._register_tag(tags, parent)
 
         return tags
 
     def _remap_tag(self, tag):
         """
-        Remaps tags as necessary, i.e. 'Hero Gameplay' -> 'Heroes',
-        'New Items' doesn't need to be a tag at all, etc
+        Remaps tags as necessary, i.e. 
+        'Hero Gameplay' -> 'Heroes',
+        'New Items' -> 'Items'
         """
 
-        map = {
-            'Hero Gameplay': 'Heroes',
-            'Hero Gamepla': 'Heroes',
-            'Hero': 'Heroes',
-            'Item Gameplay': 'Items',
-            'New Items': 'Items',
-            'Misc Gameplay': self.default_tag,
-            'Misc Gamepla': self.default_tag,
-            'General': self.default_tag,
-            'General Change': self.default_tag,
-            'MidBoss': 'Mid-Boss',
-            'Midboss': 'Mid-Boss',
-            'Mid Boss': 'Mid-Boss',
-            'Mid boss': 'Mid-Boss',
-            'Weakened patron': 'Weakened Patron',
-            'Rejuv': 'Rejuvenator',
-            'creep': 'Creep',
-            'creeps': 'Creep',
-            'neutral': 'Neutral',
-            'neutrals': 'Neutral',
-        }
-
-        # headings in this list are not converted to tags
-        tags_to_ignore = ['Ranked Mode']
-        if tag in tags_to_ignore:
+        if tag in self.tags_to_ignore:
             return None
 
-        return map.get(tag, tag)
+        return self.tag_remap.get(tag, tag)
 
     def _register_tag(self, tags, tag, is_group_tag=True):
         """
