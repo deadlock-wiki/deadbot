@@ -24,7 +24,7 @@ class HeroParser:
                     'BoundAbilities': self._parse_hero_abilities(hero_value),
                     'InDevelopment': hero_value['m_bInDevelopment'],
                     'IsDisabled': hero_value['m_bDisabled'],
-                    'IsRecommended': hero_value.get('m_bNewPlayerRecommended', False)
+                    'IsRecommended': hero_value.get('m_bNewPlayerRecommended', False),
                 }
 
                 # Key is missing from released heroes
