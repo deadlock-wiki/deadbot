@@ -22,4 +22,4 @@ def process_files(input_folder, output_folder):
                         out[left] = right
                 output_file_json = os.path.join(output_folder, filename.replace('.txt', '.json'))
                 with open(output_file_json, 'w', encoding='utf-8') as f:
-                    json.dump(out, f, indent=4)
+                    json.dump(out, f, ensure_ascii=False, indent=4)
