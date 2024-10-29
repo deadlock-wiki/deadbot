@@ -99,9 +99,9 @@
         ]
     },
     {
-        "Description": "* Fixed Urns sometimes appearing to stay in the world after being picked up",
+        "Description": "* Fixed {{PageRef|Urn}}s sometimes appearing to stay in the world after being picked up",
         "Tags": [
-            "Other"
+            "Urn"
         ]
     },
     {
@@ -403,9 +403,9 @@
         ]
     },
     {
-        "Description": "* Denied orb sound will no longer play beyond 2500 game units from the player",
+        "Description": "* Denied {{PageRef|Orb|alt_name=orb}} sound will no longer play beyond 2500 game units from the player",
         "Tags": [
-            "Other"
+            "Orb"
         ]
     },
     {
@@ -532,12 +532,13 @@
         ]
     },
     {
-        "Description": "* {{PageRef|Trooper}} Soul Orbs now have a 90ms buffer to allow the server to do better calculations on who shot the orb first, to minimize latency advantages for denying",
+        "Description": "* {{PageRef|Trooper}} Soul {{PageRef|Orb}}s now have a 90ms buffer to allow the server to do better calculations on who shot the {{PageRef|Orb|alt_name=orb}} first, to minimize latency advantages for denying",
         "Tags": [
             "Base Defenses",
             "NPC",
             "Creep",
-            "Trooper"
+            "Trooper",
+            "Orb"
         ]
     },
     {
@@ -647,7 +648,7 @@
         ]
     },
     {
-        "Description": "* Backdoor protection removal now has a 20s buffer (so it doesn't go into protection mode immediately once {{PageRef|Creep|alt_name=creep}}s die)",
+        "Description": "* Backdoor protection removal now has a 20s buffer (so it doesn't go into protection mode immediately once {{PageRef|Creep|alt_name={{PageRef|Creep|alt_name=creep}}s}} die)",
         "Tags": [
             "NPC",
             "Creep"
@@ -768,7 +769,7 @@
         ]
     },
     {
-        "Description": "* Redesigned traversal from ground floor to upper floor of the Garage and Night Club to get to the Sinner's Sacrifice {{PageRef|Denizen|alt_name=neutral}}s",
+        "Description": "* Redesigned traversal from ground floor to upper floor of the Garage and Night Club to get to the Sinner's Sacrifice {{PageRef|Denizen|alt_name={{PageRef|Denizen|alt_name=neutral}}s}}",
         "Tags": [
             "NPC",
             "Creep",
@@ -2085,7 +2086,7 @@
         ]
     },
     {
-        "Description": "* {{PageRef|Shiv}}: {{PageRef|Killing Blow}} Rage buildup vs {{PageRef|Creep|alt_name=creep}}s reduced by 50%",
+        "Description": "* {{PageRef|Shiv}}: {{PageRef|Killing Blow}} Rage buildup vs {{PageRef|Creep|alt_name={{PageRef|Creep|alt_name=creep}}s}} reduced by 50%",
         "Tags": [
             "Shiv",
             "Heroes",

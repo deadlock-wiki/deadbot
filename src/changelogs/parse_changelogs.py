@@ -35,13 +35,19 @@ class ChangelogParser:
             'Denizen',
             'Golden Statue'
         ]
-        self.tags_match_word = ['creep', 'neutral', 'creeps', 'neutrals', 'Rejuv', 'urn', 'Urn']
+        self.tags_match_word = ['creep', 'neutral', 'creeps', 'neutrals', 
+                                'Rejuv', 
+                                'urn', 'Urn', 'urns', 'Urns',
+                                'orb', 'orbs', 'Orb', 'Orbs']
 
         # texts in this list are not converted to tags
         # useful when they are otherwise added due to being a heading
         self.tags_to_ignore = ['Ranked Mode']
 
         # remaps tags to a more general tag
+        # ensure plural forms are in the list before singular forms
+        # this is so that the plural form is embedded in the text first
+        # before the singular takes its place
         self.tag_remap  = {
             'Hero Gameplay': 'Heroes',
             'Hero Gamepla': 'Heroes',
@@ -58,12 +64,17 @@ class ChangelogParser:
             'Mid boss': 'Mid-Boss',
             'Weakened patron': 'Weakened Patron',
             'Rejuv': 'Rejuvenator',
-            'creep': 'Creep',
             'creeps': 'Creep',
-            'neutral': 'Denizen',
+            'creep': 'Creep',
             'neutrals': 'Denizen',
+            'neutral': 'Denizen',
             'Neutral': 'Denizen',
+            'urns': 'Urn',
+            'Urns': 'Urn',
             'urn': 'Urn',
+            'orbs': 'Orb',
+            'Orbs': 'Orb',
+            'orb': 'Orb',
         }
 
         # tags below are after _remap_tag() is called
