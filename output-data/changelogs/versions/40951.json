@@ -101,6 +101,7 @@
     {
         "Description": "* Fixed {{PageRef|Urn}}s sometimes appearing to stay in the world after being picked up",
         "Tags": [
+            "Soul",
             "Urn"
         ]
     },
@@ -405,6 +406,7 @@
     {
         "Description": "* Denied {{PageRef|Orb|alt_name=orb}} sound will no longer play beyond 2500 game units from the player",
         "Tags": [
+            "Soul",
             "Orb"
         ]
     },
@@ -526,28 +528,30 @@
         ]
     },
     {
-        "Description": "* Missing AP from above is redistributed along souls reward line at similar soul levels that the objectives previously died on average",
+        "Description": "* Missing AP from above is redistributed along {{PageRef|Soul|alt_name={{PageRef|Soul|alt_name=soul}}s}} reward line at similar {{PageRef|Soul|alt_name=soul}} levels that the objectives previously died on average",
         "Tags": [
-            "Other"
+            "Soul"
         ]
     },
     {
-        "Description": "* {{PageRef|Trooper}} Soul {{PageRef|Orb}}s now have a 90ms buffer to allow the server to do better calculations on who shot the {{PageRef|Orb|alt_name=orb}} first, to minimize latency advantages for denying",
+        "Description": "* {{PageRef|Trooper}} {{PageRef|Soul}} {{PageRef|Orb}}s now have a 90ms buffer to allow the server to do better calculations on who shot the {{PageRef|Orb|alt_name=orb}} first, to minimize latency advantages for denying",
         "Tags": [
             "Base Defenses",
             "NPC",
             "Creep",
             "Trooper",
+            "Soul",
             "Orb"
         ]
     },
     {
-        "Description": "* {{PageRef|Trooper}} soul changed from 50/50% in the kill/orb to 60/40%",
+        "Description": "* {{PageRef|Trooper}} {{PageRef|Soul|alt_name=soul}} changed from 50/50% in the kill/orb to 60/40%",
         "Tags": [
             "Base Defenses",
             "NPC",
             "Creep",
-            "Trooper"
+            "Trooper",
+            "Soul"
         ]
     },
     {
@@ -557,38 +561,43 @@
         ]
     },
     {
-        "Description": "* Breakables Souls reduced from 35 + 3/min to 30 + 2.5/min",
+        "Description": "* Breakables {{PageRef|Soul}}s reduced from 35 + 3/min to 30 + 2.5/min",
         "Tags": [
-            "Other"
+            "Soul"
         ]
     },
     {
         "Description": "* {{PageRef|Urn}} comeback properties now require an 8% net worth lead to kick in",
         "Tags": [
+            "Soul",
             "Urn"
         ]
     },
     {
         "Description": "* {{PageRef|Urn}} pickup locations are the same as before, however now the drop-off locations will be variable based on which team is leading. If there isn't a lead over 8% net worth, then the drop-off location is the same as before. If there is, then the drop-off location will be closer to the losing team's side. The minimap will show where the drop-off location is as usual, as well as an indicator in the world that helps show you where it is.",
         "Tags": [
+            "Soul",
             "Urn"
         ]
     },
     {
         "Description": "* If the {{PageRef|Urn}} hasn't been delivered within 90 seconds of pickup time, it now drains your health for 1% of Max HP per second (the timer is per team). Your regen is disabled during this.",
         "Tags": [
+            "Soul",
             "Urn"
         ]
     },
     {
         "Description": "* Whenever the {{PageRef|Urn}} is dropped after 90 seconds of pickup time, it starts moving back to its spawn point immediately and cannot be picked up by the same team for 12 seconds.",
         "Tags": [
+            "Soul",
             "Urn"
         ]
     },
     {
         "Description": "* Increased speed {{PageRef|Urn}} walks back",
         "Tags": [
+            "Soul",
             "Urn"
         ]
     },
@@ -712,14 +721,15 @@
         ]
     },
     {
-        "Description": "* Sinner's Sacrifice now shares souls of subsequent hits with everyone that hit it recently (rather than the bigger value from last hit only going to one player)",
+        "Description": "* Sinner's Sacrifice now shares {{PageRef|Soul|alt_name={{PageRef|Soul|alt_name=soul}}s}} of subsequent hits with everyone that hit it recently (rather than the bigger value from last hit only going to one player)",
         "Tags": [
-            "Other"
+            "Soul"
         ]
     },
     {
         "Description": "* Redesigned stairs from central canal to the outer lanes (near {{PageRef|Urn}} spawn)",
         "Tags": [
+            "Soul",
             "Urn"
         ]
     },
@@ -1135,7 +1145,8 @@
         "Tags": [
             "Soul Rebirth",
             "Items",
-            "Vitality Items"
+            "Vitality Items",
+            "Soul"
         ]
     },
     {
@@ -1143,7 +1154,8 @@
         "Tags": [
             "Soul Rebirth",
             "Items",
-            "Vitality Items"
+            "Vitality Items",
+            "Soul"
         ]
     },
     {

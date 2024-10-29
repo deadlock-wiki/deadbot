@@ -620,6 +620,7 @@
             "NPC",
             "Creep",
             "Trooper",
+            "Soul",
             "Orb"
         ]
     },
@@ -633,18 +634,21 @@
     {
         "Description": "* Some latency-related calculation improvements that help {{PageRef|Orb|alt_name={{PageRef|Orb|alt_name=orb}}s}} be a little less deny favored",
         "Tags": [
+            "Soul",
             "Orb"
         ]
     },
     {
         "Description": "* {{PageRef|Orb}}s now appear a little smaller to the enemy that is trying to deny them",
         "Tags": [
+            "Soul",
             "Orb"
         ]
     },
     {
-        "Description": "* Added a Soul Generator (like the one in hero sandbox) in the respawn area. Starts spawning {{PageRef|Orb|alt_name={{PageRef|Orb|alt_name=orb}}s}} at 3 minutes. Each {{PageRef|Orb|alt_name=orb}} is worth 10 souls when shot. (primary purpose for this is cases when you are very close to an item purchase)",
+        "Description": "* Added a {{PageRef|Soul}} Generator (like the one in hero sandbox) in the respawn area. Starts spawning {{PageRef|Orb|alt_name={{PageRef|Orb|alt_name=orb}}s}} at 3 minutes. Each {{PageRef|Orb|alt_name=orb}} is worth 10 {{PageRef|Soul|alt_name={{PageRef|Soul|alt_name=soul}}s}} when shot. (primary purpose for this is cases when you are very close to an item purchase)",
         "Tags": [
+            "Soul",
             "Orb"
         ]
     },
@@ -1209,7 +1213,8 @@
         "Tags": [
             "Soul Rebirth",
             "Items",
-            "Vitality Items"
+            "Vitality Items",
+            "Soul"
         ]
     },
     {
@@ -1748,13 +1753,14 @@
         ]
     },
     {
-        "Description": "* {{PageRef|Lady Geist}}: Fixed {{PageRef|Life Drain}} not healing extra based on amplifications (like Soul Shredder and {{PageRef|Malice}} stacks)",
+        "Description": "* {{PageRef|Lady Geist}}: Fixed {{PageRef|Life Drain}} not healing extra based on amplifications (like {{PageRef|Soul}} Shredder and {{PageRef|Malice}} stacks)",
         "Tags": [
             "Lady Geist",
             "Heroes",
             "Malice",
             "Abilities",
-            "Life Drain"
+            "Life Drain",
+            "Soul"
         ]
     },
     {
@@ -2194,6 +2200,7 @@
     {
         "Description": "* Added connection from canal near the {{PageRef|Urn|alt_name=urn}} platforms through the Radio Station and Apartment buildings",
         "Tags": [
+            "Soul",
             "Urn",
             "Map"
         ]

@@ -38,16 +38,20 @@ class ChangelogParser:
         self.tags_match_word = ['creep', 'neutral', 'creeps', 'neutrals', 
                                 'Rejuv', 
                                 'urn', 'Urn', 'urns', 'Urns',
-                                'orb', 'orbs', 'Orb', 'Orbs']
+                                'orb', 'orbs', 'Orb', 'Orbs',
+                                'soul', 'souls', 'Soul', 'Souls']
 
         # texts in this list are not converted to tags
         # useful when they are otherwise added due to being a heading
         self.tags_to_ignore = ['Ranked Mode']
 
         # remaps tags to a more general tag
-        # ensure plural forms are in the list before singular forms
-        # this is so that the plural form is embedded in the text first
+        # ensure plural/longer forms are in the list before singular/shorter forms
+        # this is so that the plural/longer form is embedded in the text
         # before the singular takes its place
+        # i.e. 'Hero Gameplay' -> 'Heroes' before 'Hero' -> 'Heroes'
+        # so that 'Hero Gameplay' -> '{{PageRef|Heroes|alt_name=Heroes Gameplay}}' 
+        # instead of '{{PageRef|Hero}} Gameplay'
         self.tag_remap  = {
             'Hero Gameplay': 'Heroes',
             'Hero Gamepla': 'Heroes',
@@ -56,8 +60,8 @@ class ChangelogParser:
             'New Items': 'Items',
             'Misc Gameplay': self.default_tag,
             'Misc Gamepla': self.default_tag,
-            'General': self.default_tag,
             'General Change': self.default_tag,
+            'General': self.default_tag,
             'MidBoss': 'Mid-Boss',
             'Midboss': 'Mid-Boss',
             'Mid Boss': 'Mid-Boss',
@@ -75,6 +79,9 @@ class ChangelogParser:
             'orbs': 'Orb',
             'Orbs': 'Orb',
             'orb': 'Orb',
+            'souls': 'Soul',
+            'soul': 'Soul',
+            'Souls': 'Soul',
         }
 
         # tags below are after _remap_tag() is called
@@ -95,6 +102,8 @@ class ChangelogParser:
             'Vitality Items': ['Items'],
             'Spirit Items': ['Items'],
             'Abilities': ['Heroes'],
+            'Orb': ['Soul'],
+            'Urn': ['Soul'],
         }
 
     def run_all(self, dict_changelogs):
