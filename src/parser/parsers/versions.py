@@ -18,7 +18,7 @@ class VersionParser:
         self.verbose = verbose  # future proofing for verbose argument
         self.depot_downloader_output = os.path.join(self.output_dir, 'DepotDownloader')
         self.versions = {}
-        self.versions_path = os.path.join(self.output_dir, 'json', 'versions.json')
+        self.versions_path = os.path.join(self.output_dir, 'versions.json')
 
     def _load(self):
         # Load versions to memory from versions.json
@@ -128,13 +128,8 @@ class VersionParser:
         # Merge the parsed versions with the existing versions
         self.versions.update(new_versions)
 
-        num_new_versions = len(new_versions)
-
         if self.verbose:
-            if num_new_versions > 0:
-                print(f'Updated {num_new_versions} new versions')
-            else:
-                print('No new versions to update')
+            print(f'Updated {len(new_versions)} new versions')
 
     def _save(self):
         # Order by ServerVersion numerically (not lexicographically)
