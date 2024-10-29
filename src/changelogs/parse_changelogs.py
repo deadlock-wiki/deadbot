@@ -29,11 +29,13 @@ class ChangelogParser:
             'Mid Boss',
             'Mid boss',
             'Map',
-            'Rejuvenator' 'Creep',
+            'Rejuvenator',
+            'Creep',
             'Neutral',
             'Denizen',
+            'Golden Statue'
         ]
-        self.tags_match_word = ['creep', 'neutral', 'creeps', 'neutrals', 'Rejuv']
+        self.tags_match_word = ['creep', 'neutral', 'creeps', 'neutrals', 'Rejuv', 'urn', 'Urn']
 
         # texts in this list are not converted to tags
         # useful when they are otherwise added due to being a heading
@@ -61,6 +63,7 @@ class ChangelogParser:
             'neutral': 'Denizen',
             'neutrals': 'Denizen',
             'Neutral': 'Denizen',
+            'urn': 'Urn',
         }
 
         # tags below are after _remap_tag() is called
