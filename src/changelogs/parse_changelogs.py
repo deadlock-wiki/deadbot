@@ -29,8 +29,7 @@ class ChangelogParser:
             'Walker',
             'Patron',
             'Weakened Patron',
-            'Weakened patron'
-            'Shrine',
+            'Weakened patron' 'Shrine',
             'Mid-Boss',
             'Midboss',
             'MidBoss',
@@ -40,23 +39,45 @@ class ChangelogParser:
             'Creep',
             'Neutral',
             'Denizen',
-            'Golden Statue'
+            'Golden Statue',
         ]
         # match by word
         # add tags here instead of tags_match_text
         # if they are a shorter string, or likely to be part of a longer string
         # or if the lower case also needs to be matched
         self.tags_match_word = [
-            'creep', 'neutral', 'creeps', 'neutrals', 
-            'Rejuv', # so it doesnt get caught by Rejuvenating Aura
+            'creep',
+            'neutral',
+            'creeps',
+            'neutrals',
+            'Rejuv',  # so it doesnt get caught by Rejuvenating Aura
             'Map',
-            'urn', 'Urn', 'urns', 'Urns',
-            'orb', 'orbs', 'Orb', 'Orbs',
-            'soul', 'souls', 'Soul', 'Souls',
-            'rope', 'Rope', 'ropes', 'Ropes',
-            'zipline', 'Zipline', 'ziplines', 'Ziplines',
-            'bounce pad', 'Bounce Pad', 'Bounce pad', 'Bounce pads', 'Bounce Pads',
-            ]
+            'urn',
+            'Urn',
+            'urns',
+            'Urns',
+            'orb',
+            'orbs',
+            'Orb',
+            'Orbs',
+            'soul',
+            'souls',
+            'Soul',
+            'Souls',
+            'rope',
+            'Rope',
+            'ropes',
+            'Ropes',
+            'zipline',
+            'Zipline',
+            'ziplines',
+            'Ziplines',
+            'bounce pad',
+            'Bounce Pad',
+            'Bounce pad',
+            'Bounce pads',
+            'Bounce Pads',
+        ]
 
         # texts in this list are not converted to tags
         # useful when they are otherwise added due to being a heading
@@ -67,9 +88,9 @@ class ChangelogParser:
         # this is so that the plural/longer form is embedded in the text
         # before the singular takes its place
         # i.e. 'Hero Gameplay' -> 'Heroes' before 'Hero' -> 'Heroes'
-        # so that 'Hero Gameplay' -> '{{PageRef|Heroes|alt_name=Heroes Gameplay}}' 
+        # so that 'Hero Gameplay' -> '{{PageRef|Heroes|alt_name=Heroes Gameplay}}'
         # instead of '{{PageRef|Hero}} Gameplay'
-        self.tag_remap  = {
+        self.tag_remap = {
             'Hero Gameplay': 'Heroes',
             'Hero Gamepla': 'Heroes',
             'Hero': 'Heroes',
@@ -112,7 +133,7 @@ class ChangelogParser:
         }
 
         # Relations between a child and parent tag where
-        # -both are a group tag-. Relationships involving a 
+        # -both are a group tag-. Relationships involving a
         # non-group tag require more explicit parsing within _parse_tags()
         # i.e. Abrams is a parent to Siphon Life, and a child to Heroes
         # tags below are after _remap_tag() is called
@@ -162,7 +183,7 @@ class ChangelogParser:
                 changelog_out.append({'Description': f'<h4>{current_heading}</h4>', 'Tags': []})
                 continue
 
-            # parse line: 
+            # parse line:
             # replace hyphen with asterisk for bullet points on wiki
             prefixes = ['- ', ' - ']
             for prefix in prefixes:
@@ -252,7 +273,7 @@ class ChangelogParser:
             tags.remove(self.default_tag)
 
         return tags
-    
+
     def _register_tag(self, tags, tag, is_group_tag=True):
         """
         Registers a tag to the changelog's current unique tags,
@@ -281,7 +302,7 @@ class ChangelogParser:
 
     def _remap_tag(self, tag):
         """
-        Remaps tags as necessary, i.e. 
+        Remaps tags as necessary, i.e.
         'Hero Gameplay' -> 'Heroes',
         'New Items' -> 'Items'
         """
@@ -290,7 +311,7 @@ class ChangelogParser:
             return None
 
         return self.tag_remap.get(tag, tag)
-    
+
     def _assign_parents(self, tags, tag):
         """
         Assigns a tag's parents to the list of tags
@@ -302,7 +323,7 @@ class ChangelogParser:
 
         return tags
 
-    # mass find and replace of referenced tags and 
+    # mass find and replace of referenced tags and
     # their remap-sources to {{PageRef|tag|alt_name=remap-source}}
     def _embed_icons(self, changelog):
         new_changelog = changelog.copy()
@@ -329,7 +350,7 @@ class ChangelogParser:
                     # though some are correct as is, such as 'Paradox' and 'Paradoxical Swap'
                     remaining_description = remaining_description.replace(tag, '')
 
-            # Check for remappable_texts that are in the description that 
+            # Check for remappable_texts that are in the description that
             # map to a tag that's in the tags list
             # if so, add the icon with alt_name param
             # {{PageRef|tag|alt_name=remappable_text}}

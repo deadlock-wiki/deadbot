@@ -24,11 +24,11 @@ class ChangelogFetcher:
     """
 
     # Hero lab changelogs need to be added manually to
-    # ./input-data/raw-changelogs following the 
+    # ./input-data/raw-changelogs following the
     # naming convention 'herolab_2024_10_29.txt'
     # see the referenced file for example formatting
 
-    # Then they need to be added to 
+    # Then they need to be added to
     # /output-data/changelogs/changelogs.json following
     # the same naming convention and formatted the same
     # as other changelogs, but with "forum_id": null
@@ -60,11 +60,11 @@ class ChangelogFetcher:
         # this file is not overwritten even when update_existing is True
         # many entries were manually added due to only the first page on the site has rss feed
         # herolab entries also need to be added manually as they are not on the forum at all
-        
+
         # Read existing changelogs.json content,
         changelogs_path = output_dir + '/changelogs.json'
         existing_changelogs = json_utils.read(changelogs_path)
-        
+
         # add any keys that are not yet present or have differing values,
         existing_changelogs.update(self.changelogs)
 
