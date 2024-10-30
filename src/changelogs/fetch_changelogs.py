@@ -23,6 +23,16 @@ class ChangelogFetcher:
     Fetches changelogs from the deadlock forums and parses them into a dictionary
     """
 
+    # Hero lab changelogs need to be added manually to
+    # ./input-data/raw-changelogs following the 
+    # naming convention 'herolab_2024_10_29.txt'
+    # see the referenced file for example formatting
+
+    # Then they need to be added to 
+    # /output-data/changelogs/changelogs.json following
+    # the same naming convention and formatted the same
+    # as other changelogs, but with "forum_id": null
+
     def __init__(self):
         self.changelog_lines: dict[str, ChangelogLine] = {}
         self.changelogs: dict[str, Changelog] = {}
@@ -38,27 +48,33 @@ class ChangelogFetcher:
         return self.changelog_lines
 
     def changelogs_to_file(self, output_dir):
+        # Write raw changelog lines to files
         for version, changelog in self.changelog_lines.items():
             raw_output_dir = os.path.join(output_dir, 'raw')
             os.makedirs(raw_output_dir, exist_ok=True)
             with open(raw_output_dir + f'/{version}.txt', 'w', encoding='utf8') as f_out:
                 f_out.write(changelog)
 
-        # Read existing changelogs.json content,
-        # add any keys that are not yet present or have differing values,
-        # write back
+        # Write non-line data for the changelogs to 1 file
 
         # this file is not overwritten even when update_existing is True
         # many entries were manually added due to only the first page on the site has rss feed
+        # herolab entries also need to be added manually as they are not on the forum at all
+        
+        # Read existing changelogs.json content,
         changelogs_path = output_dir + '/changelogs.json'
         existing_changelogs = json_utils.read(changelogs_path)
+        
+        # add any keys that are not yet present or have differing values,
         existing_changelogs.update(self.changelogs)
 
-        # Sort the keys numerically, not lexicographically
+        # Sort the keys by the date lexicographically
+        # null dates will be at the end
         keys = list(existing_changelogs.keys())
-        keys.sort(key=lambda x: int(x))
+        keys.sort(key=lambda x: existing_changelogs[x]['date'])
         self.changelogs = {key: existing_changelogs[key] for key in keys}
 
+        # write back
         json_utils.write(changelogs_path, self.changelogs)
 
     def _fetch_update_html(self, link):
@@ -103,7 +119,7 @@ class ChangelogFetcher:
                 print(f'Issue with parsing RSS feed item {entry.link}')
 
             self.changelog_lines[version] = full_text
-            self.changelogs[version] = {'date': date, 'link': entry.link}
+            self.changelogs[version] = {'forum_id': version, 'date': date, 'link': entry.link}
 
         if skip_num > 0:
             print(f'Skipped {skip_num} RSS items that already exists')

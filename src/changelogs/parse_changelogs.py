@@ -195,8 +195,17 @@ class ChangelogParser:
         if current_heading != '':
             # Remove ' Changes' suffix, i.e. 'Hero Changes' -> 'Heroes'
             heading_tag = current_heading.replace(' Changes', '')
+
+            # If its an english resource, don't make it a group tag
+            is_group_tag = True
+            for resource_key, resource_data in self.resources.items():
+                resource_name = resource_data['Name']
+                if resource_name == heading_tag:
+                    is_group_tag = False
+                    break
+
             if heading_tag is not None:
-                tags = self._register_tag(tags, tag=heading_tag)
+                tags = self._register_tag(tags, tag=heading_tag, is_group_tag=is_group_tag)
 
         # if no tag is found, assign to default tag
         if len(tags) == 0:
