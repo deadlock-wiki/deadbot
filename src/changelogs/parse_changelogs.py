@@ -87,15 +87,20 @@ class ChangelogParser:
         # ensure plural/longer forms are in the list before singular/shorter forms
         # this is so that the plural/longer form is embedded in the text
         # before the singular takes its place
-        # i.e. 'Hero Gameplay' -> 'Heroes' before 'Hero' -> 'Heroes'
-        # so that 'Hero Gameplay' -> '{{PageRef|Heroes|alt_name=Heroes Gameplay}}'
+        # i.e. 'Hero Gameplay' -> 'Hero' before 'Hero' -> 'Hero'
+        # so that 'Hero Gameplay' -> '{{PageRef|Hero|alt_name=Hero Gameplay}}'
         # instead of '{{PageRef|Hero}} Gameplay'
         self.tag_remap = {
-            'Hero Gameplay': 'Heroes',
-            'Hero Gamepla': 'Heroes',
-            'Hero': 'Heroes',
-            'Item Gameplay': 'Items',
-            'New Items': 'Items',
+            'Hero Gameplay': 'Hero',
+            'Hero Gamepla': 'Hero',
+            'Heroes': 'Hero',
+            'Abilities': 'Ability',
+            'Item Gameplay': 'Item',
+            'New Items': 'Item',
+            'Items': 'Item',
+            'Weapon Items': 'Weapon Item',
+            'Spirit Items': 'Spirit Item',
+            'Vitality Items': 'Vitality Item',
             'Misc Gameplay': self.default_tag,
             'Misc Gamepla': self.default_tag,
             'General Change': self.default_tag,
@@ -135,7 +140,7 @@ class ChangelogParser:
         # Relations between a child and parent tag where
         # -both are a group tag-. Relationships involving a
         # non-group tag require more explicit parsing within _parse_tags()
-        # i.e. Abrams is a parent to Siphon Life, and a child to Heroes
+        # i.e. Abrams is a parent to Siphon Life, and a child to Hero
         # tags below are after _remap_tag() is called
         # key = child
         # value = parents to assign
@@ -150,10 +155,10 @@ class ChangelogParser:
             'Weakened Patron': ['Patron', 'Objective'],
             'Shrine': ['Objective'],
             'Mid-Boss': ['NPC'],
-            'Weapon Items': ['Items'],
-            'Vitality Items': ['Items'],
-            'Spirit Items': ['Items'],
-            'Abilities': ['Heroes'],
+            'Weapon Item': ['Item'],
+            'Vitality Item': ['Item'],
+            'Spirit Item': ['Item'],
+            'Ability': ['Hero'],
             'Orb': ['Soul'],
             'Urn': ['Soul'],
         }
@@ -215,7 +220,7 @@ class ChangelogParser:
                 continue
 
             # Skip disabled items
-            if resource_type == 'Items' and resource.get('Disabled', False):
+            if resource_type == 'Item' and resource.get('Disabled', False):
                 continue
 
             if resource_name in line:
@@ -224,16 +229,16 @@ class ChangelogParser:
                 # Also register the resource type
                 tags = self._register_tag(tags, tag=resource_type)
 
-                # Also register 'Weapon Items', 'Spirit Items', etc. for item resources
+                # Also register 'Weapon Item', 'Spirit Item', etc. for item resources
                 # currently these are also a heading, this check makes it future proof
-                if resource_type == 'Items':
+                if resource_type == 'Item':
                     item_slot = resource['Slot']  # i.e. Tech
                     localized_item_slot = self.localization_en['CitadelCategory' + item_slot]
-                    slot_str = localized_item_slot + ' Items'
+                    slot_str = localized_item_slot + ' Item'
                     tags = self._register_tag(tags, tag=slot_str)
 
                 # If its an ability, register the hero as well
-                if resource_type == 'Abilities':
+                if resource_type == 'Ability':
                     hero = self.get_hero_from_ability(resource_key)
                     if hero is not None:
                         tags = self._register_tag(tags, tag=hero, is_group_tag=False)
@@ -248,7 +253,7 @@ class ChangelogParser:
 
         # Also register heading as a tag
         if current_heading != '':
-            # Remove ' Changes' suffix, i.e. 'Hero Changes' -> 'Heroes'
+            # Remove ' Changes' suffix, i.e. 'Hero Changes' -> 'Hero'
             heading_tag = current_heading.replace(' Changes', '')
 
             # If its an english resource, don't make it a group tag
@@ -303,8 +308,8 @@ class ChangelogParser:
     def _remap_tag(self, tag):
         """
         Remaps tags as necessary, i.e.
-        'Hero Gameplay' -> 'Heroes',
-        'New Items' -> 'Items'
+        'Hero Gameplay' -> 'Hero',
+        'New Items' -> 'Item'
         """
 
         if tag in self.tags_to_ignore:
@@ -396,13 +401,13 @@ class ChangelogParser:
         abilities = json_utils.read(self.OUTPUT_DIR + '/json/ability-data.json')
 
         for key in heroes:
-            heroes[key]['Type'] = 'Heroes'
+            heroes[key]['Type'] = 'Hero'
 
         for key in items:
-            items[key]['Type'] = 'Items'
+            items[key]['Type'] = 'Item'
 
         for key in abilities:
-            abilities[key]['Type'] = 'Abilities'
+            abilities[key]['Type'] = 'Ability'
 
         resources.update(heroes)
         resources.update(items)
