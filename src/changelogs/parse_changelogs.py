@@ -11,10 +11,18 @@ class ChangelogParser:
         self.localization_en = self.get_lang_en()
 
         self.default_tag = 'Other'
+        # list of all unique tags, including resource tags like Abrams/Basic Magazine
         self.unique_tags = [self.default_tag]
+        # list of all unique tags excluding resource tags
+        # since they exclude resource tags (instances), they are referred
+        # to as "group tags" / "tag groups"
         self.unique_tag_groups = [self.default_tag]
 
         # Tags to register if they are found in the changelog line
+        # match by text
+        # never put lowercase tags here, as they are likely to be
+        # part of a longer string. Put them in self.tags_match_word
+        # instead
         self.tags_match_text = [
             'Trooper',
             'Guardian',
@@ -28,18 +36,27 @@ class ChangelogParser:
             'MidBoss',
             'Mid Boss',
             'Mid boss',
-            'Map',
             'Rejuvenator',
             'Creep',
             'Neutral',
             'Denizen',
             'Golden Statue'
         ]
-        self.tags_match_word = ['creep', 'neutral', 'creeps', 'neutrals', 
-                                'Rejuv', 
-                                'urn', 'Urn', 'urns', 'Urns',
-                                'orb', 'orbs', 'Orb', 'Orbs',
-                                'soul', 'souls', 'Soul', 'Souls']
+        # match by word
+        # add tags here instead of tags_match_text
+        # if they are a shorter string, or likely to be part of a longer string
+        # or if the lower case also needs to be matched
+        self.tags_match_word = [
+            'creep', 'neutral', 'creeps', 'neutrals', 
+            'Rejuv', # so it doesnt get caught by Rejuvenating Aura
+            'Map',
+            'urn', 'Urn', 'urns', 'Urns',
+            'orb', 'orbs', 'Orb', 'Orbs',
+            'soul', 'souls', 'Soul', 'Souls',
+            'rope', 'Rope', 'ropes', 'Ropes',
+            'zipline', 'Zipline', 'ziplines', 'Ziplines',
+            'bounce pad', 'Bounce Pad', 'Bounce pad', 'Bounce pads', 'Bounce Pads',
+            ]
 
         # texts in this list are not converted to tags
         # useful when they are otherwise added due to being a heading
@@ -82,8 +99,22 @@ class ChangelogParser:
             'souls': 'Soul',
             'soul': 'Soul',
             'Souls': 'Soul',
+            'rope': 'Rope',
+            'Ropes': 'Rope',
+            'ropes': 'Rope',
+            'zipline': 'Zipline',
+            'ziplines': 'Zipline',
+            'Ziplines': 'Zipline',
+            'bounce pad': 'Bounce Pad',
+            'Bounce pad': 'Bounce Pad',
+            'Bounce pads': 'Bounce Pad',
+            'Bounce Pads': 'Bounce Pad',
         }
 
+        # Relations between a child and parent tag where
+        # -both are a group tag-. Relationships involving a 
+        # non-group tag require more explicit parsing within _parse_tags()
+        # i.e. Abrams is a parent to Siphon Life, and a child to Heroes
         # tags below are after _remap_tag() is called
         # key = child
         # value = parents to assign
@@ -106,6 +137,7 @@ class ChangelogParser:
             'Urn': ['Soul'],
         }
 
+    # Main
     def run_all(self, dict_changelogs):
         # take parsed changelogs and transform them into some other useful formats
         for version, changelog in dict_changelogs.items():
@@ -113,6 +145,7 @@ class ChangelogParser:
 
         self._write_unique_tag_groups(self.unique_tag_groups)
 
+    # Parse a single changelog file
     def run(self, version, logs):
         changelog_lines = logs.split('\n')
 
@@ -147,6 +180,7 @@ class ChangelogParser:
         json_utils.write(self.OUTPUT_CHANGELOGS + f'/versions/{version}.json', changelog_with_icons)
         return changelog_with_icons
 
+    # Parse a given line for assignable tags
     def _parse_tags(self, current_heading, line):
         tags = []
 
@@ -183,7 +217,7 @@ class ChangelogParser:
                     if hero is not None:
                         tags = self._register_tag(tags, tag=hero, is_group_tag=False)
 
-        
+        # Use specified lists to match for possible tags
         for tag in self.tags_match_text:
             if tag in line:
                 tags = self._register_tag(tags, tag)
@@ -212,35 +246,13 @@ class ChangelogParser:
             tags = self._register_tag(tags, tag=self.default_tag)
 
         # Remove default tag if its not the only tag
-        # otherwise, default tag may be added occasionally if its a heading
+        # without this, default tag may be added occasionally
+        # on accident if its a remapped result of a heading
         if len(tags) > 1 and self.default_tag in tags:
             tags.remove(self.default_tag)
 
         return tags
-
-    def _assign_parents(self, tags, tag):
-        """
-        Assigns a tag's parents to the list of tags
-        """
-
-        if tag in self.tag_parents:
-            for parent in self.tag_parents[tag]:
-                tags = self._register_tag(tags, parent)
-
-        return tags
-
-    def _remap_tag(self, tag):
-        """
-        Remaps tags as necessary, i.e. 
-        'Hero Gameplay' -> 'Heroes',
-        'New Items' -> 'Items'
-        """
-
-        if tag in self.tags_to_ignore:
-            return None
-
-        return self.tag_remap.get(tag, tag)
-
+    
     def _register_tag(self, tags, tag, is_group_tag=True):
         """
         Registers a tag to the changelog's current unique tags,
@@ -267,7 +279,31 @@ class ChangelogParser:
 
         return tags
 
-    # mass find and replace of referenced tags to {{PageRef|tag}}
+    def _remap_tag(self, tag):
+        """
+        Remaps tags as necessary, i.e. 
+        'Hero Gameplay' -> 'Heroes',
+        'New Items' -> 'Items'
+        """
+
+        if tag in self.tags_to_ignore:
+            return None
+
+        return self.tag_remap.get(tag, tag)
+    
+    def _assign_parents(self, tags, tag):
+        """
+        Assigns a tag's parents to the list of tags
+        """
+
+        if tag in self.tag_parents:
+            for parent in self.tag_parents[tag]:
+                tags = self._register_tag(tags, parent)
+
+        return tags
+
+    # mass find and replace of referenced tags and 
+    # their remap-sources to {{PageRef|tag|alt_name=remap-source}}
     def _embed_icons(self, changelog):
         new_changelog = changelog.copy()
         for index, log in enumerate(changelog):
@@ -295,7 +331,8 @@ class ChangelogParser:
 
             # Check for remappable_texts that are in the description that 
             # map to a tag that's in the tags list
-            # if so, add the icon {{PageRef|tag|alt_name=remappable_text}}
+            # if so, add the icon with alt_name param
+            # {{PageRef|tag|alt_name=remappable_text}}
             for remappable_text in self.tag_remap:
                 tag = self.tag_remap[remappable_text]
                 if remappable_text in remaining_description and tag in tags:
@@ -306,6 +343,10 @@ class ChangelogParser:
         return changelog
 
     def _write_unique_tag_groups(self, unique_tag_groups):
+        """
+        Write the unique tag groups to file.
+        Prints a warning if it has changed from the existing file.
+        """
         # Read existing tag groups
         tag_groups_path = self.OUTPUT_CHANGELOGS + '/tag_groups.json'
         if os.path.exists(tag_groups_path):
