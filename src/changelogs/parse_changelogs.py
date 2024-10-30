@@ -359,6 +359,7 @@ class ChangelogParser:
                 if remappable_text in remaining_description and tag in tags:
                     icon = '{{' + template + '|' + tag + '|alt_name=' + remappable_text + '}}'
                     description = description.replace(remappable_text, icon)
+                    remaining_description = remaining_description.replace(remappable_text, '')
                     new_changelog[index]['Description'] = description
 
         return changelog
