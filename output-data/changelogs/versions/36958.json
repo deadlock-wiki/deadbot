@@ -139,7 +139,7 @@
     {
         "Description": "* Added Stomp AoE range indication as the {{PageRef|Walker}} is about to use the ability",
         "Tags": [
-            "Base Defenses",
+            "Objective",
             "NPC",
             "Walker"
         ]
@@ -318,7 +318,7 @@
         ]
     },
     {
-        "Description": "* Fixed issues with Bots not using {{PageRef|Zipline|alt_name=zipline}}s properly",
+        "Description": "* Fixed issues with Bots not using {{PageRef|Zipline|alt_name={{PageRef|Zipline|alt_name=zipline}}s}} properly",
         "Tags": [
             "Zipline"
         ]
@@ -353,7 +353,7 @@
     {
         "Description": "* Added {{PageRef|Guardian}} and {{PageRef|Walker}} death notification sound for all players",
         "Tags": [
-            "Base Defenses",
+            "Objective",
             "NPC",
             "Guardian",
             "Walker"
@@ -400,7 +400,7 @@
     {
         "Description": "* {{PageRef|Walker}} laser animation updated slightly, raising the forearms to better reveal the eye socket weakpoint to players on the ground",
         "Tags": [
-            "Base Defenses",
+            "Objective",
             "NPC",
             "Walker"
         ]
@@ -539,7 +539,7 @@
     {
         "Description": "* The patron once again will warn you when your {{PageRef|Walker}}s are under attack",
         "Tags": [
-            "Base Defenses",
+            "Objective",
             "NPC",
             "Walker"
         ]
@@ -547,7 +547,7 @@
     {
         "Description": "* The patron now will sometimes offer words of encouragement when you level up instead of when you destroy a {{PageRef|Guardian}} or {{PageRef|Walker}}",
         "Tags": [
-            "Base Defenses",
+            "Objective",
             "NPC",
             "Guardian",
             "Walker"
@@ -630,7 +630,6 @@
     {
         "Description": "* Adjusted {{PageRef|Trooper}} tracer and muzzle effects for better alignment and lower visual noise",
         "Tags": [
-            "Base Defenses",
             "NPC",
             "Creep",
             "Trooper"
@@ -657,7 +656,6 @@
     {
         "Description": "* {{PageRef|Trooper}} death effects resolve quicker and more cleanly",
         "Tags": [
-            "Base Defenses",
             "NPC",
             "Creep",
             "Trooper"
@@ -709,17 +707,17 @@
     {
         "Description": "* {{PageRef|Trooper}}s attack range vs Lane {{PageRef|Guardian}}s reduced from 13.5m to 12m (they get closer to it)",
         "Tags": [
-            "Base Defenses",
             "NPC",
             "Creep",
             "Trooper",
+            "Objective",
             "Guardian"
         ]
     },
     {
         "Description": "* Players now need to be within 19m (above the ramp) to attack a Lane {{PageRef|Guardian}}",
         "Tags": [
-            "Base Defenses",
+            "Objective",
             "NPC",
             "Guardian"
         ]
@@ -727,7 +725,7 @@
     {
         "Description": "* {{PageRef|Guardian}}s now take 70% less damage from troopers at the start of the game; this reduces by 10% per minute (max at +30% increased damage at 10 min)",
         "Tags": [
-            "Base Defenses",
+            "Objective",
             "NPC",
             "Guardian"
         ]
@@ -735,7 +733,7 @@
     {
         "Description": "* {{PageRef|Guardian}} damage vs players increased by 20%",
         "Tags": [
-            "Base Defenses",
+            "Objective",
             "NPC",
             "Guardian"
         ]
@@ -761,7 +759,6 @@
     {
         "Description": "* {{PageRef|Trooper}} spawn/bounty lane end time changed from 10 min to 8 min",
         "Tags": [
-            "Base Defenses",
             "NPC",
             "Creep",
             "Trooper"
@@ -864,7 +861,7 @@
     {
         "Description": "* Percentage of deniable {{PageRef|Orb|alt_name={{PageRef|Orb|alt_name=orb}}s}} from objectives for {{PageRef|Guardian}}/{{PageRef|Walker}}/{{PageRef|Patron}}/Shrines rescaled from 54.55/66.67/100/0% to 35%",
         "Tags": [
-            "Base Defenses",
+            "Objective",
             "NPC",
             "Guardian",
             "Walker",
@@ -876,7 +873,6 @@
     {
         "Description": "* Shields no longer reduce damage or get depleted by {{PageRef|NPC}} units ({{PageRef|Trooper}}s, Bosses etc, but still takes damage from player summoned units)",
         "Tags": [
-            "Base Defenses",
             "NPC",
             "Creep",
             "Trooper"
@@ -913,7 +909,7 @@
     {
         "Description": "* Moved teleporters to travel between outer lane {{PageRef|Walker}}s",
         "Tags": [
-            "Base Defenses",
+            "Objective",
             "NPC",
             "Walker"
         ]
@@ -945,7 +941,7 @@
     {
         "Description": "* Added bridge and stair to the upper level of the Subway Entrance building from the outer lane {{PageRef|Walker}} arenas",
         "Tags": [
-            "Base Defenses",
+            "Objective",
             "NPC",
             "Walker"
         ]
@@ -959,7 +955,7 @@
     {
         "Description": "* Moved {{PageRef|Guardian}}s back slightly further from stairs down to the canal",
         "Tags": [
-            "Base Defenses",
+            "Objective",
             "NPC",
             "Guardian"
         ]
@@ -977,7 +973,7 @@
         ]
     },
     {
-        "Description": "* Garage and Night Club: Changed {{PageRef|Rope|alt_name=rope}}s so that they take you to the second floor and added back stairs to take you to the roof",
+        "Description": "* Garage and Night Club: Changed {{PageRef|Rope|alt_name={{PageRef|Rope|alt_name=rope}}s}} so that they take you to the second floor and added back stairs to take you to the roof",
         "Tags": [
             "Rope"
         ]
@@ -1275,7 +1271,7 @@
             "Veil Walker",
             "Items",
             "Vitality Items",
-            "Base Defenses",
+            "Objective",
             "NPC",
             "Walker"
         ]

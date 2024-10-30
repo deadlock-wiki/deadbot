@@ -252,7 +252,7 @@
     {
         "Description": "* Fixed {{PageRef|Guardian}} trying to shoot people unsuccessfully behind cover",
         "Tags": [
-            "Base Defenses",
+            "Objective",
             "NPC",
             "Guardian"
         ]
@@ -287,7 +287,7 @@
         ]
     },
     {
-        "Description": "* Fixed jumping between {{PageRef|Zipline|alt_name=zipline}}s consuming stamina",
+        "Description": "* Fixed jumping between {{PageRef|Zipline|alt_name={{PageRef|Zipline|alt_name=zipline}}s}} consuming stamina",
         "Tags": [
             "Zipline"
         ]
@@ -607,17 +607,16 @@
     {
         "Description": "* {{PageRef|Trooper}} damage reduction from {{PageRef|Guardian}}s reduced from 35% to 28% (they die a little faster to {{PageRef|Guardian}}s now)",
         "Tags": [
-            "Base Defenses",
             "NPC",
             "Creep",
             "Trooper",
+            "Objective",
             "Guardian"
         ]
     },
     {
         "Description": "* {{PageRef|Trooper}} share radius reduced (from allied hero to allied hero 50m→40m, from {{PageRef|Orb|alt_name=orb}} to allied hero 40m→35m)",
         "Tags": [
-            "Base Defenses",
             "NPC",
             "Creep",
             "Trooper",
@@ -676,7 +675,6 @@
     {
         "Description": "* {{PageRef|Trooper}}s no longer give half bounty when base guardians are destroyed for that lane",
         "Tags": [
-            "Base Defenses",
             "NPC",
             "Creep",
             "Trooper"
@@ -703,7 +701,7 @@
     {
         "Description": "* {{PageRef|Guardian}}s now deal 10% more damage to players",
         "Tags": [
-            "Base Defenses",
+            "Objective",
             "NPC",
             "Guardian"
         ]
@@ -1130,7 +1128,7 @@
             "Veil Walker",
             "Items",
             "Vitality Items",
-            "Base Defenses",
+            "Objective",
             "NPC",
             "Walker"
         ]
@@ -2253,7 +2251,7 @@
     {
         "Description": "* Redesigned outer lane path (ziplines and trooper nodes) from {{PageRef|Walker}} to {{PageRef|Guardian}} on Amber Yellow and Sapphire Purple",
         "Tags": [
-            "Base Defenses",
+            "Objective",
             "NPC",
             "Guardian",
             "Walker",
