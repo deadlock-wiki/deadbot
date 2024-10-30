@@ -52,9 +52,9 @@ class VersionParser:
         parsed_versions = {}
         num_versions = len(versions)
         curr_num_versions = 0
-
-        try:
-            for manifest_id in versions:
+        
+        for manifest_id in versions:
+            try:
                 # Run the depot_downloader command
                 subprocess_params = [
                     os.path.join(self.depot_downloader_dir, './DepotDownloader'),
@@ -87,40 +87,40 @@ class VersionParser:
                 )
                 if not os.path.exists(steam_inf_path):
                     raise Exception(f'Fatal error: {steam_inf_path} not found')
+            
+            except Exception as e:
+                print(f'Error occured while parsing manifest {manifest_id}, skipping')
+                continue
+                # Possible errors that cause exceptions include:
+                # RateLimiting by Steam and
+                # Manifest download being blocked by developers
+                # Skip the manifest and try the next one
 
-                # Open steam inf
-                with open(steam_inf_path, 'r') as file:
-                    steam_inf = file.read()
+            # Open steam inf
+            with open(steam_inf_path, 'r') as file:
+                steam_inf = file.read()
 
-                parsed_versions[manifest_id] = {}
+            parsed_versions[manifest_id] = {}
 
-                # Parse each line
-                for line in steam_inf.split('\n'):
-                    split_line = line.split('=')
-                    if len(split_line) != 2:
-                        continue
-                    key = split_line[0]
-                    value = split_line[1]
-                    parsed_versions[manifest_id][key] = value
+            # Parse each line
+            for line in steam_inf.split('\n'):
+                split_line = line.split('=')
+                if len(split_line) != 2:
+                    continue
+                key = split_line[0]
+                value = split_line[1]
+                parsed_versions[manifest_id][key] = value
 
-                curr_num_versions += 1
-
-                if self.verbose:
-                    print(
-                        f'({curr_num_versions}/{num_versions}): Parsed {manifest_id} '
-                        +f'which contained VersionDate {parsed_versions[manifest_id]["VersionDate"]}'
-                    )
+            curr_num_versions += 1
 
             if self.verbose:
-                print(f'Parsed {len(parsed_versions)} new versions')
+                print(
+                    f'({curr_num_versions}/{num_versions}): Parsed {manifest_id} '
+                    +f'which contained VersionDate {parsed_versions[manifest_id]["VersionDate"]}'
+                )
 
-        except Exception as e:
-            # If any exception occurs in DepotDownloader,
-            # such as RateLimiting,
-            # first save what's currently parsed
-            self._update(parsed_versions)
-            self._save()
-            raise e
+        if self.verbose:
+            print(f'Parsed {len(parsed_versions)} new versions')
 
         return parsed_versions
 
