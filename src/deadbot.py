@@ -10,6 +10,10 @@ from parser import parser
 from external_data.data_transfer import DataTransfer
 from utils.string_utils import is_truthy
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 """
 DeadBot pulls all aggregated data for heros, items ,buildings and more to populate
