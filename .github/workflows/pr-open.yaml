@@ -30,8 +30,8 @@ jobs:
         working-directory: deadlock-data 
         run: |
           git switch -c ${{ github.head_ref }}
-          git push --set-upstream origin ${{ needs.get-branch.outputs.branch }}
-
+          git push --set-upstream origin ${{ github.head_ref }}
+          
       # Creates a PR to enable viewing the outcome of the deadbot changes
       - name: Create PR on deadlock-data repo
         id: create_data_pr
