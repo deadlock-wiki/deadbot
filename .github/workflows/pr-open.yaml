@@ -21,6 +21,7 @@ jobs:
           token:  ${{ secrets.GH_TOKEN }}          
 
       - name: Create working branch on deadlock-data repo
+        working-directory: deadlock-data 
         run: git switch -c ${{ github.head_ref }}
 
       # Creates a PR to enable viewing the outcome of the deadbot changes
