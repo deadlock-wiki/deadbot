@@ -1,14 +1,16 @@
 name: Deploy
 on: 
   push:
-    branches: [ master, develop ]
+    paths:
+      - 'src/**'
+      - 'input-data/**'
+      - '.github/workflows/deploy.yaml'
 
   pull_request:
     types:
       - opened
-      - synchronize
       - reopened
-    
+  
   workflow_dispatch:
     inputs:
       branch:
