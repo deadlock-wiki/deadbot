@@ -1,6 +1,6 @@
 import os
 import shutil
-from .parsers import abilities, ability_ui, items, heroes, localizations, attributes, souls
+from .parsers import abilities, ability_ui, items, heroes, localizations, attributes, souls, generics
 from utils import json_utils
 
 
@@ -104,6 +104,7 @@ class Parser:
         self._parse_attributes()
         self._parse_localizations()
         self._parse_soul_unlocks()
+        self._parse_generics()
         print('Done parsing')
 
     def _parse_soul_unlocks(self):
@@ -111,6 +112,18 @@ class Parser:
         parsed_soul_unlocks = souls.SoulUnlockParser(self.data['scripts']['heroes']).run()
 
         json_utils.write(self.OUTPUT_DIR + '/json/soul-unlock-data.json', parsed_soul_unlocks)
+
+    def _parse_generics(self):
+        print('Parsing Generics...')
+        generic_data_path = self.OUTPUT_DIR + '/json/generic-data.json'
+        parsed_generics = generics.GenericParser(
+            generic_data_path, 
+            self.data['scripts']['generic_data']).run()
+
+        json_utils.write(
+            generic_data_path, 
+            json_utils.sort_dict(parsed_generics)
+        )
 
     def _parse_localizations(self):
         print('Parsing Localizations...')
