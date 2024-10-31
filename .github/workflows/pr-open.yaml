@@ -29,8 +29,13 @@ jobs:
       - name: Create working branch on deadlock-data repo
         working-directory: deadlock-data 
         run: |
-          git switch -c ${{ github.head_ref }}
-          git push --set-upstream origin ${{ github.head_ref }}
+          if git switch -c ${{ github.head_ref }}; then
+            echo "Branch was newly created."
+            git commit --allow-empty -m "chore: empty commit to enable PR creation"
+            git push --set-upstream origin ${{ github.head_ref }}
+          else
+            echo "Branch already exists."
+          fi
       
       # Creates a PR to enable viewing the outcome of the deadbot changes
       - name: Create PR on deadlock-data repo
