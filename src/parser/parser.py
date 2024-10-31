@@ -9,13 +9,15 @@ class Parser:
         self,
         work_dir,
         output_dir,
+        verbose,
         language='english',
     ):
         # constants
         self.OUTPUT_DIR = output_dir
         # Directory with decompiled data
         self.DATA_DIR = work_dir
-
+        self.VERBOSE = verbose
+        
         self.language = language
         self.data = {'scripts': {}}
         self.localization_groups = os.listdir(os.path.join(self.DATA_DIR, 'localizations'))
@@ -89,13 +91,14 @@ class Parser:
             # duplicate key error. This is a temporary measure to keep patch updates going
             elif group != 'heroes':
                 current_value = self.localizations[language][key]
-                print(
+                raise Exception(
                     f'Key {key} with value {value} already exists in {language} localization '
                     + f'data with value {current_value}.'
                 )
 
     def run(self):
-        print('Parsing...')
+        if self.VERBOSE:
+            print('Parsing...')
         os.system(f'cp "{self.DATA_DIR}/version.txt" "{self.OUTPUT_DIR}/version.txt"')
         parsed_abilities = self._parse_abilities()
         parsed_heroes = self._parse_heroes(parsed_abilities)
@@ -104,20 +107,24 @@ class Parser:
         self._parse_attributes()
         self._parse_localizations()
         self._parse_soul_unlocks()
-        print('Done parsing')
+        if self.VERBOSE:
+            print('Done parsing')
 
     def _parse_soul_unlocks(self):
-        print('Parsing Soul Unlocks...')
+        if self.VERBOSE:
+            print('Parsing Soul Unlocks...')
         parsed_soul_unlocks = souls.SoulUnlockParser(self.data['scripts']['heroes']).run()
 
         json_utils.write(self.OUTPUT_DIR + '/json/soul-unlock-data.json', parsed_soul_unlocks)
 
     def _parse_localizations(self):
-        print('Parsing Localizations...')
+        if self.VERBOSE:
+            print('Parsing Localizations...')
         return localizations.LocalizationParser(self.localizations, self.OUTPUT_DIR).run()
 
     def _parse_heroes(self, parsed_abilities):
-        print('Parsing Heroes...')
+        if self.VERBOSE:
+            print('Parsing Heroes...')
         parsed_heroes, parsed_meaningful_stats = heroes.HeroParser(
             self.data['scripts']['heroes'],
             self.data['scripts']['abilities'],
@@ -131,7 +138,7 @@ class Parser:
             self.OUTPUT_DIR + '/json/hero-meaningful-stats.json', parsed_meaningful_stats
         ):
             print(
-                'Warning: Non-constant stats have changed. '
+                '[WARNING]: Non-constant stats have changed. '
                 + "Please update [[Module:HeroData]]'s write_hero_comparison_table "
                 + 'lua function for the [[Hero Comparison]] page.'
             )
@@ -147,7 +154,8 @@ class Parser:
         return parsed_heroes
 
     def _parse_abilities(self):
-        print('Parsing Abilities...')
+        if self.VERBOSE:
+            print('Parsing Abilities...')
         parsed_abilities = abilities.AbilityParser(
             self.data['scripts']['abilities'],
             self.data['scripts']['heroes'],
@@ -160,7 +168,8 @@ class Parser:
         return parsed_abilities
 
     def _parsed_ability_ui(self, parsed_heroes):
-        print('Parsing Ability UI...')
+        if self.VERBOSE:
+            print('Parsing Ability UI...')
 
         for language in self.languages:
             (parsed_ability_ui, changed_localizations) = ability_ui.AbilityUiParser(
@@ -177,7 +186,8 @@ class Parser:
                 json_utils.write(self.OUTPUT_DIR + '/json/ability_ui.json', parsed_ability_ui)
 
     def _parse_items(self):
-        print('Parsing Items...')
+        if self.VERBOSE:
+            print('Parsing Items...')
         (parsed_items, item_component_chart) = items.ItemParser(
             self.data['scripts']['abilities'],
             self.data['scripts']['generic_data'],
@@ -192,7 +202,8 @@ class Parser:
             f.write(str(item_component_chart))
 
     def _parse_attributes(self):
-        print('Parsing Attributes...')
+        if self.VERBOSE:
+            print('Parsing Attributes...')
         (parsed_attributes, attribute_orders) = attributes.AttributeParser(
             self.data['scripts']['heroes'], self.localizations[self.language]
         ).run()

@@ -47,9 +47,10 @@ class DeadBot:
 
 
 def act_gamefile_parse(args):
-    game_parser = parser.Parser(args.workdir, args.output)
+    game_parser = parser.Parser(args.workdir, args.output, args.verbose)
     game_parser.run()
-    print('Exporting to CSV...')
+    if args.verbose:
+        print('Exporting to CSV...')
     csv_writer.export_json_file_to_csv('item-data', args.output)
     csv_writer.export_json_file_to_csv('hero-data', args.output)
 
@@ -57,7 +58,7 @@ def act_gamefile_parse(args):
 def act_changelog_parse(args):
     changelog_output = args.output + '/changelogs/raw'
     os.makedirs(changelog_output, exist_ok=True)
-    chlog_fetcher = fetch_changelogs.ChangelogFetcher()
+    chlog_fetcher = fetch_changelogs.ChangelogFetcher(args.verbose)
     # load existing changelogs
     chlog_fetcher.get_txt(changelog_output)
     # fetch / process rss + forum content

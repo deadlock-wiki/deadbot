@@ -48,6 +48,12 @@ def arg_group_base(parser):
         help='Build number of the game files to be used. Defaults to current build',
         default=os.getenv('BUILD_NUM', None),
     )
+    group_base.add_argument(
+        '-v',
+        '--verbose',
+        help='Print verbose output for extensive logging',
+        default=os.getenv('VERBOSE', False),
+    )
 
 
 # Parameters and arguments and flags oh my
@@ -133,4 +139,6 @@ def load_arguments():
         args.s3_push = os.getenv('S3_PUSH', False)
     if not args.import_files:
         args.import_files = os.getenv('IMPORT_FILES', False)
+    if not args.verbose:
+        args.verbose = os.getenv('VERBOSE', False)
     return args

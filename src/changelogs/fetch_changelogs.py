@@ -7,7 +7,8 @@ from urllib import request
 
 
 class ChangelogFetcher:
-    def __init__(self):
+    def __init__(self, verbose):
+        self.VERBOSE = verbose
         self.changelogs_by_date = {}
 
     def get_rss(self, rss_url, update_existing=False):
@@ -36,7 +37,8 @@ class ChangelogFetcher:
 
     # download rss feed from changelog forum and parse entries
     def _fetch_forum_changelogs(self, update_existing=False):
-        print('Parsing Changelog RSS feed')
+        if self.VERBOSE:
+            print('Parsing Changelog RSS feed')
         # fetches 20 most recent entries
         feed = feedparser.parse(self.RSS_URL)
         skip_num = 0
@@ -52,17 +54,19 @@ class ChangelogFetcher:
             except Exception:
                 print(f'Issue with parsing RSS feed item {entry.link}')
             self.changelogs_by_date[date] = full_text
-        if skip_num > 0:
+        if skip_num > 0 and self.VERBOSE:
             print(f'Skipped {skip_num} RSS items that already exists')
 
     def _process_local_changelogs(self, changelog_path):
-        print('Parsing Changelog txt files')
+        if self.VERBOSE:
+            print('Parsing Changelog txt files')
         # Make sure path exists
         if not os.path.isdir(changelog_path):
             print(f'Issue opening changelog dir `{changelog_path}`')
             return
         files = [f for f in listdir(changelog_path) if isfile(join(changelog_path, f))]
-        print(f'Found {str(len(files))} changelog entries in `{changelog_path}`')
+        if self.VERBOSE:
+            print(f'Found {str(len(files))} changelog entries in `{changelog_path}`')
         for file in files:
             date = file.replace('.txt', '')
             try:
