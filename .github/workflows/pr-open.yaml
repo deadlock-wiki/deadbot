@@ -31,7 +31,10 @@ jobs:
         run: |
           git switch -c ${{ github.head_ref }}
           git push --set-upstream origin ${{ github.head_ref }}
-          
+      
+      - name: Install GH CLI
+        run: sudo apt install gh
+        
       # Creates a PR to enable viewing the outcome of the deadbot changes
       - name: Create PR on deadlock-data repo
         id: create_data_pr
