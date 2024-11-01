@@ -15,10 +15,10 @@
     },
     "DamageFlash": {
         "FlashType_BulletDamage": {
-            "m_flDuration": 0.25,
-            "m_flCoverage": 0.5,
-            "m_flHardness": 0.7,
-            "m_flBrightness": 1.2,
+            "Duration": 0.25,
+            "Coverage": 0.5,
+            "Hardness": 0.7,
+            "Brightness": 1.2,
             "Color": [
                 255,
                 0,
@@ -26,10 +26,10 @@
             ]
         },
         "FlashType_TechDamage": {
-            "m_flDuration": 0.25,
-            "m_flCoverage": 0.5,
-            "m_flHardness": 0.5,
-            "m_flBrightness": 1.5,
+            "Duration": 0.25,
+            "Coverage": 0.5,
+            "Hardness": 0.5,
+            "Brightness": 1.5,
             "Color": [
                 35,
                 17,
@@ -37,22 +37,22 @@
             ]
         },
         "FlashType_Healing": {
-            "m_flDuration": 1.0,
-            "m_flCoverage": 0.5,
-            "m_flHardness": 0.0,
-            "m_flBrightness": 1.2,
+            "Duration": 1.0,
+            "Coverage": 0.5,
+            "Hardness": 0.0,
+            "Brightness": 1.2,
             "Color": [
                 0,
                 195,
                 45
             ],
-            "m_flBrightnessInLightSensitivityMode": 0.6
+            "BrightnessInLightSensitivityMode": 0.6
         },
         "FlashType_CritDamage": {
-            "m_flDuration": 0.33,
-            "m_flCoverage": 0.6,
-            "m_flHardness": 0.9,
-            "m_flBrightness": 1.7,
+            "Duration": 0.33,
+            "Coverage": 0.6,
+            "Hardness": 0.9,
+            "Brightness": 1.7,
             "Color": [
                 255,
                 255,
@@ -60,15 +60,15 @@
             ]
         },
         "FlashType_MeleeActivate": {
-            "m_flDuration": 0.275,
-            "m_flCoverage": 0.5,
+            "Duration": 0.275,
+            "Coverage": 0.5,
             "Color": [
                 254,
                 101,
                 40
             ],
-            "m_flBrightness": 3.0,
-            "m_flHardness": 0.0
+            "Brightness": 3.0,
+            "Hardness": 0.0
         }
     },
     "DamageIndicatorParamSets": {
@@ -80,23 +80,23 @@
     "DamageIndicatorSounds": {},
     "DamageReceivedSounds": {},
     "DefaultDOF": {
-        "m_flDofNearBlurry": 0.0,
-        "m_flDofNearCrisp": 0.0,
-        "m_flDofFarBlurry": 0.0,
-        "m_flDofFarCrisp": 0.0
+        "DofNearBlurry": 0.0,
+        "DofNearCrisp": 0.0,
+        "DofFarBlurry": 0.0,
+        "DofFarCrisp": 0.0
     },
     "GlitchSettings": {
-        "m_flStrength": 1.0,
+        "Strength": 1.0,
         "QuantizeType": 2.0,
-        "m_flQuantizeScale": 0.5,
-        "m_flQuantizeStrength": 0.2,
-        "m_flFrameRate": 5.0,
-        "m_flSpeed": 10.0,
-        "m_flJumpStrength": 1.0,
-        "m_flDistortStrength": 1.25,
-        "m_flWhiteNoiseStrength": 3.0,
-        "m_flScanlineStrength": 1.5,
-        "m_flBreakupStrength": 0.0
+        "QuantizeScale": 0.5,
+        "QuantizeStrength": 0.2,
+        "FrameRate": 5.0,
+        "Speed": 10.0,
+        "JumpStrength": 1.0,
+        "DistortStrength": 1.25,
+        "WhiteNoiseStrength": 3.0,
+        "ScanlineStrength": 1.5,
+        "BreakupStrength": 0.0
     },
     "HealingReceivedSounds": {},
     "HeroTestingTargetDummyUpgrades": [
@@ -109,9 +109,9 @@
     ],
     "IdolParams": {
         "LoopingSequenceName": "golden_idol_idle",
-        "m_flIdolReturnLocationParticleScale": 2.0,
-        "m_flIdolDropHeight": 1800.0,
-        "m_flIdolDropDuration": 12.5
+        "IdolReturnLocationParticleScale": 2.0,
+        "IdolDropHeight": 1800.0,
+        "IdolDropDuration": 12.5
     },
     "ItemPricePerTier": [
         0,
@@ -297,10 +297,10 @@
         "PatronPhase1GoldOrbs": 0
     },
     "RejuvParams": {
-        "m_flRejuvinatorExpirationWarningTiming": 30,
-        "m_flRejuvinatorBuffDuration": 180,
-        "m_flRejuvinatorDropHeight": 752,
-        "m_flRejuvinatorDropDuration": 9,
+        "RejuvinatorExpirationWarningTiming": 30,
+        "RejuvinatorBuffDuration": 180,
+        "RejuvinatorDropHeight": 752,
+        "RejuvinatorDropDuration": 9,
         "TrooperHealthMult": [
             1.5,
             1.7,

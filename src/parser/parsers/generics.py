@@ -23,7 +23,7 @@ class GenericParser:
 
     def run(self):
         # Parse generic data
-        possible_prefixes = ['m_str', 'm_map', 'm_n', 'm_', 'fl', 'E', 'n']
+        possible_prefixes = ['m_str', 'm_map', 'm_n', 'm_fl', 'm_', 'fl', 'E', 'n']
         parsed_generics = remove_prefixes(self.generic_data, possible_prefixes)
         
         # Read existing generic data
