@@ -4,7 +4,7 @@ DeadBot is an Open Source automation tool for aggregating data from the raw game
 ## Guide
 All data can be found in the `output-data` directory, which includes json and csv formats
 
-### Google Sheets
+### Google Sheets 
 Some data has been processed and formatted for google sheets:\
 [Item Data](https://docs.google.com/spreadsheets/d/1p_uRmHc-XDJGBQeSbilOlMRboepZP5GMTsaFcFf--1c/edit?usp=sharing)
 
