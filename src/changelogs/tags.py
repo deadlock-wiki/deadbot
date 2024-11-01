@@ -1,5 +1,6 @@
 # Lists and maps regarding changelog tags
 
+
 class ChangelogTags:
     def __init__(self, default_tag):
         self.default_tag = default_tag
@@ -9,10 +10,10 @@ class ChangelogTags:
         # part of a longer string. Put them in self.tags_match_word instead.
         # See the example for tag_remap for reasoning on shorter/longer strings
         # Lowercase words are more likely to be a prefix/suffix of an uppercase word
-        # throwing a false positive match. Such as: 
+        # throwing a false positive match. Such as:
         # "Return Fire changed from...", "urn" would be incorrectly tagged
         # as such, it should only be matched if its a standalone word
-        self.tags_match_text = [
+        self.match_text = [
             'Trooper',
             'Guardian',
             'Walker',
@@ -33,12 +34,15 @@ class ChangelogTags:
             'Soul',
             'Rope',
             'Zipline',
+            'bounce pad',
+            'Bounce Pad',
+            'Bounce pad',
         ]
         # match by word
         # add tags here instead of tags_match_text
         # if they are a shorter string, or likely to be part of a longer string
         # or if the lower case also needs to be matched
-        self.tags_match_word = [
+        self.match_word = [
             'creep',
             'neutral',
             'creeps',
@@ -59,16 +63,11 @@ class ChangelogTags:
             'ropes',
             'zipline',
             'ziplines',
-            'bounce pad',
-            'Bounce Pad',
-            'Bounce pad',
-            'Bounce pads',
-            'Bounce Pads',
         ]
 
         # texts in this list are not converted to tags
         # useful when they are otherwise added due to being a heading
-        self.tags_to_ignore = ['Ranked Mode']
+        self.ignore_list = ['Ranked Mode']
 
         # remaps tags to a more general tag
         # ensure plural/longer forms are in the list before singular/shorter forms
@@ -77,7 +76,7 @@ class ChangelogTags:
         # i.e. 'Hero Gameplay' -> 'Hero' before 'Hero' -> 'Hero'
         # so that 'Hero Gameplay' -> '{{PageRef|Hero|alt_name=Hero Gameplay}}'
         # instead of '{{PageRef|Hero}} Gameplay'
-        self.tag_remap = {
+        self.remap = {
             'Hero Gameplay': 'Hero',
             'Hero Gamepla': 'Hero',
             'Heroes': 'Hero',
@@ -133,7 +132,7 @@ class ChangelogTags:
         # key = child
         # value = parents to assign
         # child, [parents] instead of parent, [children] for easier lookup
-        self.tag_parents = {
+        self.parents = {
             'Denizen': ['NPC', 'Creep'],
             'Creep': ['NPC'],
             'Trooper': ['NPC', 'Creep'],
@@ -150,4 +149,3 @@ class ChangelogTags:
             'Soul Orb': ['Souls'],
             'Urn': ['Souls'],
         }
-
