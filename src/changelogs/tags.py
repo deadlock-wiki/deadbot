@@ -15,6 +15,9 @@ class ChangelogTags:
         # as such, it should only be matched if its a standalone word
         self.match_text = [
             'Trooper',
+            'Base Guardian',
+            'Base guardian',
+            'base guardian'
             'Guardian',
             'Walker',
             'Patron',
@@ -122,6 +125,8 @@ class ChangelogTags:
             'Bounce Pads': 'Bounce Pad',
             'bounce pad': 'Bounce Pad',
             'Bounce pad': 'Bounce Pad',
+            'Base guardian': 'Base Guardian',
+            'base guardian': 'Base Guardian',
         }
 
         # Relations between a child and parent tag where
