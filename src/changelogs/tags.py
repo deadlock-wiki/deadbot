@@ -107,6 +107,7 @@ class ChangelogTags:
             'melees',
             'Idol',
             'idol',
+            'Pause',
         ]
 
         # texts in this list are not converted to tags
@@ -195,7 +196,10 @@ class ChangelogTags:
             'Light melee': 'Light Melee',
             'Heavy melee': 'Heavy Melee',
             'melee': 'Melee',
-            'melees': 'Melee'
+            'melees': 'Melee',
+            'pause': 'Pause',
+            'pauses': 'Pause',
+            'paused': 'Pause',
         }
 
         # Relations between a child and parent tag where
