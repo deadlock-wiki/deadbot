@@ -65,7 +65,7 @@ def act_changelog_parse(args):
     # create fetcher and parser
     chlog_fetcher.get_txt(os.path.join(args.inputdir, 'raw-changelogs'))
     # save combined changelogs to output
-    chlog_fetcher.changelogs_to_file(changelog_output)
+    chlog_fetcher.changelogs_to_file(args.inputdir, changelog_output)
 
     # Now that we gathered the changelogs, extract out data
     chlog_parser = parse_changelogs.ChangelogParser(args.output)

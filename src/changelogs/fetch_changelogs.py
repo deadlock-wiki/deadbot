@@ -29,9 +29,11 @@ class ChangelogFetcher:
     # see the referenced file for example formatting
 
     # Then they need to be added to
-    # /output-data/changelogs/changelogs.json following
+    # /input-data/changelogs.json following
     # the same naming convention and formatted the same
-    # as other changelogs, but with "forum_id": null
+    # as other changelogs, but with 
+    # "forum_id": null
+    # "link": null
 
     def __init__(self):
         self.changelog_lines: dict[str, ChangelogLine] = {}
@@ -47,7 +49,7 @@ class ChangelogFetcher:
         self._process_local_changelogs(changelog_path)
         return self.changelog_lines
 
-    def changelogs_to_file(self, output_dir):
+    def changelogs_to_file(self, input_dir, output_dir):
         # Write raw changelog lines to files
         for version, changelog in self.changelog_lines.items():
             raw_output_dir = os.path.join(output_dir, 'raw')
@@ -55,11 +57,11 @@ class ChangelogFetcher:
             with open(raw_output_dir + f'/{version}.txt', 'w', encoding='utf8') as f_out:
                 f_out.write(changelog)
 
-        # Write non-line data for the changelogs to 1 file
+        # Write configuration data (such as all the different version id's, forum link, and forum date) 
+        # for the changelogs to 1 file
 
-        # this file is not overwritten even when update_existing is True
-        # many entries were manually added due to only the first page on the site has rss feed
-        # herolab entries also need to be added manually as they are not on the forum at all
+        # changelogs.json is not overwritten even when update_existing is True
+        # many entries were initially manually added due to only the first page on the site having rss feed
 
         # Read existing changelogs.json content,
         changelogs_path = output_dir + '/changelogs.json'
@@ -67,6 +69,10 @@ class ChangelogFetcher:
 
         # add any keys that are not yet present or have differing values,
         existing_changelogs.update(self.changelogs)
+
+        # add ones from input-data's changelogs.json, which currently include hero lab changelogs
+        input_changelogs = json_utils.read(os.path.join(input_dir,'changelogs.json'))
+        existing_changelogs.update(input_changelogs)
 
         # Sort the keys by the date lexicographically
         # null dates will be at the end
