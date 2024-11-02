@@ -36,6 +36,7 @@
     {
         "Description": "* {{PageRef|Crate}}s now show the amount of {{PageRef|Souls|alt_name=souls}} they have in the tooltip",
         "Tags": [
+            "Breakable",
             "Crate",
             "Souls"
         ]
@@ -176,6 +177,7 @@
     {
         "Description": "* {{PageRef|Golden Statue}}s no longer drop {{PageRef|Powerup|alt_name=powerup}}s (time duration buffs). Instead they now drop small permanent bonuses. These stack and do not decay with time or death. Drop rates rebalanced.",
         "Tags": [
+            "Breakable",
             "Golden Statue",
             "Powerup"
         ]
@@ -259,9 +261,9 @@
         ]
     },
     {
-        "Description": "* Breakables initial spawn time increased from 2 min to 3 min",
+        "Description": "* {{PageRef|Breakable}}s initial spawn time increased from 2 min to 3 min",
         "Tags": [
-            "Other"
+            "Breakable"
         ]
     },
     {
@@ -279,8 +281,9 @@
         ]
     },
     {
-        "Description": "* Breakables {{PageRef|Souls|alt_name=souls}} base value reduced by 30%. Increases to +15% of current values over 30 minutes. (so -30% to +15% from start to 30 min)",
+        "Description": "* {{PageRef|Breakable}}s {{PageRef|Souls|alt_name=souls}} base value reduced by 30%. Increases to +15% of current values over 30 minutes. (so -30% to +15% from start to 30 min)",
         "Tags": [
+            "Breakable",
             "Souls"
         ]
     },
@@ -322,6 +325,7 @@
     {
         "Description": "* Added connection hallway between outer lane Shop and {{PageRef|Crate|alt_name=crate}} room",
         "Tags": [
+            "Breakable",
             "Crate"
         ]
     },
@@ -1038,12 +1042,13 @@
         ]
     },
     {
-        "Description": "* {{PageRef|Mo & Krill}}: {{PageRef|Burrow}} now destroys breakables in its path",
+        "Description": "* {{PageRef|Mo & Krill}}: {{PageRef|Burrow}} now destroys {{PageRef|Breakable|alt_name=breakable}}s in its path",
         "Tags": [
             "Mo & Krill",
             "Hero",
             "Burrow",
-            "Ability"
+            "Ability",
+            "Breakable"
         ]
     },
     {

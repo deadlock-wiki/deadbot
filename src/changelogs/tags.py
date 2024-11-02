@@ -46,6 +46,7 @@ class ChangelogTags:
             'Powerup',
             'PowerUp',
             'Crate',
+            'Breakable',
         ]
         # match by word
         # add tags here instead of tags_match_text
@@ -78,6 +79,8 @@ class ChangelogTags:
             'powerups',
             'crate',
             'crates',
+            'breakable',
+            'breakables',
         ]
 
         # texts in this list are not converted to tags
@@ -147,6 +150,9 @@ class ChangelogTags:
             "powerups": "Powerup",
             "crate": "Crate",
             'crates': 'Crate',
+            'breakable': 'Breakable',
+            'Breakables': 'Breakable',
+            'breakables': 'Breakable',
         }
 
         # Relations between a child and parent tag where
@@ -174,4 +180,6 @@ class ChangelogTags:
             'Ability': ['Hero'],
             'Soul Orb': ['Souls'],
             'Urn': ['Souls'],
+            'Crate': ['Breakable'],
+            'Golden Statue': ['Breakable'],
         }
