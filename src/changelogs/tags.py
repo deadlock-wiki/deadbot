@@ -144,6 +144,7 @@ class ChangelogTags:
             'Creep': ['NPC'],
             'Trooper': ['NPC', 'Creep'],
             'Guardian': ['Objective', 'NPC'],
+            'Base Guardian': ['Objective', 'NPC'],
             'Walker': ['Objective', 'NPC'],
             'Patron': ['Objective'],
             'Weakened Patron': ['Patron', 'Objective'],
