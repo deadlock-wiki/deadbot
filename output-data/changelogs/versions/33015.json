@@ -250,9 +250,11 @@
         ]
     },
     {
-        "Description": "* Fixed Guardian trying to shoot people unsuccessfully behind cover",
+        "Description": "* Fixed {{PageRef|Guardian}} trying to shoot people unsuccessfully behind cover",
         "Tags": [
-            "Other"
+            "Objective",
+            "NPC",
+            "Guardian"
         ]
     },
     {
@@ -603,11 +605,13 @@
         ]
     },
     {
-        "Description": "* {{PageRef|Trooper}} damage reduction from Guardians reduced from 35% to 28% (they die a little faster to Guardians now)",
+        "Description": "* {{PageRef|Trooper}} damage reduction from {{PageRef|Guardian}}s reduced from 35% to 28% (they die a little faster to {{PageRef|Guardian}}s now)",
         "Tags": [
             "NPC",
             "Creep",
-            "Trooper"
+            "Trooper",
+            "Objective",
+            "Guardian"
         ]
     },
     {
@@ -669,11 +673,13 @@
         ]
     },
     {
-        "Description": "* {{PageRef|Trooper}}s no longer give half bounty when base guardians are destroyed for that lane",
+        "Description": "* {{PageRef|Trooper}}s no longer give half bounty when {{PageRef|Base Guardian|alt_name=base guardian}}s are destroyed for that lane",
         "Tags": [
             "NPC",
             "Creep",
-            "Trooper"
+            "Trooper",
+            "Objective",
+            "Base Guardian"
         ]
     },
     {
@@ -695,9 +701,11 @@
         ]
     },
     {
-        "Description": "* Guardians now deal 10% more damage to players",
+        "Description": "* {{PageRef|Guardian}}s now deal 10% more damage to players",
         "Tags": [
-            "Other"
+            "Objective",
+            "NPC",
+            "Guardian"
         ]
     },
     {
@@ -2243,10 +2251,11 @@
         ]
     },
     {
-        "Description": "* Redesigned outer lane path (ziplines and trooper nodes) from {{PageRef|Walker}} to Guardian on {{PageRef|Amber}} Yellow and {{PageRef|Sapphire}} Purple",
+        "Description": "* Redesigned outer lane path (ziplines and trooper nodes) from {{PageRef|Walker}} to {{PageRef|Guardian}} on {{PageRef|Amber}} Yellow and {{PageRef|Sapphire}} Purple",
         "Tags": [
             "Objective",
             "NPC",
+            "Guardian",
             "Walker",
             "Sapphire",
             "Amber",

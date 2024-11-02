@@ -17,7 +17,7 @@ class ChangelogTags:
             'Trooper',
             'Base Guardian',
             'Base guardian',
-            'base guardian'
+            'base guardian',
             'Guardian',
             'Walker',
             'Patron',

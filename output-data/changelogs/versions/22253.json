@@ -281,6 +281,7 @@
             "Objective",
             "NPC",
             "Base Guardian",
+            "Guardian",
             "Zipline"
         ]
     },
@@ -289,7 +290,8 @@
         "Tags": [
             "Objective",
             "NPC",
-            "Base Guardian"
+            "Base Guardian",
+            "Guardian"
         ]
     },
     {
@@ -500,6 +502,7 @@
             "Objective",
             "NPC",
             "Base Guardian",
+            "Guardian",
             "Zipline"
         ]
     },
@@ -514,11 +517,12 @@
         ]
     },
     {
-        "Description": "* Moved a flex slot from \"Set of enemy {{PageRef|Base Guardian}}s\" to \"All Enemy Lane Guardians\"",
+        "Description": "* Moved a flex slot from \"Set of enemy {{PageRef|Base {{PageRef|Guardian}}}}s\" to \"All Enemy Lane {{PageRef|Guardian}}s\"",
         "Tags": [
             "Objective",
             "NPC",
-            "Base Guardian"
+            "Base Guardian",
+            "Guardian"
         ]
     },
     {
@@ -566,9 +570,11 @@
         ]
     },
     {
-        "Description": "* Guardians no longer give 1 AP",
+        "Description": "* {{PageRef|Guardian}}s no longer give 1 AP",
         "Tags": [
-            "Other"
+            "Objective",
+            "NPC",
+            "Guardian"
         ]
     },
     {
