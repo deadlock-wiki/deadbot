@@ -41,7 +41,8 @@ class ChangelogTags:
             'Bounce Pad',
             'Bounce pad',
             'Sapphire',
-            'Amber'
+            'Amber',
+            'Veil',
         ]
         # match by word
         # add tags here instead of tags_match_text
@@ -68,6 +69,8 @@ class ChangelogTags:
             'ropes',
             'zipline',
             'ziplines',
+            'veil',
+            'veils',
         ]
 
         # texts in this list are not converted to tags
@@ -129,6 +132,9 @@ class ChangelogTags:
             'Bounce pad': 'Bounce Pad',
             'Base guardian': 'Base Guardian',
             'base guardian': 'Base Guardian',
+            'veil': 'Cosmic Veil',
+            'veils': 'Cosmic Veil',
+            'Veil': 'Cosmic Veil',
         }
 
         # Relations between a child and parent tag where
