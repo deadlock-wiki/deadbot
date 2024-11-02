@@ -28,8 +28,14 @@ class SoulUnlockParser:
                 # Confirm that the soul unlocks is the same as the previous hero's soul unlocks
                 else:
                     if parsed_soul_unlocks != hero_soul_unlocks:
+                        if hero_key == 'hero_viper':
+                            # viper doesn't receive ability unlock at lvl1
+                            # as their 3 is pre-leveled
+                            # not big enough of a difference to other heroes
+                            # to warrant a complete restructure
+                            continue
                         raise ValueError(
-                            'Soul unlocks do not match between heroes'
+                            'Soul unlocks do not match between heroes '
                             + f'{hero_key_of_parsed_soul_unlocks} and {hero_key}.'
                             + ' May require a new data structure for the data '
                             + 'and [[Module:SoulUnlock]]'
