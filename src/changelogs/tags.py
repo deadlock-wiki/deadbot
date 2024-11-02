@@ -63,6 +63,11 @@ class ChangelogTags:
             'Melee',
             'Objective',
             'Vault',
+            'Flex Slot'
+            'flex slot',
+            'Flex slot',
+            'flex slots',
+            'Flex',
         ]
         # match by word
         # if they are a shorter string, or likely to be part of a longer string
@@ -205,6 +210,10 @@ class ChangelogTags:
             'paused': 'Pause',
             'vaults': 'Vault',
             'vault': 'Vault',
+            'flex slot': 'Flex Slot',
+            'Flex slot': 'Flex Slot',
+            'flex slots': 'Flex Slot',
+            'Flex': 'Flex Slot',
         }
 
         # Relations between a child and parent tag where
