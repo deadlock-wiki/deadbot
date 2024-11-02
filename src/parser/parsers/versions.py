@@ -150,11 +150,14 @@ class VersionParser:
             print(f'Saved {len(self.versions)} versions to {self.versions_path}')
 
     def _clear_work_dir(self):
-        # Clear the DepotDownloader directory
-        shutil.rmtree(os.path.join(self.depot_downloader_output, '.DepotDownloader'))
+        # Clear the DepotDownloader's work directory, but not output directory
 
-        if self.verbose:
-            print(f'Cleared {self.depot_downloader_output}')
+        work_dir = os.path.join(self.depot_downloader_output, '.DepotDownloader')
+        if os.path.exists(work_dir):
+            shutil.rmtree(work_dir)
+
+            if self.verbose:
+                print(f'Cleared {work_dir}')
 
     def run(self):
         self._load()
@@ -167,4 +170,4 @@ class VersionParser:
 
             self._save()
 
-            self._clear_work_dir()
+        self._clear_work_dir()
