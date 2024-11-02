@@ -59,6 +59,7 @@ class ChangelogTags:
             'light melee',
             'heavy melee',
             'Melee',
+            'Objective',
         ]
         # match by word
         # add tags here instead of tags_match_text
