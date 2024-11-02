@@ -62,7 +62,6 @@ class ChangelogTags:
             'Objective',
         ]
         # match by word
-        # add tags here instead of tags_match_text
         # if they are a shorter string, or likely to be part of a longer string
         # or if the lower case also needs to be matched
         # spaces are not allowed in this list, it will need to go in the above list
@@ -104,6 +103,8 @@ class ChangelogTags:
             'parried',
             'melee',
             'melees',
+            'Idol',
+            'idol',
         ]
 
         # texts in this list are not converted to tags
@@ -146,6 +147,7 @@ class ChangelogTags:
             'urns': 'Urn',
             'Urns': 'Urn',
             'urn': 'Urn',
+            'Idol': 'Urn',
             'orbs': 'Soul Orb',
             'Orbs': 'Soul Orb',
             'orb': 'Soul Orb',
