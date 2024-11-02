@@ -49,6 +49,7 @@ class ChangelogTags:
             'Breakable',
             'Sandbox',
             'Shop',
+            'Minimap',
         ]
         # match by word
         # add tags here instead of tags_match_text
@@ -60,7 +61,13 @@ class ChangelogTags:
             'creeps',
             'neutrals',
             'Rejuv',  # so it doesnt get caught by Rejuvenating Aura
+            'minimap',
+            'minimaps',
             'Map',
+            'soul urn',
+            'Soul Urn',
+            'Soul urn',
+            'soul urns',
             'urn',
             'Urn',
             'urns',
@@ -125,6 +132,10 @@ class ChangelogTags:
             'neutrals': 'Denizen',
             'neutral': 'Denizen',
             'Neutral': 'Denizen',
+            'soul urn': 'Urn',
+            'Soul Urn': 'Urn',
+            'Soul urn': 'Urn',
+            'soul urns': 'Urn',
             'urns': 'Urn',
             'Urns': 'Urn',
             'urn': 'Urn',
@@ -161,6 +172,9 @@ class ChangelogTags:
             'sandbox': 'Sandbox',
             'shops': 'Shop',
             'shop': 'Shop',
+            'minimap': 'Map',
+            'minimaps': 'Map',
+            'Minimap': 'Map',
         }
 
         # Relations between a child and parent tag where
