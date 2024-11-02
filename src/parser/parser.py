@@ -144,12 +144,13 @@ class Parser:
         stripped_heroes = dict()
         # Remove irrelevant data from BoundAbilities in HeroData
         for hero_key, hero_value in parsed_heroes.items():
+            bound_abilities = hero_value['BoundAbilities']
             stripped_heroes[hero_key] = hero_value
             stripped_heroes[hero_key]['BoundAbilities'] = {}
-            for ability_key, ability_value in hero_value['BoundAbilities'].items():
-                stripped_heroes[hero_key]['BoundAbilities'][ability_key] = {
-                    'Name': ability_value['Name'],
-                    'Key': ability_value['Key'],
+            for ability_position, ability_data in bound_abilities.items():
+                stripped_heroes[hero_key]['BoundAbilities'][ability_position] = {
+                    'Name': ability_data['Name'],
+                    'Key': ability_data['Key'],
                 }
 
         json_utils.write(
