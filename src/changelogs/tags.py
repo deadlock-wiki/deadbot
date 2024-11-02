@@ -51,7 +51,14 @@ class ChangelogTags:
             'Sandbox',
             'Shop',
             'Minimap',
-            'Parry'
+            'Parry',
+            'Light Melee',
+            'Heavy Melee',
+            'Light melee',
+            'Heavy melee',
+            'light melee',
+            'heavy melee',
+            'Melee',
         ]
         # match by word
         # add tags here instead of tags_match_text
@@ -94,6 +101,8 @@ class ChangelogTags:
             'shops',
             'parry',
             'parried',
+            'melee',
+            'melees',
         ]
 
         # texts in this list are not converted to tags
@@ -174,6 +183,12 @@ class ChangelogTags:
             'Minimap': 'Map',
             'parry': 'Parry',
             'parried': 'Parry',
+            'light melee': 'Light Melee',
+            'heavy melee': 'Heavy Melee',
+            'Light melee': 'Light Melee',
+            'Heavy melee': 'Heavy Melee',
+            'melee': 'Melee',
+            'melees': 'Melee'
         }
 
         # Relations between a child and parent tag where
@@ -203,4 +218,6 @@ class ChangelogTags:
             'Urn': ['Souls'],
             'Crate': ['Breakable'],
             'Golden Statue': ['Breakable'],
+            'Light Melee': ['Melee'],
+            'Heavy Melee': ['Melee'],
         }

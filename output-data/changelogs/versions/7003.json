@@ -341,12 +341,14 @@
         "Tags": [
             "Melee Charge",
             "Item",
-            "Weapon Item"
+            "Weapon Item",
+            "Melee"
         ]
     },
     {
-        "Description": "+15% Melee Damage",
+        "Description": "+15% {{PageRef|Melee}} Damage",
         "Tags": [
+            "Melee",
             "Item"
         ]
     },
@@ -363,14 +365,18 @@
         ]
     },
     {
-        "Description": "Passive: Hitting an enemy with a heavy melee reloads your weapon",
+        "Description": "Passive: Hitting an enemy with a {{PageRef|Heavy Melee|alt_name=heavy melee}} reloads your weapon",
         "Tags": [
+            "Melee",
+            "Heavy Melee",
             "Item"
         ]
     },
     {
-        "Description": "Passive: Increases your heavy melee charge distance by 40%",
+        "Description": "Passive: Increases your {{PageRef|Heavy Melee|alt_name=heavy melee}} charge distance by 40%",
         "Tags": [
+            "Melee",
+            "Heavy Melee",
             "Item"
         ]
     },
@@ -395,8 +401,9 @@
         ]
     },
     {
-        "Description": "+20% Melee Damage",
+        "Description": "+20% {{PageRef|Melee}} Damage",
         "Tags": [
+            "Melee",
             "Item"
         ]
     },
