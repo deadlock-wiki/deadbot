@@ -62,6 +62,7 @@ class ChangelogTags:
             'heavy melee',
             'Melee',
             'Objective',
+            'Vault',
         ]
         # match by word
         # if they are a shorter string, or likely to be part of a longer string
@@ -108,6 +109,8 @@ class ChangelogTags:
             'Idol',
             'idol',
             'Pause',
+            'vault',
+            'vaults',
         ]
 
         # texts in this list are not converted to tags
@@ -200,6 +203,8 @@ class ChangelogTags:
             'pause': 'Pause',
             'pauses': 'Pause',
             'paused': 'Pause',
+            'vaults': 'Vault',
+            'vault': 'Vault',
         }
 
         # Relations between a child and parent tag where
@@ -226,6 +231,7 @@ class ChangelogTags:
             'Spirit Item': ['Item'],
             'Ability': ['Hero'],
             'Soul Orb': ['Souls'],
+            'Vault': ['Souls'],
             'Urn': ['Souls'],
             'Crate': ['Breakable'],
             'Golden Statue': ['Breakable'],
