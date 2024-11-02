@@ -6,13 +6,13 @@ class ChangelogTags:
         self.default_tag = default_tag
         # Tags to register if they are found in the changelog line
         # match by text
-        # avoid putting lowercase tags here, as they are likely to be
-        # part of a longer string. Put them in self.tags_match_word instead.
-        # See the example for tag_remap for reasoning on shorter/longer strings
-        # Lowercase words are more likely to be a prefix/suffix of an uppercase word
+        # avoid putting tags that are lowercase/short/1 word here.
+        # Put them in match_word instead.
+        # Such tags are likely to be a prefix/suffix of another word
         # throwing a false positive match. Such as:
         # "Return Fire changed from...", "urn" would be incorrectly tagged
         # as such, it should only be matched if its a standalone word via match_word
+        # order also matters, see the example in self.remap
         self.match_text = [
             'Trooper',
             'Base Guardian',
@@ -35,6 +35,7 @@ class ChangelogTags:
             'Denizen',
             'Golden Statue',
             'Soul',
+            'Souls',
             'Rope',
             'Zipline',
             'bounce pad',
@@ -55,6 +56,7 @@ class ChangelogTags:
         # add tags here instead of tags_match_text
         # if they are a shorter string, or likely to be part of a longer string
         # or if the lower case also needs to be matched
+        # spaces are not allowed in this list, it will need to go in the above list
         self.match_word = [
             'creep',
             'neutral',
@@ -64,10 +66,6 @@ class ChangelogTags:
             'minimap',
             'minimaps',
             'Map',
-            'soul urn',
-            'Soul Urn',
-            'Soul urn',
-            'soul urns',
             'urn',
             'Urn',
             'urns',
@@ -132,10 +130,6 @@ class ChangelogTags:
             'neutrals': 'Denizen',
             'neutral': 'Denizen',
             'Neutral': 'Denizen',
-            'soul urn': 'Urn',
-            'Soul Urn': 'Urn',
-            'Soul urn': 'Urn',
-            'soul urns': 'Urn',
             'urns': 'Urn',
             'Urns': 'Urn',
             'urn': 'Urn',
