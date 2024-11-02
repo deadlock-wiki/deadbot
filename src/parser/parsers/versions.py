@@ -2,6 +2,7 @@ import subprocess
 import os
 import json
 import utils.json_utils as json_utils
+import shutil
 
 
 class VersionParser:
@@ -94,6 +95,7 @@ class VersionParser:
                 # Possible errors that cause exceptions include:
                 # RateLimiting by Steam and
                 # Manifest download being blocked by developers
+                # Manifests before August 10th, 2024 are not available as they are under NDA
                 # Skip the manifest and try the next one
 
             # Open steam inf
@@ -147,6 +149,13 @@ class VersionParser:
         if self.verbose:
             print(f'Saved {len(self.versions)} versions to {self.versions_path}')
 
+    def _clear_work_dir(self):
+        # Clear the DepotDownloader directory
+        shutil.rmtree(os.path.join(self.depot_downloader_output, '.DepotDownloader'))
+
+        if self.verbose:
+            print(f'Cleared {self.depot_downloader_output}')
+
     def run(self):
         self._load()
 
@@ -157,3 +166,5 @@ class VersionParser:
             self._update(parsed_versions)
 
             self._save()
+
+            self._clear_work_dir()
