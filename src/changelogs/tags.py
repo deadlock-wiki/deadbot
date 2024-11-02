@@ -51,6 +51,7 @@ class ChangelogTags:
             'Sandbox',
             'Shop',
             'Minimap',
+            'Parry'
         ]
         # match by word
         # add tags here instead of tags_match_text
@@ -91,6 +92,8 @@ class ChangelogTags:
             'sandbox',
             'shop',
             'shops',
+            'parry',
+            'parried',
         ]
 
         # texts in this list are not converted to tags
@@ -169,6 +172,8 @@ class ChangelogTags:
             'minimap': 'Map',
             'minimaps': 'Map',
             'Minimap': 'Map',
+            'parry': 'Parry',
+            'parried': 'Parry',
         }
 
         # Relations between a child and parent tag where
