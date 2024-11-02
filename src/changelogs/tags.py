@@ -43,6 +43,8 @@ class ChangelogTags:
             'Sapphire',
             'Amber',
             'Veil',
+            "Powerup",
+            'PowerUp',
         ]
         # match by word
         # add tags here instead of tags_match_text
@@ -71,6 +73,7 @@ class ChangelogTags:
             'ziplines',
             'veil',
             'veils',
+            'powerup',
         ]
 
         # texts in this list are not converted to tags
@@ -135,6 +138,8 @@ class ChangelogTags:
             'veil': 'Cosmic Veil',
             'veils': 'Cosmic Veil',
             'Veil': 'Cosmic Veil',
+            "powerup": "Powerup",
+            "PowerUp": "Powerup"
         }
 
         # Relations between a child and parent tag where
