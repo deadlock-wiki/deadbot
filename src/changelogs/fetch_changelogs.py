@@ -31,7 +31,7 @@ class ChangelogFetcher:
     # Then they need to be added to
     # /input-data/changelogs.json following
     # the same naming convention and formatted the same
-    # as other changelogs, but with 
+    # as other changelogs, but with
     # "forum_id": null
     # "link": null
 
@@ -57,11 +57,12 @@ class ChangelogFetcher:
             with open(raw_output_dir + f'/{version}.txt', 'w', encoding='utf8') as f_out:
                 f_out.write(changelog)
 
-        # Write configuration data (such as all the different version id's, forum link, and forum date) 
-        # for the changelogs to 1 file
+        # Write configuration data (such as all the different version id's, 
+        # forum link, and forum date) for the changelogs to 1 file
 
         # changelogs.json is not overwritten even when update_existing is True
-        # many entries were initially manually added due to only the first page on the site having rss feed
+        # many entries were initially manually added due to 
+        # only the first page on the site having rss feed
 
         # Read existing changelogs.json content,
         changelogs_path = output_dir + '/changelogs.json'
@@ -71,7 +72,7 @@ class ChangelogFetcher:
         existing_changelogs.update(self.changelogs)
 
         # add ones from input-data's changelogs.json, which currently include hero lab changelogs
-        input_changelogs = json_utils.read(os.path.join(input_dir,'changelogs.json'))
+        input_changelogs = json_utils.read(os.path.join(input_dir, 'changelogs.json'))
         existing_changelogs.update(input_changelogs)
 
         # Sort the keys by the date lexicographically
