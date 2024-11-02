@@ -2,6 +2,7 @@ import os
 import shutil
 from .parsers import abilities, ability_ui, items, heroes, localizations, attributes, souls
 from utils import json_utils
+import copy
 
 
 class Parser:
@@ -143,7 +144,7 @@ class Parser:
 
         stripped_heroes = dict()
         # Remove irrelevant data from BoundAbilities in HeroData
-        for hero_key, hero_value in parsed_heroes.items():
+        for hero_key, hero_value in copy.deepcopy(parsed_heroes).items():
             bound_abilities = hero_value['BoundAbilities']
             stripped_heroes[hero_key] = hero_value
             stripped_heroes[hero_key]['BoundAbilities'] = {}
