@@ -164,8 +164,7 @@ class HeroParser:
             # ignore any abilities without any parsed data
             if bound_ability_key not in self.parsed_abilities:
                 continue
-            if bound_ability_key in ['Key', 'Name']:
-                abilities[ability_position] = self.parsed_abilities[bound_ability_key]
+            abilities[ability_position] = self.parsed_abilities[bound_ability_key]
 
         mapped_abilities = self._map_attr_names(abilities, maps.get_bound_abilities)
 

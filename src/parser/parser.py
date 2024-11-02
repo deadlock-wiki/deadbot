@@ -141,8 +141,19 @@ class Parser:
             json_utils.sort_dict(parsed_meaningful_stats),
         )
 
+        stripped_heroes = dict()
+        # Remove irrelevant data from BoundAbilities in HeroData
+        for hero_key, hero_value in parsed_heroes.items():
+            stripped_heroes[hero_key] = hero_value
+            stripped_heroes[hero_key]['BoundAbilities'] = {}
+            for ability_key, ability_value in hero_value['BoundAbilities'].items():
+                stripped_heroes[hero_key]['BoundAbilities'][ability_key] = {
+                    'Name': ability_value['Name'],
+                    'Key': ability_value['Key'],
+                }
+
         json_utils.write(
-            self.OUTPUT_DIR + '/json/hero-data.json', json_utils.sort_dict(parsed_heroes)
+            self.OUTPUT_DIR + '/json/hero-data.json', json_utils.sort_dict(stripped_heroes)
         )
         return parsed_heroes
 
