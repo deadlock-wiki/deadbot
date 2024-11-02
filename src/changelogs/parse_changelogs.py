@@ -187,7 +187,7 @@ class ChangelogParser:
 
         if tag in self.tags.parents:
             for parent in self.tags.parents[tag]:
-                tags = self._register_tag(tags, parent)
+                tags = self._register_tag(tags, parent, is_group_tag=(not tag.startswith('HeroLab')))
 
         return tags
 
