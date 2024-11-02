@@ -9,11 +9,17 @@ from typing import TypedDict
 
 
 class Changelog(TypedDict):
+    """
+    Each record in changelogs.json
+    Key is "changelod_id", default to forum_id, differs for herolab changelogs
+    """
+    forum_id: str
     date: str
     link: str
 
 
 class ChangelogLine(TypedDict):
+    """Each changelog line in a <changelog_id>.json file"""
     Description: str
     Tags: list[str]
 
