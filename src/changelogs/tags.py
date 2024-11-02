@@ -6,13 +6,13 @@ class ChangelogTags:
         self.default_tag = default_tag
         # Tags to register if they are found in the changelog line
         # match by text
-        # never put lowercase tags here, as they are likely to be
+        # avoid putting lowercase tags here, as they are likely to be
         # part of a longer string. Put them in self.tags_match_word instead.
         # See the example for tag_remap for reasoning on shorter/longer strings
         # Lowercase words are more likely to be a prefix/suffix of an uppercase word
         # throwing a false positive match. Such as:
         # "Return Fire changed from...", "urn" would be incorrectly tagged
-        # as such, it should only be matched if its a standalone word
+        # as such, it should only be matched if its a standalone word via match_word
         self.match_text = [
             'Trooper',
             'Base Guardian',
@@ -40,6 +40,8 @@ class ChangelogTags:
             'bounce pad',
             'Bounce Pad',
             'Bounce pad',
+            'Sapphire',
+            'Amber'
         ]
         # match by word
         # add tags here instead of tags_match_text
