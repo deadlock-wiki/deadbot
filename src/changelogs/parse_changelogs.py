@@ -46,7 +46,7 @@ class ChangelogParser:
             # parse heading: if heading is found, update current heading
             if line.startswith('[ '):
                 current_heading = line[2:-2]
-                changelog_out.append({'Description': f'<h4>{current_heading}</h4>', 'Tags': []})
+                changelog_out.append({'Description': f'<h4>{current_heading}</h4>', 'Tags': [self.default_tag]})
                 continue
 
             # parse line:

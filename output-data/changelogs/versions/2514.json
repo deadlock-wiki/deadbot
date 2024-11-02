@@ -1,7 +1,9 @@
 [
     {
-        "Description": "<h4>General Changes</h4>",
-        "Tags": []
+        "Description": "<h4>{{PageRef|Other|alt_name=General Change}}s</h4>",
+        "Tags": [
+            "Other"
+        ]
     },
     {
         "Description": "* Bots will now replace a human player if the player has been disconnected for more than 30 seconds (hero will retreat home first and then after 30 seconds the bot takes over). After 4 minutes it will start using {{PageRef|Souls|alt_name=souls}} to buy items. During laning phase it will go to its assigned lane, afterwards it will aim to stick near where most allies are located. If the player rejoins the bot will leave. We will work on improving the bot behavior as we get feedback.",
