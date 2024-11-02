@@ -237,4 +237,9 @@ class ChangelogTags:
             'Golden Statue': ['Breakable'],
             'Light Melee': ['Melee'],
             'Heavy Melee': ['Melee'],
+            'HeroLab Calico': ['Calico'],
+            'HeroLab Fathom': ['Fathom'],
+            'HeroLab Holliday': ['Holliday'],
+            'HeroLab Magician': ['Magician'],
+            'HeroLab Viper': ['Viper'],
         }
