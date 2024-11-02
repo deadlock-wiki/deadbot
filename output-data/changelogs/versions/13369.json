@@ -23,9 +23,10 @@
         ]
     },
     {
-        "Description": "* Reworked the Hero Builds system. Browsing and editing builds now happens within the Shop UI (accessible via {{PageRef|Sandbox}} or during a normal game). You can create custom categories for items with unique names and descriptions that can be independently resized and positioned. The interface for browsing builds has also been improved, public builds will now be sorted by popularity (number of favorites). Old builds are incompatible with this system, so they won't be visible in this UI, but we'll have a console command we'll release soon that you can use to print out your older guides if you need them for reference.",
+        "Description": "* Reworked the Hero Builds system. Browsing and editing builds now happens within the {{PageRef|Shop}} UI (accessible via {{PageRef|Sandbox}} or during a normal game). You can create custom categories for items with unique names and descriptions that can be independently resized and positioned. The interface for browsing builds has also been improved, public builds will now be sorted by popularity (number of favorites). Old builds are incompatible with this system, so they won't be visible in this UI, but we'll have a console command we'll release soon that you can use to print out your older guides if you need them for reference.",
         "Tags": [
-            "Sandbox"
+            "Sandbox",
+            "Shop"
         ]
     },
     {
@@ -237,9 +238,9 @@
         ]
     },
     {
-        "Description": "* Fixed dead player minimap icons showing over enemy players who are below street level and over shop icons",
+        "Description": "* Fixed dead player minimap icons showing over enemy players who are below street level and over {{PageRef|Shop|alt_name=shop}} icons",
         "Tags": [
-            "Other"
+            "Shop"
         ]
     },
     {
@@ -372,9 +373,9 @@
         ]
     },
     {
-        "Description": "* Fixed shop close sounds playing whenever the player enters the radius of a closed shop",
+        "Description": "* Fixed {{PageRef|Shop|alt_name=shop}} close sounds playing whenever the player enters the radius of a closed {{PageRef|Shop|alt_name=shop}}",
         "Tags": [
-            "Other"
+            "Shop"
         ]
     },
     {
@@ -636,9 +637,9 @@
         ]
     },
     {
-        "Description": "* Moved delivery truck out from the street curb near the underground shop",
+        "Description": "* Moved delivery truck out from the street curb near the underground {{PageRef|Shop|alt_name=shop}}",
         "Tags": [
-            "Other"
+            "Shop"
         ]
     },
     {
@@ -664,13 +665,14 @@
         ]
     },
     {
-        "Description": "* Moved barrel cover barrier to block the {{PageRef|Guardian}} shop opening on {{PageRef|Amber}} Purple and {{PageRef|Sapphire}} Yellow",
+        "Description": "* Moved barrel cover barrier to block the {{PageRef|Guardian}} {{PageRef|Shop|alt_name=shop}} opening on {{PageRef|Amber}} Purple and {{PageRef|Sapphire}} Yellow",
         "Tags": [
             "Objective",
             "NPC",
             "Guardian",
             "Sapphire",
-            "Amber"
+            "Amber",
+            "Shop"
         ]
     },
     {

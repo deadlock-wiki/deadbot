@@ -48,6 +48,7 @@ class ChangelogTags:
             'Crate',
             'Breakable',
             'Sandbox',
+            'Shop',
         ]
         # match by word
         # add tags here instead of tags_match_text
@@ -83,6 +84,8 @@ class ChangelogTags:
             'breakable',
             'breakables',
             'sandbox',
+            'shop',
+            'shops',
         ]
 
         # texts in this list are not converted to tags
@@ -156,6 +159,8 @@ class ChangelogTags:
             'Breakables': 'Breakable',
             'breakables': 'Breakable',
             'sandbox': 'Sandbox',
+            'shops': 'Shop',
+            'shop': 'Shop',
         }
 
         # Relations between a child and parent tag where
