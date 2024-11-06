@@ -29,7 +29,8 @@ jobs:
       - name: Create working branch on deadlock-data repo
         working-directory: deadlock-data 
         run: |
-          git switch -c ${{ github.head_ref }}
+          git switch -c ${{ github.head_ref }} || true
+          git push --set-upstream origin ${{ github.head_ref }}
           git pull origin ${{ github.head_ref }}
           git commit --allow-empty -m "chore: empty commit to enable PR creation"
           git push --set-upstream origin ${{ github.head_ref }}
