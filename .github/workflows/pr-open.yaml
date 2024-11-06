@@ -30,11 +30,20 @@ jobs:
       - name: Create working branch on deadlock-data repo
         working-directory: deadlock-data 
         run: |
-          git switch -c ${{ github.head_ref }} || true
-          git pull origin ${{ github.head_ref }} -X ours  
+          git fetch origin
+          
+          if git ls-remote --exit-code --heads origin ${{ github.head_ref }}; then
+            # branch exists, update local branch
+            git switch ${{ github.head_ref }}
+            git pull origin ${{ github.head_ref }} -X ours
+          else
+            # create new local branch
+            git checkout -b ${{ github.head_ref }} origin/${{ github.event.pull_request.base.ref }}
+          fi
+
           git commit --allow-empty -m "chore: empty commit to enable PR creation"
           git push --force-with-lease --set-upstream origin ${{ github.head_ref }}
-            
+      
       # Creates a PR to enable viewing the outcome of the deadbot changes
       - name: Create PR on deadlock-data repo
         id: create_data_pr
