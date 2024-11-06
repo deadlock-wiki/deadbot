@@ -30,6 +30,8 @@ jobs:
       - name: Create working branch on deadlock-data repo
         working-directory: deadlock-data 
         run: |
+          git fetch origin
+          
           if git ls-remote --exit-code --heads origin ${{ github.head_ref }}; then
             # branch exists, update local branch
             git switch ${{ github.head_ref }}
