@@ -103,5 +103,5 @@ jobs:
         run: |
           git add -A
           git commit -m "Re-parsed game files" || echo "No changes to commit"
-          git push origin ${{ needs.get-branch.outputs.branch }}
+          git push --force-with-lease origin ${{ needs.get-branch.outputs.branch }}
           
