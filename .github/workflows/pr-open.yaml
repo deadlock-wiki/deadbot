@@ -30,8 +30,7 @@ jobs:
         working-directory: deadlock-data 
         run: |
           git switch -c ${{ github.head_ref }} || true
-          git fetch origin ${{ github.head_ref }}
-          git rebase origin/${{ github.head_ref }}
+          git pull origin ${{ github.head_ref }} -X ours  
           git commit --allow-empty -m "chore: empty commit to enable PR creation"
           git push --force-with-lease --set-upstream origin ${{ github.head_ref }}
             
