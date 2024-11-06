@@ -30,12 +30,11 @@ jobs:
         working-directory: deadlock-data 
         run: |
           git switch -c ${{ github.head_ref }} || true
-          git fetch
-          git push --set-upstream origin ${{ github.head_ref }}
-          git pull origin ${{ github.head_ref }}
+          git fetch origin ${{ github.head_ref }}
+          git rebase origin/${{ github.head_ref }}
           git commit --allow-empty -m "chore: empty commit to enable PR creation"
-          git push --set-upstream origin ${{ github.head_ref }}
-      
+          git push --force-with-lease --set-upstream origin ${{ github.head_ref }}
+            
       # Creates a PR to enable viewing the outcome of the deadbot changes
       - name: Create PR on deadlock-data repo
         id: create_data_pr
