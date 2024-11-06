@@ -299,12 +299,6 @@ class ChangelogParser:
         tag_tree_path = self.OUTPUT_CHANGELOGS + '/tag_tree.json'
         json_utils.write(tag_tree_path, new_tree)
 
-        # Reformat to a wikitext list
-        list_str = ""
-        list_str += self._tree_map_to_wikitext_list(new_tree, depth=1)
-        with open(self.OUTPUT_CHANGELOGS + '/tag_tree.txt', 'w', encoding='utf8') as f_out:
-            f_out.write(list_str)
-
 
     def _create_branch(self, tags_list):
         """
