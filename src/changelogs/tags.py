@@ -264,7 +264,7 @@ class ChangelogTags:
             'Ability': ['Hero'],
             'Soul Orb': ['Souls'],
             "Sinner's Sacrifice": ['Souls'],
-            'Urn': ['Souls'],
+            'Soul Urn': ['Souls'],
             'Crate': ['Breakable'],
             'Golden Statue': ['Breakable'],
             'Light Melee': ['Melee'],
