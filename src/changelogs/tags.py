@@ -250,7 +250,7 @@ class ChangelogTags:
         self.parents = {
             'Denizen': ['NPC', 'Creep'],
             'Creep': ['NPC'],
-            'Trooper': ['NPC', 'Creep'],
+            'Trooper': ['Creep'],
             'Guardian': ['Objective', 'NPC'],
             'Base Guardian': ['Objective', 'NPC'],
             'Walker': ['Objective', 'NPC'],
