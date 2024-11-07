@@ -4941,7 +4941,7 @@
                     }
                 ],
                 "WeaponDamageBonusDuration": 12,
-                "WeaponDamageBonusPerSec": 8
+                "WeaponDamageBonusPerSec": 7
             },
             "2": {
                 "AbilityCastDelay": 0.0,
@@ -4969,21 +4969,21 @@
             },
             "3": {
                 "AbilityCastDelay": 0.25,
-                "AbilityCooldown": 21.0,
+                "AbilityCooldown": 50.0,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
-                "DamagePctDeferred": 30,
+                "DamagePctDeferred": 22,
                 "DamagePctDeferredMaxRage": 15,
                 "DeferClearPct": 40,
-                "DeferredDamageDuration": 10,
+                "DeferredDamageDuration": 13,
                 "Key": "fathom_defer_damage",
-                "Name": "Bloodletting",
+                "Name": "Fathom Bloodletting",
                 "Upgrades": [
                     {
-                        "DeferredDamageDuration": 5
+                        "DamagePctDeferred": 8
                     },
                     {
-                        "AbilityCooldown": -4.75
+                        "AbilityCooldown": -25
                     },
                     {
                         "DeferClearPct": 25
@@ -5024,7 +5024,7 @@
                 "WallLatchSettleTime": 0.0
             }
         },
-        "BulletDamage": 4.5,
+        "BulletDamage": 4.0,
         "BulletGravityScale": 0.8,
         "BulletSpeed": 558.8,
         "BulletsPerBurst": 1,
@@ -5034,11 +5034,11 @@
         "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
-        "DPS": 70.0,
+        "DPS": 62.22222222222223,
         "FalloffBias": 0.5,
         "FalloffEndRange": 45.72,
         "FalloffEndScale": 0.1,
-        "FalloffStartRange": 17.999964,
+        "FalloffStartRange": 15.999993400000001,
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": true,
@@ -5046,10 +5046,10 @@
         "IsDisabled": false,
         "LevelScaling": {
             "BulletDamage": 0.573571,
-            "MaxHealth": 41.0,
+            "MaxHealth": 36.0,
             "LightMeleeDamage": 2.671429,
             "HeavyMeleeDamage": 4.91882165079365,
-            "DPS": 8.922215555555567,
+            "DPS": 8.922215555555553,
             "SustainedDPS": 4.992344428503117
         },
         "LightMeleeDamage": 63,
@@ -5072,7 +5072,7 @@
         "Stamina": 3,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
-        "SustainedDPS": 39.167862266857966,
+        "SustainedDPS": 34.815877570540415,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_slork_set_desc",

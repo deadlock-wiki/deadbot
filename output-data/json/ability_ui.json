@@ -10005,7 +10005,7 @@
                         {
                             "Key": "WeaponDamageBonusPerSec",
                             "Name": "Weapon Damage Gain Per Sec",
-                            "Value": 8,
+                            "Value": 7,
                             "Type": "bullet_damage"
                         },
                         {
@@ -10144,20 +10144,20 @@
         },
         "3": {
             "Key": "fathom_defer_damage",
-            "Name": "Bloodletting",
+            "Name": "Fathom Bloodletting",
             "Info1": {
                 "Main": {
                     "Props": [
                         {
                             "Key": "DamagePctDeferred",
                             "Name": "Incoming Damage Deferred",
-                            "Value": 30,
+                            "Value": 22,
                             "Type": "damage"
                         },
                         {
                             "Key": "DeferredDamageDuration",
                             "Name": "Deferred Damage Duration",
-                            "Value": 10,
+                            "Value": 13,
                             "Type": "duration"
                         }
                     ]
@@ -10181,10 +10181,10 @@
             },
             "Upgrades": [
                 {
-                    "DeferredDamageDuration": 5
+                    "DamagePctDeferred": 8
                 },
                 {
-                    "AbilityCooldown": -4.75
+                    "AbilityCooldown": -25
                 },
                 {
                     "DeferClearPct": 25
@@ -10216,7 +10216,7 @@
             },
             "AbilityCooldown": {
                 "Name": "Cooldown",
-                "Value": 21.0
+                "Value": 50.0
             }
         },
         "4": {

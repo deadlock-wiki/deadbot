@@ -3772,21 +3772,21 @@
     },
     "fathom_defer_damage": {
         "AbilityCastDelay": 0.25,
-        "AbilityCooldown": 21.0,
+        "AbilityCooldown": 50.0,
         "AbilityUnitTargetLimit": 1,
         "ChannelMoveSpeed": 50,
-        "DamagePctDeferred": 30,
+        "DamagePctDeferred": 22,
         "DamagePctDeferredMaxRage": 15,
         "DeferClearPct": 40,
-        "DeferredDamageDuration": 10,
+        "DeferredDamageDuration": 13,
         "Key": "fathom_defer_damage",
-        "Name": "Bloodletting",
+        "Name": "Fathom Bloodletting",
         "Upgrades": [
             {
-                "DeferredDamageDuration": 5
+                "DamagePctDeferred": 8
             },
             {
-                "AbilityCooldown": -4.75
+                "AbilityCooldown": -25
             },
             {
                 "DeferClearPct": 25
@@ -3850,7 +3850,7 @@
             }
         ],
         "WeaponDamageBonusDuration": 12,
-        "WeaponDamageBonusPerSec": 8
+        "WeaponDamageBonusPerSec": 7
     },
     "genericperson_ability_1": {
         "AbilityCastDelay": 1,
