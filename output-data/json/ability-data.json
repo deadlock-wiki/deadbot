@@ -1169,12 +1169,11 @@
     },
     "ability_nano_proximity_ritual": {
         "AbilityCastDelay": 0.2,
-        "AbilityCharges": 1,
         "AbilityCooldown": 30.0,
-        "AbilityCooldownBetweenCharge": 10,
-        "AbilityDuration": 120,
+        "AbilityDuration": 60,
         "AbilityUnitTargetLimit": 1,
         "ActiveRadius": 40,
+        "AttackRadius": 30,
         "CatActivateDuration": 2.0,
         "ChannelMoveSpeed": 50,
         "DPS": 40,
@@ -1198,7 +1197,7 @@
                 "MakeInvisible": 1
             },
             {
-                "AbilityCharges": 1,
+                "AbilityDuration": 30,
                 "DPS": 20
             },
             {
@@ -1643,6 +1642,29 @@
             }
         ]
     },
+    "ability_viper_debuffdagger": {
+        "AbilityCastDelay": 0.15,
+        "AbilityCooldown": 10,
+        "AbilityUnitTargetLimit": 1,
+        "ChannelMoveSpeed": 50,
+        "Damage": 50,
+        "Key": "ability_viper_debuffdagger",
+        "Name": "Screwjab Dagger",
+        "SlowDuration": 1,
+        "SlowPercent": 50,
+        "Upgrades": [
+            {
+                "AbilityCooldown": -4
+            },
+            {
+                "Damage": 50
+            },
+            {
+                "SlowDuration": "1s",
+                "StaminaReduction": 1
+            }
+        ]
+    },
     "ability_viper_hookdagger": {
         "AbilityCastDelay": 0.15,
         "AbilityCooldown": 10,
@@ -1678,13 +1700,13 @@
         "SlideScale": 10,
         "Upgrades": [
             {
-                "Stamina": 2
-            },
-            {
                 "SlideScale": 25
             },
             {
-                "SlideBulletEvasion": 50
+                "Stamina": 2
+            },
+            {
+                "SlideResist": 30
             }
         ]
     },
@@ -1701,7 +1723,7 @@
         "Name": "Petrify",
         "PetrifyDamageBreakThreshold": 200,
         "PetrifyDuration": 3,
-        "PreDetonateDuration": 0.6,
+        "PreDetonateDuration": 1,
         "Radius": 4,
         "Upgrades": [
             {
@@ -2406,7 +2428,7 @@
                 "AbilityCharges": 1
             },
             {
-                "DebuffDuration": 3.0
+                "DebuffDuration": 2.5
             }
         ]
     },
@@ -3367,7 +3389,8 @@
         "AbilityCooldown": 18.0,
         "AbilityDuration": 3.0,
         "AbilityUnitTargetLimit": 1,
-        "BonusDamagePctPerPlayerHit": 5,
+        "BonusDamagePctPerPlayerHit": 1,
+        "BonusDamagePctPerPlayerKilled": 5,
         "ChannelMoveSpeed": 50,
         "Damage": 120,
         "FuseTime": 3.0,
@@ -3749,21 +3772,21 @@
     },
     "fathom_defer_damage": {
         "AbilityCastDelay": 0.25,
-        "AbilityCooldown": 21.0,
+        "AbilityCooldown": 50.0,
         "AbilityUnitTargetLimit": 1,
         "ChannelMoveSpeed": 50,
-        "DamagePctDeferred": 30,
+        "DamagePctDeferred": 22,
         "DamagePctDeferredMaxRage": 15,
         "DeferClearPct": 40,
-        "DeferredDamageDuration": 10,
+        "DeferredDamageDuration": 13,
         "Key": "fathom_defer_damage",
-        "Name": "Bloodletting",
+        "Name": "Fathom Bloodletting",
         "Upgrades": [
             {
-                "DeferredDamageDuration": 5
+                "DamagePctDeferred": 8
             },
             {
-                "AbilityCooldown": -4.75
+                "AbilityCooldown": -25
             },
             {
                 "DeferClearPct": 25
@@ -3782,7 +3805,8 @@
         "InvisMoveSpeedMod": -99,
         "Key": "fathom_reefdweller_harpoon",
         "Name": "Reefdweller Harpoon",
-        "OutOfCombatRegen": 3,
+        "NotSeenByEnemiesRegen": 3,
+        "ReelSpeed": 1000,
         "RevealOnDamageDuration": 0.5,
         "RevealOnSpottedDuration": 3,
         "SpottedRadius": 999,
@@ -3795,9 +3819,12 @@
                 "AbilityCastRange": "5m"
             },
             {
-                "OutOfCombatRegen": 2
+                "NotSeenByEnemiesRegen": 2
             }
-        ]
+        ],
+        "WallLatchIdealDist": 5,
+        "WallLatchSettleDist": 40,
+        "WallLatchSettleTime": 0.0
     },
     "fathom_scalding_spray": {
         "AbilityCharges": 1,
@@ -3823,7 +3850,7 @@
             }
         ],
         "WeaponDamageBonusDuration": 12,
-        "WeaponDamageBonusPerSec": 8
+        "WeaponDamageBonusPerSec": 7
     },
     "genericperson_ability_1": {
         "AbilityCastDelay": 1,
@@ -3972,7 +3999,7 @@
         "HealthSteal": 90,
         "HeroStack": 3,
         "Key": "mirage_fire_beetles",
-        "LaunchWindowCooldown": 32,
+        "LaunchWindowCooldown": 40,
         "LaunchWindowDuration": 5,
         "MaxStacks": 1,
         "Name": "Fire Scarabs",
@@ -4188,65 +4215,6 @@
             },
             {
                 "AbilityCooldown": -7.5
-            }
-        ]
-    },
-    "slork_riptide": {
-        "AbilityCastDelay": 0.2,
-        "AbilityCooldown": 25.0,
-        "AbilityDuration": 3,
-        "AbilityUnitTargetLimit": 1,
-        "BurnDuration": 2,
-        "ChannelMoveSpeed": 50,
-        "ClimbHeight": 1,
-        "DPS": 24,
-        "DistanceAboveGround": 0.25,
-        "DropDownRate": 2,
-        "ImpactDamage": 32,
-        "Key": "slork_riptide",
-        "Name": "Riptide",
-        "OpenHeight": 2,
-        "Radius": 3.5,
-        "Speed": 600,
-        "TickRate": 0.5,
-        "TossSpeed": 650,
-        "Upgrades": [
-            {
-                "BurnDuration": 1
-            },
-            {
-                "AbilityCooldown": -7.5
-            },
-            {
-                "DPS": 24,
-                "ImpactDamage": 32
-            }
-        ]
-    },
-    "slork_scald": {
-        "AbilityCastDelay": 0.2,
-        "AbilityCooldown": 14.0,
-        "AbilityUnitTargetLimit": 1,
-        "BurnDuration": 4,
-        "ChannelMoveSpeed": 50,
-        "DPS": 16,
-        "ImpactDamage": 40,
-        "Key": "slork_scald",
-        "Name": "Scald",
-        "NumSegments": 3,
-        "SpreadDegrees": 8,
-        "TickRate": 1,
-        "Upgrades": [
-            {
-                "NumSegments": 4,
-                "SpreadDegrees": 16
-            },
-            {
-                "AbilityCooldown": -4.75
-            },
-            {
-                "DPS": 16,
-                "ImpactDamage": 32
             }
         ]
     },

@@ -425,7 +425,8 @@
                 "AbilityCooldown": 18.0,
                 "AbilityDuration": 3.0,
                 "AbilityUnitTargetLimit": 1,
-                "BonusDamagePctPerPlayerHit": 5,
+                "BonusDamagePctPerPlayerHit": 1,
+                "BonusDamagePctPerPlayerKilled": 5,
                 "ChannelMoveSpeed": 50,
                 "Damage": 120,
                 "FuseTime": 3.0,
@@ -961,7 +962,7 @@
                         "AbilityCharges": 1
                     },
                     {
-                        "DebuffDuration": 3.0
+                        "DebuffDuration": 2.5
                     }
                 ]
             },
@@ -3700,9 +3701,9 @@
         "CrouchSpeed": 4.75,
         "DPS": 85.71428571428572,
         "FalloffBias": 0.5,
-        "FalloffEndRange": 57.5056,
-        "FalloffEndScale": 1.0,
-        "FalloffStartRange": 57.5056,
+        "FalloffEndRange": 60.96,
+        "FalloffEndScale": 0.3,
+        "FalloffStartRange": 25.4,
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": true,
@@ -3826,7 +3827,7 @@
                 "HealthSteal": 90,
                 "HeroStack": 3,
                 "Key": "mirage_fire_beetles",
-                "LaunchWindowCooldown": 32,
+                "LaunchWindowCooldown": 40,
                 "LaunchWindowDuration": 5,
                 "MaxStacks": 1,
                 "Name": "Fire Scarabs",
@@ -3922,7 +3923,7 @@
         "IsRecommended": false,
         "LevelScaling": {
             "BulletDamage": 1.0,
-            "MaxHealth": 41.0,
+            "MaxHealth": 37.0,
             "LightMeleeDamage": 2.671429,
             "HeavyMeleeDamage": 4.91882165079365,
             "DPS": 2.857142857142861,
@@ -4053,12 +4054,11 @@
             },
             "3": {
                 "AbilityCastDelay": 0.2,
-                "AbilityCharges": 1,
                 "AbilityCooldown": 30.0,
-                "AbilityCooldownBetweenCharge": 10,
-                "AbilityDuration": 120,
+                "AbilityDuration": 60,
                 "AbilityUnitTargetLimit": 1,
                 "ActiveRadius": 40,
+                "AttackRadius": 30,
                 "CatActivateDuration": 2.0,
                 "ChannelMoveSpeed": 50,
                 "DPS": 40,
@@ -4082,7 +4082,7 @@
                         "MakeInvisible": 1
                     },
                     {
-                        "AbilityCharges": 1,
+                        "AbilityDuration": 30,
                         "DPS": 20
                     },
                     {
@@ -4133,7 +4133,7 @@
         "BulletsPerBurst": 1,
         "BulletsPerShot": 5,
         "BurstInterShotInterval": 0,
-        "ClipSize": 18,
+        "ClipSize": 16,
         "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
@@ -4154,7 +4154,7 @@
             "LightMeleeDamage": 2.671429,
             "HeavyMeleeDamage": 4.91882165079365,
             "DPS": 3.123224999999991,
-            "SustainedDPS": 1.5836070422535187
+            "SustainedDPS": 1.611987096774186
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_nano_lore",
@@ -4190,7 +4190,7 @@
         "ReloadMovespeed": 1.0,
         "ReloadSingle": false,
         "ReloadSpeed": 0,
-        "ReloadTime": 3.5,
+        "ReloadTime": 3.0,
         "Role": "hero_nano_role",
         "RoundsPerSecond": 5.0,
         "SpiritScaling": {},
@@ -4198,7 +4198,7 @@
         "Stamina": 3,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
-        "SustainedDPS": 38.02816901408451,
+        "SustainedDPS": 38.70967741935484,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_nano_set_desc",
@@ -4330,7 +4330,7 @@
                 ]
             }
         },
-        "BulletDamage": 30.25,
+        "BulletDamage": 27,
         "BulletGravityScale": 0.8,
         "BulletSpeed": 495.3,
         "BulletsPerBurst": 1,
@@ -4340,7 +4340,7 @@
         "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
-        "DPS": 54.99999999999999,
+        "DPS": 49.090909090909086,
         "FalloffBias": 0.5,
         "FalloffEndRange": 57.5056,
         "FalloffEndScale": 0.1,
@@ -4394,16 +4394,16 @@
         "Role": "hero_orion_role",
         "RoundsPerSecond": 1.8181818181818181,
         "SpiritScaling": {
-            "MaxMoveSpeed": 0.032,
+            "MaxMoveSpeed": 0.025,
             "BulletDamage": 0.12,
-            "DPS": 0.2181818181818258,
+            "DPS": 0.2181818181818187,
             "SustainedDPS": 0.17435897435897374
         },
         "SprintSpeed": 0,
         "Stamina": 4,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
-        "SustainedDPS": 43.95299145299145,
+        "SustainedDPS": 39.230769230769226,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_orion_set_desc",
@@ -4967,7 +4967,7 @@
                     }
                 ],
                 "WeaponDamageBonusDuration": 12,
-                "WeaponDamageBonusPerSec": 8
+                "WeaponDamageBonusPerSec": 7
             },
             "2": {
                 "AbilityCastDelay": 0.0,
@@ -4995,21 +4995,21 @@
             },
             "3": {
                 "AbilityCastDelay": 0.25,
-                "AbilityCooldown": 21.0,
+                "AbilityCooldown": 50.0,
                 "AbilityUnitTargetLimit": 1,
                 "ChannelMoveSpeed": 50,
-                "DamagePctDeferred": 30,
+                "DamagePctDeferred": 22,
                 "DamagePctDeferredMaxRage": 15,
                 "DeferClearPct": 40,
-                "DeferredDamageDuration": 10,
+                "DeferredDamageDuration": 13,
                 "Key": "fathom_defer_damage",
-                "Name": "Bloodletting",
+                "Name": "Fathom Bloodletting",
                 "Upgrades": [
                     {
-                        "DeferredDamageDuration": 5
+                        "DamagePctDeferred": 8
                     },
                     {
-                        "AbilityCooldown": -4.75
+                        "AbilityCooldown": -25
                     },
                     {
                         "DeferClearPct": 25
@@ -5028,7 +5028,8 @@
                 "InvisMoveSpeedMod": -99,
                 "Key": "fathom_reefdweller_harpoon",
                 "Name": "Reefdweller Harpoon",
-                "OutOfCombatRegen": 3,
+                "NotSeenByEnemiesRegen": 3,
+                "ReelSpeed": 1000,
                 "RevealOnDamageDuration": 0.5,
                 "RevealOnSpottedDuration": 3,
                 "SpottedRadius": 999,
@@ -5041,12 +5042,15 @@
                         "AbilityCastRange": "5m"
                     },
                     {
-                        "OutOfCombatRegen": 2
+                        "NotSeenByEnemiesRegen": 2
                     }
-                ]
+                ],
+                "WallLatchIdealDist": 5,
+                "WallLatchSettleDist": 40,
+                "WallLatchSettleTime": 0.0
             }
         },
-        "BulletDamage": 5.0,
+        "BulletDamage": 4.0,
         "BulletGravityScale": 0.8,
         "BulletSpeed": 558.8,
         "BulletsPerBurst": 1,
@@ -5056,11 +5060,11 @@
         "CritDamageBonusScale": 1.0,
         "CritDamageReceivedScale": 0.0,
         "CrouchSpeed": 4.75,
-        "DPS": 77.77777777777779,
+        "DPS": 62.22222222222223,
         "FalloffBias": 0.5,
         "FalloffEndRange": 45.72,
         "FalloffEndScale": 0.1,
-        "FalloffStartRange": 19.999959999999998,
+        "FalloffStartRange": 15.999993400000001,
         "FalloffStartScale": 1.0,
         "HeavyMeleeDamage": 116,
         "InDevelopment": true,
@@ -5069,11 +5073,11 @@
         "IsRecommended": false,
         "LevelScaling": {
             "BulletDamage": 0.573571,
-            "MaxHealth": 41.0,
+            "MaxHealth": 36.0,
             "LightMeleeDamage": 2.671429,
             "HeavyMeleeDamage": 4.91882165079365,
             "DPS": 8.922215555555553,
-            "SustainedDPS": 4.9923444285031096
+            "SustainedDPS": 4.992344428503117
         },
         "LightMeleeDamage": 63,
         "Lore": "hero_slork_lore",
@@ -5095,7 +5099,7 @@
         "Stamina": 3,
         "StaminaCooldown": 5.0,
         "StaminaRegenPerSecond": 0.2,
-        "SustainedDPS": 43.519846963175524,
+        "SustainedDPS": 34.815877570540415,
         "TechDuration": 0,
         "TechRange": 0,
         "WeaponDescription": "citadel_weapon_hero_slork_set_desc",
@@ -6187,27 +6191,23 @@
                 "AbilityCastDelay": 0.15,
                 "AbilityCooldown": 10,
                 "AbilityUnitTargetLimit": 1,
-                "CatchRadius": 3,
                 "ChannelMoveSpeed": 50,
-                "Key": "ability_viper_hookdagger",
-                "Name": "Hook Blade",
-                "OutgoingDamage": 50,
-                "OutgoingProjectileLifetime": 0.4,
-                "ReturnDamage": 90,
-                "ReturnRadius": 1,
-                "ReturnVelocity": 2300,
+                "Damage": 50,
+                "Key": "ability_viper_debuffdagger",
+                "Name": "Screwjab Dagger",
                 "SlowDuration": 1,
-                "SlowPercent": 35,
-                "SpreadAngle": 90,
-                "TickRate": 0.01,
+                "SlowPercent": 50,
                 "Upgrades": [
                     {
                         "AbilityCooldown": -4
                     },
                     {
-                        "SlowPercent": 35
+                        "Damage": 50
                     },
-                    {}
+                    {
+                        "SlowDuration": "1s",
+                        "StaminaReduction": 1
+                    }
                 ]
             },
             "2": {
@@ -6243,13 +6243,13 @@
                 "SlideScale": 10,
                 "Upgrades": [
                     {
-                        "Stamina": 2
-                    },
-                    {
                         "SlideScale": 25
                     },
                     {
-                        "SlideBulletEvasion": 50
+                        "Stamina": 2
+                    },
+                    {
+                        "SlideResist": 30
                     }
                 ]
             },
@@ -6266,7 +6266,7 @@
                 "Name": "Petrify",
                 "PetrifyDamageBreakThreshold": 200,
                 "PetrifyDuration": 3,
-                "PreDetonateDuration": 0.6,
+                "PreDetonateDuration": 1,
                 "Radius": 4,
                 "Upgrades": [
                     {
