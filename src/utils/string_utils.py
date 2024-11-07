@@ -34,6 +34,10 @@ def format_description(description, *data_sets):
     description = description.replace(
         '<span class="highlight">', '<span style="font-weight: bold;">'
     )
+
+    # replace tags like <%s>, <%s1> etc. with </span>
+    description = re.sub(r'<%s\d?>', '</span>', description)
+
     return _replace_variables(description, data)
 
 

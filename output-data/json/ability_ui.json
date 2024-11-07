@@ -2788,7 +2788,7 @@
                     "AbilityCharges": 1
                 },
                 {
-                    "DebuffDuration": 3.0,
+                    "DebuffDuration": 2.5,
                     "DescKey": "citadel_ability_chrono_time_wall_t3_desc"
                 }
             ],
@@ -4839,6 +4839,10 @@
                 },
                 "BonusDamagePctPerPlayerHit": {
                     "Name": null,
+                    "Value": 1
+                },
+                "BonusDamagePctPerPlayerKilled": {
+                    "Name": null,
                     "Value": 5
                 }
             },
@@ -5322,17 +5326,17 @@
                             "Value": 40,
                             "Type": "tech_damage",
                             "Scale": {
-                                "Value": 0.419328,
+                                "Value": 0.3,
                                 "Type": "spirit"
                             }
                         },
                         {
                             "Key": "StatueHealth",
-                            "Name": "Ava (Normalized)",
+                            "Name": "(Normalized)",
                             "Value": 300,
                             "Type": "health",
                             "Scale": {
-                                "Value": 3,
+                                "Value": 2,
                                 "Type": "spirit"
                             }
                         },
@@ -5349,6 +5353,11 @@
                     ]
                 },
                 "Alt": [
+                    {
+                        "Key": "AttackRadius",
+                        "Value": 30,
+                        "Type": "distance"
+                    },
                     {
                         "Key": "TargetLifesteal",
                         "Value": 30,
@@ -5374,7 +5383,7 @@
                     "DescKey": "ability_nano_proximity_ritual_t1_desc"
                 },
                 {
-                    "AbilityCharges": 1,
+                    "AbilityDuration": 30,
                     "DPS": 20,
                     "DescKey": "ability_nano_proximity_ritual_t2_desc"
                 },
@@ -5455,21 +5464,13 @@
                 "Name": "Cast Delay",
                 "Value": 0.2
             },
-            "AbilityCharges": {
-                "Name": "Charges",
-                "Value": 1
-            },
             "AbilityCooldown": {
                 "Name": "Cooldown",
                 "Value": 30.0
             },
-            "AbilityCooldownBetweenCharge": {
-                "Name": "Charge Delay",
-                "Value": 10
-            },
             "AbilityDuration": {
                 "Name": "Duration",
-                "Value": 120
+                "Value": 60
             }
         },
         "4": {
@@ -9730,7 +9731,7 @@
                     {
                         "Key": "LaunchWindowCooldown",
                         "Name": "Cooldown",
-                        "Value": 32,
+                        "Value": 40,
                         "Type": "cooldown"
                     },
                     {
@@ -10004,7 +10005,7 @@
                         {
                             "Key": "WeaponDamageBonusPerSec",
                             "Name": "Weapon Damage Gain Per Sec",
-                            "Value": 8,
+                            "Value": 7,
                             "Type": "bullet_damage"
                         },
                         {
@@ -10143,20 +10144,20 @@
         },
         "3": {
             "Key": "fathom_defer_damage",
-            "Name": "Bloodletting",
+            "Name": "Fathom Bloodletting",
             "Info1": {
                 "Main": {
                     "Props": [
                         {
                             "Key": "DamagePctDeferred",
                             "Name": "Incoming Damage Deferred",
-                            "Value": 30,
+                            "Value": 22,
                             "Type": "damage"
                         },
                         {
                             "Key": "DeferredDamageDuration",
                             "Name": "Deferred Damage Duration",
-                            "Value": 10,
+                            "Value": 13,
                             "Type": "duration"
                         }
                     ]
@@ -10180,10 +10181,10 @@
             },
             "Upgrades": [
                 {
-                    "DeferredDamageDuration": 5
+                    "DamagePctDeferred": 8
                 },
                 {
-                    "AbilityCooldown": -4.75
+                    "AbilityCooldown": -25
                 },
                 {
                     "DeferClearPct": 25
@@ -10215,7 +10216,7 @@
             },
             "AbilityCooldown": {
                 "Name": "Cooldown",
-                "Value": 21.0
+                "Value": 50.0
             }
         },
         "4": {
@@ -10237,7 +10238,7 @@
                 "Main": {
                     "Props": [
                         {
-                            "Key": "OutOfCombatRegen",
+                            "Key": "NotSeenByEnemiesRegen",
                             "Name": "Max Health Regen",
                             "Value": 3,
                             "Type": "healing"
@@ -10255,7 +10256,7 @@
                     "AbilityCastRange": "5m"
                 },
                 {
-                    "OutOfCombatRegen": 2
+                    "NotSeenByEnemiesRegen": 2
                 }
             ],
             "Range": {
@@ -10293,6 +10294,10 @@
                     "Name": "Invis Sprint Speed",
                     "Value": -99
                 },
+                "ReelSpeed": {
+                    "Name": null,
+                    "Value": 1000
+                },
                 "RevealOnDamageDuration": {
                     "Name": null,
                     "Value": 0.5
@@ -10304,6 +10309,18 @@
                 "TickRate": {
                     "Name": null,
                     "Value": 0.25
+                },
+                "WallLatchIdealDist": {
+                    "Name": null,
+                    "Value": 5
+                },
+                "WallLatchSettleDist": {
+                    "Name": null,
+                    "Value": 40
+                },
+                "WallLatchSettleTime": {
+                    "Name": null,
+                    "Value": 0.0
                 }
             },
             "AbilityCastDelay": {
@@ -10323,68 +10340,49 @@
     "hero_viper": {
         "Name": "Viper",
         "1": {
-            "Key": "ability_viper_hookdagger",
-            "Name": "Hook Blade",
-            "DescKey": "ability_viper_hookdagger_desc",
+            "Key": "ability_viper_debuffdagger",
+            "Name": "Screwjab Dagger",
+            "DescKey": "ability_viper_debuffdagger_desc",
             "Info1": {
                 "Main": {
                     "Props": [
                         {
-                            "Key": "OutgoingDamage",
-                            "Name": "Initial Damage",
+                            "Key": "Damage",
+                            "Name": "Damage",
                             "Value": 50,
                             "Type": "tech_damage",
                             "Scale": {
-                                "Value": 0.3,
+                                "Value": 0.8,
                                 "Type": "spirit"
                             }
                         },
                         {
-                            "Key": "ReturnDamage",
-                            "Name": "Hook Damage",
-                            "Value": 90,
-                            "Type": "tech_damage",
-                            "Scale": {
-                                "Value": 0.7,
-                                "Type": "spirit"
-                            }
+                            "Key": "SlowPercent",
+                            "Name": "Movement Slow",
+                            "Value": 50
+                        },
+                        {
+                            "Key": "SlowDuration",
+                            "Name": "Slow Duration",
+                            "Value": 1,
+                            "Type": "duration"
                         }
                     ]
                 },
-                "Alt": [
-                    {
-                        "Key": "SlowDuration",
-                        "Name": "Slow Duration",
-                        "Value": 1
-                    },
-                    {
-                        "Key": "SlowPercent",
-                        "Name": "Movement Slow",
-                        "Value": 35,
-                        "Type": "slow"
-                    },
-                    {
-                        "Key": "OutgoingProjectileLifetime",
-                        "Name": "Hook Delay",
-                        "Value": 0.4,
-                        "Type": "duration",
-                        "Scale": {
-                            "Value": 1.0,
-                            "Type": "range"
-                        }
-                    }
-                ],
-                "DescKey": "ability_viper_hookdagger_desc"
+                "Alt": [],
+                "DescKey": "ability_viper_debuffdagger_desc"
             },
             "Upgrades": [
                 {
                     "AbilityCooldown": -4
                 },
                 {
-                    "SlowPercent": 35
+                    "Damage": 50
                 },
                 {
-                    "DescKey": "ability_viper_hookdagger_t3_desc"
+                    "SlowDuration": "1s",
+                    "StaminaReduction": 1,
+                    "DescKey": "ability_viper_debuffdagger_t3_desc"
                 }
             ],
             "Move": {
@@ -10398,26 +10396,6 @@
                 "AbilityUnitTargetLimit": {
                     "Name": null,
                     "Value": 1
-                },
-                "CatchRadius": {
-                    "Name": null,
-                    "Value": 3
-                },
-                "ReturnRadius": {
-                    "Name": null,
-                    "Value": 1
-                },
-                "ReturnVelocity": {
-                    "Name": null,
-                    "Value": 2300
-                },
-                "SpreadAngle": {
-                    "Name": null,
-                    "Value": 90
-                },
-                "TickRate": {
-                    "Name": null,
-                    "Value": 0.01
                 }
             },
             "AbilityCastDelay": {
@@ -10536,13 +10514,13 @@
             },
             "Upgrades": [
                 {
-                    "Stamina": 2
-                },
-                {
                     "SlideScale": 25
                 },
                 {
-                    "SlideBulletEvasion": 50,
+                    "Stamina": 2
+                },
+                {
+                    "SlideResist": 30,
                     "DescKey": "ability_viper_snakedash_t3_desc"
                 }
             ],
@@ -10568,6 +10546,16 @@
                 "Main": {
                     "Props": [
                         {
+                            "Key": "PetrifyDamageBreakThreshold",
+                            "Name": "Petrify Damage Block",
+                            "Value": 200,
+                            "Type": "health",
+                            "Scale": {
+                                "Value": 1.2,
+                                "Type": "spirit"
+                            }
+                        },
+                        {
                             "Key": "Damage",
                             "Name": "Damage",
                             "Value": 200,
@@ -10585,12 +10573,6 @@
                         "Name": "Petrify Duration",
                         "Value": 3,
                         "Type": "duration"
-                    },
-                    {
-                        "Key": "PetrifyDamageBreakThreshold",
-                        "Name": "Petrify Max Block",
-                        "Value": 200,
-                        "Type": "health"
                     }
                 ],
                 "DescKey": "ability_viper_ult_desc"
@@ -10628,7 +10610,7 @@
                 },
                 "PreDetonateDuration": {
                     "Name": null,
-                    "Value": 0.6
+                    "Value": 1
                 }
             },
             "AbilityCastDelay": {
