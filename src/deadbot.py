@@ -2,6 +2,8 @@
 import os
 import mwclient
 
+from dotenv import load_dotenv
+
 from utils import pages, csv_writer
 from decompiler import decompile
 import constants
@@ -9,8 +11,6 @@ from changelogs import parse_changelogs, fetch_changelogs
 from parser import parser
 from external_data.data_transfer import DataTransfer
 from utils.string_utils import is_truthy
-
-from dotenv import load_dotenv
 
 load_dotenv()
 
