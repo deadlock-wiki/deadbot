@@ -1,9 +1,15 @@
 {
     "Other": {},
     "Item": {
-        "Weapon Item": {},
-        "Vitality Item": {},
-        "Spirit Item": {}
+        "Weapon Item": {
+            "<Weapon Item Name>": {}
+        },
+        "Vitality Item": {
+            "<Vitality Item Name>": {}
+        },
+        "Spirit Item": {
+            "<Spirit Item Name>": {}
+        }
     },
     "Shop": {},
     "Souls": {
@@ -12,12 +18,13 @@
         "Soul Urn": {}
     },
     "Hero": {
-        "Ability": {},
-        "HeroLab Calico": {},
-        "HeroLab Fathom": {},
-        "HeroLab Holliday": {},
-        "HeroLab Magician": {},
-        "HeroLab Viper": {}
+        "Ability": {
+            "<Ability Name>": {}
+        },
+        "<Hero Name>": {},
+        "<HeroLab Hero Name>": {
+            "HeroLab <HeroLab Hero Name>": {}
+        }
     },
     "Powerup": {},
     "Breakable": {
@@ -53,10 +60,6 @@
     "Map": {},
     "Parry": {},
     "Rejuvenator": {},
-    "Creep": {
-        "Denizen": {},
-        "Trooper": {}
-    },
     "Cosmic Veil": {},
     "Melee": {
         "Light Melee": {},

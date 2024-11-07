@@ -1,6 +1,5 @@
 # Lists and maps regarding changelog tags
 
-
 class ChangelogTags:
     def __init__(self, default_tag):
         self.default_tag = default_tag
@@ -275,3 +274,102 @@ class ChangelogTags:
             'HeroLab Magician': ['Magician', 'Hero'],
             'HeroLab Viper': ['Viper', 'Hero'],
         }
+
+        self.tag_tree = {
+            "Other": {},
+            "Item": {
+                "Weapon Item": {},
+                "Vitality Item": {},
+                "Spirit Item": {}
+            },
+            "Shop": {},
+            "Souls": {
+                "Soul Orb": {},
+                "Sinner's Sacrifice": {},
+                "Soul Urn": {}
+            },
+            "Hero": {
+                "Ability": {},
+                "Calico": {
+                    "HeroLab Calico": {},
+                },
+                "Fathom": {
+                    "HeroLab Fathom": {},
+                },
+                "Holliday": {
+                    "HeroLab Holliday": {},
+                },
+                "Magician": {
+                    "HeroLab Magician": {},
+                },
+                "Viper": {
+                    "HeroLab Viper": {},
+                }
+            },
+            "Powerup": {},
+            "Breakable": {
+                "Crate": {},
+                "Golden Statue": {}
+            },
+            "Zipline": {},
+            "Objective": {
+                "Guardian": {},
+                "Base Guardian": {},
+                "Walker": {},
+                "Patron": {
+                    "Weakened Patron": {}
+                },
+                "Weakened Patron": {},
+                "Shrine": {}
+            },
+            "Patron": {
+                "Weakened Patron": {}
+            },
+            "NPC": {
+                "Denizen": {},
+                "Creep": {
+                    "Denizen": {},
+                    "Trooper": {}
+                },
+                "Trooper": {},
+                "Guardian": {},
+                "Base Guardian": {},
+                "Walker": {},
+                "Mid-Boss": {}
+            },
+            "Map": {},
+            "Parry": {},
+            "Rejuvenator": {},
+            "Cosmic Veil": {},
+            "Melee": {
+                "Light Melee": {},
+                "Heavy Melee": {}
+            },
+            "Sapphire Hand": {},
+            "Amber Hand": {},
+            "Sandbox": {},
+            "Pause": {},
+            "Bounce Pad": {},
+            "Rope": {},
+            "Flex Slot": {}
+        }
+
+        self.child_parents = {}
+        self._build_child_parents_map(parent=None, children=self.tag_tree)
+
+    def _build_child_parents_map(self, parent, children):
+        """
+        From the self.tag_tree dict, transform it into a 1-layer 
+        lookup table where the key is a child tag and the value is a list of its parent tags
+        """
+        
+        for child, grand_children in children.items():
+            if parent is not None:
+                if child not in self.child_parents:
+                    self.child_parents[child] = [parent]
+                else:
+                    self.child_parents[child].append(parent)
+                
+
+            self._build_child_parents_map(child, grand_children)
+

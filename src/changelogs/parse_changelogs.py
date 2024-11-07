@@ -30,10 +30,8 @@ class ChangelogParser:
         for version, changelog in dict_changelogs.items():
             self.run(version, changelog)
 
-        self._write_unique_tag_groups(self.unique_tag_groups)
-
-        self._create_tag_tree(self.unique_tag_groups)
-        
+        # Write tag tree to file
+        self._write_tag_tree(self.tags.tag_tree)
 
     # Parse a single changelog file
     def run(self, version, logs):
@@ -283,75 +281,29 @@ class ChangelogParser:
 
         return resources
     
-    def _create_tag_tree(self, tags_list):
-        """
-        Create a tag tree from the tag groups to file.
-        """
-        tag_tree = self._create_branch(tags_list)
+    def _write_tag_tree(self, tag_tree):
+        # Remove keys within hero if they have a Herolab value
+        new_hero_tree = {}
+        for hero, hero_values in tag_tree["Hero"].items():
+            not_herolab = True
+            for key in hero_values.keys():
+                if key.startswith("HeroLab"):
+                    not_herolab = False
+            if not_herolab:
+                new_hero_tree[hero] = hero_values
 
-        # Remove keys from 1st layer with no children if they are a child of another tag
-        new_tree = {}
-        for parent, children in tag_tree.items():
-            if (not children and parent in self.tags.parents):
-                continue
-            new_tree[parent] = children
+        tag_tree["Hero"] = new_hero_tree
 
-        tag_tree_path = self.OUTPUT_CHANGELOGS + '/tag_tree.json'
-        json_utils.write(tag_tree_path, new_tree)
-
-
-    def _create_branch(self, tags_list):
-        """
-        Recursively create a tag tree from the tag groups to file.
-
-        The tag tree is a dictionary where each key is a tag,
-        and the value is a hash of its children. Each child can have its own children.
-        """
-        """
-        Given tags_list:
-        [
-            'Objective',
-            'Guardian',
-            'Walker',
-        ]
-
-        and parents:
-        {
-            'Guardian': ['Objective'],
-            'Walker': ['Objective'],
-        }
-
-        The tag tree should look like:
-        {
-            'Objective': {
-                'Guardian': {},
-                'Walker': {},
-            }
-        }
-        """
-
-        tag_tree = {}
-
-        for tag in tags_list:
-            # Get the children of the tag
-            children = self._get_tag_children(tag)
-            tag_tree[tag] = {}
-            if children:
-                # Recursively create the children of the tag
-                tag_tree[tag] = self._create_branch(children)
-
-        return tag_tree
-
-    def _get_tag_children(self, tag):
-        """
-        Get the children of a tag.
-        """
-        children = []
-        for parent, children_list in self.tags.parents.items():
-            if tag in children_list:
-                children.append(parent)
-
-        return children
+        # Add <hero>, <ability>, <item> etc. to tag tree
+        # to show where non-group tags would appear
+        tag_tree["Hero"]["<Hero Name>"] = {}
+        tag_tree["Hero"]["<HeroLab Hero Name>"] = {"HeroLab <HeroLab Hero Name>": {}}
+        tag_tree["Hero"]["Ability"]["<Ability Name>"] = {}
+        tag_tree["Item"]["Weapon Item"]["<Weapon Item Name>"] = {}
+        tag_tree["Item"]["Vitality Item"]["<Vitality Item Name>"] = {}
+        tag_tree["Item"]["Spirit Item"]["<Spirit Item Name>"] = {}
+        
+        json_utils.write(self.OUTPUT_CHANGELOGS + '/tag_tree.json', tag_tree)
 
     # Given an ability key, return the first hero that has that ability
     def get_hero_from_ability(self, ability_key_to_search):
