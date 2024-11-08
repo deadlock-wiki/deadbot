@@ -1,6 +1,6 @@
 import os
 import shutil
-from .parsers import abilities, ability_ui, items, heroes, localizations, attributes, souls
+from .parsers import abilities, ability_cards, items, heroes, localizations, attributes, souls
 from utils import json_utils
 
 
@@ -99,7 +99,7 @@ class Parser:
         os.system(f'cp "{self.DATA_DIR}/version.txt" "{self.OUTPUT_DIR}/version.txt"')
         parsed_abilities = self._parse_abilities()
         parsed_heroes = self._parse_heroes(parsed_abilities)
-        self._parsed_ability_ui(parsed_heroes)
+        self._parsed_ability_cards(parsed_heroes)
         self._parse_items()
         self._parse_attributes()
         self._parse_localizations()
@@ -159,11 +159,11 @@ class Parser:
         )
         return parsed_abilities
 
-    def _parsed_ability_ui(self, parsed_heroes):
+    def _parsed_ability_cards(self, parsed_heroes):
         print('Parsing Ability UI...')
 
         for language in self.languages:
-            (parsed_ability_ui, changed_localizations) = ability_ui.AbilityUiParser(
+            (parsed_ability_cards, changed_localizations) = ability_cards.AbilityCardsParser(
                 self.data['scripts']['abilities'],
                 parsed_heroes,
                 language,
@@ -172,9 +172,9 @@ class Parser:
 
             self.localizations[language].update(changed_localizations)
 
-            # Only write to ability_ui.json for English
+            # Only write to ability_cards.json for English
             if language == 'english':
-                json_utils.write(self.OUTPUT_DIR + '/json/ability_ui.json', parsed_ability_ui)
+                json_utils.write(self.OUTPUT_DIR + '/json/ability-cards.json', parsed_ability_cards)
 
     def _parse_items(self):
         print('Parsing Items...')
