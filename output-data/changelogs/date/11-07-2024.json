@@ -1,0 +1,558 @@
+{
+    "Other": {
+        "General": []
+    },
+    "Heroes": {
+        "General": [],
+        "Trapper": [
+            "- Added {AbilityIcon|Ability=Trapper|Size=20} Trapper to Hero Labs"
+        ],
+        "McGinnis": [
+            "- Updated McGinnis {AbilityIcon|Ability=Barrage|Size=20} Barrage explosions to show the edge of the aoe better",
+            "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets DPS reduced from 60 to 40",
+            "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets health reduced from 20% max HP to 15%"
+        ],
+        "Grey Talon": [
+            "- Fixed Grey Talon getting assist credit while flying {AbilityIcon|Ability=Guided Owl|Size=20} Guided Owl",
+            "- Base bullet damage reduced from 27 to 24",
+            "- Bullet damage growth per boon increased from 1.41 to 1.62 (same total damage later on)",
+            "- Falloff range rescaled from 22m->58m to 18m->54m",
+            "- {AbilityIcon|Ability=Rain of Arrows|Size=20} Rain of Arrows strafe distance with stamina reduced by 30%",
+            "- {AbilityIcon|Ability=Charged Shot|Size=20} Charged Shot hitbox size reduced by 20%"
+        ],
+        "Viscous": [
+            "- New effects for {AbilityIcon|Ability=Viscous|Size=20} Viscous heavy melee",
+            "- {AbilityIcon|Ability=The Cube|Size=20} The Cube health regen now scales with spirit at 0.2",
+            "- {AbilityIcon|Ability=Goo Ball|Size=20} Goo Ball down dash ability moved from T3 to base ability",
+            "- {AbilityIcon|Ability=Goo Ball|Size=20} Goo Ball size now increases with range upgrades (doesn't affect collision with world)",
+            "- Fixed some hit detection issues with {AbilityIcon|Ability=Goo Ball|Size=20} Goo Ball"
+        ],
+        "Vindicta": [
+            "- Fixed some animation issues with {AbilityIcon|Ability=Vindicta|Size=20} Vindicta",
+            "- Added new zipline animation for {AbilityIcon|Ability=Vindicta|Size=20} Vindicta",
+            "- Base bullet damage reduced from 15 to 13",
+            "- Bullet damage growth per boon increased from 0.65 to 0.8 (same total damage later on)",
+            "- {AbilityIcon|Ability=Stake|Size=20} Stake duration increased from 1.75s to 2s",
+            "- {AbilityIcon|Ability=Flight|Size=20} Flight T2 reduced from +8s to +6s",
+            "- {AbilityIcon|Ability=Crow Familiar|Size=20} Crow Familiar tick rate changed from every 0.5s to every 1s",
+            "- {AbilityIcon|Ability=Assassinate|Size=20} Assassinate starts at 25% power instead of 50% power"
+        ],
+        "Mo & Krill": [
+            "- Improved animation readability for {AbilityIcon|Ability=Mo & Krill|Size=20} Mo & Krill heavy melee"
+        ],
+        "Seven": [
+            "- Reduced visual clutter on {AbilityIcon|Ability=Seven|Size=20} Seven's tracers with high fire rate"
+        ],
+        "Wraith": [
+            "- Reduced visual clutter on {AbilityIcon|Ability=Wraith|Size=20} Wraith's tracers with high fire rate",
+            "- {AbilityIcon|Ability=Telekinesis|Size=20} Telekinesis cast time increased from 0.6 to 0.7",
+            "- {AbilityIcon|Ability=Telekinesis|Size=20} Telekinesis damage reduced from 200 to 175"
+        ],
+        "Mirage": [
+            "- Added missing lean animation near walls for {AbilityIcon|Ability=Mirage|Size=20} Mirage",
+            "- Fixed interaction between Mirage's tornado and {AbilityIcon|Ability=Death Slam|Size=20} Death Slam",
+            "- Bullet size reduced from 6 to 5",
+            "- {AbilityIcon|Ability=Tornado|Size=20} Tornado speed reduced from 20m to 18m",
+            "- Torando Lift Duration reduced from 1.1s to 1s",
+            "- {AbilityIcon|Ability=Fire Scarabs|Size=20} Fire Scarabs T2 reduced from -15% Bullet Resist to -10%"
+        ],
+        "Yamato": [
+            "- New sounds added to Yamato’s {AbilityIcon|Ability=Power Slash|Size=20} Power Slash, Flying Strike, and Shadow Transformation abilities",
+            "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation now affects the grapple time speed",
+            "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation duration increased from 4s to 6s",
+            "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation no longer prevents death",
+            "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation now grants +60% Bullet and Spirit Resist",
+            "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation now heals for 30% hp (done after the dispel)",
+            "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation duration now extends by 2s whenever you get a kill in it (for that session)"
+        ],
+        "Lash": [
+            "- New sounds added to Lash’s {AbilityIcon|Ability=Ground Strike|Size=20} Ground Strike and Flog abilities",
+            "- {AbilityIcon|Ability=Ground Strike|Size=20} Ground Strike can now be cast while on the zipline",
+            "- Fixed interaction between Mirage's tornado and {AbilityIcon|Ability=Death Slam|Size=20} Death Slam",
+            "- Ground Strike now pulls enemies to the ground with you (similar to {AbilityIcon|Ability=Stone Form|Size=20} Stone Form recently)"
+        ],
+        "Abrams": [
+            "- Reverted Melee attack speed reduction",
+            "- {AbilityIcon|Ability=Shoulder Charge|Size=20} Shoulder Charge can now again use left/right strafe to slightly change direction",
+            "- {AbilityIcon|Ability=Shoulder Charge|Size=20} Shoulder Charge now carries momentum at the end of the charge",
+            "- {AbilityIcon|Ability=Siphon Life|Size=20} Siphon Life spirit scaling increased from 0.3 to 0.36",
+            "- {AbilityIcon|Ability=Infernal Resilience|Size=20} Infernal Resilience Damage Regen reduced from 15% to 14%",
+            "- {AbilityIcon|Ability=Infernal Resilience|Size=20} Infernal Resilience Damage Regen duration increased from 18s to 20s",
+            "- {AbilityIcon|Ability=Infernal Resilience|Size=20} Infernal Resilience T3 reduced from +8% to +7%",
+            "- Fixed an issue where Seismic impact would travel more downwards instead of the facing direction"
+        ],
+        "Bebop": [
+            "- {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb damage gained per hero impact increased from 1% to 1.5%",
+            "- {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb damage gained per hero kill reduced from 5% to 4%",
+            "- {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb T3 changed from Disarm to -30% Damage Penalty for 5s (similar to Inhibitor's debuff)",
+            "- {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb now calculates its damage at detonation time rather than cast time (affects item combinations)",
+            "- {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb now has 2x cast range when used on allies",
+            "- {AbilityIcon|Ability=Hook|Size=20} Hook damage reduced from 40 to 10",
+            "- {AbilityIcon|Ability=Hook|Size=20} Hook damage now has spirit scaling of 2x",
+            "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam now goes on cooldown for 3 seconds when canceled during precast"
+        ],
+        "Dynamo": [
+            "- Now gains 1% Bullet Resist per Boon (0->14%)",
+            "- Fixed {AbilityIcon|Ability=Quantum Entanglement|Size=20} Quantum Entanglement sometimes not moving you to the destination properly",
+            "- {AbilityIcon|Ability=Singularity|Size=20} Singularity now deals 1.5% Max HP in the base ability",
+            "- {AbilityIcon|Ability=Singularity|Size=20} Singularity T3 increased from 3.8% to 4%",
+            "- {AbilityIcon|Ability=Singularity|Size=20} Singularity Base DPS reduced from 60 to 45"
+        ],
+        "Haze": [
+            "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance no longer hits 2 targets",
+            "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance now grants +30% Fire Rate",
+            "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance now allows you to use items during it",
+            "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger T3 now also causes targets to wake up with -40% Fire Rate"
+        ],
+        "Infernus": [
+            "- {AbilityIcon|Ability=Catalyst|Size=20} Catalyst slow reduced from 40% to 35%",
+            "- {AbilityIcon|Ability=Afterburn|Size=20} Afterburn buildup per bullet/headshot reduced from 10%/16% to 9%/14%"
+        ],
+        "Ivy": [
+            "- {AbilityIcon|Ability=Watcher's Covenant|Size=20} Watcher's Covenant Fire Rate spirit scaling increased from 0.2 to 0.3",
+            "- {AbilityIcon|Ability=Watcher's Covenant|Size=20} Watcher's Covenant Bullet Lifesteal spirit scaling increased from 0.2 to 0.3"
+        ],
+        "Paradox": [
+            "- Bullet velocity increased from 411 to 525",
+            "- {AbilityIcon|Ability=Time Wall|Size=20} Time Wall no longer has charges",
+            "- {AbilityIcon|Ability=Time Wall|Size=20} Time Wall no longer deals 10% Max Health Damage",
+            "- {AbilityIcon|Ability=Time Wall|Size=20} Time Wall cooldown reduced from 37s to 25s",
+            "- {AbilityIcon|Ability=Time Wall|Size=20} Time Wall T2 is now Deals 10% Max Health Damage",
+            "- {AbilityIcon|Ability=Kinetic Carbine|Size=20} Kinetic Carbine Max Damage Amp increased from 85% to 100%",
+            "- {AbilityIcon|Ability=Paradoxical Swap|Size=20} Paradoxical Swap time to complete the swap reduced from 0.5-1.5 to 0.3-0.6 (variable based on distance)"
+        ],
+        "Pocket": [
+            "- {AbilityIcon|Ability=Barrage|Size=20} Barrage spirit scaling increased from 0.4 to 0.5",
+            "- Light melee damage increased from 63 to 75"
+        ],
+        "Warden": [
+            "- Now has +1 Sprint",
+            "- Bullet Velocity increased from 213 to 290",
+            "- {AbilityIcon|Ability=Last Stand|Size=20} Last Stand now goes on cooldown if you die or the ability is interrupted while cast",
+            "- {AbilityIcon|Ability=Last Stand|Size=20} Last Stand T3 no longer grants unstoppable during channel",
+            "- {AbilityIcon|Ability=Last Stand|Size=20} Last Stand now grants +50% Spirit Resist during channel"
+        ]
+    },
+    "Items": {
+        "General": [],
+        "Active Reload": [
+            "- {AbilityIcon|Ability=Active Reload|Size=20} Active Reload indicator UI slightly adjusted",
+            "- Now grants +50 Health"
+        ],
+        "Frenzy": [
+            "- Added \"Frenzied\" text when you own {AbilityIcon|Ability=Frenzy|Size=20} Frenzy and go below 50% health",
+            "- Low HP bullet resist increased from 45% to 55%"
+        ],
+        "Fortitude": [
+            "- Effects updates for {AbilityIcon|Ability=Fortitude|Size=20} Fortitude",
+            "- Health increased from 365 to 400"
+        ],
+        "Close Quarters": [
+            "- No longer grants +85 Bullet Shield Health",
+            "- Now grants +5% Bullet Resist"
+        ],
+        "Restorative Shot": [
+            "- No longer grants +7% Bullet Resist",
+            "- Now grants +90 Bullet Shield",
+            "- Now procs on orb shots for NPC heal value"
+        ],
+        "Melee Charge": [
+            "- No longer grants +1 HP Regen",
+            "- Weapon Damage reduced from 12% to 10%"
+        ],
+        "Long Range": [
+            "- Long range Weapon Damage reduced from 40% to 30%",
+            "- Now grants +10% Weapon Damage"
+        ],
+        "Berserker": [
+            "- Bullet Resist increased from 7% to 9%"
+        ],
+        "Slowing Bullets": [
+            "- Spirit Power increased from +5 to +6"
+        ],
+        "Sharpshooter": [
+            "- Long range Weapon Damage reduced from 70% to 50%",
+            "- Now grants +20% Weapon Damage"
+        ],
+        "Alchemical Fire": [
+            "- Now grants +1 Sprint"
+        ],
+        "Heroic Aura": [
+            "- Cooldown reduced from 32s to 25s"
+        ],
+        "Intensifying Magazine": [
+            "- Time to reach Max Damage reduced from 3s to 2.7s"
+        ],
+        "Toxic Bullets": [
+            "- Damage changed from 5% of Current Health to 2.5% of Max Health"
+        ],
+        "Shadow Weave": [
+            "- Detection range increased from 18m to 22m"
+        ],
+        "Glass Cannon": [
+            "- Health loss reduced from -15% to -12%"
+        ],
+        "Lucky Shot": [
+            "- Fixed it causing proc effects to roll twice whenever it procced"
+        ],
+        "Silencer": [
+            "- Now grants +12% Spirit Resist"
+        ],
+        "Vampiric Burst": [
+            "- Cooldown reduced from 34s to 30s"
+        ],
+        "Extra Health": [
+            "- Weapon Damage increased from 6% to 7%"
+        ],
+        "Healing Rite": [
+            "- Duration increased from 19s to 20s (total health restored unchanged)"
+        ],
+        "Bullet Armor": [
+            "- Bullet Resist increased from 25% to 26%"
+        ],
+        "Return Fire": [
+            "- Duration reduced from 7s to 6s"
+        ],
+        "Healing Nova": [
+            "- Now grants +6% Ability Range"
+        ],
+        "Fire Rate": [
+            "- {AbilityIcon|Ability=Combat Barrier|Size=20} Combat Barrier: Fire Rate increased from 6% to 7%",
+            "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance now grants +30% Fire Rate",
+            "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger T3 now also causes targets to wake up with -40% Fire Rate",
+            "- {AbilityIcon|Ability=Watcher's Covenant|Size=20} Watcher's Covenant Fire Rate spirit scaling increased from 0.2 to 0.3"
+        ],
+        "Combat Barrier": [
+            "- {AbilityIcon|Ability=Fire Rate|Size=20} Fire Rate increased from 6% to 7%"
+        ],
+        "Debuff Reducer": [
+            "- Health increased from +75 to +125"
+        ],
+        "Healbane": [
+            "- Healing reduction increased from -40% to -45%"
+        ],
+        "Reactive Barrier": [
+            "- Restores 1 stamina on proc"
+        ],
+        "Spirit Armor": [
+            "- Spirit Resist increased from 20% to 22%"
+        ],
+        "Divine Barrier": [
+            "- No longer grants +8% Ability Range",
+            "- Now grants +6 Spirit Power"
+        ],
+        "Restorative Locket": [
+            "- No longer grants +5 Spirit Power",
+            "- Now grants +25% Melee Resistance"
+        ],
+        "Metal Skin": [
+            "- No longer blocks melee damage"
+        ],
+        "Debuff Remover": [
+            "- Debuff Resistance increased from 35% to 40%",
+            "- Cooldown reduced from 48s to 45s"
+        ],
+        "Veil Walker": [
+            "- Ammo increased from 12% to 15%",
+            "- Weapon Damage increased from 10% to 15%"
+        ],
+        "Lifestrike": [
+            "- Bullet resistance increased from 8% to 10%"
+        ],
+        "Rebirth": [
+            "- {AbilityIcon|Ability=Soul Rebirth|Size=20} Soul Rebirth: Removed from the game"
+        ],
+        "Soul Rebirth": [
+            "- Removed from the game"
+        ],
+        "Inhibitor": [
+            "- Slow reduced from 25% to 20%",
+            "- {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb T3 changed from Disarm to -30% Damage Penalty for 5s (similar to Inhibitor's debuff)"
+        ],
+        "Siphon Bullets": [
+            "- Now grants +15% Weapon Damage"
+        ],
+        "Slowing Hex": [
+            "- {AbilityIcon|Ability=Phantom Strike|Size=20} Phantom Strike: Now grounds any flying targets on impact (similar to how Slowing Hex used to work)",
+            "- Now uses {AbilityIcon|Ability=Enduring Spirit|Size=20} Enduring Spirit as a component",
+            "- Now gains +10% {AbilityIcon|Ability=Spirit Lifesteal|Size=20} Spirit Lifesteal and +75 Bonus Health",
+            "- Spirit Power reduced from 5 to 4",
+            "- No longer grants +1 Sprint",
+            "- Damage reduced from 70 to 40"
+        ],
+        "Phantom Strike": [
+            "- Now grounds any flying targets on impact (similar to how {AbilityIcon|Ability=Slowing Hex|Size=20} Slowing Hex used to work)"
+        ],
+        "Ammo Scavenger": [
+            "- Duration increased from 35s to 45s"
+        ],
+        "Mystic Burst": [
+            "- Now triggers on your base damage, rather than how much the target receives"
+        ],
+        "Enduring Spirit": [
+            "- Now uses {AbilityIcon|Ability=Enduring Spirit|Size=20} Enduring Spirit as a component"
+        ],
+        "Spirit Lifesteal": [
+            "- Now gains +10% {AbilityIcon|Ability=Spirit Lifesteal|Size=20} Spirit Lifesteal and +75 Bonus Health"
+        ],
+        "Withering Whip": [
+            "- Bullet Resist reduction reduced from -14% to -11%",
+            "- Cooldown reduced from 22s to 18s",
+            "- Now deals 50 Spirit Damage"
+        ],
+        "Decay": [
+            "- Now grants +1.5 HP Regen",
+            "- Now grants +8% Ability Duration",
+            "- Healing reduction increased from -50% to -70%",
+            "- Bleed Damage reduced from 3.1% to 1%",
+            "- Cooldown reduced from 45s to 33s"
+        ],
+        "Improved Cooldown": [
+            "- Cooldown Reduction reduced from 16% to 14%",
+            "- Spirit Shield improved from 75 to 100",
+            "- Now grants +10% Ammo"
+        ],
+        "Superior Cooldown": [
+            "- Now grants +15% Ammo"
+        ],
+        "Improved Burst": [
+            "- Now triggers on your base damage, rather than how much the target receives",
+            "- Max HP damage reduced from 9% to 8%"
+        ],
+        "Magic Carpet": [
+            "- Now grants +10% Ability Range"
+        ],
+        "Bullet Lifesteal": [
+            "- {AbilityIcon|Ability=Watcher's Covenant|Size=20} Watcher's Covenant Bullet Lifesteal spirit scaling increased from 0.2 to 0.3"
+        ]
+    },
+    "Abilities": {
+        "General": [],
+        "Barrage": [
+            "- Updated McGinnis {AbilityIcon|Ability=Barrage|Size=20} Barrage explosions to show the edge of the aoe better",
+            "- {AbilityIcon|Ability=Barrage|Size=20} Barrage spirit scaling increased from 0.4 to 0.5"
+        ],
+        "Quantum Entanglement": [
+            "- Fixed some issues with {AbilityIcon|Ability=Quantum Entanglement|Size=20} Quantum Entanglement not moving units with it correctly when there is nearby geometry",
+            "- Fixed {AbilityIcon|Ability=Quantum Entanglement|Size=20} Quantum Entanglement sometimes not moving you to the destination properly"
+        ],
+        "Guided Owl": [
+            "- Fixed Grey Talon getting assist credit while flying {AbilityIcon|Ability=Guided Owl|Size=20} Guided Owl"
+        ],
+        "Sand Blast": [
+            "- {AbilityIcon|Ability=Sand Blast|Size=20} Sand Blast distance and aoe read improvements"
+        ],
+        "Flying Strike": [
+            "- New sounds added to Yamato’s {AbilityIcon|Ability=Power Slash|Size=20} Power Slash, Flying Strike, and Shadow Transformation abilities"
+        ],
+        "Shadow Transformation": [
+            "- New sounds added to Yamato’s {AbilityIcon|Ability=Power Slash|Size=20} Power Slash, Flying Strike, and Shadow Transformation abilities",
+            "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation now affects the grapple time speed",
+            "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation duration increased from 4s to 6s",
+            "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation no longer prevents death",
+            "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation now grants +60% Bullet and Spirit Resist",
+            "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation now heals for 30% hp (done after the dispel)",
+            "- {AbilityIcon|Ability=Shadow Transformation|Size=20} Shadow Transformation duration now extends by 2s whenever you get a kill in it (for that session)"
+        ],
+        "Power Slash": [
+            "- New sounds added to Yamato’s {AbilityIcon|Ability=Power Slash|Size=20} Power Slash, Flying Strike, and Shadow Transformation abilities"
+        ],
+        "Flog": [
+            "- New sounds added to Lash’s {AbilityIcon|Ability=Ground Strike|Size=20} Ground Strike and Flog abilities"
+        ],
+        "Ground Strike": [
+            "- New sounds added to Lash’s {AbilityIcon|Ability=Ground Strike|Size=20} Ground Strike and Flog abilities",
+            "- {AbilityIcon|Ability=Ground Strike|Size=20} Ground Strike can now be cast while on the zipline",
+            "- Ground Strike now pulls enemies to the ground with you (similar to {AbilityIcon|Ability=Stone Form|Size=20} Stone Form recently)"
+        ],
+        "Shoulder Charge": [
+            "- {AbilityIcon|Ability=Shoulder Charge|Size=20} Shoulder Charge can now again use left/right strafe to slightly change direction",
+            "- {AbilityIcon|Ability=Shoulder Charge|Size=20} Shoulder Charge now carries momentum at the end of the charge"
+        ],
+        "Siphon Life": [
+            "- {AbilityIcon|Ability=Siphon Life|Size=20} Siphon Life spirit scaling increased from 0.3 to 0.36"
+        ],
+        "Infernal Resilience": [
+            "- {AbilityIcon|Ability=Infernal Resilience|Size=20} Infernal Resilience Damage Regen reduced from 15% to 14%",
+            "- {AbilityIcon|Ability=Infernal Resilience|Size=20} Infernal Resilience Damage Regen duration increased from 18s to 20s",
+            "- {AbilityIcon|Ability=Infernal Resilience|Size=20} Infernal Resilience T3 reduced from +8% to +7%"
+        ],
+        "Sticky Bomb": [
+            "- {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb damage gained per hero impact increased from 1% to 1.5%",
+            "- {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb damage gained per hero kill reduced from 5% to 4%",
+            "- {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb T3 changed from Disarm to -30% Damage Penalty for 5s (similar to Inhibitor's debuff)",
+            "- {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb now calculates its damage at detonation time rather than cast time (affects item combinations)",
+            "- {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb now has 2x cast range when used on allies"
+        ],
+        "Hook": [
+            "- {AbilityIcon|Ability=Hook|Size=20} Hook damage reduced from 40 to 10",
+            "- {AbilityIcon|Ability=Hook|Size=20} Hook damage now has spirit scaling of 2x"
+        ],
+        "Hyper Beam": [
+            "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam now goes on cooldown for 3 seconds when canceled during precast"
+        ],
+        "Singularity": [
+            "- {AbilityIcon|Ability=Singularity|Size=20} Singularity now deals 1.5% Max HP in the base ability",
+            "- {AbilityIcon|Ability=Singularity|Size=20} Singularity T3 increased from 3.8% to 4%",
+            "- {AbilityIcon|Ability=Singularity|Size=20} Singularity Base DPS reduced from 60 to 45"
+        ],
+        "Rain of Arrows": [
+            "- {AbilityIcon|Ability=Rain of Arrows|Size=20} Rain of Arrows strafe distance with stamina reduced by 30%"
+        ],
+        "Charged Shot": [
+            "- {AbilityIcon|Ability=Charged Shot|Size=20} Charged Shot hitbox size reduced by 20%"
+        ],
+        "Bullet Dance": [
+            "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance no longer hits 2 targets",
+            "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance now grants +30% Fire Rate",
+            "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance now allows you to use items during it"
+        ],
+        "Sleep Dagger": [
+            "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger T3 now also causes targets to wake up with -40% Fire Rate"
+        ],
+        "Catalyst": [
+            "- {AbilityIcon|Ability=Catalyst|Size=20} Catalyst slow reduced from 40% to 35%"
+        ],
+        "Afterburn": [
+            "- {AbilityIcon|Ability=Afterburn|Size=20} Afterburn buildup per bullet/headshot reduced from 10%/16% to 9%/14%"
+        ],
+        "Watcher's Covenant": [
+            "- {AbilityIcon|Ability=Watcher's Covenant|Size=20} Watcher's Covenant Fire Rate spirit scaling increased from 0.2 to 0.3",
+            "- {AbilityIcon|Ability=Watcher's Covenant|Size=20} Watcher's Covenant Bullet Lifesteal spirit scaling increased from 0.2 to 0.3"
+        ],
+        "Death Slam": [
+            "- Fixed interaction between Mirage's tornado and {AbilityIcon|Ability=Death Slam|Size=20} Death Slam"
+        ],
+        "Stone Form": [
+            "- Ground Strike now pulls enemies to the ground with you (similar to {AbilityIcon|Ability=Stone Form|Size=20} Stone Form recently)"
+        ],
+        "Mini Turret": [
+            "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets DPS reduced from 60 to 40",
+            "- {AbilityIcon|Ability=Mini Turret|Size=20} Mini Turrets health reduced from 20% max HP to 15%"
+        ],
+        "Tornado": [
+            "- {AbilityIcon|Ability=Tornado|Size=20} Tornado speed reduced from 20m to 18m"
+        ],
+        "Fire Scarabs": [
+            "- {AbilityIcon|Ability=Fire Scarabs|Size=20} Fire Scarabs T2 reduced from -15% Bullet Resist to -10%"
+        ],
+        "Time Wall": [
+            "- {AbilityIcon|Ability=Time Wall|Size=20} Time Wall no longer has charges",
+            "- {AbilityIcon|Ability=Time Wall|Size=20} Time Wall no longer deals 10% Max Health Damage",
+            "- {AbilityIcon|Ability=Time Wall|Size=20} Time Wall cooldown reduced from 37s to 25s",
+            "- {AbilityIcon|Ability=Time Wall|Size=20} Time Wall T2 is now Deals 10% Max Health Damage"
+        ],
+        "Kinetic Carbine": [
+            "- {AbilityIcon|Ability=Kinetic Carbine|Size=20} Kinetic Carbine Max Damage Amp increased from 85% to 100%"
+        ],
+        "Paradoxical Swap": [
+            "- {AbilityIcon|Ability=Paradoxical Swap|Size=20} Paradoxical Swap time to complete the swap reduced from 0.5-1.5 to 0.3-0.6 (variable based on distance)"
+        ],
+        "Stake": [
+            "- {AbilityIcon|Ability=Stake|Size=20} Stake duration increased from 1.75s to 2s"
+        ],
+        "Flight": [
+            "- {AbilityIcon|Ability=Flight|Size=20} Flight T2 reduced from +8s to +6s"
+        ],
+        "Crow Familiar": [
+            "- {AbilityIcon|Ability=Crow Familiar|Size=20} Crow Familiar tick rate changed from every 0.5s to every 1s"
+        ],
+        "Assassinate": [
+            "- {AbilityIcon|Ability=Assassinate|Size=20} Assassinate starts at 25% power instead of 50% power"
+        ],
+        "The Cube": [
+            "- {AbilityIcon|Ability=The Cube|Size=20} The Cube health regen now scales with spirit at 0.2"
+        ],
+        "Goo Ball": [
+            "- {AbilityIcon|Ability=Goo Ball|Size=20} Goo Ball down dash ability moved from T3 to base ability",
+            "- {AbilityIcon|Ability=Goo Ball|Size=20} Goo Ball size now increases with range upgrades (doesn't affect collision with world)",
+            "- Fixed some hit detection issues with {AbilityIcon|Ability=Goo Ball|Size=20} Goo Ball"
+        ],
+        "Last Stand": [
+            "- {AbilityIcon|Ability=Last Stand|Size=20} Last Stand now goes on cooldown if you die or the ability is interrupted while cast",
+            "- {AbilityIcon|Ability=Last Stand|Size=20} Last Stand T3 no longer grants unstoppable during channel",
+            "- {AbilityIcon|Ability=Last Stand|Size=20} Last Stand now grants +50% Spirit Resist during channel"
+        ],
+        "Telekinesis": [
+            "- {AbilityIcon|Ability=Telekinesis|Size=20} Telekinesis cast time increased from 0.6 to 0.7",
+            "- {AbilityIcon|Ability=Telekinesis|Size=20} Telekinesis damage reduced from 200 to 175"
+        ]
+    },
+    "General Changes": {
+        "General": [
+            "- Added support for Hero Labs in Private Lobbies, Private Bot Games and Sandbox that can be used at any time",
+            "- Various adjustments to Experimental Heroes are listed in the in-game notes for Hero Labs",
+            "- Added Quickbuy - You can now right-click items in the shop to add them to your Quickbuy queue. When you return to the shop, you will automatically purchase the items you can afford in your set order. An indicator on the hud will light up when you can afford the next item on your list. In Settings you may change the purchase mode to use a hotkey while in range of the shop rather than auto-purchase.",
+            "- The shaders, map and various other resources will now pre-compile on the dashboard to improve loading times when getting into a match. This also reduces in-game hitching in some cases.",
+            "- Added a visual indicator when browsing builds that shows which item types are most present in the build (Weapon, Vitality, Spirit).",
+            "- Added a Recent Purchases log to the Shop that displays all items bought by players during a match, ordered by most recent",
+            "- Added support for the new Steam Game Recording Timeline API. This automatically adds timeline markers for kills, deaths, and team objectives.",
+            "- Added checkbox in settings to force the game to take focus when the game is unpaused",
+            "- You can now hover party members on the dashboard while in queue to view their roster",
+            "- Added a Social tab to the Settings dialog. This contains Streamer Mode, added support for Steam content filtering settings and a new setting to adjust incoming chat visibility.",
+            "- Hero Stats on the left side of the hud are now hidden by default, and can be viewed by holding ALT or TAB. When a stat is temporarily increased or decreased, it will show by default for the duration.",
+            "- Added hover tooltip descriptions to stats on the left side of the hud",
+            "- Bots will more aggressively attack the Shrines and Patron when pushing into the enemy base",
+            "- Fixed being able to briefly gain regen when crossing the Veil of the enemy fountain",
+            "- Fixed Commends for All Heroes not showing up correctly in player profiles",
+            "- Fixed the 'x' button in the shop search not clearing the search box",
+            "- Sinners Sacrifice now has a final damage state for clear read on final hit",
+            "- Fixed various bugs with Duplicate Hero not working properly in private lobbies",
+            "- Fixed Sinner's Sacrifice changing facing direction sometimes",
+            "- Fixed a rare bug where shields would never regenerate",
+            "- Fixed some cases where troopers could get stuck in the base",
+            "- Fixed using melee to secure orbs being a little unresponsive",
+            "- Added an ambient looping sound for each bridge powerup",
+            "- Looped music will resume playing if interrupted by a transient cue",
+            "- Various bug fixes for looping sound effects and ones that are sometimes stuck playing every frame for a period of time",
+            "- Fixed issues where health regen effect will begin popping on and off if player is at max health",
+            "- Renamed \"Mouse Wheel\" to \"Chat Wheel\"",
+            "- Steam Input support:",
+            "- Added all missing Steam Input Actions from the Key Bindings screen (including Fly Up/Fly Down)​- Added a \"Replay Controls\" action set​- Allow Steam Deck to see the Key Bindings Screen​- Improved Glyph Swapping behavior when mixing controller and keyboard inputs​- Added Controller tab to house Controller specific options.​- Added a Steam Input Configurator launch button.​- Added Glyph Locking options: { Automatic | Keyboard & Mouse Only | Game Pad Only }​- Fixed crash in spectator mode when querying controller button state​- Fixed Controller not working until loading a level​- Official Steam Input configs for SteamDeck and DualSense have been updated​- Note: Legacy Analog Modes have been removed/replaced in favor of new Camera specific Steam Input modes. Some users may need to re-bind their joysticks/gyros.​"
+        ]
+    },
+    "Misc Gameplay": {
+        "General": [
+            "- Troopers no longer change soul sharing rules after laning phase ends (meaning 2 heroes don't split souls)",
+            "- Troopers no longer increase their bounty by 20% at 8 minutes",
+            "- Hero Kill gold increased from 150->1400 to 175->2000 (from 0 min to 45 min)",
+            "- Neutral Creeps now give 5% less souls",
+            "- Troopers now take 28% more damage from Guardians",
+            "- Walkers damage vs players increased by 10%",
+            "- Guardians will now focus their attack on enemy players if an enemy player shoots a hero and the enemy player is within 15m of the Guardian",
+            "- Moved 8 neutral camps (4 on each side) from outside the outer lanes behind the Walkers to in between inner and outer lanes",
+            "- Added Cosmic Veils to the ground floor entrances to Mid that grant vision looking in but block vision looking out",
+            "- Biased Urn delivery locations moved slightly closer to neutral positions",
+            "- Minor adjustments to respawn curve (40s respawn happening at 20m now happens at 17m)",
+            "- Walker armor loss over time now happens at 16m instead of 14m",
+            "- Troopers Spirit resist goes to 30% instead of 40% at 25 minutes",
+            "- Mid Boss Rejuv Trooper Health increased by 30%",
+            "- Fixed Troopers resistance against Base Guardians not working properly",
+            "- Redesigned the warehouse interior to allow entry from the front of the Tenements and Music Hall buildings",
+            "- Moved the stairs from the warehouse interior to the underground tunnel further from the Urn delivery location",
+            "View attachment warehouse_update.mp4",
+            "- Removed all railings from fire escape stairs",
+            "- Pass at making rooftops smoother to navigate",
+            "- Removed angled supports from chimney",
+            "- Removed collision from small props",
+            "- Added stairs on top of Bodega",
+            "- Replaced small chimneys and temporary spikes with larger roof spikes to designate zap trigger locations",
+            "- Replaced temp antennae with more \"menacing\" version to designate zap trigger locations",
+            "These changes were included early in the map update that came with the Halloween patch:",
+            " - New Hotel building art pass",
+            " - Changed exit location from the player spawn area to the rest of the base to the angled walls"
+        ]
+    },
+    "Weapon Items": {
+        "General": []
+    },
+    "Vitality Items": {
+        "General": []
+    },
+    "Spirit Items": {
+        "General": []
+    },
+    "Hero Changes": {
+        "General": []
+    }
+}

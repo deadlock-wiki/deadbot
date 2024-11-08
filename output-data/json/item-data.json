@@ -458,7 +458,8 @@
         "BaseAttackDamagePercent": "10",
         "BonusClipSizePercent": "18",
         "BulletLifestealPercent": "20",
-        "BonusFireRate": "20"
+        "BonusFireRate": "20",
+        "BonusHealth": "50"
     },
     "upgrade_aerial_assault": {
         "Name": "Aerial Assault",
@@ -510,7 +511,7 @@
         ],
         "Disabled": false,
         "AbilityCooldown": "0",
-        "AbilityDuration": "35",
+        "AbilityDuration": "45",
         "AbilityCastRange": "0",
         "AbilityUnitTargetLimit": "1",
         "AbilityCastDelay": "0",
@@ -597,7 +598,7 @@
     },
     "upgrade_aoe_smoke_bomb": {
         "Name": "Smoke",
-        "Description": "Give you and teammates <span class=\"highlight\">invisibility</span> and a <span class=\"highlight\">movement speed</span> bonus.  Attacking or taking damage will remove the invisibility.<br>Cast delay: {s:AbilityCastDelay}s.",
+        "Description": "Give you and teammates <span class=\"highlight\">invisibility</span> and a <span class=\"highlight\">move speed</span> bonus.  Attacking or taking damage will remove the invisibility.<br>Cast delay: {s:AbilityCastDelay}s.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "InstantCast",
@@ -965,7 +966,7 @@
         "WeaponPowerPerStack": "5",
         "MaxStacks": 10,
         "BonusClipSize": "4",
-        "BulletResist": "7"
+        "BulletResist": "9"
     },
     "upgrade_blitz_bullets": {
         "Name": "Swift Striker",
@@ -1061,7 +1062,7 @@
         "LifestealHeal": "110",
         "LifestealHealPercent": "65",
         "BonusHealth": "125",
-        "BulletResist": "8",
+        "BulletResist": "10",
         "NonHeroHealPct": "40"
     },
     "upgrade_bullet_armor": {
@@ -1091,7 +1092,7 @@
         "AbilityResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BulletResist": "25",
+        "BulletResist": "26",
         "BaseAttackDamagePercent": "6"
     },
     "upgrade_bullet_armor_2": {
@@ -1527,7 +1528,7 @@
         "HealthThreshold": "75",
         "BonusMoveSpeed": "2m",
         "BaseAttackDamagePercent": "27",
-        "BonusHealth": "365"
+        "BonusHealth": "400"
     },
     "upgrade_clip_size": {
         "Name": "Basic Magazine",
@@ -1728,7 +1729,7 @@
         "InvisCancelOnDamage": "1",
         "InvisFadeToDuration": "0.6",
         "InvisMoveSpeedMod": "2m",
-        "SpottedRadius": "18m",
+        "SpottedRadius": "22m",
         "RevealOnDamageDuration": "1.5",
         "RevealOnSpottedDuration": "1.5",
         "FullInvisDistance": "50m",
@@ -1807,7 +1808,7 @@
         "WeaponPower": "0",
         "CloseRangeBonusWeaponPower": "25",
         "CloseRangeBonusDamageRange": "15m",
-        "BulletShieldMaxHealth": "85"
+        "BulletResist": "5"
     },
     "upgrade_cold_front": {
         "Name": "Cold Front",
@@ -1849,7 +1850,7 @@
     },
     "upgrade_colossus": {
         "Name": "Colossus",
-        "Description": "Gain <span style=\"font-weight: bold;\">Bullet and Spirit Resist</span>, and <span style=\"font-weight: bold;\">slow the movement and dash speed</span> of enemies nearby. Your model size grows by 20%.",
+        "Description": "Gain <span style=\"font-weight: bold;\">Bullet and Spirit Resist</span>, and <span style=\"font-weight: bold;\">slow the move and dash speed</span> of enemies nearby. Your model size grows by 20%.",
         "Cost": "6200",
         "Tier": "4",
         "Activation": "InstantCast",
@@ -1916,12 +1917,14 @@
     },
     "upgrade_containment": {
         "Name": "Slowing Hex",
-        "Description": "Deals <span style=\"font-weight: bold;\">Spirit Damage</span> and <span style=\"font-weight: bold;\">Slows</span> targets movement and dashes. Also <span style=\"font-weight: bold;\">Silences their movement-based items and abilities</span>.<br>Does not affect target's stamina usage.",
+        "Description": "Deals <span style=\"font-weight: bold;\">Spirit Damage</span>, <span style=\"font-weight: bold;\">Slows</span> targets movement and dashes. Also <span style=\"font-weight: bold;\">Silences their movement-based items and abilities</span>.<br><span class=\"diminish\">Does not affect target's stamina usage.</span>",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "ActivationPress",
         "Slot": "Tech",
-        "Components": null,
+        "Components": [
+            "upgrade_resilience"
+        ],
         "TargetTypes": [
             "HeroEnemy"
         ],
@@ -1945,8 +1948,9 @@
         "TechPower": "5",
         "WeaponPower": "0",
         "SlowPercent": "20",
-        "Damage": "70",
-        "BonusSprintSpeed": "1m",
+        "Damage": "40",
+        "BonusHealth": "75",
+        "AbilityLifestealPercentHero": "10",
         "GroundDashReductionPercent": "-30"
     },
     "upgrade_cooldown_reduction": {
@@ -1980,7 +1984,8 @@
         "ImbuedCooldownReduction": "32",
         "NonImbuedCooldownReduction": "24",
         "BonusHealthRegen": "4",
-        "TechShieldMaxHealth": "150"
+        "TechShieldMaxHealth": "150",
+        "BonusClipSizePercent": "15"
     },
     "upgrade_crackshot": {
         "Name": "Mystic Shot",
@@ -2020,7 +2025,7 @@
     },
     "upgrade_critshot": {
         "Name": "Lucky Shot",
-        "Description": "Your bullets have a chance to be empowered, causing them to deal <span style=\"font-weight: bold;\">bonus damage</span> and <span style=\"font-weight: bold;\">Slow</span> on hit.",
+        "Description": "Your bullets have a chance to be empowered, causing them to deal <span style=\"font-weight: bold;\">bonus weapon damage</span> and <span style=\"font-weight: bold;\">Slow</span> on hit.<br><span class=\"diminish\">Bonus damage cannot Crit.</span>",
         "Cost": "6200",
         "Tier": "4",
         "Activation": "Passive",
@@ -2115,7 +2120,7 @@
         "WeaponPower": "0",
         "StatusResistancePercent": "30",
         "BaseAttackDamagePercent": "6",
-        "BonusHealth": "75"
+        "BonusHealth": "125"
     },
     "upgrade_disarm": {
         "Name": "Drain Will",
@@ -2262,7 +2267,7 @@
             "Movement"
         ],
         "Disabled": false,
-        "AbilityCooldown": 32.0,
+        "AbilityCooldown": 25.0,
         "AbilityDuration": "6",
         "AbilityCastRange": "0",
         "AbilityUnitTargetLimit": "1",
@@ -2473,7 +2478,7 @@
         "LowHealthThreshold": "50",
         "FervorMovespeed": "4m",
         "FervorFireRate": "40",
-        "FervorBulletResist": "45",
+        "FervorBulletResist": "55",
         "LingerDuration": "6"
     },
     "upgrade_fire_rate_aura": {
@@ -2674,7 +2679,7 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "BaseAttackDamagePercent": "70",
-        "MaxHealthLossPercent": "-15",
+        "MaxHealthLossPercent": "-12",
         "BonusClipPerKill": "2",
         "MaxClipBonus": "14",
         "BonusFireRate": "10",
@@ -2844,8 +2849,8 @@
         "AbilityResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "HealAmpReceivePenaltyPercent": "-40",
-        "HealAmpRegenPenaltyPercent": "-40",
+        "HealAmpReceivePenaltyPercent": "-45",
+        "HealAmpRegenPenaltyPercent": "-45",
         "HealOnKill": "350",
         "BonusHealth": "75"
     },
@@ -2909,7 +2914,7 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "BonusHealth": "160",
-        "BaseAttackDamagePercent": "6"
+        "BaseAttackDamagePercent": "7"
     },
     "upgrade_health_nova": {
         "Name": "Healing Nova",
@@ -2946,7 +2951,9 @@
         "RegenDuration": "2",
         "AuraRadius": "15m",
         "BaseAttackDamagePercent": "12",
-        "BonusHealth": "100"
+        "BonusHealth": "100",
+        "TechRangeMultiplier": "8",
+        "TechRadiusMultiplier": "6"
     },
     "upgrade_health_regen_1": {
         "Name": "Health Regen",
@@ -3065,7 +3072,7 @@
         "TechPower": "3",
         "WeaponPower": "0",
         "TotalHealthRegen": "370",
-        "RegenDuration": "19",
+        "RegenDuration": "20",
         "BonusHealth": "45",
         "BonusSprintSpeed": "2m"
     },
@@ -3408,7 +3415,7 @@
         "WeaponPower": "0",
         "BonusHealth": "175",
         "BaseAttackDamagePercent": "25",
-        "SlowPercent": "25",
+        "SlowPercent": "20",
         "DebuffDuration": "2.5",
         "OutgoingDamagePenaltyPercent": "-35"
     },
@@ -3441,7 +3448,7 @@
         "WeaponPower": "0",
         "BonusClipSizePercent": "25",
         "BaseAttackDamagePercent": "20",
-        "ShootDurationForMax": "3.0",
+        "ShootDurationForMax": "2.7",
         "BaseAttackDamagePercentAtMaxDuration": "60"
     },
     "upgrade_kinetic_sash": {
@@ -3541,7 +3548,8 @@
         "AbilityResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "LongRangeBonusWeaponPower": "40",
+        "BaseAttackDamagePercent": "10",
+        "LongRangeBonusWeaponPower": "30",
         "LongRangeBonusWeaponPowerMinRange": "15m",
         "ReloadSpeedMultipler": "-20",
         "BulletShieldMaxHealth": "140"
@@ -3644,7 +3652,9 @@
         "FlyingTechShield": "400",
         "FlyMoveSpeed": "6m",
         "BonusHealth": "150",
-        "BonusAbilityDurationPercent": "10"
+        "BonusAbilityDurationPercent": "10",
+        "TechRangeMultiplier": "10",
+        "TechRadiusMultiplier": "10"
     },
     "upgrade_magic_clarity": {
         "Name": "Clarity",
@@ -3805,13 +3815,13 @@
         "WeaponPower": "0",
         "MinimumDamage": "175",
         "ReProcLockoutTime": "5",
-        "MaxHealthDamage": "9",
+        "MaxHealthDamage": "8",
         "TechShieldMaxHealth": "100",
         "BaseAttackDamagePercent": "8"
     },
     "upgrade_magic_slow": {
         "Name": "Mystic Slow",
-        "Description": "When the target takes <span style=\"font-weight: bold;\">Spirit Damage</span>, they have their <span style=\"font-weight: bold;\">Movement Speed</span> and <span style=\"font-weight: bold;\">Fire Rate</span> reduced.",
+        "Description": "When the target takes <span style=\"font-weight: bold;\">Spirit Damage</span>, they have their <span style=\"font-weight: bold;\">Move Speed</span> and <span style=\"font-weight: bold;\">Fire Rate</span> reduced.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -3846,7 +3856,7 @@
     },
     "upgrade_magic_storm": {
         "Name": "Surge of Power",
-        "Description": "Imbue an ability with <span style=\"font-weight: bold;\">permanent Spirit Power</span>. When that ability is used, gain bonus <span style=\"font-weight: bold;\">Movement Speed</span> and maintain full speed while attacking.",
+        "Description": "Imbue an ability with <span style=\"font-weight: bold;\">permanent Spirit Power</span>. When that ability is used, gain bonus <span style=\"font-weight: bold;\">Move Speed</span> and maintain full speed while attacking.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -3905,9 +3915,10 @@
         "AbilityResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "CooldownReduction": "16",
+        "CooldownReduction": "14",
         "BonusHealthRegen": "1.5",
-        "TechShieldMaxHealth": "75"
+        "TechShieldMaxHealth": "100",
+        "BonusClipSizePercent": "10"
     },
     "upgrade_magic_vulnerability": {
         "Name": "Mystic Vulnerability",
@@ -3975,7 +3986,7 @@
         "BaseAttackDamagePercent": "6",
         "HealFromHero": "40",
         "HealFromNPC": "15",
-        "BulletResist": "7"
+        "BulletShieldMaxHealth": "90"
     },
     "upgrade_mega_spirit": {
         "Name": "Boundless Spirit",
@@ -4043,15 +4054,14 @@
         "AbilityResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "BaseAttackDamagePercent": "12",
+        "BaseAttackDamagePercent": "10",
         "BonusHealth": "75",
         "MeleeDistanceScale": "40",
-        "BonusHealthRegen": "1",
         "BonusHeavyMeleeDamage": "20"
     },
     "upgrade_metal_skin": {
         "Name": "Metal Skin",
-        "Description": "Become <span style=\"font-weight: bold;\">immune to bullets and melee attacks</span>.",
+        "Description": "Become <span style=\"font-weight: bold;\">immune to bullets</span>.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "InstantCast",
@@ -4212,7 +4222,7 @@
     },
     "upgrade_phantom_strike": {
         "Name": "Phantom Strike",
-        "Description": "<span style=\"font-weight: bold;\">Teleport</span> to an enemy target, applying <span style=\"font-weight: bold;\">Disarm</span>, <span style=\"font-weight: bold;\">Slow</span>, and dealing <span style=\"font-weight: bold;\">damage</span>.",
+        "Description": "<span style=\"font-weight: bold;\">Teleport</span> to an enemy target, dealing <span style=\"font-weight: bold;\">damage</span>, applying <span style=\"font-weight: bold;\">Disarm</span>, <span style=\"font-weight: bold;\">Slow</span>, and pulls them to the ground.",
         "Cost": "6200",
         "Tier": "4",
         "Activation": "ActivationPress",
@@ -4538,7 +4548,7 @@
         "Components": null,
         "TargetTypes": null,
         "ShopFilters": null,
-        "Disabled": false,
+        "Disabled": true,
         "AbilityCooldown": 240.0,
         "AbilityDuration": "0",
         "AbilityCastRange": "0",
@@ -4552,7 +4562,7 @@
         "AbilityResourceCost": "0",
         "TechPower": "12",
         "WeaponPower": "0",
-        "SpawnTimePenalty": "15",
+        "SpawnTimePenalty": "30",
         "RespawnDelay": "4",
         "RespawnHealthPercent": "50"
     },
@@ -4571,7 +4581,7 @@
             "WeaponDamage"
         ],
         "Disabled": false,
-        "AbilityCooldown": 48.0,
+        "AbilityCooldown": 45.0,
         "AbilityDuration": "0",
         "AbilityCastRange": "0",
         "AbilityUnitTargetLimit": "1",
@@ -4584,7 +4594,7 @@
         "AbilityResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "StatusResistancePercent": "35",
+        "StatusResistancePercent": "40",
         "BaseAttackDamagePercent": "20",
         "ActiveBonusMoveSpeed": "3m",
         "BuffDuration": "3",
@@ -4619,7 +4629,7 @@
         "WeaponPower": "0",
         "BulletShieldMaxHealth": "325",
         "AttackDamageWhenShielded": "22",
-        "FireRateWhenShielded": "6"
+        "FireRateWhenShielded": "7"
     },
     "upgrade_regenerative_armor": {
         "Name": "Regenerative Armor",
@@ -4802,10 +4812,11 @@
         "AbilityCooldownBetweenCharge": "0",
         "ChannelMoveSpeed": "50",
         "AbilityResourceCost": "0",
-        "TechPower": "5",
+        "TechPower": "0",
         "WeaponPower": "0",
         "Radius": "50m",
         "TechResist": "10",
+        "MeleeResistPercent": "25",
         "BonusSprintSpeed": "1m",
         "HealPerStack": "35",
         "MaxStacks": "15"
@@ -4826,7 +4837,7 @@
         ],
         "Disabled": false,
         "AbilityCooldown": 30.0,
-        "AbilityDuration": "7",
+        "AbilityDuration": "6",
         "AbilityCastRange": "0",
         "AbilityUnitTargetLimit": "1",
         "AbilityCastDelay": "0",
@@ -4972,7 +4983,7 @@
             "Disruption"
         ],
         "Disabled": false,
-        "AbilityCooldown": 45.0,
+        "AbilityCooldown": 33.0,
         "AbilityDuration": "10",
         "AbilityCastRange": "15m",
         "AbilityUnitTargetLimit": "1",
@@ -4985,14 +4996,16 @@
         "AbilityResourceCost": "0",
         "TechPower": "7",
         "WeaponPower": "0",
-        "HealAmpReceivePenaltyPercent": "-50",
-        "HealAmpRegenPenaltyPercent": "-50",
+        "HealAmpReceivePenaltyPercent": "-70",
+        "HealAmpRegenPenaltyPercent": "-70",
         "TickRate": "1.0",
-        "DotHealthPercent": "3.1"
+        "DotHealthPercent": "1.0",
+        "BonusHealthRegen": "1.5",
+        "BonusAbilityDurationPercent": "8"
     },
     "upgrade_savior": {
         "Name": "Divine Barrier",
-        "Description": "Provide the target with <span style=\"font-weight: bold;\">Bullet Shield, Spirit Shield, and Movement Speed</span>. Can be self-cast.",
+        "Description": "Provide the target with <span style=\"font-weight: bold;\">Bullet Shield, Spirit Shield, and Move Speed</span>. Can be self-cast.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "ActivationPress",
@@ -5017,20 +5030,18 @@
         "AbilityCooldownBetweenCharge": "0",
         "ChannelMoveSpeed": "20m",
         "AbilityResourceCost": "0",
-        "TechPower": "0",
+        "TechPower": "6",
         "WeaponPower": "0",
         "BuffDuration": "5",
         "SaviorBulletShieldHealth": "260",
         "SaviorMagicShieldHealth": "260",
-        "TechRangeMultiplier": "8",
-        "TechRadiusMultiplier": "8",
         "BonusMoveSpeed": "2m",
         "BonusSprintSpeed": "1m",
         "BonusHealth": "50"
     },
     "upgrade_self_bubble": {
         "Name": "Ethereal Shift",
-        "Description": "You enter a void state and become <span style=\"font-weight: bold;\">untargetable and invincible</span> for a short duration, during which you cannot move or perform any actions. Afterwards you gain <span style=\"font-weight: bold;\">movement speed and spirit resist</span>.",
+        "Description": "You enter a void state and become <span style=\"font-weight: bold;\">untargetable and invincible</span> for a short duration, during which you cannot move or perform any actions. Afterwards you gain <span style=\"font-weight: bold;\">move speed and spirit resist</span>.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "InstantCast",
@@ -5090,7 +5101,8 @@
         "AbilityResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
-        "LongRangeBonusWeaponPower": "70",
+        "BaseAttackDamagePercent": "20",
+        "LongRangeBonusWeaponPower": "50",
         "LongRangeBonusWeaponPowerMinRange": "15m",
         "BonusAttackRangePercent": "15",
         "BonusZoomPercent": "35",
@@ -5131,7 +5143,8 @@
         "EMPDuration": "2",
         "BaseAttackDamagePercent": "20",
         "SlowPercent": "25",
-        "SlowDuration": "1.3"
+        "SlowDuration": "1.3",
+        "TechResist": "12"
     },
     "upgrade_siphon_bullets": {
         "Name": "Siphon Bullets",
@@ -5162,6 +5175,7 @@
         "AbilityResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
+        "BaseAttackDamagePercent": "15",
         "BulletResist": "18",
         "StealPerHit": "1",
         "StealPerKill": "1",
@@ -5224,7 +5238,7 @@
         "AbilityCooldownBetweenCharge": "0",
         "ChannelMoveSpeed": "50",
         "AbilityResourceCost": "0",
-        "TechPower": "5",
+        "TechPower": "6",
         "WeaponPower": "0",
         "SlowPercent": "25",
         "SlowDuration": "1.3",
@@ -5352,7 +5366,7 @@
     },
     "upgrade_sprint_booster": {
         "Name": "Sprint Boots",
-        "Description": "Increases your <span style=\"font-weight: bold;\">forward movement speed</span> over time. Taking damage resets the effect for <span style=\"font-weight: bold;\">1.5s</span>",
+        "Description": "Increases your <span style=\"font-weight: bold;\">forward move speed</span> over time. Taking damage resets the effect for <span style=\"font-weight: bold;\">1.5s</span>",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
@@ -5384,7 +5398,7 @@
     },
     "upgrade_stabilizer": {
         "Name": "Stabilizer",
-        "Description": "Removes the <span class=\"highlight\">movement speed penalty</span> while shooting, and increases <span class=\"highlight\">bullet speed</span>.",
+        "Description": "Removes the <span class=\"highlight\">move speed penalty</span> while shooting, and increases <span class=\"highlight\">bullet speed</span>.",
         "Cost": "500",
         "Tier": "1",
         "Activation": "Passive",
@@ -5610,7 +5624,7 @@
             "Healing"
         ],
         "Disabled": false,
-        "AbilityCooldown": 34.0,
+        "AbilityCooldown": 30.0,
         "AbilityDuration": "4.5",
         "AbilityCastRange": "0",
         "AbilityUnitTargetLimit": "1",
@@ -5726,7 +5740,7 @@
         "AbilityResourceCost": "0",
         "TechPower": "5",
         "WeaponPower": "0",
-        "TechResist": "20"
+        "TechResist": "22"
     },
     "upgrade_tech_bleed": {
         "Name": "Mystic Reverb",
@@ -6030,7 +6044,8 @@
         "TickRate": "0.5",
         "BonusBaseWeaponDamageTaken": "50",
         "BulletShieldMaxHealth": "225",
-        "BaseAttackDamagePercent": "14"
+        "BaseAttackDamagePercent": "14",
+        "BonusSprintSpeed": "1m"
     },
     "upgrade_titan_round": {
         "Name": "Titanic Magazine",
@@ -6095,7 +6110,7 @@
     },
     "upgrade_toxic_bullets": {
         "Name": "Toxic Bullets",
-        "Description": "Your bullets build up a <span style=\"font-weight: bold;\">Bleed</span> on enemies, causing them to lose a <span style=\"font-weight: bold;\">percentage of their current health</span> over time. Also applies <span style=\"font-weight: bold;\">Healing Reduction</span> on the bleeding target.",
+        "Description": "Your bullets build up a <span style=\"font-weight: bold;\">Bleed</span> on enemies, causing them to lose a <span style=\"font-weight: bold;\">percentage</span> of their <span style=\"font-weight: bold;\">Max Health</span> over time. Also applies <span style=\"font-weight: bold;\">Healing Reduction</span> on the bleeding target.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -6125,7 +6140,7 @@
         "TechPower": "0",
         "WeaponPower": "0",
         "BonusHealth": "100",
-        "DotHealthPercent": "5",
+        "DotHealthPercent": "2.5",
         "DotDuration": "3",
         "BuildUpPerShot": "0.92",
         "BuildUpDuration": "5",
@@ -6197,7 +6212,7 @@
     },
     "upgrade_veil_walker": {
         "Name": "Veil Walker",
-        "Description": "Walking through a <span style=\"font-weight: bold;\">cosmic veil</span> grants you <span style=\"font-weight: bold;\">Stealth</span>, increased <span style=\"font-weight: bold;\">Movement Speed</span> and restores all <span style=\"font-weight: bold;\">Bullet and Spirit Shields</span>.",
+        "Description": "Walking through a <span style=\"font-weight: bold;\">cosmic veil</span> grants you <span style=\"font-weight: bold;\">Stealth</span>, increased <span style=\"font-weight: bold;\">Move Speed</span> and restores all <span style=\"font-weight: bold;\">Bullet and Spirit Shields</span>.",
         "Cost": "3000",
         "Tier": "3",
         "Activation": "Passive",
@@ -6231,15 +6246,15 @@
         "RevealOnSpottedDuration": "0.25",
         "BulletShieldMaxHealth": "250",
         "TechShieldMaxHealth": "250",
-        "BonusClipSizePercent": "12",
-        "BaseAttackDamagePercent": "10",
+        "BonusClipSizePercent": "15",
+        "BaseAttackDamagePercent": "15",
         "BonusClipSize": "0",
         "InvisDuration": "5",
         "BonusMoveSpeed": "4m"
     },
     "upgrade_vex_barrier": {
         "Name": "Reactive Barrier",
-        "Description": "Automatically deploy temporary <span style=\"font-weight: bold;\">Bullet and Spirit Shields</span> when you are <span style=\"font-weight: bold;\">movement locked, Stunned, Chained, Immobilized, or Slept</span>.",
+        "Description": "Automatically <span style=\"font-weight: bold;\">restores one stamina</span> and deploy temporary <span style=\"font-weight: bold;\">Bullet and Spirit Shields</span> when you are <span style=\"font-weight: bold;\">movement locked, Stunned, Chained, Immobilized, or Slept</span>.",
         "Cost": "1250",
         "Tier": "2",
         "Activation": "Passive",
@@ -6468,7 +6483,7 @@
             "MagicDamage"
         ],
         "Disabled": false,
-        "AbilityCooldown": 22.0,
+        "AbilityCooldown": 18.0,
         "AbilityDuration": "4.5",
         "AbilityCastRange": "30m",
         "AbilityUnitTargetLimit": "1",
@@ -6481,8 +6496,9 @@
         "AbilityResourceCost": "0",
         "TechPower": "0",
         "WeaponPower": "0",
+        "Damage": "50",
         "FireRateSlow": "45",
-        "BulletArmorReduction": "-14",
+        "BulletArmorReduction": "-11",
         "SpiritPower": "6",
         "BonusSprintSpeed": "1m",
         "BulletShieldMaxHealth": "100"
