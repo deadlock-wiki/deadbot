@@ -127,6 +127,10 @@ class ChangelogTags:
             'Pause',
             'vault',
             'vaults',
+            'Gun',
+            'gun',
+            'guns',
+            'Guns'
         ]
 
         # texts in this list are not converted to tags
@@ -236,6 +240,9 @@ class ChangelogTags:
             'Flex slot': 'Flex Slot',
             'flex slots': 'Flex Slot',
             'Flex': 'Flex Slot',
+            'guns': 'Gun',
+            'gun': 'Gun',
+            'Guns': 'Gun'
         }
 
         # Relations between a child and parent tag.
@@ -245,20 +252,20 @@ class ChangelogTags:
         # value = children
         # also see self.parent_lookup
         self.tag_tree = {
-            "Other": {},
             "Item": {
                 "Weapon Item": {},
                 "Vitality Item": {},
                 "Spirit Item": {}
+            },
+            "Hero": {
+                "Ability": {},
+                "Gun": {}
             },
             "Shop": {},
             "Souls": {
                 "Soul Orb": {},
                 "Sinner's Sacrifice": {},
                 "Soul Urn": {}
-            },
-            "Hero": {
-                "Ability": {},
             },
             "Powerup": {},
             "Breakable": {
@@ -300,7 +307,8 @@ class ChangelogTags:
             "Pause": {},
             "Bounce Pad": {},
             "Rope": {},
-            "Flex Slot": {}
+            "Flex Slot": {},
+            "Other": {},
         }
 
         self.parent_lookup = {}
