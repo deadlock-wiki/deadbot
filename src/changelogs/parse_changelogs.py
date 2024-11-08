@@ -174,8 +174,8 @@ class ChangelogParser:
         Assigns a tag's parents to the list of tags
         """
 
-        if tag in self.tags.parents:
-            for parent in self.tags.parents[tag]:
+        if tag in self.tags.parent_lookup:
+            for parent in self.tags.parent_lookup[tag]:
                 tags = self._register_tag(tags, parent)
 
         return tags

@@ -238,43 +238,12 @@ class ChangelogTags:
             'Flex': 'Flex Slot',
         }
 
-        # Relations between a child and parent tag where
-        # -both are a group tag-. Relationships involving a
-        # non-group tag require more explicit parsing within _parse_tags()
+        # Relations between a child and parent tag.
         # i.e. Abrams is a parent to Siphon Life, and a child to Hero
         # tags below are after _remap_tag() is called
-        # key = child
-        # value = parents to assign
-        # child, [parents] instead of parent, [children] for easier lookup
-        self.parents = {
-            'Denizen': ['NPC', 'Creep'],
-            'Creep': ['NPC'],
-            'Trooper': ['Creep'],
-            'Guardian': ['Objective', 'NPC'],
-            'Base Guardian': ['Objective', 'NPC'],
-            'Walker': ['Objective', 'NPC'],
-            'Patron': ['Objective'],
-            'Weakened Patron': ['Patron', 'Objective'],
-            'Shrine': ['Objective'],
-            'Mid-Boss': ['NPC'],
-            'Weapon Item': ['Item'],
-            'Vitality Item': ['Item'],
-            'Spirit Item': ['Item'],
-            'Ability': ['Hero'],
-            'Soul Orb': ['Souls'],
-            "Sinner's Sacrifice": ['Souls'],
-            'Soul Urn': ['Souls'],
-            'Crate': ['Breakable'],
-            'Golden Statue': ['Breakable'],
-            'Light Melee': ['Melee'],
-            'Heavy Melee': ['Melee'],
-            'HeroLab Calico': ['Calico', 'Hero'],
-            'HeroLab Fathom': ['Fathom', 'Hero'],
-            'HeroLab Holliday': ['Holliday', 'Hero'],
-            'HeroLab Magician': ['Magician', 'Hero'],
-            'HeroLab Viper': ['Viper', 'Hero'],
-        }
-
+        # key = parent
+        # value = children
+        # also see self.parent_lookup
         self.tag_tree = {
             "Other": {},
             "Item": {
@@ -319,11 +288,7 @@ class ChangelogTags:
                 "Patron": {
                     "Weakened Patron": {}
                 },
-                "Weakened Patron": {},
                 "Shrine": {}
-            },
-            "Patron": {
-                "Weakened Patron": {}
             },
             "NPC": {
                 "Denizen": {},
@@ -331,7 +296,6 @@ class ChangelogTags:
                     "Denizen": {},
                     "Trooper": {}
                 },
-                "Trooper": {},
                 "Guardian": {},
                 "Base Guardian": {},
                 "Walker": {},
@@ -354,10 +318,13 @@ class ChangelogTags:
             "Flex Slot": {}
         }
 
-        self.child_parents = {}
-        self._build_child_parents_map(parent=None, children=self.tag_tree)
+        self.parent_lookup = {}
+        # create parent_lookup lookup table from self.tag_tree
+        # key = child
+        # value = list of parents
+        self._build_parent_lookup_map(parent=None, children=self.tag_tree)
 
-    def _build_child_parents_map(self, parent, children):
+    def _build_parent_lookup_map(self, parent, children):
         """
         From the self.tag_tree dict, transform it into a 1-layer 
         lookup table where the key is a child tag and the value is a list of its parent tags
@@ -365,11 +332,11 @@ class ChangelogTags:
         
         for child, grand_children in children.items():
             if parent is not None:
-                if child not in self.child_parents:
-                    self.child_parents[child] = [parent]
+                if child not in self.parent_lookup:
+                    self.parent_lookup[child] = [parent]
                 else:
-                    self.child_parents[child].append(parent)
+                    self.parent_lookup[child].append(parent)
                 
 
-            self._build_child_parents_map(child, grand_children)
+            self._build_parent_lookup_map(child, grand_children)
 
