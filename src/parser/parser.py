@@ -56,19 +56,21 @@ class Parser:
         """
 
         self.localizations = {}
-        for language in self.languages:
-            self.localizations[language] = {}
-            for localization_group in self.localization_groups:
-                localization_data = json_utils.read(
-                    os.path.join(
-                        self.DATA_DIR,
-                        'localizations/',
-                        localization_group,
-                        'citadel_' + localization_group + '_' + language + '.json',
+        # Start with english language
+        for language in ['english'] + self.languages:
+            if language not in self.localizations:
+                self.localizations[language] = {}
+                for localization_group in self.localization_groups:
+                    localization_data = json_utils.read(
+                        os.path.join(
+                            self.DATA_DIR,
+                            'localizations/',
+                            localization_group,
+                            'citadel_' + localization_group + '_' + language + '.json',
+                        )
                     )
-                )
 
-                self._merge_localizations(language, localization_group, localization_data)
+                    self._merge_localizations(language, localization_group, localization_data)
 
     def _merge_localizations(self, language, group, data):
         """
@@ -91,10 +93,26 @@ class Parser:
             # duplicate key error. This is a temporary measure to keep patch updates going
             elif group != 'heroes':
                 current_value = self.localizations[language][key]
-                raise Exception(
-                    f'Key {key} with value {value} already exists in {language} localization '
-                    + f'data with value {current_value}.'
-                )
+
+                # Only bother with an exception if the values are different
+                if current_value != value:
+
+                    english_value = self.localizations['english'].get(key)
+                    old_is_english = english_value == current_value
+                    new_is_english = english_value == value
+                    
+                    # if just the old value is english, replace it with the actually localized one
+                    if old_is_english and not new_is_english:
+                        self.localizations[language][key] = value #use the new localized string
+                    # If just the new value is english, don't replace it
+                    elif new_is_english and not old_is_english:
+                        pass #keep the old localized string
+                    else:
+                        # If both values are english or neither are english, raise an exception
+                        raise Exception(
+                            f'Key {key} with value {value} already exists in {language} localization '
+                            + f'data with value {current_value}.' + f' English value: {english_value}'
+                        )
 
     def run(self):
         if self.VERBOSE:
