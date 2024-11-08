@@ -117,13 +117,10 @@ class Parser:
         print('Parsing Generics...')
         generic_data_path = self.OUTPUT_DIR + '/json/generic-data.json'
         parsed_generics = generics.GenericParser(
-            generic_data_path, 
-            self.data['scripts']['generic_data']).run()
+            generic_data_path, self.data['scripts']['generic_data']
+        ).run()
 
-        json_utils.write(
-            generic_data_path, 
-            json_utils.sort_dict(parsed_generics)
-        )
+        json_utils.write(generic_data_path, json_utils.sort_dict(parsed_generics))
 
     def _parse_localizations(self):
         print('Parsing Localizations...')
