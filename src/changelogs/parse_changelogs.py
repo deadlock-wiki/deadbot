@@ -121,6 +121,15 @@ class ChangelogParser:
             if heading_tag is not None:
                 tags = self._register_tag(tags, tag=heading_tag)
 
+            # If the heading is a "HeroLab <hero>", register <hero> as well
+            if current_heading.startswith('HeroLab '):
+                hero = current_heading[len('HeroLab '):]
+                if self.is_hero(hero):
+                    tags = self._register_tag(tags, hero)
+                    tags = self._register_tag(tags, 'Hero')
+
+            
+
         # if no tag is found, assign to default tag
         if len(tags) == 0:
             tags = self._register_tag(tags, tag=self.default_tag)
@@ -244,19 +253,18 @@ class ChangelogParser:
 
         return resources
     
+    def is_hero(self, tag):
+        """
+        Returns True if the tag is a hero name i.e. Abrams
+        """
+        for hero_key, hero_data in self.heroes.items():
+            hero_name = hero_data['Name']
+            if tag == hero_name:
+                return True
+            
+        return False
+    
     def _write_tag_tree(self, tag_tree):
-        # Remove keys within hero if they have a Herolab value
-        new_hero_tree = {}
-        for hero, hero_values in tag_tree["Hero"].items():
-            not_herolab = True
-            for key in hero_values.keys():
-                if key.startswith("HeroLab"):
-                    not_herolab = False
-            if not_herolab:
-                new_hero_tree[hero] = hero_values
-
-        tag_tree["Hero"] = new_hero_tree
-
         # Add <hero>, <ability>, <item> etc. to tag tree
         # to show where instance tags would appear (such as Abrams, Basic Magazine, Siphon Life)
         tag_tree["Hero"]["<Hero Name>"] = {}

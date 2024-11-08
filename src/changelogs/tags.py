@@ -259,21 +259,6 @@ class ChangelogTags:
             },
             "Hero": {
                 "Ability": {},
-                "Calico": {
-                    "HeroLab Calico": {},
-                },
-                "Fathom": {
-                    "HeroLab Fathom": {},
-                },
-                "Holliday": {
-                    "HeroLab Holliday": {},
-                },
-                "Magician": {
-                    "HeroLab Magician": {},
-                },
-                "Viper": {
-                    "HeroLab Viper": {},
-                }
             },
             "Powerup": {},
             "Breakable": {
