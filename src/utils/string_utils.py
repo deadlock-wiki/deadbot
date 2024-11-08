@@ -34,11 +34,21 @@ def format_description(description, *data_sets):
     description = description.replace(
         '<span class="highlight">', '<span style="font-weight: bold;">'
     )
+
+    # replace tags like <%s>, <%s1> etc. with </span>
+    description = re.sub(r'<%s\d?>', '</span>', description)
+
     return _replace_variables(description, data)
 
 
 # Keys to ignore errors, as they are manually verified as having no valid override
-IGNORE_KEYS = ['BonusMaxStacks', 'SlideEvasionChance', 'BonusLossPerDeath']
+IGNORE_KEYS = [
+    'BonusMaxStacks',
+    'SlideEvasionChance',
+    'BonusLossPerDeath',
+    'SalvageBonus_Health',
+    'ProjectileRedirectCount',
+]
 
 
 # format description with data. eg. "When you are above {s:LifeThreshold}% health"

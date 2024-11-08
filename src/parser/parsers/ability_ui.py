@@ -318,7 +318,7 @@ class AbilityUiParser:
                 case 'duration':
                     rest_of_data['Duration'][prop] = data
 
-                case 'range' | 'distance':
+                case 'range' | 'distance' | 'radius':
                     rest_of_data['Range'][prop] = data
 
                 case 'damage' | 'bullet_damage' | 'tech_damage' | 'melee_damage':
@@ -327,7 +327,7 @@ class AbilityUiParser:
                 case 'healing' | 'health':
                     rest_of_data['Health'][prop] = data
 
-                case 'bullet_armor_up':
+                case 'bullet_armor_up' | 'tech_armor_up':
                     rest_of_data['Buff'][prop] = data
 
                 case 'slow':
