@@ -25,14 +25,24 @@ jobs:
         run: |
           git config --global user.email "deadbot1101@gmail.com"
           git config --global user.name "Deadbot0"
-          
+          git config pull.rebase true
+
       - name: Create working branch on deadlock-data repo
         working-directory: deadlock-data 
         run: |
-          git switch -c ${{ github.head_ref }}
-          git pull origin ${{ github.head_ref }}
+          git fetch origin
+          
+          if git ls-remote --exit-code --heads origin ${{ github.head_ref }}; then
+            # branch exists, update local branch
+            git switch ${{ github.head_ref }}
+            git pull origin ${{ github.head_ref }} -X ours
+          else
+            # create new local branch
+            git checkout -b ${{ github.head_ref }} origin/${{ github.event.pull_request.base.ref }}
+          fi
+
           git commit --allow-empty -m "chore: empty commit to enable PR creation"
-          git push --set-upstream origin ${{ github.head_ref }}
+          git push --force-with-lease --set-upstream origin ${{ github.head_ref }}
       
       # Creates a PR to enable viewing the outcome of the deadbot changes
       - name: Create PR on deadlock-data repo
