@@ -272,9 +272,6 @@ class ChangelogTags:
                     "Denizen": {},
                     "Trooper": {}
                 },
-                "Guardian": {},
-                "Base Guardian": {},
-                "Walker": {},
                 "Mid-Boss": {}
             },
             "Objective": {
