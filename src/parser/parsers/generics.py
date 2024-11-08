@@ -61,7 +61,7 @@ def validate_structures(datas1, datas2, structure_keys_to_validate):
         value1 = datas1.get(key, None)
         value2 = datas2.get(key, None)
         if value1 is None or value2 is None:
-            invalid_keys[key] = f'The key for this value is '
+            invalid_keys[key] = 'The key for this value is '
             + 'missing in one of the data sets'
             continue
 
