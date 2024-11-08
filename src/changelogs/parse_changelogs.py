@@ -16,11 +16,6 @@ class ChangelogParser:
         # list of all unique tags, including resource tags like Abrams/Basic Magazine
         self.unique_tags = [self.default_tag]
 
-        # list of all unique tags excluding resource tags
-        # since they exclude resource tags (instances), they are referred
-        # to as "group tags" / "tag groups"
-        self.unique_tag_groups = [self.default_tag]
-
         # Retrieve tag lists and maps
         self.tags = Tags(self.default_tag)
 
@@ -88,7 +83,7 @@ class ChangelogParser:
                 continue
 
             if resource_name in line:
-                tags = self._register_tag(tags, tag=resource_name, is_group_tag=False)
+                tags = self._register_tag(tags, tag=resource_name)
 
                 # Also register the resource type
                 tags = self._register_tag(tags, tag=resource_type)
@@ -105,7 +100,7 @@ class ChangelogParser:
                 if resource_type == 'Ability':
                     hero = self.get_hero_from_ability(resource_key)
                     if hero is not None:
-                        tags = self._register_tag(tags, tag=hero, is_group_tag=False)
+                        tags = self._register_tag(tags, tag=hero)
 
         # Use specified lists to match for possible tags
         for tag in self.tags.match_text:
@@ -120,16 +115,11 @@ class ChangelogParser:
             # Remove ' Changes' suffix, i.e. 'Hero Changes' -> 'Hero'
             heading_tag = current_heading.replace(' Changes', '')
 
-            # If its an english resource, don't make it a group tag
-            is_group_tag = True
             for resource_key, resource_data in self.resources.items():
                 resource_name = resource_data['Name']
-                if resource_name == heading_tag:
-                    is_group_tag = False
-                    break
 
             if heading_tag is not None:
-                tags = self._register_tag(tags, tag=heading_tag, is_group_tag=is_group_tag)
+                tags = self._register_tag(tags, tag=heading_tag)
 
         # if no tag is found, assign to default tag
         if len(tags) == 0:
@@ -143,7 +133,7 @@ class ChangelogParser:
 
         return tags
 
-    def _register_tag(self, tags, tag, is_group_tag=True):
+    def _register_tag(self, tags, tag):
         """
         Registers a tag to the changelog's current unique tags,
         and to the static unique list of tags.
@@ -164,8 +154,6 @@ class ChangelogParser:
         # Add to unique lists
         if tag not in self.unique_tags:
             self.unique_tags.append(tag)
-        if is_group_tag and tag not in self.unique_tag_groups:
-            self.unique_tag_groups.append(tag)
 
         return tags
 
@@ -188,7 +176,7 @@ class ChangelogParser:
 
         if tag in self.tags.parents:
             for parent in self.tags.parents[tag]:
-                tags = self._register_tag(tags, parent, is_group_tag=(not tag.startswith('HeroLab')))
+                tags = self._register_tag(tags, parent)
 
         return tags
 
@@ -232,31 +220,6 @@ class ChangelogParser:
                     new_changelog[index]['Description'] = description
 
         return changelog
-
-    def _write_unique_tag_groups(self, unique_tag_groups):
-        """
-        Write the unique tag groups to file.
-        Prints a warning if it has changed from the existing file.
-        """
-        # Read existing tag groups
-        tag_groups_path = self.OUTPUT_CHANGELOGS + '/tag_groups.json'
-        if os.path.exists(tag_groups_path):
-            existing_tag_groups = json_utils.read(tag_groups_path)
-
-            # Print a warning if the data is different
-            unique_tag_groups = sorted(unique_tag_groups)
-            if existing_tag_groups != unique_tag_groups:
-                print(
-                    f'WARNING: Unique tag groups in {tag_groups_path} are '
-                    + 'different from existing tag groups. \n'
-                    + 'Clean up any new ones if necessary by referring to '
-                    + 'ChangelogParser._parse_tags(). '
-                    + 'If a new unique group tag is to be added, '
-                    + 'add it to deadlocked.wiki/Template:Changelogs Navbox'
-                )
-
-        # Write the new ones to file
-        json_utils.write(tag_groups_path, unique_tag_groups)
 
     def _get_resources(self):
         resources = {}
