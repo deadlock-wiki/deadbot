@@ -90,6 +90,8 @@ class ChangelogTags:
             'Bridge',
             'Hotel',
             'Pharmacy',
+            'Penn Station',
+            'Grand Central',
         ]
         # match by word
         # if they are a shorter string, or likely to be part of a longer string
@@ -142,6 +144,10 @@ class ChangelogTags:
             'gun',
             'guns',
             'Guns',
+            'Pit',
+            'pit',
+            'Pits',
+            'pits',
         ]
 
         # texts in this list are not converted to tags
@@ -254,6 +260,9 @@ class ChangelogTags:
             'guns': 'Gun',
             'gun': 'Gun',
             'Guns': 'Gun',
+            'Pits': 'Pit',
+            'pit': 'Pit',
+            'pits': 'Pit',
         }
 
         # Relations between a child and parent tag.
@@ -281,7 +290,18 @@ class ChangelogTags:
             'Souls': {'Soul Orb': {}, "Sinner's Sacrifice": {}, 'Soul Urn': {}},
             'Breakable': {'Crate': {}, 'Golden Statue': {}},
             'Shop': {},
-            'Map': {},
+            'Map': {
+                'Department Store': {},
+                'Arcade': {},
+                'Fish Market': {},
+                'Basement': {},
+                'Bridge': {},
+                'Hotel': {},
+                'Pharmacy': {},
+                'Penn Station': {},
+                'Grand Central': {},
+                'Pit': {},
+            },
             'Powerup': {},
             'Zipline': {},
             'Rejuvenator': {},
@@ -297,13 +317,6 @@ class ChangelogTags:
             'York Avenue': {},
             'Broadway': {},
             'Park Avenue': {},
-            'Department Store': {},
-            'Arcade': {},
-            'Fish Market': {},
-            'Basement': {},
-            'Bridge': {},
-            'Hotel': {},
-            'Pharmacy': {},
             'Other': {},
         }
 
