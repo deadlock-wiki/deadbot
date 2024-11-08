@@ -258,7 +258,7 @@ class ChangelogParser:
         tag_tree["Hero"] = new_hero_tree
 
         # Add <hero>, <ability>, <item> etc. to tag tree
-        # to show where non-group tags would appear
+        # to show where instance tags would appear (such as Abrams, Basic Magazine, Siphon Life)
         tag_tree["Hero"]["<Hero Name>"] = {}
         tag_tree["Hero"]["<HeroLab Hero Name>"] = {"HeroLab <HeroLab Hero Name>": {}}
         tag_tree["Hero"]["Ability"]["<Ability Name>"] = {}
