@@ -17,7 +17,7 @@ class Parser:
         # Directory with decompiled data
         self.DATA_DIR = work_dir
         self.VERBOSE = verbose
-        
+
         self.language = language
         self.data = {'scripts': {}}
         self.localization_groups = os.listdir(os.path.join(self.DATA_DIR, 'localizations'))
@@ -96,22 +96,23 @@ class Parser:
 
                 # Only bother with an exception if the values are different
                 if current_value != value:
-
                     english_value = self.localizations['english'].get(key)
                     old_is_english = english_value == current_value
                     new_is_english = english_value == value
-                    
+
                     # if just the old value is english, replace it with the actually localized one
                     if old_is_english and not new_is_english:
-                        self.localizations[language][key] = value #use the new localized string
+                        self.localizations[language][key] = value  # use the new localized string
                     # If just the new value is english, don't replace it
                     elif new_is_english and not old_is_english:
-                        pass #keep the old localized string
+                        pass  # keep the old localized string
                     else:
                         # If both values are english or neither are english, raise an exception
                         raise Exception(
-                            f'Key {key} with value {value} already exists in {language} localization '
-                            + f'data with value {current_value}.' + f' English value: {english_value}'
+                            f'Key {key} with value {value} already exists'
+                            + f'in {language} localization '
+                            + f'data with value {current_value}.'
+                            + f' English value: {english_value}'
                         )
 
     def run(self):
