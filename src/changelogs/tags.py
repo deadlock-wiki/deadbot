@@ -294,12 +294,13 @@ class ChangelogTags:
                 "Mid-Boss": {}
             },
             "Map": {},
-            "Parry": {},
+            
             "Rejuvenator": {},
             "Cosmic Veil": {},
             "Melee": {
                 "Light Melee": {},
-                "Heavy Melee": {}
+                "Heavy Melee": {},
+                "Parry": {},
             },
             "Sapphire Hand": {},
             "Amber Hand": {},
