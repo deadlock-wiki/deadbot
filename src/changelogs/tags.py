@@ -1,5 +1,6 @@
 # Lists and maps regarding changelog tags
 
+
 class ChangelogTags:
     def __init__(self, default_tag):
         self.default_tag = default_tag
@@ -63,19 +64,18 @@ class ChangelogTags:
             'Objective',
             'Vault',
             "Sinner's Sacrifice",
-            "Sinners Sacrifice",
+            'Sinners Sacrifice',
             "Sinners' Sacrifice",
-            "Sinner Sacrifice",
+            'Sinner Sacrifice',
             "Sinner's sacrifice",
-            "Sinners sacrifice",
+            'Sinners sacrifice',
             "Sinners' sacrifice",
-            "Sinner sacrifice",
+            'Sinner sacrifice',
             "sinner's sacrifice",
-            "sinners sacrifice",
+            'sinners sacrifice',
             "sinners' sacrifice",
-            "sinner sacrifice",
-            'Flex Slot'
-            'flex slot',
+            'sinner sacrifice',
+            'Flex Slot' 'flex slot',
             'Flex slot',
             'flex slots',
             'Flex',
@@ -141,7 +141,7 @@ class ChangelogTags:
             'Gun',
             'gun',
             'guns',
-            'Guns'
+            'Guns',
         ]
 
         # texts in this list are not converted to tags
@@ -240,20 +240,20 @@ class ChangelogTags:
             'vault': "Sinner's Sacrifice",
             'Vault': "Sinner's Sacrifice",
             "Sinner's sacrifice": "Sinner's Sacrifice",
-            "Sinners sacrifice": "Sinner's Sacrifice",
+            'Sinners sacrifice': "Sinner's Sacrifice",
             "Sinners' sacrifice": "Sinner's Sacrifice",
-            "Sinner sacrifice": "Sinner's Sacrifice",
+            'Sinner sacrifice': "Sinner's Sacrifice",
             "sinner's sacrifice": "Sinner's Sacrifice",
-            "sinners sacrifice": "Sinner's Sacrifice",
+            'sinners sacrifice': "Sinner's Sacrifice",
             "sinners' sacrifice": "Sinner's Sacrifice",
-            "sinner sacrifice": "Sinner's Sacrifice",
+            'sinner sacrifice': "Sinner's Sacrifice",
             'flex slot': 'Flex Slot',
             'Flex slot': 'Flex Slot',
             'flex slots': 'Flex Slot',
             'Flex': 'Flex Slot',
             'guns': 'Gun',
             'gun': 'Gun',
-            'Guns': 'Gun'
+            'Guns': 'Gun',
         }
 
         # Relations between a child and parent tag.
@@ -263,59 +263,36 @@ class ChangelogTags:
         # value = children
         # also see self.parent_lookup
         self.tag_tree = {
-            "Item": {
-                "Weapon Item": {},
-                "Vitality Item": {},
-                "Spirit Item": {}
+            'Item': {'Weapon Item': {}, 'Vitality Item': {}, 'Spirit Item': {}},
+            'Hero': {'Ability': {}, 'Gun': {}},
+            'Melee': {
+                'Light Melee': {},
+                'Heavy Melee': {},
+                'Parry': {},
             },
-            "Hero": {
-                "Ability": {},
-                "Gun": {}
+            'NPC': {'Denizen': {}, 'Creep': {'Denizen': {}, 'Trooper': {}}, 'Mid-Boss': {}},
+            'Objective': {
+                'Guardian': {},
+                'Base Guardian': {},
+                'Walker': {},
+                'Patron': {'Weakened Patron': {}},
+                'Shrine': {},
             },
-            "Melee": {
-                "Light Melee": {},
-                "Heavy Melee": {},
-                "Parry": {},
-            },
-            "NPC": {
-                "Denizen": {},
-                "Creep": {
-                    "Denizen": {},
-                    "Trooper": {}
-                },
-                "Mid-Boss": {}
-            },
-            "Objective": {
-                "Guardian": {},
-                "Base Guardian": {},
-                "Walker": {},
-                "Patron": {
-                    "Weakened Patron": {}
-                },
-                "Shrine": {}
-            },
-            "Souls": {
-                "Soul Orb": {},
-                "Sinner's Sacrifice": {},
-                "Soul Urn": {}
-            },
-            "Breakable": {
-                "Crate": {},
-                "Golden Statue": {}
-            },
-            "Shop": {},
-            "Map": {},
-            "Powerup": {},
-            "Zipline": {},
-            "Rejuvenator": {},
-            "Cosmic Veil": {},
-            "Sapphire Hand": {},
-            "Amber Hand": {},
-            "Sandbox": {},
-            "Pause": {},
-            "Bounce Pad": {},
-            "Rope": {},
-            "Flex Slot": {},
+            'Souls': {'Soul Orb': {}, "Sinner's Sacrifice": {}, 'Soul Urn': {}},
+            'Breakable': {'Crate': {}, 'Golden Statue': {}},
+            'Shop': {},
+            'Map': {},
+            'Powerup': {},
+            'Zipline': {},
+            'Rejuvenator': {},
+            'Cosmic Veil': {},
+            'Sapphire Hand': {},
+            'Amber Hand': {},
+            'Sandbox': {},
+            'Pause': {},
+            'Bounce Pad': {},
+            'Rope': {},
+            'Flex Slot': {},
             'Greenwich': {},
             'York Avenue': {},
             'Broadway': {},
@@ -327,7 +304,7 @@ class ChangelogTags:
             'Bridge': {},
             'Hotel': {},
             'Pharmacy': {},
-            "Other": {},
+            'Other': {},
         }
 
         self.parent_lookup = {}
@@ -338,17 +315,15 @@ class ChangelogTags:
 
     def _build_parent_lookup_map(self, parent, children):
         """
-        From the self.tag_tree dict, transform it into a 1-layer 
+        From the self.tag_tree dict, transform it into a 1-layer
         lookup table where the key is a child tag and the value is a list of its parent tags
         """
-        
+
         for child, grand_children in children.items():
             if parent is not None:
                 if child not in self.parent_lookup:
                     self.parent_lookup[child] = [parent]
                 else:
                     self.parent_lookup[child].append(parent)
-                
 
             self._build_parent_lookup_map(child, grand_children)
-

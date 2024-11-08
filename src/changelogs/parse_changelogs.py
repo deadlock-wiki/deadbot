@@ -123,12 +123,10 @@ class ChangelogParser:
 
             # If the heading is a "HeroLab <hero>", register <hero> as well
             if current_heading.startswith('HeroLab '):
-                hero = current_heading[len('HeroLab '):]
+                hero = current_heading[len('HeroLab ') :]
                 if self.is_hero(hero):
                     tags = self._register_tag(tags, hero)
                     tags = self._register_tag(tags, 'Hero')
-
-            
 
         # if no tag is found, assign to default tag
         if len(tags) == 0:
@@ -252,7 +250,7 @@ class ChangelogParser:
         self.heroes = heroes
 
         return resources
-    
+
     def is_hero(self, tag):
         """
         Returns True if the tag is a hero name i.e. Abrams
@@ -261,19 +259,19 @@ class ChangelogParser:
             hero_name = hero_data['Name']
             if tag == hero_name:
                 return True
-            
+
         return False
-    
+
     def _write_tag_tree(self, tag_tree):
         # Add <hero>, <ability>, <item> etc. to tag tree
         # to show where instance tags would appear (such as Abrams, Basic Magazine, Siphon Life)
-        tag_tree["Hero"]["<Hero Name>"] = {}
-        tag_tree["Hero"]["<HeroLab Hero Name>"] = {"HeroLab <HeroLab Hero Name>": {}}
-        tag_tree["Hero"]["Ability"]["<Ability Name>"] = {}
-        tag_tree["Item"]["Weapon Item"]["<Weapon Item Name>"] = {}
-        tag_tree["Item"]["Vitality Item"]["<Vitality Item Name>"] = {}
-        tag_tree["Item"]["Spirit Item"]["<Spirit Item Name>"] = {}
-        
+        tag_tree['Hero']['<Hero Name>'] = {}
+        tag_tree['Hero']['<HeroLab Hero Name>'] = {'HeroLab <HeroLab Hero Name>': {}}
+        tag_tree['Hero']['Ability']['<Ability Name>'] = {}
+        tag_tree['Item']['Weapon Item']['<Weapon Item Name>'] = {}
+        tag_tree['Item']['Vitality Item']['<Vitality Item Name>'] = {}
+        tag_tree['Item']['Spirit Item']['<Spirit Item Name>'] = {}
+
         json_utils.write(self.OUTPUT_CHANGELOGS + '/tag_tree.json', tag_tree)
 
     # Given an ability key, return the first hero that has that ability

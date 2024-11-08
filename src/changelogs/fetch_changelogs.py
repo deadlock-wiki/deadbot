@@ -13,6 +13,7 @@ class Changelog(TypedDict):
     Each record in changelogs.json
     Key is "changelod_id", default to forum_id, differs for herolab changelogs
     """
+
     forum_id: str
     date: str
     link: str
@@ -20,6 +21,7 @@ class Changelog(TypedDict):
 
 class ChangelogLine(TypedDict):
     """Each changelog line in a <changelog_id>.json file"""
+
     Description: str
     Tags: list[str]
 
@@ -63,11 +65,11 @@ class ChangelogFetcher:
             with open(raw_output_dir + f'/{version}.txt', 'w', encoding='utf8') as f_out:
                 f_out.write(changelog)
 
-        # Write configuration data (such as all the different version id's, 
+        # Write configuration data (such as all the different version id's,
         # forum link, and forum date) for the changelogs to 1 file
 
         # changelogs.json is not overwritten even when update_existing is True
-        # many entries were initially manually added due to 
+        # many entries were initially manually added due to
         # only the first page on the site having rss feed
 
         # Read existing changelogs.json content,
