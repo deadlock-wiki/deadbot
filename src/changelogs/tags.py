@@ -79,6 +79,10 @@ class ChangelogTags:
             'Flex slot',
             'flex slots',
             'Flex',
+            'Greenwich',
+            'York Avenue',
+            'Broadway',
+            'Park Avenue',
         ]
         # match by word
         # if they are a shorter string, or likely to be part of a longer string
@@ -305,6 +309,10 @@ class ChangelogTags:
             "Bounce Pad": {},
             "Rope": {},
             "Flex Slot": {},
+            'Greenwich': {},
+            'York Avenue': {},
+            'Broadway': {},
+            'Park Avenue': {},
             "Other": {},
         }
 
