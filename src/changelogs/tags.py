@@ -83,6 +83,13 @@ class ChangelogTags:
             'York Avenue',
             'Broadway',
             'Park Avenue',
+            'Department Store',
+            'Arcade',
+            'Fish Market',
+            'Basement',
+            'Bridge',
+            'Hotel',
+            'Pharmacy',
         ]
         # match by word
         # if they are a shorter string, or likely to be part of a longer string
@@ -313,6 +320,13 @@ class ChangelogTags:
             'York Avenue': {},
             'Broadway': {},
             'Park Avenue': {},
+            'Department Store': {},
+            'Arcade': {},
+            'Fish Market': {},
+            'Basement': {},
+            'Bridge': {},
+            'Hotel': {},
+            'Pharmacy': {},
             "Other": {},
         }
 
