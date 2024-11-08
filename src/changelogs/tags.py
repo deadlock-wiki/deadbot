@@ -261,26 +261,10 @@ class ChangelogTags:
                 "Ability": {},
                 "Gun": {}
             },
-            "Shop": {},
-            "Souls": {
-                "Soul Orb": {},
-                "Sinner's Sacrifice": {},
-                "Soul Urn": {}
-            },
-            "Powerup": {},
-            "Breakable": {
-                "Crate": {},
-                "Golden Statue": {}
-            },
-            "Zipline": {},
-            "Objective": {
-                "Guardian": {},
-                "Base Guardian": {},
-                "Walker": {},
-                "Patron": {
-                    "Weakened Patron": {}
-                },
-                "Shrine": {}
+            "Melee": {
+                "Light Melee": {},
+                "Heavy Melee": {},
+                "Parry": {},
             },
             "NPC": {
                 "Denizen": {},
@@ -293,15 +277,30 @@ class ChangelogTags:
                 "Walker": {},
                 "Mid-Boss": {}
             },
+            "Objective": {
+                "Guardian": {},
+                "Base Guardian": {},
+                "Walker": {},
+                "Patron": {
+                    "Weakened Patron": {}
+                },
+                "Shrine": {}
+            },
+            "Souls": {
+                "Soul Orb": {},
+                "Sinner's Sacrifice": {},
+                "Soul Urn": {}
+            },
+            "Breakable": {
+                "Crate": {},
+                "Golden Statue": {}
+            },
+            "Shop": {},
             "Map": {},
-            
+            "Powerup": {},
+            "Zipline": {},
             "Rejuvenator": {},
             "Cosmic Veil": {},
-            "Melee": {
-                "Light Melee": {},
-                "Heavy Melee": {},
-                "Parry": {},
-            },
             "Sapphire Hand": {},
             "Amber Hand": {},
             "Sandbox": {},
