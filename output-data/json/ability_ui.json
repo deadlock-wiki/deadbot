@@ -1039,7 +1039,7 @@
                         },
                         {
                             "Key": "LowHealthEnemyDamageBonus",
-                            "Name": "Bonus Damage",
+                            "Name": "Max Bonus Damage",
                             "Value": 145,
                             "Type": "tech_damage",
                             "Scale": {
@@ -1055,6 +1055,17 @@
                     ]
                 },
                 "Alt": [
+                    {
+                        "Key": "TimeToFullCharge",
+                        "Name": "Full Charge Time",
+                        "Value": 1.0,
+                        "Type": "duration"
+                    },
+                    {
+                        "Key": "MinChargeDamagePercent",
+                        "Name": "No Charge Damage",
+                        "Value": 25
+                    },
                     {
                         "Key": "HeadshotBonus",
                         "Name": "Headshot Damage",
@@ -2842,7 +2853,7 @@
             },
             "AbilityCooldown": {
                 "Name": "Cooldown",
-                "Value": 37.0
+                "Value": 25.0
             },
             "AbilityDuration": {
                 "Name": "Duration",
@@ -7565,8 +7576,7 @@
                     "PulseDPS": 70
                 },
                 {
-                    "AbilityCooldown": -56.0,
-                    "DescKey": "ability_warden_riot_protocol_t3_desc"
+                    "AbilityCooldown": -56.0
                 }
             ],
             "Buff": {
@@ -9040,8 +9050,7 @@
             },
             "Upgrades": [
                 {
-                    "ConsumeHealPercentage": 75,
-                    "DescKey": "ability_wrecker_salvage_t1_desc"
+                    "ConsumeHealPercentage": 75
                 },
                 {
                     "DPS": 40
@@ -9263,7 +9272,7 @@
                         {
                             "Key": "DamagePerProjectile",
                             "Name": "Damage Per Projectile",
-                            "Value": 75,
+                            "Value": 35,
                             "Type": "tech_damage",
                             "Scale": {
                                 "Value": 0.5,
