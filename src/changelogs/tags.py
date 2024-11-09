@@ -284,7 +284,7 @@ class ChangelogTags:
                 'Spirit Item': {},
                 'Flex Slot': {},
             },
-            'Hero': {'Ability': {}, 'Gun': {}},
+            'Hero': {'Ability': {}, 'Weapon': {}},
             'Melee': {
                 'Light Melee': {},
                 'Heavy Melee': {},
