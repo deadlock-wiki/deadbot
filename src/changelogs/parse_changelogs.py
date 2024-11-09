@@ -75,8 +75,8 @@ class ChangelogParser:
             if resource_name is None:
                 continue
 
-            # Skip disabled items
-            if resource_type == 'Item' and resource.get('Disabled', False):
+            # Skip these disabled items as they are often confused with a stat
+            if resource_name in ['Fire Rate', 'Health Regen']:
                 continue
 
             if resource_name in line:
@@ -243,6 +243,14 @@ class ChangelogParser:
         resources.update(heroes)
         resources.update(items)
         resources.update(abilities)
+
+        # Order the resources by the length of their name, longest to shortest
+        # This makes longer names take precedence over shorter ones
+        # i.e. check for Smoke Bomb before checking for Smoke
+        # handle name being None
+        resources = dict(sorted(resources.items(), 
+                                key=lambda x: len(x[1]['Name']) 
+                                if x[1]['Name'] is not None else 0, reverse=True))
 
         self.heroes = heroes
 

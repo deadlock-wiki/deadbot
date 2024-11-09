@@ -105,19 +105,19 @@
     {
         "Description": "* Added {{PageRef|Warden}} {{PageRef|Alchemical Flask}} cast, projectile, and impact sound effects",
         "Tags": [
-            "Warden",
-            "Hero",
             "Alchemical Flask",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Warden"
         ]
     },
     {
         "Description": "* Raised volume of {{PageRef|Wraith}} {{PageRef|Card Trick}} charge up sound effect",
         "Tags": [
-            "Wraith",
-            "Hero",
             "Card Trick",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Wraith"
         ]
     },
     {
@@ -142,19 +142,19 @@
     {
         "Description": "* Fixed a bug where {{PageRef|Infernus}} could get stuck in his {{PageRef|Flame Dash}} pose",
         "Tags": [
-            "Infernus",
-            "Hero",
             "Flame Dash",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Infernus"
         ]
     },
     {
         "Description": "* Fixed a speed exploit with {{PageRef|Infernus}} {{PageRef|Flame Dash}}",
         "Tags": [
-            "Infernus",
-            "Hero",
             "Flame Dash",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Infernus"
         ]
     },
     {
@@ -166,10 +166,10 @@
     {
         "Description": "* Reverted a change from last update to {{PageRef|Warden}}'s {{PageRef|Alchemical Flask}} – it now launches where the reticle is aiming at the end of the cast",
         "Tags": [
-            "Warden",
-            "Hero",
             "Alchemical Flask",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Warden"
         ]
     },
     {
@@ -413,9 +413,9 @@
     {
         "Description": "* Base ammo increased by 5% (except for {{PageRef|Haze}} and {{PageRef|Wraith}})",
         "Tags": [
-            "Haze",
+            "Wraith",
             "Hero",
-            "Wraith"
+            "Haze"
         ]
     },
     {
@@ -946,11 +946,14 @@
         ]
     },
     {
-        "Description": "* {{PageRef|Souls|alt_name=Soul}} Rebirth (new T4 Vitality item): After you die, you will respawn in 4 seconds where you died with 40% of your Max Health. Cooldown: 220s. Also innately grants +20% Weapon Damage and +10% Cooldown Reduction.",
+        "Description": "* {{PageRef|Soul Rebirth}} (new T4 Vitality item): After you die, you will respawn in 4 seconds where you died with 40% of your Max Health. Cooldown: 220s. Also innately grants +20% Weapon Damage and +10% Cooldown Reduction.",
         "Tags": [
-            "Souls",
+            "Soul Rebirth",
             "Item",
-            "Vitality Item"
+            "Vitality Item",
+            "Rebirth",
+            "Spirit Item",
+            "Souls"
         ]
     },
     {
@@ -1165,12 +1168,12 @@
     {
         "Description": "* {{PageRef|Abrams}}: {{PageRef|Shoulder Charge}} now considers {{PageRef|Spectral Wall}} and {{PageRef|Frozen Shelter}} as walls",
         "Tags": [
-            "Abrams",
-            "Hero",
-            "Frozen Shelter",
-            "Ability",
-            "Kelvin",
             "Shoulder Charge",
+            "Hero",
+            "Ability",
+            "Abrams",
+            "Frozen Shelter",
+            "Kelvin",
             "Spectral Wall",
             "McGinnis"
         ]
@@ -1178,76 +1181,76 @@
     {
         "Description": "* {{PageRef|Abrams}}: {{PageRef|Infernal Resilience}} duration to regen increased from 14s to 16s (this is a nerf)",
         "Tags": [
-            "Abrams",
-            "Hero",
             "Infernal Resilience",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Abrams"
         ]
     },
     {
         "Description": "* {{PageRef|Abrams}}: {{PageRef|Infernal Resilience}} damage regenerated reduced from 18% to 17%",
         "Tags": [
-            "Abrams",
-            "Hero",
             "Infernal Resilience",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Abrams"
         ]
     },
     {
         "Description": "* {{PageRef|Abrams}}: {{PageRef|Infernal Resilience}} T3 increased from +8% to +9%",
         "Tags": [
-            "Abrams",
-            "Hero",
             "Infernal Resilience",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Abrams"
         ]
     },
     {
         "Description": "* {{PageRef|Abrams}}: Improved reliability of {{PageRef|Seismic Impact}}",
         "Tags": [
-            "Abrams",
-            "Hero",
             "Seismic Impact",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Abrams"
         ]
     },
     {
         "Description": "* {{PageRef|Abrams}}: {{PageRef|Seismic Impact}} base radius increased from 6m to 9m",
         "Tags": [
-            "Abrams",
-            "Hero",
             "Seismic Impact",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Abrams"
         ]
     },
     {
         "Description": "* {{PageRef|Abrams}}: {{PageRef|Seismic Impact}} T1 changed from +4m Impact Radius to -40s Cooldown",
         "Tags": [
-            "Abrams",
-            "Hero",
             "Seismic Impact",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Abrams"
         ]
     },
     {
         "Description": "* {{PageRef|Abrams}}: {{PageRef|Seismic Impact}} T3 moved to T2 (was -70s Cooldown)",
         "Tags": [
-            "Abrams",
-            "Hero",
             "Seismic Impact",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Abrams"
         ]
     },
     {
         "Description": "* {{PageRef|Abrams}}: {{PageRef|Seismic Impact}} T3 is now Gains {{PageRef|Unstoppable}} while in air and 3s after landing",
         "Tags": [
-            "Abrams",
+            "Seismic Impact",
             "Hero",
+            "Ability",
+            "Abrams",
             "Unstoppable",
             "Item",
-            "Vitality Item",
-            "Seismic Impact",
-            "Ability"
+            "Vitality Item"
         ]
     },
     {
@@ -1328,10 +1331,10 @@
     {
         "Description": "* {{PageRef|Dynamo}}: {{PageRef|Kinetic Pulse}} spirit power scaling increased from 1.2 to 1.4",
         "Tags": [
-            "Dynamo",
-            "Hero",
             "Kinetic Pulse",
+            "Hero",
             "Ability",
+            "Dynamo",
             "Pulse",
             "Rutger"
         ]
@@ -1339,91 +1342,91 @@
     {
         "Description": "* {{PageRef|Dynamo}}: {{PageRef|Singularity}} duration reduced from 3 to 2.75",
         "Tags": [
-            "Dynamo",
-            "Hero",
             "Singularity",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Dynamo"
         ]
     },
     {
         "Description": "* {{PageRef|Grey Talon}}: {{PageRef|Charged Shot}} damage reduced from 115 to 105",
         "Tags": [
-            "Grey Talon",
-            "Hero",
             "Charged Shot",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Grey Talon"
         ]
     },
     {
         "Description": "* {{PageRef|Grey Talon}}: {{PageRef|Charged Shot}} spirit scaling increased from 1.3 to 1.6",
         "Tags": [
-            "Grey Talon",
-            "Hero",
             "Charged Shot",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Grey Talon"
         ]
     },
     {
         "Description": "* {{PageRef|Haze}}: {{PageRef|Sleep Dagger}} min sleep time reduced from 0.3 to 0.2",
         "Tags": [
-            "Haze",
-            "Hero",
             "Sleep Dagger",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Haze"
         ]
     },
     {
         "Description": "* {{PageRef|Haze}}: {{PageRef|Sleep Dagger}} wake-up time reduced from 0.15 to 0.1",
         "Tags": [
-            "Haze",
-            "Hero",
             "Sleep Dagger",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Haze"
         ]
     },
     {
         "Description": "* {{PageRef|Haze}}: {{PageRef|Sleep Dagger}} projectile size reduced by 10%",
         "Tags": [
-            "Haze",
-            "Hero",
             "Sleep Dagger",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Haze"
         ]
     },
     {
         "Description": "* {{PageRef|Haze}}: {{PageRef|Fixation}} T1 and T2 swapped",
         "Tags": [
-            "Haze",
-            "Hero",
             "Fixation",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Haze"
         ]
     },
     {
         "Description": "* {{PageRef|Haze}}: {{PageRef|Fixation}} damage per stack reduced from 0.25 to 0.2",
         "Tags": [
-            "Haze",
-            "Hero",
             "Fixation",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Haze"
         ]
     },
     {
         "Description": "* {{PageRef|Haze}}: {{PageRef|Bullet Dance}} fire rate increased from +20% to +25%",
         "Tags": [
-            "Haze",
-            "Hero",
             "Bullet Dance",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Haze"
         ]
     },
     {
         "Description": "* {{PageRef|Haze}}: {{PageRef|Bullet Dance}} radius increased from 14m to 15m",
         "Tags": [
-            "Haze",
-            "Hero",
             "Bullet Dance",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Haze"
         ]
     },
     {
@@ -1436,46 +1439,46 @@
     {
         "Description": "* {{PageRef|Ivy}}: {{PageRef|Kudzu Bomb}} DPS spirit scaling increased from 0.4 to 0.6",
         "Tags": [
-            "Ivy",
-            "Hero",
             "Kudzu Bomb",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Ivy"
         ]
     },
     {
         "Description": "* {{PageRef|Ivy}}: {{PageRef|Watcher's Covenant}} replicated healing reduced from 35% to 30%",
         "Tags": [
-            "Ivy",
-            "Hero",
             "Watcher's Covenant",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Ivy"
         ]
     },
     {
         "Description": "* {{PageRef|Kelvin}}: {{PageRef|Frost Grenade}} cooldown reduced from 23s to 21s",
         "Tags": [
-            "Kelvin",
-            "Hero",
             "Frost Grenade",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Kelvin"
         ]
     },
     {
         "Description": "* {{PageRef|Kelvin}}: {{PageRef|Ice Path}} trail duration increased from 15s to 18s",
         "Tags": [
-            "Kelvin",
-            "Hero",
             "Ice Path",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Kelvin"
         ]
     },
     {
         "Description": "* {{PageRef|Kelvin}}: {{PageRef|Arctic Beam}} T3 now hits up to 2 additional targets",
         "Tags": [
-            "Kelvin",
-            "Hero",
             "Arctic Beam",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Kelvin"
         ]
     },
     {
@@ -1495,19 +1498,19 @@
     {
         "Description": "* {{PageRef|Lady Geist}}: {{PageRef|Essence Bomb}} T2 reduced from +70 to +60",
         "Tags": [
-            "Lady Geist",
-            "Hero",
             "Essence Bomb",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Lady Geist"
         ]
     },
     {
         "Description": "* {{PageRef|Lady Geist}}: {{PageRef|Essence Bomb}} T3 increased from 20% to 22%",
         "Tags": [
-            "Lady Geist",
-            "Hero",
             "Essence Bomb",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Lady Geist"
         ]
     },
     {
@@ -1522,74 +1525,74 @@
     {
         "Description": "* {{PageRef|Lady Geist}}: {{PageRef|Soul Exchange}} can be cast on enemies that are lower health. It will always steal a minimum of 30% of their current health.",
         "Tags": [
-            "Lady Geist",
-            "Hero",
             "Soul Exchange",
+            "Hero",
             "Ability",
+            "Lady Geist",
             "Souls"
         ]
     },
     {
         "Description": "* {{PageRef|Lash}}: {{PageRef|Grapple}} weapon damage is now added into the T2 instead of in the base",
         "Tags": [
-            "Lash",
-            "Hero",
             "Grapple",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Lash"
         ]
     },
     {
         "Description": "* {{PageRef|Lash}}: {{PageRef|Ground Strike}} radius reduced from 13m to 11m",
         "Tags": [
-            "Lash",
-            "Hero",
             "Ground Strike",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Lash"
         ]
     },
     {
         "Description": "* {{PageRef|Lash}}: {{PageRef|Death Slam}} grab time reduced from 0.8s to 0.6s",
         "Tags": [
-            "Lash",
-            "Hero",
             "Death Slam",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Lash"
         ]
     },
     {
         "Description": "* {{PageRef|Lash}}: {{PageRef|Death Slam}} cast range increased from 14m to 18m",
         "Tags": [
-            "Lash",
-            "Hero",
             "Death Slam",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Lash"
         ]
     },
     {
         "Description": "* {{PageRef|Lash}}: {{PageRef|Death Slam}} throw distance reduced from 20m to 12m",
         "Tags": [
-            "Lash",
-            "Hero",
             "Death Slam",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Lash"
         ]
     },
     {
         "Description": "* {{PageRef|Lash}}: {{PageRef|Death Slam}} T1 changed from +4m Cast Range to +8m Throw Distance",
         "Tags": [
-            "Lash",
-            "Hero",
             "Death Slam",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Lash"
         ]
     },
     {
         "Description": "* {{PageRef|McGinnis}}: {{PageRef|Spectral Wall}} cooldown increased from 30s to 35s",
         "Tags": [
-            "McGinnis",
-            "Hero",
             "Spectral Wall",
-            "Ability"
+            "Hero",
+            "Ability",
+            "McGinnis"
         ]
     },
     {
@@ -1603,40 +1606,40 @@
     {
         "Description": "* {{PageRef|McGinnis}}: {{PageRef|Spectral Wall}} segments that are touching the {{PageRef|Rejuvenator|alt_name=Rejuv}} will be destroyed",
         "Tags": [
-            "McGinnis",
-            "Hero",
             "Spectral Wall",
+            "Hero",
             "Ability",
+            "McGinnis",
             "Rejuvenator"
         ]
     },
     {
         "Description": "* {{PageRef|Paradox}}: {{PageRef|Time Wall}} projectile stop duration reduced from 1.25s to 1s",
         "Tags": [
-            "Paradox",
-            "Hero",
             "Time Wall",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Paradox"
         ]
     },
     {
         "Description": "* {{PageRef|Paradox}}: {{PageRef|Pulse Grenade}} amp duration increased from 6s to 8s",
         "Tags": [
-            "Paradox",
-            "Hero",
             "Pulse Grenade",
+            "Hero",
             "Ability",
+            "Paradox",
             "Pulse",
             "Rutger"
         ]
     },
     {
-        "Description": "* {{PageRef|Paradox}}: {{PageRef|Paradox}}ical Swap projectile size reduced by 10%",
+        "Description": "* {{PageRef|Paradox}}: {{PageRef|{{PageRef|Paradox}}ical Swap}} projectile size reduced by 10%",
         "Tags": [
-            "Paradox",
-            "Hero",
             "Paradoxical Swap",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Paradox"
         ]
     },
     {
@@ -1686,10 +1689,10 @@
     {
         "Description": "* {{PageRef|Seven}}: {{PageRef|Power Surge}} scaling reduced from 0.2 to 0.16",
         "Tags": [
-            "Seven",
-            "Hero",
             "Power Surge",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Seven"
         ]
     }
 ]

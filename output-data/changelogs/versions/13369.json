@@ -68,9 +68,11 @@
         ]
     },
     {
-        "Description": "* Reworked the invite system in the client to streamline the process. Emails are no longer required, the users will now receive access directly through Steam and Discord/Forum access will be available through the client. The UI will now also group users into three categories: available to invite, already invited, and already have access. This new system will result in less invitations stuck in limbo, and any previous invites that have not already claimed the game will be granted through this system as well.",
+        "Description": "* Reworked the invite system in the client to streamline the process. Emails are no longer required, the users will now receive access directly through Steam and {{PageRef|Discord}}/Forum access will be available through the client. The UI will now also group users into three categories: available to invite, already invited, and already have access. This new system will result in less invitations stuck in limbo, and any previous invites that have not already claimed the game will be granted through this system as well.",
         "Tags": [
-            "Other"
+            "Discord",
+            "Item",
+            "Spirit Item"
         ]
     },
     {
@@ -148,12 +150,12 @@
     {
         "Description": "* Fixed various abilities not showing the cast preview correctly on the first use ({{PageRef|Mini Turret}}s, {{PageRef|Quantum Entanglement}}, etc)",
         "Tags": [
-            "Mini Turret",
+            "Quantum Entanglement",
             "Hero",
             "Ability",
-            "McGinnis",
-            "Quantum Entanglement",
-            "Dynamo"
+            "Dynamo",
+            "Mini Turret",
+            "McGinnis"
         ]
     },
     {
@@ -166,10 +168,10 @@
     {
         "Description": "* Fixed {{PageRef|Lash}}'s {{PageRef|Ground Strike}} sometimes causing the hero to be stuck for the rest of the match",
         "Tags": [
-            "Lash",
-            "Hero",
             "Ground Strike",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Lash"
         ]
     },
     {
@@ -262,10 +264,10 @@
     {
         "Description": "* Fixed crosshair sometimes being stuck hidden for {{PageRef|Yamato}} after {{PageRef|Flying Strike}} was interrupted",
         "Tags": [
-            "Yamato",
-            "Hero",
             "Flying Strike",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Yamato"
         ]
     },
     {
@@ -331,19 +333,19 @@
     {
         "Description": "* Updated {{PageRef|Warden}} {{PageRef|Alchemical Flask}} impact sounds",
         "Tags": [
-            "Warden",
-            "Hero",
             "Alchemical Flask",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Warden"
         ]
     },
     {
         "Description": "* Updated {{PageRef|Warden}} {{PageRef|Binding Word}} sound mix for teammates",
         "Tags": [
-            "Warden",
-            "Hero",
             "Binding Word",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Warden"
         ]
     },
     {
@@ -383,10 +385,10 @@
     {
         "Description": "* Added new visual effects for {{PageRef|Lash}}'s {{PageRef|Ground Strike}}",
         "Tags": [
-            "Lash",
-            "Hero",
             "Ground Strike",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Lash"
         ]
     },
     {
@@ -863,11 +865,11 @@
     {
         "Description": "* {{PageRef|Spiritual Overflow}}: Now grants +10% {{PageRef|Spirit Lifesteal}}",
         "Tags": [
-            "Spirit Lifesteal",
-            "Item",
-            "Vitality Item",
             "Spiritual Overflow",
-            "Weapon Item"
+            "Item",
+            "Weapon Item",
+            "Spirit Lifesteal",
+            "Vitality Item"
         ]
     },
     {
@@ -1038,11 +1040,14 @@
         ]
     },
     {
-        "Description": "* {{PageRef|Souls|alt_name=Soul}} Rebirth: Cooldown reduction increased from 10% to 15%",
+        "Description": "* {{PageRef|Soul Rebirth}}: Cooldown reduction increased from 10% to 15%",
         "Tags": [
-            "Souls",
+            "Soul Rebirth",
             "Item",
-            "Vitality Item"
+            "Vitality Item",
+            "Rebirth",
+            "Spirit Item",
+            "Souls"
         ]
     },
     {
@@ -1203,47 +1208,47 @@
     {
         "Description": "* {{PageRef|Abrams}}: Fixed {{PageRef|Shoulder Charge}} not stunning the target when colliding with {{PageRef|Kelvin}}'s Ice Dome",
         "Tags": [
-            "Abrams",
-            "Hero",
-            "Kelvin",
             "Shoulder Charge",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Abrams",
+            "Kelvin"
         ]
     },
     {
         "Description": "* {{PageRef|Abrams}}: Fixed some cases where {{PageRef|Shoulder Charge}} did not stun when hitting a wall",
         "Tags": [
-            "Abrams",
-            "Hero",
             "Shoulder Charge",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Abrams"
         ]
     },
     {
         "Description": "* {{PageRef|Abrams}}: Fixed enemies being able to double jump out of {{PageRef|Seismic Impact}}",
         "Tags": [
-            "Abrams",
-            "Hero",
             "Seismic Impact",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Abrams"
         ]
     },
     {
         "Description": "* {{PageRef|Abrams}}: {{PageRef|Shoulder Charge}} T3 reduced from +6.5 to +5.5 Weapon Damage",
         "Tags": [
-            "Abrams",
-            "Hero",
             "Shoulder Charge",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Abrams"
         ]
     },
     {
         "Description": "* {{PageRef|Abrams}}: {{PageRef|Seismic Impact}} damage reduced from 200 to 175",
         "Tags": [
-            "Abrams",
-            "Hero",
             "Seismic Impact",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Abrams"
         ]
     },
     {
@@ -1256,37 +1261,37 @@
     {
         "Description": "* {{PageRef|Bebop}}: {{PageRef|Sticky Bomb}} now prioritizes enemies over allies",
         "Tags": [
-            "Bebop",
-            "Hero",
             "Sticky Bomb",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Bebop"
         ]
     },
     {
         "Description": "* {{PageRef|Bebop}}: {{PageRef|Hyper Beam}} duration now scales with Spirit (0.08)",
         "Tags": [
-            "Bebop",
-            "Hero",
             "Hyper Beam",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Bebop"
         ]
     },
     {
         "Description": "* {{PageRef|Bebop}}: {{PageRef|Hyper Beam}} spirit scaling increased from 2.2 to 2.4",
         "Tags": [
-            "Bebop",
-            "Hero",
             "Hyper Beam",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Bebop"
         ]
     },
     {
         "Description": "* {{PageRef|Dynamo}}: {{PageRef|Kinetic Pulse}} width increased from 4m to 4.5m",
         "Tags": [
-            "Dynamo",
-            "Hero",
             "Kinetic Pulse",
+            "Hero",
             "Ability",
+            "Dynamo",
             "Pulse",
             "Rutger"
         ]
@@ -1294,10 +1299,10 @@
     {
         "Description": "* {{PageRef|Dynamo}}: {{PageRef|Kinetic Pulse}} recharge time reduced from 6s to 5s",
         "Tags": [
-            "Dynamo",
-            "Hero",
             "Kinetic Pulse",
+            "Hero",
             "Ability",
+            "Dynamo",
             "Pulse",
             "Rutger"
         ]
@@ -1305,19 +1310,19 @@
     {
         "Description": "* {{PageRef|Dynamo}}: {{PageRef|Rejuvenating Aurora}} regen Spirit Power scaling increased from 0.4 to 0.5",
         "Tags": [
-            "Dynamo",
-            "Hero",
             "Rejuvenating Aurora",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Dynamo"
         ]
     },
     {
         "Description": "* {{PageRef|Grey Talon}}: {{PageRef|Charged Shot}} collision size reduced by 10%",
         "Tags": [
-            "Grey Talon",
-            "Hero",
             "Charged Shot",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Grey Talon"
         ]
     },
     {
@@ -1348,83 +1353,86 @@
     {
         "Description": "* {{PageRef|Haze}}: Can now cast {{PageRef|Smoke Bomb}} while on {{PageRef|Zipline|alt_name=zipline}}",
         "Tags": [
-            "Haze",
-            "Hero",
             "Smoke Bomb",
+            "Hero",
             "Ability",
+            "Haze",
+            "Smoke",
+            "Item",
+            "Spirit Item",
             "Zipline"
         ]
     },
     {
         "Description": "* {{PageRef|Infernus}}: Fixed {{PageRef|Infernus}} being unable to slide out of {{PageRef|Flame Dash}}",
         "Tags": [
-            "Infernus",
-            "Hero",
             "Flame Dash",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Infernus"
         ]
     },
     {
         "Description": "* {{PageRef|Infernus}}: {{PageRef|Afterburn}} T1 and T2 Swapped",
         "Tags": [
-            "Infernus",
-            "Hero",
             "Afterburn",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Infernus"
         ]
     },
     {
         "Description": "* {{PageRef|Infernus}}: {{PageRef|Afterburn}} base DPS reduced from 18 to 15",
         "Tags": [
-            "Infernus",
-            "Hero",
             "Afterburn",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Infernus"
         ]
     },
     {
         "Description": "* {{PageRef|Infernus}}: {{PageRef|Afterburn}} T3 DPS reduced from 33 to 30",
         "Tags": [
-            "Infernus",
-            "Hero",
             "Afterburn",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Infernus"
         ]
     },
     {
         "Description": "* {{PageRef|Infernus}}: {{PageRef|Afterburn}} spirit scaling increased from 0.4 to 0.5",
         "Tags": [
-            "Infernus",
-            "Hero",
             "Afterburn",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Infernus"
         ]
     },
     {
         "Description": "* {{PageRef|Kelvin}}: Fixed {{PageRef|Arctic Beam}} not having proper lag compensation",
         "Tags": [
-            "Kelvin",
-            "Hero",
             "Arctic Beam",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Kelvin"
         ]
     },
     {
         "Description": "* {{PageRef|Kelvin}}: Fixed some cases where {{PageRef|Frost Grenade}} would explode and not hit anyone",
         "Tags": [
-            "Kelvin",
-            "Hero",
             "Frost Grenade",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Kelvin"
         ]
     },
     {
         "Description": "* {{PageRef|Kelvin}}: {{PageRef|Arctic Beam}} can now be canceled directly by using {{PageRef|Parry|alt_name=parry}}",
         "Tags": [
-            "Kelvin",
-            "Hero",
             "Arctic Beam",
+            "Hero",
             "Ability",
+            "Kelvin",
             "Melee",
             "Parry"
         ]
@@ -1432,28 +1440,28 @@
     {
         "Description": "* {{PageRef|Kelvin}}: {{PageRef|Frost Grenade}} cast time reduced from 0.2s to 0.1s",
         "Tags": [
-            "Kelvin",
-            "Hero",
             "Frost Grenade",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Kelvin"
         ]
     },
     {
         "Description": "* {{PageRef|Kelvin}}: {{PageRef|Frost Grenade}} recharge time reduced from 8s to 7s",
         "Tags": [
-            "Kelvin",
-            "Hero",
             "Frost Grenade",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Kelvin"
         ]
     },
     {
         "Description": "* {{PageRef|Kelvin}}: {{PageRef|Ice Path}} sprint is now granted immediately on use",
         "Tags": [
-            "Kelvin",
-            "Hero",
             "Ice Path",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Kelvin"
         ]
     },
     {
@@ -1473,28 +1481,28 @@
     {
         "Description": "* {{PageRef|Lash}}: {{PageRef|Ground Strike}} Damage Per Meter reduced from 6.3 to 6.0",
         "Tags": [
-            "Lash",
-            "Hero",
             "Ground Strike",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Lash"
         ]
     },
     {
         "Description": "* {{PageRef|McGinnis}}: {{PageRef|Mini Turret}}s no longer target immune structures",
         "Tags": [
-            "McGinnis",
-            "Hero",
             "Mini Turret",
-            "Ability"
+            "Hero",
+            "Ability",
+            "McGinnis"
         ]
     },
     {
         "Description": "* {{PageRef|McGinnis}}: {{PageRef|Heavy Barrage}} cast/aim behavior improved for indoors and close range",
         "Tags": [
-            "McGinnis",
-            "Hero",
             "Heavy Barrage",
+            "Hero",
             "Ability",
+            "McGinnis",
             "Barrage",
             "Pocket"
         ]
@@ -1510,19 +1518,19 @@
     {
         "Description": "* {{PageRef|McGinnis}}: Fixed Health Nova not working on {{PageRef|Mini Turret}}s (when Health Nova was cast by {{PageRef|McGinnis}})",
         "Tags": [
-            "McGinnis",
-            "Hero",
             "Mini Turret",
-            "Ability"
+            "Hero",
+            "Ability",
+            "McGinnis"
         ]
     },
     {
         "Description": "* {{PageRef|McGinnis}}: {{PageRef|Mini Turret}} base HP increased from +50 to +75",
         "Tags": [
-            "McGinnis",
-            "Hero",
             "Mini Turret",
-            "Ability"
+            "Hero",
+            "Ability",
+            "McGinnis"
         ]
     },
     {
@@ -1535,19 +1543,19 @@
     {
         "Description": "* {{PageRef|Paradox}}: {{PageRef|Kinetic Carbine}} Time Slowed targets that were moving before the time slow will now resume their momentum when time slow wears off",
         "Tags": [
-            "Paradox",
-            "Hero",
             "Kinetic Carbine",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Paradox"
         ]
     },
     {
         "Description": "* {{PageRef|Paradox}}: Bullet (and {{PageRef|Kinetic Carbine}}) projectile speed reduced by 10%",
         "Tags": [
-            "Paradox",
-            "Hero",
             "Kinetic Carbine",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Paradox"
         ]
     },
     {
@@ -1560,46 +1568,46 @@
     {
         "Description": "* {{PageRef|Pocket}}: {{PageRef|Affliction}} damage is dealt over 18s instead of 16s (same total damage, lower DPS)",
         "Tags": [
-            "Pocket",
-            "Hero",
             "Affliction",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Pocket"
         ]
     },
     {
         "Description": "* {{PageRef|Pocket}}: {{PageRef|Enchanter's Satchel}} T3 changed from Disarms for 2.5s to Applies -40% Fire Rate for 4s",
         "Tags": [
-            "Pocket",
-            "Hero",
             "Enchanter's Satchel",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Pocket"
         ]
     },
     {
         "Description": "* {{PageRef|Seven}}: {{PageRef|Static Charge}} stun duration reduced from 1.25s to 1.1s",
         "Tags": [
-            "Seven",
-            "Hero",
             "Static Charge",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Seven"
         ]
     },
     {
         "Description": "* {{PageRef|Seven}}: {{PageRef|Static Charge}} T3 stun duration reduced from 1.25s to 1.1s",
         "Tags": [
-            "Seven",
-            "Hero",
             "Static Charge",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Seven"
         ]
     },
     {
         "Description": "* {{PageRef|Seven}}: {{PageRef|Static Charge}} T2 radius increased from +5m to +7m",
         "Tags": [
-            "Seven",
-            "Hero",
             "Static Charge",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Seven"
         ]
     },
     {
@@ -1629,19 +1637,19 @@
     {
         "Description": "* {{PageRef|Wraith}}: {{PageRef|Card Trick}} post cast time reduced from 0.5s to 0.2s",
         "Tags": [
-            "Wraith",
-            "Hero",
             "Card Trick",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Wraith"
         ]
     },
     {
         "Description": "* {{PageRef|Wraith}}: Fixed some issues {{PageRef|Card Trick}} tracking that could cause it to {{PageRef|Soul Orb|alt_name=orb}} players or go to the wrong spot",
         "Tags": [
-            "Wraith",
-            "Hero",
             "Card Trick",
+            "Hero",
             "Ability",
+            "Wraith",
             "Souls",
             "Soul Orb"
         ]
@@ -1649,10 +1657,10 @@
     {
         "Description": "* {{PageRef|Yamato}}: {{PageRef|Power Slash}} collision size reduced by 10%",
         "Tags": [
-            "Yamato",
-            "Hero",
             "Power Slash",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Yamato"
         ]
     },
     {

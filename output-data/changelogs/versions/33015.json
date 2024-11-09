@@ -231,9 +231,9 @@
     {
         "Description": "* Updated {{PageRef|Viscous}} icon to look more different from {{PageRef|Dynamo}}",
         "Tags": [
-            "Dynamo",
+            "Viscous",
             "Hero",
-            "Viscous"
+            "Dynamo"
         ]
     },
     {
@@ -335,10 +335,10 @@
     {
         "Description": "* {{PageRef|Viscous}} {{PageRef|Puddle Punch}} will now show a red preview for when the punch is out of range but within 2x of the cast range",
         "Tags": [
-            "Viscous",
-            "Hero",
             "Puddle Punch",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Viscous"
         ]
     },
     {
@@ -407,10 +407,10 @@
     {
         "Description": "* Fixed {{PageRef|Dynamo}} not playing an animation during the cast delay on {{PageRef|Singularity}}",
         "Tags": [
-            "Dynamo",
-            "Hero",
             "Singularity",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Dynamo"
         ]
     },
     {
@@ -481,10 +481,10 @@
     {
         "Description": "* Fixed a bug where {{PageRef|Kelvin}} desperation VO for {{PageRef|Arctic Beam}} and {{PageRef|Ice Path}} were flipped",
         "Tags": [
-            "Kelvin",
-            "Hero",
             "Arctic Beam",
+            "Hero",
             "Ability",
+            "Kelvin",
             "Ice Path"
         ]
     },
@@ -523,8 +523,8 @@
             "Lady Geist",
             "Hero",
             "Mirage",
-            "Shiv",
-            "Warden"
+            "Warden",
+            "Shiv"
         ]
     },
     {
@@ -891,10 +891,10 @@
     {
         "Description": "* {{PageRef|Headhunter}}: Now requires {{PageRef|Headshot Booster}}",
         "Tags": [
-            "Headhunter",
+            "Headshot Booster",
             "Item",
             "Weapon Item",
-            "Headshot Booster"
+            "Headhunter"
         ]
     },
     {
@@ -1152,12 +1152,12 @@
         ]
     },
     {
-        "Description": "* Improved {{PageRef|Bullet Armor}}: Bullet Resist increased from 45% to 50%",
+        "Description": "* {{PageRef|Improved Bullet Armor}}: Bullet Resist increased from 45% to 50%",
         "Tags": [
-            "Bullet Armor",
+            "Improved Bullet Armor",
             "Item",
             "Vitality Item",
-            "Improved Bullet Armor"
+            "Bullet Armor"
         ]
     },
     {
@@ -1226,11 +1226,14 @@
         ]
     },
     {
-        "Description": "* {{PageRef|Souls|alt_name=Soul}} Rebirth: Increases base respawn rate by +15s",
+        "Description": "* {{PageRef|Soul Rebirth}}: Increases base respawn rate by +15s",
         "Tags": [
-            "Souls",
+            "Soul Rebirth",
             "Item",
-            "Vitality Item"
+            "Vitality Item",
+            "Rebirth",
+            "Spirit Item",
+            "Souls"
         ]
     },
     {
@@ -1481,37 +1484,37 @@
     {
         "Description": "* {{PageRef|Abrams}}: {{PageRef|Infernal Resilience}} reduced from 16% to 15%",
         "Tags": [
-            "Abrams",
-            "Hero",
             "Infernal Resilience",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Abrams"
         ]
     },
     {
         "Description": "* {{PageRef|Abrams}}: {{PageRef|Infernal Resilience}} T3 reduced from 9% to 8%",
         "Tags": [
-            "Abrams",
-            "Hero",
             "Infernal Resilience",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Abrams"
         ]
     },
     {
         "Description": "* {{PageRef|Abrams}}: {{PageRef|Siphon Life}} spirit scaling increased from 0.2 to 0.3",
         "Tags": [
-            "Abrams",
-            "Hero",
             "Siphon Life",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Abrams"
         ]
     },
     {
         "Description": "* {{PageRef|Abrams}}: Fixed Cases where {{PageRef|Shoulder Charge}} was unexpectedly 'slamming' in to walls and stairs",
         "Tags": [
-            "Abrams",
-            "Hero",
             "Shoulder Charge",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Abrams"
         ]
     },
     {
@@ -1526,19 +1529,19 @@
     {
         "Description": "* {{PageRef|Bebop}}: {{PageRef|Hyper Beam}} duration spirit scaling reduced from 0.08 to 0.06",
         "Tags": [
-            "Bebop",
-            "Hero",
             "Hyper Beam",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Bebop"
         ]
     },
     {
         "Description": "* {{PageRef|Dynamo}}: {{PageRef|Singularity}} radius reduced from 8m to 7m",
         "Tags": [
-            "Dynamo",
-            "Hero",
             "Singularity",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Dynamo"
         ]
     },
     {
@@ -1551,19 +1554,19 @@
     {
         "Description": "* {{PageRef|Grey Talon}}: {{PageRef|Rain of Arrows}} can be alternate-casted to remain near the ground",
         "Tags": [
-            "Grey Talon",
-            "Hero",
             "Rain of Arrows",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Grey Talon"
         ]
     },
     {
         "Description": "* {{PageRef|Grey Talon}}: Fixed air dash during {{PageRef|Rain of Arrows}} going half the distance",
         "Tags": [
-            "Grey Talon",
-            "Hero",
             "Rain of Arrows",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Grey Talon"
         ]
     },
     {
@@ -1603,49 +1606,52 @@
     {
         "Description": "* {{PageRef|Haze}}: Fixed refresher not working properly with {{PageRef|Smoke Bomb}}",
         "Tags": [
-            "Haze",
-            "Hero",
             "Smoke Bomb",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Haze",
+            "Smoke",
+            "Item",
+            "Spirit Item"
         ]
     },
     {
         "Description": "* {{PageRef|Haze}}: Fixed some items that didn't proc before: {{PageRef|Tesla Bullets}}, {{PageRef|Lucky Shot}}, {{PageRef|Mystic Shot}}",
         "Tags": [
-            "Haze",
-            "Hero",
             "Tesla Bullets",
             "Item",
             "Weapon Item",
             "Mystic Shot",
-            "Lucky Shot"
+            "Lucky Shot",
+            "Haze",
+            "Hero"
         ]
     },
     {
         "Description": "* {{PageRef|Haze}}: {{PageRef|Bullet Dance}} now more accurately shows who it is shooting",
         "Tags": [
-            "Haze",
-            "Hero",
             "Bullet Dance",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Haze"
         ]
     },
     {
         "Description": "* {{PageRef|Haze}}: Fixed {{PageRef|Bullet Dance}} sometimes not obeying line of sight accurately",
         "Tags": [
-            "Haze",
-            "Hero",
             "Bullet Dance",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Haze"
         ]
     },
     {
         "Description": "* {{PageRef|Haze}}: {{PageRef|Bullet Dance}} bullets are now affected by {{PageRef|Time Wall}}",
         "Tags": [
-            "Haze",
-            "Hero",
             "Bullet Dance",
+            "Hero",
             "Ability",
+            "Haze",
             "Time Wall",
             "Paradox"
         ]
@@ -1653,46 +1659,46 @@
     {
         "Description": "* {{PageRef|Haze}}: {{PageRef|Bullet Dance}} evasion reduced from 50% to 25%",
         "Tags": [
-            "Haze",
-            "Hero",
             "Bullet Dance",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Haze"
         ]
     },
     {
         "Description": "* {{PageRef|Haze}}: {{PageRef|Bullet Dance}} fire rate reduced from 25% to 15%",
         "Tags": [
-            "Haze",
-            "Hero",
             "Bullet Dance",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Haze"
         ]
     },
     {
         "Description": "* {{PageRef|Ivy}}: {{PageRef|Stone Form}} now works against airborne targets",
         "Tags": [
-            "Ivy",
-            "Hero",
             "Stone Form",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Ivy"
         ]
     },
     {
         "Description": "* {{PageRef|Ivy}}: {{PageRef|Kudzu Bomb}} T3 now also grants +2m Radius",
         "Tags": [
-            "Ivy",
-            "Hero",
             "Kudzu Bomb",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Ivy"
         ]
     },
     {
         "Description": "* {{PageRef|Ivy}}: {{PageRef|Kudzu Bomb}} spirit power scaling increased from 0.6 to 0.7",
         "Tags": [
-            "Ivy",
-            "Hero",
             "Kudzu Bomb",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Ivy"
         ]
     },
     {
@@ -1705,12 +1711,12 @@
     {
         "Description": "* {{PageRef|Ivy}}: Fixed being able to {{PageRef|Stone Form}} during the Take {{PageRef|Flight}} animation to circumvent the vulnerable cast period",
         "Tags": [
-            "Ivy",
+            "Stone Form",
             "Hero",
-            "Flight",
             "Ability",
-            "Vindicta",
-            "Stone Form"
+            "Ivy",
+            "Flight",
+            "Vindicta"
         ]
     },
     {
@@ -1730,19 +1736,19 @@
     {
         "Description": "* {{PageRef|Kelvin}}: {{PageRef|Arctic Beam}} movement slow reduced from 70% to 50%",
         "Tags": [
-            "Kelvin",
-            "Hero",
             "Arctic Beam",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Kelvin"
         ]
     },
     {
         "Description": "* {{PageRef|Kelvin}}: Moving through {{PageRef|Breakable|alt_name=breakable}}s while on {{PageRef|Ice Path}} now destroys them",
         "Tags": [
-            "Kelvin",
-            "Hero",
             "Ice Path",
+            "Hero",
             "Ability",
+            "Kelvin",
             "Breakable"
         ]
     },
@@ -1778,9 +1784,9 @@
         "Tags": [
             "Lady Geist",
             "Hero",
-            "Malice",
-            "Ability",
             "Life Drain",
+            "Ability",
+            "Malice",
             "Souls"
         ]
     },
@@ -1813,10 +1819,10 @@
     {
         "Description": "* {{PageRef|McGinnis}}: Fixed various issues with {{PageRef|Spectral Wall}} indoors and near walls spawning the wrong number of segments",
         "Tags": [
-            "McGinnis",
-            "Hero",
             "Spectral Wall",
-            "Ability"
+            "Hero",
+            "Ability",
+            "McGinnis"
         ]
     },
     {
@@ -1885,10 +1891,10 @@
     {
         "Description": "* {{PageRef|Paradox}}: {{PageRef|Pulse Grenade}} T3 now also grants +2% Damage Amp",
         "Tags": [
-            "Paradox",
-            "Hero",
             "Pulse Grenade",
+            "Hero",
             "Ability",
+            "Paradox",
             "Pulse",
             "Rutger"
         ]
@@ -1896,127 +1902,127 @@
     {
         "Description": "* {{PageRef|Paradox}}: Fixed being unable to be damaged by multiple {{PageRef|Time Wall}}s",
         "Tags": [
-            "Paradox",
-            "Hero",
             "Time Wall",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Paradox"
         ]
     },
     {
         "Description": "* {{PageRef|Pocket}}: {{PageRef|Affliction}} no longer goes through walls, now respects line of sight",
         "Tags": [
-            "Pocket",
-            "Hero",
             "Affliction",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Pocket"
         ]
     },
     {
         "Description": "* {{PageRef|Pocket}}: {{PageRef|Barrage}} T3 reduced from +5% to +4%",
         "Tags": [
-            "Pocket",
-            "Hero",
             "Barrage",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Pocket"
         ]
     },
     {
         "Description": "* {{PageRef|Seven}}: {{PageRef|Static Charge}} stun duration reduced from 1.1 to 0.9",
         "Tags": [
-            "Seven",
-            "Hero",
             "Static Charge",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Seven"
         ]
     },
     {
         "Description": "* {{PageRef|Seven}}: {{PageRef|Static Charge}} T3 reduced from 1.1 to 0.9",
         "Tags": [
-            "Seven",
-            "Hero",
             "Static Charge",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Seven"
         ]
     },
     {
         "Description": "* {{PageRef|Seven}}: {{PageRef|Static Charge}} radius reduced from 6m to 5m",
         "Tags": [
-            "Seven",
-            "Hero",
             "Static Charge",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Seven"
         ]
     },
     {
         "Description": "* {{PageRef|Seven}}: {{PageRef|Static Charge}} can now be alternate-casted on self (does not stun you)",
         "Tags": [
-            "Seven",
-            "Hero",
             "Static Charge",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Seven"
         ]
     },
     {
         "Description": "* {{PageRef|Seven}}: {{PageRef|Static Charge}} now respects line of sight",
         "Tags": [
-            "Seven",
-            "Hero",
             "Static Charge",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Seven"
         ]
     },
     {
         "Description": "* {{PageRef|Seven}}: {{PageRef|Lightning Ball}} T3 now also gives +1m Radius",
         "Tags": [
-            "Seven",
-            "Hero",
             "Lightning Ball",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Seven"
         ]
     },
     {
         "Description": "* {{PageRef|Shiv}}: {{PageRef|Slice and Dice}} T2 reduced from +85 to +75",
         "Tags": [
-            "Shiv",
-            "Hero",
             "Slice and Dice",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Shiv"
         ]
     },
     {
         "Description": "* {{PageRef|Shiv}}: {{PageRef|Killing Blow}} Rage buildup per spirit damage reduced from 0.02 to 0.013",
         "Tags": [
-            "Shiv",
-            "Hero",
             "Killing Blow",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Shiv"
         ]
     },
     {
         "Description": "* {{PageRef|Shiv}}: {{PageRef|Killing Blow}} Rage drain rate increased from 0.3 to 0.35",
         "Tags": [
-            "Shiv",
-            "Hero",
             "Killing Blow",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Shiv"
         ]
     },
     {
         "Description": "* {{PageRef|Shiv}}: {{PageRef|Killing Blow}} Full Rage Bonus Damage reduced from 20% to 15%",
         "Tags": [
-            "Shiv",
-            "Hero",
             "Killing Blow",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Shiv"
         ]
     },
     {
         "Description": "* {{PageRef|Shiv}}: {{PageRef|Killing Blow}} T2 increased from 5% to 10%",
         "Tags": [
-            "Shiv",
-            "Hero",
             "Killing Blow",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Shiv"
         ]
     },
     {
@@ -2062,19 +2068,19 @@
     {
         "Description": "* {{PageRef|Vindicta}}: {{PageRef|Assassinate}} Base damage reduced from 160 to 140",
         "Tags": [
-            "Vindicta",
-            "Hero",
             "Assassinate",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Vindicta"
         ]
     },
     {
         "Description": "* {{PageRef|Vindicta}}: {{PageRef|Assassinate}} zoom level reduced a little bit",
         "Tags": [
-            "Vindicta",
-            "Hero",
             "Assassinate",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Vindicta"
         ]
     },
     {
@@ -2089,19 +2095,19 @@
     {
         "Description": "* {{PageRef|Viscous}}: {{PageRef|The Cube}} cleanse is now part of the T2",
         "Tags": [
-            "Viscous",
-            "Hero",
             "The Cube",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Viscous"
         ]
     },
     {
         "Description": "* {{PageRef|Viscous}}: {{PageRef|Puddle Punch}} enemy warning time increased from 0.35s to 0.45s",
         "Tags": [
-            "Viscous",
-            "Hero",
             "Puddle Punch",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Viscous"
         ]
     },
     {
@@ -2114,49 +2120,49 @@
     {
         "Description": "* {{PageRef|Viscous}}: Can now use down dash during {{PageRef|Goo Ball}}",
         "Tags": [
-            "Viscous",
-            "Hero",
             "Goo Ball",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Viscous"
         ]
     },
     {
         "Description": "* {{PageRef|Viscous}}: Fixed {{PageRef|Phantom Strike}} not positioning you correctly when using it with your {{PageRef|Goo Ball}}",
         "Tags": [
-            "Viscous",
-            "Hero",
             "Phantom Strike",
             "Item",
             "Vitality Item",
             "Goo Ball",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Viscous"
         ]
     },
     {
         "Description": "* {{PageRef|Viscous}}: {{PageRef|Splatter}} post cast delay reduced from 0.5s to 0.2s",
         "Tags": [
-            "Viscous",
-            "Hero",
             "Splatter",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Viscous"
         ]
     },
     {
         "Description": "* {{PageRef|Warden}}: {{PageRef|Binding Word}} escape range and escape time increased by 15%",
         "Tags": [
-            "Warden",
-            "Hero",
             "Binding Word",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Warden"
         ]
     },
     {
         "Description": "* {{PageRef|Warden}}: {{PageRef|Last Stand}} spirit scaling increased from 0.9 to 1.2",
         "Tags": [
-            "Warden",
-            "Hero",
             "Last Stand",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Warden"
         ]
     },
     {
@@ -2169,46 +2175,46 @@
     {
         "Description": "* {{PageRef|Yamato}}: {{PageRef|Crimson Slash}} fire rate slow reduced from 30% to 20%",
         "Tags": [
-            "Yamato",
-            "Hero",
             "Crimson Slash",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Yamato"
         ]
     },
     {
         "Description": "* {{PageRef|Yamato}}: Fixed various issues with {{PageRef|Flying Strike}} pathing",
         "Tags": [
-            "Yamato",
-            "Hero",
             "Flying Strike",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Yamato"
         ]
     },
     {
         "Description": "* {{PageRef|Yamato}}: {{PageRef|Shadow Transformation}} duration reduced from 5s to 4.5s",
         "Tags": [
-            "Yamato",
-            "Hero",
             "Shadow Transformation",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Yamato"
         ]
     },
     {
         "Description": "* {{PageRef|Yamato}}: {{PageRef|Shadow Transformation}} T3 duration increased from +1.5s to +2s",
         "Tags": [
-            "Yamato",
-            "Hero",
             "Shadow Transformation",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Yamato"
         ]
     },
     {
         "Description": "* {{PageRef|Yamato}}: {{PageRef|Shadow Transformation}} no longer provides unlimited ammo",
         "Tags": [
-            "Yamato",
-            "Hero",
             "Shadow Transformation",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Yamato"
         ]
     },
     {

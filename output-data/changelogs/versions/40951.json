@@ -11,10 +11,10 @@
             "Holliday",
             "Hero",
             "Magician",
+            "Wrecker",
             "Calico",
             "Fathom",
-            "Viper",
-            "Wrecker"
+            "Viper"
         ]
     },
     {
@@ -46,10 +46,10 @@
         "Tags": [
             "Vindicta",
             "Hero",
-            "Ivy",
-            "Flight",
+            "Air Drop",
             "Ability",
-            "Air Drop"
+            "Ivy",
+            "Flight"
         ]
     },
     {
@@ -177,19 +177,19 @@
     {
         "Description": "* {{PageRef|Yamato}}'s {{PageRef|Flying Strike}} now stops tracking targets that teleport",
         "Tags": [
-            "Yamato",
-            "Hero",
             "Flying Strike",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Yamato"
         ]
     },
     {
         "Description": "* {{PageRef|Shiv}}'s {{PageRef|Killing Blow}} now stops tracking targets that teleport",
         "Tags": [
-            "Shiv",
-            "Hero",
             "Killing Blow",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Shiv"
         ]
     },
     {
@@ -222,10 +222,10 @@
     {
         "Description": "* {{PageRef|Mirage}} {{PageRef|Traveler}} now previews {{PageRef|Mirage}}'s model at destination to show facing direction",
         "Tags": [
-            "Mirage",
-            "Hero",
             "Traveler",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Mirage"
         ]
     },
     {
@@ -246,19 +246,19 @@
     {
         "Description": "* {{PageRef|Infernus}} {{PageRef|Afterburn}}: debuff vfx reduced opacity after start to reduce noise",
         "Tags": [
-            "Infernus",
-            "Hero",
             "Afterburn",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Infernus"
         ]
     },
     {
         "Description": "* {{PageRef|Mirage}} {{PageRef|Djinn's Mark}}: damage vfx revision to reduce visual noise, debuff moved to overhead UI",
         "Tags": [
-            "Mirage",
-            "Hero",
             "Djinn's Mark",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Mirage"
         ]
     },
     {
@@ -305,10 +305,10 @@
     {
         "Description": "* {{PageRef|Shiv}} {{PageRef|Slice and Dice}}: reduced vfx noise for players close to it",
         "Tags": [
-            "Shiv",
-            "Hero",
             "Slice and Dice",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Shiv"
         ]
     },
     {
@@ -323,10 +323,10 @@
     {
         "Description": "* {{PageRef|Infernus}}: reduced brightness and lingering of {{PageRef|Concussive Combustion}} effects",
         "Tags": [
-            "Infernus",
-            "Hero",
             "Concussive Combustion",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Infernus"
         ]
     },
     {
@@ -339,10 +339,10 @@
     {
         "Description": "* {{PageRef|Ivy}} {{PageRef|Kudzu Bomb}} effects properly display visuals when above ground",
         "Tags": [
-            "Ivy",
-            "Hero",
             "Kudzu Bomb",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Ivy"
         ]
     },
     {
@@ -438,10 +438,10 @@
     {
         "Description": "* Added looping telegraph for {{PageRef|Seven}} {{PageRef|Static Charge}} ability",
         "Tags": [
-            "Seven",
-            "Hero",
             "Static Charge",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Seven"
         ]
     },
     {
@@ -1042,10 +1042,10 @@
     {
         "Description": "* {{PageRef|Extra Health}}: Now upgrades into {{PageRef|Fortitude}}",
         "Tags": [
-            "Fortitude",
+            "Extra Health",
             "Item",
             "Vitality Item",
-            "Extra Health"
+            "Fortitude"
         ]
     },
     {
@@ -1099,10 +1099,10 @@
     {
         "Description": "* {{PageRef|Fortitude}}: Now upgrades from {{PageRef|Extra Health}}",
         "Tags": [
-            "Fortitude",
+            "Extra Health",
             "Item",
             "Vitality Item",
-            "Extra Health"
+            "Fortitude"
         ]
     },
     {
@@ -1160,19 +1160,25 @@
         ]
     },
     {
-        "Description": "* {{PageRef|Souls|alt_name=Soul}} Rebirth: No longer grants +15% Cooldown Reduction",
+        "Description": "* {{PageRef|Soul Rebirth}}: No longer grants +15% Cooldown Reduction",
         "Tags": [
-            "Souls",
+            "Soul Rebirth",
             "Item",
-            "Vitality Item"
+            "Vitality Item",
+            "Rebirth",
+            "Spirit Item",
+            "Souls"
         ]
     },
     {
-        "Description": "* {{PageRef|Souls|alt_name=Soul}} Rebirth: Cooldown increased from 212s to 240s",
+        "Description": "* {{PageRef|Soul Rebirth}}: Cooldown increased from 212s to 240s",
         "Tags": [
-            "Souls",
+            "Soul Rebirth",
             "Item",
-            "Vitality Item"
+            "Vitality Item",
+            "Rebirth",
+            "Spirit Item",
+            "Souls"
         ]
     },
     {
@@ -1353,11 +1359,11 @@
     {
         "Description": "* {{PageRef|Surge of Power}}: When the passive procs, you no longer get slowed when shooting (similar to {{PageRef|Fleetfoot}})",
         "Tags": [
-            "Fleetfoot",
-            "Item",
-            "Weapon Item",
             "Surge of Power",
-            "Spirit Item"
+            "Item",
+            "Spirit Item",
+            "Fleetfoot",
+            "Weapon Item"
         ]
     },
     {
@@ -1369,11 +1375,12 @@
         ]
     },
     {
-        "Description": "* {{PageRef|Improved Reach}}: Non-Imbued Ability Range increased from 25% to 26%",
+        "Description": "* {{PageRef|Improved Reach}}: Non-{{PageRef|Imbued Ability}} Range increased from 25% to 26%",
         "Tags": [
-            "Improved Reach",
+            "Imbued Ability",
             "Item",
-            "Spirit Item"
+            "Spirit Item",
+            "Improved Reach"
         ]
     },
     {
@@ -1547,28 +1554,28 @@
     {
         "Description": "* {{PageRef|Abrams}}: Fixed some cases where {{PageRef|Shoulder Charge}} would do a 180/360 on spell cast",
         "Tags": [
-            "Abrams",
-            "Hero",
             "Shoulder Charge",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Abrams"
         ]
     },
     {
         "Description": "* {{PageRef|Abrams}}: Fixed {{PageRef|Shoulder Charge}} sliding against wall surfaces incorrectly",
         "Tags": [
-            "Abrams",
-            "Hero",
             "Shoulder Charge",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Abrams"
         ]
     },
     {
         "Description": "* {{PageRef|Abrams}}: Fixed {{PageRef|Seismic Impact}} sometimes getting stuck on objects",
         "Tags": [
-            "Abrams",
-            "Hero",
             "Seismic Impact",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Abrams"
         ]
     },
     {
@@ -1595,10 +1602,10 @@
     {
         "Description": "* {{PageRef|Bebop}}: {{PageRef|Sticky Bomb}} now loses 20% of your stacks on death (rounds up)",
         "Tags": [
-            "Bebop",
-            "Hero",
             "Sticky Bomb",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Bebop"
         ]
     },
     {
@@ -1635,19 +1642,19 @@
     {
         "Description": "* {{PageRef|Grey Talon}}: {{PageRef|Rain of Arrows}} strafe speed with stamina increased by 30%",
         "Tags": [
-            "Grey Talon",
-            "Hero",
             "Rain of Arrows",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Grey Talon"
         ]
     },
     {
         "Description": "* {{PageRef|Infernus}}: {{PageRef|Afterburn}} T1 reduced from 30% to 25%",
         "Tags": [
-            "Infernus",
-            "Hero",
             "Afterburn",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Infernus"
         ]
     },
     {
@@ -1667,37 +1674,37 @@
     {
         "Description": "* {{PageRef|Ivy}}: {{PageRef|Air Drop}} slow reduced from 35% to 30%",
         "Tags": [
-            "Ivy",
-            "Hero",
             "Air Drop",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Ivy"
         ]
     },
     {
         "Description": "* {{PageRef|Kelvin}}: {{PageRef|Arctic Beam}} slow reduced from 50% to 40%",
         "Tags": [
-            "Kelvin",
-            "Hero",
             "Arctic Beam",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Kelvin"
         ]
     },
     {
         "Description": "* {{PageRef|Kelvin}}: {{PageRef|Frost Grenade}} T2 heal reduced from 145 to 125",
         "Tags": [
-            "Kelvin",
-            "Hero",
             "Frost Grenade",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Kelvin"
         ]
     },
     {
         "Description": "* {{PageRef|Kelvin}}: Fixed {{PageRef|Frozen Shelter}} not freezing weakened patron",
         "Tags": [
-            "Kelvin",
-            "Hero",
             "Frozen Shelter",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Kelvin"
         ]
     },
     {
@@ -1756,46 +1763,46 @@
     {
         "Description": "* {{PageRef|McGinnis}}: {{PageRef|Mini Turret}}s cooldown reduced from 24s to 18s",
         "Tags": [
-            "McGinnis",
-            "Hero",
             "Mini Turret",
-            "Ability"
+            "Hero",
+            "Ability",
+            "McGinnis"
         ]
     },
     {
         "Description": "* {{PageRef|McGinnis}}: {{PageRef|Mini Turret}}s spirit resist increased from 60% to 80%",
         "Tags": [
-            "McGinnis",
-            "Hero",
             "Mini Turret",
-            "Ability"
+            "Hero",
+            "Ability",
+            "McGinnis"
         ]
     },
     {
         "Description": "* {{PageRef|McGinnis}}: {{PageRef|Spectral Wall}} slow reduced from 25% to 20%",
         "Tags": [
-            "McGinnis",
-            "Hero",
             "Spectral Wall",
-            "Ability"
+            "Hero",
+            "Ability",
+            "McGinnis"
         ]
     },
     {
         "Description": "* {{PageRef|McGinnis}}: {{PageRef|Spectral Wall}} T1 damage amp reduced from 25% to 15%",
         "Tags": [
-            "McGinnis",
-            "Hero",
             "Spectral Wall",
-            "Ability"
+            "Hero",
+            "Ability",
+            "McGinnis"
         ]
     },
     {
         "Description": "* {{PageRef|McGinnis}}: {{PageRef|Heavy Barrage}} minimum range increased from 6m to 7m",
         "Tags": [
-            "McGinnis",
-            "Hero",
             "Heavy Barrage",
+            "Hero",
             "Ability",
+            "McGinnis",
             "Barrage",
             "Pocket"
         ]
@@ -1803,10 +1810,10 @@
     {
         "Description": "* {{PageRef|McGinnis}}: {{PageRef|Heavy Barrage}} cooldown increased from 106s to 140s",
         "Tags": [
-            "McGinnis",
-            "Hero",
             "Heavy Barrage",
+            "Hero",
             "Ability",
+            "McGinnis",
             "Barrage",
             "Pocket"
         ]
@@ -1814,10 +1821,10 @@
     {
         "Description": "* {{PageRef|McGinnis}}: {{PageRef|Heavy Barrage}} T2 cooldown improved from -47s to -50s",
         "Tags": [
-            "McGinnis",
-            "Hero",
             "Heavy Barrage",
+            "Hero",
             "Ability",
+            "McGinnis",
             "Barrage",
             "Pocket"
         ]
@@ -1825,10 +1832,10 @@
     {
         "Description": "* {{PageRef|McGinnis}}: {{PageRef|Heavy Barrage}} T1 slow reduced from 35% to 30%",
         "Tags": [
-            "McGinnis",
-            "Hero",
             "Heavy Barrage",
+            "Hero",
             "Ability",
+            "McGinnis",
             "Barrage",
             "Pocket"
         ]
@@ -1836,49 +1843,49 @@
     {
         "Description": "* {{PageRef|Mirage}}: {{PageRef|Fire Scarabs}} T3 max health steal increased from +70 to +80",
         "Tags": [
-            "Mirage",
-            "Hero",
             "Fire Scarabs",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Mirage"
         ]
     },
     {
         "Description": "* {{PageRef|Mirage}}: {{PageRef|Djinn's Mark}} T3 cooldown between multipliers improved from -0.5s to -0.75s",
         "Tags": [
-            "Mirage",
-            "Hero",
             "Djinn's Mark",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Mirage"
         ]
     },
     {
         "Description": "* {{PageRef|Mirage}}: {{PageRef|Traveler}} Fire Rate increased from 20% to 30%",
         "Tags": [
-            "Mirage",
-            "Hero",
             "Traveler",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Mirage"
         ]
     },
     {
         "Description": "* {{PageRef|Mirage}}: {{PageRef|Traveler}} T2 cooldown reduction improved from -30s to -40s",
         "Tags": [
-            "Mirage",
-            "Hero",
             "Traveler",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Mirage"
         ]
     },
     {
         "Description": "* {{PageRef|Mirage}}: {{PageRef|Traveler}} T3 now grants {{PageRef|Unstoppable}} for 3s on arrival",
         "Tags": [
-            "Mirage",
-            "Hero",
             "Unstoppable",
             "Item",
             "Vitality Item",
             "Traveler",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Mirage"
         ]
     },
     {
@@ -1900,13 +1907,13 @@
     {
         "Description": "* {{PageRef|Paradox}}: {{PageRef|Pulse Grenade}} pulses are now expressed as a duration rather than a fixed pulse count (works with {{PageRef|Duration Extender}})",
         "Tags": [
-            "Paradox",
-            "Hero",
             "Duration Extender",
             "Item",
             "Spirit Item",
             "Pulse Grenade",
+            "Hero",
             "Ability",
+            "Paradox",
             "Pulse",
             "Rutger"
         ]
@@ -1914,10 +1921,10 @@
     {
         "Description": "* {{PageRef|Paradox}}: {{PageRef|{{PageRef|Pulse}} Grenade}} T1 changed from +1 {{PageRef|Pulse}} to +0.8s Duration",
         "Tags": [
-            "Paradox",
-            "Hero",
             "Pulse Grenade",
+            "Hero",
             "Ability",
+            "Paradox",
             "Pulse",
             "Rutger"
         ]
@@ -1925,10 +1932,10 @@
     {
         "Description": "* {{PageRef|Paradox}}: {{PageRef|Pulse Grenade}} T2 improved from -7.5s to -8s",
         "Tags": [
-            "Paradox",
-            "Hero",
             "Pulse Grenade",
+            "Hero",
             "Ability",
+            "Paradox",
             "Pulse",
             "Rutger"
         ]
@@ -1936,74 +1943,74 @@
     {
         "Description": "* {{PageRef|Paradox}}: {{PageRef|Kinetic Carbine}} T2 improved from -9.5s Cooldown to -10s",
         "Tags": [
-            "Paradox",
-            "Hero",
             "Kinetic Carbine",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Paradox"
         ]
     },
     {
         "Description": "* {{PageRef|Paradox}}: {{PageRef|Kinetic Carbine}} shots cannot miss due to evasion",
         "Tags": [
-            "Paradox",
-            "Hero",
             "Kinetic Carbine",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Paradox"
         ]
     },
     {
         "Description": "* {{PageRef|Paradox}}: {{PageRef|Kinetic Carbine}} can now pierce {{PageRef|Breakable|alt_name=breakable}}s",
         "Tags": [
-            "Paradox",
-            "Hero",
             "Kinetic Carbine",
+            "Hero",
             "Ability",
+            "Paradox",
             "Breakable"
         ]
     },
     {
         "Description": "* {{PageRef|Paradox}}: {{PageRef|Kinetic Carbine}} now does 15% more damage on a headshot",
         "Tags": [
-            "Paradox",
-            "Hero",
             "Kinetic Carbine",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Paradox"
         ]
     },
     {
         "Description": "* {{PageRef|Paradox}}: {{PageRef|Kinetic Carbine}} sound level reduced a little bit",
         "Tags": [
-            "Paradox",
-            "Hero",
             "Kinetic Carbine",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Paradox"
         ]
     },
     {
         "Description": "* {{PageRef|Seven}}: {{PageRef|Lightning Ball}} cooldown increased from 23s to 26s",
         "Tags": [
-            "Seven",
-            "Hero",
             "Lightning Ball",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Seven"
         ]
     },
     {
         "Description": "* {{PageRef|Seven}}: {{PageRef|Lightning Ball}} radius reduced from 4m to 3.5m",
         "Tags": [
-            "Seven",
-            "Hero",
             "Lightning Ball",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Seven"
         ]
     },
     {
         "Description": "* {{PageRef|Seven}}: {{PageRef|Lightning Ball}} T2 slow reduced from 40% to 35%",
         "Tags": [
-            "Seven",
-            "Hero",
             "Lightning Ball",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Seven"
         ]
     },
     {
@@ -2016,19 +2023,19 @@
     {
         "Description": "* {{PageRef|Seven}}: {{PageRef|Storm Cloud}} expand time reduced from 3s to 2s",
         "Tags": [
-            "Seven",
-            "Hero",
             "Storm Cloud",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Seven"
         ]
     },
     {
         "Description": "* {{PageRef|Seven}}: {{PageRef|Storm Cloud}} range increased from 25m to 30m",
         "Tags": [
-            "Seven",
-            "Hero",
             "Storm Cloud",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Seven"
         ]
     },
     {
@@ -2041,73 +2048,73 @@
     {
         "Description": "* {{PageRef|Shiv}}: {{PageRef|Serrated Knives}} collision radius reduced by 20%",
         "Tags": [
-            "Shiv",
-            "Hero",
             "Serrated Knives",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Shiv"
         ]
     },
     {
         "Description": "* {{PageRef|Shiv}}: {{PageRef|Bloodletting}} cooldown increased from 21s to 50s",
         "Tags": [
-            "Shiv",
-            "Hero",
             "Bloodletting",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Shiv"
         ]
     },
     {
         "Description": "* {{PageRef|Shiv}}: {{PageRef|Bloodletting}} T2 cd increased from -4.75s to -25s (final cd changed from 16.25s to 25s)",
         "Tags": [
-            "Shiv",
-            "Hero",
             "Bloodletting",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Shiv"
         ]
     },
     {
         "Description": "* {{PageRef|Shiv}}: {{PageRef|Bloodletting}} duration increased from 10s to 13s",
         "Tags": [
-            "Shiv",
-            "Hero",
             "Bloodletting",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Shiv"
         ]
     },
     {
         "Description": "* {{PageRef|Shiv}}: {{PageRef|Bloodletting}} Incoming Damage Deferred reduced from 30% to 22%",
         "Tags": [
-            "Shiv",
-            "Hero",
             "Bloodletting",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Shiv"
         ]
     },
     {
         "Description": "* {{PageRef|Shiv}}: {{PageRef|Bloodletting}} T1 changed to +8% Incoming Damage Deferred (was +5s duration)",
         "Tags": [
-            "Shiv",
-            "Hero",
             "Bloodletting",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Shiv"
         ]
     },
     {
         "Description": "* {{PageRef|Shiv}}: {{PageRef|Killing Blow}} range reduced from 20m to 13m",
         "Tags": [
-            "Shiv",
-            "Hero",
             "Killing Blow",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Shiv"
         ]
     },
     {
         "Description": "* {{PageRef|Shiv}}: {{PageRef|Killing Blow}} Rage buildup per {{PageRef|Heavy Melee|alt_name=heavy melee}} reduced from 3.5 to 2.75",
         "Tags": [
-            "Shiv",
-            "Hero",
             "Killing Blow",
+            "Hero",
             "Ability",
+            "Shiv",
             "Melee",
             "Heavy Melee"
         ]
@@ -2115,19 +2122,19 @@
     {
         "Description": "* {{PageRef|Shiv}}: {{PageRef|Killing Blow}} Rage buffer duration reduced from 10s to 9s",
         "Tags": [
-            "Shiv",
-            "Hero",
             "Killing Blow",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Shiv"
         ]
     },
     {
         "Description": "* {{PageRef|Shiv}}: {{PageRef|Killing Blow}} Rage buildup vs {{PageRef|Creep|alt_name=creeps}} reduced by 50%",
         "Tags": [
-            "Shiv",
-            "Hero",
             "Killing Blow",
+            "Hero",
             "Ability",
+            "Shiv",
             "NPC",
             "Creep"
         ]
@@ -2157,10 +2164,10 @@
     {
         "Description": "* {{PageRef|Vindicta}}: {{PageRef|Assassinate}} no longer splits to allies",
         "Tags": [
-            "Vindicta",
-            "Hero",
             "Assassinate",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Vindicta"
         ]
     },
     {
@@ -2184,21 +2191,21 @@
     {
         "Description": "* {{PageRef|Vindicta}}: {{PageRef|Assassinate}} bullet radius increased from 3\" to 4\"",
         "Tags": [
-            "Vindicta",
-            "Hero",
             "Assassinate",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Vindicta"
         ]
     },
     {
-        "Description": "* {{PageRef|Vindicta}}: {{PageRef|Assassinate}} scope is now automatically canceled when {{PageRef|Paradox}}ical Swap hits you",
+        "Description": "* {{PageRef|Vindicta}}: {{PageRef|Assassinate}} scope is now automatically canceled when {{PageRef|Paradoxical Swap}} hits you",
         "Tags": [
-            "Paradox",
-            "Hero",
-            "Vindicta",
             "Paradoxical Swap",
+            "Hero",
             "Ability",
-            "Assassinate"
+            "Paradox",
+            "Assassinate",
+            "Vindicta"
         ]
     },
     {
@@ -2218,154 +2225,154 @@
     {
         "Description": "* {{PageRef|Viscous}}: {{PageRef|The Cube}} T2 moved to T3",
         "Tags": [
-            "Viscous",
-            "Hero",
             "The Cube",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Viscous"
         ]
     },
     {
         "Description": "* {{PageRef|Viscous}}: {{PageRef|The Cube}} T2 is now +35 HP regen",
         "Tags": [
-            "Viscous",
-            "Hero",
             "The Cube",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Viscous"
         ]
     },
     {
         "Description": "* {{PageRef|Viscous}}: {{PageRef|Splatter}} T2 reduced from +60 Damage to +50",
         "Tags": [
-            "Viscous",
-            "Hero",
             "Splatter",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Viscous"
         ]
     },
     {
         "Description": "* {{PageRef|Viscous}}: {{PageRef|Goo Ball}} Spirit Resist reduced from 70% to 60%",
         "Tags": [
-            "Viscous",
-            "Hero",
             "Goo Ball",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Viscous"
         ]
     },
     {
         "Description": "* {{PageRef|Warden}}: {{PageRef|Alchemical Flask}} slow duration reduced from 6s to 3s",
         "Tags": [
-            "Warden",
-            "Hero",
             "Alchemical Flask",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Warden"
         ]
     },
     {
         "Description": "* {{PageRef|Warden}}: {{PageRef|Alchemical Flask}} weapon damage duration increased from 6s to 7s",
         "Tags": [
-            "Warden",
-            "Hero",
             "Alchemical Flask",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Warden"
         ]
     },
     {
         "Description": "* {{PageRef|Warden}}: {{PageRef|Binding Word}} escape time reduced from 2.9s to 2.8s",
         "Tags": [
-            "Warden",
-            "Hero",
             "Binding Word",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Warden"
         ]
     },
     {
         "Description": "* {{PageRef|Warden}}: {{PageRef|Binding Word}} escape range increased from 18.5m to 19m",
         "Tags": [
-            "Warden",
-            "Hero",
             "Binding Word",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Warden"
         ]
     },
     {
         "Description": "* {{PageRef|Warden}}: {{PageRef|Last Stand}} T3 now also grants you unstoppable during the 2s channel",
         "Tags": [
-            "Warden",
-            "Hero",
             "Last Stand",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Warden"
         ]
     },
     {
         "Description": "* {{PageRef|Wraith}}: {{PageRef|Card Trick}} base damage reduced from 80 to 70",
         "Tags": [
-            "Wraith",
-            "Hero",
             "Card Trick",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Wraith"
         ]
     },
     {
         "Description": "* {{PageRef|Wraith}}: {{PageRef|Card Trick}} cooldown increased from 0.5s to 0.65s",
         "Tags": [
-            "Wraith",
-            "Hero",
             "Card Trick",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Wraith"
         ]
     },
     {
         "Description": "* {{PageRef|Wraith}}: {{PageRef|Telekinesis}} cooldown increased from 95s to 100s",
         "Tags": [
-            "Wraith",
-            "Hero",
             "Telekinesis",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Wraith"
         ]
     },
     {
         "Description": "* {{PageRef|Wraith}}: {{PageRef|Telekinesis}} T1 cooldown improved from -28s to -30s",
         "Tags": [
-            "Wraith",
-            "Hero",
             "Telekinesis",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Wraith"
         ]
     },
     {
         "Description": "* {{PageRef|Yamato}}: Fixed being able to cast an ability while casting {{PageRef|Flying Strike}}",
         "Tags": [
-            "Yamato",
-            "Hero",
             "Flying Strike",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Yamato"
         ]
     },
     {
         "Description": "* {{PageRef|Yamato}}: Fixed {{PageRef|Crimson Slash}} following in the direction of dash instead of cross hair",
         "Tags": [
-            "Yamato",
-            "Hero",
             "Crimson Slash",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Yamato"
         ]
     },
     {
         "Description": "* {{PageRef|Yamato}}: {{PageRef|Shadow Transformation}} T1 changed to +20% Fire Rate",
         "Tags": [
-            "Yamato",
-            "Hero",
             "Shadow Transformation",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Yamato"
         ]
     },
     {
         "Description": "* {{PageRef|Yamato}}: {{PageRef|Shadow Transformation}} Cooldown reduced from 106s to 90s",
         "Tags": [
-            "Yamato",
-            "Hero",
             "Shadow Transformation",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Yamato"
         ]
     }
 ]

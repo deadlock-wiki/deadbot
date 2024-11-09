@@ -120,10 +120,10 @@
     {
         "Description": "* Added a sound for when {{PageRef|Infernus}}'s {{PageRef|Afterburn}} procs",
         "Tags": [
-            "Infernus",
-            "Hero",
             "Afterburn",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Infernus"
         ]
     },
     {
@@ -143,10 +143,10 @@
     {
         "Description": "* Updated {{PageRef|Wraith}} {{PageRef|Full Auto}} cast sound",
         "Tags": [
-            "Wraith",
-            "Hero",
             "Full Auto",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Wraith"
         ]
     },
     {
@@ -164,10 +164,10 @@
     {
         "Description": "* Updated sounds for {{PageRef|Wraith}} {{PageRef|Card Trick}} projectile, impact, and when you gain a card",
         "Tags": [
-            "Wraith",
-            "Hero",
             "Card Trick",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Wraith"
         ]
     },
     {
@@ -725,15 +725,15 @@
         ]
     },
     {
-        "Description": "* {{PageRef|Reactive Barrier}}: Now procs on displacement abilities (e.g. {{PageRef|Hook}}, {{PageRef|Paradox}}ical Swap, Upper Cut)",
+        "Description": "* {{PageRef|Reactive Barrier}}: Now procs on displacement abilities (e.g. {{PageRef|Hook}}, {{PageRef|Paradoxical Swap}}, Upper Cut)",
         "Tags": [
-            "Paradox",
-            "Hero",
             "Reactive Barrier",
             "Item",
             "Vitality Item",
             "Paradoxical Swap",
+            "Hero",
             "Ability",
+            "Paradox",
             "Hook",
             "Bebop"
         ]
@@ -1013,11 +1013,11 @@
     {
         "Description": "* {{PageRef|Bullet Resist Shredder}}: Now gives +5% {{PageRef|Bullet Armor}}",
         "Tags": [
-            "Bullet Armor",
-            "Item",
-            "Vitality Item",
             "Bullet Resist Shredder",
-            "Spirit Item"
+            "Item",
+            "Spirit Item",
+            "Bullet Armor",
+            "Vitality Item"
         ]
     },
     {
@@ -1165,10 +1165,10 @@
     {
         "Description": "* {{PageRef|Abrams}}: {{PageRef|Seismic Impact}} T3 is now Gain +100 Max HP and +15% Fire Rate per enemy hero hit for 25s",
         "Tags": [
-            "Abrams",
-            "Hero",
             "Seismic Impact",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Abrams"
         ]
     },
     {
@@ -1181,10 +1181,10 @@
     {
         "Description": "* {{PageRef|Bebop}}: {{PageRef|Hyper Beam}} cast range increased from 60m to 70m",
         "Tags": [
-            "Bebop",
-            "Hero",
             "Hyper Beam",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Bebop"
         ]
     },
     {
@@ -1199,10 +1199,10 @@
     {
         "Description": "* {{PageRef|Grey Talon}}: Fixed {{PageRef|Charged Shot}} not piercing if it collides with a {{PageRef|Mini Turret}}",
         "Tags": [
-            "Grey Talon",
-            "Hero",
             "Charged Shot",
+            "Hero",
             "Ability",
+            "Grey Talon",
             "Mini Turret",
             "McGinnis"
         ]
@@ -1210,184 +1210,198 @@
     {
         "Description": "* {{PageRef|Haze}}: {{PageRef|Smoke Bomb}} no longer instantly grants sprint",
         "Tags": [
-            "Haze",
-            "Hero",
             "Smoke Bomb",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Haze",
+            "Smoke",
+            "Item",
+            "Spirit Item"
         ]
     },
     {
         "Description": "* {{PageRef|Haze}}: {{PageRef|Smoke Bomb}} duration increased from 6s to 8s",
         "Tags": [
-            "Haze",
-            "Hero",
             "Smoke Bomb",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Haze",
+            "Smoke",
+            "Item",
+            "Spirit Item"
         ]
     },
     {
         "Description": "* {{PageRef|Haze}}: {{PageRef|Smoke Bomb}} T1 is now -15s CD",
         "Tags": [
-            "Haze",
-            "Hero",
             "Smoke Bomb",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Haze",
+            "Smoke",
+            "Item",
+            "Spirit Item"
         ]
     },
     {
         "Description": "* {{PageRef|Haze}}: {{PageRef|Smoke Bomb}} T2 is now +6 Invis Sprint",
         "Tags": [
-            "Haze",
-            "Hero",
             "Smoke Bomb",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Haze",
+            "Smoke",
+            "Item",
+            "Spirit Item"
         ]
     },
     {
         "Description": "* {{PageRef|Haze}}: {{PageRef|Smoke Bomb}} T3 is now Gain +30% {{PageRef|Bullet Lifesteal}} for 8s",
         "Tags": [
-            "Haze",
-            "Hero",
             "Bullet Lifesteal",
             "Item",
             "Vitality Item",
             "Smoke Bomb",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Haze",
+            "Smoke",
+            "Spirit Item"
         ]
     },
     {
         "Description": "* {{PageRef|Haze}}: {{PageRef|Sleep Dagger}} T1 changed from +1s Sleep Duration to Drains 1 Stamina",
         "Tags": [
-            "Haze",
-            "Hero",
             "Sleep Dagger",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Haze"
         ]
     },
     {
         "Description": "* {{PageRef|Infernus}}: {{PageRef|Flame Dash}} dps linger duration increased from 0.4s to 1s",
         "Tags": [
-            "Infernus",
-            "Hero",
             "Flame Dash",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Infernus"
         ]
     },
     {
         "Description": "* {{PageRef|Ivy}}: Fixed some bugs with {{PageRef|Watcher's Covenant}} that caused it to sometimes disconnect/reconnect unintentionally",
         "Tags": [
-            "Ivy",
-            "Hero",
             "Watcher's Covenant",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Ivy"
         ]
     },
     {
         "Description": "* {{PageRef|Ivy}}: {{PageRef|Watcher's Covenant}} distance threshold to pick a new target increased from 2.5m to 6m",
         "Tags": [
-            "Ivy",
-            "Hero",
             "Watcher's Covenant",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Ivy"
         ]
     },
     {
         "Description": "* {{PageRef|Ivy}}: {{PageRef|Watcher's Covenant}} can now be cast again on an ally while the buff is active to make it prioritize that hero when possible",
         "Tags": [
-            "Ivy",
-            "Hero",
             "Watcher's Covenant",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Ivy"
         ]
     },
     {
         "Description": "* {{PageRef|Kelvin}}: Fixed {{PageRef|Frost Grenade}} not going where you had targeted if you moved quickly during the cast",
         "Tags": [
-            "Kelvin",
-            "Hero",
             "Frost Grenade",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Kelvin"
         ]
     },
     {
         "Description": "* {{PageRef|Kelvin}}: {{PageRef|Ice Path}} T3 bonus now lingers for 6s extra",
         "Tags": [
-            "Kelvin",
-            "Hero",
             "Ice Path",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Kelvin"
         ]
     },
     {
         "Description": "* {{PageRef|Lash}}: {{PageRef|Death Slam}} time to lock on increased from 0.8s to 0.9s",
         "Tags": [
-            "Lash",
-            "Hero",
             "Death Slam",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Lash"
         ]
     },
     {
         "Description": "* {{PageRef|McGinnis}}: {{PageRef|Mini Turret}} damage reduction against troopers/neutrals increased from -30% to -40%",
         "Tags": [
-            "McGinnis",
-            "Hero",
             "Mini Turret",
-            "Ability"
+            "Hero",
+            "Ability",
+            "McGinnis"
         ]
     },
     {
         "Description": "* {{PageRef|McGinnis}}: {{PageRef|Mini Turret}} damage reduction against objectives increased from -50% to -60%",
         "Tags": [
-            "McGinnis",
-            "Hero",
             "Mini Turret",
-            "Ability"
+            "Hero",
+            "Ability",
+            "McGinnis"
         ]
     },
     {
         "Description": "* {{PageRef|McGinnis}}: {{PageRef|Mini Turret}} falloff damage increased from -30% to -35%",
         "Tags": [
-            "McGinnis",
-            "Hero",
             "Mini Turret",
-            "Ability"
+            "Hero",
+            "Ability",
+            "McGinnis"
         ]
     },
     {
         "Description": "* {{PageRef|McGinnis}}: {{PageRef|Mini Turret}} cooldown reduced from 30s to 28s",
         "Tags": [
-            "McGinnis",
-            "Hero",
             "Mini Turret",
-            "Ability"
+            "Hero",
+            "Ability",
+            "McGinnis"
         ]
     },
     {
         "Description": "* {{PageRef|McGinnis}}: {{PageRef|Mini Turret}} recharge time reduced from 6s to 5s",
         "Tags": [
-            "McGinnis",
-            "Hero",
             "Mini Turret",
-            "Ability"
+            "Hero",
+            "Ability",
+            "McGinnis"
         ]
     },
     {
         "Description": "* {{PageRef|McGinnis}}: {{PageRef|Spectral Wall}} T1 and T2 swapped",
         "Tags": [
-            "McGinnis",
-            "Hero",
             "Spectral Wall",
-            "Ability"
+            "Hero",
+            "Ability",
+            "McGinnis"
         ]
     },
     {
         "Description": "* {{PageRef|McGinnis}}: {{PageRef|Spectral Wall}} T1 stamina drain reduced from 2 to 1",
         "Tags": [
-            "McGinnis",
-            "Hero",
             "Spectral Wall",
-            "Ability"
+            "Hero",
+            "Ability",
+            "McGinnis"
         ]
     },
     {
@@ -1418,10 +1432,10 @@
     {
         "Description": "* {{PageRef|Seven}}: {{PageRef|Static Charge}} cast range now scales with Spirit (0.1)",
         "Tags": [
-            "Seven",
-            "Hero",
             "Static Charge",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Seven"
         ]
     },
     {
@@ -1445,19 +1459,19 @@
     {
         "Description": "* {{PageRef|Warden}}: {{PageRef|Binding Word}} now drains 1 stamina from the target on cast",
         "Tags": [
-            "Warden",
-            "Hero",
             "Binding Word",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Warden"
         ]
     },
     {
         "Description": "* {{PageRef|Wraith}}: {{PageRef|Project Mind}} T3 cooldown reduced from -35s to -30s",
         "Tags": [
-            "Wraith",
-            "Hero",
             "Project Mind",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Wraith"
         ]
     }
 ]

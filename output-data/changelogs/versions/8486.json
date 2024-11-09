@@ -79,11 +79,11 @@
     {
         "Description": "* Fixed a bug where pinging {{PageRef|Bebop}}'s {{PageRef|Hook}} and {{PageRef|Sticky Bomb}} abilities would call the wrong ability name",
         "Tags": [
-            "Bebop",
+            "Sticky Bomb",
             "Hero",
-            "Hook",
             "Ability",
-            "Sticky Bomb"
+            "Bebop",
+            "Hook"
         ]
     },
     {
@@ -104,19 +104,19 @@
     {
         "Description": "* Updated {{PageRef|Dynamo}}'s animation while using {{PageRef|Rejuvenating Aurora}}",
         "Tags": [
-            "Dynamo",
-            "Hero",
             "Rejuvenating Aurora",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Dynamo"
         ]
     },
     {
         "Description": "* Fixed a bug that could allow {{PageRef|Grey Talon}} to hit the same target multiple times when close during {{PageRef|Rain of Arrows}}",
         "Tags": [
-            "Grey Talon",
-            "Hero",
             "Rain of Arrows",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Grey Talon"
         ]
     },
     {
@@ -483,11 +483,11 @@
     {
         "Description": "* {{PageRef|Active Reload}}: Active {{PageRef|Bullet Lifesteal}} increased from 30% to 40%",
         "Tags": [
-            "Active Reload",
-            "Item",
-            "Weapon Item",
             "Bullet Lifesteal",
-            "Vitality Item"
+            "Item",
+            "Vitality Item",
+            "Active Reload",
+            "Weapon Item"
         ]
     },
     {
@@ -694,29 +694,30 @@
     {
         "Description": "* {{PageRef|Heroic Aura}}: Now provides +16% {{PageRef|Bullet Lifesteal}}",
         "Tags": [
-            "Heroic Aura",
-            "Item",
-            "Weapon Item",
             "Bullet Lifesteal",
-            "Vitality Item"
+            "Item",
+            "Vitality Item",
+            "Heroic Aura",
+            "Weapon Item"
         ]
     },
     {
-        "Description": "* {{PageRef|Heroic Aura}}: No longer grants a 10% Fire Rate Aura",
+        "Description": "* {{PageRef|Heroic Aura}}: No longer grants a 10% {{PageRef|Fire Rate Aura}}",
         "Tags": [
-            "Heroic Aura",
+            "Fire Rate Aura",
             "Item",
-            "Weapon Item"
+            "Weapon Item",
+            "Heroic Aura"
         ]
     },
     {
         "Description": "* {{PageRef|Heroic Aura}}: Active now grants +20% Fire Rate instead of {{PageRef|Bullet Lifesteal}}",
         "Tags": [
-            "Heroic Aura",
-            "Item",
-            "Weapon Item",
             "Bullet Lifesteal",
-            "Vitality Item"
+            "Item",
+            "Vitality Item",
+            "Heroic Aura",
+            "Weapon Item"
         ]
     },
     {
@@ -728,11 +729,12 @@
         ]
     },
     {
-        "Description": "* {{PageRef|Surge of Power}}: Imbued Ability Spirit Power increased from +20 to +24",
+        "Description": "* {{PageRef|Surge of Power}}: {{PageRef|Imbued Ability}} Spirit Power increased from +20 to +24",
         "Tags": [
-            "Surge of Power",
+            "Imbued Ability",
             "Item",
-            "Spirit Item"
+            "Spirit Item",
+            "Surge of Power"
         ]
     },
     {
@@ -864,94 +866,94 @@
     {
         "Description": "* {{PageRef|Dynamo}}: {{PageRef|Quantum Entanglement}} is prevented from being cast when {{PageRef|Dynamo}} is rooted or movement-silenced (such as by {{PageRef|Slowing Hex}})",
         "Tags": [
-            "Dynamo",
+            "Quantum Entanglement",
             "Hero",
+            "Ability",
+            "Dynamo",
             "Slowing Hex",
             "Item",
-            "Spirit Item",
-            "Quantum Entanglement",
-            "Ability"
+            "Spirit Item"
         ]
     },
     {
         "Description": "* {{PageRef|Dynamo}}: {{PageRef|Rejuvenating Aurora}} T3 reduced from +5% to +4%",
         "Tags": [
-            "Dynamo",
-            "Hero",
             "Rejuvenating Aurora",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Dynamo"
         ]
     },
     {
         "Description": "* {{PageRef|Haze}}: {{PageRef|Bullet Dance}} T1 increased from +5 Weapon Damage to +6",
         "Tags": [
-            "Haze",
-            "Hero",
             "Bullet Dance",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Haze"
         ]
     },
     {
         "Description": "* {{PageRef|Haze}}: Fixed various bugs with the fire rate on {{PageRef|Bullet Dance}} (net effect of the bugs was that it often fired a little faster than it was intended to)",
         "Tags": [
-            "Haze",
-            "Hero",
             "Bullet Dance",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Haze"
         ]
     },
     {
         "Description": "* {{PageRef|Infernus}}: {{PageRef|Afterburn}} base dps reduced from 20 to 18",
         "Tags": [
-            "Infernus",
-            "Hero",
             "Afterburn",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Infernus"
         ]
     },
     {
         "Description": "* {{PageRef|Infernus}}: {{PageRef|Afterburn}} T3 reduced from +35 to +33",
         "Tags": [
-            "Infernus",
-            "Hero",
             "Afterburn",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Infernus"
         ]
     },
     {
         "Description": "* {{PageRef|Kelvin}}: {{PageRef|Arctic Beam}} spirit scaling increased from 0.7 to 0.9",
         "Tags": [
-            "Kelvin",
-            "Hero",
             "Arctic Beam",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Kelvin"
         ]
     },
     {
         "Description": "* {{PageRef|Kelvin}}: {{PageRef|Arctic Beam}} cooldown reduced from 25 to 23",
         "Tags": [
-            "Kelvin",
-            "Hero",
             "Arctic Beam",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Kelvin"
         ]
     },
     {
         "Description": "* {{PageRef|Lash}}: {{PageRef|Ground Strike}} radius reduced from 14m to 13m",
         "Tags": [
-            "Lash",
-            "Hero",
             "Ground Strike",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Lash"
         ]
     },
     {
         "Description": "* {{PageRef|Lash}}: {{PageRef|Death Slam}} radius reduced from 20m to 19m",
         "Tags": [
-            "Lash",
-            "Hero",
             "Death Slam",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Lash"
         ]
     },
     {
@@ -965,28 +967,28 @@
     {
         "Description": "* {{PageRef|McGinnis}}: {{PageRef|Mini Turret}} damage reduced by up to 30% at 35m (now has bullet falloff from 20m to 35m)",
         "Tags": [
-            "McGinnis",
-            "Hero",
             "Mini Turret",
-            "Ability"
+            "Hero",
+            "Ability",
+            "McGinnis"
         ]
     },
     {
         "Description": "* {{PageRef|McGinnis}}: {{PageRef|Mini Turret}} deploy time reduced from 2s to 1s",
         "Tags": [
-            "McGinnis",
-            "Hero",
             "Mini Turret",
-            "Ability"
+            "Hero",
+            "Ability",
+            "McGinnis"
         ]
     },
     {
         "Description": "* {{PageRef|McGinnis}}: {{PageRef|Mini Turret}} now shows up on the {{PageRef|Map|alt_name=minimap}}",
         "Tags": [
-            "McGinnis",
-            "Hero",
             "Mini Turret",
+            "Hero",
             "Ability",
+            "McGinnis",
             "Map"
         ]
     },
@@ -1000,28 +1002,28 @@
     {
         "Description": "* {{PageRef|McGinnis}}: {{PageRef|Spectral Wall}} height increased by 2m",
         "Tags": [
-            "McGinnis",
-            "Hero",
             "Spectral Wall",
-            "Ability"
+            "Hero",
+            "Ability",
+            "McGinnis"
         ]
     },
     {
         "Description": "* {{PageRef|McGinnis}}: {{PageRef|Spectral Wall}} slow duration increased from 2s to 2.5s",
         "Tags": [
-            "McGinnis",
-            "Hero",
             "Spectral Wall",
-            "Ability"
+            "Hero",
+            "Ability",
+            "McGinnis"
         ]
     },
     {
         "Description": "* {{PageRef|McGinnis}}: Fixed a bug with {{PageRef|Spectral Wall}} that caused the {{PageRef|Rejuvenator}} to instantly drop",
         "Tags": [
-            "McGinnis",
-            "Hero",
             "Spectral Wall",
+            "Hero",
             "Ability",
+            "McGinnis",
             "Rejuvenator"
         ]
     },
@@ -1044,11 +1046,11 @@
     {
         "Description": "* {{PageRef|Mo & Krill}}: Fixed {{PageRef|Scorn}} not healing for more with things like {{PageRef|Mystic Burst}}",
         "Tags": [
-            "Mo & Krill",
-            "Hero",
             "Mystic Burst",
             "Item",
             "Spirit Item",
+            "Mo & Krill",
+            "Hero",
             "Scorn",
             "Ability"
         ]
@@ -1066,11 +1068,11 @@
     {
         "Description": "* {{PageRef|Mo & Krill}}: Fixed {{PageRef|Healing Booster}} not applying to {{PageRef|Scorn}}'s 2x heal multiplier on heroes",
         "Tags": [
-            "Mo & Krill",
-            "Hero",
             "Healing Booster",
             "Item",
             "Vitality Item",
+            "Mo & Krill",
+            "Hero",
             "Scorn",
             "Ability"
         ]
@@ -1094,76 +1096,76 @@
     {
         "Description": "* {{PageRef|Paradox}}: {{PageRef|Kinetic Carbine}} impact radius reduced by 15%",
         "Tags": [
-            "Paradox",
-            "Hero",
             "Kinetic Carbine",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Paradox"
         ]
     },
     {
         "Description": "* {{PageRef|Paradox}}: {{PageRef|Kinetic Carbine}} Max Stop Duration reduced from 0.75 to 0.5",
         "Tags": [
-            "Paradox",
-            "Hero",
             "Kinetic Carbine",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Paradox"
         ]
     },
     {
         "Description": "* {{PageRef|Paradox}}: {{PageRef|Kinetic Carbine}} buff duration reduced from 6 to 4",
         "Tags": [
-            "Paradox",
-            "Hero",
             "Kinetic Carbine",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Paradox"
         ]
     },
     {
         "Description": "* {{PageRef|Paradox}}: {{PageRef|Kinetic Carbine}} T1 increased from +0.5s Max Stop Duration to +0.75",
         "Tags": [
-            "Paradox",
-            "Hero",
             "Kinetic Carbine",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Paradox"
         ]
     },
     {
         "Description": "* {{PageRef|Paradox}}: {{PageRef|Kinetic Carbine}} T2 now also increases buff by +2s",
         "Tags": [
-            "Paradox",
-            "Hero",
             "Kinetic Carbine",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Paradox"
         ]
     },
     {
-        "Description": "* {{PageRef|Paradox}}: {{PageRef|Paradox}}ical Swap range reduced from 35m to 30m",
+        "Description": "* {{PageRef|Paradox}}: {{PageRef|{{PageRef|Paradox}}ical Swap}} range reduced from 35m to 30m",
         "Tags": [
-            "Paradox",
-            "Hero",
             "Paradoxical Swap",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Paradox"
         ]
     },
     {
         "Description": "* {{PageRef|Pocket}}: {{PageRef|Enchanter's Satchel}} can now be canceled by shooting",
         "Tags": [
-            "Pocket",
-            "Hero",
             "Enchanter's Satchel",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Pocket"
         ]
     },
     {
         "Description": "* {{PageRef|Seven}}: Fixed {{PageRef|Return Fire}} working with {{PageRef|Power Surge}}",
         "Tags": [
-            "Seven",
-            "Hero",
             "Return Fire",
             "Item",
             "Vitality Item",
             "Power Surge",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Seven"
         ]
     },
     {
@@ -1190,10 +1192,10 @@
     {
         "Description": "* {{PageRef|Seven}}: {{PageRef|Static Charge}} T1 improved from -15s Cooldown to -20s",
         "Tags": [
-            "Seven",
-            "Hero",
             "Static Charge",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Seven"
         ]
     },
     {
@@ -1206,83 +1208,83 @@
     {
         "Description": "* {{PageRef|Vindicta}}: Fixed {{PageRef|Crow Familiar}} T1 only bouncing to 1 additional target instead of 2",
         "Tags": [
-            "Vindicta",
-            "Hero",
             "Crow Familiar",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Vindicta"
         ]
     },
     {
         "Description": "* {{PageRef|Vindicta}}: {{PageRef|Assassinate}} zoom level is reduced a bit",
         "Tags": [
-            "Vindicta",
-            "Hero",
             "Assassinate",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Vindicta"
         ]
     },
     {
         "Description": "* {{PageRef|Warden}}: {{PageRef|Willpower}} no longer loses movement speed when the shield is depleted",
         "Tags": [
-            "Warden",
-            "Hero",
             "Willpower",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Warden"
         ]
     },
     {
         "Description": "* {{PageRef|Warden}}: {{PageRef|Willpower}} duration reduced from 8s to 7s",
         "Tags": [
-            "Warden",
-            "Hero",
             "Willpower",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Warden"
         ]
     },
     {
         "Description": "* {{PageRef|Wraith}}: The {{PageRef|Royal Flush}} ability has been replaced with {{PageRef|Card Trick}}. {{PageRef|Card Trick}} enables {{PageRef|Wraith}}'s weapon damage to summon playing cards. Activating the ability throws one of the cards, which will fly towards the enemy or point under the crosshair and explode on impact.",
         "Tags": [
-            "Wraith",
+            "Royal Flush",
             "Hero",
-            "Card Trick",
             "Ability",
-            "Royal Flush"
+            "Card Trick",
+            "Wraith"
         ]
     },
     {
         "Description": "* {{PageRef|Yamato}}: {{PageRef|Power Slash}} damage reduced from 175 to 170",
         "Tags": [
-            "Yamato",
-            "Hero",
             "Power Slash",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Yamato"
         ]
     },
     {
         "Description": "* {{PageRef|Yamato}}: Can now cancel {{PageRef|Flying Strike}}",
         "Tags": [
-            "Yamato",
-            "Hero",
             "Flying Strike",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Yamato"
         ]
     },
     {
         "Description": "* {{PageRef|Yamato}}: {{PageRef|Shadow Transformation}} damage and debuff resistance reduced from 80% to 70%",
         "Tags": [
-            "Yamato",
-            "Hero",
             "Shadow Transformation",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Yamato"
         ]
     },
     {
         "Description": "* {{PageRef|Yamato}}: {{PageRef|Shadow Transformation}} duration increased from 4.5s to 5s",
         "Tags": [
-            "Yamato",
-            "Hero",
             "Shadow Transformation",
-            "Ability"
+            "Hero",
+            "Ability",
+            "Yamato"
         ]
     }
 ]
