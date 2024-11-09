@@ -320,8 +320,10 @@ class ChangelogTags:
             'Zipline': {},
             'Rejuvenator': {},
             'Cosmic Veil': {},
-            'Sapphire Hand': {},
-            'Amber Hand': {},
+            'Team': {
+                'Sapphire Hand': {},
+                'Amber Hand': {},
+            },
             'Sandbox': {},
             'Pause': {},
             'Bounce Pad': {},
