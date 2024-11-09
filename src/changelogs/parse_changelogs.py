@@ -248,9 +248,13 @@ class ChangelogParser:
         # This makes longer names take precedence over shorter ones
         # i.e. check for Smoke Bomb before checking for Smoke
         # handle name being None
-        resources = dict(sorted(resources.items(), 
-                                key=lambda x: len(x[1]['Name']) 
-                                if x[1]['Name'] is not None else 0, reverse=True))
+        resources = dict(
+            sorted(
+                resources.items(),
+                key=lambda x: len(x[1]['Name']) if x[1]['Name'] is not None else 0,
+                reverse=True,
+            )
+        )
 
         self.heroes = heroes
 

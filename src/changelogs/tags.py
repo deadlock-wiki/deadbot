@@ -1,9 +1,11 @@
 import utils.json_utils as json_utils
 
+
 class ChangelogTags:
     """
     Lists and maps regarding changelog tags
     """
+
     def __init__(self, default_tag, OUTPUT_CHANGELOGS):
         self.default_tag = default_tag
         self.OUTPUT_CHANGELOGS = OUTPUT_CHANGELOGS
@@ -277,9 +279,9 @@ class ChangelogTags:
         # also see self.parent_lookup
         self.tag_tree = {
             'Item': {
-                'Weapon Item': {}, 
-                'Vitality Item': {}, 
-                'Spirit Item': {}, 
+                'Weapon Item': {},
+                'Vitality Item': {},
+                'Spirit Item': {},
                 'Flex Slot': {},
             },
             'Hero': {'Ability': {}, 'Gun': {}},
@@ -288,13 +290,7 @@ class ChangelogTags:
                 'Heavy Melee': {},
                 'Parry': {},
             },
-            'NPC': {
-                'Creep': {
-                    'Denizen': {}, 
-                    'Trooper': {}
-                    }, 
-                'Mid-Boss': {}
-                },
+            'NPC': {'Creep': {'Denizen': {}, 'Trooper': {}}, 'Mid-Boss': {}},
             'Objective': {
                 'Guardian': {},
                 'Base Guardian': {},
