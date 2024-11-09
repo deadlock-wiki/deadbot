@@ -1,7 +1,7 @@
 import os
 import mwclient
 import json
-from utils import json_utils
+from utils import json_utils, game_utils, meta_utils
 from .pages import PAGE_FILE_MAP
 
 
@@ -13,7 +13,12 @@ class WikiUpload:
     def __init__(self, output_dir):
         self.OUTPUT_DIR = output_dir
         self.DATA_NAMESPACE = 'Data'
-        self.upload_message = 'DeadBot vx.xx buildyyyyy'
+
+        game_version = game_utils.load_game_info(f'{self.OUTPUT_DIR}/version.txt')['ClientVersion']
+        deadbot_version = meta_utils.get_deadbot_version()
+        self.upload_message = f'DeadBot v{deadbot_version}-{game_version}'
+
+        print('Uploading Data to Wiki -', self.upload_message)
 
         self.auth = {
             'user': os.environ.get('BOT_WIKI_USER'),
