@@ -17,16 +17,13 @@ class ChangelogParser:
         self.unique_tags = [self.default_tag]
 
         # Retrieve tag lists and maps
-        self.tags = Tags(self.default_tag)
+        self.tags = Tags(self.default_tag, self.OUTPUT_CHANGELOGS)
 
     # Main
     def run_all(self, dict_changelogs):
         # take parsed changelogs and transform them into some other useful formats
         for version, changelog in dict_changelogs.items():
             self.run(version, changelog)
-
-        # Write tag tree to file
-        self._write_tag_tree(self.tags.tag_tree)
 
     # Parse a single changelog file
     def run(self, version, logs):
@@ -261,18 +258,6 @@ class ChangelogParser:
                 return True
 
         return False
-
-    def _write_tag_tree(self, tag_tree):
-        # Add <hero>, <ability>, <item> etc. to tag tree
-        # to show where instance tags would appear (such as Abrams, Basic Magazine, Siphon Life)
-        tag_tree['Hero']['<Hero Name>'] = {}
-        tag_tree['Hero']['<HeroLab Hero Name>'] = {'HeroLab <HeroLab Hero Name>': {}}
-        tag_tree['Hero']['Ability']['<Ability Name>'] = {}
-        tag_tree['Item']['Weapon Item']['<Weapon Item Name>'] = {}
-        tag_tree['Item']['Vitality Item']['<Vitality Item Name>'] = {}
-        tag_tree['Item']['Spirit Item']['<Spirit Item Name>'] = {}
-
-        json_utils.write(self.OUTPUT_CHANGELOGS + '/tag_tree.json', tag_tree)
 
     # Given an ability key, return the first hero that has that ability
     def get_hero_from_ability(self, ability_key_to_search):

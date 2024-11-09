@@ -1,9 +1,12 @@
-# Lists and maps regarding changelog tags
-
+import utils.json_utils as json_utils
 
 class ChangelogTags:
-    def __init__(self, default_tag):
+    """
+    Lists and maps regarding changelog tags
+    """
+    def __init__(self, default_tag, OUTPUT_CHANGELOGS):
         self.default_tag = default_tag
+        self.OUTPUT_CHANGELOGS = OUTPUT_CHANGELOGS
         # Tags to register if they are found in the changelog line
         # match by text
         # avoid putting tags that are lowercase/short/1 word here.
@@ -326,6 +329,9 @@ class ChangelogTags:
         # value = list of parents
         self._build_parent_lookup_map(parent=None, children=self.tag_tree)
 
+        # Write tag tree to file
+        self._write_tag_tree(self.tag_tree)
+
     def _build_parent_lookup_map(self, parent, children):
         """
         From the self.tag_tree dict, transform it into a 1-layer
@@ -340,3 +346,15 @@ class ChangelogTags:
                     self.parent_lookup[child].append(parent)
 
             self._build_parent_lookup_map(child, grand_children)
+
+    def _write_tag_tree(self, tag_tree):
+        # Add <hero>, <ability>, <item> etc. to tag tree
+        # to show where instance tags would appear (such as Abrams, Basic Magazine, Siphon Life)
+        tag_tree['Hero']['<Hero Name>'] = {}
+        tag_tree['Hero']['<HeroLab Hero Name>'] = {'HeroLab <HeroLab Hero Name>': {}}
+        tag_tree['Hero']['Ability']['<Ability Name>'] = {}
+        tag_tree['Item']['Weapon Item']['<Weapon Item Name>'] = {}
+        tag_tree['Item']['Vitality Item']['<Vitality Item Name>'] = {}
+        tag_tree['Item']['Spirit Item']['<Spirit Item Name>'] = {}
+
+        json_utils.write(self.OUTPUT_CHANGELOGS + '/tag_tree.json', tag_tree)
