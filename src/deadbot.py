@@ -49,8 +49,8 @@ def main():
 
     if is_truthy(args.bot_push):
         print('Running DeadBot...')
-        wiki_upload = WikiUpload()
-        wiki_upload.push_lane()
+        wiki_upload = WikiUpload(args.output)
+        wiki_upload.update_data_pages()
     else:
         print('! Skipping DeadBot !')
 
