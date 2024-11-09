@@ -275,14 +275,25 @@ class ChangelogTags:
         # value = children
         # also see self.parent_lookup
         self.tag_tree = {
-            'Item': {'Weapon Item': {}, 'Vitality Item': {}, 'Spirit Item': {}},
+            'Item': {
+                'Weapon Item': {}, 
+                'Vitality Item': {}, 
+                'Spirit Item': {}, 
+                'Flex Slot': {},
+            },
             'Hero': {'Ability': {}, 'Gun': {}},
             'Melee': {
                 'Light Melee': {},
                 'Heavy Melee': {},
                 'Parry': {},
             },
-            'NPC': {'Denizen': {}, 'Creep': {'Denizen': {}, 'Trooper': {}}, 'Mid-Boss': {}},
+            'NPC': {
+                'Creep': {
+                    'Denizen': {}, 
+                    'Trooper': {}
+                    }, 
+                'Mid-Boss': {}
+                },
             'Objective': {
                 'Guardian': {},
                 'Base Guardian': {},
@@ -315,7 +326,6 @@ class ChangelogTags:
             'Pause': {},
             'Bounce Pad': {},
             'Rope': {},
-            'Flex Slot': {},
             'Greenwich': {},
             'York Avenue': {},
             'Broadway': {},
