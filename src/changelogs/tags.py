@@ -312,6 +312,10 @@ class ChangelogTags:
                 'Penn Station': {},
                 'Grand Central': {},
                 'Pit': {},
+                'Greenwich': {},
+                'York Avenue': {},
+                'Broadway': {},
+                'Park Avenue': {},
             },
             'Powerup': {},
             'Zipline': {},
@@ -325,10 +329,6 @@ class ChangelogTags:
             'Pause': {},
             'Bounce Pad': {},
             'Rope': {},
-            'Greenwich': {},
-            'York Avenue': {},
-            'Broadway': {},
-            'Park Avenue': {},
             'Other': {},
         }
 
