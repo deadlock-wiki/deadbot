@@ -2612,7 +2612,7 @@
     "citadel_ability_chrono_time_wall": {
         "AbilityCastDelay": 0.2,
         "AbilityCastRange": 200,
-        "AbilityCooldown": 37.0,
+        "AbilityCooldown": 25.0,
         "AbilityDuration": 7,
         "AbilityUnitTargetLimit": 1,
         "AuraEffectDuration": 1.25,
@@ -2836,10 +2836,12 @@
         "LowHealthEnemyDamageBonus": 145,
         "LowHealthEnemyThresholdPct": 50,
         "MaxSoundDistance": 2000,
+        "MinChargeDamagePercent": 25,
         "MoveSpeed": 4,
         "Name": "Assassinate",
         "Range": 1000,
         "ShotRadius": 4.0,
+        "TimeToFullCharge": 1.0,
         "Upgrades": [
             {
                 "AbilityCooldown": -19.0
@@ -4470,7 +4472,7 @@
         "AmpDuration": 15,
         "AmpPercentPerStack": 6,
         "ChannelMoveSpeed": 50,
-        "DamagePerProjectile": 75,
+        "DamagePerProjectile": 35,
         "FallSpeedMax": 10,
         "Key": "synth_barrage",
         "MoveSlowPercent": 30,
