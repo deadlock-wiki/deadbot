@@ -13,8 +13,11 @@ class GenericParser:
     """
 
     def __init__(self, output_dir, generic_data):
+        self.STRUCTURE_KEYS_TO_VALIDATE = ['ObjectiveParams', 'RejuvParams', 'ItemPricePerTier']
+        self.POSSIBLE_PREFIXES = ['m_str', 'm_map', 'm_n', 'm_fl', 'm_', 'fl', 'E', 'n']
         self.OUTPUT_DIR = output_dir
         self.generic_data = generic_data
+        
 
     def _read(self):
         if not os.path.exists(self.OUTPUT_DIR):
@@ -25,17 +28,15 @@ class GenericParser:
 
     def run(self):
         # Parse generic data
-        possible_prefixes = ['m_str', 'm_map', 'm_n', 'm_fl', 'm_', 'fl', 'E', 'n']
-        parsed_generics = self._remove_prefixes(self.generic_data, possible_prefixes)
+        parsed_generics = self._remove_prefixes(self.generic_data, self.POSSIBLE_PREFIXES)
 
         # Read existing generic data
         existing_generics = self._read()
 
         # If there ie existing data, validate the structure
         if existing_generics is not None:
-            structure_keys_to_validate = ['ObjectiveParams', 'RejuvParams', 'ItemPricePerTier']
             invalid_keys = json_utils.validate_structures(
-                existing_generics, parsed_generics, structure_keys_to_validate
+                existing_generics, parsed_generics, self.STRUCTURE_KEYS_TO_VALIDATE
             )
             
             if len(invalid_keys) > 0:
