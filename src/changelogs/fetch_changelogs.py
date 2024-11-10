@@ -30,18 +30,6 @@ class ChangelogFetcher:
     Fetches changelogs from the deadlock forums and game files and parses them into a dictionary
     """
 
-    # Hero lab changelogs need to be added manually to
-    # ./input-data/raw-changelogs following the
-    # naming convention 'herolab_2024_10_29.txt'
-    # see the referenced file for example formatting
-
-    # Then they need to be added to
-    # /input-data/changelogs.json following
-    # the same naming convention and formatted the same
-    # as other changelogs, but with
-    # "forum_id": null
-    # "link": null
-
     def __init__(self, client_version, update_existing):
         self.changelogs: dict[str, ChangelogString] = {}
         self.changelog_configs: dict[str, ChangelogConfig] = {}
@@ -70,8 +58,6 @@ class ChangelogFetcher:
             raw_output_dir = os.path.join(output_dir, 'raw')
             os.makedirs(raw_output_dir, exist_ok=True)
             path = raw_output_dir + f'/{version}.txt'
-            if version == 'herolab_2024_10_24':
-                print(changelog)
             with open(path, 'w', encoding='utf8') as f_out:
                 f_out.write(changelog)
 
