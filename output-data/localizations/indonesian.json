@@ -2645,7 +2645,6 @@
     "GameUI_Disconnect_SnapshotOverflow": "Eror: overflow snapshot andal",
     "GameUI_Disconnect_SoundsMessage": "Eror saat mengetik pesan tentang suara game",
     "GameUI_Disconnect_SteamDeny_BadAntiCheat": "Terputus dari server game. Ketidakcocokan dengan anti-cheat Steam.",
-    "GameUI_Disconnect_SteamDeny_Misc": "Terputus dari server game. Berbagai ketidakcocokan dengan Steam.",
     "GameUI_Disconnect_SteamDropped": "Otorisasi Steam gagal. Kamu harus terhubung ke Steam untuk membuat koneksi awal ke server game.",
     "GameUI_Disconnect_SteamIDBanned": "ID STEAM pengguna di-ban",
     "GameUI_Disconnect_SteamIDInUse": "ID STEAM pengguna sudah digunakan di server ini",
@@ -4485,7 +4484,11 @@
     "ability_blood_shards_t3_desc": "+6 Bola Darah",
     "ability_bounce_pad": "Bantalan Pemantul",
     "ability_bounce_pad/speed_on_land": "Kecepatan Gerakan",
+<<<<<<< HEAD
     "ability_bounce_pad_desc": "Menempatkan Bantalan Pemantul ke map yang <span style=\"font-weight: bold;\">melontarkanmu dan hero lainnya</span>. Kamu akan memberikan efek Entakan saat mendarat yang <span style=\"font-weight: bold;\">memberikan damage</span> ke musuh terdekat.<br><br><span class=\"diminish\">Entakan hanya dapat terjadi sekali per Bantalan Pemantul.\t</span>",
+=======
+    "ability_bounce_pad_desc": "Menempatkan Bantalan Pemantul ke map yang <span style=\"font-weight: bold;\">melontarkanmu dan hero lainnya</span>. Kamu akan memberikan efek Entakan saat mendarat yang <span style=\"font-weight: bold;\">memberikan damage</span> ke musuh terdekat.<br><br><span style=\"font-style: italic;\">Entakan hanya dapat terjadi sekali per Bantalan Pemantul.\t</span>",
+>>>>>>> b61cff458cf0e02b9f4a4ee4647cc46674d4b9ef
     "ability_bounce_pad_quip": "Melontarkan dirimu dan rekan tim",
     "ability_bounce_pad_t1_desc": "Kamu dan rekan tim mendapatkan +4 m/dtk. bonus kecepatan gerakan selama 4 dtk. saat mendarat",
     "ability_bounce_pad_t2_desc": "<span style=\"font-weight: bold;\">+100</span> Damage Entakan yang ditingkatkan",
@@ -4515,7 +4518,7 @@
     "ability_charged_shot_t2_desc": "<span style=\"font-weight: bold;\">+65 Damage</span>",
     "ability_charged_shot_t3_desc": "<span style=\"font-weight: bold;\">Menaikkan tingkat damage</span> dan mengurangi cooldown pengisian daya selama <span style=\"font-weight: bold;\">-3 dtk.</span>",
     "ability_crackshot": "Topi Terbang",
-    "ability_crackshot_desc": "Headshot memberikan bonus <span style=\"font-weight: bold;\">Damage Senjata</span> dan efek <span style=\"font-weight: bold;\">Perlambatan Berangsur</span>. Efek ini hanya dapat muncul saat tidak dalam cooldown. <br><br><span class=\"diminish\">Skill Topi Terbang mengabaikan aturan damage yang menurun seiring bertambahnya jarak.</span>",
+    "ability_crackshot_desc": "Headshot memberikan bonus <span style=\"font-weight: bold;\">Damage Senjata</span> dan efek <span style=\"font-weight: bold;\">Perlambatan Berangsur</span>. Efek ini hanya dapat muncul saat tidak dalam cooldown. <br><br><span style=\"font-style: italic;\">Skill Topi Terbang mengabaikan aturan damage yang menurun seiring bertambahnya jarak.</span>",
     "ability_crackshot_quip": "Memberikan bonus damage dan menerapkan perlambatan dengan Headshot",
     "ability_death_tax": "Death Tax",
     "ability_death_tax_desc": "Enemies injured by Lady Geist are marked with Death Tax. Whenever a marked enemy dies, {s:hero_name} gains health.",
@@ -4637,17 +4640,29 @@
     "ability_life_drain_t3_desc": "Musuh <span style=\"font-weight: bold;\">Dibungkam</span> saat sedang Diisap Nyawanya (harus dalam garis pandang)",
     "ability_magician_animalcurse": "Kutukan Kelinci",
     "ability_magician_animalcurse/animalhex_curse_modifier": "Dikutuk!",
+<<<<<<< HEAD
     "ability_magician_animalcurse_desc": "Mengutuk target, mengubahnya menjadi <span style=\"font-weight: bold;\">Kelinci</span>. Kelinci berukuran lebih kecil dan bergerak lebih cepat, tapi menerima Pembesaran Damage dan tidak dapat melakukan sebagian besar tindakan.<br><span style=\"font-weight: bold;\">[Fungsi Utama]</span> Kutuk hero target.<br><span style=\"font-weight: bold;\">[Fungsi Sekunder]</span> Kutuk diri sendiri.<br><span class=\"diminish\">Kutukan tidak mengganggu skill.</span>",
     "ability_magician_animalcurse_quip": "Mengubah musuh menjadi kelinci",
     "ability_magician_animalcurse_t3_desc": "<span style=\"font-weight: bold;\">Mengutuk</span> musuh terdekat selama <span style=\"font-weight: bold;\">setengah durasi</span>.",
     "ability_magician_bigbolt": "Grand Finale!",
     "ability_magician_bigbolt_desc": "Menyiapkan tiga blitz sihir yang LUAR BIASA. Setiap blitz memberikan <span style=\"font-weight: bold;\">Perlambatan Berangsur</span> dan <span class=\"highlight_spirit\">Damage Spirit</span> yang meningkat untuk <span style=\"font-weight: bold;\">setiap blitz yang ditembakan</span>.",
+=======
+    "ability_magician_animalcurse_desc": "Mengutuk target, mengubahnya menjadi <span style=\"font-weight: bold;\">Kelinci</span>. Kelinci berukuran lebih kecil dan bergerak lebih cepat, tapi menerima Pembesaran Damage dan tidak dapat melakukan sebagian besar tindakan.<br><span style=\"font-weight: bold;\">[Fungsi Utama]</span> Kutuk hero target.<br><span style=\"font-weight: bold;\">[Fungsi Sekunder]</span> Kutuk diri sendiri.<br><span style=\"font-style: italic;\">Kutukan tidak mengganggu skill.</span>",
+    "ability_magician_animalcurse_quip": "Mengubah musuh menjadi kelinci",
+    "ability_magician_animalcurse_t3_desc": "<span style=\"font-weight: bold;\">Mengutuk</span> musuh terdekat selama <span style=\"font-weight: bold;\">setengah durasi</span>.",
+    "ability_magician_bigbolt": "Grand Finale!",
+    "ability_magician_bigbolt_desc": "Menyiapkan tiga blitz sihir yang LUAR BIASA. Setiap blitz memberikan <span style=\"font-weight: bold;\">Perlambatan Berangsur</span> dan <span style=\"font-weight: bold;\">Damage Spirit</span> yang meningkat untuk <span style=\"font-weight: bold;\">setiap blitz yang ditembakan</span>.",
+>>>>>>> b61cff458cf0e02b9f4a4ee4647cc46674d4b9ef
     "ability_magician_bigbolt_t3_desc": "<span style=\"font-weight: bold;\">+50</span> Damage per Blitz. Mengembalikan <span style=\"font-weight: bold;\">1</span> Blitz per Kill",
     "ability_magician_cloneturret": "Asisten Bayangan",
     "ability_magician_cloneturret_quip": "Memanggil asisten setiamu",
     "ability_magician_cloneturret_t3_desc": "Asisten juga bisa menggunakan Blitz Sihir",
     "ability_magician_magicbolt": "Blitz Sihir",
+<<<<<<< HEAD
     "ability_magician_magicbolt_desc": "Menembakkan blitz sihir yang memberikan <span class=\"highlight_spirit\">Damage Spirit</span> dan menerapkan <span style=\"font-weight: bold;\">Penurunan Tingkat Tembakan</span>. <br><br>Tekan<span style=\"font-weight: bold;\">1</span> untuk <span style=\"font-weight: bold;\">mengarahkan blitz kembali</span> ke arah crosshair-mu.",
+=======
+    "ability_magician_magicbolt_desc": "Menembakkan blitz sihir yang memberikan <span style=\"font-weight: bold;\">Damage Spirit</span> dan menerapkan <span style=\"font-weight: bold;\">Penurunan Tingkat Tembakan</span>. <br><br>Tekan<span style=\"font-weight: bold;\">1</span> untuk <span style=\"font-weight: bold;\">mengarahkan blitz kembali</span> ke arah crosshair-mu.",
+>>>>>>> b61cff458cf0e02b9f4a4ee4647cc46674d4b9ef
     "ability_magician_magicbolt_quip": "Meluncurkan blitz sihir yang dapat dikontrol",
     "ability_magician_shadowclone": "Homonculus Agung!",
     "ability_magician_shadowclone_desc": "Membuat <span class=\"highlight\">klon</span> diri dengan health dan damage yang lebih sedikit. Saat mati atau durasi hidupnya habis, klon akan meledak dan memberikan Damage Spirit.<br><br><span class=\"diminish\">Klon tidak dapat menggunakan skill Ultimate.</span>",
@@ -4814,7 +4829,11 @@
     "ability_upgrade_description_open_shop": "Tier {s:upgradeTier} upgrades",
     "ability_upgrade_extra_info": "Ability upgrades are unlocked whenever you purchase two upgrades in any mod tier (Weapon, Armor, Tech or Utility).",
     "ability_viper_debuffdagger": "Belati Tusukan Mengerikan",
+<<<<<<< HEAD
     "ability_viper_debuffdagger_desc": "Melempar belati, memberikan <span class=\"highlight_spirit\">Damage Spirit</span> dan menerapkan <span style=\"font-weight: bold;\">Perlambatan Berangsur</span>.",
+=======
+    "ability_viper_debuffdagger_desc": "Melempar belati, memberikan <span style=\"font-weight: bold;\">Damage Spirit</span> dan menerapkan <span style=\"font-weight: bold;\">Perlambatan Berangsur</span>.",
+>>>>>>> b61cff458cf0e02b9f4a4ee4647cc46674d4b9ef
     "ability_viper_debuffdagger_t3_desc": "+<span style=\"font-weight: bold;\">1s dtk.</span> Durasi Perlambatan dan menghilangkan <span style=\"font-weight: bold;\">1 Stamina</span>",
     "ability_viper_hookdagger": "Pisau Kait",
     "ability_viper_hookdagger_desc": "Melempar pisau yang memberikan <span class=\"highlight_spirit\">Damage Spirit</span>. Pisau akan mengait kembali dan memberikan <span class=\"highlight_spirit\">Damage Spirit</span> lagi dan <span class=\"highlight\">Perlambatan</span>.",
@@ -4825,10 +4844,10 @@
     "ability_viper_snakedash_quip": "Meningkatkan kelincahan Meluncur",
     "ability_viper_ult": "Kutukan Batu",
     "ability_viper_ult/viper_ult_petrify": "Membatu",
-    "ability_viper_ult_desc": "Membuat area heksagon di tanah. Setelah penundaan, SEMUA unit di dalam area silinder akan <span id=\"TestID\"/></span><span style=\"font-weight: bold;\">Membatu</span>. Musuh juga menerima <span class=\"highlight_spirit\">Damage Spirit</span>.<br><br><span class=\"diminish\">Unit yang membatu akan memblokir semua damage, tapi tidak dapat melakukan tindakan apa pun. <br>Unit yang membatu akan bebas setelah memblokir cukup damage.</span>",
+    "ability_viper_ult_desc": "Membuat area heksagon di tanah. Setelah penundaan, SEMUA unit di dalam area silinder akan <span></span><span style=\"font-weight: bold;\">Membatu</span>. Musuh juga menerima <span style=\"font-weight: bold;\">Damage Spirit</span>.<br><br><span style=\"font-style: italic;\">Unit yang membatu akan memblokir semua damage, tapi tidak dapat melakukan tindakan apa pun. <br>Unit yang membatu akan bebas setelah memblokir cukup damage.</span>",
     "ability_viper_ult_quip": "Mengubah rekan tim dan musuh menjadi batu",
     "ability_viper_venom": "Racun Mematikan",
-    "ability_viper_venom_desc": "Menyuntikkan racun mematikan pada target. Setelah penundaan yang dipicu racun, <span class=\"highlight_spirit\">Damage Spirit</span> akan diberikan. Damage akan ditingkatkan berdasarkan health target yang hilang.<br><br><span class=\"diminish\">Menyuntikkan racun lagi akan mengulang durasi.<br>Racun menghancurkan Kutukan Batu sebelum meledak.</span>",
+    "ability_viper_venom_desc": "Menyuntikkan racun mematikan pada target. Setelah penundaan yang dipicu racun, <span style=\"font-weight: bold;\">Damage Spirit</span> akan diberikan. Damage akan ditingkatkan berdasarkan health target yang hilang.<br><br><span style=\"font-style: italic;\">Menyuntikkan racun lagi akan mengulang durasi.<br>Racun menghancurkan Kutukan Batu sebelum meledak.</span>",
     "ability_viper_venom_quip": "Menyuntikkan musuh dengan racun mematikan",
     "ability_viper_venom_t3_desc": "+<span style=\"font-weight: bold;\">8% Damage Health Hilang</span>",
     "ability_warden_crowd_control": "Labu Kimia",
