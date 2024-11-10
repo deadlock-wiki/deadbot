@@ -1,6 +1,6 @@
 # Maps page name in "Data:" namespace on the wiki to
 # the file path in $OUTPUT_DIR
-PAGE_FILE_MAP = {
+DATA_PAGE_FILE_MAP = {
     'AbilityCards.json': 'json/ability-cards.json',
     'AbilityData.json': 'json/ability-data.json',
     'AttributeData.json': 'json/attribute-data.json',

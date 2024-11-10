@@ -2,7 +2,7 @@ import os
 import mwclient
 import json
 from utils import json_utils, game_utils, meta_utils
-from .pages import PAGE_FILE_MAP, IGNORE_PAGES
+from .pages import DATA_PAGE_FILE_MAP, IGNORE_PAGES
 
 
 class WikiUpload:
@@ -44,7 +44,7 @@ class WikiUpload:
             if namespace != self.DATA_NAMESPACE:
                 continue
 
-            file_path = PAGE_FILE_MAP.get(page_name)
+            file_path = DATA_PAGE_FILE_MAP.get(page_name)
             # If file is not found in either page map or ignore list, add a warning to resolve that
             if file_path is None:
                 if page_name not in IGNORE_PAGES:
