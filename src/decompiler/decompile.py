@@ -32,6 +32,7 @@ def decompile(DEADLOCK_PATH, WORK_DIR, DECOMPILER_CMD, force=False):
         )
         if not force:
             return
+
     os.system(f'cp "{steam_inf_path}" "{version_path}"')
 
     # Define files to be decompiled and processed
