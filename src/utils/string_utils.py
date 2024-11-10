@@ -31,14 +31,34 @@ def format_description(description, *data_sets):
         return None
 
     # replace valve's highlight class with a simple text bold
-    description = description.replace(
-        '<span class="highlight">', '<span style="font-weight: bold;">'
-    )
-
+    description = re.sub(r'<span\s+([^>]*)>', replace_span_match, description)
     # replace tags like <%s>, <%s1> etc. with </span>
     description = re.sub(r'<%s\d?>', '</span>', description)
 
+    # remove <Panel ...></Panel> tags until we properly support them
+    description = re.sub(r'<Panel\b[^>]*>', '', description)
+    description = description.replace('</Panel>', '')
+
     return _replace_variables(description, data)
+
+
+STYLE_MAP = {
+    'class="highlight"': '<span style="font-weight: bold;">',
+    'class="diminish"': '<span style="font-style: italic;">',
+    'class="highlight_spirit"': '<span style="font-weight: bold;">',
+    'class="highlight_weapon"': '<span style="font-weight: bold;">',
+    'id="TestID"/': '<span>',
+}
+
+
+def replace_span_match(match):
+    key = match.group(1)
+
+    style = STYLE_MAP.get(key)
+    if style is None:
+        raise Exception(f'Missing style map for {key}')
+
+    return style
 
 
 # Keys to ignore errors, as they are manually verified as having no valid override
