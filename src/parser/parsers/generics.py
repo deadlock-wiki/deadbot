@@ -15,16 +15,15 @@ class GenericParser:
     def __init__(self, output_dir, generic_data):
         self.STRUCTURE_KEYS_TO_VALIDATE = ['ObjectiveParams', 'RejuvParams', 'ItemPricePerTier']
         self.POSSIBLE_PREFIXES = ['m_str', 'm_map', 'm_n', 'm_fl', 'm_', 'fl', 'E', 'n']
-        self.OUTPUT_DIR = output_dir
+        self.generic_data_dir = output_dir
         self.generic_data = generic_data
-        
 
     def _read(self):
-        if not os.path.exists(self.OUTPUT_DIR):
+        if not os.path.exists(self.generic_data_dir):
             return None
 
         # Read existing generic data from file
-        return json_utils.read(self.OUTPUT_DIR)
+        return json_utils.read(self.generic_data_dir)
 
     def run(self):
         # Parse generic data
@@ -38,7 +37,7 @@ class GenericParser:
             invalid_keys = json_utils.validate_structures(
                 existing_generics, parsed_generics, self.STRUCTURE_KEYS_TO_VALIDATE
             )
-            
+
             if len(invalid_keys) > 0:
                 print(
                     '[WARN] A structure within Generic data has changed:'
@@ -47,7 +46,6 @@ class GenericParser:
                 )
 
         return parsed_generics
-
 
     def _remove_prefixes(self, generic_data, possible_prefixes):
         """

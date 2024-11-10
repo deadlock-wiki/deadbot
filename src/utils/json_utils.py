@@ -58,7 +58,8 @@ def compare_json_file_to_dict(json_file, dict):
         return read(json_file) == dict
     except Exception:
         return False
-    
+
+
 def validate_structures(datas1, datas2, structure_keys_to_validate):
     """
     Validate that the structure (meaning shape and keys, but not value)
@@ -102,10 +103,13 @@ def validate_structures(datas1, datas2, structure_keys_to_validate):
                         invalid_keys[key] = more_invalid_keys
 
                 elif isinstance(datas1[key], list):
-                    # If the value is a list, check the structure of each element that are dictionaries
+                    # If the value is a list, check the structure
+                    # of each element that are dictionaries
                     for i, elem in enumerate(datas1[key]):
                         if isinstance(elem, dict):
-                            more_invalid_keys = validate_structures(elem, datas2[key][i], elem.keys(), more_invalid_keys)
+                            more_invalid_keys = validate_structures(
+                                elem, datas2[key][i], elem.keys()
+                            )
                             if len(more_invalid_keys) > 0:
                                 invalid_keys[key] = more_invalid_keys
 

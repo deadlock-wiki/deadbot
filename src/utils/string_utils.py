@@ -112,6 +112,7 @@ def is_truthy(string):
     ]
     return string in TRUE_THO
 
+
 def remove_prefix(str, prefix):
     """
     Attempt to remove a given prefix from a str
@@ -120,8 +121,8 @@ def remove_prefix(str, prefix):
     if (
         len(str) > len(prefix)  # Key should be able to fit the prefix
         and str.startswith(prefix)  # Key starts with prefix
-        and str[len(prefix)].isupper() # Character after prefix is uppercase
-    ):  
+        and str[len(prefix)].isupper()  # Character after prefix is uppercase
+    ):
         str = str.split(prefix)[1]
 
     return str
