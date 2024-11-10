@@ -50,7 +50,9 @@ class ChangelogFetcher:
         self.localization_data_en = {}
 
     def load_localization(self, output_dir):
-        self.localization_data_en = json_utils.read(os.path.join(output_dir, 'localizations', 'english.json'))
+        self.localization_data_en = json_utils.read(
+            os.path.join(output_dir, 'localizations', 'english.json')
+        )
 
     def get_rss(self, rss_url):
         self.RSS_URL = rss_url
@@ -108,7 +110,7 @@ class ChangelogFetcher:
         for div in soup.find_all('div', class_='bbWrapper'):
             entries.append(div.text.strip())
         return entries
-    
+
     def get_gamefile_changelogs(self, changelog_path):
         # only english are retrieved
         changelogs = json_utils.read(changelog_path)
@@ -118,8 +120,10 @@ class ChangelogFetcher:
             if key == 'Language':
                 continue
             # key i.e. Citadel_PatchNotes_HeroLabs_hero_astro_1
-            # value i.e. <b>10/24/2024</b>\t\t\t<li>Hero Added to Hero Labs<li>Changed from x to z</li>
-            
+            # value i.e. <b>10/24/2024</b>\t\t\t
+            # <li>Hero Added to Hero Labs<li>
+            # Changed from x to z</li>
+
             # Parse the date
             date = value.split('\t')[0].replace('<b>', '').replace('</b>', '')
             if len(date) > 10:
@@ -149,7 +153,7 @@ class ChangelogFetcher:
             # as if it did, it would require to refetch all forum changelogs too
             first_line_of_entry = False
             if self.changelogs.get(raw_changelog_id) is None or first_iteration:
-                self.changelogs[raw_changelog_id] = ""
+                self.changelogs[raw_changelog_id] = ''
                 first_line_of_entry = True
 
             # Add the header to the changelog entry
@@ -158,24 +162,28 @@ class ChangelogFetcher:
             # Parse description
             # Ensure the date was able to be removed and was in the correct format
             if len(remaining_str) == len(value):
-                print("[WARN] Date format may be different than expected (mm/dd/yyyy), detected date is " + date)
+                print(
+                    '[WARN] Date format may be different than '
+                    + 'expected (mm/dd/yyyy), detected date is '
+                    + date
+                )
             while len(remaining_str) > 0:
                 # Find the next <li> tag
                 li_start = remaining_str.find('<li>')
                 if li_start == -1:
                     break
-                li_end = remaining_str.find('<li>', li_start+len('<li>'))
+                li_end = remaining_str.find('<li>', li_start + len('<li>'))
                 # if no more <li>'s, find the last </li>
                 if li_end == -1:
-                    li_end = remaining_str.find('</li>', li_start+len('<li>'))
+                    li_end = remaining_str.find('</li>', li_start + len('<li>'))
                 if li_end == -1:
                     raise ValueError(f'No closing </li> tag found in {key}')
 
                 # Extract the description
-                description = remaining_str[li_start + len('<li>'):li_end]
+                description = remaining_str[li_start + len('<li>') : li_end]
 
                 # Remove the description from the remaining value
-                remaining_str = remaining_str[li_end + len('<li>'):]
+                remaining_str = remaining_str[li_end + len('<li>') :]
 
                 # Remove any remaining tags
                 tags_to_remove = ['<ul>', '</ul>', '<b>', '</b>', '<i>', '</i>']
@@ -187,7 +195,6 @@ class ChangelogFetcher:
 
             first_iteration = False
 
-                
     def _localize(self, key):
         return self.localization_data_en.get(key, None)
 

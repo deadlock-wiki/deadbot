@@ -61,10 +61,12 @@ def act_gamefile_parse(args):
 def act_changelog_parse(args):
     changelog_output = args.output + '/changelogs/'
     os.makedirs(changelog_output, exist_ok=True)
-    herolab_patch_notes_path = os.path.join(args.workdir, 'localizations', 'patch_notes', 'citadel_patch_notes_english.json')
+    herolab_patch_notes_path = os.path.join(
+        args.workdir, 'localizations', 'patch_notes', 'citadel_patch_notes_english.json'
+    )
     client_version = args.build_num
     chlog_fetcher = fetch_changelogs.ChangelogFetcher(client_version, update_existing=False)
-    
+
     # load localization data
     chlog_fetcher.load_localization(args.output)
     # load existing changelogs
