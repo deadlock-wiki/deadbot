@@ -1,4 +1,5 @@
 import utils.json_utils as json_utils
+import utils.string_utils as string_utils
 import os
 
 
@@ -108,7 +109,7 @@ def remove_prefixes(generic_data, possible_prefixes):
     for key, value in generic_data.items():
         # Remove prefix from the key
         for possible_prefix in possible_prefixes:
-            new_key = remove_prefix(key, possible_prefix)
+            new_key = string_utils.remove_prefix(key, possible_prefix)
             if new_key != key:
                 # prefix found
                 break
@@ -124,17 +125,3 @@ def remove_prefixes(generic_data, possible_prefixes):
         new[new_key] = value
 
     return new
-
-
-def remove_prefix(key, prefix):
-    """
-    Attempt to remove a given prefix from a key
-    """
-    if (
-        len(key) > len(prefix)  # Key should be able to fit the prefix
-        and key.startswith(prefix)  # Key starts with prefix
-        and key[len(prefix)].isupper()
-    ):  # Character after prefix is uppercase
-        key = key.split(prefix)[1]
-
-    return key
