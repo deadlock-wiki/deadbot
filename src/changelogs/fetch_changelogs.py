@@ -170,7 +170,11 @@ class ChangelogFetcher:
                 # Add the changelog entry
                 gamefile_changelogs[raw_changelog_id] += f'- {description}\n'
                 # Add the config entry
-                self.changelog_configs[raw_changelog_id] = {'forum_id': None, 'date': date, 'link': None}
+                self.changelog_configs[raw_changelog_id] = {
+                    'forum_id': None,
+                    'date': date,
+                    'link': None,
+                }
 
         self.changelogs.update(gamefile_changelogs)
 
@@ -233,6 +237,7 @@ class ChangelogFetcher:
             except Exception:
                 print(f'Issue with {file}, skipping')
 
+
 def format_date(date):
     """
     Reformat mm/dd/yyyy or mm-dd-yyyy to yyyy_mm_dd
@@ -243,6 +248,6 @@ def format_date(date):
         date = date.split('-')
     else:
         raise ValueError(f'Invalid date format {date}')
-    
+
     date = f'{date[2]}_{date[0]}_{date[1]}'
     return date
