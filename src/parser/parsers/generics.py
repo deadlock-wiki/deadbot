@@ -40,8 +40,8 @@ class GenericParser:
             
             if len(invalid_keys) > 0:
                 print(
-                    '*WARNING* A structure within Generic data:'
-                    + f' {invalid_keys} is now different. Please verify the changes,'
+                    '[WARN] A structure within Generic data has changed:'
+                    + f' {invalid_keys}. Please verify the changes,'
                     + ' and update the frontend page [[Module:GenericData]] accordingly.'
                 )
 
