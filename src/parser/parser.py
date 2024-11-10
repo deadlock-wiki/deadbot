@@ -2,6 +2,7 @@ import os
 import shutil
 from .parsers import abilities, ability_ui, items, heroes, localizations, attributes, souls
 from utils import json_utils
+from loguru import logger
 
 
 class Parser:
@@ -9,14 +10,12 @@ class Parser:
         self,
         work_dir,
         output_dir,
-        verbose,
         language='english',
     ):
         # constants
         self.OUTPUT_DIR = output_dir
         # Directory with decompiled data
         self.DATA_DIR = work_dir
-        self.VERBOSE = verbose
 
         self.language = language
         self.data = {'scripts': {}}
@@ -116,8 +115,7 @@ class Parser:
                         )
 
     def run(self):
-        if self.VERBOSE:
-            print('Parsing...')
+        logger.trace('Parsing...')
         os.system(f'cp "{self.DATA_DIR}/version.txt" "{self.OUTPUT_DIR}/version.txt"')
         parsed_abilities = self._parse_abilities()
         parsed_heroes = self._parse_heroes(parsed_abilities)
@@ -126,24 +124,20 @@ class Parser:
         self._parse_attributes()
         self._parse_localizations()
         self._parse_soul_unlocks()
-        if self.VERBOSE:
-            print('Done parsing')
+        logger.trace('Done parsing')
 
     def _parse_soul_unlocks(self):
-        if self.VERBOSE:
-            print('Parsing Soul Unlocks...')
+        logger.trace('Parsing Soul Unlocks...')
         parsed_soul_unlocks = souls.SoulUnlockParser(self.data['scripts']['heroes']).run()
 
         json_utils.write(self.OUTPUT_DIR + '/json/soul-unlock-data.json', parsed_soul_unlocks)
 
     def _parse_localizations(self):
-        if self.VERBOSE:
-            print('Parsing Localizations...')
+        logger.trace('Parsing Localizations...')
         return localizations.LocalizationParser(self.localizations, self.OUTPUT_DIR).run()
 
     def _parse_heroes(self, parsed_abilities):
-        if self.VERBOSE:
-            print('Parsing Heroes...')
+        logger.trace('Parsing Heroes...')
         parsed_heroes, parsed_meaningful_stats = heroes.HeroParser(
             self.data['scripts']['heroes'],
             self.data['scripts']['abilities'],
@@ -173,8 +167,7 @@ class Parser:
         return parsed_heroes
 
     def _parse_abilities(self):
-        if self.VERBOSE:
-            print('Parsing Abilities...')
+        logger.trace('Parsing Abilities...')
         parsed_abilities = abilities.AbilityParser(
             self.data['scripts']['abilities'],
             self.data['scripts']['heroes'],
@@ -187,8 +180,7 @@ class Parser:
         return parsed_abilities
 
     def _parsed_ability_ui(self, parsed_heroes):
-        if self.VERBOSE:
-            print('Parsing Ability UI...')
+        logger.trace('Parsing Ability UI...')
 
         for language in self.languages:
             (parsed_ability_ui, changed_localizations) = ability_ui.AbilityUiParser(
@@ -205,8 +197,7 @@ class Parser:
                 json_utils.write(self.OUTPUT_DIR + '/json/ability_ui.json', parsed_ability_ui)
 
     def _parse_items(self):
-        if self.VERBOSE:
-            print('Parsing Items...')
+        logger.trace('Parsing Items...')
         (parsed_items, item_component_chart) = items.ItemParser(
             self.data['scripts']['abilities'],
             self.data['scripts']['generic_data'],
@@ -221,8 +212,7 @@ class Parser:
             f.write(str(item_component_chart))
 
     def _parse_attributes(self):
-        if self.VERBOSE:
-            print('Parsing Attributes...')
+        logger.trace('Parsing Attributes...')
         (parsed_attributes, attribute_orders) = attributes.AttributeParser(
             self.data['scripts']['heroes'], self.localizations[self.language]
         ).run()

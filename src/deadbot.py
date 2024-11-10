@@ -53,7 +53,7 @@ class DeadBot:
 
 
 def act_gamefile_parse(args):
-    game_parser = parser.Parser(args.workdir, args.output, args.verbose)
+    game_parser = parser.Parser(args.workdir, args.output)
     game_parser.run()
     logger.trace('Exporting to CSV...')
     csv_writer.export_json_file_to_csv('item-data', args.output)
@@ -129,7 +129,7 @@ def main():
         else:
             logger.info('[ERROR] iam_key and iam_secret must be set for s3')
 
-    logger.info('\nDone!')
+    logger.info('Done!')
 
 
 if __name__ == '__main__':
