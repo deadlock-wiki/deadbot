@@ -59,8 +59,9 @@ class WikiUpload:
             self._update_page(page, json_string)
 
     def _update_page(self, page, updated_text):
-        page.save(updated_text, summary=self.upload_message, minor=False, bot=True)
-        print(f"Page '{page.name}' updated")
+        if page.text() != updated_text:
+            page.save(updated_text, summary=self.upload_message, minor=False, bot=True)
+            print(f'Page "{page.name}" updated')
 
     def _split_page_name(self, full_page_name: str):
         """

@@ -224,6 +224,8 @@
     "ArmTime_postfix": "s",
     "ArmingDuration_label": "Durée d'activation",
     "ArmingDuration_postfix": "s",
+    "ArmorAttribute_Desc": "%s1 to any bullet and spirit armor bonus",
+    "ArmorAttribute_Desc_0": "no additional bullet armor bonuses",
     "ArmorLossPerHit_label": "Resist lost per Hit",
     "ArmorLossPerHit_postfix": "%",
     "ArmorPower_label": "PV de base",
@@ -809,11 +811,8 @@
     "Citadel_Dashboard_BuildVersion": "Version {d:buildNumber} − {s:buildTime}",
     "Citadel_Dashboard_ClearReadyUpButtonTooltipText": "Change votre statut de préparation pour empêcher votre groupe de commencer la partie.",
     "Citadel_Dashboard_CloseAnnounceTooltip": "Masquer les annonces",
-<<<<<<< HEAD
-=======
     "Citadel_Dashboard_CompilingShaders": "Préchargement de la carte et compilation des shaders : {d:prewarm_progress}/{d:prewarm_progress_total}",
     "Citadel_Dashboard_CompilingShaders_Desc": "{d:prewarm_progress}/{d:prewarm_progress_total} effectué",
->>>>>>> b61cff458cf0e02b9f4a4ee4647cc46674d4b9ef
     "Citadel_Dashboard_CompilingShaders_Play_Tooltip": "En attente de la fin du préchargement de la carte et de la compilation des shaders.",
     "Citadel_Dashboard_CompilingShaders_Title": "Préchargement de la carte et des shaders",
     "Citadel_Dashboard_EnterMatchmaking": "Rejoindre\"nle matchmaking",
@@ -1196,12 +1195,6 @@
     "Citadel_Hud_Quickbuy": "Achat rapide",
     "Citadel_Hud_Quickbuy_Empty": "Ajouter à l'achat rapide avec <Panel class=\"rightClick\"></Panel>",
     "Citadel_Hud_Quickbuy_Instructional": "Ajouter/retirer de l'achat rapide avec <Panel class=\"rightClick\"></Panel>",
-<<<<<<< HEAD
-    "Citadel_Hud_Quickbuy_ItemsReady": "{i:items_ready}",
-    "Citadel_Hud_Quickbuy_ModCost": "{i:mod_cost}",
-    "Citadel_Hud_Quickbuy_ModName": "{s:mod_name}",
-    "Citadel_Hud_Quickbuy_Tooltip": "Cliquez pour acheter l'un de ces objets ou appuyez sur [{s:key_purchase_quickbuy}] quand vous vous trouvez dans la zone de la boutique pour effectuer votre prochain achat rapide.",
-=======
     "Citadel_Hud_Quickbuy_Instructional_Ready": "Appuyez sur [{s:key_purchase_quickbuy}] pour acheter",
     "Citadel_Hud_Quickbuy_ItemsReady": "{i:items_ready}",
     "Citadel_Hud_Quickbuy_ModCost": "{i:mod_cost}",
@@ -1210,7 +1203,6 @@
     "Citadel_Hud_Quickbuy_ToastLabel": "Objet acheté",
     "Citadel_Hud_Quickbuy_Tooltip": "Cliquez pour acheter l'un de ces objets ou appuyez sur [{s:key_purchase_quickbuy}] quand vous vous trouvez dans la zone de la boutique pour effectuer votre prochain achat rapide.",
     "Citadel_Hud_RecentPurchases": "Achats récents :",
->>>>>>> b61cff458cf0e02b9f4a4ee4647cc46674d4b9ef
     "Citadel_Hud_RespawnIn": "Réapparition dans :",
     "Citadel_Hud_ReturnToMatch": "REPRENDRE LA PARTIE",
     "Citadel_Hud_RideZipLine": "MAINTENEZ [ {s:in_zipline} ] pour emprunter la tyrolienne",
@@ -1379,14 +1371,10 @@
     "Citadel_MatchmakingSchedule": "Mise à jour :",
     "Citadel_MatchmakingSchedule_Desc": "matchmaking ouvert 24 h/24, 7 j/7 !",
     "Citadel_MatchmakingStopped_Header": "Exclusion du matchmaking",
-<<<<<<< HEAD
-    "Citadel_MatchmakingStopped_Reason_Unspecified": "Vous avez été exclu(e) du matchmaking.",
-=======
     "Citadel_MatchmakingStopped_Reason_HeroLabsClosed": "Le matchmaking classé du labo d'occultisme est fermé.",
     "Citadel_MatchmakingStopped_Reason_RankedClosed": "Le matchmaking classé est fermé.",
     "Citadel_MatchmakingStopped_Reason_Unspecified": "Vous avez été exclu(e) du matchmaking.",
     "Citadel_MatchmakingStopped_Reason_VersionUpdated": "Votre version client n'est plus compatible, d'où votre exclusion du matchmaking. Veuillez redémarrer le jeu pour mettre à jour votre client.",
->>>>>>> b61cff458cf0e02b9f4a4ee4647cc46674d4b9ef
     "Citadel_Mod_Tooltip_Active": "Active",
     "Citadel_Mod_Tooltip_Innate": "Innée",
     "Citadel_Mod_Tooltip_Passive": "Passive",
@@ -2533,6 +2521,8 @@
     "FinalBlow_label": "Final Blow Damage",
     "FinalSlow_label": "Slowest Speed",
     "FinalSlow_postfix": "m/s",
+    "FireRateAttribute_Desc": "%s1 to any weapon fire rate bonus",
+    "FireRateAttribute_Desc_0": "no additional weapon fire rate bonuses",
     "FireRateBonus_label": "Bonus de cadence de tir",
     "FireRateBonus_postfix": "%",
     "FireRateBuffDuration_label": "Durée du bonus",
@@ -2777,6 +2767,8 @@
     "HealingPerSecond_postfix": "/s",
     "HealingPercent_label": "Soins",
     "HealingPercent_postfix": "%",
+    "HealthAttribute_Desc": "%s1 to any health and health regen bonuses",
+    "HealthAttribute_Desc_0": "no additional health and health regen bonuses",
     "HealthCost_label": "Health Cost",
     "HealthDrainedPerSecond_label": "Health Drain",
     "HealthDrainedPerSecond_postfix": "/s",
@@ -4180,6 +4172,8 @@
     "TechCleaveTargetCap_label": "Cibles supplémentaires",
     "TechCleaveTargetCap_postfix": "",
     "TechCooldown_postfix": "%",
+    "TechDamageAttribute_Desc": "%s1 to any spirit damage bonus",
+    "TechDamageAttribute_Desc_0": "no additional spirit damage bonuses",
     "TechDamageBonusPercent_label": "Dégâts spirituels",
     "TechDamageBonusPercent_postfix": "%",
     "TechDamageBonusPercent_prefix": "{s:sign}",
@@ -4387,6 +4381,8 @@
     "WeaponFireRateBonus_prefix": "+",
     "WeaponPowerAmp_label": "Courage",
     "WeaponPowerAmp_prefix": "{s:sign}",
+    "WeaponPowerAttribute_Desc": "%s1 to any weapon damage bonus",
+    "WeaponPowerAttribute_Desc_0": "no additional weapon damage bonuses",
     "WeaponPowerBonusDuration_label": "Bonus Courage Duration",
     "WeaponPowerBonus_label": "Bonus Courage",
     "WeaponPowerDebuff_label": "Dégâts des armes",
@@ -4777,11 +4773,7 @@
     "ability_upgrade_description_open_shop": "Tier {s:upgradeTier} upgrades",
     "ability_upgrade_extra_info": "Ability upgrades are unlocked whenever you purchase two upgrades in any mod tier (Weapon, Armor, Tech or Utility).",
     "ability_viper_debuffdagger": "Lame fulgurante",
-<<<<<<< HEAD
-    "ability_viper_debuffdagger_desc": "Viper lance une dague qui inflige des <span class=\"highlight_spirit\">dégâts spirituels</span> et applique un <span style=\"font-weight: bold;\">ralentissement graduel</span>.",
-=======
     "ability_viper_debuffdagger_desc": "Viper lance une dague qui inflige des <span style=\"font-weight: bold;\">dégâts spirituels</span> et applique un <span style=\"font-weight: bold;\">ralentissement graduel</span>.",
->>>>>>> b61cff458cf0e02b9f4a4ee4647cc46674d4b9ef
     "ability_viper_hookdagger": "Lame-crochet",
     "ability_viper_hookdagger_desc": "{s:hero_name} lance une lame qui inflige des <span class=\"highlight_spirit\">dégâts spirituels</span>. La lame dévie et revient rapidement pour appliquer à nouveau des <span class=\"highlight_spirit\">dégâts spirituels</span>, ainsi qu'un <span class=\"highlight\">ralentissement</span>.",
     "ability_viper_hookdagger_quip": "Lance une dague qui revient vers elle",
@@ -5749,10 +5741,7 @@
     "citadel_settings_fog_quality_low": "Faible",
     "citadel_settings_fog_quality_med": "Moyenne",
     "citadel_settings_fogquality": "Qualité du brouillard",
-<<<<<<< HEAD
-=======
     "citadel_settings_fogquality_desc": "Des valeurs plus faibles diminuent la résolution du brouillard volumétrique pour améliorer les performances sur les systèmes les moins performants.",
->>>>>>> b61cff458cf0e02b9f4a4ee4647cc46674d4b9ef
     "citadel_settings_fogquality_high": "Élevée",
     "citadel_settings_fogquality_low": "Faible",
     "citadel_settings_fps_max": "Nombre d'images par seconde maximum en jeu",
@@ -5882,10 +5871,7 @@
     "citadel_settings_ssao_quality_med": "Moyenne",
     "citadel_settings_ssao_quality_off": "Désactivée",
     "citadel_settings_ssao_quality_ultra": "Ultra",
-<<<<<<< HEAD
-=======
     "citadel_settings_steam_text_filter": "Paramètre de filtrage des messages Steam",
->>>>>>> b61cff458cf0e02b9f4a4ee4647cc46674d4b9ef
     "citadel_settings_steaminput": "Contrôleur",
     "citadel_settings_streamer_mode": "Mode diffusion",
     "citadel_settings_streamer_mode_tooltip": "Activez cette option pour masquer les noms des joueurs et joueuses en jeu et dans le tableau de bord. Les noms sur les cartes de profil ne seront pas masqués.",
