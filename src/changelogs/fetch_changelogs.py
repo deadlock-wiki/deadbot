@@ -89,10 +89,6 @@ class ChangelogFetcher:
         # add any keys that are not yet present or have differing values,
         existing_changelogs.update(self.changelog_configs)
 
-        # add ones from input-data's changelogs.json, which currently include hero lab changelogs
-        input_changelogs = json_utils.read(os.path.join(input_dir, 'changelogs.json'))
-        existing_changelogs.update(input_changelogs)
-
         # Sort the keys by the date lexicographically
         # null dates will be at the end
         keys = list(existing_changelogs.keys())
@@ -115,7 +111,8 @@ class ChangelogFetcher:
         # only english are retrieved
         changelogs = json_utils.read(changelog_path)
 
-        first_iteration = True
+        gamefile_changelogs = dict()
+
         for key, value in changelogs.items():
             if key == 'Language':
                 continue
@@ -146,18 +143,13 @@ class ChangelogFetcher:
             header = f'[ HeroLab {hero_name_en} ]'
 
             # Initialize the changelog entry
-            # requires or first_iteration because the previous deadbot run may have
-            # already parsed this changelog, loading it to memory
-            # we want to overwrite it instead
-            # this doesn't require update_existing parameter to be true
-            # as if it did, it would require to refetch all forum changelogs too
             first_line_of_entry = False
-            if self.changelogs.get(raw_changelog_id) is None or first_iteration:
-                self.changelogs[raw_changelog_id] = ''
+            if raw_changelog_id not in gamefile_changelogs:
+                gamefile_changelogs[raw_changelog_id] = ''
                 first_line_of_entry = True
 
             # Add the header to the changelog entry
-            self.changelogs[raw_changelog_id] += (not first_line_of_entry) * '\n' + header + '\n'
+            gamefile_changelogs[raw_changelog_id] += (not first_line_of_entry) * '\n' + header + '\n'
 
             # Parse description
             # Ensure the date was able to be removed and was in the correct format
@@ -191,9 +183,11 @@ class ChangelogFetcher:
                     description = description.replace(tag, '')
 
                 # Add the changelog entry
-                self.changelogs[raw_changelog_id] += f'- {description}\n'
+                gamefile_changelogs[raw_changelog_id] += f'- {description}\n'
+                # Add the config entry
+                self.changelog_configs[raw_changelog_id] = {'forum_id': None, 'date': date, 'link': None}
 
-            first_iteration = False
+        self.changelogs.update(gamefile_changelogs)
 
     def _localize(self, key):
         return self.localization_data_en.get(key, None)
