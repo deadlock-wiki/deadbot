@@ -93,11 +93,6 @@ jobs:
         working-directory: deadlock-data 
         run: git pull origin ${{ needs.get-branch.outputs.branch }} -X ours     
 
-      - name: If a PR, merge in target branch
-        if: ${{ github.event_name == 'pull_request' }}
-        working-directory: deadlock-data 
-        run: git pull origin ${{ github.head_ref }} -X ours     
-
       - name: Copy files to data repo
         run: |
           rm -rf ./deadlock-data/data/current
