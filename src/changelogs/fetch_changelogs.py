@@ -10,7 +10,7 @@ from typing import TypedDict
 
 class ChangelogConfig(TypedDict):
     """
-    Each record in changelogs.json
+    Each record in changelog_configs.json
     Key is "changelod_id", default to forum_id, differs for herolab changelogs
     """
 
@@ -52,7 +52,7 @@ class ChangelogFetcher:
         self._process_local_changelogs(changelog_path)
         return self.changelogs
 
-    def changelogs_to_file(self, input_dir, output_dir):
+    def changelogs_to_file(self, output_dir):
         # Write raw changelog lines to files
         for version, changelog in self.changelogs.items():
             raw_output_dir = os.path.join(output_dir, 'raw')
@@ -64,12 +64,12 @@ class ChangelogFetcher:
         # Write configuration data (such as all the different version id's,
         # forum link, and forum date) for the changelogs to 1 file
 
-        # changelogs.json is not overwritten even when update_existing is True
+        # changelog_configs.json is not overwritten even when update_existing is True
         # many entries were initially manually added due to
         # only the first page on the site having rss feed
 
-        # Read existing changelogs.json content,
-        changelogs_path = output_dir + '/changelogs.json'
+        # Read existing changelog_configs.json content,
+        changelogs_path = output_dir + '/changelog_configs.json'
         existing_changelogs = json_utils.read(changelogs_path)
 
         # add any keys that are not yet present or have differing values,
