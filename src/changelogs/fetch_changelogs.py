@@ -8,7 +8,7 @@ from utils import json_utils
 from typing import TypedDict
 
 
-class Changelog(TypedDict):
+class ChangelogConfig(TypedDict):
     """
     Each record in changelogs.json
     Key is "changelod_id", default to forum_id, differs for herolab changelogs
@@ -19,16 +19,15 @@ class Changelog(TypedDict):
     link: str
 
 
-class ChangelogLine(TypedDict):
-    """Each changelog line in a <changelog_id>.json file"""
+class ChangelogString(TypedDict):
+    """Each complete changelog in a <changelog_id>.json file"""
 
-    Description: str
-    Tags: list[str]
+    changelog_string: str
 
 
 class ChangelogFetcher:
     """
-    Fetches changelogs from the deadlock forums and parses them into a dictionary
+    Fetches changelogs from the deadlock forums and game files and parses them into a dictionary
     """
 
     # Hero lab changelogs need to be added manually to
@@ -43,26 +42,35 @@ class ChangelogFetcher:
     # "forum_id": null
     # "link": null
 
-    def __init__(self):
-        self.changelog_lines: dict[str, ChangelogLine] = {}
-        self.changelogs: dict[str, Changelog] = {}
+    def __init__(self, client_version, update_existing):
+        self.changelogs: dict[str, ChangelogString] = {}
+        self.changelog_configs: dict[str, ChangelogConfig] = {}
+        self.client_version = client_version
+        self.update_existing = update_existing
+        self.localization_data_en = {}
 
-    def get_rss(self, rss_url, update_existing=False):
+    def load_localization(self, output_dir):
+        self.localization_data_en = json_utils.read(os.path.join(output_dir, 'localizations', 'english.json'))
+
+    def get_rss(self, rss_url):
         self.RSS_URL = rss_url
-        self._fetch_forum_changelogs(update_existing)
+        self._fetch_forum_changelogs()
 
-        return self.changelog_lines
+        return self.changelogs
 
     def get_txt(self, changelog_path):
         self._process_local_changelogs(changelog_path)
-        return self.changelog_lines
+        return self.changelogs
 
     def changelogs_to_file(self, input_dir, output_dir):
         # Write raw changelog lines to files
-        for version, changelog in self.changelog_lines.items():
+        for version, changelog in self.changelogs.items():
             raw_output_dir = os.path.join(output_dir, 'raw')
             os.makedirs(raw_output_dir, exist_ok=True)
-            with open(raw_output_dir + f'/{version}.txt', 'w', encoding='utf8') as f_out:
+            path = raw_output_dir + f'/{version}.txt'
+            if version == 'herolab_2024_10_24':
+                print(changelog)
+            with open(path, 'w', encoding='utf8') as f_out:
                 f_out.write(changelog)
 
         # Write configuration data (such as all the different version id's,
@@ -77,7 +85,7 @@ class ChangelogFetcher:
         existing_changelogs = json_utils.read(changelogs_path)
 
         # add any keys that are not yet present or have differing values,
-        existing_changelogs.update(self.changelogs)
+        existing_changelogs.update(self.changelog_configs)
 
         # add ones from input-data's changelogs.json, which currently include hero lab changelogs
         input_changelogs = json_utils.read(os.path.join(input_dir, 'changelogs.json'))
@@ -87,10 +95,10 @@ class ChangelogFetcher:
         # null dates will be at the end
         keys = list(existing_changelogs.keys())
         keys.sort(key=lambda x: existing_changelogs[x]['date'])
-        self.changelogs = {key: existing_changelogs[key] for key in keys}
+        self.changelog_configs = {key: existing_changelogs[key] for key in keys}
 
         # write back
-        json_utils.write(changelogs_path, self.changelogs)
+        json_utils.write(changelogs_path, self.changelog_configs)
 
     def _fetch_update_html(self, link):
         html = request.urlopen(link).read()
@@ -100,9 +108,91 @@ class ChangelogFetcher:
         for div in soup.find_all('div', class_='bbWrapper'):
             entries.append(div.text.strip())
         return entries
+    
+    def get_gamefile_changelogs(self, changelog_path):
+        # only english are retrieved
+        changelogs = json_utils.read(changelog_path)
+
+        first_iteration = True
+        for key, value in changelogs.items():
+            if key == 'Language':
+                continue
+            # key i.e. Citadel_PatchNotes_HeroLabs_hero_astro_1
+            # value i.e. <b>10/24/2024</b>\t\t\t<li>Hero Added to Hero Labs<li>Changed from x to z</li>
+            
+            # Parse the date
+            date = value.split('\t')[0].replace('<b>', '').replace('</b>', '')
+            if len(date) > 10:
+                date = date[:10]
+
+            # Remove date from remaining string
+            remaining_str = value.replace(f'<b>{date}</b>\t\t\t', '')
+
+            # Reformat mm/dd/yyyy to yyyy_mm_dd
+            date = date.split('/')
+            date = f'{date[2]}_{date[0]}_{date[1]}'
+
+            # Create the raw changelog id (used as filename in raw folder)
+            # i.e. herolab_2024_10_29
+            raw_changelog_id = f'herolab_{date.replace("/", "_")}'
+
+            # Parse hero name
+            hero_key = key.split('Citadel_PatchNotes_HeroLabs_')[1][:-2]
+            hero_name_en = self._localize(hero_key)
+            header = f'[ HeroLab {hero_name_en} ]'
+
+            # Initialize the changelog entry
+            # requires or first_iteration because the previous deadbot run may have
+            # already parsed this changelog, loading it to memory
+            # we want to overwrite it instead
+            # this doesn't require update_existing parameter to be true
+            # as if it did, it would require to refetch all forum changelogs too
+            first_line_of_entry = False
+            if self.changelogs.get(raw_changelog_id) is None or first_iteration:
+                self.changelogs[raw_changelog_id] = ""
+                first_line_of_entry = True
+
+            # Add the header to the changelog entry
+            self.changelogs[raw_changelog_id] += (not first_line_of_entry) * '\n' + header + '\n'
+
+            # Parse description
+            # Ensure the date was able to be removed and was in the correct format
+            if len(remaining_str) == len(value):
+                print("[WARN] Date format may be different than expected (mm/dd/yyyy), detected date is " + date)
+            while len(remaining_str) > 0:
+                # Find the next <li> tag
+                li_start = remaining_str.find('<li>')
+                if li_start == -1:
+                    break
+                li_end = remaining_str.find('<li>', li_start+len('<li>'))
+                # if no more <li>'s, find the last </li>
+                if li_end == -1:
+                    li_end = remaining_str.find('</li>', li_start+len('<li>'))
+                if li_end == -1:
+                    raise ValueError(f'No closing </li> tag found in {key}')
+
+                # Extract the description
+                description = remaining_str[li_start + len('<li>'):li_end]
+
+                # Remove the description from the remaining value
+                remaining_str = remaining_str[li_end + len('<li>'):]
+
+                # Remove any remaining tags
+                tags_to_remove = ['<ul>', '</ul>', '<b>', '</b>', '<i>', '</i>']
+                for tag in tags_to_remove:
+                    description = description.replace(tag, '')
+
+                # Add the changelog entry
+                self.changelogs[raw_changelog_id] += f'- {description}\n'
+
+            first_iteration = False
+
+                
+    def _localize(self, key):
+        return self.localization_data_en.get(key, None)
 
     # download rss feed from changelog forum and parse entries
-    def _fetch_forum_changelogs(self, update_existing=False):
+    def _fetch_forum_changelogs(self):
         print('Parsing Changelog RSS feed')
         # fetches 20 most recent entries
         feed = feedparser.parse(self.RSS_URL)
@@ -125,7 +215,7 @@ class ChangelogFetcher:
             if version is None or version == '':
                 raise ValueError(f'Version {version} must not be blank/missing')
 
-            if not update_existing and (version in self.changelog_lines.keys()):
+            if not self.update_existing and (version in self.changelogs.keys()):
                 skip_num += 1
                 continue
             try:
@@ -133,11 +223,11 @@ class ChangelogFetcher:
             except Exception:
                 print(f'Issue with parsing RSS feed item {entry.link}')
 
-            self.changelog_lines[version] = full_text
-            self.changelogs[version] = {'forum_id': version, 'date': date, 'link': entry.link}
+            self.changelogs[version] = full_text
+            self.changelog_configs[version] = {'forum_id': version, 'date': date, 'link': entry.link}
 
         if skip_num > 0:
-            print(f'Skipped {skip_num} RSS items that already exists')
+            print(f'Skipped {skip_num}/{len(feed.entries)} RSS items that already exists')
 
     def _process_local_changelogs(self, changelog_path):
         print('Parsing Changelog txt files')
@@ -152,6 +242,6 @@ class ChangelogFetcher:
             try:
                 with open(changelog_path + f'/{version}.txt', 'r', encoding='utf8') as f:
                     changelogs = f.read()
-                    self.changelog_lines[version] = changelogs
+                    self.changelogs[version] = changelogs
             except Exception:
                 print(f'Issue with {file}, skipping')
