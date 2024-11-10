@@ -32,5 +32,5 @@ jobs:
       - name: Merge in target branch
         working-directory: deadlock-data 
         run: |
-          git pull origin ${{ github.base_ref }} -X ours    
+          git pull origin ${{ github.base_ref }} -X ours --allow-unrelated-histories   
           git push --force-with-lease origin ${{ github.head_ref }}
