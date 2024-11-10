@@ -33,4 +33,4 @@ jobs:
         working-directory: deadlock-data 
         run: |
           git pull origin ${{ github.base_ref }} -X ours    
-          git push --force-with-lease origin ${{ github.base_ref }}
+          git push --force-with-lease origin ${{ github.head_ref }}
