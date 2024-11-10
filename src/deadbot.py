@@ -65,7 +65,7 @@ def act_changelog_parse(args):
         args.workdir, 'localizations', 'patch_notes', 'citadel_patch_notes_english.json'
     )
     client_version = args.build_num
-    chlog_fetcher = fetch_changelogs.ChangelogFetcher(client_version, update_existing=False)
+    chlog_fetcher = fetch_changelogs.ChangelogFetcher(client_version, update_existing=True)
 
     # load localization data
     chlog_fetcher.load_localization(args.output)

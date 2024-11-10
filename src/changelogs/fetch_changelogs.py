@@ -116,8 +116,7 @@ class ChangelogFetcher:
             remaining_str = value.replace(f'<b>{date}</b>\t\t\t', '')
 
             # Reformat mm/dd/yyyy to yyyy_mm_dd
-            date = date.split('/')
-            date = f'{date[2]}_{date[0]}_{date[1]}'
+            date = format_date(date)
 
             # Create the raw changelog id (used as filename in raw folder)
             # i.e. herolab_2024_10_29
@@ -192,6 +191,7 @@ class ChangelogFetcher:
             date_format = 'mm-dd-yyyy'
             if len(date) > len(date_format):
                 date = date[: len(date_format)]
+            date = format_date(date)
 
             version = entry.link.split('.')[-1].split('/')[0]
             # Raise error if version isnt numerical
@@ -232,3 +232,17 @@ class ChangelogFetcher:
                     self.changelogs[version] = changelogs
             except Exception:
                 print(f'Issue with {file}, skipping')
+
+def format_date(date):
+    """
+    Reformat mm/dd/yyyy or mm-dd-yyyy to yyyy_mm_dd
+    """
+    if '/' in date:
+        date = date.split('/')
+    elif '-' in date:
+        date = date.split('-')
+    else:
+        raise ValueError(f'Invalid date format {date}')
+    
+    date = f'{date[2]}_{date[0]}_{date[1]}'
+    return date
