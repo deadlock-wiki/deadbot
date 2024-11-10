@@ -1,0 +1,2382 @@
+[
+    {
+        "Description": "<h4>{{PageRef|Other|alt_name=General Change}}s</h4>",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Added a new Profile page that displays a breakdown of recent matches and all-time player and hero statistics (Note: the newly added stats '{{PageRef|Souls}} Collected' and 'Healing' are starting at 0 for all players)",
+        "Tags": [
+            "Souls"
+        ]
+    },
+    {
+        "Description": "* Added Report button to ESC menu player list to allow reporting of teammates in-game",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Improved visibility of report button on post-game screen",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* You can now drag-and-drop items between categories in Builds",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Added search to the Public Builds list, you can search by keyword within build names",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Newly published hero builds now store the language of the build",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Added 'Show All Languages' checkbox in Public Builds list, can be unchecked to only see builds in your language",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Fixed issue with builds list not updating when changing between heroes in {{PageRef|Sandbox|alt_name=sandbox}}",
+        "Tags": [
+            "Sandbox"
+        ]
+    },
+    {
+        "Description": "* Added localization support for German, Polish, and Korean.",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Matchmaking window is now open 1 hour earlier on weekdays and weekends",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Players can only pause once per game",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* A team can only pause at most 3 times in total amongst all the players",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* The game application now flashes when the game is unpaused",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Various client and server performance improvements",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Added streamer setting to the options panel. Causes player names in the game UI panels to be hidden.",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Added a {{PageRef|Melee}} Trainer bot in the 'gym' area of hero {{PageRef|Sandbox|alt_name=sandbox}}",
+        "Tags": [
+            "Melee",
+            "Sandbox"
+        ]
+    },
+    {
+        "Description": "* Added new \"Game out of Date\" status message at the top of the hud, so you can quickly know when there is an update rather than finding out at queue time",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Added a checkbox on the post game survey to make it not show again in the future",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Items now show their spirit power impact when using alt",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Fixed profile match history not remembering the history page you were on",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Added Heal Amp and Debuff Resist to the Vitality stats in the {{PageRef|Shop|alt_name=shop}}",
+        "Tags": [
+            "Shop"
+        ]
+    },
+    {
+        "Description": "* Hero details on the dashboard now show spirit information with alt, rather than requiring you to be in-game (this was added in a hotfix patch recently)",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* The game will now prevent any quick ability upgrades for 2 seconds after death, to help prevent against accidental upgrades",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Can now reliably spectate a friend's game via the Friendlist",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Miscellaneous fixes to friends and party menus",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Added unavailable state to {{PageRef|Zipline}} UI when {{PageRef|Zipline|alt_name=zipline}} is on damage cooldown",
+        "Tags": [
+            "Zipline"
+        ]
+    },
+    {
+        "Description": "* Spectating controls now use Left/Right mouse buttons to switch between players on a team and space to switch teams. This now works with free cursor mode, and you can still click on portraits/minimap to spectate individual heroes.",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Added new respawn countdown music 5 seconds before respawn",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Added alternate {{PageRef|Shop|alt_name=shop}} music which plays in the {{PageRef|Denizen|alt_name=neutral}} {{PageRef|Shop|alt_name=shop}}",
+        "Tags": [
+            "NPC",
+            "Creep",
+            "Denizen",
+            "Shop"
+        ]
+    },
+    {
+        "Description": "* Spectator count is now shown in-game",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Player names are now shown to spectators",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Added object motion blur",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Optimized performance of distance field ambient occlusion",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Fixed selling an item not removing charges correctly. Now you can't buy {{PageRef|Extra Charge}} and immediately sell it and keep that readied charge.",
+        "Tags": [
+            "Extra Charge",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* Fixed some tooltips not showing golden statue bonuses if it wasn't the direct stat (i.e. you got fire rate but bullets per second didn't show the golden statue)",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Fixed {{PageRef|Sharpshooter}} showing up in stats for bullet velocity even though it doesn't increase your bullet velocity",
+        "Tags": [
+            "Sharpshooter",
+            "Item",
+            "Weapon Item"
+        ]
+    },
+    {
+        "Description": "* Fixed a bug that caused items in the build page to not be dimmed when the {{PageRef|Shop|alt_name=shop}} was out of range",
+        "Tags": [
+            "Shop"
+        ]
+    },
+    {
+        "Description": "* Fixed bug with {{PageRef|Lash}} not hearing his own {{PageRef|Ground Strike}} impact explosion sound",
+        "Tags": [
+            "Ground Strike",
+            "Hero",
+            "Ability",
+            "Lash"
+        ]
+    },
+    {
+        "Description": "* Added new effects for {{PageRef|Withering Whip}}",
+        "Tags": [
+            "Withering Whip",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* Updated {{PageRef|Ethereal Shift}} effects",
+        "Tags": [
+            "Ethereal Shift",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* Fixed the disarmed spinner not showing up on your crosshair when you get disarmed",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Fixed parts of {{PageRef|Shiv}}'s coat being considered a headshot",
+        "Tags": [
+            "Shiv",
+            "Hero"
+        ]
+    },
+    {
+        "Description": "* Build list will now refresh if you change heroes in the {{PageRef|Sandbox|alt_name=sandbox}}",
+        "Tags": [
+            "Sandbox"
+        ]
+    },
+    {
+        "Description": "* Fixed {{PageRef|Zipline}} speed from {{PageRef|Base Guardian}} killing and Zip booster ability not stacking properly",
+        "Tags": [
+            "Objective",
+            "Base Guardian",
+            "Guardian",
+            "Zipline"
+        ]
+    },
+    {
+        "Description": "* Fixed {{PageRef|Base Guardian}} boost not properly doing its ramp up and instead instantly being fast",
+        "Tags": [
+            "Objective",
+            "Base Guardian",
+            "Guardian"
+        ]
+    },
+    {
+        "Description": "* Added custom effects for Abram's {{PageRef|Seismic Impact}} T3 buff",
+        "Tags": [
+            "Seismic Impact",
+            "Hero",
+            "Ability",
+            "Abrams"
+        ]
+    },
+    {
+        "Description": "* Fixed a bug where someone could be holding down M1 and still be attacking when the magic carpet arrives",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Updated {{PageRef|Lash}} {{PageRef|Grapple}} cast sound",
+        "Tags": [
+            "Grapple",
+            "Hero",
+            "Ability",
+            "Lash"
+        ]
+    },
+    {
+        "Description": "* Added {{PageRef|Decay}} impact sound",
+        "Tags": [
+            "Decay",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* Removed wind and city ambient looping sounds",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Volume and playback tweaks to one shot ambient sounds",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Removed vent sounds in places where vents had been removed",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Fixed some spectator music bugs",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Updated negative feedback sound for clarity",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Added hit confirm audio functionality to {{PageRef|Warden}}'s {{PageRef|Alchemical Flask}}",
+        "Tags": [
+            "Alchemical Flask",
+            "Hero",
+            "Ability",
+            "Warden"
+        ]
+    },
+    {
+        "Description": "* Updated {{PageRef|Majestic Leap}} sound",
+        "Tags": [
+            "Majestic Leap",
+            "Item",
+            "Vitality Item"
+        ]
+    },
+    {
+        "Description": "* Updated {{PageRef|Bounce Pad|alt_name=bounce pad}} sound",
+        "Tags": [
+            "Bounce Pad"
+        ]
+    },
+    {
+        "Description": "* Improved some {{PageRef|Binding Word}} effects to be less noisy",
+        "Tags": [
+            "Binding Word",
+            "Hero",
+            "Ability",
+            "Warden"
+        ]
+    },
+    {
+        "Description": "* Increased charged {{PageRef|Melee|alt_name=melee}} volume and falloff for victims",
+        "Tags": [
+            "Melee"
+        ]
+    },
+    {
+        "Description": "* Reduced likelihood of irrelevant announcer and hero dialog lines playing during combat exchanges",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Improved clarity of {{PageRef|Dynamo}} {{PageRef|Singularity}} sound for team and opponents",
+        "Tags": [
+            "Singularity",
+            "Hero",
+            "Ability",
+            "Dynamo"
+        ]
+    },
+    {
+        "Description": "* Updated {{PageRef|Viscous}} primary fire sound",
+        "Tags": [
+            "Viscous",
+            "Hero"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Souls|alt_name=Soul}} jar return effect tinted red like {{PageRef|Map|alt_name=minimap}} to make it more clear it's the return location",
+        "Tags": [
+            "Souls",
+            "Map"
+        ]
+    },
+    {
+        "Description": "* Player's low health screen effect more visible for longer if you're below 20% of your max HP",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Teleporter model and effect updated",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Updated {{PageRef|Alchemical Flask}} projectile effect",
+        "Tags": [
+            "Alchemical Flask",
+            "Hero",
+            "Ability",
+            "Warden"
+        ]
+    },
+    {
+        "Description": "* Fixed {{PageRef|Bebop}} being able to sprint while his {{PageRef|Weapon|alt_name=gun}} is spun up",
+        "Tags": [
+            "Bebop",
+            "Hero",
+            "Weapon"
+        ]
+    },
+    {
+        "Description": "* Added new voice content for {{PageRef|Seven}} and {{PageRef|Lash}}",
+        "Tags": [
+            "Seven",
+            "Hero",
+            "Lash"
+        ]
+    },
+    {
+        "Description": "* Added {{PageRef|Shadow Weave}} cast and ambush sounds",
+        "Tags": [
+            "Shadow Weave",
+            "Item",
+            "Weapon Item"
+        ]
+    },
+    {
+        "Description": "* Fixed bullets hitting the world immediately when looking sharply upward",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Fixed {{PageRef|Sinner's Sacrifice}} not always correctly animating",
+        "Tags": [
+            "Souls",
+            "Sinner's Sacrifice"
+        ]
+    },
+    {
+        "Description": "* Fixed an issue where some kill lines that were only intended for the killer were playing for the victim as well (killstreak taunts still play for everyone)",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Some heroes can now comment on being alone in enemy territory, losing sight of an injured enemy, or leaving their teammates alone in a lane",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Fixed a bunch of minor typos / grammar errors in various texts",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Added 'Express' state to {{PageRef|Zipline|alt_name=zipline}} indicators when speed had increased from defeating Enemy {{PageRef|Base Guardian}}s",
+        "Tags": [
+            "Objective",
+            "Base Guardian",
+            "Guardian",
+            "Zipline"
+        ]
+    },
+    {
+        "Description": "<h4>{{PageRef|Other|alt_name=Misc Gameplay}}</h4>",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Added wall jumping (does not consume stamina, requires input direction away from the wall, can be done once)",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Moved a {{PageRef|Flex Slot|alt_name=flex slot}} from \"Set of enemy {{PageRef|Base {{PageRef|Guardian}}}}s\" to \"All Enemy Lane {{PageRef|Guardian}}s\"",
+        "Tags": [
+            "Objective",
+            "Base Guardian",
+            "Guardian",
+            "Item",
+            "Flex Slot"
+        ]
+    },
+    {
+        "Description": "* Added {{PageRef|Rope|alt_name=ropes}} to some buildings to let you climb up (hold jump key to latch onto them). Can shoot while hanging on them.",
+        "Tags": [
+            "Rope"
+        ]
+    },
+    {
+        "Description": "* A pair of teleporters has been added to the outer lanes at the midpoint (near the three red {{PageRef|Denizen|alt_name=neutral}} {{PageRef|Creep|alt_name=creeps}})",
+        "Tags": [
+            "NPC",
+            "Creep",
+            "Denizen"
+        ]
+    },
+    {
+        "Description": "* Four teleporters have changed locations",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* The upper floor teleporters have moved to the street level",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* The interior teleporters have moved to the Bodega building and the Theater",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Teleporters are closed for the first 10 minutes (they look visually closed)",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "teleporter_locations_screenshots_update.jpg",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Guardian}}s no longer give 1 AP",
+        "Tags": [
+            "Objective",
+            "Guardian"
+        ]
+    },
+    {
+        "Description": "* AP is now added to the following {{PageRef|Souls|alt_name=Soul}} levels: 3500, 5200, 8000, 9700",
+        "Tags": [
+            "Souls"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Parry}} cooldown reduced from 6s to 5s",
+        "Tags": [
+            "Melee",
+            "Parry"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Soul Urn|alt_name=Urn}} delivery sprint bonus increased from +2 to +3",
+        "Tags": [
+            "Souls",
+            "Soul Urn"
+        ]
+    },
+    {
+        "Description": "* The minimum range the player must be to attack a walker is increased from 30m to 32m",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Golden Statue}}s drop rate increased by 6%",
+        "Tags": [
+            "Breakable",
+            "Golden Statue"
+        ]
+    },
+    {
+        "Description": "* Replaced some {{PageRef|Bounce Pad|alt_name=bounce pad}}s with {{PageRef|Rope|alt_name=ropes}} if the purpose was to go straight up",
+        "Tags": [
+            "Bounce Pad",
+            "Rope"
+        ]
+    },
+    {
+        "Description": "* Added two {{PageRef|Bounce Pad|alt_name=bounce pad}}s next to sidelane walkers at cultural center and courthouse",
+        "Tags": [
+            "Bounce Pad"
+        ]
+    },
+    {
+        "Description": "* Added {{PageRef|Bounce Pad|alt_name=bounce pad}} from the {{PageRef|Amber Hand|alt_name=Amber}} Orange/{{PageRef|Sapphire Hand|alt_name=Sapphire}} Blue {{PageRef|Walker}} walkway to the low roofs toward the {{PageRef|Walker}}.",
+        "Tags": [
+            "Objective",
+            "Walker",
+            "Bounce Pad",
+            "Team",
+            "Sapphire Hand",
+            "Amber Hand"
+        ]
+    },
+    {
+        "Description": "new_bouncepad.png",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Removed some rooftop zap volumes that damage players",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Several buildings have been made taller to make their rooftops out of bounds",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Several buildings have been made shorter to make them more accessible",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "valid_rooftop_locations.png",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* A few of the buildings have new passageways at higher floors that are along the way to the rooftop",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Breakable}} containers have been added to the new playable rooftops",
+        "Tags": [
+            "Breakable"
+        ]
+    },
+    {
+        "Description": "* Juke closets have replaced the previous location of the upper floor teleporters",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* The half of the underground tunnel towards the outer lanes has been made wider",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Tunnel walls now have the color of the lane that the exit is closest to",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Removed the archway leading to the underground {{PageRef|Shop|alt_name=shop}}",
+        "Tags": [
+            "Shop"
+        ]
+    },
+    {
+        "Description": "* Placed temporary signage for interior buildings and storefronts for future reference",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Two upper floor juke spots have been converted to passages through buildings",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Added a new upper floor juke spot to each side",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* Stairwell from {{PageRef|Amber Hand|alt_name=Amber}} Orange/{{PageRef|Sapphire Hand|alt_name=Sapphire}} Blue {{PageRef|Walker}} catwalk to the courtyard now less cramped",
+        "Tags": [
+            "Objective",
+            "Walker",
+            "Team",
+            "Sapphire Hand",
+            "Amber Hand"
+        ]
+    },
+    {
+        "Description": "* Lowered the statue pedestals in the inner lanes outside of Mid",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "<h4>Weapon Items</h4>",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Monster Rounds}}: Bullet Resist vs NPC increased from 30% to 35%",
+        "Tags": [
+            "Monster Rounds",
+            "Item",
+            "Weapon Item"
+        ]
+    },
+    {
+        "Description": "* Hollow Point Rounds: Spirit Shield increased from +80 to +85",
+        "Tags": [
+            "Item",
+            "Weapon Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Restorative Shot}}: Heal from heroes increased from 30 to 35",
+        "Tags": [
+            "Restorative Shot",
+            "Item",
+            "Weapon Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|High-Velocity Mag}}: Bullet Velocity reduced from +35% to +30% (now has an upgrade)",
+        "Tags": [
+            "High-Velocity Mag",
+            "Item",
+            "Weapon Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Active Reload}}: Lifesteal reduced from 30% to 22%",
+        "Tags": [
+            "Active Reload",
+            "Item",
+            "Weapon Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Active Reload}}: Buff duration reduced from 8s to 7s",
+        "Tags": [
+            "Active Reload",
+            "Item",
+            "Weapon Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Kinetic Dash}}: Active Fire Rate reduced from 30% to 25%",
+        "Tags": [
+            "Kinetic Dash",
+            "Item",
+            "Weapon Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Long Range}}: Now grants +90 Bullet Shield",
+        "Tags": [
+            "Long Range",
+            "Item",
+            "Weapon Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Melee Charge}}: Now grants +1 HP regen",
+        "Tags": [
+            "Melee Charge",
+            "Item",
+            "Weapon Item",
+            "Melee"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Swift Striker}}: Now grants +10% Ammo",
+        "Tags": [
+            "Swift Striker",
+            "Item",
+            "Weapon Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Titanic Magazine}}: {{PageRef|Bullet Armor}} increased from 10% to 15%",
+        "Tags": [
+            "Titanic Magazine",
+            "Item",
+            "Weapon Item",
+            "Bullet Armor",
+            "Vitality Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Toxic Bullets}}: Heal Reduction increased from -55% to -65%",
+        "Tags": [
+            "Toxic Bullets",
+            "Item",
+            "Weapon Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Toxic Bullets}}: Bleed damage reduced from 6% to 5%",
+        "Tags": [
+            "Toxic Bullets",
+            "Item",
+            "Weapon Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Toxic Bullets}}: Now grants +100 Health",
+        "Tags": [
+            "Toxic Bullets",
+            "Item",
+            "Weapon Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Intensifying Magazine}}: Now steadily ramps back down to 0% when you stop shooting rather than instantly emptying",
+        "Tags": [
+            "Intensifying Magazine",
+            "Item",
+            "Weapon Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Warp Stone}}: Active Bullet Resistance reduced from 40% to 30%",
+        "Tags": [
+            "Warp Stone",
+            "Item",
+            "Weapon Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Sharpshooter}}: Now grants +175 Bullet Shield",
+        "Tags": [
+            "Sharpshooter",
+            "Item",
+            "Weapon Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Sharpshooter}}: No longer provides bonus headshot damage",
+        "Tags": [
+            "Sharpshooter",
+            "Item",
+            "Weapon Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Sharpshooter}}: Weapon damage increased from 60% to 70%",
+        "Tags": [
+            "Sharpshooter",
+            "Item",
+            "Weapon Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Burst Fire}}: Active duration increased from 3s to 4s",
+        "Tags": [
+            "Burst Fire",
+            "Item",
+            "Weapon Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Escalating Resilience}}: Max Bullet Resist increased from 36% to 40%",
+        "Tags": [
+            "Escalating Resilience",
+            "Item",
+            "Weapon Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Alchemical Fire}}: Cooldown reduced from 28s to 26s",
+        "Tags": [
+            "Alchemical Fire",
+            "Item",
+            "Weapon Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Heroic Aura}}: Active duration increased from 5s to 6s",
+        "Tags": [
+            "Heroic Aura",
+            "Item",
+            "Weapon Item"
+        ]
+    },
+    {
+        "Description": "* Added new T3 Weapon {{PageRef|Item}}, {{PageRef|Headhunter}}: Requires {{PageRef|High-Velocity Mag}}. Grants +50% Bullet Velocity, +15% Weapon Damage and +150 Bullet Shield. Passive cooldown: Landing a headshot on heroes deals bonus +140 Damage, heals you for +8% Max HP and grants +2 m/s for 3 seconds. Cooldown: 6 seconds.",
+        "Tags": [
+            "High-Velocity Mag",
+            "Item",
+            "Weapon Item",
+            "Headhunter"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Siphon Bullets}}: Weapon Damage reduced from 40% to 28%",
+        "Tags": [
+            "Siphon Bullets",
+            "Item",
+            "Vitality Item",
+            "Weapon Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Frenzy}}: Ammo increased from +9 to +12",
+        "Tags": [
+            "Frenzy",
+            "Item",
+            "Weapon Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Lucky Shot}}: Proc chance increased from 30% to 35%",
+        "Tags": [
+            "Lucky Shot",
+            "Item",
+            "Weapon Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Ricochet}}: Bounce damage increased from 50% to 60%",
+        "Tags": [
+            "Ricochet",
+            "Item",
+            "Weapon Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Ricochet}}: Fixed not applying spirit bonus damage from {{PageRef|Vindicta}} and {{PageRef|Wraith}} abilities",
+        "Tags": [
+            "Vindicta",
+            "Hero",
+            "Ricochet",
+            "Item",
+            "Weapon Item",
+            "Wraith"
+        ]
+    },
+    {
+        "Description": "<h4>Vitality Items</h4>",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Melee Lifesteal}}: Effectiveness vs non-heroes increased from 35% to 40%",
+        "Tags": [
+            "Melee Lifesteal",
+            "Item",
+            "Vitality Item",
+            "Melee"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Healing Rite}}: Cooldown reduced from 65s to 60s",
+        "Tags": [
+            "Healing Rite",
+            "Item",
+            "Vitality Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Divine Barrier}}: No longer grants +7% Bullet Resist",
+        "Tags": [
+            "Divine Barrier",
+            "Item",
+            "Vitality Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Divine Barrier}}: No longer grants +1.5 Health Regen",
+        "Tags": [
+            "Divine Barrier",
+            "Item",
+            "Vitality Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Divine Barrier}}: Now grants +1 Sprint",
+        "Tags": [
+            "Divine Barrier",
+            "Item",
+            "Vitality Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Divine Barrier}}: Now grants +75 Health",
+        "Tags": [
+            "Divine Barrier",
+            "Item",
+            "Vitality Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Divine Barrier}}: Now grants +8% Ability Range",
+        "Tags": [
+            "Divine Barrier",
+            "Item",
+            "Vitality Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Combat Barrier}}: Now also grants +8% Fire Rate while active",
+        "Tags": [
+            "Combat Barrier",
+            "Item",
+            "Vitality Item"
+        ]
+    },
+    {
+        "Description": "* Enchanter's Barrer: Now also grants +8% Cooldown Reduction while active",
+        "Tags": [
+            "Item",
+            "Vitality Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Reactive Barrier}}: Duration reduced from 13s to 9s",
+        "Tags": [
+            "Reactive Barrier",
+            "Item",
+            "Vitality Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Healing Booster}}: Now has also 15% Heal Reduction Resist ({{PageRef|Leech}} no longer has it)",
+        "Tags": [
+            "Healing Booster",
+            "Item",
+            "Vitality Item",
+            "Leech"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Healing Booster}}: No longer has +6% Bullet Resist",
+        "Tags": [
+            "Healing Booster",
+            "Item",
+            "Vitality Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Superior Stamina}}: Air Jump/Dash Distance reduced from +40% to +30%",
+        "Tags": [
+            "Superior Stamina",
+            "Item",
+            "Vitality Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Metal Skin}}: Cooldown reduced from 25s to 22s",
+        "Tags": [
+            "Metal Skin",
+            "Item",
+            "Vitality Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Rescue Beam}}: Channel duration reduced from 3s to 2.5s",
+        "Tags": [
+            "Rescue Beam",
+            "Item",
+            "Vitality Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Lifestrike}}: Effectiveness vs non-heroes increased from 35% to 40%",
+        "Tags": [
+            "Lifestrike",
+            "Item",
+            "Vitality Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Fortitude}}: Damage taken duration threshold reduced from 12s to 11s",
+        "Tags": [
+            "Fortitude",
+            "Item",
+            "Vitality Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Veil Walker}}: Cooldown reduced from 18s to 17s",
+        "Tags": [
+            "Veil Walker",
+            "Item",
+            "Vitality Item",
+            "Objective",
+            "Walker",
+            "Cosmic Veil"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Majestic Leap}}: Cooldown reduced from 26s to 24s",
+        "Tags": [
+            "Majestic Leap",
+            "Item",
+            "Vitality Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Leech}}: No longer has 30% Heal Reduction Resist",
+        "Tags": [
+            "Leech",
+            "Item",
+            "Vitality Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Unstoppable}}: Can now be cast while channeling",
+        "Tags": [
+            "Unstoppable",
+            "Item",
+            "Vitality Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Unstoppable}}: Cooldown reduced from 65s to 60s",
+        "Tags": [
+            "Unstoppable",
+            "Item",
+            "Vitality Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Soul Rebirth}}: Cooldown reduction increased from +15% to +18%",
+        "Tags": [
+            "Soul Rebirth",
+            "Item",
+            "Vitality Item",
+            "Rebirth",
+            "Spirit Item",
+            "Souls"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Soul Rebirth}}: Now grants +12 Spirit",
+        "Tags": [
+            "Soul Rebirth",
+            "Item",
+            "Vitality Item",
+            "Rebirth",
+            "Spirit Item",
+            "Souls"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Soul Rebirth}}: Fixed being able to purchase globally during its brief respawn period",
+        "Tags": [
+            "Soul Rebirth",
+            "Item",
+            "Vitality Item",
+            "Rebirth",
+            "Spirit Item",
+            "Souls"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Soul Rebirth}}: Fixed the camera moving away from the player if you will respawn, rather than following the ragdoll",
+        "Tags": [
+            "Soul Rebirth",
+            "Item",
+            "Vitality Item",
+            "Rebirth",
+            "Spirit Item",
+            "Souls"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Colossus}}: Slow increased from 25% to 35%",
+        "Tags": [
+            "Colossus",
+            "Item",
+            "Vitality Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Shadow Weave}}: Spirit Shield health increased from +200 to +300",
+        "Tags": [
+            "Shadow Weave",
+            "Item",
+            "Weapon Item",
+            "Vitality Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Shadow Weave}}: Spot radius reduced from 20m to 18m",
+        "Tags": [
+            "Shadow Weave",
+            "Item",
+            "Weapon Item",
+            "Vitality Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Phantom Strike}}: Cast range reduced from 30m to 25m",
+        "Tags": [
+            "Phantom Strike",
+            "Item",
+            "Vitality Item"
+        ]
+    },
+    {
+        "Description": "<h4>Spirit Items</h4>",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Ammo Scavenger}}: Health increased from +50 to +60",
+        "Tags": [
+            "Ammo Scavenger",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Extra Charge}}: Cooldown reduction increased from +8% to +10%",
+        "Tags": [
+            "Extra Charge",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Spirit Strike}}: Debuff duration increased from 8s to 13s",
+        "Tags": [
+            "Spirit Strike",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Spirit Strike}}: Spirit Shield increased from +85 to +100",
+        "Tags": [
+            "Spirit Strike",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Extra Spirit}}: Health increased from +25 to +35",
+        "Tags": [
+            "Extra Spirit",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Withering Whip}}: No longer grants +20% Ammo",
+        "Tags": [
+            "Withering Whip",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Withering Whip}}: Now grants +8% Fire Rate",
+        "Tags": [
+            "Withering Whip",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Withering Whip}}: Fire Rate slow reduced from -40% to -30%",
+        "Tags": [
+            "Withering Whip",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Withering Whip}}: Cooldown reduced from 40s to 25s",
+        "Tags": [
+            "Withering Whip",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* Quicksilver: No longer has +10% Reload Time",
+        "Tags": [
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Suppressor}}: Health regen reduced from 3 to 2.5",
+        "Tags": [
+            "Suppressor",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Suppressor}}: Fire Rate reduction reduced from -30% to -25%",
+        "Tags": [
+            "Suppressor",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Improved Cooldown}}: Cooldown Reduction increased from 15% to 16%",
+        "Tags": [
+            "Improved Cooldown",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Duration Extender}}: Health regen increased from 1.5 to 1.75",
+        "Tags": [
+            "Duration Extender",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Slowing Hex}}: Projectile speed increased by 30%",
+        "Tags": [
+            "Slowing Hex",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Slowing Hex}}: Cooldown reduced from 27s to 25s",
+        "Tags": [
+            "Slowing Hex",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Rapid Recharge}}: Charge count reduced from +3 to +2",
+        "Tags": [
+            "Rapid Recharge",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Rapid Recharge}}: Faster Time Between Charges increased from +40% to +55%",
+        "Tags": [
+            "Rapid Recharge",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Rapid Recharge}}: Cooldown for charged abilities increased from +20% to +25%",
+        "Tags": [
+            "Rapid Recharge",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Knockdown}}: Delay reduced from 3s to 2s",
+        "Tags": [
+            "Knockdown",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Knockdown}}: Stun reduced from 1.25s to 0.9s",
+        "Tags": [
+            "Knockdown",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Knockdown}}: Cast range increased from 35m to 45m",
+        "Tags": [
+            "Knockdown",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Silence Glyph}}: Duration reduced from 3.5s to 3s",
+        "Tags": [
+            "Silence Glyph",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Torment Pulse}}: Spirit damage scaling increased from 0.2 to 0.24",
+        "Tags": [
+            "Torment Pulse",
+            "Item",
+            "Spirit Item",
+            "Pulse",
+            "Hero",
+            "Ability",
+            "Rutger"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Surge of Power}}: {{PageRef|Imbued Ability}} Spirit Power increased from +28 to +34",
+        "Tags": [
+            "Imbued Ability",
+            "Item",
+            "Spirit Item",
+            "Surge of Power"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Superior Duration}}: Non-Imbued duration increased from +24% to +26%",
+        "Tags": [
+            "Superior Duration",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Improved Spirit}}: Health Regen increased from 2 to 3",
+        "Tags": [
+            "Improved Spirit",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Improved Spirit}}: Health increased from +75 to +100",
+        "Tags": [
+            "Improved Spirit",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Improved Reach}}: Spirit Resist increased from +10% to +12%",
+        "Tags": [
+            "Improved Reach",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Curse}}: Duration reduced from 3.5 to 3.25",
+        "Tags": [
+            "Curse",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Magic Carpet}}: You are now unslowable while on the {{PageRef|Magic Carpet}}",
+        "Tags": [
+            "Magic Carpet",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Magic Carpet}}: Cooldown reduced from 40s to 30s",
+        "Tags": [
+            "Magic Carpet",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Magic Carpet}}: Barriers now last for 16s",
+        "Tags": [
+            "Magic Carpet",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Echo Shard}}: Now grants +8 Spirit Power",
+        "Tags": [
+            "Echo Shard",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Escalating Exposure}}: Base Spirit Resist reduction increased from -12% to -15%",
+        "Tags": [
+            "Escalating Exposure",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Refresher}}: Now grants +8% Bullet Resist",
+        "Tags": [
+            "Refresher",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Boundless Spirit}}: Sprint reduced from +4 to +3",
+        "Tags": [
+            "Boundless Spirit",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Boundless Spirit}}: Now grants +25% Weapon Damage",
+        "Tags": [
+            "Boundless Spirit",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "<h4>Heroes</h4>",
+        "Tags": [
+            "Other"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Abrams}}: {{PageRef|Infernal Resilience}} Regeneration Time increased from 16s to 18s (this is a nerf)",
+        "Tags": [
+            "Infernal Resilience",
+            "Hero",
+            "Ability",
+            "Abrams"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Abrams}}: Now does pull ups on the {{PageRef|Zipline|alt_name=zipline}} once again (this is a buff)",
+        "Tags": [
+            "Abrams",
+            "Hero",
+            "Zipline"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Abrams}}: Fixed {{PageRef|Shoulder Charge}} sometimes stunning enemies on stairs",
+        "Tags": [
+            "Shoulder Charge",
+            "Hero",
+            "Ability",
+            "Abrams"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Abrams}}: Fixed {{PageRef|Seismic Impact}} sometimes not going to the area selected",
+        "Tags": [
+            "Seismic Impact",
+            "Hero",
+            "Ability",
+            "Abrams"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Bebop}}: {{PageRef|Weapon|alt_name=Gun}} range increased from 30m to 32m",
+        "Tags": [
+            "Bebop",
+            "Hero",
+            "Weapon"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Bebop}}: {{PageRef|Hook}} now only targets enemies when used by default. If you use with alt cast (middle mouse) it will be ally only mode.",
+        "Tags": [
+            "Bebop",
+            "Hero",
+            "Hook",
+            "Ability"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Bebop}}: {{PageRef|Hyper Beam}} can now be canceled by using {{PageRef|Parry}}",
+        "Tags": [
+            "Hyper Beam",
+            "Hero",
+            "Ability",
+            "Bebop",
+            "Melee",
+            "Parry"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Dynamo}}: {{PageRef|Rejuvenating Aurora}} can now be canceled by using {{PageRef|Parry}}",
+        "Tags": [
+            "Rejuvenating Aurora",
+            "Hero",
+            "Ability",
+            "Dynamo",
+            "Melee",
+            "Parry"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Dynamo}}: Fixed {{PageRef|Kinetic Pulse}} not traveling properly when cast near corners",
+        "Tags": [
+            "Kinetic Pulse",
+            "Hero",
+            "Ability",
+            "Dynamo",
+            "Pulse",
+            "Rutger"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Dynamo}}: {{PageRef|Weapon|alt_name=Gun}} damage reduced from 15 to 13",
+        "Tags": [
+            "Dynamo",
+            "Hero",
+            "Weapon"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Dynamo}}: {{PageRef|Singularity}} cast time increased from 0.1 to 0.2",
+        "Tags": [
+            "Singularity",
+            "Hero",
+            "Ability",
+            "Dynamo"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Dynamo}}: {{PageRef|Singularity}} range reduced from 9m to 8m",
+        "Tags": [
+            "Singularity",
+            "Hero",
+            "Ability",
+            "Dynamo"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Grey Talon}}: {{PageRef|Charged Shot}} collision size reduced by 8%",
+        "Tags": [
+            "Charged Shot",
+            "Hero",
+            "Ability",
+            "Grey Talon"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Grey Talon}}: {{PageRef|Charged Shot}} base damage reduced from 105 to 100",
+        "Tags": [
+            "Charged Shot",
+            "Hero",
+            "Ability",
+            "Grey Talon"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Grey Talon}}: {{PageRef|Charged Shot}} T2 reduced from +70 to +65",
+        "Tags": [
+            "Charged Shot",
+            "Hero",
+            "Ability",
+            "Grey Talon"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Grey Talon}}: Fire Rate now scales with Spirit (0.25)",
+        "Tags": [
+            "Grey Talon",
+            "Hero"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Grey Talon}}: Can now use multiple air dashes while using Rain of Fire",
+        "Tags": [
+            "Grey Talon",
+            "Hero"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Grey Talon}}: {{PageRef|Immobilizing Trap}} root duration reduced from 2s to 1.25s",
+        "Tags": [
+            "Immobilizing Trap",
+            "Hero",
+            "Ability",
+            "Grey Talon"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Grey Talon}}: {{PageRef|Immobilizing Trap}} now applies a 50% movement slow for 1 seconds after the root",
+        "Tags": [
+            "Immobilizing Trap",
+            "Hero",
+            "Ability",
+            "Grey Talon"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Grey Talon}}: {{PageRef|Immobilizing Trap}} T2 changed from +1s Root to +2s Slow",
+        "Tags": [
+            "Immobilizing Trap",
+            "Hero",
+            "Ability",
+            "Grey Talon"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Haze}}: Base bullet damage increased from 5.3 to 5.6",
+        "Tags": [
+            "Haze",
+            "Hero"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Haze}}: {{PageRef|Sleep Dagger}} impact damage happens immediately, rather than after the brief drowsy period",
+        "Tags": [
+            "Sleep Dagger",
+            "Hero",
+            "Ability",
+            "Haze"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Haze}}: {{PageRef|Sleep Dagger}} drowsy period before sleep kicks in increased from 0.25 to 0.35",
+        "Tags": [
+            "Sleep Dagger",
+            "Hero",
+            "Ability",
+            "Haze"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Haze}}: {{PageRef|Sleep Dagger}} cooldown reduced from 27s to 25s",
+        "Tags": [
+            "Sleep Dagger",
+            "Hero",
+            "Ability",
+            "Haze"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Haze}}: {{PageRef|Smoke Bomb}} radius reduced from 20m to 18m",
+        "Tags": [
+            "Smoke Bomb",
+            "Hero",
+            "Ability",
+            "Haze",
+            "Smoke",
+            "Item",
+            "Spirit Item"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Haze}}: {{PageRef|Fixation}} T2 max stacks increased from +30 to +40",
+        "Tags": [
+            "Fixation",
+            "Hero",
+            "Ability",
+            "Haze"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Haze}}: {{PageRef|Bullet Dance}} now provides +2 Weapon Damage in the base ability (similar to the T1)",
+        "Tags": [
+            "Bullet Dance",
+            "Hero",
+            "Ability",
+            "Haze"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Infernus}}: Reduced vertical reach on {{PageRef|Flame Dash}} dps",
+        "Tags": [
+            "Flame Dash",
+            "Hero",
+            "Ability",
+            "Infernus"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Infernus}}: {{PageRef|Flame Dash}} speed is now affected by slows",
+        "Tags": [
+            "Flame Dash",
+            "Hero",
+            "Ability",
+            "Infernus"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Infernus}}: {{PageRef|Flame Dash}} trail now gets wider with {{PageRef|Ability}} Range bonus",
+        "Tags": [
+            "Flame Dash",
+            "Hero",
+            "Ability",
+            "Infernus"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Infernus}}: {{PageRef|Flame Dash}} T1 duration reduced from 7s to 6s",
+        "Tags": [
+            "Flame Dash",
+            "Hero",
+            "Ability",
+            "Infernus"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Infernus}}: {{PageRef|Catalyst}} Damage Amplification reduced from 30% to 25%",
+        "Tags": [
+            "Infernus",
+            "Hero",
+            "Catalyst",
+            "Ability"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Infernus}}: {{PageRef|Catalyst}} T3 Damage Amplification increased from +10% to +15%",
+        "Tags": [
+            "Infernus",
+            "Hero",
+            "Catalyst",
+            "Ability"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Infernus}}: {{PageRef|Catalyst}} T2 reduced from +20% Lifesteal to +15%",
+        "Tags": [
+            "Infernus",
+            "Hero",
+            "Catalyst",
+            "Ability"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Ivy}}: Bullet damage growth per boon reduced from 0.55 to 0.5",
+        "Tags": [
+            "Ivy",
+            "Hero"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Ivy}}: Health growth per boon reduced from +41 to +35",
+        "Tags": [
+            "Ivy",
+            "Hero"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Ivy}}: {{PageRef|Watcher's Covenant}} T2 reduced from +3 m/s to +2",
+        "Tags": [
+            "Watcher's Covenant",
+            "Hero",
+            "Ability",
+            "Ivy"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Ivy}}: {{PageRef|Air Drop}} no longer silences allies",
+        "Tags": [
+            "Air Drop",
+            "Hero",
+            "Ability",
+            "Ivy"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Ivy}}: {{PageRef|Air Drop}} now causes allies to deal 50% less damage while being carried",
+        "Tags": [
+            "Air Drop",
+            "Hero",
+            "Ability",
+            "Ivy"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Ivy}}: {{PageRef|Air Drop}} movement adjusted to be a little less frantic",
+        "Tags": [
+            "Air Drop",
+            "Hero",
+            "Ability",
+            "Ivy"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Ivy}}: Fixed {{PageRef|Air Drop}} bomb disappearing if you cancel your ultimate after dropping it but before it lands",
+        "Tags": [
+            "Air Drop",
+            "Hero",
+            "Ability",
+            "Ivy"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Ivy}}: {{PageRef|Air Drop}} self cast cast time increased from 1s to 2s",
+        "Tags": [
+            "Air Drop",
+            "Hero",
+            "Ability",
+            "Ivy"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Ivy}}: {{PageRef|Air Drop}} max move speed reduced from 20 to 18",
+        "Tags": [
+            "Air Drop",
+            "Hero",
+            "Ability",
+            "Ivy"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Ivy}}: During {{PageRef|Air Drop}} flight you can pitch up and down with Dash/Crouch buttons",
+        "Tags": [
+            "Air Drop",
+            "Hero",
+            "Ability",
+            "Ivy"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Ivy}}: Fixed getting stuck under bridges and in buildings while {{PageRef|Air Drop}} flying",
+        "Tags": [
+            "Air Drop",
+            "Hero",
+            "Ability",
+            "Ivy"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Kelvin}}: Bullet radius increased from 5 to 6",
+        "Tags": [
+            "Kelvin",
+            "Hero"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Kelvin}}: Base health growth per boon increased from +45 to +50",
+        "Tags": [
+            "Kelvin",
+            "Hero"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Kelvin}}: {{PageRef|Arctic Beam}} max slow increased from 60% to 80%",
+        "Tags": [
+            "Arctic Beam",
+            "Hero",
+            "Ability",
+            "Kelvin"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Kelvin}}: {{PageRef|Arctic Beam}} now affects {{PageRef|Souls|alt_name=soul}} {{PageRef|Soul Orb|alt_name=orbs}} (secures/denies them)",
+        "Tags": [
+            "Arctic Beam",
+            "Hero",
+            "Ability",
+            "Kelvin",
+            "Souls",
+            "Soul Orb"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Kelvin}}: {{PageRef|Arctic Beam}} T3 range reduced from 15m to 13m",
+        "Tags": [
+            "Arctic Beam",
+            "Hero",
+            "Ability",
+            "Kelvin"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Kelvin}}: Fixed {{PageRef|Ice Path}} jitter",
+        "Tags": [
+            "Ice Path",
+            "Hero",
+            "Ability",
+            "Kelvin"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Kelvin}}: {{PageRef|Frost Grenade}} T2 Heal increased from 135 to 145",
+        "Tags": [
+            "Frost Grenade",
+            "Hero",
+            "Ability",
+            "Kelvin"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Lash}}: Improved firing arm position to be a little bit more out of the way from the reticle",
+        "Tags": [
+            "Lash",
+            "Hero"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Lash}}: {{PageRef|Grapple}} no longer gives a stamina charge on use",
+        "Tags": [
+            "Grapple",
+            "Hero",
+            "Ability",
+            "Lash"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Paradox}}: Fixed {{PageRef|{{PageRef|Paradox}}ical Swap}} still going through even if {{PageRef|Paradox}} dies during it",
+        "Tags": [
+            "Paradoxical Swap",
+            "Hero",
+            "Ability",
+            "Paradox"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Pocket}}: {{PageRef|Barrage}} amp reduced from 8% to 7% per stack",
+        "Tags": [
+            "Barrage",
+            "Hero",
+            "Ability",
+            "Pocket"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Pocket}}: Fixed {{PageRef|Barrage}} amp visual not showing properly",
+        "Tags": [
+            "Barrage",
+            "Hero",
+            "Ability",
+            "Pocket"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Seven}}: {{PageRef|Static Charge}} radius increased from 5m to 6m",
+        "Tags": [
+            "Static Charge",
+            "Hero",
+            "Ability",
+            "Seven"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Seven}}: {{PageRef|Static Charge}} T2 radius increased from +7m to +8m",
+        "Tags": [
+            "Static Charge",
+            "Hero",
+            "Ability",
+            "Seven"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Seven}}: {{PageRef|Storm Cloud}} spirit power scaling reduced from 1.1 to 0.8",
+        "Tags": [
+            "Storm Cloud",
+            "Hero",
+            "Ability",
+            "Seven"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Seven}}: {{PageRef|Storm Cloud}} time to reach maximum radius reduced from 6s to 3s",
+        "Tags": [
+            "Storm Cloud",
+            "Hero",
+            "Ability",
+            "Seven"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Seven}}: {{PageRef|Storm Cloud}} Now provides +20% Bullet Resistance in the base ability",
+        "Tags": [
+            "Storm Cloud",
+            "Hero",
+            "Ability",
+            "Seven"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Shiv}}: Bullet damage growth per boon reduced from 0.5 to 0.4",
+        "Tags": [
+            "Shiv",
+            "Hero"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Shiv}}: {{PageRef|Weapon|alt_name=Gun}} falloff range reduced by 10%",
+        "Tags": [
+            "Shiv",
+            "Hero",
+            "Weapon"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Shiv}}: Health growth per boon reduced from +41 to +35",
+        "Tags": [
+            "Shiv",
+            "Hero"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Shiv}}: {{PageRef|Slice and Dice}} T2 reduced from +100 to +85",
+        "Tags": [
+            "Slice and Dice",
+            "Hero",
+            "Ability",
+            "Shiv"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Shiv}}: {{PageRef|Slice and Dice}} T3 now considers {{PageRef|Creep|alt_name=creeps}} for only half value",
+        "Tags": [
+            "Slice and Dice",
+            "Hero",
+            "Ability",
+            "Shiv",
+            "NPC",
+            "Creep"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Shiv}}: {{PageRef|Bloodletting}} deferred damage reduced from 35% to 30%",
+        "Tags": [
+            "Bloodletting",
+            "Hero",
+            "Ability",
+            "Shiv"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Shiv}}: The targeting UI for {{PageRef|Shiv}}'s {{PageRef|Killing Blow}} is now more clear about when the target will be killed",
+        "Tags": [
+            "Killing Blow",
+            "Hero",
+            "Ability",
+            "Shiv"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Vindicta}}: {{PageRef|Stake}} duration reduced from 2.25s to 2s",
+        "Tags": [
+            "Vindicta",
+            "Hero",
+            "Stake",
+            "Ability"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Vindicta}}: {{PageRef|Crow Familiar}} Spirit Power duration scaling reduced from 0.05 to 0.04",
+        "Tags": [
+            "Crow Familiar",
+            "Hero",
+            "Ability",
+            "Vindicta"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Vindicta}}: Fixed left clicks sometimes deselecting the ability when charges aren't ready",
+        "Tags": [
+            "Vindicta",
+            "Hero"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Viscous}}: Primary Fire redesigned to make it more usable and have improved damage and scaling",
+        "Tags": [
+            "Viscous",
+            "Hero"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Viscous}}: Now has an Alt Fire that has limited range, but deals AOE damage that cannot headshot",
+        "Tags": [
+            "Viscous",
+            "Hero"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Viscous}}: {{PageRef|Splatter}} Spirit Scaling increased from 1.4 to 1.5",
+        "Tags": [
+            "Splatter",
+            "Hero",
+            "Ability",
+            "Viscous"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Viscous}}: {{PageRef|Splatter}} Damage on 2nd and 3rd hit increased from 66% and 33% to 70% and 50%",
+        "Tags": [
+            "Splatter",
+            "Hero",
+            "Ability",
+            "Viscous"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Viscous}}: {{PageRef|Puddle Punch}} damage increased from 100% to 110% of Light {{PageRef|Melee}}",
+        "Tags": [
+            "Puddle Punch",
+            "Hero",
+            "Ability",
+            "Viscous",
+            "Melee",
+            "Light Melee"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Viscous}}: {{PageRef|Puddle Punch}} T2 is now +50 damage and +20% movement slow (was -10s cooldown)",
+        "Tags": [
+            "Puddle Punch",
+            "Hero",
+            "Ability",
+            "Viscous"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Viscous}}: {{PageRef|Puddle Punch}} T3 is now -12s cooldown (was +80 damage and +20% movement slow)",
+        "Tags": [
+            "Puddle Punch",
+            "Hero",
+            "Ability",
+            "Viscous"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Viscous}}: {{PageRef|Puddle Punch}}: delay before punch increased from 0.25s to 0.35s",
+        "Tags": [
+            "Puddle Punch",
+            "Hero",
+            "Ability",
+            "Viscous"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Viscous}}: {{PageRef|Goo Ball}} Spirit Scaling increased from 1.05 to 1.3",
+        "Tags": [
+            "Goo Ball",
+            "Hero",
+            "Ability",
+            "Viscous"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Viscous}}: {{PageRef|Goo Ball}} acceleration increased",
+        "Tags": [
+            "Goo Ball",
+            "Hero",
+            "Ability",
+            "Viscous"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Viscous}}: {{PageRef|Goo Ball}} base turn radius and turn radius after bouncing has been increased",
+        "Tags": [
+            "Goo Ball",
+            "Hero",
+            "Ability",
+            "Viscous"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Viscous}}: Fixed a bug where {{PageRef|Goo Ball}} would have the direction and trail particle stuck on",
+        "Tags": [
+            "Goo Ball",
+            "Hero",
+            "Ability",
+            "Viscous"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Warden}}: Base movement speed reduced from 6.5 to 6",
+        "Tags": [
+            "Warden",
+            "Hero"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Warden}}: Fire Rate scaling with spirit reduced from 0.375 Fire Rate per Spirit to 0.3",
+        "Tags": [
+            "Warden",
+            "Hero"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Yamato}}: {{PageRef|Power Slash}} max damage time requirement reduced from 1.5s to 1.4s",
+        "Tags": [
+            "Power Slash",
+            "Hero",
+            "Ability",
+            "Yamato"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Yamato}}: {{PageRef|Power Slash}} collision radius reduced by 8%",
+        "Tags": [
+            "Power Slash",
+            "Hero",
+            "Ability",
+            "Yamato"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Yamato}}: {{PageRef|Crimson Slash}} radius increased from 12m to 13m",
+        "Tags": [
+            "Crimson Slash",
+            "Hero",
+            "Ability",
+            "Yamato"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Yamato}}: Fixed being able to die during {{PageRef|Shadow Transformation}} if hit by {{PageRef|Grey Talon}}'s Owl",
+        "Tags": [
+            "Shadow Transformation",
+            "Hero",
+            "Ability",
+            "Yamato",
+            "Grey Talon"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Yamato}}: Fixed some cases where {{PageRef|Flying Strike}} could get into a stuck state",
+        "Tags": [
+            "Flying Strike",
+            "Hero",
+            "Ability",
+            "Yamato"
+        ]
+    },
+    {
+        "Description": "* {{PageRef|Yamato}}: Fixed some cases where {{PageRef|Crimson Slash}} would appear to be cast when it wasn't",
+        "Tags": [
+            "Crimson Slash",
+            "Hero",
+            "Ability",
+            "Yamato"
+        ]
+    }
+]
