@@ -21,7 +21,7 @@ jobs:
         run: |
           git config --global user.email "deadbot1101@gmail.com"
           git config --global user.name "Deadbot0"
-          git config pull.rebase true
+          git config pull.rebase false
 
       - name: Switch to same branch name on deadlock-data
         working-directory: deadlock-data
