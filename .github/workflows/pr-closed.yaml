@@ -5,7 +5,8 @@ on:
     types: [closed]
 
 jobs:
-  pr_closed:
+  close-data-pr:
+    name: Close deadlock-data PR
     runs-on: ubuntu-latest
     steps:
       - name: Checkout deadlock-data repo
