@@ -85,51 +85,51 @@ def main():
 
     # setup custom logger
     logger.remove(0)
-    log_level = 'TRACE' if args.verbose else 'INFO'
+    log_level = 'TRACE' if is_truthy(args.verbose) else 'INFO'
     logger.add(sys.stderr, level=log_level)
 
     data_transfer = DataTransfer(args.workdir, args.bucket, args.iam_key, args.iam_secret)
 
     if is_truthy(args.import_files):
         if is_truthy(args.decompile):
-            logger.warning('Skipping import as it will be overwritten by Decompile step')
+            logger.info('Skipping import as it will be overwritten by Decompile step')
         elif args.iam_key and args.iam_secret:
             data_transfer.import_data(version=args.build_num)
         else:
             raise Exception('iam_key and iam_secret must be set for s3')
 
     if is_truthy(args.decompile):
-        logger.warning('Decompiling source files...')
+        logger.info('Decompiling source files...')
         decompile.decompile(args.dl_path, args.workdir, args.decompiler_cmd, args.force)
     else:
-        logger.info('! Skipping Decompiler !')
+        logger.trace('! Skipping Decompiler !')
 
     if is_truthy(args.parse):
         logger.info('Parsing decompiled files...')
         act_gamefile_parse(args)
     else:
-        logger.info('! Skipping Parser !')
+        logger.trace('! Skipping Parser !')
 
     if is_truthy(args.changelogs):
         logger.info('Parsing Changelogs...')
         act_changelog_parse(args)
     else:
-        logger.info('! Skipping Changelogs !')
+        logger.trace('! Skipping Changelogs !')
 
     if is_truthy(args.bot_push):
         logger.info('Running DeadBot...')
         bot = DeadBot()
         bot.push_lane()
     else:
-        logger.info('! Skipping DeadBot !')
+        logger.trace('! Skipping DeadBot !')
 
     if is_truthy(args.s3_push):
         if args.iam_key and args.iam_secret:
             data_transfer.export_data()
         else:
-            logger.info('[ERROR] iam_key and iam_secret must be set for s3')
+            logger.error('[ERROR] iam_key and iam_secret must be set for s3')
 
-    logger.info('Done!')
+    logger.success('Done!')
 
 
 if __name__ == '__main__':

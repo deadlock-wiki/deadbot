@@ -151,8 +151,8 @@ class Parser:
         if not json_utils.compare_json_file_to_dict(
             self.OUTPUT_DIR + '/json/hero-meaningful-stats.json', parsed_meaningful_stats
         ):
-            print(
-                '[WARNING]: Non-constant stats have changed. '
+            logger.warning(
+                '[WARN]: Non-constant stats have changed. '
                 + "Please update [[Module:HeroData]]'s write_hero_comparison_table "
                 + 'lua function for the [[Hero Comparison]] page.'
             )
