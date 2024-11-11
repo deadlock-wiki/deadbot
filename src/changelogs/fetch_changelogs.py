@@ -128,9 +128,9 @@ class ChangelogFetcher:
             raw_changelog_id = f'herolab_{date.replace("/", "_")}'
 
             # Parse hero name to create a header for the changelog entry
-            # Citadel_PatchNotes_HeroLabs_hero_astro_1 -> 
-            # hero_astro -> 
-            # Holliday -> 
+            # Citadel_PatchNotes_HeroLabs_hero_astro_1 ->
+            # hero_astro ->
+            # Holliday ->
             # [ HeroLab Holliday ]
             hero_key = key.split('Citadel_PatchNotes_HeroLabs_')[1][:-2]
             hero_name_en = self._localize(hero_key)
@@ -202,7 +202,7 @@ class ChangelogFetcher:
         # If no list elements are found, return right away
         if li_start == -1:
             return li_start, -1
-        
+
         # Find the next li tag, which will either be <li>, or </li>
         li_end = string.find('<li>', li_start + len('<li>'))
         # if no more <li>'s, find the last </li>
