@@ -37,6 +37,8 @@ class ChangelogFetcher:
         self.update_existing = update_existing
         self.localization_data_en = {}
 
+        self.TAGS_TO_REMOVE = ['<ul>', '</ul>', '<b>', '</b>', '<i>', '</i>']
+
     def load_localization(self, output_dir):
         self.localization_data_en = json_utils.read(
             os.path.join(output_dir, 'localizations', 'english.json')
@@ -99,84 +101,115 @@ class ChangelogFetcher:
 
         gamefile_changelogs = dict()
 
-        for key, value in changelogs.items():
+        # Iterate each pair in the patch note localization
+        for key, string in changelogs.items():
+            # Not a real patch note
             if key == 'Language':
                 continue
-            # key i.e. Citadel_PatchNotes_HeroLabs_hero_astro_1
-            # value i.e. <b>10/24/2024</b>\t\t\t
-            # <li>Hero Added to Hero Labs<li>
-            # Changed from x to z</li>
 
-            # Parse the date
-            date = value.split('\t')[0].replace('<b>', '').replace('</b>', '')
+            # key i.e. Citadel_PatchNotes_HeroLabs_hero_astro_1
+            # string i.e. "<b>10/24/2024</b>\t\t\t
+            #   <li>Hero Added to Hero Labs<li>
+            #   Changed y from x to z</li>"
+
+            # Parse the date from the beginning of the string
+            date = string.split('\t')[0].replace('<b>', '').replace('</b>', '')
             if len(date) > 10:
                 date = date[:10]
 
             # Remove date from remaining string
-            remaining_str = value.replace(f'<b>{date}</b>\t\t\t', '')
+            remaining_str = string.replace(f'<b>{date}</b>\t\t\t', '')
 
             # Reformat mm/dd/yyyy to yyyy_mm_dd
             date = format_date(date)
 
             # Create the raw changelog id (used as filename in raw folder)
-            # i.e. herolab_2024_10_29
+            # i.e. herolab_2024_10_29.json
             raw_changelog_id = f'herolab_{date.replace("/", "_")}'
 
-            # Parse hero name
+            # Parse hero name to create a header for the changelog entry
+            # Citadel_PatchNotes_HeroLabs_hero_astro_1 -> 
+            # hero_astro -> 
+            # Holliday -> 
+            # [ HeroLab Holliday ]
             hero_key = key.split('Citadel_PatchNotes_HeroLabs_')[1][:-2]
             hero_name_en = self._localize(hero_key)
             header = f'[ HeroLab {hero_name_en} ]'
 
-            # Initialize the changelog entry
+            # Initialize the changelog entry if its the first line for this hero's patch (version)
             first_line_of_entry = False
             if raw_changelog_id not in gamefile_changelogs:
                 gamefile_changelogs[raw_changelog_id] = ''
                 first_line_of_entry = True
 
-            # Add the header to the changelog entry
+            # Add the header to the changelog entry as the first line
             gamefile_changelogs[raw_changelog_id] += (not first_line_of_entry) * '\n' + header + '\n'
 
-            # Parse description
             # Ensure the date was able to be removed and was in the correct format
-            if len(remaining_str) == len(value):
+            if len(remaining_str) == len(string):
                 print(
-                    '[WARN] Date format may be different than '
-                    + 'expected (mm/dd/yyyy), detected date is '
+                    '[WARN] Date format may not have been able to be parsed '
+                    + 'correctly to (yyyy_mm_dd), parsed date is '
                     + date
                 )
+
+            # Parse full description by accumulating each description separated by <li> tags
+            # <li>Text 1<li>Text 2</li> -> Text 1\nText 2\n
             while len(remaining_str) > 0:
-                # Find the next <li> tag
-                li_start = remaining_str.find('<li>')
-                if li_start == -1:
+                # Parse the next description
+                description, remaining_str = self._parse_description(remaining_str)
+                if description is None:
                     break
-                li_end = remaining_str.find('<li>', li_start + len('<li>'))
-                # if no more <li>'s, find the last </li>
-                if li_end == -1:
-                    li_end = remaining_str.find('</li>', li_start + len('<li>'))
-                if li_end == -1:
-                    raise ValueError(f'No closing </li> tag found in {key}')
 
-                # Extract the description
-                description = remaining_str[li_start + len('<li>') : li_end]
-
-                # Remove the description from the remaining value
-                remaining_str = remaining_str[li_end + len('<li>') :]
-
-                # Remove any remaining tags
-                tags_to_remove = ['<ul>', '</ul>', '<b>', '</b>', '<i>', '</i>']
-                for tag in tags_to_remove:
-                    description = description.replace(tag, '')
-
-                # Add the changelog entry
+                # Add to the current changelog entry
                 gamefile_changelogs[raw_changelog_id] += f'- {description}\n'
-                # Add the config entry
-                self.changelog_configs[raw_changelog_id] = {
-                    'forum_id': None,
-                    'date': date,
-                    'link': None,
-                }
+
+                # Add the config entry if it doesn't exist
+                if raw_changelog_id not in self.changelog_configs:
+                    self.changelog_configs[raw_changelog_id] = {
+                        'forum_id': None,
+                        'date': date,
+                        'link': None,
+                    }
 
         self.changelogs.update(gamefile_changelogs)
+
+    def _parse_description(self, string):
+        # Find the next <li> tag
+        li_start, li_end = self._find_li_tags(string)
+        if li_start == -1:
+            # No more list elements to be found
+            return None, string
+        if li_end == -1:
+            raise ValueError(f'No closing </li> tag found in description {string}')
+
+        # Extract the description
+        description = string[li_start + len('<li>') : li_end]
+
+        # Remove the description from the remaining string
+        string = string[li_end + len('<li>') :]
+
+        # Remove any remaining tags that are unneeded
+        for tag in self.TAGS_TO_REMOVE:
+            description = description.replace(tag, '')
+
+        return description, string
+
+    def _find_li_tags(self, string):
+        # Find the next <li> tag
+        li_start = string.find('<li>')
+
+        # If no list elements are found, return right away
+        if li_start == -1:
+            return li_start, -1
+        
+        # Find the next li tag, which will either be <li>, or </li>
+        li_end = string.find('<li>', li_start + len('<li>'))
+        # if no more <li>'s, find the last </li>
+        if li_end == -1:
+            li_end = string.find('</li>', li_start + len('<li>'))
+
+        return li_start, li_end
 
     def _localize(self, key):
         return self.localization_data_en.get(key, None)
