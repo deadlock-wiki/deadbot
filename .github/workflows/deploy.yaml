@@ -29,13 +29,31 @@ jobs:
         id: branch
         run: |
           if [[ "${GITHUB_EVENT_NAME}" == "push" ]]; then
-            echo "::set-output name=branch::${{ github.ref_name  }}"
+            echo "branch=${{ github.ref_name }}" >> $GITHUB_ENV
           elif [[ "${GITHUB_EVENT_NAME}" == "pull_request" ]]; then
-            echo "::set-output name=branch::${{ github.head_ref }}"
+            echo "branch=${{ github.head_ref }}" >> $GITHUB_ENV
           elif [[ "${GITHUB_EVENT_NAME}" == "workflow_dispatch" ]]; then 
-            echo "::set-output name=branch::${{ github.event.inputs.branch }}"
+            echo "branch=${{ github.event.inputs.branch }}" >> $GITHUB_ENV
           else
-            echo "::set-output name=branch::INVALID_EVENT_BRANCH_UNKNOWN"
+            echo "branch=INVALID_EVENT_BRANCH_UNKNOWN" >> $GITHUB_ENV
+          fi
+
+  check-branch:
+    name: Check deadlock-data branch exists
+    runs-on: ubuntu-latest
+    needs: get-branch
+    outputs:
+      exists: ${{ steps.check-branch.outputs.branch_exists }}
+    steps:
+      - name: Branch used
+        id: branch
+        run: |
+          branch_exists=$(git ls-remote --heads git@github.com:deadlock-wiki/deadlock-data.git refs/heads/${{ needs.get-branch.outputs.branch }})
+          if [ -z "$branch_exists" ]; then
+            echo "Branch does not exist, skipping the rest of the job"
+            echo "branch_exists=false" >> $GITHUB_ENV
+          else
+            echo "branch_exists=true" >> $GITHUB_ENV
           fi
 
   # Parse decompiled data stored on S3 and commit the changes to deadlock-data repo.
@@ -44,7 +62,8 @@ jobs:
   parse:
     name: Parse
     runs-on: ubuntu-latest
-    needs: get-branch
+    needs: check-branch
+    if: {{ needs.check-branch.outputs.branch_exists == 'true' }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -56,7 +75,7 @@ jobs:
           repository: deadlock-wiki/deadlock-data
           path: deadlock-data
           token:  ${{ secrets.GH_TOKEN }}          
-          
+
       - name: Configure Git
         working-directory: deadlock-data 
         run: |
