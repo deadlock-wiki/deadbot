@@ -1,25 +1,18 @@
 version: '3'
 services:
   deadbot:
-    image: ghcr.io/deadlock-wiki/deadbot:latest
+    image: ghcr.io/deadlock_wiki/deadbot
     build:
       context: .
       dockerfile: ./Dockerfile
     environment:
       # runtime config
-      IMPORT_FILES: ${IMPORT_FILES}
-      DECOMPILE: ${DECOMPILE}
-      CHANGELOGS: 'true'
-      PARSE: 'true'
-      BOT_PUSH: ${BOT_PUSH}
-      CLEANUP: 'true'
-      IAM_KEY: ${IAM_KEY}
-      IAM_SECRET: ${IAM_SECRET}
-      BOT_WIKI_USER: ${BOT_WIKI_USER}
-      BOT_WIKI_PASS: ${BOT_WIKI_PASS}
+      DECOMPILE: true
+      PARSE: true
+      BOT_PUSH: false
+      CLEANUP: true
     volumes:
       - "./decompiled-data:/work"
-      - "./input-data:/input"
       - "./output-data:/output"
     #
     # - 'C:\Program Files (x86)\Steam\steamapps\common\Deadlock':'/data:ro'

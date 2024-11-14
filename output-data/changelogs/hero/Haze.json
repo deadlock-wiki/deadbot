@@ -1,0 +1,104 @@
+{
+    "09-26-2024": [
+        "- Updated {AbilityIcon|Ability=Haze|Size=20} Haze VO",
+        "- Sleep dagger hitbox reduced by 10%",
+        "- Fixed refresher not working properly with {AbilityIcon|Ability=Smoke Bomb|Size=20} Smoke Bomb",
+        "- Fixed some items that didn't proc before: Tesla Bullets, {AbilityIcon|Ability=Lucky Shot|Size=20} Lucky Shot, Mystic Shot",
+        "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance now more accurately shows who it is shooting",
+        "- Fixed {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance sometimes not obeying line of sight accurately",
+        "- Bullet Dance bullets are now affected by {AbilityIcon|Ability=Time Wall|Size=20} Time Wall",
+        "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance evasion reduced from 50% to 25%",
+        "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance fire rate reduced from 25% to 15%"
+    ],
+    "09-12-2024": [
+        "- Fixed issues with {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger hitting targets behind walls"
+    ],
+    "08-29-2024": [
+        "- Base bullet damage increased from 5.3 to 5.6",
+        "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger impact damage happens immediately, rather than after the brief drowsy period",
+        "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger drowsy period before sleep kicks in increased from 0.25 to 0.35",
+        "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger cooldown reduced from 27s to 25s",
+        "- {AbilityIcon|Ability=Smoke Bomb|Size=20} Smoke Bomb radius reduced from 20m to 18m",
+        "- {AbilityIcon|Ability=Fixation|Size=20} Fixation T2 max stacks increased from +30 to +40",
+        "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance now provides +2 Weapon Damage in the base ability (similar to the T1)"
+    ],
+    "08-15-2024": [
+        "- Updated Haze {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger cast, projectile loop and whizby",
+        "- Updated Haze {AbilityIcon|Ability=Smoke Bomb|Size=20} Smoke Bomb sound",
+        "- Removed Haze {AbilityIcon|Ability=Smoke Bomb|Size=20} Smoke Bomb voice line for everyone except the casting player and spectators",
+        "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger now puts you in a brief drowsy state for 0.25s seconds where you move slowly before falling asleep (you still have the ability to shoot/cast/move/etc during this period)",
+        "- {AbilityIcon|Ability=Fixation|Size=20} Fixation T2 from +6s Duration to +5s",
+        "- {AbilityIcon|Ability=Fixation|Size=20} Fixation T3 reduced from +0.25 to +0.2",
+        "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance T1 increased from +6 to +7"
+    ],
+    "08-01-2024": [
+        "- Bullet damage falloff is now 20% more falloff than default",
+        "- Can now cast {AbilityIcon|Ability=Smoke Bomb|Size=20} Smoke Bomb while on zipline"
+    ],
+    "07-18-2024": [
+        "- Base ammo increased by 5% (except for Haze and {AbilityIcon|Ability=Wraith|Size=20} Wraith)",
+        "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger min sleep time reduced from 0.3 to 0.2",
+        "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger wake-up time reduced from 0.15 to 0.1",
+        "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger projectile size reduced by 10%",
+        "- {AbilityIcon|Ability=Fixation|Size=20} Fixation T1 and T2 swapped",
+        "- {AbilityIcon|Ability=Fixation|Size=20} Fixation damage per stack reduced from 0.25 to 0.2",
+        "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance fire rate increased from +20% to +25%",
+        "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance radius increased from 14m to 15m"
+    ],
+    "07-11-2024": [
+        "- Global base Ammo increased by 5% (except for {AbilityIcon|Ability=Wraith|Size=20} Wraith and Haze)",
+        "- Ammo scaling with spirit power reduced from 0.6 to 0.5"
+    ],
+    "06-27-2024": [
+        "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance T1 increased from +5 Weapon Damage to +6",
+        "- Fixed various bugs with the fire rate on {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance (net effect of the bugs was that it often fired a little faster than it was intended to)"
+    ],
+    "06-20-2024": [
+        "- Grey Talon: Fixed {AbilityIcon|Ability=Charged Shot|Size=20} Charged Shot being evaded by Haze's Bullet Dance",
+        "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger cooldown reduced from 29s to 27s",
+        "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger T2 cooldown changed from -15s to -13s",
+        "- {AbilityIcon|Ability=Smoke Bomb|Size=20} Smoke Bomb T2 changed to \"Replenishes stamina on cast and grants +40% Stamina Regen\"",
+        "- {AbilityIcon|Ability=Fixation|Size=20} Fixation bonus damage no longer ignores bullet falloff",
+        "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance cast point reduced from 0.8s to 0.4s",
+        "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance move speed increased from 3.5 to 4"
+    ],
+    "06-13-2024": [
+        "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger damage Spirit growth increased from 2.5 to 2.8",
+        "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger T3 is now -12% Bullet Resistance for 6 seconds",
+        "- {AbilityIcon|Ability=Smoke Bomb|Size=20} Smoke Bomb T1 increased from +4 m/s Invis Sprint Speed to +5",
+        "- {AbilityIcon|Ability=Smoke Bomb|Size=20} Smoke Bomb causes your footsteps to be silent"
+    ],
+    "06-06-2024": [
+        "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger T3 damage reduction on target improved from -30% to -40%",
+        "- {AbilityIcon|Ability=Smoke Bomb|Size=20} Smoke Bomb sprint speed now instantly kicks in after casting it",
+        "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance cooldown reduced from 160s to 130s",
+        "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance T2 changed to -40s Cooldown",
+        "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance T3 changed to +1 Targets Hit Per Shot"
+    ],
+    "05-30-2024": [
+        "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger cooldown increased from 27 to 29",
+        "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger spirit scaling increased from 2.2 to 2.5",
+        "- {AbilityIcon|Ability=Smoke Bomb|Size=20} Smoke Bomb T2 and T3 swapped",
+        "- {AbilityIcon|Ability=Smoke Bomb|Size=20} Smoke Bomb T3 cooldown improved from -20s to -25s"
+    ],
+    "05-23-2024": [
+        "- Added unique {AbilityIcon|Ability=Haze|Size=20} Haze footstep sound effects",
+        "- Improved visibility of {AbilityIcon|Ability=Haze|Size=20} Haze\u2019s bullet and travel path",
+        "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger no longer breaks invisibility when cast (previously was part of the T3)",
+        "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger Spirit scaling increased from 2.3 to 2.6",
+        "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger no longer gets +140 damage with the T3",
+        "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger T3 is now \"-30% Damage Penalty On Victim for 4s after wakeup\"",
+        "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance cast time increased from 0.7s to 0.8s",
+        "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance evasion from 70% to 50%"
+    ],
+    "05-16-2024": [
+        "- {AbilityIcon|Ability=Sleep Dagger|Size=20} Sleep Dagger cooldown increased from 25s to 27s",
+        "- {AbilityIcon|Ability=Smoke Bomb|Size=20} Smoke Bomb cooldown reduced from 45s to 35s",
+        "- {AbilityIcon|Ability=Smoke Bomb|Size=20} Smoke Bomb T1 changed to +4 Invis Sprint",
+        "- {AbilityIcon|Ability=Smoke Bomb|Size=20} Smoke Bomb T2 is now -20s Cooldown"
+    ],
+    "05-03-2024": [
+        "- {AbilityIcon|Ability=Bullet Dance|Size=20} Bullet Dance bonus Fire Rate reduced from +30 to +20",
+        "- {AbilityIcon|Ability=Smoke Bomb|Size=20} Smoke Bomb duration scaling from Spirit improved from 0.2 to 0.3"
+    ]
+}

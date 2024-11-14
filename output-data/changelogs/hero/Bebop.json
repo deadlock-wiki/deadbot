@@ -1,0 +1,115 @@
+{
+    "09-26-2024": [
+        "- Removed reason 31 of why {AbilityIcon|Ability=Lash|Size=20} Lash is better than Bebop and replaced it with reason 26 of why {AbilityIcon|Ability=Lash|Size=20} Lash is better than Bebop (fixed a bug with {AbilityIcon|Ability=Lash|Size=20} Lash's hero select lines)",
+        "- {AbilityIcon|Ability=Hook|Size=20} Hook range reduced from 30m to 25m",
+        "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam duration spirit scaling reduced from 0.08 to 0.06"
+    ],
+    "09-14-2024": [
+        "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam cooldown increased from 117 to 130",
+        "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam T1 reduced from -38s to -30s",
+        "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam end radius reduced from 5m to 4m",
+        "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam slow reduced from 40% to 30%",
+        "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam DPS reduced from 220 to 205",
+        "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam DPS spirit scaling reduced from 3 to 2.7"
+    ],
+    "09-12-2024": [
+        "- Uppercut no longer roots your hero during cast time",
+        "- Can now keep firing if he jumps and his laser is already warmed up",
+        "- Reverted recent change to make hook have an alternate cast mode to pierce through allies/enemies",
+        "- {AbilityIcon|Ability=Hook|Size=20} Hook range reduced from 35m to 30m",
+        "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam now does splash damage around a 5m area the beam connects to on the ground (can be used to fish heroes out of cover in some areas)"
+    ],
+    "08-29-2024": [
+        "- Gun range increased from 30m to 32m",
+        "- {AbilityIcon|Ability=Hook|Size=20} Hook now only targets enemies when used by default. If you use with alt cast (middle mouse) it will be ally only mode.",
+        "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam can now be canceled by using Parry"
+    ],
+    "08-15-2024": [
+        "- Fixed Bebop's {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb sometimes misfiring",
+        "- Improved visibility of AOE around Bebop while casting {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam",
+        "- Gun range reduced from 50m to 30m + 2.5m/boon (max of 58m)",
+        "- Speed while shooting increased from 55% to 70%",
+        "- Base regen increased from 2.5 to 3",
+        "- Base Bullet Resist increased from 0% to 10%",
+        "- Bullet Resist per boon reduced from 2.5% to 1.6% (same overall bullet resist at max)",
+        "- {AbilityIcon|Ability=Hook|Size=20} Hook range reduced from 40m to 35m",
+        "- {AbilityIcon|Ability=Hook|Size=20} Hook T2 increased from +25m to +30m",
+        "- {AbilityIcon|Ability=Exploding Uppercut|Size=20} Exploding Uppercut now has a slight angle limitation to prevent straight-up direction",
+        "- {AbilityIcon|Ability=Exploding Uppercut|Size=20} Exploding Uppercut radius increased from 10m to 14m",
+        "- {AbilityIcon|Ability=Exploding Uppercut|Size=20} Exploding Uppercut T1 increased from -10s Cooldown to -11s",
+        "- Fixed hooking through veils sometimes not working",
+        "- {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb radius increased from 10m to 12m",
+        "- {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb can now be cast on self using alt cast hotkey",
+        "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam T2 reduced from +140 to +100",
+        "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam spirit scaling increased from 2.4 to 3.0",
+        "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam turn rate improved by 10%",
+        "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam nearby radius increased from 4.5m to 5m",
+        "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam nearby damage now does 25% less than the full amount"
+    ],
+    "08-01-2024": [
+        "- Bullet Resistance growth per boon increased from 2% to 2.5%",
+        "- {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb now prioritizes enemies over allies",
+        "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam duration now scales with Spirit (0.08)",
+        "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam spirit scaling increased from 2.2 to 2.4"
+    ],
+    "07-23-2024": [
+        "- Fixed a recent issue with {AbilityIcon|Ability=Bebop|Size=20} Bebop gun not using lag compensation correctly when hitting orbs"
+    ],
+    "07-18-2024": [
+        "- Base HP regen increased from 1 to 2.5",
+        "- No longer has 24% base bullet resistance",
+        "- Now gains +2% Bullet Resistance per boon (happens 11 times)",
+        "- {AbilityIcon|Ability=Hook|Size=20} Hook speed reduced from 3000 to 2850",
+        "- Uppercut horizontal distance knockback on enemy heroes is reduced from 25m to 20m",
+        "- Fixed enemies being able to use heavy melee to cancel Uppercut's momentum",
+        "- Hyperbeam is now very wide in the area right in front of the hero, then narrows into the current size a few meters away",
+        "- Hyperbeam Spirit Power damage scaling increased from 1.96 to 2.2",
+        "- Hyperbeam T2 increased from +120 to +140"
+    ],
+    "06-27-2024": [
+        "- Fixed a bug where pinging Bebop's Hook and {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb abilities would call the wrong ability name"
+    ],
+    "06-20-2024": [
+        "- Fixed the unit target UI not showing up for instant-cast abilities (MoKrill ult, {AbilityIcon|Ability=Lady Geist|Size=20} Lady Geist ult, Bebop bomb)",
+        "- {AbilityIcon|Ability=Hook|Size=20} Hook hitbox reduced from 36 inches to 33",
+        "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam cooldown increased from 100s to 110s",
+        "- Seven: {AbilityIcon|Ability=Static Charge|Size=20} Static Charge now uses the new instant cast option that Bebop Bomb uses"
+    ],
+    "06-13-2024": [
+        "- {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb base damage reduced from 130 to 120",
+        "- {AbilityIcon|Ability=Hook|Size=20} Hook grab radius reduced from 40 inches to 36",
+        "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam movement and dash slow increased from 30% to 40%",
+        "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam DPS increased from 210 to 220",
+        "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam tracking speed increased by 10%"
+    ],
+    "06-06-2024": [
+        "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam slow now affects stamina dashes"
+    ],
+    "05-30-2024": [
+        "- Hyperbeam width increased from 2.7m to 2.9m",
+        "- Base bullet armor increased from 20% to 24%"
+    ],
+    "05-23-2024": [
+        "- Fixed a few unit target abilities that could sometimes select a target behind a nearby wall (e.g. Bebop {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb)",
+        "- {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb T3 changed from Silence to Disarm",
+        "- Improved {AbilityIcon|Ability=Hook|Size=20} Hook hitbox detection to not grab targets that are behind cover",
+        "- Hyperbeam width increased from 2.5m to 2.7m"
+    ],
+    "05-16-2024": [
+        "- {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb T3 now applies the silence on cast instead of detonation",
+        "- {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb T3 silence duration reduced from 5s to 3.5s",
+        "- {AbilityIcon|Ability=Sticky Bomb|Size=20} Sticky Bomb now uses a new instant cast mechanism. When you are in range there is a valid target indicator."
+    ],
+    "05-10-2024": [
+        "- No longer has an innate +15% Spirit Resist",
+        "- Now has innate +20% Bullet Resist",
+        "- {AbilityIcon|Ability=Hook|Size=20} Hook cooldown reduced from 27s to 22s",
+        "- {AbilityIcon|Ability=Hook|Size=20} Hook T3 reduced from -15s to -12s Cooldown",
+        "- {AbilityIcon|Ability=Hook|Size=20} Hook Speed increased from 2700 to 3000",
+        "- {AbilityIcon|Ability=Hook|Size=20} Hook Return Speed increased from 1800 to 2200",
+        "- {AbilityIcon|Ability=Hyper Beam|Size=20} Hyper Beam DPS increased from 180 to 210"
+    ],
+    "05-03-2024": [
+        "- Weapon no longer has horizontal/vertical recoil"
+    ]
+}

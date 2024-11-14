@@ -4,18 +4,15 @@ import os
 
 def read(path):
     """Read data from a JSON file to memory"""
-    # Explicitly specify encoding='utf-8' to handle non-ASCII characters correctly
-    with open(path, 'r', encoding='utf-8') as f:
+    with open(path) as f:
         return json.load(f)
 
 
 def write(path, data):
     """Write data to a JSON file"""
-    # Ensure directory exists
     os.makedirs(os.path.dirname(path), exist_ok=True)
-    # Use encoding='utf-8' to prevent Unicode characters from being escaped
-    with open(path, 'w', encoding='utf-8') as outfile:
-        json.dump(data, outfile, indent=4, ensure_ascii=False)
+    with open(path, 'w') as outfile:
+        json.dump(data, outfile, indent=4)
 
 
 # Remove keys from a dictionary at the specified depth
@@ -54,7 +51,4 @@ def is_json_serializable(obj):
 
 def compare_json_file_to_dict(json_file, dict):
     """Compare a JSON file to a dictionary"""
-    try:
-        return read(json_file) == dict
-    except Exception:
-        return False
+    return read(json_file) == dict

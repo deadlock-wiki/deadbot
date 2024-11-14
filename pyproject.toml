@@ -5,9 +5,6 @@ description = "Bot that lives to serve deadlocked.wiki"
 readme = "README.md"
 authors=[]
 
-[tool.poetry.scripts]
-deadbot = 'src.deadbot:main'
-
 [tool.poetry.dependencies]
 python="^3.11"
 mwclient="^0.11.0"
@@ -18,9 +15,6 @@ python-mermaid="^0.1.3"
 pandas="^2.0.1"
 boto3 = "^1.35.14"
 python-dotenv = "^1.0.1"
-feedparser = "^6.0.11"
-requests = "^2.32.3"
-bs4 = "^0.0.2"
 
 [tool.ruff]
 line-length = 101
@@ -30,6 +24,7 @@ extend-select = ["E501"]
 
 [tool.ruff.format]
 quote-style = "single"
+
 
 [build-system]
 requires = ["poetry-core"]
