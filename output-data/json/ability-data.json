@@ -252,7 +252,7 @@
                 "ChannelMoveSpeed": "2m"
             }
         ],
-        "WeaponDamageBonus": 2
+        "WeaponDamageBonus": 5
     },
     "ability_burrow": {
         "AbilityCastDelay": 1,
@@ -2613,7 +2613,7 @@
         "AbilityCastDelay": 0.2,
         "AbilityCastRange": 200,
         "AbilityCooldown": 25.0,
-        "AbilityDuration": 7,
+        "AbilityDuration": 6,
         "AbilityUnitTargetLimit": 1,
         "AuraEffectDuration": 1.25,
         "ChannelMoveSpeed": 50,
@@ -2623,7 +2623,7 @@
         "Key": "citadel_ability_chrono_time_wall",
         "MovementSlowPct": 80,
         "Name": "Time Wall",
-        "TimeScaleDuration": 0.7,
+        "TimeScaleDuration": 0.6,
         "TimeWallDepth": 0.5,
         "TimeWallDepthVisualScale": 0.16,
         "TimeWallFormationTime": 0.5,
@@ -2830,10 +2830,10 @@
         "AbilityUnitTargetLimit": 1,
         "BonusGoldOnKill": 250,
         "ChannelMoveSpeed": 50,
-        "Damage": 140,
+        "Damage": 130,
         "HeadshotBonus": 20,
         "Key": "citadel_ability_hornet_snipe",
-        "LowHealthEnemyDamageBonus": 145,
+        "LowHealthEnemyDamageBonus": 135,
         "LowHealthEnemyThresholdPct": 50,
         "MaxSoundDistance": 2000,
         "MinChargeDamagePercent": 25,
@@ -2888,17 +2888,17 @@
     "citadel_ability_infinity_slash": {
         "AbilityChannelTime": 2,
         "AbilityCooldown": 85.0,
-        "AbilityDuration": 5.5,
+        "AbilityDuration": 5,
         "AbilityPostCastDuration": 0.6,
         "AbilitySpeedPct": 60,
         "AbilityUnitTargetLimit": 1,
         "BonusMoveSpeed": 0,
-        "BulletResist": 50,
+        "BulletResist": 45,
         "Key": "citadel_ability_infinity_slash",
-        "MaxHealthRegen": 25,
+        "MaxHealthRegen": 20,
         "Name": "Shadow Transformation",
         "ShadowFormDurationOnKill": 2.0,
-        "TechResist": 50,
+        "TechResist": 45,
         "Upgrades": [
             {
                 "BonusFireRate": 20
@@ -3999,7 +3999,7 @@
         "DeferClearPct": 40,
         "DeferredDamageDuration": 13,
         "Key": "fathom_defer_damage",
-        "Name": "Fathom Bloodletting",
+        "Name": null,
         "Upgrades": [
             {
                 "DamagePctDeferred": 8
@@ -4012,33 +4012,62 @@
             }
         ]
     },
-    "fathom_reefdweller_harpoon": {
-        "AbilityCastDelay": 0.15,
+    "fathom_lurkers_ambush": {
+        "AbilityCastDelay": 0.0,
         "AbilityCastRange": 30,
+        "AbilityChannelTime": 9999,
         "AbilityCooldown": 50.0,
         "AbilityUnitTargetLimit": 1,
         "ChannelMoveSpeed": 50,
-        "InitialFreezeTime": 0.0,
+        "ChannelTimeForMaxImmobilize": 2.5,
+        "ImmobilizeMaxDuration": 3,
+        "ImmobilizeMinDuration": 1,
         "InitialHeight": 350,
-        "InvisFadeToDuration": 0.25,
-        "InvisMoveSpeedMod": -99,
-        "Key": "fathom_reefdweller_harpoon",
-        "Name": "Reefdweller Harpoon",
+        "InvisFadeToDuration": 1.5,
+        "Key": "fathom_lurkers_ambush",
+        "MaxDamage": 125,
+        "MinDamage": 50,
+        "Name": "Lurker's Ambush",
         "NotSeenByEnemiesRegen": 3,
-        "ReelSpeed": 1000,
         "RevealOnDamageDuration": 0.5,
         "RevealOnSpottedDuration": 3,
         "SpottedRadius": 999,
+        "StandStillMinTime": 0.5,
         "TickRate": 0.25,
         "Upgrades": [
             {
                 "AbilityCooldown": -15
             },
             {
+                "NotSeenByEnemiesRegen": 2
+            },
+            {
+                "ImmobilizeMaxDuration": 1
+            }
+        ]
+    },
+    "fathom_reefdweller_harpoon": {
+        "AbilityCastRange": 30,
+        "AbilityCharges": 2,
+        "AbilityChargesConditionally": 1,
+        "AbilityCooldown": 30,
+        "AbilityCooldownBetweenCharge": 2,
+        "AbilityUnitTargetLimit": 1,
+        "ChannelMoveSpeed": 50,
+        "InitialFreezeTime": 0.0,
+        "Key": "fathom_reefdweller_harpoon",
+        "Name": "Reefdweller Harpoon",
+        "ReelSpeed": 1500,
+        "Upgrades": [
+            {
+                "AbilityCooldown": -5
+            },
+            {
                 "AbilityCastRange": "5m"
             },
             {
-                "NotSeenByEnemiesRegen": 2
+                "DetachBuffDuration": 7,
+                "BonusFireRate": 30
             }
         ],
         "WallLatchIdealDist": 5,

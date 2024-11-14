@@ -1030,20 +1030,20 @@
                         {
                             "Key": "Damage",
                             "Name": "Damage",
-                            "Value": 140,
+                            "Value": 130,
                             "Type": "tech_damage",
                             "Scale": {
-                                "Value": 1.04832,
+                                "Value": 1.0,
                                 "Type": "spirit"
                             }
                         },
                         {
                             "Key": "LowHealthEnemyDamageBonus",
                             "Name": "Max Bonus Damage",
-                            "Value": 145,
+                            "Value": 135,
                             "Type": "tech_damage",
                             "Scale": {
-                                "Value": 1.57248,
+                                "Value": 1.5,
                                 "Type": "spirit"
                             }
                         },
@@ -2757,7 +2757,7 @@
                         {
                             "Key": "TimeScaleDuration",
                             "Name": "Time Stop Duration",
-                            "Value": 0.7,
+                            "Value": 0.6,
                             "Type": "duration"
                         },
                         {
@@ -2857,7 +2857,7 @@
             },
             "AbilityDuration": {
                 "Name": "Duration",
-                "Value": 7
+                "Value": 6
             }
         },
         "3": {
@@ -4168,7 +4168,7 @@
                         {
                             "Key": "WeaponDamageBonus",
                             "Name": "Weapon Damage",
-                            "Value": 2,
+                            "Value": 5,
                             "Type": "bullet_damage"
                         }
                     ]
@@ -7896,7 +7896,7 @@
                         {
                             "Key": "AbilityDuration",
                             "Name": "Duration",
-                            "Value": 5.5,
+                            "Value": 5,
                             "Type": "duration"
                         },
                         {
@@ -7908,7 +7908,7 @@
                         {
                             "Key": "MaxHealthRegen",
                             "Name": "Max Health Heal",
-                            "Value": 25,
+                            "Value": 20,
                             "Type": "healing"
                         }
                     ]
@@ -7917,13 +7917,13 @@
                     {
                         "Key": "BulletResist",
                         "Name": "Bullet Resist",
-                        "Value": 50,
+                        "Value": 45,
                         "Type": "bullet_armor_up"
                     },
                     {
                         "Key": "TechResist",
                         "Name": "Spirit Resist",
-                        "Value": 50,
+                        "Value": 45,
                         "Type": "tech_armor_up"
                     },
                     {
@@ -7976,7 +7976,7 @@
             },
             "AbilityDuration": {
                 "Name": "Duration",
-                "Value": 5.5
+                "Value": 5
             }
         }
     },
@@ -10188,83 +10188,6 @@
             }
         },
         "3": {
-            "Key": "fathom_defer_damage",
-            "Name": "Fathom Bloodletting",
-            "Info1": {
-                "Main": {
-                    "Props": [
-                        {
-                            "Key": "DamagePctDeferred",
-                            "Name": "Incoming Damage Deferred",
-                            "Value": 22,
-                            "Type": "damage"
-                        },
-                        {
-                            "Key": "DeferredDamageDuration",
-                            "Name": "Deferred Damage Duration",
-                            "Value": 13,
-                            "Type": "duration"
-                        }
-                    ]
-                },
-                "Alt": [],
-                "DescKey": "citadel_ability_shiv_defer_damage_desc"
-            },
-            "Info2": {
-                "Main": {
-                    "Props": [
-                        {
-                            "Title": "On Activate",
-                            "Key": "DeferClearPct",
-                            "Name": "Deferred Damage Cleared",
-                            "Value": 40,
-                            "Type": "healing"
-                        }
-                    ]
-                },
-                "Alt": null
-            },
-            "Upgrades": [
-                {
-                    "DamagePctDeferred": 8
-                },
-                {
-                    "AbilityCooldown": -25
-                },
-                {
-                    "DeferClearPct": 25
-                }
-            ],
-            "Move": {
-                "ChannelMoveSpeed": {
-                    "Name": "Channel Move Speed",
-                    "Value": 50,
-                    "Type": "move_speed"
-                }
-            },
-            "Damage": {
-                "DamagePctDeferredMaxRage": {
-                    "Name": "Incoming Damage Deferred",
-                    "Value": 15,
-                    "Type": "damage"
-                }
-            },
-            "Other": {
-                "AbilityUnitTargetLimit": {
-                    "Name": null,
-                    "Value": 1
-                }
-            },
-            "AbilityCastDelay": {
-                "Name": "Cast Delay",
-                "Value": 0.25
-            },
-            "AbilityCooldown": {
-                "Name": "Cooldown",
-                "Value": 50.0
-            }
-        },
-        "4": {
             "Key": "fathom_reefdweller_harpoon",
             "Name": "Reefdweller Harpoon",
             "DescKey": "fathom_reefdweller_harpoon_desc",
@@ -10279,38 +10202,19 @@
                 "Main": null,
                 "Alt": null
             },
-            "Info3": {
-                "Main": {
-                    "Props": [
-                        {
-                            "Key": "NotSeenByEnemiesRegen",
-                            "Name": "Max Health Regen",
-                            "Value": 3,
-                            "Type": "healing"
-                        }
-                    ]
-                },
-                "Alt": [],
-                "DescKey": "fathom_reefdweller_harpoon_passive_desc"
-            },
             "Upgrades": [
                 {
-                    "AbilityCooldown": -15
+                    "AbilityCooldown": -5
                 },
                 {
                     "AbilityCastRange": "5m"
                 },
                 {
-                    "NotSeenByEnemiesRegen": 2
+                    "DetachBuffDuration": 7,
+                    "BonusFireRate": 30,
+                    "DescKey": "fathom_reefdweller_harpoon_t3_desc"
                 }
             ],
-            "Range": {
-                "SpottedRadius": {
-                    "Name": "Spot Radius",
-                    "Value": 999,
-                    "Type": "distance"
-                }
-            },
             "Move": {
                 "ChannelMoveSpeed": {
                     "Name": "Channel Move Speed",
@@ -10319,6 +10223,10 @@
                 }
             },
             "Other": {
+                "AbilityChargesConditionally": {
+                    "Name": null,
+                    "Value": 1
+                },
                 "AbilityUnitTargetLimit": {
                     "Name": null,
                     "Value": 1
@@ -10327,33 +10235,9 @@
                     "Name": null,
                     "Value": 0.0
                 },
-                "InitialHeight": {
-                    "Name": null,
-                    "Value": 350
-                },
-                "InvisFadeToDuration": {
-                    "Name": "Fade Time",
-                    "Value": 0.25
-                },
-                "InvisMoveSpeedMod": {
-                    "Name": "Invis Sprint Speed",
-                    "Value": -99
-                },
                 "ReelSpeed": {
                     "Name": null,
-                    "Value": 1000
-                },
-                "RevealOnDamageDuration": {
-                    "Name": null,
-                    "Value": 0.5
-                },
-                "RevealOnSpottedDuration": {
-                    "Name": null,
-                    "Value": 3
-                },
-                "TickRate": {
-                    "Name": null,
-                    "Value": 0.25
+                    "Value": 1500
                 },
                 "WallLatchIdealDist": {
                     "Name": null,
@@ -10368,9 +10252,149 @@
                     "Value": 0.0
                 }
             },
+            "AbilityCastRange": {
+                "Name": "Cast Range",
+                "Value": 30
+            },
+            "AbilityCharges": {
+                "Name": "Charges",
+                "Value": 2
+            },
+            "AbilityCooldown": {
+                "Name": "Cooldown",
+                "Value": 30
+            },
+            "AbilityCooldownBetweenCharge": {
+                "Name": "Charge Delay",
+                "Value": 2
+            }
+        },
+        "4": {
+            "Key": "fathom_lurkers_ambush",
+            "Name": "Lurker's Ambush",
+            "Info1": {
+                "Main": {
+                    "Props": [
+                        {
+                            "Key": "NotSeenByEnemiesRegen",
+                            "Name": "Max Health Regen",
+                            "Value": 3,
+                            "Type": "healing"
+                        },
+                        {
+                            "Key": "InvisFadeToDuration",
+                            "Name": "Fade Time",
+                            "Value": 1.5
+                        }
+                    ]
+                },
+                "Alt": [],
+                "DescKey": "fathom_lurkers_ambush_passive_desc"
+            },
+            "Info2": {
+                "Main": {
+                    "Props": [
+                        {
+                            "Key": "ImmobilizeMaxDuration",
+                            "Name": "Max Immobilize Duration",
+                            "Value": 3,
+                            "Type": "duration"
+                        },
+                        {
+                            "Key": "MaxDamage",
+                            "Name": "Max Damage",
+                            "Value": 125,
+                            "Type": "tech_damage",
+                            "Scale": {
+                                "Value": 1.25,
+                                "Type": "spirit"
+                            }
+                        }
+                    ]
+                },
+                "Alt": [],
+                "DescKey": "fathom_lurkers_ambush_active_desc"
+            },
+            "Upgrades": [
+                {
+                    "AbilityCooldown": -15
+                },
+                {
+                    "NotSeenByEnemiesRegen": 2
+                },
+                {
+                    "ImmobilizeMaxDuration": 1
+                }
+            ],
+            "Range": {
+                "SpottedRadius": {
+                    "Name": "Spot Radius",
+                    "Value": 999,
+                    "Type": "distance"
+                }
+            },
+            "Cast": {
+                "AbilityChannelTime": {
+                    "Name": "Channel Duration",
+                    "Value": 9999,
+                    "Type": "cast"
+                }
+            },
+            "Move": {
+                "ChannelMoveSpeed": {
+                    "Name": "Channel Move Speed",
+                    "Value": 50,
+                    "Type": "move_speed"
+                }
+            },
+            "Damage": {
+                "MinDamage": {
+                    "Name": null,
+                    "Value": 50,
+                    "Type": "tech_damage",
+                    "Scale": {
+                        "Value": 0.5,
+                        "Type": "spirit"
+                    }
+                }
+            },
+            "Other": {
+                "AbilityUnitTargetLimit": {
+                    "Name": null,
+                    "Value": 1
+                },
+                "ChannelTimeForMaxImmobilize": {
+                    "Name": null,
+                    "Value": 2.5
+                },
+                "ImmobilizeMinDuration": {
+                    "Name": null,
+                    "Value": 1
+                },
+                "InitialHeight": {
+                    "Name": null,
+                    "Value": 350
+                },
+                "RevealOnDamageDuration": {
+                    "Name": null,
+                    "Value": 0.5
+                },
+                "RevealOnSpottedDuration": {
+                    "Name": null,
+                    "Value": 3
+                },
+                "StandStillMinTime": {
+                    "Name": null,
+                    "Value": 0.5
+                },
+                "TickRate": {
+                    "Name": null,
+                    "Value": 0.25
+                }
+            },
             "AbilityCastDelay": {
                 "Name": "Cast Delay",
-                "Value": 0.15
+                "Value": 0.0
             },
             "AbilityCastRange": {
                 "Name": "Cast Range",
