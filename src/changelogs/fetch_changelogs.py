@@ -30,10 +30,9 @@ class ChangelogFetcher:
     Fetches changelogs from the deadlock forums and game files and parses them into a dictionary
     """
 
-    def __init__(self, client_version, update_existing):
+    def __init__(self, update_existing):
         self.changelogs: dict[str, ChangelogString] = {}
         self.changelog_configs: dict[str, ChangelogConfig] = {}
-        self.client_version = client_version
         self.update_existing = update_existing
         self.localization_data_en = {}
 
@@ -137,13 +136,10 @@ class ChangelogFetcher:
             header = f'[ HeroLab {hero_name_en} ]'
 
             # Initialize the changelog entry if its the first line for this hero's patch (version)
-            first_line_of_entry = False
             if raw_changelog_id not in gamefile_changelogs:
-                gamefile_changelogs[raw_changelog_id] = ''
-                first_line_of_entry = True
-
-            # Add the header to the changelog entry as the first line
-            gamefile_changelogs[raw_changelog_id] += (not first_line_of_entry) * '\n' + header + '\n'
+                gamefile_changelogs[raw_changelog_id] = header + '\n'
+            else:
+                gamefile_changelogs[raw_changelog_id] += '\n' + header + '\n'
 
             # Ensure the date was able to be removed and was in the correct format
             if len(remaining_str) == len(string):
