@@ -1,21 +1,21 @@
 import os
-import shutil
-from .parsers import abilities, ability_cards, items, heroes, localizations, attributes, souls
+import sys
+
+from parsers import abilities, ability_ui, items, heroes, changelogs, localizations, attributes
+
+# bring utils module in scope
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from utils import json_utils
-import copy
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 class Parser:
-    def __init__(
-        self,
-        work_dir,
-        output_dir,
-        language='english',
-    ):
+    def __init__(self, language='english'):
         # constants
-        self.OUTPUT_DIR = output_dir
-        # Directory with decompiled data
-        self.DATA_DIR = work_dir
+        self.OUTPUT_DIR = os.getenv('OUTPUT_DIR', '../../output-data')
+        self.DATA_DIR = os.getenv('WORK_DIR', './decompiled-data')
 
         self.language = language
         self.data = {'scripts': {}}
@@ -26,17 +26,12 @@ class Parser:
                 '.json'
             )[0]
             for localization_file in os.listdir(
-                os.path.join(self.DATA_DIR, 'localizations', self.localization_groups[0])
+                os.path.join(self.DATA_DIR, 'localizations/' + self.localization_groups[0])
             )
         ]
 
         self._load_vdata()
         self._load_localizations()
-
-        if not os.path.exists(self.OUTPUT_DIR):
-            os.makedirs(self.OUTPUT_DIR)
-
-        shutil.copy(f'{self.DATA_DIR}/version.txt', f'{self.OUTPUT_DIR}/version.txt')
 
     def _load_vdata(self):
         # Convert .vdata_c to .vdata and .json
@@ -93,28 +88,21 @@ class Parser:
             # duplicate key error. This is a temporary measure to keep patch updates going
             elif group != 'heroes':
                 current_value = self.localizations[language][key]
-                print(
+                raise Exception(
                     f'Key {key} with value {value} already exists in {language} localization '
                     + f'data with value {current_value}.'
                 )
 
     def run(self):
         print('Parsing...')
-        os.system(f'cp "{self.DATA_DIR}/version.txt" "{self.OUTPUT_DIR}/version.txt"')
         parsed_abilities = self._parse_abilities()
         parsed_heroes = self._parse_heroes(parsed_abilities)
-        self._parsed_ability_cards(parsed_heroes)
+        self._parsed_ability_ui(parsed_heroes)
         self._parse_items()
         self._parse_attributes()
+        self._parse_changelogs()
         self._parse_localizations()
-        self._parse_soul_unlocks()
         print('Done parsing')
-
-    def _parse_soul_unlocks(self):
-        print('Parsing Soul Unlocks...')
-        parsed_soul_unlocks = souls.SoulUnlockParser(self.data['scripts']['heroes']).run()
-
-        json_utils.write(self.OUTPUT_DIR + '/json/soul-unlock-data.json', parsed_soul_unlocks)
 
     def _parse_localizations(self):
         print('Parsing Localizations...')
@@ -135,9 +123,9 @@ class Parser:
             self.OUTPUT_DIR + '/json/hero-meaningful-stats.json', parsed_meaningful_stats
         ):
             print(
-                'Warning: Non-constant stats have changed. '
-                + "Please update [[Module:HeroData]]'s write_hero_comparison_table "
-                + 'lua function for the [[Hero Comparison]] page.'
+                "Warning: Non-constant stats have changed. " + 
+                "Please update [[Module:HeroData]]'s write_hero_comparison_table " +
+                "lua function for the [[Hero Comparison]] page."
             )
 
         json_utils.write(
@@ -145,20 +133,8 @@ class Parser:
             json_utils.sort_dict(parsed_meaningful_stats),
         )
 
-        stripped_heroes = dict()
-        # Remove irrelevant data from BoundAbilities in HeroData
-        for hero_key, hero_value in copy.deepcopy(parsed_heroes).items():
-            bound_abilities = hero_value['BoundAbilities']
-            stripped_heroes[hero_key] = hero_value
-            stripped_heroes[hero_key]['BoundAbilities'] = {}
-            for ability_position, ability_data in bound_abilities.items():
-                stripped_heroes[hero_key]['BoundAbilities'][ability_position] = {
-                    'Name': ability_data['Name'],
-                    'Key': ability_data['Key'],
-                }
-
         json_utils.write(
-            self.OUTPUT_DIR + '/json/hero-data.json', json_utils.sort_dict(stripped_heroes)
+            self.OUTPUT_DIR + '/json/hero-data.json', json_utils.sort_dict(parsed_heroes)
         )
         return parsed_heroes
 
@@ -175,11 +151,11 @@ class Parser:
         )
         return parsed_abilities
 
-    def _parsed_ability_cards(self, parsed_heroes):
+    def _parsed_ability_ui(self, parsed_heroes):
         print('Parsing Ability UI...')
 
         for language in self.languages:
-            (parsed_ability_cards, changed_localizations) = ability_cards.AbilityCardsParser(
+            (parsed_ability_ui, changed_localizations) = ability_ui.AbilityUiParser(
                 self.data['scripts']['abilities'],
                 parsed_heroes,
                 language,
@@ -188,9 +164,9 @@ class Parser:
 
             self.localizations[language].update(changed_localizations)
 
-            # Only write to ability_cards.json for English
+            # Only write to ability_ui.json for English
             if language == 'english':
-                json_utils.write(self.OUTPUT_DIR + '/json/ability-cards.json', parsed_ability_cards)
+                json_utils.write(self.OUTPUT_DIR + '/json/ability_ui.json', parsed_ability_ui)
 
     def _parse_items(self):
         print('Parsing Items...')
@@ -215,3 +191,12 @@ class Parser:
 
         json_utils.write(self.OUTPUT_DIR + '/json/attribute-data.json', parsed_attributes)
         json_utils.write(self.OUTPUT_DIR + '/json/stat-infobox-order.json', attribute_orders)
+
+    def _parse_changelogs(self):
+        print('Parsing Changelogs...')
+        changelogs.ChangelogParser().run_all()
+
+
+if __name__ == '__main__':
+    parser = Parser()
+    parser.run()

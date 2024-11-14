@@ -5,18 +5,39 @@ set -e
 if [ -f ".env" ]; then
 . .env # Retrieve env
 fi
-# Configured completly from env vars:
-python3 src/deadbot.py
 
-# example all parameters:
-# 
-# python3 src/deadbot.py -i $DL_PATH -w $WORKDIR -o $OUTPUT --decompiler_cmd=$DECOMPILER_CMD -dp
-#
-# or all spelled out:
-#
-# python3 src/deadbot.py --dl_path $DL_PATH -workdir $WORKDIR -output $OUTPUT --decompiler_cmd=$DECOMPILER_CMD --decompile --parse
+if [ "$DECOMPILE" = true ]; then
+    cd src/parser/decompiler
+    echo "Decompiling source files..."
+    bash decompile.sh
+    cd ../../..
+else
+    echo "! Skipping Decompiler !"
+fi
+
+if [ "$PARSE" = true ]; then
+    echo ""
+    echo "Parsing decompiled files..."
+    bash parser.sh
+    echo ""
+else
+    echo "! Skipping Parser !"
+fi
+
+if [ "$BOT_PUSH" = true ]; then
+    cd src
+    echo "Running DeadBot..."
+    python3 deadbot.py
+    cd ..
+else
+    echo "! Skipping DeadBot !"
+fi
 
 # cleanup
 if [ "$CLEANUP" = true ]; then
-    rm -r $WORKDIR
+    rm -rf $WORKDIR
 fi
+
+
+echo ""
+echo "Done!"
