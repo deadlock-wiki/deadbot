@@ -6,7 +6,7 @@ on:
 
 jobs:
   update-pr:
-    name: Update PR with target branch
+    name: Update deadlock-data branch with base branch
     runs-on: ubuntu-latest
     steps:
       - name: Checkout deadlock-data repo
