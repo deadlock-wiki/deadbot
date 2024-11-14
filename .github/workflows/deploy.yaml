@@ -11,11 +11,6 @@ on:
       - opened
   
   workflow_dispatch:
-    inputs:
-      branch:
-        description: 'Branch name'
-        required: true
-        default: 'develop'
 
 jobs:
   # Each event type has a different variable for the branch name
@@ -33,7 +28,7 @@ jobs:
           elif [[ "${GITHUB_EVENT_NAME}" == "pull_request" ]]; then
             echo "::set-output name=branch::${{ github.head_ref }}"
           elif [[ "${GITHUB_EVENT_NAME}" == "workflow_dispatch" ]]; then 
-            echo "::set-output name=branch::${{ github.event.inputs.branch }}"
+            echo "::set-output name=branch::${{ github.ref_name }}"
           else
             echo "::set-output name=branch::INVALID_EVENT_BRANCH_UNKNOWN"
           fi
