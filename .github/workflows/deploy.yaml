@@ -20,18 +20,19 @@ jobs:
     outputs:
       branch: ${{ steps.branch.outputs.branch }}
     steps:
-      - name: Branch used
+      - name: Determine branch name
         id: branch
         run: |
           if [[ "${GITHUB_EVENT_NAME}" == "push" ]]; then
-            echo "branch=${{ github.ref_name }}" >> $GITHUB_ENV
+            echo "branch=${GITHUB_REF_NAME}" >> $GITHUB_ENV
           elif [[ "${GITHUB_EVENT_NAME}" == "pull_request" ]]; then
-            echo "branch=${{ github.head_ref }}" >> $GITHUB_ENV
+            echo "branch=${GITHUB_HEAD_REF}" >> $GITHUB_ENV
           elif [[ "${GITHUB_EVENT_NAME}" == "workflow_dispatch" ]]; then 
-            echo "branch=${{ github.ref_name }}" >> $GITHUB_ENV
+            echo "branch=${GITHUB_REF_NAME}" >> $GITHUB_ENV
           else
             echo "branch=INVALID_EVENT_BRANCH_UNKNOWN" >> $GITHUB_ENV
-          fi
+      - name: Set output for branch
+        run: echo "branch=${{ env.branch }}" >> $GITHUB_ENV
 
   check-branch:
     name: Check deadlock-data branch exists
