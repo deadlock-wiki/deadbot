@@ -28,9 +28,10 @@ jobs:
           elif [[ "${GITHUB_EVENT_NAME}" == "pull_request" ]]; then
             echo "branch=${{ github.head_ref }}" >> $GITHUB_ENV
           elif [[ "${GITHUB_EVENT_NAME}" == "workflow_dispatch" ]]; then 
-            echo "branch=${{ github.head_ref }}" >> $GITHUB_ENV
+            echo "branch=${{ github.ref_name }}" >> $GITHUB_ENV
           else
             echo "branch=INVALID_EVENT_BRANCH_UNKNOWN" >> $GITHUB_ENV
+          fi
       - name: Set output for branch
         run: echo "branch=${{ env.branch }}" >> $GITHUB_ENV
 
