@@ -50,6 +50,13 @@ jobs:
         with:
           path: deadbot
 
+      - name: Checkout deadlock-data repo
+        uses: actions/checkout@v4
+        with:
+          repository: deadlock-wiki/deadlock-data
+          path: deadlock-data
+          token:  ${{ secrets.GH_TOKEN }}          
+          
       - name: Configure Git
         working-directory: deadlock-data 
         run: |
@@ -82,13 +89,6 @@ jobs:
           IAM_SECRET: ${{ secrets.IAM_SECRET }}
           BOT_WIKI_USER: ${{ secrets.BOT_WIKI_USER }}
           BOT_WIKI_PASS: ${{ secrets.BOT_WIKI_PASS }}
-
-      - name: Checkout deadlock-data repo
-        uses: actions/checkout@v4
-        with:
-          repository: deadlock-wiki/deadlock-data
-          path: deadlock-data
-          token:  ${{ secrets.GH_TOKEN }}          
 
       - name: Pull branch
         working-directory: deadlock-data 
