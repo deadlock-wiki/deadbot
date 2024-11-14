@@ -13,15 +13,16 @@ Some data has been processed and formatted for google sheets:\
 ### Setup 
 1. Install Python 3.11+
 2. **[OPTIONAL]** Add Python scripts dir to your environment. This lets you omit `python -m` when calling third-party modules
-    1. Get <python_path> with `python -m site --user-base`
-    2. Add to ~/.bash_profile - `export PATH="$PATH:<python_path>/Python311/Scripts"`
+    - Get <python_path> with `python -m site --user-base`
+    - Add to ~/.bash_profile - `export PATH="$PATH:<python_path>/Python311/Scripts"`
 
 3. `python3 -m pip install poetry`
 4. `python3 -m poetry install`
 5. `python3 -m pre_commit install`
 6. Download Decompiler.exe for your particular OS from https://github.com/ValveResourceFormat/ValveResourceFormat/releases 
-   1. Extract decompiler into a folder and update `.env`
-7. Add the paths to Deadlock files and the Decompiler in `.env` using `.env.example` as an example
+    - Extract decompiler into a folder and update `.env`
+7. Add the paths to Deadlock files, Decompiler.exe, and various other options in `.env` using `.env.example` as an example
+    - **[OPTIONAL]** Clone [deadlock-data](https://github.com/deadlock-wiki/deadlock-data) repo and set `$OUTPUT_DIR` to `deadlock-data/data/current` directory to allow for easier diff viewing
 
 ### Usage
 

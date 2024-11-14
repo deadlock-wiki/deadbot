@@ -74,7 +74,9 @@ class ChangelogFetcher:
 
         # Read existing changelogs.json content,
         changelogs_path = output_dir + '/changelogs.json'
-        existing_changelogs = json_utils.read(changelogs_path)
+        existing_changelogs = {}
+        if os.path.exists(changelogs_path):
+            existing_changelogs = json_utils.read(changelogs_path)
 
         # add any keys that are not yet present or have differing values,
         existing_changelogs.update(self.changelogs)
