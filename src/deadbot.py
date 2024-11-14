@@ -48,11 +48,11 @@ def main():
         print('! Skipping Changelogs !')
 
     if is_truthy(args.bot_push):
-        print('Running DeadBot...')
+        print('Running Wiki Upload...')
         wiki_upload = WikiUpload(args.output)
         wiki_upload.update_data_pages()
     else:
-        print('! Skipping DeadBot !')
+        print('! Skipping Wiki Upload !')
 
     if is_truthy(args.s3_push):
         if args.iam_key and args.iam_secret:
