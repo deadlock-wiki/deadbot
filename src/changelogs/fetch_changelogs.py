@@ -274,7 +274,9 @@ class ChangelogFetcher:
 def format_date(date):
     """
     Reformat mm/dd/yyyy or mm-dd-yyyy to yyyy_mm_dd
+    Also convert days and months to 2 digits
     """
+    # Split date by / or -
     if '/' in date:
         date = date.split('/')
     elif '-' in date:
@@ -282,5 +284,11 @@ def format_date(date):
     else:
         raise ValueError(f'Invalid date format {date}')
 
+    # If the day or month is a single digit, add a leading 0
+    for i in range(2):
+        if len(date[i]) == 1:
+            date[i] = '0' + date[i]
+
+    # Reformat to yyyy_mm_dd
     date = f'{date[2]}_{date[0]}_{date[1]}'
     return date
