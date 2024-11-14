@@ -105,8 +105,13 @@ jobs:
 
       - name: Copy files to data repo
         run: |
-          rm -rf ./deadlock-data/data/current
-          cp -r ./deadbot/output-data ./deadlock-data/data/current
+          rm -rf ./deadlock-data/data/game-data
+          
+          # add all data to game data except for changelogs folder
+          cp -r ./deadbot/output-data ./deadlock-data/game-data
+          rm -rf ./deadlock-data/game-data/changelogs
+
+          cp -r ./deadbot/output-data/changelogs ./deadlock-data/changelogs
 
       - name: Commit and push changes
         working-directory: deadlock-data 
