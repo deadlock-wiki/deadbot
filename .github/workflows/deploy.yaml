@@ -40,6 +40,13 @@ jobs:
     outputs:
       exists: ${{ steps.check-branch.outputs.branch_exists }}
     steps:
+      - name: Checkout deadlock-data repo
+        uses: actions/checkout@v4
+        with:
+          repository: deadlock-wiki/deadlock-data
+          path: deadlock-data
+          token:  ${{ secrets.GH_TOKEN }}  
+
       - name: Configure Git
         working-directory: deadlock-data 
         run: |
@@ -47,13 +54,6 @@ jobs:
           git config --global user.name "Deadbot0"
           git config pull.rebase true
 
-      - name: Checkout deadlock-data repo
-        uses: actions/checkout@v4
-        with:
-          repository: deadlock-wiki/deadlock-data
-          path: deadlock-data
-          token:  ${{ secrets.GH_TOKEN }}  
-          
       - name: Branch used
         id: branch
         env:
