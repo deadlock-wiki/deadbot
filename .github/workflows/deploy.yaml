@@ -58,7 +58,7 @@ jobs:
   parse:
     name: Parse
     runs-on: ubuntu-latest
-    needs: check-branch
+    needs: [get-branch, check-branch]
     if: ${{ needs.check-branch.outputs.branch_exists == 'true' }}
     steps:
       - uses: actions/checkout@v4
