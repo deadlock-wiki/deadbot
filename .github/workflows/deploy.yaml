@@ -70,7 +70,14 @@ jobs:
         with:
           repository: deadlock-wiki/deadlock-data
           path: deadlock-data
-          token:  ${{ secrets.GH_TOKEN }}          
+          token:  ${{ secrets.GH_TOKEN }}     
+
+      - name: Configure Git
+        working-directory: deadlock-data 
+        run: |
+          git config --global user.email "deadbot1101@gmail.com"
+          git config --global user.name "Deadbot0"
+          git config pull.rebase true     
         
       - name: Switch to same branch name on deadlock-data. If not found, skip job
         working-directory: deadlock-data
