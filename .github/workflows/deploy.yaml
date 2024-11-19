@@ -117,7 +117,7 @@ jobs:
           cp -r ./deadbot/output-data/* ./deadlock-data/game-data
           rm -rf ./deadlock-data/game-data/changelogs
 
-          cp -r ./deadbot/output-data/changelogs ./deadlock-data/changelogs
+          cp -r ./deadbot/output-data/changelogs/* ./deadlock-data/changelogs
 
       - name: Commit and push changes
         working-directory: deadlock-data 
