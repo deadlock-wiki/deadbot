@@ -114,11 +114,10 @@ jobs:
           rm -rf ./deadlock-data/data/game-data
           
           # add all data to game data except for changelogs folder
-          cp -r ./deadbot/output-data/* ./deadlock-data/game-data
+          cp -r ./deadbot/output-data/. ./deadlock-data/game-data
           rm -rf ./deadlock-data/game-data/changelogs
 
-          cp -r ./deadbot/output-data/changelogs/* ./deadlock-data/changelogs
-
+          cp -r ./deadbot/output-data/changelogs/. ./deadlock-data/changelogs
       - name: Commit and push changes
         working-directory: deadlock-data 
         run: |
