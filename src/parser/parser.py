@@ -33,6 +33,8 @@ class Parser:
         self._load_vdata()
         self._load_localizations()
 
+        if not os.path.exists(self.OUTPUT_DIR):
+            os.makedirs(self.OUTPUT_DIR)
         shutil.copy(f'{self.DATA_DIR}/version.txt', f'{self.OUTPUT_DIR}/version.txt')
 
     def _load_vdata(self):
