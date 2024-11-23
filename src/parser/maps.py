@@ -124,6 +124,7 @@ LEVEL_MOD_MAP = {
     'MODIFIER_VALUE_TECH_ARMOR_DAMAGE_RESIST': 'TechResist',
     'MODIFIER_VALUE_BULLET_ARMOR_DAMAGE_RESIST': 'BulletResist',
     'MODIFIER_VALUE_BONUS_ATTACK_RANGE': 'BonusAttackRange',
+    'MODIFIER_VALUE_BOON_COUNT': 'PowerIncreases',
 }
 
 
@@ -183,6 +184,8 @@ SCALE_TYPE_MAP = {
     'EBulletDamage': 'damage',
     'ETechDuration': 'duration',
     'EWeaponDamageScale': 'weapon_damage',
+    'EMaxChargesIncrease': 'max_charges',
+    'ELevelUpBoons': 'power_increase',
 }
 
 
