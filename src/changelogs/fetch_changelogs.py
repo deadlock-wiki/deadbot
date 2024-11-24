@@ -72,6 +72,13 @@ class ChangelogFetcher:
         if not os.path.isfile(changelogs_path):
             # Create the directory and file if it doesn't exist
             os.makedirs(output_dir, exist_ok=True)
+
+            # Sort the keys by the date lexicographically
+            # null dates will be at the end
+            keys = list(self.version_configs.keys())
+            keys.sort(key=lambda x: self.version_configs[x]['date'])
+            self.version_configs = {key: self.version_configs[key] for key in keys}
+
             json_utils.write(changelogs_path, self.version_configs)
         else:
             # Read existing version_configs.json content,
