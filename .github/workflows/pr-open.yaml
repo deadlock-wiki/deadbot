@@ -4,9 +4,9 @@ on:
   pull_request:
     types: [opened, reopened]
     branches:
-      - 'feature\/**'
-      - 'bugfix\/**'
-      - 'release\/**'
+      - 'feature/**'
+      - 'bugfix/**'
+      - 'release/**'
 
 jobs:
   open-data-pr:
