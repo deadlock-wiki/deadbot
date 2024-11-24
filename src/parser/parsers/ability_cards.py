@@ -2,7 +2,7 @@ import parser.maps as maps
 import utils.string_utils as string_utils
 
 
-class AbilityUiParser:
+class AbilityCardsParser:
     """
     Takes in parsed hero data (hero-data.json) and for each hero, format their abilities for
     display in the Wiki Ability Cards
@@ -41,7 +41,7 @@ class AbilityUiParser:
             hero_abilities = {'Name': hero['Name']}
             for self.ability_index, ability in hero['BoundAbilities'].items():
                 try:
-                    parsed_ui = self._parse_ability_ui(ability)
+                    parsed_ui = self._parse_ability_card(ability)
                     if parsed_ui is not None:
                         hero_abilities[self.ability_index] = parsed_ui
                 except Exception as e:
@@ -51,7 +51,7 @@ class AbilityUiParser:
 
         return (output, self.localization_updates)
 
-    def _parse_ability_ui(self, ability):
+    def _parse_ability_card(self, ability):
         self.ability = ability
         self.ability_key = ability['Key']
 
