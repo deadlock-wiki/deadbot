@@ -64,7 +64,6 @@ def act_changelog_parse(args):
     herolab_patch_notes_path = os.path.join(
         args.workdir, 'localizations', 'patch_notes', 'citadel_patch_notes_english.json'
     )
-    client_version = args.build_num
     chlog_fetcher = fetch_changelogs.ChangelogFetcher(update_existing=False)
 
     # load localization data
