@@ -7,9 +7,12 @@ on:
       - '.github/workflows/deploy.yaml'
 
   pull_request:
-    types:
-      - opened
-  
+    types: [opened]
+    branches:
+      - 'feature/*'
+      - 'bugfix/*'
+      - 'release/*'
+
   workflow_dispatch:
 
 jobs:
