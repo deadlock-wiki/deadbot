@@ -8,10 +8,6 @@ on:
 
   pull_request:
     types: [opened]
-    branches:
-      - 'feature/*'
-      - 'bugfix/*'
-      - 'release/*'
 
   workflow_dispatch:
 
