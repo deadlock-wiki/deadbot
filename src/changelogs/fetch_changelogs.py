@@ -69,21 +69,27 @@ class ChangelogFetcher:
         # many entries were initially manually added due to
         # only the first page on the site having rss feed
 
-        # Read existing changelog_configs.json content,
+        
         changelogs_path = output_dir + '/changelog_configs.json'
-        existing_changelogs = json_utils.read(changelogs_path)
+        if not os.path.exists(changelogs_path):
+            # Ensure directory exists
+            os.makedirs(os.path.dirname(changelogs_path), exist_ok=True)
+            json_utils.write(changelogs_path, self.changelog_configs)
+        else:
+            # Read existing changelog_configs.json content, update with new entries
+            existing_changelogs = json_utils.read(changelogs_path)
 
-        # add any keys that are not yet present or have differing values,
-        existing_changelogs.update(self.changelog_configs)
+            # add any keys that are not yet present or have differing values,
+            existing_changelogs.update(self.changelog_configs)
 
-        # Sort the keys by the date lexicographically
-        # null dates will be at the end
-        keys = list(existing_changelogs.keys())
-        keys.sort(key=lambda x: existing_changelogs[x]['date'])
-        self.changelog_configs = {key: existing_changelogs[key] for key in keys}
+            # Sort the keys by the date lexicographically
+            # null dates will be at the end
+            keys = list(existing_changelogs.keys())
+            keys.sort(key=lambda x: existing_changelogs[x]['date'])
+            self.changelog_configs = {key: existing_changelogs[key] for key in keys}
 
-        # write back
-        json_utils.write(changelogs_path, self.changelog_configs)
+            # write back
+            json_utils.write(changelogs_path, self.changelog_configs)
 
     def _fetch_update_html(self, link):
         html = request.urlopen(link).read()
