@@ -8,9 +8,9 @@ from utils import json_utils
 from typing import TypedDict
 
 
-class VersionConfig(TypedDict):
+class ChangelogConfig(TypedDict):
     """
-    Each record in version_configs.json
+    Each record in changelog_configs.json
     Key is "changelod_id", default to forum_id, differs for herolab changelogs
     """
 
@@ -32,7 +32,7 @@ class ChangelogFetcher:
 
     def __init__(self, update_existing):
         self.changelogs: dict[str, ChangelogString] = {}
-        self.version_configs: dict[str, VersionConfig] = {}
+        self.changelog_configs: dict[str, ChangelogConfig] = {}
         self.update_existing = update_existing
         self.localization_data_en = {}
 
@@ -65,36 +65,36 @@ class ChangelogFetcher:
         # Write configuration data (such as all the different version id's,
         # forum link, and forum date) for the changelogs to 1 file
 
-        # version_configs.json is not overwritten even when update_existing is True
+        # changelog_configs.json is not overwritten even when update_existing is True
         # many entries were initially manually added due to
         # only the first page on the site having rss feed
-        changelogs_path = output_dir + '/version_configs.json'
+        changelogs_path = output_dir + '/changelog_configs.json'
         if not os.path.isfile(changelogs_path):
             # Create the directory and file if it doesn't exist
             os.makedirs(output_dir, exist_ok=True)
 
             # Sort the keys by the date lexicographically
             # null dates will be at the end
-            keys = list(self.version_configs.keys())
-            keys.sort(key=lambda x: self.version_configs[x]['date'])
-            self.version_configs = {key: self.version_configs[key] for key in keys}
+            keys = list(self.changelog_configs.keys())
+            keys.sort(key=lambda x: self.changelog_configs[x]['date'])
+            self.changelog_configs = {key: self.changelog_configs[key] for key in keys}
 
-            json_utils.write(changelogs_path, self.version_configs)
+            json_utils.write(changelogs_path, self.changelog_configs)
         else:
-            # Read existing version_configs.json content,
+            # Read existing changelog_configs.json content,
             existing_changelogs = json_utils.read(changelogs_path)
 
             # add any keys that are not yet present or have differing values,
-            existing_changelogs.update(self.version_configs)
+            existing_changelogs.update(self.changelog_configs)
 
             # Sort the keys by the date lexicographically
             # null dates will be at the end
             keys = list(existing_changelogs.keys())
             keys.sort(key=lambda x: existing_changelogs[x]['date'])
-            self.version_configs = {key: existing_changelogs[key] for key in keys}
+            self.changelog_configs = {key: existing_changelogs[key] for key in keys}
 
             # write back
-            json_utils.write(changelogs_path, self.version_configs)
+            json_utils.write(changelogs_path, self.changelog_configs)
 
     def _fetch_update_html(self, link):
         html = request.urlopen(link).read()
@@ -172,8 +172,8 @@ class ChangelogFetcher:
                 gamefile_changelogs[raw_changelog_id] += f'- {description}\n'
 
                 # Add the config entry if it doesn't exist
-                if raw_changelog_id not in self.version_configs:
-                    self.version_configs[raw_changelog_id] = {
+                if raw_changelog_id not in self.changelog_configs:
+                    self.changelog_configs[raw_changelog_id] = {
                         'forum_id': None,
                         'date': date,
                         'link': None,
@@ -255,7 +255,7 @@ class ChangelogFetcher:
                 print(f'Issue with parsing RSS feed item {entry.link}')
 
             self.changelogs[version] = full_text
-            self.version_configs[version] = {'forum_id': version, 'date': date, 'link': entry.link}
+            self.changelog_configs[version] = {'forum_id': version, 'date': date, 'link': entry.link}
 
         if skip_num > 0:
             print(f'Skipped {skip_num}/{len(feed.entries)} RSS items that already exists')
