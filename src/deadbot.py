@@ -90,7 +90,7 @@ def act_changelog_parse(args):
     # get changelogs from gamefiles (herolabs)
     chlog_fetcher.get_gamefile_changelogs(herolab_patch_notes_path)
     # save combined changelogs to output
-    chlog_fetcher.changelogs_to_file(changelog_output)
+    chlog_fetcher.changelogs_to_file(changelog_output, args.inputdir)
 
     # Now that we gathered the changelogs, extract out data
     chlog_parser = parse_changelogs.ChangelogParser(args.output)

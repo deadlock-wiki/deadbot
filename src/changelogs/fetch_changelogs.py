@@ -53,7 +53,7 @@ class ChangelogFetcher:
         self._process_local_changelogs(changelog_path)
         return self.changelogs
 
-    def changelogs_to_file(self, output_dir):
+    def changelogs_to_file(self, output_dir, input_dir):
         # Write raw changelog lines to files
         for version, changelog in self.changelogs.items():
             raw_output_dir = os.path.join(output_dir, 'raw')
@@ -68,10 +68,10 @@ class ChangelogFetcher:
         # changelog_configs.json is not overwritten even when update_existing is True
         # many entries were initially manually added due to
         # only the first page on the site having rss feed
-        changelogs_path = output_dir + '/changelog_configs.json'
+        changelogs_path = input_dir + '/changelog_configs.json'
         if not os.path.isfile(changelogs_path):
             # Create the directory and file if it doesn't exist
-            os.makedirs(output_dir, exist_ok=True)
+            os.makedirs(input_dir, exist_ok=True)
 
             # Sort the keys by the date lexicographically
             # null dates will be at the end
