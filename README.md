@@ -2,7 +2,7 @@
 DeadBot is an Open Source automation tool for aggregating data from the raw game files with the purpose of accurately maintaining the Deadlock Wiki - https://deadlocked.wiki/
 
 ## Guide
-All data can be found in the `output-data` directory, which includes json and csv formats
+All output data can be found in the [deadlock-data](https://github.com/deadlock-wiki/deadlock-data) repository, which includes numeric game data and all patch changelogs
 
 ### Google Sheets 
 Some data has been processed and formatted for google sheets:\

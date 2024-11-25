@@ -8,6 +8,8 @@ jobs:
   close-data-pr:
     name: Close deadlock-data PR
     runs-on: ubuntu-latest
+    # prevent develop and master being changed by this script
+    if: ${{ github.head_ref != 'develop' && github.head_ref != 'master' }}
     steps:
       - name: Checkout deadlock-data repo
         uses: actions/checkout@v4
