@@ -7,9 +7,8 @@ on:
       - '.github/workflows/deploy.yaml'
 
   pull_request:
-    types:
-      - opened
-  
+    types: [opened]
+
   workflow_dispatch:
 
 jobs:
