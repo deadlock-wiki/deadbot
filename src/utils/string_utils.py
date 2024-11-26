@@ -68,7 +68,8 @@ IGNORE_KEYS = [
     'BonusLossPerDeath',
     'SalvageBonus_Health',
     'ProjectileRedirectCount',
-    'TurretHealthScaling'
+    'TurretHealthScaling',
+    'DisarmDuration',
 ]
 
 
@@ -88,8 +89,6 @@ def _replace_variables(desc, data):
             return value
 
         if key in IGNORE_KEYS:
-            return f'UNKNOWN[{key}]'
-        else:
             return f'UNKNOWN[{key}]'
 
         raise Exception(f'Data not found for "{key}"')
