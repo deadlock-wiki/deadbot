@@ -3,14 +3,15 @@ import os
 import json
 import utils.json_utils as json_utils
 import shutil
+from constants import APP_ID, DEPOT_ID
 
 
 class VersionParser:
     def __init__(
         self, output_dir, depot_downloader_dir, steam_username, steam_password, verbose=True
     ):
-        self.app_id = '1422450'  # deadlock's app_id
-        self.depot_id = '1422456'  # the big depot
+        self.app_id = APP_ID  # deadlock's app_id
+        self.depot_id = DEPOT_ID  # the big depot
 
         self.output_dir = output_dir
         self.depot_downloader_dir = depot_downloader_dir
