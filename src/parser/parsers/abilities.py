@@ -89,7 +89,7 @@ class AbilityParser:
                 # TODO - handle different types of upgrades
                 if upgrade_type in ['EAddToBase', None]:
                     parsed_upgrade_set[prop] = value
-                elif upgrade_type == 'EAddToScale':
+                elif upgrade_type in ['EAddToScale', 'EMultiplyScale']:
                     parsed_upgrade_set['Scale'] = {
                         'Prop': prop,
                         'Value': value,

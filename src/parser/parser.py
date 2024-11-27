@@ -1,7 +1,8 @@
 import os
 import shutil
-from .parsers import abilities, ability_ui, items, heroes, localizations, attributes, souls
+from .parsers import abilities, ability_cards, items, heroes, localizations, attributes, souls
 from utils import json_utils
+import copy
 
 
 class Parser:
@@ -32,6 +33,8 @@ class Parser:
         self._load_vdata()
         self._load_localizations()
 
+        if not os.path.exists(self.OUTPUT_DIR):
+            os.makedirs(self.OUTPUT_DIR)
         shutil.copy(f'{self.DATA_DIR}/version.txt', f'{self.OUTPUT_DIR}/version.txt')
 
     def _load_vdata(self):
@@ -99,7 +102,7 @@ class Parser:
         os.system(f'cp "{self.DATA_DIR}/version.txt" "{self.OUTPUT_DIR}/version.txt"')
         parsed_abilities = self._parse_abilities()
         parsed_heroes = self._parse_heroes(parsed_abilities)
-        self._parsed_ability_ui(parsed_heroes)
+        self._parsed_ability_cards(parsed_heroes)
         self._parse_items()
         self._parse_attributes()
         self._parse_localizations()
@@ -141,8 +144,20 @@ class Parser:
             json_utils.sort_dict(parsed_meaningful_stats),
         )
 
+        stripped_heroes = dict()
+        # Remove irrelevant data from BoundAbilities in HeroData
+        for hero_key, hero_value in copy.deepcopy(parsed_heroes).items():
+            bound_abilities = hero_value['BoundAbilities']
+            stripped_heroes[hero_key] = hero_value
+            stripped_heroes[hero_key]['BoundAbilities'] = {}
+            for ability_position, ability_data in bound_abilities.items():
+                stripped_heroes[hero_key]['BoundAbilities'][ability_position] = {
+                    'Name': ability_data['Name'],
+                    'Key': ability_data['Key'],
+                }
+
         json_utils.write(
-            self.OUTPUT_DIR + '/json/hero-data.json', json_utils.sort_dict(parsed_heroes)
+            self.OUTPUT_DIR + '/json/hero-data.json', json_utils.sort_dict(stripped_heroes)
         )
         return parsed_heroes
 
@@ -159,11 +174,11 @@ class Parser:
         )
         return parsed_abilities
 
-    def _parsed_ability_ui(self, parsed_heroes):
+    def _parsed_ability_cards(self, parsed_heroes):
         print('Parsing Ability UI...')
 
         for language in self.languages:
-            (parsed_ability_ui, changed_localizations) = ability_ui.AbilityUiParser(
+            (parsed_ability_cards, changed_localizations) = ability_cards.AbilityCardsParser(
                 self.data['scripts']['abilities'],
                 parsed_heroes,
                 language,
@@ -172,9 +187,9 @@ class Parser:
 
             self.localizations[language].update(changed_localizations)
 
-            # Only write to ability_ui.json for English
+            # Only write to ability_cards.json for English
             if language == 'english':
-                json_utils.write(self.OUTPUT_DIR + '/json/ability_ui.json', parsed_ability_ui)
+                json_utils.write(self.OUTPUT_DIR + '/json/ability-cards.json', parsed_ability_cards)
 
     def _parse_items(self):
         print('Parsing Items...')

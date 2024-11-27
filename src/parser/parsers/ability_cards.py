@@ -2,7 +2,7 @@ import parser.maps as maps
 import utils.string_utils as string_utils
 
 
-class AbilityUiParser:
+class AbilityCardsParser:
     """
     Takes in parsed hero data (hero-data.json) and for each hero, format their abilities for
     display in the Wiki Ability Cards
@@ -31,6 +31,11 @@ class AbilityUiParser:
         self.localizations = localizations
         self.localization_updates = {}
 
+        self.DESC_KEY_IGNORE_LIST = [
+            'citadel_ability_chrono_kinetic_carbine_t1_desc',
+            'ability_smoke_bomb_t1_desc',
+        ]
+
     def run(self):
         output = {}
         for self.hero_key, hero in self.parsed_heroes.items():
@@ -41,7 +46,7 @@ class AbilityUiParser:
             hero_abilities = {'Name': hero['Name']}
             for self.ability_index, ability in hero['BoundAbilities'].items():
                 try:
-                    parsed_ui = self._parse_ability_ui(ability)
+                    parsed_ui = self._parse_ability_card(ability)
                     if parsed_ui is not None:
                         hero_abilities[self.ability_index] = parsed_ui
                 except Exception as e:
@@ -54,7 +59,7 @@ class AbilityUiParser:
 
         return (output, self.localization_updates)
 
-    def _parse_ability_ui(self, ability):
+    def _parse_ability_card(self, ability):
         self.ability = ability
         self.ability_key = ability['Key']
 
@@ -363,7 +368,7 @@ class AbilityUiParser:
 
             # this key in particular is not accurate to the one in game
             ignore_desc_key = False
-            if desc_key == 'citadel_ability_chrono_kinetic_carbine_t1_desc':
+            if desc_key in self.DESC_KEY_IGNORE_LIST:
                 ignore_desc_key = True
 
             if desc_key in self.localizations[self.language] and not ignore_desc_key:

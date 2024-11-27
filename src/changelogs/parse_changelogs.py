@@ -21,7 +21,6 @@ class ChangelogParser:
 
     # Main
     def run_all(self, dict_changelogs):
-        # take parsed changelogs and transform them into some other useful formats
         for version, changelog in dict_changelogs.items():
             self.run(version, changelog)
 

@@ -68,6 +68,8 @@ IGNORE_KEYS = [
     'BonusLossPerDeath',
     'SalvageBonus_Health',
     'ProjectileRedirectCount',
+    'TurretHealthScaling',
+    'DisarmDuration',
 ]
 
 
