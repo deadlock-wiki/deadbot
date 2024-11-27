@@ -72,7 +72,7 @@ class VersionParser:
                     self.steam_password,
                     '-remember-password',
                     '-filelist',
-                    'input-data/steam_inf_path.txt',
+                    'input-data/steam_inf_path.txt', # module requires it passed via file
                     '-dir',
                     self.depot_downloader_output,
                 ]
