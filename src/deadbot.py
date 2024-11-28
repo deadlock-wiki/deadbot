@@ -12,6 +12,7 @@ from parser.parsers import versions
 from external_data.data_transfer import DataTransfer
 from wiki.upload import WikiUpload
 from utils.string_utils import is_truthy
+from versioning import steamcmd
 
 load_dotenv()
 
@@ -34,6 +35,12 @@ def main():
         decompile.decompile(args.dl_path, args.workdir, args.decompiler_cmd, args.force)
     else:
         print('! Skipping Decompiler !')
+
+    if is_truthy(True):
+        print('Retrieving the most recent manifest-id with SteamCMD...')
+        act_versioning(args)
+    else:
+        print('! Skipping Versioning !')
 
     if is_truthy(args.parse):
         print('Parsing decompiled files...')
@@ -106,6 +113,10 @@ def act_changelog_parse(args):
     chlog_parser = parse_changelogs.ChangelogParser(args.output)
     chlog_parser.run_all(chlog_fetcher.changelogs)
     return chlog_parser
+
+def act_versioning(args):
+    manifest_id = steamcmd.SteamCMD(args.steam_cmd, constants.APP_ID).run()
+    print(f'Found manifest id: {manifest_id}')
 
 
 if __name__ == '__main__':

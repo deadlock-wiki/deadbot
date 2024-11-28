@@ -1,6 +1,9 @@
 import os
 import argparse
 
+from dotenv import load_dotenv
+load_dotenv()
+
 ARG_PARSER = argparse.ArgumentParser(
     prog='DeadBot',
     description='Bot that lives to serve deadlocked.wiki',
@@ -62,9 +65,15 @@ def arg_group_base(parser):
     )
     group_base.add_argument(
         '--depot_downloader_dir',
-        help='Path to DepotDownloader executable (also set with depot_downloader_dir environment'
+        help='Path to DepotDownloader executable (also set with DEPOT_DOWNLOADER_DIR environment'
          +' variable)',
-        default=os.getenv('depot_downloader_dir', None),
+        default=os.getenv('DEPOT_DOWNLOADER_DIR', None),
+    )
+    group_base.add_argument(
+        '--steam_cmd',
+        help='Path to steamcmd executable (also set with STEAM_CMD environment'
+         +' variable)',
+        default=os.getenv('STEAM_CMD', None),
     )
     group_base.add_argument(
         '--parse_versions',
