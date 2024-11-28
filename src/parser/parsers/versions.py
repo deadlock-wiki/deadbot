@@ -2,6 +2,7 @@ import subprocess
 import os
 import json
 import utils.json_utils as json_utils
+from utils.game_utils import load_game_info
 import shutil
 from constants import APP_ID, DEPOT_ID
 
@@ -144,12 +145,12 @@ class VersionParser:
             print(f'Updated {len(new_versions)} new versions')
 
     def _save(self):
-        # Order by ServerVersion numerically (not lexicographically)
+        # Order by ClientVersion numerically (not lexicographically)
         # If a manifest is empty, it will be at the top
         self.versions = {
             k: v
             for k, v in sorted(
-                self.versions.items(), key=lambda item: int(item[1].get('ServerVersion', 0))
+                self.versions.items(), key=lambda item: int(item[1].get('ClientVersion', 0))
             )
         }
 
@@ -173,6 +174,8 @@ class VersionParser:
         self._load()
 
         missing_versions = self._get_missing_versions()
+
+        current_game_version = load_game_info(os.path.join(self.output_dir, 'version.txt'))
 
         if len(missing_versions) > 0:
             parsed_versions = self._parse(missing_versions)
