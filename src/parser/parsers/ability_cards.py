@@ -50,8 +50,11 @@ class AbilityCardsParser:
                     if parsed_ui is not None:
                         hero_abilities[self.ability_index] = parsed_ui
                 except Exception as e:
-                    #TEMPORARY, IDK HOW TO GET AROUND IT PERMANENTLY
-                    if ability["Key"] in ["ability_nano_proximity_ritual","ability_viper_snakedash"]:
+                    # TEMPORARY, IDK HOW TO GET AROUND IT PERMANENTLY
+                    if ability['Key'] in [
+                        'ability_nano_proximity_ritual',
+                        'ability_viper_snakedash',
+                    ]:
                         continue
                     raise Exception(f'[ERROR] Failed to parse ui for ability {ability["Key"]}', e)
 

@@ -55,7 +55,7 @@ class VersionParser:
         parsed_versions = {}
         num_versions = len(versions)
         curr_num_versions = 0
-        
+
         for manifest_id in versions:
             try:
                 # Run the depot_downloader command
@@ -73,7 +73,7 @@ class VersionParser:
                     self.steam_password,
                     '-remember-password',
                     '-filelist',
-                    'input-data/steam_inf_path.txt', # module requires it passed via file
+                    'input-data/steam_inf_path.txt',  # module requires it passed via file
                     '-dir',
                     self.depot_downloader_output,
                 ]
@@ -90,7 +90,7 @@ class VersionParser:
                 )
                 if not os.path.exists(steam_inf_path):
                     raise Exception(f'Fatal error: {steam_inf_path} not found')
-            
+
             except Exception as e:
                 print(f'Error occured while parsing manifest {manifest_id}')
                 raise e
@@ -120,7 +120,8 @@ class VersionParser:
                     f'[WARN] ClientVersion {parsed_version["ClientVersion"]} does '
                     + f'not match ServerVersion {parsed_version["ServerVersion"]} '
                     + f'for manifest {manifest_id} with date {parsed_version["VersionDate"]}.'
-                    + 'If this is a new version, update the game then try again.')
+                    + 'If this is a new version, update the game then try again.'
+                )
                 continue
             parsed_versions[manifest_id] = parsed_version
 
@@ -129,7 +130,7 @@ class VersionParser:
             if self.verbose:
                 print(
                     f'({curr_num_versions}/{num_versions}): Parsed {manifest_id} '
-                    +f'which contained VersionDate {parsed_versions[manifest_id]["VersionDate"]}'
+                    + f'which contained VersionDate {parsed_versions[manifest_id]["VersionDate"]}'
                 )
 
         if self.verbose:

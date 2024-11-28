@@ -16,6 +16,7 @@ from versioning import steamcmd
 
 load_dotenv()
 
+
 def main():
     # load arguments from constants file
     args = constants.ARGS
@@ -75,10 +76,12 @@ def main():
 
     print('\nDone!')
 
+
 def act_parse_versions(args):
     versions.VersionParser(
         args.output, args.depot_downloader_dir, args.steam_username, args.steam_password
     ).run()
+
 
 def act_gamefile_parse(args):
     game_parser = parser.Parser(args.workdir, args.output)
@@ -113,6 +116,7 @@ def act_changelog_parse(args):
     chlog_parser = parse_changelogs.ChangelogParser(args.output)
     chlog_parser.run_all(chlog_fetcher.changelogs)
     return chlog_parser
+
 
 def act_versioning(args):
     manifest_id = steamcmd.SteamCMD(args.steam_cmd, constants.APP_ID).run()

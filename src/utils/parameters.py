@@ -2,6 +2,7 @@ import os
 import argparse
 
 from dotenv import load_dotenv
+
 load_dotenv()
 
 ARG_PARSER = argparse.ArgumentParser(
@@ -54,31 +55,30 @@ def arg_group_base(parser):
     group_base.add_argument(
         '--steam_username',
         help='Steam username for downloading game files (also set with STEAM_USERNAME '
-        +'environment variable)',
+        + 'environment variable)',
         default=os.getenv('STEAM_USERNAME', None),
     )
     group_base.add_argument(
         '--steam_password',
         help='Steam password for downloading game files (also set with STEAM_PASSWORD environment'
-        +' variable)',
+        + ' variable)',
         default=os.getenv('STEAM_PASSWORD', None),
     )
     group_base.add_argument(
         '--depot_downloader_dir',
         help='Path to DepotDownloader executable (also set with DEPOT_DOWNLOADER_DIR environment'
-         +' variable)',
+        + ' variable)',
         default=os.getenv('DEPOT_DOWNLOADER_DIR', None),
     )
     group_base.add_argument(
         '--steam_cmd',
-        help='Path to steamcmd executable (also set with STEAM_CMD environment'
-         +' variable)',
+        help='Path to steamcmd executable (also set with STEAM_CMD environment' + ' variable)',
         default=os.getenv('STEAM_CMD', None),
     )
     group_base.add_argument(
         '--parse_versions',
         help='Parse version data to link data to manifest id (also set with PARSE_VERSIONS '
-        +'environment variable)',
+        + 'environment variable)',
         default=os.getenv('PARSE_VERSIONS', False),
     )
 
