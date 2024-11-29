@@ -8,7 +8,7 @@ from decompiler import decompile
 import constants
 from changelogs import parse_changelogs, fetch_changelogs
 from parser import parser
-from parser.parsers import versions
+from versioning import versions
 from external_data.data_transfer import DataTransfer
 from wiki.upload import WikiUpload
 from utils.string_utils import is_truthy
