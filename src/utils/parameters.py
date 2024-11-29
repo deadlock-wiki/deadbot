@@ -39,6 +39,11 @@ def arg_group_base(parser):
         default=os.getenv('OUTPUT_DIR', os.path.abspath(os.getcwd()) + '/output-data'),
     )
     group_base.add_argument(
+        '--manifest_id',
+        help='Manifest id to download, defaults to \'latest\' (also set with MANIFEST_ID environment variable). Browse them at https://steamdb.info/depot/1422456/manifests/',
+        default=os.getenv('MANIFEST_ID', 'latest'),
+    )
+    group_base.add_argument(
         '--decompiler_cmd',
         help='Command for Valve Resource Format tool (also set with DECOMPILER_CMD env variable)',
         default=os.getenv('DECOMPILER_CMD', 'tools/Decompiler'),
@@ -74,12 +79,6 @@ def arg_group_base(parser):
         '--steam_cmd',
         help='Path to steamcmd executable (also set with STEAM_CMD environment' + ' variable)',
         default=os.getenv('STEAM_CMD', None),
-    )
-    group_base.add_argument(
-        '--parse_versions',
-        help='Parse version data to link data to manifest id (also set with PARSE_VERSIONS '
-        + 'environment variable)',
-        default=os.getenv('PARSE_VERSIONS', False),
     )
 
 

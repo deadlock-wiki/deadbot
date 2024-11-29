@@ -46,11 +46,17 @@ class SteamCMD:
         # Extract the manifest id
         manifest_id = output_str.split('"')[0]
 
+        if len(manifest_id)<15:
+            raise Exception('Failed to retrieve manifest id. SteamCMD output: ' + output.stdout.decode('utf-8'))
+
         return manifest_id
 
 
 # Returns the string after the first instance of a keyword
 # Example: get_str_after_keyword("manifest", "depots 1234 manifest 5678") returns " 5678"
 def get_str_after_keyword(keyword, string):
-    keyword_index = string.find(keyword)
-    return string[keyword_index + len(keyword) :]
+    if keyword in string:
+        keyword_index = string.find(keyword)
+    else:
+        raise Exception(f'Keyword "{keyword}" not found in string "{string}"')
+    return string[keyword_index + len(keyword):]

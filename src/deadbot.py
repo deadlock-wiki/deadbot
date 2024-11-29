@@ -8,7 +8,7 @@ from decompiler import decompile
 import constants
 from changelogs import parse_changelogs, fetch_changelogs
 from parser import parser
-from versioning import versions
+from versioning import depot_downloader
 from external_data.data_transfer import DataTransfer
 from wiki.upload import WikiUpload
 from utils.string_utils import is_truthy
@@ -30,18 +30,15 @@ def main():
             data_transfer.import_data(version=args.build_num)
         else:
             print('[ERROR] iam_key and iam_secret must be set for s3')
+   
+    print(f'Downloading manifest \'{args.manifest_id}\'...')
+    act_versioning(args)
 
     if is_truthy(args.decompile):
         print('Decompiling source files...')
         decompile.decompile(args.dl_path, args.workdir, args.decompiler_cmd, args.force)
     else:
         print('! Skipping Decompiler !')
-
-    if is_truthy(True):
-        print('Retrieving the most recent manifest-id with SteamCMD...')
-        act_versioning(args)
-    else:
-        print('! Skipping Versioning !')
 
     if is_truthy(args.parse):
         print('Parsing decompiled files...')
@@ -54,12 +51,6 @@ def main():
         act_changelog_parse(args)
     else:
         print('! Skipping Changelogs !')
-
-    if is_truthy(args.parse_versions):
-        print('Parsing Versions...')
-        act_parse_versions(args)
-    else:
-        print('! Skipping Versions !')
 
     if is_truthy(args.bot_push):
         print('Running Wiki Upload...')
@@ -77,10 +68,17 @@ def main():
     print('\nDone!')
 
 
-def act_parse_versions(args):
-    versions.VersionParser(
+def act_versioning(args):
+    if args.manifest_id == 'latest':
+        # Retrieve latest manifest-id
+        manifest_id = steamcmd.SteamCMD(args.steam_cmd, constants.APP_ID).run()
+        print(f'Found the latest manifest id: {manifest_id}')
+    else:
+        manifest_id = args.manifest_id
+    
+    depot_downloader.DepotDownloader(
         args.output, args.depot_downloader_dir, args.steam_username, args.steam_password
-    ).run()
+    ).run(manifest_id)
 
 
 def act_gamefile_parse(args):
@@ -116,11 +114,6 @@ def act_changelog_parse(args):
     chlog_parser = parse_changelogs.ChangelogParser(args.output)
     chlog_parser.run_all(chlog_fetcher.changelogs)
     return chlog_parser
-
-
-def act_versioning(args):
-    manifest_id = steamcmd.SteamCMD(args.steam_cmd, constants.APP_ID).run()
-    print(f'Found manifest id: {manifest_id}')
 
 
 if __name__ == '__main__':
