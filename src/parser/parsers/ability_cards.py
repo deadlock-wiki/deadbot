@@ -31,6 +31,11 @@ class AbilityCardsParser:
         self.localizations = localizations
         self.localization_updates = {}
 
+        self.DESC_KEY_IGNORE_LIST = [
+            'citadel_ability_chrono_kinetic_carbine_t1_desc',
+            'ability_smoke_bomb_t1_desc',
+        ]
+
     def run(self):
         output = {}
         for self.hero_key, hero in self.parsed_heroes.items():
@@ -362,7 +367,7 @@ class AbilityCardsParser:
 
             # this key in particular is not accurate to the one in game
             ignore_desc_key = False
-            if desc_key == 'citadel_ability_chrono_kinetic_carbine_t1_desc':
+            if desc_key in self.DESC_KEY_IGNORE_LIST:
                 ignore_desc_key = True
 
             if desc_key in self.localizations[self.language] and not ignore_desc_key:

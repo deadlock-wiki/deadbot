@@ -196,7 +196,7 @@ class HeroParser:
             'BulletsPerShot': w['m_iBullets'],
             'BulletsPerBurst': w.get('m_iBurstShotCount', 1),
             'BurstInterShotInterval': w.get('m_flIntraBurstCycleTime', 0),
-            'ShootMoveSpeed': w.get('m_flShootMoveSpeedPercent',1.0),
+            'ShootMoveSpeed': w.get('m_flShootMoveSpeedPercent', 1.0),
             #'BulletRadius': w['m_flBulletRadius'] / ENGINE_UNITS_PER_METER,
         }
 
