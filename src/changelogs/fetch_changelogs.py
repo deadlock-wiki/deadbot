@@ -48,13 +48,7 @@ class ChangelogFetcher:
         """Load input changelog data into the fetcher"""
         path = f'{self.INPUT_DIR}/changelogs/changelog_configs.json'
         existing_changelogs = json_utils.read(path)
-        existing_changelogs.update(self.changelog_configs)
-
-        # Sort the keys by the date lexicographically
-        # null dates will be at the end
-        keys = list(existing_changelogs.keys())
-        keys.sort(key=lambda x: existing_changelogs[x]['date'])
-        self.changelog_configs = {key: existing_changelogs[key] for key in keys}
+        self.changelog_configs = existing_changelogs
 
         # load 'changelogs/raw/<version>.txt' files
         all_files = os.listdir(f'{self.INPUT_DIR}/changelogs/raw')
@@ -87,6 +81,13 @@ class ChangelogFetcher:
         Since output data is paved over each deploy, we need this source for historic
         changelog data.
         """
+
+        # Sort the keys by the date lexicographically
+        # null dates will be at the end
+        keys = list(self.changelog_configs.keys())
+        keys.sort(key=lambda x: self.changelog_configs[x]['date'])
+        self.changelog_configs = {key: self.changelog_configs[key] for key in keys}
+
         raw_output_dir = os.path.join(self.OUTPUT_DIR, 'changelogs/raw')
         raw_input_dir = os.path.join(self.INPUT_DIR, 'changelogs/raw')
 
@@ -185,7 +186,7 @@ class ChangelogFetcher:
                         'date': date,
                         'link': None,
                     }
-
+        print('-------', gamefile_changelogs)
         self.changelogs.update(gamefile_changelogs)
 
     def _parse_description(self, string):
