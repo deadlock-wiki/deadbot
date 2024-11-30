@@ -1,7 +1,4 @@
 game\citadel\steam.inf
-game\citadel\pak01_dir.vpk
 regex:game\/citadel\/resource\/localization(?:\/[^\/]+)*\/[^\/]+$
-game\citadel\pak01_dir.vpk:vscripts/heroes.vdata_c
-game\citadel\pak01_dir.vpk:vscripts/abilities.vdata_c
-game\citadel\pak01_dir.vpk:vscripts/generic_data.vdata_c
-game\citadel\pak01_dir.vpk:vscripts/misc.vdata_c
+game/citadel/pak01_\d{3}.vpk
+game/citadel/pak01_dir.vpk
