@@ -72,25 +72,17 @@ def act_gamefile_parse(args):
 
 
 def act_changelog_parse(args):
-    changelog_output = args.output + '/changelogs/'
-    os.makedirs(changelog_output, exist_ok=True)
     herolab_patch_notes_path = os.path.join(
         args.workdir, 'localizations', 'patch_notes', 'citadel_patch_notes_english.json'
     )
-    chlog_fetcher = fetch_changelogs.ChangelogFetcher(update_existing=False)
-
-    # load localization data
-    chlog_fetcher.load_localization(args.output)
-    # load existing changelogs
-    chlog_fetcher.get_txt(os.path.join(changelog_output, 'raw'))
-    # fetch / process rss + forum content
-    chlog_fetcher.get_rss(constants.CHANGELOG_RSS_URL)
-    # create fetcher and parser
-    chlog_fetcher.get_txt(os.path.join(args.inputdir, 'raw-changelogs'))
-    # get changelogs from gamefiles (herolabs)
-    chlog_fetcher.get_gamefile_changelogs(herolab_patch_notes_path)
-    # save combined changelogs to output
-    chlog_fetcher.changelogs_to_file(changelog_output, args.inputdir)
+    chlog_fetcher = fetch_changelogs.ChangelogFetcher(
+        update_existing=False,
+        input_dir=args.inputdir,
+        output_dir=args.output,
+        rss_url=constants.CHANGELOG_RSS_URL,
+        herolab_patch_notes_path=herolab_patch_notes_path,
+    )
+    chlog_fetcher.run()
 
     # Now that we gathered the changelogs, extract out data
     chlog_parser = parse_changelogs.ChangelogParser(args.output)
