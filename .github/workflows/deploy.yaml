@@ -104,25 +104,29 @@ jobs:
           BOT_WIKI_USER: ${{ secrets.BOT_WIKI_USER }}
           BOT_WIKI_PASS: ${{ secrets.BOT_WIKI_PASS }}
 
+      - name: Commit and push input-data changes to deadbot
+        working-director: deadbot
+        run: |
+          git add input-data
+          git commit -m "chore: updated input data" || echo "No changes to commit"
+          git push --force-with-lease origin ${{ needs.get-branch.outputs.branch }}
+
       - name: Pull branch
         working-directory: deadlock-data 
         run: git pull origin ${{ needs.get-branch.outputs.branch }} -X ours     
 
       - name: Copy files to data repo
         run: |
-          rm -rf ./deadlock-data/game-data
-          mkdir ./deadlock-data/game-data
+          rm -rf ./deadlock-data/data
+          mkdir ./deadlock-data/data
           
-          # add all data to game data except for changelogs folder
-          cp -r ./deadbot/output-data/. ./deadlock-data/game-data
-          rm -rf ./deadlock-data/game-data/changelogs
-
-          cp -r ./deadbot/output-data/changelogs/. ./deadlock-data/changelogs
-          
-      - name: Commit and push changes
+          cp -r ./deadbot/output-data/. ./deadlock-data/data
+      
+      - name: Commit and push changes to data repo
         working-directory: deadlock-data 
         run: |
           git add -A
           git commit -m "Re-parsed game files" || echo "No changes to commit"
           git push --force-with-lease origin ${{ needs.get-branch.outputs.branch }}
+
           
