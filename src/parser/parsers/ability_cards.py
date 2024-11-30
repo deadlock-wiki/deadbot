@@ -284,6 +284,18 @@ class AbilityCardsParser:
                 'Value': self.ability.get(prop),
             }
 
+            raw_attr = self._get_raw_ability_attr(prop)
+            if raw_attr is None:
+                continue
+
+            attr_type = raw_attr.get('m_strCSSClass')
+            if attr_type is not None:
+                data['Type'] = attr_type
+
+            scale = self._get_scale(prop)
+            if scale is not None:
+                data['Scale'] = scale
+
             # These props are directly referenced and should live on the top level
             if prop in [
                 'AbilityCharges',
@@ -300,16 +312,6 @@ class AbilityCardsParser:
             # skip any attributes that are already placed in other categories
             if prop in self.used_attributes:
                 continue
-
-            raw_attr = self._get_raw_ability_attr(prop)
-
-            attr_type = raw_attr.get('m_strCSSClass')
-            if attr_type is not None:
-                data['Type'] = attr_type
-
-            scale = self._get_scale(prop)
-            if scale is not None:
-                data['Scale'] = scale
 
             match attr_type:
                 case 'cooldown' | 'charge_cooldown':
