@@ -105,7 +105,7 @@ jobs:
           BOT_WIKI_PASS: ${{ secrets.BOT_WIKI_PASS }}
 
       - name: Commit and push input-data changes to deadbot
-        working-director: deadbot
+        working-directory: deadbot
         run: |
           git add input-data
           git commit -m "chore: updated input data" || echo "No changes to commit"
