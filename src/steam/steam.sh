@@ -1,0 +1,1 @@
+./DepotDownloader -app 1422450 -depot 1422456 -manifest 6336151989161370294 -username $STEAM_USER -password $STEAM_PASS -filelist ./filelist.txt -dir ./depots
