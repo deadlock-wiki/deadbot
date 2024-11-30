@@ -40,7 +40,7 @@ class DepotDownloader:
                 self.steam_password,
                 '-remember-password',
                 '-filelist',
-                'input-data/steam_inf_path.txt',  # module requires it passed via file
+                'input-data/depot_downloader_file_list.txt',  # module requires it passed via file
                 '-dir',
                 self.depot_downloader_output,
             ]

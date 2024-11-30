@@ -52,6 +52,7 @@ def decompile(DEADLOCK_PATH, WORK_DIR, DECOMPILER_CMD, force=False):
             DECOMPILER_CMD
             + f' -i "{input_path}" --output "{WORK_DIR}/vdata" --vpk_filepath "{VPK_FILEPATH}" -d'
         )
+        print(dec_cmd)
         os.system(dec_cmd)
         # Remove subclass and convert to json
         kv3_to_json.process_file(f'{WORK_DIR}/vdata/{file}.vdata', f'{WORK_DIR}/{file}.json')
