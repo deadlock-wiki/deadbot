@@ -3,7 +3,6 @@ on:
   push:
     paths:
       - 'src/**'
-      - 'input-data/**'
       - '.github/workflows/deploy.yaml'
 
   pull_request:
