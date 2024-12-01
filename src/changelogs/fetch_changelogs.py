@@ -186,7 +186,6 @@ class ChangelogFetcher:
                         'date': date,
                         'link': None,
                     }
-        print('-------', gamefile_changelogs)
         self.changelogs.update(gamefile_changelogs)
 
     def _parse_description(self, string):
