@@ -79,7 +79,6 @@ def act_changelog_parse(args):
         update_existing=False,
         input_dir=args.inputdir,
         output_dir=args.output,
-        rss_url=constants.CHANGELOG_RSS_URL,
         herolab_patch_notes_path=herolab_patch_notes_path,
     )
     chlog_fetcher.run()

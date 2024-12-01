@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 from urllib import request
 from utils import file_utils, json_utils
 from typing import TypedDict
+from .constants import CHANGELOG_RSS_URL
 
 
 class ChangelogConfig(TypedDict):
@@ -30,7 +31,7 @@ class ChangelogFetcher:
     Fetches changelogs from the deadlock forums and game files and parses them into a dictionary
     """
 
-    def __init__(self, update_existing, input_dir, output_dir, rss_url, herolab_patch_notes_path):
+    def __init__(self, update_existing, input_dir, output_dir, herolab_patch_notes_path):
         self.changelogs: dict[str, ChangelogString] = {}
         self.changelog_configs: dict[str, ChangelogConfig] = {}
         self.update_existing = update_existing
@@ -38,7 +39,7 @@ class ChangelogFetcher:
 
         self.INPUT_DIR = input_dir
         self.OUTPUT_DIR = output_dir
-        self.RSS_URL = rss_url
+        self.RSS_URL = CHANGELOG_RSS_URL
         self.HEROLABS_PATCH_NOTES_PATH = herolab_patch_notes_path
 
         self.TAGS_TO_REMOVE = ['<ul>', '</ul>', '<b>', '</b>', '<i>', '</i>']
