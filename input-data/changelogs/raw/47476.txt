@@ -1,0 +1,526 @@
+[ Matchmaking Rework ]
+
+- This update includes a new version of the matchmaker. The matchmaking pools are no longer split between normal and ranked, there is only one primary matchmaking mode and there are no limited hours.
+
+- Badges will update immediately whenever you gain or lose enough MMR to change badges. You no longer have to wait a week or play a certain game count. There will sometimes be monthly global maintenance updates where we readjust the global curve based on the population, cheaters banned, recalculation adjustments, etc (this will be done as needed and not necessarily every month).
+
+- Hero MMR is now used in the Matchmaker. Each player will have a "core" MMR and your MMR per hero will be offsets of your core MMR. When you queue, we will match you based on that hero's MMR. So if you are unfamiliar or play worse with a given hero, you will be put in an easier match than your usual. Judgement on your skill and familiarity with a hero will be based on the 20 most recent games with that hero. In your profile, we have UI that shows you what the matchmaker thinks your relative ranking for each hero is (give us feedback on this, we expect to iterate on this calculation).
+
+- Leaderboards are also included per region (North America, South America, Europe, Asia, Oceania). There is a top 1000 Core MMR leaderboard as well as a top 1000 Hero MMR leaderboard for each hero (for each region separately). To qualify for being considered in leaderboards in general, you must have 50 games played in the last 30 days. To qualify for a specific hero's leaderboard, you must have played at least 20 games on that hero in the past 30 days.
+
+- You can queue as any party size, however there are a few details. If the range of skill in your party is too wide, the amount of MMR you can gain will be reduced somewhat based on the degree. This is especially true if it’s a player we don't know anything about (like a very high mmr player queuing with a  "new" player, we will minimize updates to the known player until we are more confident we can trust the skill of that party overall).
+
+- The previous limit on high MMR party sizes is increased from 2 to 3. This applies to Ascendant 1 and above. This is the old limit we had on disallowing too many high MMR players to be in the same party together, for matchmaking quality reasons.
+
+- Given the updated no hour limits, if we think a match is a bad quality (like 5am games where there weren't a lot of players to pick from), we will weigh the match less heavily towards a rank update relative to what we would do with an average quality match.
+
+- If you prefer playing with only solos, there is a convar (mm_prefer_solo_only true) you can use.
+
+- When queuing as a party, you will have an option to override the default balance oriented lane assignment system and make the system prioritize putting your party members in the same lanes together.
+
+- Added Swap Lanes feature. During the rooftop and zipline phase at the start of the game, you can now request to swap lanes with your teammates by clicking the button below their portrait on the scoreboard. If the other player accepts your request, you will immediately be swapped. You may decline an incoming request by right clicking it.
+
+- There is an option to notify you anytime your rank levels up. There is also an option to show the average badge of each team for the post game.
+
+
+
+
+[ General Changes ]
+
+- Added secondary key binds for actions
+- You are now able to browse and favorite builds in the dashboard
+- Sandbox mode now shows the souls value of the current items you have in your inventory
+- Abilitiy tooltips now list exactly which items the ability has been imbued with rather than "Ability is imbued"
+- Items in the shop that imbue abilities are tagged with a label with a similar styling to active items
+- Commend toasts now stay on your screen until they are dismissed
+- Commend toasts now have a button to return the commend to the player that commended you
+- Adjusted the behavior of the Incoming Damage UI so that it can still be used in Sandbox mode
+- There is now a Change Hero button in the Build Browser which brings up the hero picker to choose a different hero in both Sandbox and in the Dashboard
+
+Quickbuy:
+   - Decision dialogs for dealing with item limits, imbuing, and activation slots are now shown at queue time rather than purchase time whenever possible
+   - You can now queue items to sell.  If you right click on items that you own it will add them to the front of your quickbuy queue, and they will be queued to sell. The sale price of these items will be added to your current souls to calculate when you can afford to purchase the next item in your quickbuy queue..
+
+- Adjusted Powerup Runes' design to look more visually breakable (due to melee change explained later in the gameplay section)
+
+- Low priority games now require wins to count
+
+- Gaining Rejuvenator buff now shows what stats have been improved on your hero (like powerups and other buffs)
+- Fixed Abrams camera
+- Added icon variants for high or low ground for small/medium/large camps
+- Adding note below Cancel key in Settings explaining that "Abilities will be cancelled with the Cancel Key when possible"
+- Purchase Log in the shop now shows enemy and ally purchases with different colors
+- Fixed F1-F5 Keys not working (for moving camera to allies)
+
+- Updated active items to have uniform sliding/cast delay behavior
+    - Curse: Cast delay changed from 0.0s to 0.1s, to match other similar actives
+    - Slowing Hex: No longer interrupts sliding, to match other similar actives
+    - Decay: Cast delay changed from 0.25s to 0.1s, to match other similar actives
+    - Decay: No longer interrupts sliding, to match other similar actives
+    - Withering Whip: No longer interrupts sliding, to match other similar actives
+    - Silence Glyph: Cast delay changed from 0.0s to 0.1s, to match other similar actives
+    - Knockdown: Cast delay changed from 0.25s to 0.1s, to match other similar actives
+    - Knockdown: No longer interrupts sliding, to match other similar actives
+
+- The through-wall ally silhouette health bars are now more accurate
+- Optimized lighting in the map for better rendering performance
+- Fixed a bug where you would be prompted to sell an item if the component wasn't in the same category as the component you were buying (i.e. you go to buy slowing hex with your item slots full and you already own the component)
+- Removed redundant Replay keybinds (now shares with Spectating)
+- Added Chat Wheel Options as keybinds so you can bind keys to certain responses
+- Fixed not being able to ping enemy items
+- Added music and ambient sounds to hotel
+- Added new run animation for Seven
+- Revised Mirage Fire Scarabs projectile and cast sounds
+- Revised Casting bridge buff loop
+- Remastered weapon fire for Seven
+- Remastered weapon fire for Paradox
+- Fixed a bug where nearly all sound stops and never returns
+- Fixed respawn music cue failing to play with shop menu open
+- Fixed music not playing while the player is outside their base and their base is under attack
+- Fixed haze smoke bomb loop not playing for teammates
+- Improved negative feedback sound effect timing
+- Fixed some cases where some sounds could overpower everything else
+- Added key and button name localization support for keybinds
+- Visual update to Mirage Tornado bullet evasion buff
+- Visual update to Medicinal Specter to improve visibility
+- Visual update to turret tracers, muzzle flash and impacts
+- Sand Blast revision to help user judge distance and AOE
+- Added preview state to Flying Strike
+- Added effect to when the zipline ability first starts
+- Added an AOE landing indicator for where units will be thrown with Death Slam (only shows for allies)
+- Fixed Ground Strike preview cone visual to be more accurate
+- Updated Patron VO to give the Amber Hand more lines that are unique to him as opposed to having the identical script of the Sapphire Flame (for instance, while the Sapphire Flame might praise Haze by saying "you are perfection, Haze", the Amber Hand would say "Haze will dance, and they will fall")
+- Related to the above, both patrons will now call out the Greenwich/Green Lane objectives specifically when they are destroyed
+- Updated Bebop VO: remaster pass and added some content
+- Updated Viscous VO: he now comments on a lot more interactions in the game (no longer a small pool of reused lines for Goo Punch)
+- Updated Paradox VO: remaster pass and added some content
+- Updated Kelvin VO: remaster pass and added some content
+- Stubbed in first pass VO for Fathom, Magician, Trapper, and Viper - the primary goal for these is to give coverage for pings, but we also added lines for hero select and ability usage
+- Updated Holliday VO: remaster pass and added some content
+- Some rendering performance improvements
+- Fixed some lightmap quality regressions
+- Fixed textures being slightly too blurry in FSR2
+- Fixed some rendering features (such as distance field shadows) running despite being disabled in UI
+- Fixed right-clicking on an item in the shop in build editing mode causing it to be added to your Quickbuy queue
+- Steam Game Recording no longer records kills/deaths if you're dead and spectating another player
+- Steam Game Recording timeline no longer records Shrine objectives as "The World"
+- Fixed fps_max accidentally being changed to slider maximum value when out of slider range
+- Video Settings slider for fps_max goes up to 400
+- Fixing tooltips on keybind dropdowns not working correctly
+- New sounds added to Yamato's Flying Strike while aiming
+- New sounds added to Mo & Krill's Burrow and Sand Blast abilities
+- Hit confirm sound added to Lash's Flog ability
+- Fixed a bug causing Mo & Krill's Burrow emerge sound to double up when not cancelling the burrow early
+- Fixed Mo & Krill's Burrow traveling/underground sound not looping correctly
+
+
+- Steam Input support
+    - Fixed Controller binds not working when the same Keyboard binds were empty
+    - Fixed Show Scoreboard glyph in Sandbox Mode UI
+
+
+
+
+
+[ Misc Gameplay ]
+
+- Soul Sharing ratios post-lane reduced from 100/70/45/33/25/20% to 100/60/35/25/20/16%  (for 1/2/3/4/5/6 players, original was 100/50/33/25/20/16%)
+- Hero Kill souls decreased from 175->2000 to 175->1600 (from 0 min to 45 min)
+
+- Walkers Stomp now also deals 10% Max HP as damage
+- Walkers Laser now also deals 2% Max HP DPS
+- Walkers now provide nearby allied heroes 25% Bullet and Spirit Resistance
+- Walkers now have Resistance based on how many nearby enemies there are (0/8/16/24/32/40% for 1/2/3/4/5/6 players; they are more tanky against a large attacking team)
+- Middle Lane Walkers HP increased from 5800 to 8000 (side walkers HP is 5175)
+
+- Patron Laser now also deals 3% Max HP DPS
+- Flex Slot changed from All Shrines to 1 Shrine and 2 Base Guardians
+
+- Mid Boss trooper health for first spawn reduced from 95% to 70%
+- Trooper Spirit Resist at 25 minutes reduced from 30% to 20% (still scales to 70% at 50 minutes)
+
+- Respawn time curves changed from happening at 17/30 minutes for 40s/70s respawn to 20/40 minutes
+
+- Trooper soul changed from 60/40% in the kill/orb to 65/35%
+- Medic Trooper now has 3 charges of heal rather than 2
+- Falloff min range reduced from 22m to 20m
+
+- Air Drag when getting off the zipline increased from 20% to 25% (default in general is 20%)
+
+- Improved various issues with Heavy Melee vs Dash/Parry when there is latency
+
+- Killing the first Patron now causes any existing enemy hero respawns to be reduced by 20 seconds. However, it does not reduce remaining respawn time lower than 10s.
+
+- Powerups now require a heavy melee to claim (art visuals updated)
+- Powerups now start weaker and grow stronger (from 10 minutes to 40  minutes)
+- Gun Powerup:
+    - Previously was +20% Fire Rate and +40% Ammo for 160s.
+    - Now starts at "+10% Fire Rate and +30% Ammo" and ends at "30% Fire Rate and +60% Ammo"
+- Survival Powerup:
+    - Previously was +400 Health and +1% Max Health Regen for 160s.
+    - Now starts at "+250 Health and 1% Max Health Regen" and ends at "+700 Health and 1.5% Max Health Regen"
+- Casting Powerup:
+    - Previously was +25 Spirit Power and +20% Cooldown Reduction for 160s.
+    - Now starts at "+20 Spirit Power and +15% Cooldown Reduction" and ends at "+40 Spirit Power and +25% Cooldown Reduction"
+- Movement Powerup:
+    - Previously was +2 Stamina, +3 Sprint, +30% Stamina Regen and +50% Zipline Boost for 160s.
+    - Now starts at "+1 Stamina, +2 Sprint, +20% Stamina Regen and +40% Zipline Boost" and ends at "+4 Stamina, +4 Sprint, +50% Stamina Regen and +80% Zipline Boost"
+
+- Urn time to reveal increased from 20s to 25s
+- Initial Urn bounty reduced from 4050 to 3000 (changed from 1750 + 230*Min to 700 + 230*Min)
+- Adding an alternate Urn mechanic as an experiment for 2 days. This will be enabled this weekend only and Monday will be back to normal. Urn pickup location is the same, but drop-off location is now always at the top of mid temple. The bonus souls the team gets is reduced by 60% (the delivering player reward is unchanged). The reveal time is now 40s.
+
+- Moved rooftop neutral camps on Amber Yellow and Sapphire Purple to rooftops closer to the Guardian
+
+
+
+
+- Added a truck to climb up into the interior bridge area at the Port Authority and Jazz Club buildings
+
+View attachment truck_update.mp4
+
+
+- Moved stairs up from the central canal to the Radio Station interior closer to the inner lanes
+- Removed stairs up to the Radio Station interior from the underground Teleport Station
+- Redesigned Radio Station interior to be more open
+
+View attachment canal_update.mp4
+
+
+
+- Moved connection corridor between Inner and Outer lanes (Amber Yellow and Sapphire Purple) to be farther from the base entrances
+- Removed the cosmic veils from the entrances of the connection corridor
+
+View attachment connection_update.mp4
+
+
+- Changed entrance to the Armory/Warehouse from the inner lane to be more direct (not a hallway)
+
+View attachment armory_update.mp4
+
+
+
+- Moved the side lane teleporters to the crawl space under the Hard camp
+
+View attachment teleporter_update.mp4
+
+
+- Removed bookshelf model inside the upper floor of the Police Station/Garment Building to see the corridor behind it
+- Removed Rope inside the Police Station/Garment Building
+
+
+
+
+- Added interior stair connection in Factory/Mansion to stay inside from lower to upper areas
+
+
+
+
+- Added a fence guard beside the stairs inside the Garage/Night Club
+
+
+
+
+- Added zapper effect to the antenna models on rooftops
+- New building facade art in Amber Blue and Purple lanes
+
+
+
+
+- Added a street gate structure between the Garage and the Record Shop
+
+
+
+
+[ Heal / Anti-Heal Rebalance ]
+
+- Below is a group of changes bundled together that pairs reducing sustain abilities/items as well as anti-heal mechanics by some percentage (some things less than others depending on the specific circumstances of the ability)
+
+- Abrams: Infernal Resilience reduced from 14% to 11% and T3 from 7% to 5.5%
+- Abrams: Siphon Life Heal vs Heroes reduced from 100% to 75%
+- Abrams: Siphon Life Heal vs Non-Heroes reduced from 50% to 40%
+
+- Bebop: Hyper Beam T3 reduced from 100/33% for Heroes/Creeps to 80%/25%
+
+- Dynamo: Rejuvenating Aurora regen reduced from 32 to 30
+- Dynamo: Rejuvenating Aurora Spirit Power scaling reduced from 0.5 to 0.45
+- Dynamo: Rejuvenating Aurora T3 reduced from 3.8% to 3.4%
+
+- Grey Talon: Rain of Arrows T3 reduced from 50% Lifesteal to 40%
+
+- Infernus: Catalyst T2 reduced from 15% Lifesteal to 12%
+- Infernus: Catalyst T3 reduced from -40% Heal Degen to -33%
+- Infernus: Concussive Combustion T3 reduced from 100% to 85%
+
+- Ivy: Watcher's Covenant Bullet Lifesteal reduced from 15% to 12%
+- Ivy: Stone Form Max Health Heal reduced from 10% to 8%
+- Ivy: Stone Form T3 Max Health Heal reduced from +20% to +16%
+
+- Kelvin: Frost Grenade T2 reduced from +125 Heal to +100
+- Kelvin: Frozen Shelter regen reduced from 120 to 110
+- Kelvin: Frozen Shelter T3 reduced from +70 (1.6 Spirit Power) to +60 ( 1.4 Spirit Power)
+
+- Lash: Flog heal vs heroes reduced from 70% to 65%
+- Lash: Flog heal vs creeps reduced from 25% to 20%
+
+- McGinnis: Medicinal Specter T3 reduced from 5% to 4.5%
+
+- Mo & Krill: Scorn heal vs heroes reduced from 2x to 1.6x
+- Mo & Krill: Scorn heal vs creeps reduced from 0.7x to 0.6x
+
+- Pocket: Affliction T2 Healing Reduction reduced from 60% to 50%
+
+- Warden: Last Stand non-hero lifesteal reduced from 50% to 20%
+- Warden: Last Stand hero lifesteal reduced from 100% to 80%
+
+- Wraith: Full Auto T3 lifesteal reduced from 35% to 30%
+
+- Viscous: The Cube regen reduced from 40 to 35
+- Viscous: The Cube T2 regen reduced from +35 to +30
+- Viscous: The Cube regen spirit power scaling reduced from 0.2 to 0.18
+
+- Shiv: Bloodletting reduced from 22% to 20%
+- Shiv: Bloodletting T1 reduced from +8% to +6%
+- Shiv: Bloodletting rage bonus reduced from +15% to 14%
+
+- Soul Shredder Bullets: Spirit Lifesteal reduced from 20% to 18%
+- Active Reload: Bullet Lifesteal reduced from 20% to 18%
+- Headhunter: Heal per Headshot reduced from 8% to 7%
+- Heroic Aura: Bullet Lifesteal reduced from 20% to 18%
+- Toxic Bullets: Healing Reduction reduced from 65% to 50%
+- Vampiric Burst: Bullet Lifesteal reduced from 100% to 80%
+- Melee Lifesteal: Lifesteal reduced from 20% to 18%
+- Bullet Lifesteal: Lifesteal reduced from 28% to 26%
+- Restorative Locket: Regen per stack reduced from 35 to 32
+- Spirit Lifesteal: Lifesteal reduced from 23% to 22%
+- Healbane: Healing Reduction reduced from 45% to 40%
+- Lifestrike: Lifesteal reduced from 65% to 55%
+- Decay: Healing Reduction reduced from 70% to 55%
+- Leech: Bullet Lifesteal reduced from 35% to 32%
+- Leech: Spirit Lifesteal reduced from 35% to 32%
+
+
+
+
+
+[ Weapon Items ]
+
+- Rapid Rounds: Fire Rate increased from 10% to 11%
+- Monster Rounds: Bonus Health reduced from 50 to 30
+
+- Berserker: Weapon Damage per stack increased from 5% to 6%
+- Soul Shredder Bullets: Spirit Amp reduced from 10% to 8%
+
+- Headhunter: Head Shot Bonus Damage reduced from +140 to +130
+- Heroic Aura: Cooldown reduced from 25s to 20s
+- Alchemical Fire: DPS burn lingers on targets for 1s
+- Hunter's Aura: Fire Rate slow reduced from 10% to 9%
+
+- New T3 Weapon Item, Spellslinger Headshots: Requires Soul Shredder Bullets. Landing a headshot on enemy heroes increases your total Spirit Power by 3% for 12s. Cooldown 1.5s. Max stacks 12. Grants +12% Weapon Damage, +8% Spirit Amp/18% Spirit Lifesteal (component passive), and +150 Health.
+
+- Glass Cannon: Now requires Slowing Bullets and grants the slow passive
+- Silencer: Reworked item. Passively builds up on enemies, silencing for 2s and then reducing spirit damage output by 40% for 4s. Enemies affected cannot be affected again for 12s. Grants +20% Weapon Damage, +15% Spirit Resist and 20% Debuff Reduction. (Buildup is a bit slower than Toxic Bullets)
+- Lucky Shot: Damage multiplier increased from 90% to 110%
+- Lucky Shot: Now grants +150 Bullet Shield
+
+
+
+
+
+[ Vitality Items ]
+
+- Melee Lifesteal: Now grants +3% Bullet Resist
+
+- Reactive Barrier: Bullet Shield health reduced from 400 to 350
+- Return Fire: Now requires Extra Regen
+- Debuff Reducer: Debuff Resist reduced from 30% to 28%
+- Debuff Reducer: Weapon Damage increased from 6% to 8%
+- Divine Barrier: Now has +8% Ability Range again instead of +6 Spirit Power
+- Divine Barrier: No longer grants +1 Sprint
+- Healing Nova: No longer has +6% Ability Range
+- Healbane: Duration increased from 6s to 7s
+
+- Debuff Remover: Active buff duration on purge increased from 3s to 4s
+- Debuff Remover: Purging a debuff now also heals you for 10% Max HP
+- Rescue Beam: Heal reduced from 26% to 24%
+- Rescue Beam: Now grants +6% Ability Range
+- Rescue Beam: Cooldown increased from 26s to 36s
+- Rescue Beam: Pull speed reduced by 15%
+- Metal Skin: Active now reduces your Move Speed by 1.5
+- Superior Stamina: Now grants +75 Health
+- Superior Stamina: Now increases Wall Jump count by 1 as well
+- Majestic Leap: Now grants +6% Spirit Resist
+
+- Phantom Strike: Cast range now ignores the Z height (similar to Lash's Death Slam)
+
+
+
+
+
+[ Spirit Items ]
+
+- Ammo Scavenger: While at max stacks you gain +2 Sprint
+- Infuser: Cooldown reduced from 37s to 32s
+
+- Decay: Healing Reduction reduced from 70% to 55%
+- Decay: Damage increased from 1% to 1.4%
+- Withering Whip: Cooldown reduced from 18s to 15s
+
+- Improved Spirit: Health increased from 100 to 125
+- Silence Glyph: No longer a tracking projectile using a unit target, releases an aim-based projectile that silences on impact
+- Silence Glyph: Cooldown reduced from 32s to 24s
+- Ethereal Shift: Post Shift now also grants +20 Spirit Power
+- Rapid Recharge: Time between charges reduced from 65% to 60%
+- Knock Down: Cast range now ignores the Z height (similar to Lash's Death Slam)
+- Mystic Slow: Now grants +1 Sprint
+- Mystic Slow: Health increased from 140 to 160
+- Torment Pulse: Now grants +15% Melee Resistance
+
+- New T3 Spirit Item, Spirit Snatch: Requires Spirit Strike. Causes your melee attacks to steal 12% Spirit Resist and 26 Spirit Power for 16s. Cooldown 6s. Buff you receive stacks if you hit different heroes. Grants +15% Melee Damage, +8% Spirit Resist,  +125 Health  and +1 Sprint. (Thanks to https://forums.playdeadlock.com/threads/spirt-snatch-3k-soul-spirit-strike-upgrade.46932/ )
+
+- New T3 Spirit Item, Arcane Surge: Requires Kinetic Dash. After successful Dash Jump, the next ability you use will also have +20% Range, +20% Duration and +20 Spirit Power. Grants +100 Health, +1 Stamina and +15% Slow Resist.
+
+- Diviner's Kevlar: No longer grants +20% Spirit Lifesteal
+- Diviner's Kevlar: Now grants +7% Ability Duration
+- Echo Shard: Cast delay reduced from 0.3s to 0.25s
+- Mystic Reverb: Damage increased from 40% to 45%
+- Refresher: Cooldown increased from 230s to 260s
+
+
+
+
+
+[ Heroes ]
+
+- Abrams: Base regen increased from 1 to 1.5
+- Abrams: Siphon Life range now scales with Spirit Power (0.05)
+- Abrams: Siphon Life damage scaling with Spirit Power increased from 0.4 to 0.5
+- Abrams: Seismic Impact drag down collision improved a bit
+
+- Bebop: Exploding Uppercut T2 bonus now applies to melee damage too
+- Bebop: Hook can now be canceled by allies with exit key (i.e. space bar, similar to existing Viscous Cube)
+
+- Dynamo: Kinetic Pulse now slides around geometry when it hits an obstruction
+- Dynamo: Rejuvenating Aurora now allows you to reload during it (currently only allows you to continue reloading if cast before)
+- Dynamo: Quantum Entanglement pulling allies no longer cancels their channel
+- Dynamo: Quantum Entanglement now has a visual indicator for allies that will teleport
+- Dynamo: Quantum Entanglement ally range increased from 9m to 10m
+- Dynamo: Quantum Entanglement cooldown increased from 15s to 16s
+- Dynamo: Quantum Entanglement T3 cooldown reduction improved from -4s to -5s
+- Dynamo: Rejuvenating Aurora now allows you to use melee before T3 upgrade
+
+- Grey Talon: Bullet damage increased from 24 to 25
+- Grey Talon: Health growth per boon increased from 27 to 29
+- Grey Talon: Immobilizing Trap now tethers targets rather than rooting them
+- Grey Talon: Immobilizing Trap tether duration increased 1.25s to 1.5s
+- Grey Talon: Immobilizing Trap no longer applies 50% slow for 1s
+- Grey Talon: Immobilizing Trap slow now starts immediately for 30% and lasts until 2s after the tether ends
+- Grey Talon: Immobilizing Trap T2 changed from +2s Slow to +1s Tether
+- Grey Talon: Immobilizing Trap radius increased from 6 to 6.2
+- Grey Talon: Immobilizing Trap T1 CD improved from -19s to -20s
+- Grey Talon: Guided Owl camera now returns more quickly when the Owl collides very far away
+
+- Haze: Fixed Bullet Dance sometimes freezing your client
+- Haze: Using items during Smoke Bomb no longer breaks invisibility
+- Haze: Smoke Bomb cooldown reduced from 37s to 30s
+- Haze: Smoke Bomb T1 changed from -14s to +6 Invis Sprint Speed
+- Haze: Smoke Bomb T2 changed from +6 Invis Sprint Speed to +15% Bullet Lifesteal for 8s
+- Haze: Smoke Bomb T3 changed from +30% Bullet Lifesteal for 8s to Phases Out for 0.5s on cast and enables charges with 10s charge time (causes you to be "out of world" and fizzle incoming projectiles during this time, you are still able to move. You need to buy charges still)
+- Haze: Fixation damage vs objectives reduced by 30%
+- Haze: Bullet Dance Bonus Damage changed from +5 Bullet Damage to +6 Spirit Damage (with 0.1 Spirit Scaling)
+- Haze: Bullet Dance T1 changed to +7 Spirit Damage
+
+- Infernus: Afterburn buildup decay time is now 15% slower
+- Infernus: Concussive Combustion radius increased from 12m to 13m
+- Infernus: Concussive Combustion T2 radius reduced from +4m to +3m
+
+- Ivy: Stone Form drag down collision improved a bit
+
+- Ivy: Bullet damage increased from 5 to 5.2
+- Ivy: Bullet damage growth reduced from 0.36 to 0.34
+- Ivy: Fixed being launched incorrectly when using Stone Form on certain geometry
+- Ivy: Fixed Stone Form having a brief period of vulnerability after cast
+- Ivy: Air Drop flight controls improved a bit
+- Ivy: Air Drop duration reduced from 17s to 16s
+- Ivy: Air Drop cooldown increased from 85s to 90s
+- Ivy: Air Drop speed can now be increased with movespeed or sprint items (when out of combat)
+- Ivy: Air Drop now amplifies Sprint values by 1.5x
+
+- Kelvin: Seismic Impact, Death Slam and Ground Strike now smash through Ice Path
+
+- Lady Geist: Essence Bomb Self Damage spirit scaling reduced from 2 to 1.8
+
+- Lash: Ground Strike drag down collision improved a bit
+
+- McGinnis: Bullet Velocity increased from 533 to 590
+- McGinnis: Fixed Wall triggering Reactive Barrier before T3 stun
+- McGinnis: Mini Turrets health no longer scales with your hero's health.
+- McGinnis: Mini Turrets Spirit Resist reduced from 70% to 30%
+- McGinnis: Mini Turrets base health increased from 75 to 150 (roughly same overall health as previous start of game)
+- McGinnis: Mini Turrets now gain +20 Health per Boon
+- McGinnis: Mini Turrets now take at most 33% of their Max HP per second from any damage source.  Any excess damage is move to the following second. (In effect this means that turrets will always live at least 3 seconds)
+- McGinnis: Fixed Mini Turrets dying causing you to lose sprint
+- McGinnis: Mini Turrets cycle time reduced from 0.5 to 0.25 (DPS unchanged)
+- McGinnis: Mini Turrets bullet velocity increased from 406 to 500
+
+- Mirage: Tornado speed reduced by 10%
+- Mirage: Fixed Tornado being usable while immobilized
+- Mirage: Tornado and Fire Scarabs ability slots swapped
+- Mirage: Traveler cooldown increased from 130s to 145s
+- Mirage: Traveler T2 increased from -40s to -55s
+- Mirage: Traveler can now be cast by targeting the top bar portraits
+
+- Mo & Krill: Headshot resistance now only applies to the big head
+- Mo & Krill: Burrow can now go under Spectral Wall
+- Mo & Krill: Combo now pulls the target closer to you over time
+- Mo & Krill: Combo health gain increased from 30 to 70
+- Mo & Krill: Sand Blast duration reduced from 3.5s to 3s
+- Mo & Krill: Sand Blast T3 slow reduced from 50% to 40%
+
+- Paradox: Fixed Kinetic Carbine not proccing Headshot effects (Headshot booster, Headhunter, Crippling Headshot)
+- Paradox: Paradoxical Swap time min/max increased by 0.2/0.3s (to help with camera)
+- Paradox: Time Wall now deals 50 damage for going through it
+
+- Seven: Storm Cloud now causes you to levitate up and down a little bit in a cycle rather than being fully stationary
+- Seven: Storm Cloud expand time reduced from 2s to 1.5s
+
+- Shiv: Serrated Knives cooldown reduced from 19s to 16s
+- Shiv: Serrated Knives can now capture souls
+- Shiv: Slice and Dice base damage increased from 105 to 110
+- Shiv: Slice and Dice T2 reduced from +75 to +70
+- Shiv: Slice and Dice cooldown reduced from 16s to 15s
+- Shiv: Slice and Dice T1 reduced from -4s to -3s
+- Shiv: Killing Blow threshold increased from 20% to 22%
+- Shiv: Killing Blow T2 reduced from +8% Enemy Health Threshold to +6%
+- Shiv: Killing Blow Full Rage Damage Bonus increased from 15% to 17%
+- Shiv: Killing Blow T2 reduced from +10% Full Rage Bonus Damage to +8%
+- Shiv: Fixed an issue where using Serrated Knives and immediately holding M1 after to shoot not firing your gun
+- Shiv: Killing Blow Rage per spirit damage increased from 0.013 to 0.014
+- Shiv: Killing Blow cast range increased from 14m to 15m
+
+- Vindicta: Crow Familiar changed from 0.2s cast delay to 0.2s post cast time
+- Vindicta: Crow Familiar now also reduces spirit resistance by 6%
+- Vindicta: Crow Familiar T3 changed from "+3% Bleed and -40% Anti Heal" to -12% Spirit and Bullet Resistance
+- Vindicta: Stake radius increased from 8m to 9m
+- Vindicta: Stake now sucks enemies 3m towards the center (and limits movement to 6m from center)
+- Vindicta: Stake T1 changed from +0.5s to -40% Fire Rate
+- Vindicta: Stake T3 changed from Disarm to +0.75s
+- Vindicta: Assassinate min charge up increased from 25% to 50%
+- Vindicta: Assassinate bonus damage on low hp base damage reduced from 135 to 120
+- Vindicta: Fixed Assassinate being stuck if you zoom in and get silenced
+
+- Viscous: Puddle Punch can now be parried (does not stun Viscous, only blocks the puddle effect for the parrying player)
+
+- Warden: Fire Rate spirit scaling reduced from 0.3 to 0.25
+- Warden: Alchemical Flask now respects LOS
+- Warden: Last Stand cooldown increased from 138s to 140s
+- Warden: Last Stand resistance during channel increased from 50% to 60%
+
+- Wraith: Full Auto T2 no longer has spirit scaling (moved to T3)
+- Wraith: Full Auto T3 now also adds spirit scaling
+- Wraith: Telekinesis now causes the target to oscillate up and down a little bit
+
+- Yamato: Improved cases where Power Slash would hit enemies behind cover
+- Yamato: Shadow Transformation no longer heals on cast
+- Yamato: Shadow Transformation T3 increased from +2s to +3s
+- Yamato: Shadow Transformation now heals for 15% of your max hp on hero kill
