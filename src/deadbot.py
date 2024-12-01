@@ -71,7 +71,7 @@ def main():
 def act_versioning(args):
     if args.manifest_id == 'latest':
         # Retrieve latest manifest-id
-        manifest_id = steamcmd.SteamCMD(args.steam_cmd, constants.APP_ID).run()
+        manifest_id = steamcmd.SteamCMD(args.steam_cmd, args.steam_username, args.steam_password).run()
         print(f'Found the latest manifest id: {manifest_id}')
     else:
         manifest_id = args.manifest_id

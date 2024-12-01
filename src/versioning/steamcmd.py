@@ -1,4 +1,5 @@
 import subprocess
+from constants import APP_ID, DEPOT_ID
 
 
 class SteamCMD:
@@ -8,25 +9,30 @@ class SteamCMD:
     This class is used to retrieve the most recent manifest-id for Deadlock
     """
 
-    def __init__(self, steam_cmd_path, app_id):
+    def __init__(self, steam_cmd_path, steam_username, steam_password):
         self.STEAM_CMD_PATH = steam_cmd_path
-        self.APP_ID = app_id
-        self.DEPOT_ID = 1422456
+        self.APP_ID = APP_ID
+        self.DEPOT_ID = DEPOT_ID
+        self.steam_username = steam_username
+        self.steam_password = steam_password
 
     def run(self):
-        # Run steamcmd, save terminal output
-        output = subprocess.run(
-            [
-                self.STEAM_CMD_PATH,
-                '+login anonymous',
-                '+app_info_update 0',
-                f'+app_info_print {self.APP_ID}',
-                '+logout',
-                '+quit',
-            ],
-            stdout=subprocess.PIPE,
-        )
-        output_str = output.stdout.decode('utf-8')
+        try:
+            # Run steamcmd, save terminal output
+            output = subprocess.run(
+                [
+                    self.STEAM_CMD_PATH,
+                    f'+login {self.steam_username} {self.steam_password}',
+                    '+app_info_update 0',
+                    f'+app_info_print {self.APP_ID}',
+                    '+logout',
+                    '+quit',
+                ],
+                stdout=subprocess.PIPE,
+            )
+            output_str = output.stdout.decode('utf-8')
+        except Exception as e:
+            raise Exception(f'Failed running SteamCMD, output was {output.stdout.decode("utf-8")}', e)
 
         # Search the vdata string repeatedly for these keywords, similar to navigating a JSON object
         keywords = [
