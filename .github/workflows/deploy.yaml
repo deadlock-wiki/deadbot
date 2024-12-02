@@ -3,7 +3,6 @@ on:
   push:
     paths:
       - 'src/**'
-      - 'input-data/**'
       - '.github/workflows/deploy.yaml'
 
   pull_request:
@@ -63,6 +62,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           path: deadbot
+          token:  ${{ secrets.GH_TOKEN }}     
 
       - name: Checkout deadlock-data repo
         uses: actions/checkout@v4
@@ -71,7 +71,7 @@ jobs:
           path: deadlock-data
           token:  ${{ secrets.GH_TOKEN }}     
 
-      - name: Configure Git
+      - name: Configure Git for data repo
         working-directory: deadlock-data 
         run: |
           git config --global user.email "deadbot1101@gmail.com"
@@ -104,25 +104,36 @@ jobs:
           BOT_WIKI_USER: ${{ secrets.BOT_WIKI_USER }}
           BOT_WIKI_PASS: ${{ secrets.BOT_WIKI_PASS }}
 
-      - name: Pull branch
+      - name: Configure Git for deadbot repo
+        working-directory: deadbot 
+        run: |
+          git config --global user.email "deadbot1101@gmail.com"
+          git config --global user.name "Deadbot0"
+          git config pull.rebase true     
+          
+      - name: Commit and push input-data changes to deadbot
+        working-directory: deadbot
+        run: |
+          git add input-data
+          git commit -m "chore: updated input data" || echo "No changes to commit"
+          git push --force-with-lease origin ${{ needs.get-branch.outputs.branch }}
+
+      - name: Pull data branch
         working-directory: deadlock-data 
         run: git pull origin ${{ needs.get-branch.outputs.branch }} -X ours     
 
       - name: Copy files to data repo
         run: |
-          rm -rf ./deadlock-data/game-data
-          mkdir ./deadlock-data/game-data
+          rm -rf ./deadlock-data/data
+          mkdir ./deadlock-data/data
           
-          # add all data to game data except for changelogs folder
-          cp -r ./deadbot/output-data/. ./deadlock-data/game-data
-          rm -rf ./deadlock-data/game-data/changelogs
-
-          cp -r ./deadbot/output-data/changelogs/. ./deadlock-data/changelogs
-          
-      - name: Commit and push changes
+          cp -r ./deadbot/output-data/. ./deadlock-data/data
+      
+      - name: Commit and push changes to data repo
         working-directory: deadlock-data 
         run: |
           git add -A
           git commit -m "Re-parsed game files" || echo "No changes to commit"
           git push --force-with-lease origin ${{ needs.get-branch.outputs.branch }}
+
           
