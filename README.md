@@ -22,7 +22,7 @@ Some data has been processed and formatted for google sheets:\
 6. Download Decompiler.exe for your particular OS from https://github.com/ValveResourceFormat/ValveResourceFormat/releases 
     - Extract decompiler into a folder and update `.env`
 7. Download DepotDownloader for your particular OS from https://github.com/SteamRE/DepotDownloader/releases
-    1. Extract DepotDownloader-(your-os)-x64 into a folder and update `.env`to include the path to it
+    - Extract DepotDownloader into a folder and update `.env` to include the path to it
 8. Add the paths to Deadlock files, Decompiler.exe, and various other options in `.env` using `.env.example` as an example
     - **[OPTIONAL]** Clone [deadlock-data](https://github.com/deadlock-wiki/deadlock-data) repo and set `$OUTPUT_DIR` to `deadlock-data/data/current` directory to allow for easier diff viewing
 
