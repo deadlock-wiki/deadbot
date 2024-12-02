@@ -3,14 +3,25 @@ import os
 
 
 def read(path):
-    """Read data from a JSON file to memory"""
+    """
+    Read data from a JSON file to memory.
+    Args:
+        path (str): The path to the JSON file.
+    Returns:
+        dict: The data from the JSON file.
+    """
     # Explicitly specify encoding='utf-8' to handle non-ASCII characters correctly
     with open(path, 'r', encoding='utf-8') as f:
         return json.load(f)
 
 
 def write(path, data):
-    """Write data to a JSON file"""
+    """
+    Write data to a JSON file.
+    Args:
+        path (str): The path to the JSON file.
+        data (dict): The data to write to the JSON file.
+    """
     # Ensure directory exists
     os.makedirs(os.path.dirname(path), exist_ok=True)
     # Use encoding='utf-8' to prevent Unicode characters from being escaped
