@@ -201,11 +201,13 @@ class HeroParser:
         }
 
         if 'm_bSpinsUp' in w and w['m_bSpinsUp'] == 1:
-            weapon_stats.update({
-                'RoundsPerSecondAtMaxSpin': 1 / w['m_flMaxSpinCycleTime'],
-                'SpinAcceleration': w['m_flSpinIncreaseRate'],
-                'SpinDeceleration': w['m_flSpinDecayRate'],
-            })
+            weapon_stats.update(
+                {
+                    'RoundsPerSecondAtMaxSpin': 1 / w['m_flMaxSpinCycleTime'],
+                    'SpinAcceleration': w['m_flSpinIncreaseRate'],
+                    'SpinDeceleration': w['m_flSpinDecayRate'],
+                }
+            )
 
         dps_stats = self._get_dps_stats(weapon_stats)
 
@@ -234,7 +236,9 @@ class HeroParser:
             'ReloadDelay': weapon_stats['ReloadDelay'],
             'ReloadTime': weapon_stats['ReloadTime'],
             'ClipSize': weapon_stats['ClipSize'],
-            'RoundsPerSecond': weapon_stats['RoundsPerSecondAtMaxSpin'] if 'SpinAcceleration' in weapon_stats else weapon_stats['RoundsPerSecond'],
+            'RoundsPerSecond': weapon_stats['RoundsPerSecondAtMaxSpin']
+            if 'SpinAcceleration' in weapon_stats
+            else weapon_stats['RoundsPerSecond'],
             'BurstInterShotInterval': weapon_stats['BurstInterShotInterval'],
             'BulletDamage': weapon_stats['BulletDamage'],
             'BulletsPerShot': weapon_stats['BulletsPerShot'],
