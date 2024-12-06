@@ -8,18 +8,21 @@ def process_files(input_folder, output_folder):
         if filename.endswith('.txt'):
             file_path = os.path.join(input_folder, filename)
 
-            with open(file_path, 'r', encoding='utf-8') as f:
-                lines = f.readlines()
-                out = dict()
-                for line in lines:
-                    if line.count('"') >= 4:
-                        left = line.split('"')[1]
+            with open(file_path, 'r', encoding='utf-8') as file:
+                # remove new line chars after <br> and </li> to keep keys and values on same line
+                text = file.read().replace('<br>\n', '').replace('</li>\n', '')
 
-                        # Handle cases where there are escaped quotations in the string
-                        right = ''.join(line.split('"')[3:]).strip()
-                        right = right.replace('\\', '"')
+            lines = text.split('\n')
+            out = dict()
+            for line in lines:
+                if line.count('"') >= 4:
+                    left = line.split('"')[1]
 
-                        out[left] = right
-                output_file_json = os.path.join(output_folder, filename.replace('.txt', '.json'))
-                with open(output_file_json, 'w', encoding='utf-8') as f:
-                    json.dump(out, f, ensure_ascii=False, indent=4)
+                    # Handle cases where there are escaped quotations in the string
+                    right = ''.join(line.split('"')[3:]).strip()
+                    right = right.replace('\\', '"')
+
+                    out[left] = right
+            output_file_json = os.path.join(output_folder, filename.replace('.txt', '.json'))
+            with open(output_file_json, 'w', encoding='utf-8') as f:
+                json.dump(out, f, ensure_ascii=False, indent=4)
