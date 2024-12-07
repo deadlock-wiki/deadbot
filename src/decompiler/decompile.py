@@ -3,6 +3,7 @@ import decompiler.kv3_to_json as kv3_to_json
 import decompiler.localization as localization
 import filecmp
 import utils.game_utils as g_util
+from loguru import logger
 
 
 def decompile(DEADLOCK_PATH, WORK_DIR, DECOMPILER_CMD, force=False):
@@ -27,10 +28,11 @@ def decompile(DEADLOCK_PATH, WORK_DIR, DECOMPILER_CMD, force=False):
     # if the version files match, nothing to do
     if os.path.exists(version_path) and filecmp.cmp(steam_inf_path, version_path):
         game_version = g_util.load_game_info(steam_inf_path)
-        print(
-            f'Version {game_version["ClientVersion"]} is already decompiled, skipping decompile step'
-        )
         if not force:
+            logger.info(
+                f'Version {game_version["ClientVersion"]} is '
+                + 'already decompiled, skipping decompile step'
+            )
             return
 
     os.system(f'cp "{steam_inf_path}" "{version_path}"')
@@ -52,6 +54,9 @@ def decompile(DEADLOCK_PATH, WORK_DIR, DECOMPILER_CMD, force=False):
             + f' -i "{input_path}" --output "{WORK_DIR}/vdata" --vpk_filepath "{VPK_FILEPATH}" -d'
         )
         os.system(dec_cmd)
+        # Ensure the vdata directory was created successfully
+        if not os.path.exists(f'{WORK_DIR}/vdata'):
+            raise Exception(f'Fatal error: Failed to decompile {input_path} with {VPK_FILEPATH}')
         # Remove subclass and convert to json
         kv3_to_json.process_file(f'{WORK_DIR}/vdata/{file}.vdata', f'{WORK_DIR}/{file}.json')
 
