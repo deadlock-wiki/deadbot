@@ -264,7 +264,11 @@ class ChangelogFetcher:
 
             changelog_id = self._create_changelog_id(date, full_text)
             self.changelogs[changelog_id] = full_text
-            self.changelog_configs[changelog_id] = {'forum_id': version, 'date': date, 'link': entry.link}
+            self.changelog_configs[changelog_id] = {
+                'forum_id': version,
+                'date': date,
+                'link': entry.link,
+            }
 
         if skip_num > 0:
             print(f'Skipped {skip_num}/{len(feed.entries)} RSS items that already exists')
@@ -300,22 +304,26 @@ class ChangelogFetcher:
             # If content already exists, we don't want to alter the changelog_id
             if changelog == self.changelogs[date]:
                 return changelog_id
-            
+
             # If both have very few lines, don't bother comparing further
             if not (len(changelog.split('\n')) < 5 and len(self.changelogs[date].split('\n')) < 5):
                 # Determine what % of lines from one are in the other
                 changelog_lines = changelog.split('\n')
                 existing_lines = self.changelogs[date].split('\n')
-                diff_percent = 1 - len(set(changelog_lines).intersection(existing_lines)) / len(existing_lines)
+                diff_percent = 1 - len(set(changelog_lines).intersection(existing_lines)) / len(
+                    existing_lines
+                )
                 print(date, diff_percent)
                 if diff_percent < 0.3:
-                    print(f'[WARN] Fetched changelog from date {date} was found to be very similar to an '
-                        + f'existing changelog ({round(1-diff_percent,3)*100}% match) and has been updated in input-data. Ensure it is just a '
-                        + 'minor edit, and not a completely different changelog.')
+                    print(
+                        f'[WARN] Fetched changelog from date {date} was found to be very similar to '
+                        + f'an existing changelog ({round(1-diff_percent,3)*100}% match) and has '
+                        + 'been updated in input-data. Ensure it is just a '
+                        + 'minor edit, and not a completely different changelog.'
+                    )
                     return changelog_id
             # Otherwise 90% of chars differ or theres too few lines to compare
             # Create a new changelog id
-
 
             # Content differs, so we need to use a series of changelog-id's
             # Remove the record under the base changelog_id and re-add it under <changelog_id>-1
@@ -331,7 +339,7 @@ class ChangelogFetcher:
                 return f'{date}-{i}'
             i += 1
         changelog_id = f'{date}-{i}'
-        
+
         return changelog_id
 
 
