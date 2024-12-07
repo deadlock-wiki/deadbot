@@ -162,7 +162,7 @@ class Parser:
                 + f'\nAdded keys: {new_keys - current_keys}'
                 + f'\nRemoved keys: {current_keys - new_keys}'
             )
-        
+
         json_utils.write(
             self.OUTPUT_DIR + '/json/hero-meaningful-stats.json',
             json_utils.sort_dict(parsed_meaningful_stats),

@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import os
 import sys
-import mwclient
 from loguru import logger
 
 from dotenv import load_dotenv
