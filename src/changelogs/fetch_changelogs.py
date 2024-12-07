@@ -301,30 +301,37 @@ class ChangelogFetcher:
             if changelog == self.changelogs[date]:
                 return changelog_id
             
-            # Determine what % of lines from one are in the other
-            changelog_lines = changelog.split('\n')
-            existing_lines = self.changelogs[date].split('\n')
-            diff_percent = len(set(changelog_lines).intersection(existing_lines)) / len(existing_lines)
-            print(date, diff_percent)
-            if diff_percent < 0.2:
-                print(f'[WARN] Fetched changelog from date {date} was found to be very similar to an '
-                      + f'existing changelog ({round(1-diff_percent,3)*100}% match) and has been updated in input-data. Ensure it is just a '
-                      + 'minor edit, and not a completely different changelog.')
-                return changelog_id
-            # Otherwise 90% of chars differ
+            # If both have very few lines, don't bother comparing further
+            if not (len(changelog.split('\n')) < 5 and len(self.changelogs[date].split('\n')) < 5):
+                # Determine what % of lines from one are in the other
+                changelog_lines = changelog.split('\n')
+                existing_lines = self.changelogs[date].split('\n')
+                diff_percent = 1 - len(set(changelog_lines).intersection(existing_lines)) / len(existing_lines)
+                print(date, diff_percent)
+                if diff_percent < 0.3:
+                    print(f'[WARN] Fetched changelog from date {date} was found to be very similar to an '
+                        + f'existing changelog ({round(1-diff_percent,3)*100}% match) and has been updated in input-data. Ensure it is just a '
+                        + 'minor edit, and not a completely different changelog.')
+                    return changelog_id
+            # Otherwise 90% of chars differ or theres too few lines to compare
+            # Create a new changelog id
 
 
             # Content differs, so we need to use a series of changelog-id's
             # Remove the record under the base changelog_id and re-add it under <changelog_id>-1
             base_changelog = self.changelogs.pop(date)
-            self.changelogs[f'{date}-1'] = base_changelog
+            if f'{date}-1' not in self.changelogs:
+                self.changelogs[f'{date}-1'] = base_changelog
 
-            # Find the next available changelog_id
-            i = 2
-            while f'{date}-{i}' in self.changelogs:
-                i += 1
-            changelog_id = f'{date}-{i}'
-
+        # Find the next available changelog_id
+        i = 1
+        while f'{date}-{i}' in self.changelogs:
+            # if the changelog already exists at any <i>, return the id such that it doesn't change
+            if changelog == self.changelogs[f'{date}-{i}']:
+                return f'{date}-{i}'
+            i += 1
+        changelog_id = f'{date}-{i}'
+        
         return changelog_id
 
 
