@@ -110,7 +110,7 @@ class Parser:
                         pass  # keep the old localized string
                     else:
                         # If both values are english or neither are english, raise an exception
-                        raise Exception(
+                        logger.trace(
                             f'Key {key} with value {value} already exists'
                             + f'in {language} localization '
                             + f'data with value {current_value}.'
@@ -149,16 +149,20 @@ class Parser:
         ).run()
 
         # Ensure it matches the current list of meaningful stats, and raise a warning if not
-        # File diff will also appear in git
-        if not json_utils.compare_json_file_to_dict(
-            self.OUTPUT_DIR + '/json/hero-meaningful-stats.json', parsed_meaningful_stats
-        ):
+        current_meaningful_stats = json_utils.read(
+            self.OUTPUT_DIR + '/json/hero-meaningful-stats.json'
+        )
+        if current_meaningful_stats != parsed_meaningful_stats:
+            current_keys = set(current_meaningful_stats.keys())
+            new_keys = set(parsed_meaningful_stats.keys())
             logger.warning(
-                '[WARN]: Non-constant stats have changed. '
+                'Non-constant stats have changed. '
                 + "Please update [[Module:HeroData]]'s write_hero_comparison_table "
                 + 'lua function for the [[Hero Comparison]] page.'
+                + f'\nAdded keys: {new_keys - current_keys}'
+                + f'\nRemoved keys: {current_keys - new_keys}'
             )
-
+        
         json_utils.write(
             self.OUTPUT_DIR + '/json/hero-meaningful-stats.json',
             json_utils.sort_dict(parsed_meaningful_stats),
