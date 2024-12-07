@@ -143,8 +143,8 @@ class ChangelogFetcher:
             date = format_date(date)
 
             # Create the raw changelog id (used as filename in raw folder)
-            # i.e. HeroLab_2024_10_29
-            raw_changelog_id = self._create_changelog_id(f'{date.replace("/", "_")}_HeroLab')
+            # i.e. 2024_10_29_HeroLab
+            raw_changelog_id = f'{date.replace("/", "_")}_HeroLab'
 
             # Parse hero name to create a header for the changelog entry
             # Citadel_PatchNotes_HeroLabs_hero_astro_1 ->
@@ -262,7 +262,7 @@ class ChangelogFetcher:
             except Exception:
                 print(f'Issue with parsing RSS feed item {entry.link}')
 
-            changelog_id = self._create_changelog_id(date)
+            changelog_id = self._create_changelog_id(date, full_text)
             self.changelogs[changelog_id] = full_text
             self.changelog_configs[changelog_id] = {'forum_id': version, 'date': date, 'link': entry.link}
 
@@ -286,10 +286,10 @@ class ChangelogFetcher:
             except Exception:
                 print(f'Issue with {file}, skipping')
 
-    def _create_changelog_id(self, date):
+    def _create_changelog_id(self, date, changelog):
         """
         Creating a custom id based on the date by appending _<i> if the date already exists, i.e.
-        2024_10_29
+        2024_10_29-1
         2024_10_29-2
         2024_10_29-3
         """
@@ -297,6 +297,29 @@ class ChangelogFetcher:
         # Determine changelog_id
         changelog_id = date
         if date in self.changelogs:
+            # If content already exists, we don't want to alter the changelog_id
+            if changelog == self.changelogs[date]:
+                return changelog_id
+            
+            # Determine what % of lines from one are in the other
+            changelog_lines = changelog.split('\n')
+            existing_lines = self.changelogs[date].split('\n')
+            diff_percent = len(set(changelog_lines).intersection(existing_lines)) / len(existing_lines)
+            print(date, diff_percent)
+            if diff_percent < 0.2:
+                print(f'[WARN] Fetched changelog from date {date} was found to be very similar to an '
+                      + f'existing changelog ({round(1-diff_percent,3)*100}% match) and has been updated in input-data. Ensure it is just a '
+                      + 'minor edit, and not a completely different changelog.')
+                return changelog_id
+            # Otherwise 90% of chars differ
+
+
+            # Content differs, so we need to use a series of changelog-id's
+            # Remove the record under the base changelog_id and re-add it under <changelog_id>-1
+            base_changelog = self.changelogs.pop(date)
+            self.changelogs[f'{date}-1'] = base_changelog
+
+            # Find the next available changelog_id
             i = 2
             while f'{date}-{i}' in self.changelogs:
                 i += 1
