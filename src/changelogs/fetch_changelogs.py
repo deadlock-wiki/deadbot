@@ -51,12 +51,12 @@ class ChangelogFetcher:
         existing_changelogs = json_utils.read(path)
         self.changelog_configs = existing_changelogs
 
-        # load 'changelogs/raw/<version>.txt' files
+        # load 'changelogs/raw/<changelog_id>.txt' files
         all_files = os.listdir(f'{self.INPUT_DIR}/changelogs/raw')
         for file in all_files:
             raw_changelog = file_utils.read(f'{self.INPUT_DIR}/changelogs/raw/{file}')
-            version = file.replace('.txt', '')
-            self.changelogs[version] = raw_changelog
+            changelog_id = file.replace('.txt', '')
+            self.changelogs[changelog_id] = raw_changelog
 
     def run(self):
         self.load_localization()
@@ -92,11 +92,11 @@ class ChangelogFetcher:
         raw_output_dir = os.path.join(self.OUTPUT_DIR, 'changelogs/raw')
         raw_input_dir = os.path.join(self.INPUT_DIR, 'changelogs/raw')
 
-        for version, changelog in self.changelogs.items():
+        for changelog_id, changelog in self.changelogs.items():
             os.makedirs(raw_output_dir, exist_ok=True)
 
-            file_utils.write(f'{raw_output_dir}/{version}.txt', changelog)
-            file_utils.write(f'{raw_input_dir}/{version}.txt', changelog)
+            file_utils.write(f'{raw_output_dir}/{changelog_id}.txt', changelog)
+            file_utils.write(f'{raw_input_dir}/{changelog_id}.txt', changelog)
 
         json_utils.write(
             f'{self.OUTPUT_DIR}/changelogs/changelog_configs.json', self.changelog_configs
@@ -143,8 +143,8 @@ class ChangelogFetcher:
             date = format_date(date)
 
             # Create the raw changelog id (used as filename in raw folder)
-            # i.e. herolab_2024_10_29.json
-            raw_changelog_id = f'herolab_{date.replace("/", "_")}'
+            # i.e. HeroLab_2024_10_29
+            raw_changelog_id = self._create_changelog_id(f'{date.replace("/", "_")}_HeroLab')
 
             # Parse hero name to create a header for the changelog entry
             # Citadel_PatchNotes_HeroLabs_hero_astro_1 ->
@@ -262,8 +262,9 @@ class ChangelogFetcher:
             except Exception:
                 print(f'Issue with parsing RSS feed item {entry.link}')
 
-            self.changelogs[version] = full_text
-            self.changelog_configs[version] = {'forum_id': version, 'date': date, 'link': entry.link}
+            changelog_id = self._create_changelog_id(date)
+            self.changelogs[changelog_id] = full_text
+            self.changelog_configs[changelog_id] = {'forum_id': version, 'date': date, 'link': entry.link}
 
         if skip_num > 0:
             print(f'Skipped {skip_num}/{len(feed.entries)} RSS items that already exists')
@@ -284,6 +285,24 @@ class ChangelogFetcher:
                     self.changelogs[version] = changelogs
             except Exception:
                 print(f'Issue with {file}, skipping')
+
+    def _create_changelog_id(self, date):
+        """
+        Creating a custom id based on the date by appending _<i> if the date already exists, i.e.
+        2024_10_29
+        2024_10_29-2
+        2024_10_29-3
+        """
+
+        # Determine changelog_id
+        changelog_id = date
+        if date in self.changelogs:
+            i = 2
+            while f'{date}-{i}' in self.changelogs:
+                i += 1
+            changelog_id = f'{date}-{i}'
+
+        return changelog_id
 
 
 def format_date(date):
