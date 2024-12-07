@@ -1,6 +1,15 @@
 import os
 import shutil
-from .parsers import abilities, ability_cards, items, heroes, localizations, attributes, souls, generics
+from .parsers import (
+    abilities,
+    ability_cards,
+    items,
+    heroes,
+    localizations,
+    attributes,
+    souls,
+    generics,
+)
 from utils import json_utils
 import copy
 
