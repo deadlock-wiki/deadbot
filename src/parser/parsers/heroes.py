@@ -25,11 +25,9 @@ class HeroParser:
                     'InDevelopment': hero_value['m_bInDevelopment'],
                     'IsDisabled': hero_value['m_bDisabled'],
                     'IsRecommended': hero_value.get('m_bNewPlayerRecommended', False),
+                    'InHeroLabs': hero_value.get('m_bAvailableInHeroLabs', False),
+                    'IsSelectable': hero_value.get('m_bPlayerSelectable', True),
                 }
-
-                # Key is missing from released heroes
-                # Frontend will need to use if "m_bAvailableInHeroLabs or not m_bInDevelopment"
-                hero_stats['InHeroLabs'] = hero_value.get('m_bAvailableInHeroLabs', False)
 
                 hero_stats.update(
                     self._map_attr_names(hero_value['m_mapStartingStats'], maps.get_hero_attr)
@@ -198,7 +196,7 @@ class HeroParser:
             'BulletsPerShot': w['m_iBullets'],
             'BulletsPerBurst': w.get('m_iBurstShotCount', 1),
             'BurstInterShotInterval': w.get('m_flIntraBurstCycleTime', 0),
-            'ShootMoveSpeed': w.get('m_flShootMoveSpeedPercent',1.0),
+            'ShootMoveSpeed': w.get('m_flShootMoveSpeedPercent', 1.0),
             #'BulletRadius': w['m_flBulletRadius'] / ENGINE_UNITS_PER_METER,
         }
 

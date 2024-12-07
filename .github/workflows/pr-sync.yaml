@@ -6,8 +6,10 @@ on:
 
 jobs:
   update-pr:
-    name: Update PR with target branch
+    name: Update deadlock-data branch with base branch
     runs-on: ubuntu-latest
+      # prevent develop and master being changed by this script
+    if: ${{ github.head_ref != 'develop' && github.head_ref != 'master' }}
     steps:
       - name: Checkout deadlock-data repo
         uses: actions/checkout@v4
