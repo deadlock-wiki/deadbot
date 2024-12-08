@@ -186,6 +186,7 @@ class ChangelogFetcher:
                         'forum_id': None,
                         'date': date,
                         'link': None,
+                        'is_hero_lab': True,
                     }
         self.changelogs.update(gamefile_changelogs)
 
@@ -268,6 +269,7 @@ class ChangelogFetcher:
                 'forum_id': version,
                 'date': date,
                 'link': entry.link,
+                'is_hero_lab': False,
             }
 
         if skip_num > 0:
