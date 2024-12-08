@@ -325,7 +325,6 @@ class ChangelogFetcher:
                     )
                     return changelog_id
             # Otherwise 90% of chars differ or theres too few lines to compare
-            # Create a new changelog id
 
             # Content differs, so we need to use a series of changelog-id's
             # Remove the record under the base changelog_id and re-add it under <changelog_id>-1
@@ -333,7 +332,7 @@ class ChangelogFetcher:
             if f'{date}-1' not in self.changelogs:
                 self.changelogs[f'{date}-1'] = base_changelog
 
-        # Find the next available changelog_id
+        # Find the next available changelog_id in the series
         i = 1
         while f'{date}-{i}' in self.changelogs and changelog != self.changelogs[f'{date}-{i}']:
             i += 1
