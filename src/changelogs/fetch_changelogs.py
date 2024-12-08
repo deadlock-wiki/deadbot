@@ -335,14 +335,10 @@ class ChangelogFetcher:
 
         # Find the next available changelog_id
         i = 1
-        while f'{date}-{i}' in self.changelogs:
-            # if the changelog already exists at any <i>, return the id such that it doesn't change
-            if changelog == self.changelogs[f'{date}-{i}']:
-                return f'{date}-{i}'
+        while f'{date}-{i}' in self.changelogs and changelog != self.changelogs[f'{date}-{i}']:
             i += 1
-        changelog_id = f'{date}-{i}'
 
-        return changelog_id
+        return f'{date}-{i}'
 
 
 def format_date(date):
