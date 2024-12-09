@@ -66,7 +66,11 @@ class AbilityParser:
         for index, upgrade_set in enumerate(upgrade_sets):
             parsed_upgrade_set = {}
 
-            for upgrade in upgrade_set['m_vecPropertyUpgrades']:
+            upgrades = upgrade_set.get('m_vecPropertyUpgrades')
+            if upgrades is None:
+                continue
+
+            for upgrade in upgrades:
                 prop = None
                 value = None
                 upgrade_type = None

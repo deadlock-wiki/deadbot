@@ -155,6 +155,7 @@ KEYBIND_MAP = {
     'in_ability2': '2',
     'in_ability3': '3',
     'in_ability4': '4',
+    'in_move_down': 'Down',
 }
 
 LOCALIZATION_OVERRIDE_MAP = {
