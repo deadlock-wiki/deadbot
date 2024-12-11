@@ -7,6 +7,7 @@ from urllib import request
 from utils import file_utils, json_utils
 from typing import TypedDict
 from .constants import CHANGELOG_RSS_URL
+import shutil
 
 
 class ChangelogConfig(TypedDict):
@@ -51,12 +52,12 @@ class ChangelogFetcher:
         existing_changelogs = json_utils.read(path)
         self.changelog_configs = existing_changelogs
 
-        # load 'changelogs/raw/<version>.txt' files
+        # load 'changelogs/raw/<changelog_id>.txt' files
         all_files = os.listdir(f'{self.INPUT_DIR}/changelogs/raw')
         for file in all_files:
             raw_changelog = file_utils.read(f'{self.INPUT_DIR}/changelogs/raw/{file}')
-            version = file.replace('.txt', '')
-            self.changelogs[version] = raw_changelog
+            changelog_id = file.replace('.txt', '')
+            self.changelogs[changelog_id] = raw_changelog
 
     def run(self):
         self.load_localization()
@@ -92,11 +93,11 @@ class ChangelogFetcher:
         raw_output_dir = os.path.join(self.OUTPUT_DIR, 'changelogs/raw')
         raw_input_dir = os.path.join(self.INPUT_DIR, 'changelogs/raw')
 
-        for version, changelog in self.changelogs.items():
+        for changelog_id, changelog in self.changelogs.items():
             os.makedirs(raw_output_dir, exist_ok=True)
 
-            file_utils.write(f'{raw_output_dir}/{version}.txt', changelog)
-            file_utils.write(f'{raw_input_dir}/{version}.txt', changelog)
+            file_utils.write(f'{raw_output_dir}/{changelog_id}.txt', changelog)
+            file_utils.write(f'{raw_input_dir}/{changelog_id}.txt', changelog)
 
         json_utils.write(
             f'{self.OUTPUT_DIR}/changelogs/changelog_configs.json', self.changelog_configs
@@ -139,12 +140,12 @@ class ChangelogFetcher:
             # Remove date from remaining string
             remaining_str = string.replace(f'<b>{date}</b>\t\t\t', '')
 
-            # Reformat mm/dd/yyyy to yyyy_mm_dd
+            # Reformat mm/dd/yyyy to yyyy-mm-dd
             date = format_date(date)
 
             # Create the raw changelog id (used as filename in raw folder)
-            # i.e. herolab_2024_10_29.json
-            raw_changelog_id = f'herolab_{date.replace("/", "_")}'
+            # i.e. 2024-10-29_HeroLab
+            raw_changelog_id = f'{date.replace("/", "-")}_HeroLab'
 
             # Parse hero name to create a header for the changelog entry
             # Citadel_PatchNotes_HeroLabs_hero_astro_1 ->
@@ -165,7 +166,7 @@ class ChangelogFetcher:
             if len(remaining_str) == len(string):
                 print(
                     '[WARN] Date format may not have been able to be parsed '
-                    + 'correctly to (yyyy_mm_dd), parsed date is '
+                    + 'correctly to (yyyy-mm-dd), parsed date is '
                     + date
                 )
 
@@ -186,6 +187,7 @@ class ChangelogFetcher:
                         'forum_id': None,
                         'date': date,
                         'link': None,
+                        'is_hero_lab': True,
                     }
         self.changelogs.update(gamefile_changelogs)
 
@@ -262,8 +264,14 @@ class ChangelogFetcher:
             except Exception:
                 print(f'Issue with parsing RSS feed item {entry.link}')
 
-            self.changelogs[version] = full_text
-            self.changelog_configs[version] = {'forum_id': version, 'date': date, 'link': entry.link}
+            changelog_id = self._create_changelog_id(date, full_text)
+            self.changelogs[changelog_id] = full_text
+            self.changelog_configs[changelog_id] = {
+                'forum_id': version,
+                'date': date,
+                'link': entry.link,
+                'is_hero_lab': False,
+            }
 
         if skip_num > 0:
             print(f'Skipped {skip_num}/{len(feed.entries)} RSS items that already exists')
@@ -285,10 +293,57 @@ class ChangelogFetcher:
             except Exception:
                 print(f'Issue with {file}, skipping')
 
+    def _create_changelog_id(self, date, changelog):
+        """
+        Creating a custom id based on the date by appending _<i> if the date already exists, i.e.
+        2024-10-29-1
+        2024-10-29-2
+        2024-10-29-3
+        """
+
+        # Determine changelog_id
+        changelog_id = date
+        if date in self.changelogs:
+            # If content already exists, we don't want to alter the changelog_id
+            if changelog == self.changelogs[date]:
+                return changelog_id
+
+            # If both have very few lines, don't bother comparing further
+            if not (len(changelog.split('\n')) < 5 and len(self.changelogs[date].split('\n')) < 5):
+                # Determine what % of lines from one are in the other
+                changelog_lines = changelog.split('\n')
+                existing_lines = self.changelogs[date].split('\n')
+                diff_percent = 1 - len(set(changelog_lines).intersection(existing_lines)) / len(
+                    existing_lines
+                )
+                print(date, diff_percent)
+                if diff_percent < 0.3:
+                    print(
+                        f'[WARN] Fetched changelog from date {date} was found to be very similar to '
+                        + f'an existing changelog ({round(1-diff_percent,3)*100}% match) and has '
+                        + 'been updated in input-data. Ensure it is just a '
+                        + 'minor edit, and not a completely different changelog.'
+                    )
+                    return changelog_id
+            # Otherwise 90% of chars differ or theres too few lines to compare
+
+            # Content differs, so we need to use a series of changelog-id's
+            # Remove the record under the base changelog_id and re-add it under <changelog_id>-1
+            base_changelog = self.changelogs.pop(date)
+            if f'{date}-1' not in self.changelogs:
+                self.changelogs[f'{date}-1'] = base_changelog
+
+        # Find the next available changelog_id in the series
+        i = 1
+        while f'{date}-{i}' in self.changelogs and changelog != self.changelogs[f'{date}-{i}']:
+            i += 1
+
+        return f'{date}-{i}'
+
 
 def format_date(date):
     """
-    Reformat mm/dd/yyyy or mm-dd-yyyy to yyyy_mm_dd
+    Reformat mm/dd/yyyy or mm-dd-yyyy to yyyy-mm-dd
     Also convert days and months to 2 digits
     """
     # Split date by / or -
@@ -304,6 +359,6 @@ def format_date(date):
         if len(date[i]) == 1:
             date[i] = '0' + date[i]
 
-    # Reformat to yyyy_mm_dd
-    date = f'{date[2]}_{date[0]}_{date[1]}'
+    # Reformat to yyyy-mm-dd
+    date = f'{date[2]}-{date[0]}-{date[1]}'
     return date
