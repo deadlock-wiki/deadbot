@@ -7,6 +7,7 @@ from urllib import request
 from utils import file_utils, json_utils
 from typing import TypedDict
 from .constants import CHANGELOG_RSS_URL
+import shutil
 
 
 class ChangelogConfig(TypedDict):
@@ -139,12 +140,12 @@ class ChangelogFetcher:
             # Remove date from remaining string
             remaining_str = string.replace(f'<b>{date}</b>\t\t\t', '')
 
-            # Reformat mm/dd/yyyy to yyyy_mm_dd
+            # Reformat mm/dd/yyyy to yyyy-mm-dd
             date = format_date(date)
 
             # Create the raw changelog id (used as filename in raw folder)
-            # i.e. 2024_10_29_HeroLab
-            raw_changelog_id = f'{date.replace("/", "_")}_HeroLab'
+            # i.e. 2024-10-29_HeroLab
+            raw_changelog_id = f'{date.replace("/", "-")}_HeroLab'
 
             # Parse hero name to create a header for the changelog entry
             # Citadel_PatchNotes_HeroLabs_hero_astro_1 ->
@@ -165,7 +166,7 @@ class ChangelogFetcher:
             if len(remaining_str) == len(string):
                 print(
                     '[WARN] Date format may not have been able to be parsed '
-                    + 'correctly to (yyyy_mm_dd), parsed date is '
+                    + 'correctly to (yyyy-mm-dd), parsed date is '
                     + date
                 )
 
@@ -295,9 +296,9 @@ class ChangelogFetcher:
     def _create_changelog_id(self, date, changelog):
         """
         Creating a custom id based on the date by appending _<i> if the date already exists, i.e.
-        2024_10_29-1
-        2024_10_29-2
-        2024_10_29-3
+        2024-10-29-1
+        2024-10-29-2
+        2024-10-29-3
         """
 
         # Determine changelog_id
@@ -342,7 +343,7 @@ class ChangelogFetcher:
 
 def format_date(date):
     """
-    Reformat mm/dd/yyyy or mm-dd-yyyy to yyyy_mm_dd
+    Reformat mm/dd/yyyy or mm-dd-yyyy to yyyy-mm-dd
     Also convert days and months to 2 digits
     """
     # Split date by / or -
@@ -358,6 +359,6 @@ def format_date(date):
         if len(date[i]) == 1:
             date[i] = '0' + date[i]
 
-    # Reformat to yyyy_mm_dd
-    date = f'{date[2]}_{date[0]}_{date[1]}'
+    # Reformat to yyyy-mm-dd
+    date = f'{date[2]}-{date[0]}-{date[1]}'
     return date
