@@ -94,7 +94,7 @@ jobs:
         working-directory: deadbot 
 
       - name: Run Deadbot
-        run: docker-compose up
+        run: docker-compose up --exit-code-from deadbot
         working-directory: deadbot
         env:
           IMPORT_FILES: true
