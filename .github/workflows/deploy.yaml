@@ -61,6 +61,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: ${{ needs.get-branch.outputs.branch }}
           path: deadbot
           token:  ${{ secrets.GH_TOKEN }}     
 

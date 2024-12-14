@@ -200,6 +200,15 @@ class HeroParser:
             #'BulletRadius': w['m_flBulletRadius'] / ENGINE_UNITS_PER_METER,
         }
 
+        if 'm_bSpinsUp' in w and w['m_bSpinsUp'] == 1:
+            weapon_stats.update(
+                {
+                    'RoundsPerSecondAtMaxSpin': 1 / w['m_flMaxSpinCycleTime'],
+                    'SpinAcceleration': w['m_flSpinIncreaseRate'],
+                    'SpinDeceleration': w['m_flSpinDecayRate'],
+                }
+            )
+
         dps_stats = self._get_dps_stats(weapon_stats)
 
         weapon_stats['DPS'] = self._calc_dps(dps_stats, 'burst')
@@ -227,7 +236,9 @@ class HeroParser:
             'ReloadDelay': weapon_stats['ReloadDelay'],
             'ReloadTime': weapon_stats['ReloadTime'],
             'ClipSize': weapon_stats['ClipSize'],
-            'RoundsPerSecond': weapon_stats['RoundsPerSecond'],
+            'RoundsPerSecond': weapon_stats['RoundsPerSecondAtMaxSpin']
+            if 'SpinAcceleration' in weapon_stats
+            else weapon_stats['RoundsPerSecond'],
             'BurstInterShotInterval': weapon_stats['BurstInterShotInterval'],
             'BulletDamage': weapon_stats['BulletDamage'],
             'BulletsPerShot': weapon_stats['BulletsPerShot'],
@@ -257,11 +268,13 @@ class HeroParser:
         cycle_time = 1 / d['RoundsPerSecond']
         total_cycle_time = cycle_time + d['BulletsPerBurst'] * d['BurstInterShotInterval']
 
+        # Burst DPS accounts for burst weapons and assumes maximum spinup (if applicable)
         if type == 'burst':
             return (
                 d['BulletDamage'] * d['BulletsPerShot'] * d['BulletsPerBurst'] / (total_cycle_time)
             )
 
+        # Sustained DPS also accounts for reloads/clipsize
         elif type == 'sustained':
             if d['ReloadSingle']:
                 # If reloading 1 bullet at a time, reload time is actually per bullet
