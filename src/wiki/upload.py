@@ -3,6 +3,7 @@ import mwclient
 import json
 from utils import json_utils, game_utils, meta_utils
 from .pages import DATA_PAGE_FILE_MAP, IGNORE_PAGES
+from loguru import logger
 
 
 class WikiUpload:
@@ -48,7 +49,7 @@ class WikiUpload:
             # If file is not found in either page map or ignore list, add a warning to resolve that
             if file_path is None:
                 if page_name not in IGNORE_PAGES:
-                    print(
+                    logger.warning(
                         f'[WARN] Missing file map for data page "{page_name}".'
                         'Either add a corresponding file path or add it to the ignore list'
                     )

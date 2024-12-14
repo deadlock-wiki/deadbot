@@ -1,5 +1,6 @@
 import parser.maps as maps
 import utils.string_utils as string_utils
+from loguru import logger
 
 
 class AbilityCardsParser:
@@ -50,7 +51,8 @@ class AbilityCardsParser:
                     if parsed_ui is not None:
                         hero_abilities[self.ability_index] = parsed_ui
                 except Exception as e:
-                    raise Exception(f'[ERROR] Failed to parse ui for ability {ability["Key"]}', e)
+                    logger.error(f'Failed to parse ui for ability {ability["Key"]}')
+                    raise e
 
             output[self.hero_key] = hero_abilities
 
@@ -235,7 +237,7 @@ class AbilityCardsParser:
                     continue
 
                 case _:
-                    print('[ERROR] Unhandled property', attr)
+                    logger.error('Unhandled property', attr)
 
         return attribute
 

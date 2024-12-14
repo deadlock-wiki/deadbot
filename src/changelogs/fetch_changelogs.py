@@ -164,8 +164,8 @@ class ChangelogFetcher:
 
             # Ensure the date was able to be removed and was in the correct format
             if len(remaining_str) == len(string):
-                print(
-                    '[WARN] Date format may not have been able to be parsed '
+                logger.warning(
+                    'Date format may not have been able to be parsed '
                     + 'correctly to (yyyy_mm_dd), parsed date is '
                     + date
                 )
