@@ -2,6 +2,7 @@ import os
 import decompiler.kv3_to_json as kv3_to_json
 import decompiler.localization as localization
 import filecmp
+import shutil
 import utils.game_utils as g_util
 from loguru import logger
 
@@ -19,8 +20,6 @@ def decompile(DEADLOCK_PATH, WORK_DIR, DECOMPILER_CMD, force=False):
     Returns:
         None
     """
-
-    # Define paths
     os.makedirs(WORK_DIR, exist_ok=True)
     steam_inf_path = f'{DEADLOCK_PATH}/game/citadel/steam.inf'
     version_path = f'{WORK_DIR}/version.txt'
@@ -34,6 +33,10 @@ def decompile(DEADLOCK_PATH, WORK_DIR, DECOMPILER_CMD, force=False):
                 + 'already decompiled, skipping decompile step'
             )
             return
+
+    # clear data to ensure no old data is left around
+    shutil.rmtree(WORK_DIR)
+    os.makedirs(WORK_DIR, exist_ok=True)
 
     os.system(f'cp "{steam_inf_path}" "{version_path}"')
 
@@ -53,10 +56,13 @@ def decompile(DEADLOCK_PATH, WORK_DIR, DECOMPILER_CMD, force=False):
             DECOMPILER_CMD
             + f' -i "{input_path}" --output "{WORK_DIR}/vdata" --vpk_filepath "{VPK_FILEPATH}" -d'
         )
+
         os.system(dec_cmd)
+
         # Ensure the vdata directory was created successfully
         if not os.path.exists(f'{WORK_DIR}/vdata'):
             raise Exception(f'Fatal error: Failed to decompile {input_path} with {VPK_FILEPATH}')
+
         # Remove subclass and convert to json
         kv3_to_json.process_file(f'{WORK_DIR}/vdata/{file}.vdata', f'{WORK_DIR}/{file}.json')
 
