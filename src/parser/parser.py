@@ -130,19 +130,19 @@ class Parser:
         ).run()
 
         # Ensure it matches the current list of meaningful stats, and raise a warning if not
-        current_meaningful_stats = json_utils.read(
-            self.OUTPUT_DIR + '/json/hero-meaningful-stats.json'
-        )
-        if current_meaningful_stats != parsed_meaningful_stats:
-            current_keys = set(current_meaningful_stats.keys())
-            new_keys = set(parsed_meaningful_stats.keys())
-            logger.warning(
-                'Non-constant stats have changed. '
-                + "Please update [[Module:HeroData]]'s write_hero_comparison_table "
-                + 'lua function for the [[Hero Comparison]] page.'
-                + f'\nAdded keys: {new_keys - current_keys}'
-                + f'\nRemoved keys: {current_keys - new_keys}'
-            )
+        path = self.OUTPUT_DIR + '/json/hero-meaningful-stats.json'
+        if os.path.exists(path):
+            current_meaningful_stats = json_utils.read(path)
+            if current_meaningful_stats != parsed_meaningful_stats:
+                current_keys = set(current_meaningful_stats.keys())
+                new_keys = set(parsed_meaningful_stats.keys())
+                logger.warning(
+                    'Non-constant stats have changed. '
+                    + "Please update [[Module:HeroData]]'s write_hero_comparison_table "
+                    + 'lua function for the [[Hero Comparison]] page.'
+                    + f'\nAdded keys: {new_keys - current_keys}'
+                    + f'\nRemoved keys: {current_keys - new_keys}'
+                )
 
         json_utils.write(
             self.OUTPUT_DIR + '/json/hero-meaningful-stats.json',
