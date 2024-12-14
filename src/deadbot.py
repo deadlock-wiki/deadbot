@@ -24,7 +24,12 @@ def main():
     # setup custom logger
     logger.remove(0)
     log_level = 'TRACE' if is_truthy(args.verbose) else 'INFO'
-    logger.add(sys.stderr, level=log_level)
+    logger.add(
+        sys.stderr,
+        level=log_level,
+        format='<white><dim>{time:YYYY-MM-DD HH:mm:ss.SSS} | </dim>'
+        '</white><level>{level:<7} <dim>|</dim> <normal>{message}</normal></level>',
+    )
 
     data_transfer = DataTransfer(args.workdir, args.bucket, args.iam_key, args.iam_secret)
 
