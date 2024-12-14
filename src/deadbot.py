@@ -16,6 +16,7 @@ load_dotenv()
 
 
 def main():
+    raise Exception('TEST ERROR')
     # load arguments from constants file
     args = constants.ARGS
 
