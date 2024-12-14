@@ -61,6 +61,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: ${{ needs.get-branch.outputs.branch }}
           path: deadbot
           token:  ${{ secrets.GH_TOKEN }}     
 
@@ -93,7 +94,7 @@ jobs:
         working-directory: deadbot 
 
       - name: Run Deadbot
-        run: docker-compose up
+        run: docker-compose up --exit-code-from deadbot
         working-directory: deadbot
         env:
           IMPORT_FILES: true
