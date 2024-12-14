@@ -70,7 +70,7 @@ def main():
         if args.iam_key and args.iam_secret:
             data_transfer.export_data()
         else:
-            logger.error('[ERROR] iam_key and iam_secret must be set for s3')
+            logger.error('iam_key and iam_secret must be set for s3')
 
     logger.success('Done!')
 
