@@ -2,6 +2,7 @@ import os
 import decompiler.kv3_to_json as kv3_to_json
 import decompiler.localization as localization
 import filecmp
+import shutil
 import utils.game_utils as g_util
 
 
@@ -34,6 +35,10 @@ def decompile(DEADLOCK_PATH, WORK_DIR, DECOMPILER_CMD, force=False):
         if not force:
             return
 
+    # clear data to ensure no old data is left around
+    shutil.rmtree(WORK_DIR)
+    os.makedirs(WORK_DIR, exist_ok=True)
+
     os.system(f'cp "{steam_inf_path}" "{version_path}"')
 
     # Define files to be decompiled and processed
@@ -52,7 +57,9 @@ def decompile(DEADLOCK_PATH, WORK_DIR, DECOMPILER_CMD, force=False):
             DECOMPILER_CMD
             + f' -i "{input_path}" --output "{WORK_DIR}/vdata" --vpk_filepath "{VPK_FILEPATH}" -d'
         )
+
         os.system(dec_cmd)
+
         # Remove subclass and convert to json
         kv3_to_json.process_file(f'{WORK_DIR}/vdata/{file}.vdata', f'{WORK_DIR}/{file}.json')
 

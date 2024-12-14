@@ -4,8 +4,9 @@ from os.path import isfile, join
 import feedparser
 from bs4 import BeautifulSoup
 from urllib import request
-from utils import json_utils
+from utils import file_utils, json_utils
 from typing import TypedDict
+from .constants import CHANGELOG_RSS_URL
 
 
 class ChangelogConfig(TypedDict):
@@ -30,71 +31,79 @@ class ChangelogFetcher:
     Fetches changelogs from the deadlock forums and game files and parses them into a dictionary
     """
 
-    def __init__(self, update_existing):
+    def __init__(self, update_existing, input_dir, output_dir, herolab_patch_notes_path):
         self.changelogs: dict[str, ChangelogString] = {}
         self.changelog_configs: dict[str, ChangelogConfig] = {}
         self.update_existing = update_existing
         self.localization_data_en = {}
 
+        self.INPUT_DIR = input_dir
+        self.OUTPUT_DIR = output_dir
+        self.RSS_URL = CHANGELOG_RSS_URL
+        self.HEROLABS_PATCH_NOTES_PATH = herolab_patch_notes_path
+
         self.TAGS_TO_REMOVE = ['<ul>', '</ul>', '<b>', '</b>', '<i>', '</i>']
+        self._load_input_data()
 
-    def load_localization(self, output_dir):
+    def _load_input_data(self):
+        """Load input changelog data into the fetcher"""
+        path = f'{self.INPUT_DIR}/changelogs/changelog_configs.json'
+        existing_changelogs = json_utils.read(path)
+        self.changelog_configs = existing_changelogs
+
+        # load 'changelogs/raw/<version>.txt' files
+        all_files = os.listdir(f'{self.INPUT_DIR}/changelogs/raw')
+        for file in all_files:
+            raw_changelog = file_utils.read(f'{self.INPUT_DIR}/changelogs/raw/{file}')
+            version = file.replace('.txt', '')
+            self.changelogs[version] = raw_changelog
+
+    def run(self):
+        self.load_localization()
+        self.fetch_forum_changelogs()
+        self.get_gamefile_changelogs()
+        self.changelogs_to_file()
+
+    def load_localization(self):
         self.localization_data_en = json_utils.read(
-            os.path.join(output_dir, 'localizations', 'english.json')
+            os.path.join(self.OUTPUT_DIR, 'localizations', 'english.json')
         )
-
-    def get_rss(self, rss_url):
-        self.RSS_URL = rss_url
-        self._fetch_forum_changelogs()
-
-        return self.changelogs
 
     def get_txt(self, changelog_path):
         self._process_local_changelogs(changelog_path)
         return self.changelogs
 
-    def changelogs_to_file(self, output_dir, input_dir):
-        # Write raw changelog lines to files
+    def changelogs_to_file(self):
+        """
+        Save combined changelogs to input and output directories.
+        Saving to input directory is necessary as the RSS feed can only see
+        recent changelogs.
+
+        Since output data is paved over each deploy, we need this source for historic
+        changelog data.
+        """
+
+        # Sort the keys by the date lexicographically
+        # null dates will be at the end
+        keys = list(self.changelog_configs.keys())
+        keys.sort(key=lambda x: self.changelog_configs[x]['date'])
+        self.changelog_configs = {key: self.changelog_configs[key] for key in keys}
+
+        raw_output_dir = os.path.join(self.OUTPUT_DIR, 'changelogs/raw')
+        raw_input_dir = os.path.join(self.INPUT_DIR, 'changelogs/raw')
+
         for version, changelog in self.changelogs.items():
-            raw_output_dir = os.path.join(output_dir, 'raw')
             os.makedirs(raw_output_dir, exist_ok=True)
-            path = raw_output_dir + f'/{version}.txt'
-            with open(path, 'w', encoding='utf8') as f_out:
-                f_out.write(changelog)
 
-        # Write configuration data (such as all the different version id's,
-        # forum link, and forum date) for the changelogs to 1 file
+            file_utils.write(f'{raw_output_dir}/{version}.txt', changelog)
+            file_utils.write(f'{raw_input_dir}/{version}.txt', changelog)
 
-        # changelog_configs.json is not overwritten even when update_existing is True
-        # many entries were initially manually added due to
-        # only the first page on the site having rss feed
-        changelogs_path = input_dir + '/changelog_configs.json'
-        if not os.path.isfile(changelogs_path):
-            # Create the directory and file if it doesn't exist
-            os.makedirs(input_dir, exist_ok=True)
-
-            # Sort the keys by the date lexicographically
-            # null dates will be at the end
-            keys = list(self.changelog_configs.keys())
-            keys.sort(key=lambda x: self.changelog_configs[x]['date'])
-            self.changelog_configs = {key: self.changelog_configs[key] for key in keys}
-
-            json_utils.write(changelogs_path, self.changelog_configs)
-        else:
-            # Read existing changelog_configs.json content,
-            existing_changelogs = json_utils.read(changelogs_path)
-
-            # add any keys that are not yet present or have differing values,
-            existing_changelogs.update(self.changelog_configs)
-
-            # Sort the keys by the date lexicographically
-            # null dates will be at the end
-            keys = list(existing_changelogs.keys())
-            keys.sort(key=lambda x: existing_changelogs[x]['date'])
-            self.changelog_configs = {key: existing_changelogs[key] for key in keys}
-
-            # write back
-            json_utils.write(changelogs_path, self.changelog_configs)
+        json_utils.write(
+            f'{self.OUTPUT_DIR}/changelogs/changelog_configs.json', self.changelog_configs
+        )
+        json_utils.write(
+            f'{self.INPUT_DIR}/changelogs/changelog_configs.json', self.changelog_configs
+        )
 
     def _fetch_update_html(self, link):
         html = request.urlopen(link).read()
@@ -105,9 +114,9 @@ class ChangelogFetcher:
             entries.append(div.text.strip())
         return entries
 
-    def get_gamefile_changelogs(self, changelog_path):
-        # only english are retrieved
-        changelogs = json_utils.read(changelog_path)
+    def get_gamefile_changelogs(self):
+        """Read and parse the Hero Labs changelogs in the game files"""
+        changelogs = json_utils.read(self.HEROLABS_PATCH_NOTES_PATH)
 
         gamefile_changelogs = dict()
 
@@ -178,7 +187,6 @@ class ChangelogFetcher:
                         'date': date,
                         'link': None,
                     }
-
         self.changelogs.update(gamefile_changelogs)
 
     def _parse_description(self, string):
@@ -221,8 +229,8 @@ class ChangelogFetcher:
     def _localize(self, key):
         return self.localization_data_en.get(key, None)
 
-    # download rss feed from changelog forum and parse entries
-    def _fetch_forum_changelogs(self):
+    def fetch_forum_changelogs(self):
+        """download rss feed from changelog forum and save all available entries"""
         print('Parsing Changelog RSS feed')
         # fetches 20 most recent entries
         feed = feedparser.parse(self.RSS_URL)
