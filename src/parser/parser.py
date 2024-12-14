@@ -95,27 +95,8 @@ class Parser:
             # duplicate key error. This is a temporary measure to keep patch updates going
             elif group != 'heroes':
                 current_value = self.localizations[language][key]
-
-                # Only bother with an exception if the values are different
-                if current_value != value:
-                    english_value = self.localizations['english'].get(key)
-                    old_is_english = english_value == current_value
-                    new_is_english = english_value == value
-
-                    # if just the old value is english, replace it with the actually localized one
-                    if old_is_english and not new_is_english:
-                        self.localizations[language][key] = value  # use the new localized string
-                    # If just the new value is english, don't replace it
-                    elif new_is_english and not old_is_english:
-                        pass  # keep the old localized string
-                    else:
-                        # If both values are english or neither are english, raise an exception
-                        logger.trace(
-                            f'Key {key} with value {value} already exists'
-                            + f'in {language} localization '
-                            + f'data with value {current_value}.'
-                            + f' English value: {english_value}'
-                        )
+                logger.warning(f'Key {key} with value "{value}" already exists in {language} localization '
+                    + f'data with value "{current_value}."')
 
     def run(self):
         logger.trace('Parsing...')
