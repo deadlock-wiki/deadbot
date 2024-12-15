@@ -19,6 +19,9 @@ def decompile(DEADLOCK_PATH, WORK_DIR, DECOMPILER_CMD, force=False):
     Returns:
         None
     """
+
+    # Define paths
+    DEADLOCK_PATH = 'deadlock-data'
     os.makedirs(WORK_DIR, exist_ok=True)
     steam_inf_path = f'{DEADLOCK_PATH}/game/citadel/steam.inf'
     version_path = f'{WORK_DIR}/version.txt'

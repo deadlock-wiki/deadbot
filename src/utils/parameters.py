@@ -1,6 +1,10 @@
 import os
 import argparse
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 ARG_PARSER = argparse.ArgumentParser(
     prog='DeadBot',
     description='Bot that lives to serve deadlocked.wiki',
@@ -35,6 +39,11 @@ def arg_group_base(parser):
         default=os.getenv('OUTPUT_DIR', os.path.abspath(os.getcwd()) + '/output-data'),
     )
     group_base.add_argument(
+        '--manifest_id',
+        help='Manifest id to download, defaults to \'latest\' (also set with MANIFEST_ID environment variable). Browse them at https://steamdb.info/depot/1422456/manifests/',
+        default=os.getenv('MANIFEST_ID', 'latest'),
+    )
+    group_base.add_argument(
         '--decompiler_cmd',
         help='Command for Valve Resource Format tool (also set with DECOMPILER_CMD env variable)',
         default=os.getenv('DECOMPILER_CMD', 'tools/Decompiler'),
@@ -47,6 +56,29 @@ def arg_group_base(parser):
         '--build_num',
         help='Build number of the game files to be used. Defaults to current build',
         default=os.getenv('BUILD_NUM', None),
+    )
+    group_base.add_argument(
+        '--steam_username',
+        help='Steam username for downloading game files (also set with STEAM_USERNAME '
+        + 'environment variable)',
+        default=os.getenv('STEAM_USERNAME', None),
+    )
+    group_base.add_argument(
+        '--steam_password',
+        help='Steam password for downloading game files (also set with STEAM_PASSWORD environment'
+        + ' variable)',
+        default=os.getenv('STEAM_PASSWORD', None),
+    )
+    group_base.add_argument(
+        '--depot_downloader_dir',
+        help='Path to DepotDownloader directory that contains the executable (also set with DEPOT_DOWNLOADER_DIR environment'
+        + ' variable)',
+        default=os.getenv('DEPOT_DOWNLOADER_DIR', None),
+    )
+    group_base.add_argument(
+        '--steam_cmd',
+        help='Path to steamcmd executable (also set with STEAM_CMD environment' + ' variable)',
+        default=os.getenv('STEAM_CMD', None),
     )
 
 

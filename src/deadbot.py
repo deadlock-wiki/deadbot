@@ -8,6 +8,7 @@ from decompiler import decompile
 import constants
 from changelogs import parse_changelogs, fetch_changelogs
 from parser import parser
+from versioning import depot_downloader, steamcmd
 from external_data.data_transfer import DataTransfer
 from wiki.upload import WikiUpload
 from utils.string_utils import is_truthy
@@ -28,6 +29,9 @@ def main():
             data_transfer.import_data(version=args.build_num)
         else:
             print('[ERROR] iam_key and iam_secret must be set for s3')
+   
+    print(f'Downloading manifest \'{args.manifest_id}\'...')
+    act_versioning(args)
 
     if is_truthy(args.decompile):
         print('Decompiling source files...')
@@ -61,6 +65,19 @@ def main():
             print('[ERROR] iam_key and iam_secret must be set for s3')
 
     print('\nDone!')
+
+
+def act_versioning(args):
+    if args.manifest_id == 'latest':
+        # Retrieve latest manifest-id
+        manifest_id = steamcmd.SteamCMD(args.steam_cmd, args.steam_username, args.steam_password).run()
+        print(f'Found the latest manifest id: {manifest_id}')
+    else:
+        manifest_id = args.manifest_id
+    
+    depot_downloader.DepotDownloader(
+        args.output, args.depot_downloader_dir, args.steam_username, args.steam_password
+    ).run(manifest_id)
 
 
 def act_gamefile_parse(args):
