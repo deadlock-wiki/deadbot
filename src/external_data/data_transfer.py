@@ -26,7 +26,7 @@ class DataTransfer:
             versions = self._get_versions()
             version = max(versions)
 
-        logger.trace(f'Importing game files for version {version}...')
+        logger.info(f'Importing game files for version {version}...')
 
         files = self.s3.list_files(version)
         if files is None:
@@ -56,10 +56,10 @@ class DataTransfer:
         """Export local decompiled game data to an S3 bucket"""
         version = self._get_current_version()
         if version in self._get_versions():
-            print(f'Version {version} already exists on s3')
+            logger.info(f'Version {version} already exists on s3')
             return
 
-        logger.trace(f'Exporting data for patch version {version}...')
+        logger.info(f'Exporting data for patch version {version}...')
 
         self.s3.write(version, self.DATA_DIR)
 

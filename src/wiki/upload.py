@@ -19,7 +19,7 @@ class WikiUpload:
         deadbot_version = meta_utils.get_deadbot_version()
         self.upload_message = f'DeadBot v{deadbot_version}-{game_version}'
 
-        print('Uploading Data to Wiki -', self.upload_message)
+        logger.info('Uploading Data to Wiki -', self.upload_message)
 
         self.auth = {
             'user': os.environ.get('BOT_WIKI_USER'),
@@ -62,7 +62,7 @@ class WikiUpload:
     def _update_page(self, page, updated_text):
         if page.text() != updated_text:
             page.save(updated_text, summary=self.upload_message, minor=False, bot=True)
-            print(f'Page "{page.name}" updated')
+            logger.success(f'Page "{page.name}" updated')
 
     def _split_page_name(self, full_page_name: str):
         """

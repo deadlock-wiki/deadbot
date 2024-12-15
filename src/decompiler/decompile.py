@@ -101,4 +101,4 @@ def decompile(DEADLOCK_PATH, WORK_DIR, DECOMPILER_CMD, force=False):
 
         # Run the Python script to parse the folder
         localization.process_files(src_path, dest_path)
-        print(f'Parsed {src_path} to {dest_path}')
+        logger.trace(f'Parsed {src_path} to {dest_path}')
