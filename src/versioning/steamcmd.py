@@ -17,6 +17,7 @@ class SteamCMD:
         self.steam_password = steam_password
 
     def run(self):
+        output = None
         try:
             # Run steamcmd, save terminal output
             output = subprocess.run(
@@ -32,7 +33,8 @@ class SteamCMD:
             )
             output_str = output.stdout.decode('utf-8')
         except Exception as e:
-            raise Exception(f'Failed running SteamCMD, output was {output.stdout.decode("utf-8")}', e)
+            msg = f'Failed running SteamCMD, output was {output.stdout.decode("utf-8")}' if output else 'Failed running SteamCMD'
+            raise Exception(msg, e)
 
         # Search the vdata string repeatedly for these keywords, similar to navigating a JSON object
         keywords = [
