@@ -1,6 +1,7 @@
 import os
 import shutil
 from .s3 import S3
+from loguru import logger
 
 
 class DataTransfer:
@@ -25,7 +26,7 @@ class DataTransfer:
             versions = self._get_versions()
             version = max(versions)
 
-        print(f'Importing game files for version {version}...')
+        logger.info(f'Importing game files for version {version}...')
 
         files = self.s3.list_files(version)
         if files is None:
@@ -55,10 +56,10 @@ class DataTransfer:
         """Export local decompiled game data to an S3 bucket"""
         version = self._get_current_version()
         if version in self._get_versions():
-            print(f'Version {version} already exists on s3')
+            logger.info(f'Version {version} already exists on s3')
             return
 
-        print(f'Exporting data for patch version {version}...')
+        logger.info(f'Exporting data for patch version {version}...')
 
         self.s3.write(version, self.DATA_DIR)
 
@@ -90,4 +91,4 @@ class DataTransfer:
                 elif os.path.isdir(file_path):
                     shutil.rmtree(file_path)
             except Exception as e:
-                print(f'[ERROR] Failed to delete {file_path} - {e}')
+                logger.error(f' Failed to delete {file_path} - {e}')

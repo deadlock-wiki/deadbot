@@ -7,6 +7,14 @@ ARG_PARSER = argparse.ArgumentParser(
     epilog='Process Deadlock game files and extract data and stats',
 )
 
+"""
+When adding parameters:
+- Add to the proper group
+- Ensure the help message follows previous standards
+- If the parameter is a boolean, use `action='store_true'`, 
+    This allows it to be called like `--verbose` instead of `--verbose True`
+"""
+
 
 def arg_group_base(parser):
     group_base = parser.add_argument_group('path configs')
@@ -47,6 +55,13 @@ def arg_group_base(parser):
         '--build_num',
         help='Build number of the game files to be used. Defaults to current build',
         default=os.getenv('BUILD_NUM', None),
+    )
+    group_base.add_argument(
+        '-v',
+        '--verbose',
+        help='Print verbose output for extensive logging',
+        default=os.getenv('VERBOSE', False),
+        action='store_true',
     )
 
 
@@ -133,4 +148,6 @@ def load_arguments():
         args.s3_push = os.getenv('S3_PUSH', False)
     if not args.import_files:
         args.import_files = os.getenv('IMPORT_FILES', False)
+    if not args.verbose:
+        args.verbose = os.getenv('VERBOSE', False)
     return args
