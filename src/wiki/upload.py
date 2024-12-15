@@ -35,7 +35,8 @@ class WikiUpload:
         self.site.login(self.auth['user'], self.auth['password'])
 
     def update_data_pages(self):
-        for page in self.site.allpages(namespace=self.DATA_NAMESPACE_ID):
+        namespace_id = self._get_namespace_id(self.DATA_NAMESPACE)
+        for page in self.site.allpages(namespace=namespace_id):
             page_name_obj = self._split_page_name(page.name)
             namespace = page_name_obj['namespace']
             page_name = page_name_obj['page_name']
