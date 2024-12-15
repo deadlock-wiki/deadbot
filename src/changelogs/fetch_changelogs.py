@@ -1,6 +1,7 @@
 import os
 from os import listdir
 from os.path import isfile, join
+from loguru import logger
 import feedparser
 from bs4 import BeautifulSoup
 from urllib import request
@@ -163,8 +164,8 @@ class ChangelogFetcher:
 
             # Ensure the date was able to be removed and was in the correct format
             if len(remaining_str) == len(string):
-                print(
-                    '[WARN] Date format may not have been able to be parsed '
+                logger.warning(
+                    'Date format may not have been able to be parsed '
                     + 'correctly to (yyyy_mm_dd), parsed date is '
                     + date
                 )
@@ -231,7 +232,7 @@ class ChangelogFetcher:
 
     def fetch_forum_changelogs(self):
         """download rss feed from changelog forum and save all available entries"""
-        print('Parsing Changelog RSS feed')
+        logger.trace('Parsing Changelog RSS feed')
         # fetches 20 most recent entries
         feed = feedparser.parse(self.RSS_URL)
         skip_num = 0
@@ -260,22 +261,22 @@ class ChangelogFetcher:
             try:
                 full_text = '\n---\n'.join(self._fetch_update_html(entry.link))
             except Exception:
-                print(f'Issue with parsing RSS feed item {entry.link}')
+                logger.error(f'Issue with parsing RSS feed item {entry.link}')
 
             self.changelogs[version] = full_text
             self.changelog_configs[version] = {'forum_id': version, 'date': date, 'link': entry.link}
 
         if skip_num > 0:
-            print(f'Skipped {skip_num}/{len(feed.entries)} RSS items that already exists')
+            logger.trace(f'Skipped {skip_num} RSS items that already exists')
 
     def _process_local_changelogs(self, changelog_path):
-        print('Parsing Changelog txt files')
+        logger.trace('Parsing Changelog txt files')
         # Make sure path exists
         if not os.path.isdir(changelog_path):
-            print(f'Issue opening changelog dir `{changelog_path}`')
+            logger.warning(f'Issue opening changelog dir `{changelog_path}`')
             return
         files = [f for f in listdir(changelog_path) if isfile(join(changelog_path, f))]
-        print(f'Found {str(len(files))} changelog entries in `{changelog_path}`')
+        logger.trace(f'Found {str(len(files))} changelog entries in `{changelog_path}`')
         for file in files:
             version = file.replace('.txt', '')
             try:
@@ -283,7 +284,7 @@ class ChangelogFetcher:
                     changelogs = f.read()
                     self.changelogs[version] = changelogs
             except Exception:
-                print(f'Issue with {file}, skipping')
+                logger.warning(f'Issue with {file}, skipping')
 
 
 def format_date(date):
