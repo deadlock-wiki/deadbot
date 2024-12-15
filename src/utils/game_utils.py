@@ -1,5 +1,6 @@
 from loguru import logger
 
+
 def load_game_info(game_info_path):
     """
     Loads steam game version info from steam.inf file.

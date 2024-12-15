@@ -15,6 +15,7 @@ When adding parameters:
     This allows it to be called like `--verbose` instead of `--verbose True`
 """
 
+
 def arg_group_base(parser):
     group_base = parser.add_argument_group('path configs')
     group_base.add_argument(
