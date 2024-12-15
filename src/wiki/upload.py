@@ -36,7 +36,8 @@ class WikiUpload:
         self.site.login(self.auth['user'], self.auth['password'])
 
     def update_data_pages(self):
-        for page in self.site.pages:
+        namespace_id = self._get_namespace_id(self.DATA_NAMESPACE)
+        for page in self.site.allpages(namespace=namespace_id):
             page_name_obj = self._split_page_name(page.name)
             namespace = page_name_obj['namespace']
             page_name = page_name_obj['page_name']
@@ -63,6 +64,13 @@ class WikiUpload:
         if page.text() != updated_text:
             page.save(updated_text, summary=self.upload_message, minor=False, bot=True)
             logger.success(f'Page "{page.name}" updated')
+
+    def _get_namespace_id(self, search_namespace):
+        for namespace_id, namespace in self.site.namespaces.items():
+            if namespace == search_namespace:
+                return namespace_id
+
+        raise Exception(f'Namespace {search_namespace} not found')
 
     def _split_page_name(self, full_page_name: str):
         """
