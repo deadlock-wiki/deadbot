@@ -43,7 +43,6 @@ class AbilityParser:
                 ability_data[key] = value
 
             if 'm_vecAbilityUpgrades' not in ability:
-                # print(ability.get('Name'), 'missing upgrades')
                 continue
             else:
                 ability_data['Upgrades'] = self._parse_upgrades(
