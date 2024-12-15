@@ -7,6 +7,14 @@ ARG_PARSER = argparse.ArgumentParser(
     epilog='Process Deadlock game files and extract data and stats',
 )
 
+"""
+When adding parameters:
+- Add to the proper group
+- Ensure the help message follows previous standards
+- If the parameter is a boolean, don't use the `default` flag, 
+    and instead handle its default value within deadbot.py
+    This allows it to be called like `--verbose` instead of `--verbose True`
+"""
 
 def arg_group_base(parser):
     group_base = parser.add_argument_group('path configs')
@@ -52,7 +60,6 @@ def arg_group_base(parser):
         '-v',
         '--verbose',
         help='Print verbose output for extensive logging',
-        default=os.getenv('VERBOSE', False),
     )
 
 
