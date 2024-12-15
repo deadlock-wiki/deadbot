@@ -13,6 +13,7 @@ services:
       PARSE: 'true'
       BOT_PUSH: ${BOT_PUSH}
       CLEANUP: 'true'
+      VERBOSE: ${VERBOSE}
       IAM_KEY: ${IAM_KEY}
       IAM_SECRET: ${IAM_SECRET}
       BOT_WIKI_USER: ${BOT_WIKI_USER}
