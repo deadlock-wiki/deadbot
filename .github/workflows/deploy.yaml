@@ -9,6 +9,11 @@ on:
     types: [opened]
 
   workflow_dispatch:
+    inputs:
+      wiki-upload:
+        type: boolean
+        description: Upload output data to the Wiki
+        default: false
 
 jobs:
   # Each event type has a different variable for the branch name
@@ -99,7 +104,7 @@ jobs:
         env:
           IMPORT_FILES: true
           DECOMPILE: false
-          BOT_PUSH: ${{ needs.get-branch.outputs.branch == 'master' }}
+          BOT_PUSH: ${{ needs.get-branch.outputs.branch == 'master' || inputs.wiki-upload == 'true' }}
           IAM_KEY: ${{ secrets.IAM_KEY }}
           IAM_SECRET: ${{ secrets.IAM_SECRET }}
           BOT_WIKI_USER: ${{ secrets.BOT_WIKI_USER }}
