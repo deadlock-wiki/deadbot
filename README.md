@@ -68,7 +68,7 @@ s3 config:
 bot actions:
   -d, --decompile       Decompiles Deadlock game files. (also set with DECOMPILE environment variable)
   -p, --parse           Parses decompiled game files into json and csv (overrides PARSE env variable)
-  -b, --bot_push        Push current data to wiki (also set with BOT_PUSH environment variable)
+  -u, --wiki_upload     Push current data to wiki (also set with WIKI_UPLOAD environment variable)
   -s, --s3_push         Push current data to s3
   -c, --changelogs      Fetch/parse forum and local changelogs. (also set with CHANGELOGS env variable)
   --force               Forces decompilation even if game files and workdir versions match
