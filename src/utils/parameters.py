@@ -11,8 +11,7 @@ ARG_PARSER = argparse.ArgumentParser(
 When adding parameters:
 - Add to the proper group
 - Ensure the help message follows previous standards
-- If the parameter is a boolean, don't use the `default` flag, 
-    and instead handle its default value within deadbot.py
+- If the parameter is a boolean, use `action='store_true'`, 
     This allows it to be called like `--verbose` instead of `--verbose True`
 """
 
@@ -60,6 +59,8 @@ def arg_group_base(parser):
         '-v',
         '--verbose',
         help='Print verbose output for extensive logging',
+        default=os.getenv('VERBOSE', False),
+        action='store_true',
     )
 
 
