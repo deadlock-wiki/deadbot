@@ -104,7 +104,7 @@ jobs:
         env:
           IMPORT_FILES: true
           DECOMPILE: false
-          BOT_PUSH: ${{ needs.get-branch.outputs.branch == 'master' || inputs.wiki-upload == 'true' }}
+          WIKI_UPLOAD: ${{ needs.get-branch.outputs.branch == 'master' || github.event.inputs.wiki-upload == 'true' }}
           IAM_KEY: ${{ secrets.IAM_KEY }}
           IAM_SECRET: ${{ secrets.IAM_SECRET }}
           BOT_WIKI_USER: ${{ secrets.BOT_WIKI_USER }}
