@@ -11,7 +11,6 @@ import constants
 from changelogs import parse_changelogs, fetch_changelogs
 from parser import parser
 from external_data.data_transfer import DataTransfer
-from wiki.upload import WikiUpload
 from utils.string_utils import is_truthy
 
 load_dotenv()
@@ -59,12 +58,12 @@ def main():
     else:
         logger.trace('! Skipping Changelogs !')
 
-    if is_truthy(args.bot_push):
+    if is_truthy(args.wiki_upload):
         logger.info('Running Wiki Upload...')
-        wiki_upload = WikiUpload(args.output)
-        wiki_upload.update_data_pages()
+        # wiki_upload = WikiUpload(args.output)
+        # wiki_upload.update_data_pages()
     else:
-        logger.trace('! Skipping DeadBot !')
+        logger.trace('! Skipping Wiki Upload !')
 
     if is_truthy(args.s3_push):
         if args.iam_key and args.iam_secret:

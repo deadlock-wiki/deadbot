@@ -102,10 +102,10 @@ def arg_group_action(parser):
         help='Parses decompiled game files into json and csv (overrides PARSE env variable)',
     )
     group_actions.add_argument(
-        '-b',
-        '--bot_push',
+        '-u',
+        '--wiki_upload',
         action='store_true',
-        help='Push current data to wiki (also set with BOT_PUSH environment variable)',
+        help='Upload parsed data to the Wiki (also set with WIKI_UPLOAD environment variable)',
     )
     group_actions.add_argument(
         '-s',
@@ -142,8 +142,8 @@ def load_arguments():
         args.parse = os.getenv('PARSE', False)
     if not args.changelogs:
         args.changelogs = os.getenv('CHANGELOGS', False)
-    if not args.bot_push:
-        args.bot_push = os.getenv('BOT_PUSH', False)
+    if not args.wiki_upload:
+        args.wiki_upload = os.getenv('WIKI_UPLOAD', False)
     if not args.s3_push:
         args.s3_push = os.getenv('S3_PUSH', False)
     if not args.import_files:
