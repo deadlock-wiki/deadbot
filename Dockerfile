@@ -27,15 +27,15 @@ COPY . .
 RUN python3 -m poetry install
 
 # runtime config
-ENV IMPORT_FILES=true
+ENV S3_IMPORT=true
+ENV S3_EXPORT=false
 ENV DECOMPILE=false
 ENV PARSE=true
 ENV CHANGELOGS=true
 ENV BOT_PUSH=false
 ENV CLEANUP=true
-ENV S3_PUSH=false
 
-ENV BUCKET='deadlock-game-files'
+ENV S3_BUCKET='deadlock-game-files'
 
 # directory config
 ENV DEADLOCK_PATH="/data"

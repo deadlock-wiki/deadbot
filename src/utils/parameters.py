@@ -44,19 +44,20 @@ def arg_group_base(parser):
 def arg_group_s3(parser):
     group_s3 = parser.add_argument_group('s3 integration')
     group_s3.add_argument(
-        '--import_files',
+        '--s3_import',
         action='store_true',
         help='Import the decompiled game files from an S3 bucket',
     )
     group_s3.add_argument(
         '--build_num',
-        help='Build number of the game files to be imported. Defaults to current build',
+        help='Build number of the game files to be imported. Defaults to latest build',
         default=os.getenv('BUILD_NUM', None),
     )
     group_s3.add_argument(
-        '--export_files',
+        '--s3_export',
         action='store_true',
         help='Export the locally decompiled game files to an S3 bucket',
+        default=os.getenv('S3_EXPORT', False),
     )
     group_s3.add_argument(
         '--iam_key',
@@ -69,9 +70,9 @@ def arg_group_s3(parser):
         default=os.getenv('IAM_SECRET'),
     )
     group_s3.add_argument(
-        '--bucket',
+        '--s3_bucket',
         help='S3 bucket name to push to (overrides BUCKET environment variable)',
-        default=os.getenv('BUCKET', 'deadlock-game-files'),
+        default=os.getenv('S3_BUCKET', 'deadlock-game-files'),
     )
     return group_s3
 
@@ -144,8 +145,8 @@ def load_arguments():
         args.changelogs = os.getenv('CHANGELOGS', False)
     if not args.bot_push:
         args.bot_push = os.getenv('BOT_PUSH', False)
-    if not args.s3_push:
-        args.s3_push = os.getenv('S3_PUSH', False)
-    if not args.import_files:
-        args.import_files = os.getenv('IMPORT_FILES', False)
+    if not args.s3_export:
+        args.s3_export = os.getenv('S3_EXPORT', False)
+    if not args.s3_import:
+        args.s3_import = os.getenv('S3_IMPORT', False)
     return args

@@ -7,7 +7,7 @@ services:
       dockerfile: ./Dockerfile
     environment:
       # runtime config
-      IMPORT_FILES: ${IMPORT_FILES}
+      S3_IMPORT: ${S3_IMPORT}
       DECOMPILE: ${DECOMPILE}
       CHANGELOGS: 'true'
       PARSE: 'true'

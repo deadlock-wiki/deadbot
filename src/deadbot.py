@@ -19,9 +19,9 @@ def main():
     # load arguments from constants file
     args = constants.ARGS
 
-    data_transfer = DataTransfer(args.workdir, args.bucket, args.iam_key, args.iam_secret)
+    data_transfer = DataTransfer(args.workdir, args.s3_bucket, args.iam_key, args.iam_secret)
 
-    if is_truthy(args.import_files):
+    if is_truthy(args.s3_import):
         if is_truthy(args.decompile):
             print('[WARN] Skipping import as it will be overwritten by Decompile step')
         elif args.iam_key and args.iam_secret:
@@ -54,7 +54,7 @@ def main():
     else:
         print('! Skipping Wiki Upload !')
 
-    if is_truthy(args.s3_push):
+    if is_truthy(args.s3_export):
         if args.iam_key and args.iam_secret:
             data_transfer.export_data()
         else:

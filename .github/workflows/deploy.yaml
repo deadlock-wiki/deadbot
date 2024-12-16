@@ -97,7 +97,7 @@ jobs:
         run: docker-compose up --exit-code-from deadbot
         working-directory: deadbot
         env:
-          IMPORT_FILES: true
+          S3_IMPORT: true
           DECOMPILE: false
           BOT_PUSH: ${{ needs.get-branch.outputs.branch == 'master' }}
           IAM_KEY: ${{ secrets.IAM_KEY }}
