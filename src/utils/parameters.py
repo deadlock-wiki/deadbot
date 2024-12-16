@@ -39,21 +39,20 @@ def arg_group_base(parser):
         help='Command for Valve Resource Format tool (also set with DECOMPILER_CMD env variable)',
         default=os.getenv('DECOMPILER_CMD', 'tools/Decompiler'),
     )
-    group_base.add_argument(
+
+
+def arg_group_s3(parser):
+    group_s3 = parser.add_argument_group('s3 integration')
+    group_s3.add_argument(
         '--import_files',
+        action='store_true',
         help='Import the decompiled game files from an S3 bucket',
     )
-    group_base.add_argument(
+    group_s3.add_argument(
         '--build_num',
-        help='Build number of the game files to be used. Defaults to current build',
+        help='Build number of the game files to be imported. Defaults to current build',
         default=os.getenv('BUILD_NUM', None),
     )
-
-
-# Parameters and arguments and flags oh my
-def arg_group_s3(parser):
-    # s3 config
-    group_s3 = parser.add_argument_group('s3 config')
     group_s3.add_argument(
         '--iam_key',
         help='AWS iam key for updating bucket (overrides IAM_KEY environment variable)',
@@ -110,6 +109,17 @@ def arg_group_action(parser):
         help='Forces decompilation even if game files and workdir versions match',
     )
     return group_actions
+
+
+def arg_group_debugging(parser):
+    group_debugging = parser.add_argument_group('debugging')
+    group_debugging.add_argument(
+        '-v',
+        '--verbose',
+        action='store_true',
+        help='Print verbose output for extensive logging',
+        default=os.getenv('VERBOSE', False),
+    )
 
 
 def load_arguments():
