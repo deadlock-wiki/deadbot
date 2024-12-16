@@ -54,6 +54,11 @@ def arg_group_s3(parser):
         default=os.getenv('BUILD_NUM', None),
     )
     group_s3.add_argument(
+        '--export_files',
+        action='store_true',
+        help='Export the locally decompiled game files to an S3 bucket',
+    )
+    group_s3.add_argument(
         '--iam_key',
         help='AWS iam key for updating bucket (overrides IAM_KEY environment variable)',
         default=os.getenv('IAM_KEY'),
