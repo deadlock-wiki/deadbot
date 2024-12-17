@@ -2,6 +2,7 @@ from python_mermaid.diagram import MermaidDiagram, Node, Link
 
 import utils.string_utils as string_utils
 import parser.maps as maps
+from loguru import logger
 
 
 class ItemParser:
@@ -30,7 +31,8 @@ class ItemParser:
             try:
                 all_items[key] = self._parse_item(key)
             except Exception as e:
-                raise Exception(f'[ERROR] Failed to parse item {key}', e)
+                logger.error(f'Failed to parse item {key}')
+                raise e
 
         chart = MermaidDiagram(title='Items', nodes=self.nodes, links=self.links)
 

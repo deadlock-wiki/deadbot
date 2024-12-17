@@ -9,6 +9,11 @@ on:
     types: [opened]
 
   workflow_dispatch:
+    inputs:
+      wiki-upload:
+        type: boolean
+        description: Upload output data to the Wiki
+        default: false
 
 jobs:
   # Each event type has a different variable for the branch name
@@ -61,6 +66,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: ${{ needs.get-branch.outputs.branch }}
           path: deadbot
           token:  ${{ secrets.GH_TOKEN }}     
 
@@ -93,16 +99,17 @@ jobs:
         working-directory: deadbot 
 
       - name: Run Deadbot
-        run: docker-compose up
+        run: docker-compose up --exit-code-from deadbot
         working-directory: deadbot
         env:
           IMPORT_FILES: true
           DECOMPILE: false
-          BOT_PUSH: ${{ needs.get-branch.outputs.branch == 'master' }}
+          WIKI_UPLOAD: ${{ needs.get-branch.outputs.branch == 'master' || github.event.inputs.wiki-upload == 'true' }}
           IAM_KEY: ${{ secrets.IAM_KEY }}
           IAM_SECRET: ${{ secrets.IAM_SECRET }}
           BOT_WIKI_USER: ${{ secrets.BOT_WIKI_USER }}
           BOT_WIKI_PASS: ${{ secrets.BOT_WIKI_PASS }}
+          VERBOSE: ${{ secrets.ACTIONS_RUNNER_DEBUG == 'true' }}
 
       - name: Configure Git for deadbot repo
         working-directory: deadbot 

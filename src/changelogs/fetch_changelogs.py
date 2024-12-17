@@ -1,6 +1,7 @@
 import os
 from os import listdir
 from os.path import isfile, join
+from loguru import logger
 import feedparser
 from bs4 import BeautifulSoup
 from urllib import request
@@ -164,8 +165,8 @@ class ChangelogFetcher:
 
             # Ensure the date was able to be removed and was in the correct format
             if len(remaining_str) == len(string):
-                print(
-                    '[WARN] Date format may not have been able to be parsed '
+                logger.warning(
+                    'Date format may not have been able to be parsed '
                     + 'correctly to (yyyy-mm-dd), parsed date is '
                     + date
                 )
@@ -233,7 +234,7 @@ class ChangelogFetcher:
 
     def fetch_forum_changelogs(self):
         """download rss feed from changelog forum and save all available entries"""
-        print('Parsing Changelog RSS feed')
+        logger.trace('Parsing Changelog RSS feed')
         # fetches 20 most recent entries
         feed = feedparser.parse(self.RSS_URL)
         skip_num = 0
@@ -262,7 +263,7 @@ class ChangelogFetcher:
             try:
                 full_text = '\n---\n'.join(self._fetch_update_html(entry.link))
             except Exception:
-                print(f'Issue with parsing RSS feed item {entry.link}')
+                logger.error(f'Issue with parsing RSS feed item {entry.link}')
 
             changelog_id = self._create_changelog_id(date, full_text)
             self.changelogs[changelog_id] = full_text
@@ -274,16 +275,16 @@ class ChangelogFetcher:
             }
 
         if skip_num > 0:
-            print(f'Skipped {skip_num}/{len(feed.entries)} RSS items that already exists')
+            logger.trace(f'Skipped {skip_num} RSS items that already exists')
 
     def _process_local_changelogs(self, changelog_path):
-        print('Parsing Changelog txt files')
+        logger.trace('Parsing Changelog txt files')
         # Make sure path exists
         if not os.path.isdir(changelog_path):
-            print(f'Issue opening changelog dir `{changelog_path}`')
+            logger.warning(f'Issue opening changelog dir `{changelog_path}`')
             return
         files = [f for f in listdir(changelog_path) if isfile(join(changelog_path, f))]
-        print(f'Found {str(len(files))} changelog entries in `{changelog_path}`')
+        logger.trace(f'Found {str(len(files))} changelog entries in `{changelog_path}`')
         for file in files:
             version = file.replace('.txt', '')
             try:
@@ -291,7 +292,54 @@ class ChangelogFetcher:
                     changelogs = f.read()
                     self.changelogs[version] = changelogs
             except Exception:
-                print(f'Issue with {file}, skipping')
+                logger.warning(f'Issue with {file}, skipping')
+
+    def _create_changelog_id(self, date, changelog):
+        """
+        Creating a custom id based on the date by appending _<i> if the date already exists, i.e.
+        2024-10-29-1
+        2024-10-29-2
+        2024-10-29-3
+        """
+
+        # Determine changelog_id
+        changelog_id = date
+        if date in self.changelogs:
+            # If content already exists, we don't want to alter the changelog_id
+            if changelog == self.changelogs[date]:
+                return changelog_id
+
+            # If both have very few lines, don't bother comparing further
+            if not (len(changelog.split('\n')) < 5 and len(self.changelogs[date].split('\n')) < 5):
+                # Determine what % of lines from one are in the other
+                changelog_lines = changelog.split('\n')
+                existing_lines = self.changelogs[date].split('\n')
+                diff_percent = 1 - len(set(changelog_lines).intersection(existing_lines)) / len(
+                    existing_lines
+                )
+                print(date, diff_percent)
+                if diff_percent < 0.3:
+                    print(
+                        f'[WARN] Fetched changelog from date {date} was found to be very similar to '
+                        + f'an existing changelog ({round(1-diff_percent,3)*100}% match) and has '
+                        + 'been updated in input-data. Ensure it is just a '
+                        + 'minor edit, and not a completely different changelog.'
+                    )
+                    return changelog_id
+            # Otherwise 90% of chars differ or theres too few lines to compare
+
+            # Content differs, so we need to use a series of changelog-id's
+            # Remove the record under the base changelog_id and re-add it under <changelog_id>-1
+            base_changelog = self.changelogs.pop(date)
+            if f'{date}-1' not in self.changelogs:
+                self.changelogs[f'{date}-1'] = base_changelog
+
+        # Find the next available changelog_id in the series
+        i = 1
+        while f'{date}-{i}' in self.changelogs and changelog != self.changelogs[f'{date}-{i}']:
+            i += 1
+
+        return f'{date}-{i}'
 
     def _create_changelog_id(self, date, changelog):
         """

@@ -43,7 +43,6 @@ class AbilityParser:
                 ability_data[key] = value
 
             if 'm_vecAbilityUpgrades' not in ability:
-                # print(ability.get('Name'), 'missing upgrades')
                 continue
             else:
                 ability_data['Upgrades'] = self._parse_upgrades(
@@ -66,7 +65,11 @@ class AbilityParser:
         for index, upgrade_set in enumerate(upgrade_sets):
             parsed_upgrade_set = {}
 
-            for upgrade in upgrade_set['m_vecPropertyUpgrades']:
+            upgrades = upgrade_set.get('m_vecPropertyUpgrades')
+            if upgrades is None:
+                continue
+
+            for upgrade in upgrades:
                 prop = None
                 value = None
                 upgrade_type = None
