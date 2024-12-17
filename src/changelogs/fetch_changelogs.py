@@ -295,13 +295,13 @@ class ChangelogFetcher:
 
     def _create_changelog_id(self, date, forum_id, i=0):
         """
-        Creating a custom id based on the date by appending _<i> 
+        Creating a custom id based on the date by appending _<i>
         if its another patch for the same day, i.e.:
         2024-10-29
         2024-10-29-1
         2024-10-29-2
         """
-        
+
         # (2024-12-17, 0) -> 2024-12-17
         # (2024-12-17, 1) -> 2024-12-17-1
         id = date if i == 0 else f'{date}-{i}'
@@ -314,7 +314,8 @@ class ChangelogFetcher:
             return id
         # Else same date already exists
 
-        # If the forum id is the same, use the same changelog id which will update the existing record
+        # If the forum id is the same, use the same changelog id 
+        # which will update the existing record
         if existing_config['forum_id'] == forum_id:
             return id
         # Else forum id's are different, so different patches on the same day
