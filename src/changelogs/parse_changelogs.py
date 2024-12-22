@@ -32,7 +32,7 @@ class ChangelogParser:
         changelog_out = []
 
         for line in changelog_lines:
-            if line is None or line == '':
+            if line is None:
                 continue
 
             # parse heading: if heading is found, update current heading
@@ -52,7 +52,10 @@ class ChangelogParser:
             # replace -> with →
             line = line.replace('->', '→')
 
-            tags = self._parse_tags(current_heading, line)
+            if line != '':
+                tags = self._parse_tags(current_heading, line)
+            else:
+                tags = [self.default_tag]
 
             changelog_out.append({'Description': line, 'Tags': tags})
 
