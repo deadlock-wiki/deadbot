@@ -52,14 +52,6 @@ def is_json_serializable(obj):
         return False
 
 
-def compare_json_file_to_dict(json_file, dict):
-    """Compare a JSON file to a dictionary"""
-    try:
-        return read(json_file) == dict
-    except Exception:
-        return False
-
-
 def validate_structures(datas1, datas2, structure_keys_to_validate):
     """
     Validate that the structure (meaning shape and keys, but not value)

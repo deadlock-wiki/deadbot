@@ -11,6 +11,7 @@ from .parsers import (
     generics,
 )
 from utils import json_utils
+from loguru import logger
 import copy
 
 
@@ -66,19 +67,21 @@ class Parser:
         """
 
         self.localizations = {}
-        for language in self.languages:
-            self.localizations[language] = {}
-            for localization_group in self.localization_groups:
-                localization_data = json_utils.read(
-                    os.path.join(
-                        self.DATA_DIR,
-                        'localizations/',
-                        localization_group,
-                        'citadel_' + localization_group + '_' + language + '.json',
+        # Start with english language
+        for language in ['english'] + self.languages:
+            if language not in self.localizations:
+                self.localizations[language] = {}
+                for localization_group in self.localization_groups:
+                    localization_data = json_utils.read(
+                        os.path.join(
+                            self.DATA_DIR,
+                            'localizations/',
+                            localization_group,
+                            'citadel_' + localization_group + '_' + language + '.json',
+                        )
                     )
-                )
 
-                self._merge_localizations(language, localization_group, localization_data)
+                    self._merge_localizations(language, localization_group, localization_data)
 
     def _merge_localizations(self, language, group, data):
         """
@@ -101,13 +104,13 @@ class Parser:
             # duplicate key error. This is a temporary measure to keep patch updates going
             elif group != 'heroes':
                 current_value = self.localizations[language][key]
-                print(
-                    f'Key {key} with value {value} already exists in {language} localization '
-                    + f'data with value {current_value}.'
+                logger.warning(
+                    f'Key {key} with value "{value}" already exists in {language} localization '
+                    + f'data with value "{current_value}."'
                 )
 
     def run(self):
-        print('Parsing...')
+        logger.trace('Parsing...')
         os.system(f'cp "{self.DATA_DIR}/version.txt" "{self.OUTPUT_DIR}/version.txt"')
         parsed_abilities = self._parse_abilities()
         parsed_heroes = self._parse_heroes(parsed_abilities)
@@ -117,10 +120,10 @@ class Parser:
         self._parse_localizations()
         self._parse_soul_unlocks()
         self._parse_generics()
-        print('Done parsing')
+        logger.trace('Done parsing')
 
     def _parse_soul_unlocks(self):
-        print('Parsing Soul Unlocks...')
+        logger.trace('Parsing Soul Unlocks...')
         parsed_soul_unlocks = souls.SoulUnlockParser(self.data['scripts']['heroes']).run()
 
         json_utils.write(self.OUTPUT_DIR + '/json/soul-unlock-data.json', parsed_soul_unlocks)
@@ -135,11 +138,11 @@ class Parser:
         json_utils.write(generic_data_path, json_utils.sort_dict(parsed_generics))
 
     def _parse_localizations(self):
-        print('Parsing Localizations...')
+        logger.trace('Parsing Localizations...')
         return localizations.LocalizationParser(self.localizations, self.OUTPUT_DIR).run()
 
     def _parse_heroes(self, parsed_abilities):
-        print('Parsing Heroes...')
+        logger.trace('Parsing Heroes...')
         parsed_heroes, parsed_meaningful_stats = heroes.HeroParser(
             self.data['scripts']['heroes'],
             self.data['scripts']['abilities'],
@@ -148,15 +151,19 @@ class Parser:
         ).run()
 
         # Ensure it matches the current list of meaningful stats, and raise a warning if not
-        # File diff will also appear in git
-        if not json_utils.compare_json_file_to_dict(
-            self.OUTPUT_DIR + '/json/hero-meaningful-stats.json', parsed_meaningful_stats
-        ):
-            print(
-                'Warning: Non-constant stats have changed. '
-                + "Please update [[Module:HeroData]]'s write_hero_comparison_table "
-                + 'lua function for the [[Hero Comparison]] page.'
-            )
+        path = self.OUTPUT_DIR + '/json/hero-meaningful-stats.json'
+        if os.path.exists(path):
+            current_meaningful_stats = json_utils.read(path)
+            if current_meaningful_stats != parsed_meaningful_stats:
+                current_keys = set(current_meaningful_stats.keys())
+                new_keys = set(parsed_meaningful_stats.keys())
+                logger.warning(
+                    'Non-constant stats have changed. '
+                    + "Please update [[Module:HeroData]]'s write_hero_comparison_table "
+                    + 'lua function for the [[Hero Comparison]] page.'
+                    + f'\nAdded keys: {new_keys - current_keys}'
+                    + f'\nRemoved keys: {current_keys - new_keys}'
+                )
 
         json_utils.write(
             self.OUTPUT_DIR + '/json/hero-meaningful-stats.json',
@@ -181,7 +188,7 @@ class Parser:
         return parsed_heroes
 
     def _parse_abilities(self):
-        print('Parsing Abilities...')
+        logger.trace('Parsing Abilities...')
         parsed_abilities = abilities.AbilityParser(
             self.data['scripts']['abilities'],
             self.data['scripts']['heroes'],
@@ -194,7 +201,7 @@ class Parser:
         return parsed_abilities
 
     def _parsed_ability_cards(self, parsed_heroes):
-        print('Parsing Ability UI...')
+        logger.trace('Parsing Ability UI...')
 
         for language in self.languages:
             (parsed_ability_cards, changed_localizations) = ability_cards.AbilityCardsParser(
@@ -211,7 +218,7 @@ class Parser:
                 json_utils.write(self.OUTPUT_DIR + '/json/ability-cards.json', parsed_ability_cards)
 
     def _parse_items(self):
-        print('Parsing Items...')
+        logger.trace('Parsing Items...')
         (parsed_items, item_component_chart) = items.ItemParser(
             self.data['scripts']['abilities'],
             self.data['scripts']['generic_data'],
@@ -226,7 +233,7 @@ class Parser:
             f.write(str(item_component_chart))
 
     def _parse_attributes(self):
-        print('Parsing Attributes...')
+        logger.trace('Parsing Attributes...')
         (parsed_attributes, attribute_orders) = attributes.AttributeParser(
             self.data['scripts']['heroes'], self.localizations[self.language]
         ).run()
