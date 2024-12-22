@@ -129,7 +129,7 @@ class Parser:
         json_utils.write(self.OUTPUT_DIR + '/json/soul-unlock-data.json', parsed_soul_unlocks)
 
     def _parse_generics(self):
-        print('Parsing Generics...')
+        logger.trace('Parsing Generics...')
         generic_data_path = self.OUTPUT_DIR + '/json/generic-data.json'
         parsed_generics = generics.GenericParser(
             generic_data_path, self.data['scripts']['generic_data']

@@ -1,6 +1,7 @@
 import utils.json_utils as json_utils
 import utils.string_utils as string_utils
 import os
+from loguru import logger
 
 
 class GenericParser:
@@ -39,7 +40,7 @@ class GenericParser:
             )
 
             if len(invalid_keys) > 0:
-                print(
+                logger.warning(
                     '[WARN] A structure within Generic data has changed:'
                     + f' {invalid_keys}. Please verify the changes,'
                     + ' and update the frontend page [[Module:GenericData]] accordingly.'
