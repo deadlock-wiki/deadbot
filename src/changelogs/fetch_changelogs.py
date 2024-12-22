@@ -314,7 +314,7 @@ class ChangelogFetcher:
             return id
         # Else same date already exists
 
-        # If the forum id is the same, use the same changelog id 
+        # If the forum id is the same, use the same changelog id
         # which will update the existing record
         if existing_config['forum_id'] == forum_id:
             return id
