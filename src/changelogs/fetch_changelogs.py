@@ -151,10 +151,10 @@ class ChangelogFetcher:
             # Citadel_PatchNotes_HeroLabs_hero_astro_1 ->
             # hero_astro ->
             # Holliday ->
-            # [ HeroLab Holliday ]
+            # [ Holliday ]
             hero_key = key.split('Citadel_PatchNotes_HeroLabs_')[1][:-2]
             hero_name_en = self._localize(hero_key)
-            header = f'[ HeroLab {hero_name_en} ]'
+            header = f'[ {hero_name_en} ]'
 
             # Initialize the changelog entry if its the first line for this hero's patch (version)
             if raw_changelog_id not in gamefile_changelogs:

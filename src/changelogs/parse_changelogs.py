@@ -120,12 +120,7 @@ class ChangelogParser:
             if heading_tag is not None:
                 tags = self._register_tag(tags, tag=heading_tag)
 
-            # If the heading is a "HeroLab <hero>", register <hero> as well
-            if current_heading.startswith('HeroLab '):
-                hero = current_heading[len('HeroLab ') :]
-                if self.is_hero(hero):
-                    tags = self._register_tag(tags, hero)
-                    tags = self._register_tag(tags, 'Hero')
+            
 
         # if no tag is found, assign to default tag
         if len(tags) == 0:

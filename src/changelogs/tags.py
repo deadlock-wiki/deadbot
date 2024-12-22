@@ -373,7 +373,6 @@ class ChangelogTags:
         # Add <hero>, <ability>, <item> etc. to tag tree
         # to show where instance tags would appear (such as Abrams, Basic Magazine, Siphon Life)
         tag_tree['Hero']['<Hero Name>'] = {}
-        tag_tree['Hero']['<HeroLab Hero Name>'] = {'HeroLab <HeroLab Hero Name>': {}}
         tag_tree['Hero']['Ability']['<Ability Name>'] = {}
         tag_tree['Item']['Weapon Item']['<Weapon Item Name>'] = {}
         tag_tree['Item']['Vitality Item']['<Vitality Item Name>'] = {}
