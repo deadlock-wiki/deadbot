@@ -219,6 +219,9 @@ class ChangelogParser:
             # {{PageRef|tag|alt_name=remappable_text}}
             for remappable_text in self.tags.remap:
                 tag = self.tags.remap[remappable_text]
+                if tag == self.default_tag: # skip default tag
+                    continue
+                
                 if remappable_text in remaining_description and tag in tags:
                     icon = '{{' + template + '|' + tag + '|alt_name=' + remappable_text + '}}'
                     description = description.replace(remappable_text, icon)
