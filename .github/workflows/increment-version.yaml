@@ -1,14 +1,9 @@
 name: Increment Deadbot Version
 on: 
   push:
-    paths: 
-      - 'src/**'
-      - '.github/workflows/increment-version.yaml'
-
+    paths: 'src/**'
     branches:
       - 'develop'
-      - 'master'
-      - 'feature/auto-increment-pyprojecttoml-version'
 
 jobs:
   increment-version:
@@ -27,16 +22,7 @@ jobs:
         git config pull.rebase true    
     
     - name: Increment version
-      run: |
-        # TODO - replace with actual current branch
-        branch=develop
-        if [[ $branch == "develop" ]]; then
-            type=beta
-        elif [[ $branch == "master" ]]; then
-            type=patch
-        fi
-
-        python3 ./scripts/increment_version.py $type
+      run: python3 ./scripts/increment_version.py beta
 
     - name: Commit updated version
       run: |
