@@ -25,9 +25,9 @@ jobs:
       run: |
         branch=develop
         if [[ $branch == "develop" ]]; then
-            type=revision
+            type=beta
         elif [[ $branch == "master" ]]; then
-            type=release
+            type=patch
         fi
 
         python3 ./scripts/increment_version.py $type
@@ -35,5 +35,5 @@ jobs:
     - name: Commit updated version
       run: |
         git add pyproject.toml
-        git commit -m "chore: version increment" || echo "No changes to commit"
+        git commit -m "chore: incremented version" || echo "No changes to commit"
         git push --force-with-lease origin ${{ github.ref_name }}
