@@ -21,11 +21,6 @@ def increment_version(increment_type: IncrementType):
     Args:
         increment_type: The type of increment being used - major, minor, patch, or beta
     """
-    valid_types = ['major', 'minor', 'patch', 'beta']
-
-    if increment_type not in valid_types:
-        raise Exception(f'Invalid increment type "{increment_type}" - must be one of {valid_types}')
-
     version = read_version()
 
     match increment_type:
@@ -103,4 +98,9 @@ def write_version(version: VersionInfo):
 
 if __name__ == '__main__':
     increment_type = sys.argv[1]
+    valid_types = ['major', 'minor', 'patch', 'beta']
+
+    if increment_type not in valid_types:
+        raise Exception(f'Invalid increment type "{increment_type}" - must be one of {valid_types}')
+
     increment_version(increment_type)
