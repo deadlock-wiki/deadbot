@@ -1,7 +1,10 @@
 name: Increment Deadbot Version
 on: 
   push:
-    paths: 'src/**'
+    paths: 
+      - 'src/**'
+      - '.github/workflows/increment-version.yaml'
+
     branches:
       - 'develop'
       - 'master'
