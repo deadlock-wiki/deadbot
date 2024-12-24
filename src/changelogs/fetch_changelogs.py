@@ -182,12 +182,16 @@ class ChangelogFetcher:
                 gamefile_changelogs[raw_changelog_id] += f'- {description}\n'
 
                 # Add the config entry if it doesn't exist
+                sequence_id = 0
+                is_hero_lab = True
                 if raw_changelog_id not in self.changelog_configs:
                     self.changelog_configs[raw_changelog_id] = {
                         'forum_id': None,
                         'date': date,
+                        'sequence_id': sequence_id,
+                        'frontfacing_date_id': frontfacing_date_id(date, sequence_id, is_hero_lab),
                         'link': None,
-                        'is_hero_lab': True,
+                        'is_hero_lab': is_hero_lab,
                     }
         self.changelogs.update(gamefile_changelogs)
 
@@ -264,13 +268,17 @@ class ChangelogFetcher:
             except Exception:
                 logger.error(f'Issue with parsing RSS feed item {entry.link}')
 
-            changelog_id = self._create_changelog_id(date, version)
+            sequence_id = self._create_sequence_id(date, version)
+            is_hero_lab = False
+            changelog_id = date if sequence_id == 0 else f'{date}-{sequence_id}'
             self.changelogs[changelog_id] = full_text
             self.changelog_configs[changelog_id] = {
                 'forum_id': version,
                 'date': date,
+                'sequence_id': sequence_id,
+                'frontfacing_date_id': frontfacing_date_id(date, sequence_id, is_hero_lab),
                 'link': entry.link,
-                'is_hero_lab': False,
+                'is_hero_lab': is_hero_lab,
             }
 
         if skip_num > 0:
@@ -293,7 +301,7 @@ class ChangelogFetcher:
             except Exception:
                 logger.warning(f'Issue with {file}, skipping')
 
-    def _create_changelog_id(self, date, forum_id, i=0):
+    def _create_sequence_id(self, date, forum_id, i=0):
         """
         Creating a custom id based on the date by appending _<i>
         if its another patch for the same day, i.e.:
@@ -311,17 +319,17 @@ class ChangelogFetcher:
 
         # If this id doesn't yet exist, use it
         if existing_config is None:
-            return id
+            return i
         # Else same date already exists
 
         # If the forum id is the same, use the same changelog id
         # which will update the existing record
         if existing_config['forum_id'] == forum_id:
-            return id
+            return i
         # Else forum id's are different, so different patches on the same day
 
         # Recursively check if the next id is available
-        return self._create_changelog_id(date, forum_id, i + 1)
+        return self._create_sequence_id(date, forum_id, i + 1)
 
 
 def format_date(date):
@@ -345,3 +353,19 @@ def format_date(date):
     # Reformat to yyyy-mm-dd
     date = f'{date[2]}-{date[0]}-{date[1]}'
     return date
+
+def frontfacing_date_id(date, sequence_id, is_hero_lab):
+    """
+    Reformat yyyy-mm-dd to May 10, 2024
+    """
+    date = date.split('-')
+    month = int(date[1])
+    day = int(date[2])
+    year = date[0]
+    month_name = [
+        'January', 'February', 'March', 'April', 'May', 'June', 'July',
+        'August', 'September', 'October', 'November', 'December'
+    ]
+    sequence_str = '' if sequence_id == 0 else f'-{sequence_id}'
+    herolab_str = ' HeroLab' if is_hero_lab else ''
+    return f'{month_name[month - 1]} {day}, {year}{sequence_str}{herolab_str}'
