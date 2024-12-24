@@ -182,7 +182,7 @@ class ChangelogFetcher:
                 gamefile_changelogs[raw_changelog_id] += f'- {description}\n'
 
                 # Add the config entry if it doesn't exist
-                sequence_id = 1
+                sequence_id = 0
                 is_hero_lab = True
                 if raw_changelog_id not in self.changelog_configs:
                     self.changelog_configs[raw_changelog_id] = {
@@ -268,9 +268,9 @@ class ChangelogFetcher:
             except Exception:
                 logger.error(f'Issue with parsing RSS feed item {entry.link}')
 
-            sequence_id = self._create_sequence_id(date, version)+1
+            sequence_id = self._create_sequence_id(date, version)
             is_hero_lab = False
-            changelog_id = f'{date}_{sequence_id}'
+            changelog_id = date if sequence_id == 0 else f'{date}-{sequence_id}'
             self.changelogs[changelog_id] = full_text
             self.changelog_configs[changelog_id] = {
                 'forum_id': version,
