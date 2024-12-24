@@ -32,7 +32,7 @@ class ChangelogParser:
         changelog_out = []
 
         for line in changelog_lines:
-            if line is None:
+            if line is None or line == '==':
                 continue
 
             # parse heading: if heading is found, update current heading
