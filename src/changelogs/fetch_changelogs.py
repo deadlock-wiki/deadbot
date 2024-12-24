@@ -183,14 +183,15 @@ class ChangelogFetcher:
 
                 # Add the config entry if it doesn't exist
                 sequence_id = 1
+                is_hero_lab = True
                 if raw_changelog_id not in self.changelog_configs:
                     self.changelog_configs[raw_changelog_id] = {
                         'forum_id': None,
                         'date': date,
                         'sequence_id': sequence_id,
-                        'frontfacing_date_id': frontfacing_date_id(date, sequence_id),
+                        'frontfacing_date_id': frontfacing_date_id(date, sequence_id, is_hero_lab),
                         'link': None,
-                        'is_hero_lab': True,
+                        'is_hero_lab': is_hero_lab,
                     }
         self.changelogs.update(gamefile_changelogs)
 
@@ -268,15 +269,16 @@ class ChangelogFetcher:
                 logger.error(f'Issue with parsing RSS feed item {entry.link}')
 
             sequence_id = self._create_sequence_id(date, version)+1
+            is_hero_lab = False
             changelog_id = f'{date}_{sequence_id}'
             self.changelogs[changelog_id] = full_text
             self.changelog_configs[changelog_id] = {
                 'forum_id': version,
                 'date': date,
                 'sequence_id': sequence_id,
-                'frontfacing_date_id': frontfacing_date_id(date, sequence_id),
+                'frontfacing_date_id': frontfacing_date_id(date, sequence_id, is_hero_lab),
                 'link': entry.link,
-                'is_hero_lab': False,
+                'is_hero_lab': is_hero_lab,
             }
 
         if skip_num > 0:
@@ -352,7 +354,7 @@ def format_date(date):
     date = f'{date[2]}-{date[0]}-{date[1]}'
     return date
 
-def frontfacing_date_id(date, sequence_id):
+def frontfacing_date_id(date, sequence_id, is_hero_lab):
     """
     Reformat yyyy-mm-dd to May 10, 2024
     """
@@ -365,4 +367,5 @@ def frontfacing_date_id(date, sequence_id):
         'August', 'September', 'October', 'November', 'December'
     ]
     sequence_str = '' if sequence_id == 0 else f'-{sequence_id}'
-    return f'{month_name[month - 1]} {day}, {year}{sequence_str}'
+    herolab_str = ' HeroLab' if is_hero_lab else ''
+    return f'{month_name[month - 1]} {day}, {year}{sequence_str}{herolab_str}'
