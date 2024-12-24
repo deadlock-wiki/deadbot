@@ -79,7 +79,7 @@ def decompile(DEADLOCK_PATH, WORK_DIR, DECOMPILER_CMD, force=False):
     #   "citadel_patch_notes",
     # ]
 
-    # All folders but voice lines for now
+    # All folders but voice lines and dev for now
     folders = [
         'citadel_attributes',
         'citadel_gc',
@@ -87,7 +87,6 @@ def decompile(DEADLOCK_PATH, WORK_DIR, DECOMPILER_CMD, force=False):
         'citadel_main',
         'citadel_mods',
         'citadel_patch_notes',
-        'citadel_dev',
     ]
 
     # Loop through each folder in the array
