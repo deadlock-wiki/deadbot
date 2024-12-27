@@ -117,7 +117,13 @@ class ChangelogFetcher:
 
     def get_gamefile_changelogs(self):
         """Read and parse the Hero Labs changelogs in the game files"""
-        changelogs = json_utils.read(self.HEROLABS_PATCH_NOTES_PATH)
+
+        # Ensure path exists
+        path = self.HEROLABS_PATCH_NOTES_PATH
+        if not os.path.isfile(path):
+            logger.warning(f'Hero Labs patch notes file `{path}` does not exist; skipping them.')
+            return None
+        changelogs = json_utils.read(path)
 
         gamefile_changelogs = dict()
 
