@@ -62,7 +62,7 @@ def main():
     if is_truthy(args.wiki_upload):
         logger.info('Running Wiki Upload...')
         wiki_upload = WikiUpload(args.output)
-        wiki_upload.update_data_pages()
+        wiki_upload.run()
     else:
         logger.trace('! Skipping Wiki Upload !')
 

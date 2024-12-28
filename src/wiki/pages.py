@@ -1,19 +1,19 @@
 # Maps page name in "Data:" namespace on the wiki to
 # the file path in $OUTPUT_DIR
 DATA_PAGE_FILE_MAP = {
-    'AbilityCards.json': 'json/ability-cards.json',
-    'AbilityData.json': 'json/ability-data.json',
-    'AttributeData.json': 'json/attribute-data.json',
-    'HeroData.json': 'json/hero-data.json',
-    'ItemData.json': 'json/item-data.json',
-    'Lang en.json': 'localizations/english.json',
-    'Lang es.json': 'localizations/spanish.json',
-    'Lang ru.json': 'localizations/russian.json',
-    'Lang tr.json': 'localizations/turkish.json',
-    'Lang zh-hans.json': 'localizations/schinese.json',
-    'Lang zh-hant.json': 'localizations/tchinese.json',
-    'SoulUnlockData.json': 'json/soul-unlock-data.json',
-    'StatInfoboxOrder.json': 'json/stat-infobox-order.json',
+    'json/ability-cards.json': 'AbilityCards.json',
+    'json/ability-data.json': 'AbilityData.json',
+    'json/attribute-data.json': 'AttributeData.json',
+    'json/hero-data.json': 'HeroData.json',
+    'json/item-data.json': 'ItemData.json',
+    'json/soul-unlock-data.json': 'SoulUnlockData.json',
+    'json/stat-infobox-order.json': 'StatInfoboxOrder.json',
+    'localizations/english.json': 'Lang en.json',
+    'localizations/spanish.json': 'Lang es.json',
+    'localizations/russian.json': 'Lang ru.json',
+    'localizations/turkish.json': 'Lang tr.json',
+    'localizations/schinese.json': 'Lang zh-hans.json',
+    'localizations/tchinese.json': 'Lang zh-hant.json',
 }
 
 CHANGELOGS_PAGE_DIR = 'changelogs/versions/'
