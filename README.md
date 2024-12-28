@@ -145,6 +145,6 @@ service:
 ## Contributing
 DeadBot is currently early in its development and welcomes new contributors to get involved no matter what level experience you have.
 
-Regularly discussed in the wiki channel on [the Discord server](https://discord.com/invite/jUyhZKwxSW). Ask for access on there if you are interested in contributing.
+Regularly discussed in the wiki channel on [The Deadlock Wiki discord server](https://discord.com/invite/3FJpr53dfu). Ask for access on there if you are interested in contributing.
 
 At the moment the work is fairly ad-hoc, so find me on discord as "HariyoSaag" if you're not sure where to start.
