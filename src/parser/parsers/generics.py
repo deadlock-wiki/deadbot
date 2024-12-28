@@ -41,7 +41,7 @@ class GenericParser:
 
             if len(invalid_keys) > 0:
                 logger.warning(
-                    '[WARN] A structure within Generic data has changed:'
+                    'A structure within Generic data has changed:'
                     + f' {invalid_keys}. Please verify the changes,'
                     + ' and update the frontend page [[Module:GenericData]] accordingly.'
                 )
