@@ -1,5 +1,6 @@
 import parser.maps as maps
 import utils.string_utils as string_utils
+from loguru import logger
 
 
 class AbilityCardsParser:
@@ -50,7 +51,8 @@ class AbilityCardsParser:
                     if parsed_ui is not None:
                         hero_abilities[self.ability_index] = parsed_ui
                 except Exception as e:
-                    raise Exception(f'[ERROR] Failed to parse ui for ability {ability["Key"]}', e)
+                    logger.error(f'Failed to parse ui for ability {ability["Key"]}')
+                    raise e
 
             output[self.hero_key] = hero_abilities
 
@@ -235,7 +237,7 @@ class AbilityCardsParser:
                     continue
 
                 case _:
-                    print('[ERROR] Unhandled property', attr)
+                    logger.error('Unhandled property', attr)
 
         return attribute
 
@@ -289,6 +291,18 @@ class AbilityCardsParser:
                 'Value': self.ability.get(prop),
             }
 
+            raw_attr = self._get_raw_ability_attr(prop)
+            if raw_attr is None:
+                continue
+
+            attr_type = raw_attr.get('m_strCSSClass')
+            if attr_type is not None:
+                data['Type'] = attr_type
+
+            scale = self._get_scale(prop)
+            if scale is not None:
+                data['Scale'] = scale
+
             # These props are directly referenced and should live on the top level
             if prop in [
                 'AbilityCharges',
@@ -305,16 +319,6 @@ class AbilityCardsParser:
             # skip any attributes that are already placed in other categories
             if prop in self.used_attributes:
                 continue
-
-            raw_attr = self._get_raw_ability_attr(prop)
-
-            attr_type = raw_attr.get('m_strCSSClass')
-            if attr_type is not None:
-                data['Type'] = attr_type
-
-            scale = self._get_scale(prop)
-            if scale is not None:
-                data['Scale'] = scale
 
             match attr_type:
                 case 'cooldown' | 'charge_cooldown':

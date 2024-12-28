@@ -44,6 +44,7 @@ def format_description(description, *data_sets):
 
 STYLE_MAP = {
     'class="highlight"': '<span style="font-weight: bold;">',
+    'class="highlight+"': '<span style="font-weight: bold;">',
     'class="diminish"': '<span style="font-style: italic;">',
     'class="highlight_spirit"': '<span style="font-weight: bold;">',
     'class="highlight_weapon"': '<span style="font-weight: bold;">',
@@ -70,6 +71,7 @@ IGNORE_KEYS = [
     'ProjectileRedirectCount',
     'TurretHealthScaling',
     'DisarmDuration',
+    '​ไซเลนเซอร์​adius',
 ]
 
 
@@ -113,3 +115,18 @@ def is_truthy(string):
         1,
     ]
     return string in TRUE_THO
+
+
+def remove_prefix(str, prefix):
+    """
+    Attempt to remove a given prefix from a str
+    remove_prefix('m_nAbilityCastRange', 'm_n') -> 'AbilityCastRange'
+    """
+    if (
+        len(str) > len(prefix)  # Key should be able to fit the prefix
+        and str.startswith(prefix)  # Key starts with prefix
+        and str[len(prefix)].isupper()  # Character after prefix is uppercase
+    ):
+        str = str.split(prefix)[1]
+
+    return str

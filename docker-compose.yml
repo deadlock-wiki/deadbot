@@ -11,8 +11,9 @@ services:
       DECOMPILE: ${DECOMPILE}
       CHANGELOGS: 'true'
       PARSE: 'true'
-      BOT_PUSH: ${BOT_PUSH}
+      WIKI_UPLOAD: ${WIKI_UPLOAD}
       CLEANUP: 'true'
+      VERBOSE: ${VERBOSE}
       IAM_KEY: ${IAM_KEY}
       IAM_SECRET: ${IAM_SECRET}
       BOT_WIKI_USER: ${BOT_WIKI_USER}

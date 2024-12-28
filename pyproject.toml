@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "DeadBot" 
-version = "0.2.4"
-description = "Scrapes game data for Valve's Deadlock"
+version = "0.3.0"
+description = "Bot that lives to serve deadlocked.wiki"
 readme = "README.md"
 authors=[]
 
@@ -21,6 +21,7 @@ python-dotenv = "^1.0.1"
 feedparser = "^6.0.11"
 requests = "^2.32.3"
 bs4 = "^0.0.2"
+loguru = "^0.7.2"
 
 [tool.ruff]
 line-length = 101

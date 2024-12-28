@@ -3,13 +3,17 @@ on:
   push:
     paths:
       - 'src/**'
-      - 'input-data/**'
       - '.github/workflows/deploy.yaml'
 
   pull_request:
     types: [opened]
 
   workflow_dispatch:
+    inputs:
+      wiki-upload:
+        type: boolean
+        description: Upload output data to the Wiki
+        default: false
 
 jobs:
   # Each event type has a different variable for the branch name
@@ -62,7 +66,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: ${{ needs.get-branch.outputs.branch }}
           path: deadbot
+          token:  ${{ secrets.GH_TOKEN }}     
 
       - name: Checkout deadlock-data repo
         uses: actions/checkout@v4
@@ -71,7 +77,7 @@ jobs:
           path: deadlock-data
           token:  ${{ secrets.GH_TOKEN }}     
 
-      - name: Configure Git
+      - name: Configure Git for data repo
         working-directory: deadlock-data 
         run: |
           git config --global user.email "deadbot1101@gmail.com"
@@ -93,36 +99,48 @@ jobs:
         working-directory: deadbot 
 
       - name: Run Deadbot
-        run: docker-compose up
+        run: docker-compose up --exit-code-from deadbot
         working-directory: deadbot
         env:
           IMPORT_FILES: true
           DECOMPILE: false
-          BOT_PUSH: ${{ needs.get-branch.outputs.branch == 'master' }}
+          WIKI_UPLOAD: ${{ needs.get-branch.outputs.branch == 'master' || github.event.inputs.wiki-upload == 'true' }}
           IAM_KEY: ${{ secrets.IAM_KEY }}
           IAM_SECRET: ${{ secrets.IAM_SECRET }}
           BOT_WIKI_USER: ${{ secrets.BOT_WIKI_USER }}
           BOT_WIKI_PASS: ${{ secrets.BOT_WIKI_PASS }}
+          VERBOSE: ${{ secrets.ACTIONS_RUNNER_DEBUG == 'true' }}
 
-      - name: Pull branch
+      - name: Configure Git for deadbot repo
+        working-directory: deadbot 
+        run: |
+          git config --global user.email "deadbot1101@gmail.com"
+          git config --global user.name "Deadbot0"
+          git config pull.rebase true     
+          
+      - name: Commit and push input-data changes to deadbot
+        working-directory: deadbot
+        run: |
+          git add input-data
+          git commit -m "chore: updated input data" || echo "No changes to commit"
+          git push --force-with-lease origin ${{ needs.get-branch.outputs.branch }}
+
+      - name: Pull data branch
         working-directory: deadlock-data 
         run: git pull origin ${{ needs.get-branch.outputs.branch }} -X ours     
 
       - name: Copy files to data repo
         run: |
-          rm -rf ./deadlock-data/game-data
-          mkdir ./deadlock-data/game-data
+          rm -rf ./deadlock-data/data
+          mkdir ./deadlock-data/data
           
-          # add all data to game data except for changelogs folder
-          cp -r ./deadbot/output-data/. ./deadlock-data/game-data
-          rm -rf ./deadlock-data/game-data/changelogs
-
-          cp -r ./deadbot/output-data/changelogs/. ./deadlock-data/changelogs
-          
-      - name: Commit and push changes
+          cp -r ./deadbot/output-data/. ./deadlock-data/data
+      
+      - name: Commit and push changes to data repo
         working-directory: deadlock-data 
         run: |
           git add -A
           git commit -m "Re-parsed game files" || echo "No changes to commit"
           git push --force-with-lease origin ${{ needs.get-branch.outputs.branch }}
+
           

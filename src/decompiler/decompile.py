@@ -2,7 +2,9 @@ import os
 import decompiler.kv3_to_json as kv3_to_json
 import decompiler.localization as localization
 import filecmp
+import shutil
 import utils.game_utils as g_util
+from loguru import logger
 
 
 def decompile(DEADLOCK_PATH, WORK_DIR, DECOMPILER_CMD, force=False):
@@ -18,8 +20,6 @@ def decompile(DEADLOCK_PATH, WORK_DIR, DECOMPILER_CMD, force=False):
     Returns:
         None
     """
-
-    # Define paths
     os.makedirs(WORK_DIR, exist_ok=True)
     steam_inf_path = f'{DEADLOCK_PATH}/game/citadel/steam.inf'
     version_path = f'{WORK_DIR}/version.txt'
@@ -27,11 +27,16 @@ def decompile(DEADLOCK_PATH, WORK_DIR, DECOMPILER_CMD, force=False):
     # if the version files match, nothing to do
     if os.path.exists(version_path) and filecmp.cmp(steam_inf_path, version_path):
         game_version = g_util.load_game_info(steam_inf_path)
-        print(
-            f'Version {game_version["ClientVersion"]} is already decompiled, skipping decompile step'
-        )
         if not force:
+            logger.info(
+                f'Version {game_version["ClientVersion"]} is '
+                + 'already decompiled, skipping decompile step'
+            )
             return
+
+    # clear data to ensure no old data is left around
+    shutil.rmtree(WORK_DIR)
+    os.makedirs(WORK_DIR, exist_ok=True)
 
     os.system(f'cp "{steam_inf_path}" "{version_path}"')
 
@@ -51,7 +56,13 @@ def decompile(DEADLOCK_PATH, WORK_DIR, DECOMPILER_CMD, force=False):
             DECOMPILER_CMD
             + f' -i "{input_path}" --output "{WORK_DIR}/vdata" --vpk_filepath "{VPK_FILEPATH}" -d'
         )
+
         os.system(dec_cmd)
+
+        # Ensure the vdata directory was created successfully
+        if not os.path.exists(f'{WORK_DIR}/vdata'):
+            raise Exception(f'Fatal error: Failed to decompile {input_path} with {VPK_FILEPATH}')
+
         # Remove subclass and convert to json
         kv3_to_json.process_file(f'{WORK_DIR}/vdata/{file}.vdata', f'{WORK_DIR}/{file}.json')
 
@@ -64,11 +75,19 @@ def decompile(DEADLOCK_PATH, WORK_DIR, DECOMPILER_CMD, force=False):
     #   "citadel_generated_vo",
     #   "citadel_heroes",
     #   "citadel_main",
-    #   "citadel_mods"
+    #   "citadel_mods",
+    #   "citadel_patch_notes",
     # ]
 
     # All folders but voice lines and dev for now
-    folders = ['citadel_attributes', 'citadel_gc', 'citadel_heroes', 'citadel_main', 'citadel_mods']
+    folders = [
+        'citadel_attributes',
+        'citadel_gc',
+        'citadel_heroes',
+        'citadel_main',
+        'citadel_mods',
+        'citadel_patch_notes',
+    ]
 
     # Loop through each folder in the array
     for folder in folders:
@@ -82,4 +101,4 @@ def decompile(DEADLOCK_PATH, WORK_DIR, DECOMPILER_CMD, force=False):
 
         # Run the Python script to parse the folder
         localization.process_files(src_path, dest_path)
-        print(f'Parsed {src_path} to {dest_path}')
+        logger.trace(f'Parsed {src_path} to {dest_path}')
