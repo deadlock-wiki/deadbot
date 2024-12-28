@@ -71,6 +71,7 @@ IGNORE_KEYS = [
     'ProjectileRedirectCount',
     'TurretHealthScaling',
     'DisarmDuration',
+    '​ไซเลนเซอร์​adius',
 ]
 
 
