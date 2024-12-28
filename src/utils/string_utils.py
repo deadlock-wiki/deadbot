@@ -44,6 +44,7 @@ def format_description(description, *data_sets):
 
 STYLE_MAP = {
     'class="highlight"': '<span style="font-weight: bold;">',
+    'class="highlight+"': '<span style="font-weight: bold;">',
     'class="diminish"': '<span style="font-style: italic;">',
     'class="highlight_spirit"': '<span style="font-weight: bold;">',
     'class="highlight_weapon"': '<span style="font-weight: bold;">',
@@ -70,6 +71,7 @@ IGNORE_KEYS = [
     'ProjectileRedirectCount',
     'TurretHealthScaling',
     'DisarmDuration',
+    '​ไซเลนเซอร์​adius',
 ]
 
 
