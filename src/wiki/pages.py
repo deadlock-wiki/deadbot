@@ -16,6 +16,9 @@ DATA_PAGE_FILE_MAP = {
     'StatInfoboxOrder.json': 'json/stat-infobox-order.json',
 }
 
+CHANGELOGS_PAGE_DIR = 'changelogs/versions/'
+CHANGELOGS_PAGE_DEST = 'Changelog <version>.json'
+
 # Ignore these pages as they are not automated
 IGNORE_PAGES = [
     'Dictionary',
