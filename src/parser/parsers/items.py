@@ -104,7 +104,7 @@ class ItemParser:
         return parsed_item_data
 
     def _is_disabled(self, item):
-        is_disabled = True
+        is_disabled = None
         if 'm_bDisabled' in item:
             flag = item['m_bDisabled']
             # flag is 1 of [True, False, 'true', 'false']

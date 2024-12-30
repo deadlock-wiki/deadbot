@@ -26,7 +26,7 @@ class AbilityParser:
             ability_data = {
                 'Key': ability_key,
                 'Name': self.localizations.get(ability_key, None),
-                'IsDisabled': ability.get('m_bIsDisabled', True),
+                'IsDisabled': ability.get('m_bDisabled', None),
             }
 
             stats = ability['m_mapAbilityProperties']
