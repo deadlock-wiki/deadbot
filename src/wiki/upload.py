@@ -2,7 +2,7 @@ import os
 import mwclient
 import json
 from utils import json_utils, game_utils, meta_utils
-from .pages import DATA_PAGE_FILE_MAP, IGNORE_PAGES, CHANGELOGS_PAGE_DIR, CHANGELOGS_PAGE_DEST
+from .pages import DATA_PAGE_FILE_MAP, CHANGELOGS_PAGE_DIR, CHANGELOGS_PAGE_DEST
 from loguru import logger
 
 
@@ -36,40 +36,29 @@ class WikiUpload:
         self.site.login(self.auth['user'], self.auth['password'])
 
     def run(self):
-        data_pages_to_update_map = self._get_pages_to_update_map()
-
-        test = True
-        if test:
-            testing_pages = {'changelogs/versions/test.json': 'Changelog Test.json'}    
-            self._update_data_pages(testing_pages)
-        else:
-            self._update_data_pages(data_pages_to_update_map)
-        
-
-    def _get_pages_to_update_map(self):
-        """Retrieves a dict mapping json files to their corresponding wiki pages"""
-        changelog_map = self._create_changelog_map(CHANGELOGS_PAGE_DIR, CHANGELOGS_PAGE_DEST)
-        
         data_pages_map = DATA_PAGE_FILE_MAP
-        for page_dest, changelog_file in changelog_map.items():
-            data_pages_map[page_dest] = changelog_file
-        
-        return data_pages_map
+        changelog_page_map = self._create_changelog_map(CHANGELOGS_PAGE_DIR, CHANGELOGS_PAGE_DEST)
 
-    def _update_data_pages(self, data_pages_map):
+        #self._update_data_pages(data_pages_map, overwrite_existing=True)
+        self._update_data_pages(changelog_page_map, overwrite_existing=False)
+    
+
+    def _update_data_pages(self, data_pages_map, overwrite_existing=False):
         """Updates wiki data pages with their new data"""
+
         for file_path, page_name in data_pages_map.items():
-            # Ensure the file exists
             full_file_path = os.path.join(self.OUTPUT_DIR, file_path)
+            
+            # Ensure the file exists
             if not os.path.exists(full_file_path):
                 logger.warning(f"File '{full_file_path}' does not exist, skipping wiki upload of page {page_name}")
                 continue
-
+            
             # Edit the page with the new content
             page_obj = self.site.pages[f'{self.DATA_NAMESPACE}:{page_name}']
             new_content_dict = json_utils.read(full_file_path)
             new_content_str = json.dumps(new_content_dict, indent=4)
-            self._edit_page(page_obj, new_content_str)
+            self._edit_page(page_obj, new_content_str, overwrite_existing=overwrite_existing)
 
 
     def _create_changelog_map(self, changelog_page_dir, changelog_page_dest):
@@ -82,7 +71,7 @@ class WikiUpload:
             
         return changelog_map
 
-    def _edit_page(self, page, updated_text):
+    def _edit_page(self, page, updated_text, overwrite_existing=False):
         """Edits a wiki page or creates a new one with json content model if it doesn't exist"""
         page_exists = page.exists
         page_contentmodel = page.contentmodel
@@ -93,6 +82,9 @@ class WikiUpload:
                       summary=self.upload_message, minor=False, bot=True)
         
         if page_exists:
+            if not overwrite_existing:
+                logger.warning(f"Page '{page.name}' already exists, skipping upload")
+                return
             current_text = page.text().strip('\n')
             if page_contentmodel != 'json':
                 logger.warning(f"Existing page '{page.name}' has content model '{page_contentmodel}'"+
