@@ -75,14 +75,14 @@ class ItemParser:
             # 'ImagePath': str(item_value.get('m_strAbilityImage', None)),
             'TargetTypes': target_types,
             'ShopFilters': shop_filters,
-            'Disabled': self._is_disabled(item_value),
+            'IsDisabled': self._is_disabled(item_value),
         }
 
         for attr_key in item_ability_attrs.keys():
             parsed_item_data[attr_key] = item_ability_attrs[attr_key]['m_strValue']
 
         # ignore description formatting for disabled items
-        if not parsed_item_data['Disabled']:
+        if not parsed_item_data['IsDisabled']:
             description = self.localizations.get(key + '_desc')
             parsed_item_data['Description'] = string_utils.format_description(
                 description, parsed_item_data, maps.KEYBIND_MAP
@@ -139,6 +139,3 @@ class ItemParser:
 
         return output_array
 
-
-def is_enabled(item):
-    return not item.get('Disabled', False)
