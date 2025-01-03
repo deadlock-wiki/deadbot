@@ -32,7 +32,7 @@ class ChangelogParser:
         changelog_out = []
 
         for line in changelog_lines:
-            if line is None or line == '':
+            if line is None or line == '==':
                 continue
 
             # parse heading: if heading is found, update current heading
@@ -52,7 +52,10 @@ class ChangelogParser:
             # replace -> with →
             line = line.replace('->', '→')
 
-            tags = self._parse_tags(current_heading, line)
+            if line != '':
+                tags = self._parse_tags(current_heading, line)
+            else:
+                tags = [self.default_tag]
 
             changelog_out.append({'Description': line, 'Tags': tags})
 
@@ -117,12 +120,7 @@ class ChangelogParser:
             if heading_tag is not None:
                 tags = self._register_tag(tags, tag=heading_tag)
 
-            # If the heading is a "HeroLab <hero>", register <hero> as well
-            if current_heading.startswith('HeroLab '):
-                hero = current_heading[len('HeroLab ') :]
-                if self.is_hero(hero):
-                    tags = self._register_tag(tags, hero)
-                    tags = self._register_tag(tags, 'Hero')
+            
 
         # if no tag is found, assign to default tag
         if len(tags) == 0:
@@ -216,6 +214,9 @@ class ChangelogParser:
             # {{PageRef|tag|alt_name=remappable_text}}
             for remappable_text in self.tags.remap:
                 tag = self.tags.remap[remappable_text]
+                if tag == self.default_tag: # skip default tag
+                    continue
+                
                 if remappable_text in remaining_description and tag in tags:
                     icon = '{{' + template + '|' + tag + '|alt_name=' + remappable_text + '}}'
                     description = description.replace(remappable_text, icon)
