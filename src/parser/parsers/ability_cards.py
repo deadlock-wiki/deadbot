@@ -65,6 +65,10 @@ class AbilityCardsParser:
         parsed_ui = {
             'Key': self.ability_key,
             'Name': self._get_localized_string(self.ability_key),
+            'Activation': ability.get('Activation'),
+            'TargetingLocation': ability.get('TargetingLocation'),
+            'TargetingShape': ability.get('TargetingShape'),
+            'TargetTypes': ability.get('TargetTypes'),
         }
 
         ability_desc_key = self.ability_key + '_desc'

@@ -105,11 +105,11 @@ class AbilityParser:
 
     def _get_target_data(self, ability):
         target_data = {
+            'Activation': attr_maps.get_ability_activation(ability.get('m_eAbilityActivation')),
             'TargetingLocation': attr_maps.get_targeting_location(
                 ability.get('m_eAbilityTargetingLocation')
             ),
             'TargetingShape': attr_maps.get_targeting_shape(ability.get('m_eAbilityTargetingShape')),
-            'Activation': attr_maps.get_ability_activation(ability.get('m_eAbilityActivation')),
             'TargetTypes': [],
         }
 
