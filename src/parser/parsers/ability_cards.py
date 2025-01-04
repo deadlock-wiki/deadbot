@@ -66,6 +66,7 @@ class AbilityCardsParser:
             'Key': self.ability_key,
             'Name': self._get_localized_string(self.ability_key),
             'Activation': ability.get('Activation'),
+            'Behaviors': ability.get('Behaviors'),
             'TargetingLocation': ability.get('TargetingLocation'),
             'TargetingShape': ability.get('TargetingShape'),
             'TargetTypes': ability.get('TargetTypes'),

@@ -28,6 +28,7 @@ class AbilityParser:
                 'Key': ability_key,
                 'Name': self.localizations.get(ability_key, None),
                 'IsDisabled': ability.get('m_bDisabled', False),
+                'Activation': attr_maps.get_ability_activation(ability.get('m_eAbilityActivation')),
             }
 
             stats = ability['m_mapAbilityProperties']
@@ -51,8 +52,11 @@ class AbilityParser:
                     ability_data, ability['m_vecAbilityUpgrades']
                 )
 
-            target_data = self._get_target_data(ability)
+            ability_data['Behaviors'] = self._parse_ability_behaviours(ability)
+
+            target_data = self._parse_target_data(ability)
             ability_data.update(target_data)
+
             formatted_ability_data = self._strip_empty_attrs(ability_data)
 
             all_abilities[ability_key] = json_utils.sort_dict(formatted_ability_data)
@@ -103,9 +107,8 @@ class AbilityParser:
 
         return parsed_upgrade_sets
 
-    def _get_target_data(self, ability):
+    def _parse_target_data(self, ability):
         target_data = {
-            'Activation': attr_maps.get_ability_activation(ability.get('m_eAbilityActivation')),
             'TargetingLocation': attr_maps.get_targeting_location(
                 ability.get('m_eAbilityTargetingLocation')
             ),
@@ -122,7 +125,24 @@ class AbilityParser:
                 if mapped_target_type:
                     target_data['TargetTypes'].append(mapped_target_type)
 
+        target_data['TargetTypes'].sort()
         return target_data
+
+    def _parse_ability_behaviours(self, ability):
+        behaviors_str = ability.get('m_AbilityBehaviorsBits')
+        if behaviors_str is None:
+            return None
+
+        behaviors = behaviors_str.split('|')
+        parsed_behaviours = []
+        for b in behaviors:
+            mapped_behavior = attr_maps.get_behavior(b.strip())
+
+            if mapped_behavior:
+                parsed_behaviours.append(mapped_behavior)
+
+        parsed_behaviours.sort()
+        return parsed_behaviours
 
     def _strip_empty_attrs(self, ability_data):
         formatted_ability_data = {}
