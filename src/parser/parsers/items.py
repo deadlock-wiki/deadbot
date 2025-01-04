@@ -1,6 +1,7 @@
 from python_mermaid.diagram import MermaidDiagram, Node, Link
 
 import utils.string_utils as string_utils
+import parser.attr_maps as attr_maps
 import parser.maps as maps
 from loguru import logger
 
@@ -48,7 +49,7 @@ class ItemParser:
         target_types = None
         if 'm_nAbilityTargetTypes' in item_value:
             target_types = self._format_pipe_sep_string(
-                item_value['m_nAbilityTargetTypes'], maps.get_target_type
+                item_value['m_nAbilityTargetTypes'], attr_maps.get_target_type
             )
 
         # Assign shop filters
@@ -69,7 +70,7 @@ class ItemParser:
             'Description': '',
             'Cost': str(cost),
             'Tier': tier,
-            'Activation': maps.get_ability_activation(item_value['m_eAbilityActivation']),
+            'Activation': attr_maps.get_ability_activation(item_value['m_eAbilityActivation']),
             'Slot': maps.get_slot_type(item_value.get('m_eItemSlotType')),
             'Components': None,
             # 'ImagePath': str(item_value.get('m_strAbilityImage', None)),
@@ -138,4 +139,3 @@ class ItemParser:
             output_array.append(mapped_value)
 
         return output_array
-

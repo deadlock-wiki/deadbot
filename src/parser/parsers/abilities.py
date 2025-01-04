@@ -1,3 +1,4 @@
+import parser.attr_maps as attr_maps
 import parser.maps as maps
 import utils.json_utils as json_utils
 import utils.num_utils as num_utils
@@ -50,11 +51,9 @@ class AbilityParser:
                     ability_data, ability['m_vecAbilityUpgrades']
                 )
 
-            formatted_ability_data = {}
-            for attr_key, attr_value in ability_data.items():
-                # strip attrs with value of 0, as that just means it is irrelevant
-                if attr_value != '0':
-                    formatted_ability_data[attr_key] = num_utils.remove_uom(attr_value)
+            target_data = self._get_target_data(ability)
+            ability_data.update(target_data)
+            formatted_ability_data = self._strip_empty_attrs(ability_data)
 
             all_abilities[ability_key] = json_utils.sort_dict(formatted_ability_data)
 
@@ -103,3 +102,33 @@ class AbilityParser:
             parsed_upgrade_sets.append(parsed_upgrade_set)
 
         return parsed_upgrade_sets
+
+    def _get_target_data(self, ability):
+        target_data = {
+            'TargetingLocation': attr_maps.get_targeting_location(
+                ability.get('m_eAbilityTargetingLocation')
+            ),
+            'TargetingShape': attr_maps.get_targeting_shape(ability.get('m_eAbilityTargetingShape')),
+            'Activation': attr_maps.get_ability_activation(ability.get('m_eAbilityActivation')),
+            'TargetTypes': [],
+        }
+
+        target_types_str = ability.get('m_nAbilityTargetTypes')
+        if target_types_str:
+            target_types = target_types_str.split('|')
+            for t in target_types:
+                mapped_target_type = attr_maps.get_target_type(t.strip())
+
+                if mapped_target_type:
+                    target_data['TargetTypes'].append(mapped_target_type)
+
+        return target_data
+
+    def _strip_empty_attrs(self, ability_data):
+        formatted_ability_data = {}
+        for attr_key, attr_value in ability_data.items():
+            # strip attrs with value of 0, as that just means it is irrelevant
+            if attr_value != '0':
+                formatted_ability_data[attr_key] = num_utils.remove_uom(attr_value)
+
+        return formatted_ability_data
