@@ -2,6 +2,8 @@ import sys
 import os
 import re
 
+from loguru import logger
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import parser.maps as maps
 
@@ -48,6 +50,7 @@ STYLE_MAP = {
     'class="diminish"': '<span style="font-style: italic;">',
     'class="highlight_spirit"': '<span style="font-weight: bold;">',
     'class="highlight_weapon"': '<span style="font-weight: bold;">',
+    'class="highlight_courage"': '<span style="font-weight: bold;">',
     'id="TestID"/': '<span>',
 }
 
@@ -91,9 +94,11 @@ def _replace_variables(desc, data):
             return value
 
         if key in IGNORE_KEYS:
-            return f'UNKNOWN[{key}]'
+            return f'IGNORED[{key}]'
 
-        raise Exception(f'Data not found for "{key}"')
+        logger.warning(f'Could not find variable for key {key}')
+        return f'UNKNOWN[{key}]'
+        # raise Exception(f'Data not found for "{key}"')
 
     formatted_desc = re.sub(r'\[?\{s:(.*?)\}\]?', replace_match, desc)
     return formatted_desc
