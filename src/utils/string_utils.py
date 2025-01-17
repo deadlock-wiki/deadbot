@@ -2,6 +2,8 @@ import sys
 import os
 import re
 
+from loguru import logger
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import parser.maps as maps
 
@@ -94,6 +96,7 @@ def _replace_variables(desc, data):
         if key in IGNORE_KEYS:
             return f'IGNORED[{key}]'
 
+        logger.warning(f'Could not find variable for key {key}')
         return f'UNKNOWN[{key}]'
         # raise Exception(f'Data not found for "{key}"')
 
