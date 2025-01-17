@@ -48,6 +48,7 @@ STYLE_MAP = {
     'class="diminish"': '<span style="font-style: italic;">',
     'class="highlight_spirit"': '<span style="font-weight: bold;">',
     'class="highlight_weapon"': '<span style="font-weight: bold;">',
+    'class="highlight_courage"': '<span style="font-weight: bold;">',
     'id="TestID"/': '<span>',
 }
 
@@ -91,9 +92,10 @@ def _replace_variables(desc, data):
             return value
 
         if key in IGNORE_KEYS:
-            return f'UNKNOWN[{key}]'
+            return f'IGNORED[{key}]'
 
-        raise Exception(f'Data not found for "{key}"')
+        return f'UNKNOWN[{key}]'
+        # raise Exception(f'Data not found for "{key}"')
 
     formatted_desc = re.sub(r'\[?\{s:(.*?)\}\]?', replace_match, desc)
     return formatted_desc
