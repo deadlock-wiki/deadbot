@@ -3,7 +3,7 @@ import parser.maps as maps
 
 class AttributeParser:
     """
-    Output-data is used by https://deadlocked.wiki/Template:Infobox_stat
+    Output-data is used by https://deadlock.wiki/Template:Infobox_stat
     and /Module:HeroData
     to display a hero's attributes on their hero page
     """

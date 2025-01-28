@@ -32,7 +32,7 @@ class WikiUpload:
         if not self.auth['password']:
             raise Exception('BOT_WIKI_PASS env var is required to upload to wiki')
 
-        self.site = mwclient.Site('deadlocked.wiki', path='/')
+        self.site = mwclient.Site('deadlock.wiki', path='/')
         self.site.login(self.auth['user'], self.auth['password'])
 
     def update_data_pages(self):

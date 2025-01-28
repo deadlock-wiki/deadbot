@@ -114,7 +114,7 @@ class HeroParser:
         Meaningful stats are ones that are either scaled by level/power increase,
         or have differing base values across the hero pool
 
-        These are displayed on the deadlocked.wiki/Hero_Comparison page, among others in the future.
+        These are displayed on the deadlock.wiki/Hero_Comparison page, among others in the future.
         """
         # Storing in dict with bool entry instead of list so its hashable on the frontend
 
@@ -300,7 +300,7 @@ class HeroParser:
         Dps scaling = dps * bullet dmg scaling / bullet dmg
         """
         # Scalings example is the content of SpiritScaling or LevelScaling
-        # Displayed on deadlocked.wiki/Hero_Comparison
+        # Displayed on deadlock.wiki/Hero_Comparison
         dps_stats = dps_stats_.copy()
         dps_stats_scaled = dps_stats_.copy()
 
