@@ -1,5 +1,5 @@
 # <img src="assets/Bebop_card.png" width="36">  DeadBot 
-DeadBot is an Open Source automation tool for aggregating data from the raw game files with the purpose of accurately maintaining the Deadlock Wiki - https://deadlocked.wiki/
+DeadBot is an Open Source automation tool for aggregating data from the raw game files with the purpose of accurately maintaining the Deadlock Wiki - https://deadlock.wiki/
 
 ## Guide
 All output data can be found in the [deadlock-data](https://github.com/deadlock-wiki/deadlock-data) repository, which includes numeric game data and all patch changelogs
@@ -38,7 +38,7 @@ Run with `poetry run deadbot`
 usage: DeadBot [-h] [-i DL_PATH] [-w WORKDIR] [-n INPUTDIR] [-o OUTPUT] [--decompiler_cmd DECOMPILER_CMD] [--import_files IMPORT_FILES] [--build_num BUILD_NUM] [-v] [--iam_key IAM_KEY]
                [--iam_secret IAM_SECRET] [--bucket BUCKET] [-d] [-p] [-u] [-s] [-c] [--force]
 
-Bot that lives to serve deadlocked.wiki
+Bot that lives to serve deadlock.wiki
 
 options:
   -h, --help            show this help message and exit
