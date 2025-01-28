@@ -327,7 +327,7 @@ class AbilityCardsParser:
                 case 'duration':
                     rest_of_data['Duration'][prop] = data
 
-                case 'range' | 'distance' | 'radius':
+                case 'range' | 'distance' | 'radius' | 'time':
                     rest_of_data['Range'][prop] = data
 
                 case 'damage' | 'bullet_damage' | 'tech_damage' | 'melee_damage':
@@ -351,7 +351,7 @@ class AbilityCardsParser:
                 case None | '':
                     rest_of_data['Other'][prop] = data
                 case _:
-                    raise Exception(f'Unhandled ability attr type {attr_type}')
+                    raise Exception(f'Unhandled ability attr type "{attr_type}" on {prop} attribute')
 
         # Clear out any empty arrays
         cleared_data = {}
