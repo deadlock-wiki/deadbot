@@ -4,6 +4,8 @@ import re
 
 from loguru import logger
 
+from utils import num_utils
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import parser.maps as maps
 
@@ -86,10 +88,11 @@ def _replace_variables(desc, data):
         key = maps.override_localization(key)
         if key in data:
             value = str(data[key])
-            # strip out "m" (metres), as it we just want the formatted
-            # description should contain any units
-            if value.endswith('m'):
-                return value[: -len('m')]
+
+            # strip out units of measure to prevent duplicates eg. "Cooldown reduced by 5ss"
+            stripped_value = num_utils.remove_uom(value)
+            if type(stripped_value) in [float, int]:
+                return str(stripped_value)
 
             return value
 
