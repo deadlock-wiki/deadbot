@@ -88,7 +88,7 @@ class ItemParser:
         if not parsed_item_data['IsDisabled']:
             description = self.localizations.get(key + '_desc')
             parsed_item_data['Description'] = string_utils.format_description(
-                description, parsed_item_data, maps.KEYBIND_MAP
+                description, parsed_item_data, self.localizations
             )
         else:
             description = self.localizations.get(key + '_desc')

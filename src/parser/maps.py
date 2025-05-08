@@ -150,22 +150,6 @@ def get_bound_abilities(value):
     return parts[2]
 
 
-KEYBIND_MAP = {
-    'iv_attack': '{{Mouse|1}}',
-    'iv_attack2': '{{Mouse|2}}',
-    'key_alt_cast': '{{Mouse|3}}',
-    'key_reload': 'R',
-    'key_innate_1': 'Shift',
-    'in_mantle': 'Space',
-    'key_duck': 'Ctrl',
-    'in_ability1': '1',
-    'in_ability2': '2',
-    'in_ability3': '3',
-    'in_ability4': '4',
-    'in_move_down': 'Down',
-    'key_forward': 'Forward',
-}
-
 LOCALIZATION_OVERRIDE_MAP = {
     'MaxChargeDuration': 'SpeedBoostDuration',
 }

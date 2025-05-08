@@ -51,8 +51,18 @@ class AbilityCardsParser:
                     if parsed_ui is not None:
                         hero_abilities[self.ability_index] = parsed_ui
                 except Exception as e:
-                    logger.error(f'Failed to parse ui for ability {ability["Key"]}')
-                    raise e
+                    # only exit the parser for a supported wiki language
+                    if self.language in ['english', 'russian']:
+                        logger.error(
+                            f'Failed to parse ui for ability {ability["Key"]} for'
+                            f'language {self.language}'
+                        )
+                        raise e
+                    else:
+                        logger.warning(
+                            f'Failed to parse ui for ability {ability["Key"]} for'
+                            f'language {self.language}'
+                        )
 
             output[self.hero_key] = hero_abilities
 
@@ -74,9 +84,9 @@ class AbilityCardsParser:
             # required variables to insert into the description
             format_vars = (
                 self.ability,
-                maps.KEYBIND_MAP,
                 {'ability_key': self.ability_index},
                 {'hero_name': self._get_localized_string(self.hero_key)},
+                self.localizations[self.language],
             )
             ability_desc = string_utils.format_description(ability_desc, *format_vars)
             parsed_ui['DescKey'] = ability_desc_key
@@ -132,9 +142,9 @@ class AbilityCardsParser:
                     # required variables to insert into the description
                     format_vars = (
                         self.ability,
-                        maps.KEYBIND_MAP,
                         {'ability_key': self.ability_index},
                         {'hero_name': self._get_localized_string(self.hero_key)},
+                        self.localizations[self.language],
                     )
                     parsed_info_section['DescKey'] = desc_key
 
@@ -473,9 +483,9 @@ class AbilityCardsParser:
         format_vars = (
             overrides,
             data,
-            maps.KEYBIND_MAP,
             {'ability_key': self.ability_index},
             {'hero_name': self._get_localized_string(self.hero_key)},
+            self.localizations[self.language],
         )
 
         formatted_desc = string_utils.format_description(desc, *format_vars)

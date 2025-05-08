@@ -43,6 +43,14 @@ def format_description(description, *data_sets):
     description = re.sub(r'<Panel\b[^>]*>', '', description)
     description = description.replace('</Panel>', '')
 
+    # keybind icons are formatted as {g:citadel_keybind:<key_name>}
+    description = re.sub(r"\{g:citadel_keybind:'([^']+)'\}", _replace_keybind, description)
+
+    # attribute labels are formatted as {g:citadel_inline_attribute:<key_name>}
+    description = re.sub(
+        r"\{g:citadel_inline_attribute:'([^']+)'\}", make_replace_inline_attribute(data), description
+    )
+
     return _replace_variables(description, data)
 
 
@@ -81,6 +89,45 @@ IGNORE_KEYS = [
     'DisarmDuration',
     '​ไซเลนเซอร์​adius',
 ]
+
+KEYBIND_MAP = {
+    'Attack': '{{Mouse|1}}',
+    'ADS': '{{Mouse|2}}',
+    'AltCast': '{{Mouse|3}}',
+    'Reload': 'R',
+    'Roll': 'Shift',
+    'Mantle': 'Space',
+    'Crouch': 'Ctrl',
+    'Ability1': '1',
+    'Ability2': '2',
+    'Ability3': '3',
+    'Ability4': '4',
+    'MoveDown': 'Down',
+    'MoveForward': 'Forward',
+}
+
+
+def _replace_keybind(match):
+    key = match.group(1)
+    replace_string = KEYBIND_MAP.get(key)
+
+    if replace_string is None:
+        raise Exception(f'Missing keybind map for {key}')
+
+    return replace_string
+
+
+def make_replace_inline_attribute(data):
+    def replace_inline_attribute(match):
+        key = match.group(1)
+
+        attr_label = data.get('InlineAttribute_' + key)
+        if attr_label is None:
+            raise Exception(f'Missing inline map for {key}')
+
+        return attr_label
+
+    return replace_inline_attribute
 
 
 # format description with data. eg. "When you are above {s:LifeThreshold}% health"
