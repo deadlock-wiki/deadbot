@@ -4,6 +4,7 @@ DATA_PAGE_FILE_MAP = {
     'AbilityCards.json': 'json/ability-cards.json',
     'AbilityData.json': 'json/ability-data.json',
     'AttributeData.json': 'json/attribute-data.json',
+    'GenericData.json': 'json/generic-data.json',
     'HeroData.json': 'json/hero-data.json',
     'ItemData.json': 'json/item-data.json',
     'Lang en.json': 'localizations/english.json',
