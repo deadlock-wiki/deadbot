@@ -1,6 +1,7 @@
 TARGET_TYPE_MAP = {
     'CITADEL_UNIT_TARGET_ALL_ENEMY': 'AllEnemy',
     'CITADEL_UNIT_TARGET_ALL_FRIENDLY': 'AllFriendly',
+    'CITADEL_UNIT_TARGET_BOSS_ENEMY': 'BossEnemy',
     'CITADEL_UNIT_TARGET_CREEP_ENEMY': 'CreepEnemy',
     'CITADEL_UNIT_TARGET_HERO_ENEMY': 'HeroEnemy',
     'CITADEL_UNIT_TARGET_HERO_FRIENDLY': 'HeroFriendly',
@@ -57,7 +58,8 @@ def get_shop_filter(value):
 ABILITY_ACTIVATION_MAP = {
     'CITADEL_ABILITY_ACTIVATION_INSTANT_CAST': 'InstantCast',
     'CITADEL_ABILITY_ACTIVATION_PASSIVE': 'Passive',
-    'CITADEL_ABILITY_ACTIVATION_PRESS': 'ActivationPress',
+    'CITADEL_ABILITY_ACTIVATION_PRESS_TOGGLE': 'Toggle',
+    'CITADEL_ABILITY_ACTIVATION_PRESS': 'Press',
 }
 
 
@@ -109,6 +111,10 @@ ATTRIBUTE_MANUAL_MAP = {
     },
     'MaxMoveSpeed': {'label': 'MoveSpeedMax_label', 'postfix': 'MoveSpeedMax_postfix'},
     'BaseWeaponDamageIncrease': {'label': 'WeaponPower_label', 'postfix': 'WeaponPower_postfix'},
+    'OOCHealthRegen': {
+        'label': 'OutOfCombatHealthRegen_label',
+        'postfix': 'OutOfCombatHealthRegen_prefix',
+    },
 }
 
 
@@ -125,6 +131,7 @@ LEVEL_MOD_MAP = {
     'MODIFIER_VALUE_BULLET_ARMOR_DAMAGE_RESIST': 'BulletResist',
     'MODIFIER_VALUE_BONUS_ATTACK_RANGE': 'BonusAttackRange',
     'MODIFIER_VALUE_BOON_COUNT': 'PowerIncreases',
+    'MODIFIER_VALUE_TECH_POWER': 'TechPower',
 }
 
 

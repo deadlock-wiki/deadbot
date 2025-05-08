@@ -54,6 +54,9 @@ STYLE_MAP = {
     'class="highlight_weapon"': '<span style="font-weight: bold;">',
     'class="highlight_courage"': '<span style="font-weight: bold;">',
     'id="TestID"/': '<span>',
+    'class="""InlineAttributeName Regen"""': '<span>',
+    'class="""InlineAttributeName BonusFireRate"""': '<span>',
+    'class="""InlineAttributeName ReducedFireRate"""': '<span>',
 }
 
 

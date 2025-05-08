@@ -79,7 +79,10 @@ class ItemParser:
         }
 
         for attr_key in item_ability_attrs.keys():
-            parsed_item_data[attr_key] = item_ability_attrs[attr_key]['m_strValue']
+            if 'm_strValue' in item_ability_attrs[attr_key]:
+                parsed_item_data[attr_key] = item_ability_attrs[attr_key]['m_strValue']
+            else:
+                logger.warning(f'Missing m_strValue attr in item {key} attribute {attr_key}')
 
         # ignore description formatting for disabled items
         if not parsed_item_data['IsDisabled']:
@@ -138,4 +141,3 @@ class ItemParser:
             output_array.append(mapped_value)
 
         return output_array
-
