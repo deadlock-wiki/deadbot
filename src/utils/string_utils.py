@@ -46,11 +46,6 @@ def format_description(description, *data_sets):
     # keybind icons are formatted as {g:citadel_keybind:<key_name>}
     description = re.sub(r"\{g:citadel_keybind:'([^']+)'\}", _replace_keybind, description)
 
-    # attribute labels are formatted as {g:citadel_inline_attribute:<key_name>}
-    description = re.sub(
-        r"\{g:citadel_inline_attribute:'([^']+)'\}", make_replace_inline_attribute(data), description
-    )
-
     return _replace_variables(description, data)
 
 
@@ -115,19 +110,6 @@ def _replace_keybind(match):
         raise Exception(f'Missing keybind map for {key}')
 
     return replace_string
-
-
-def make_replace_inline_attribute(data):
-    def replace_inline_attribute(match):
-        key = match.group(1)
-
-        attr_label = data.get('InlineAttribute_' + key)
-        if attr_label is None:
-            raise Exception(f'Missing inline map for {key}')
-
-        return attr_label
-
-    return replace_inline_attribute
 
 
 # format description with data. eg. "When you are above {s:LifeThreshold}% health"
