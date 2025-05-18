@@ -2,6 +2,8 @@ import parser.maps as maps
 import utils.string_utils as string_utils
 from loguru import logger
 
+SUPPORTED_LANGS = ['english', 'russian', 'schinese']
+
 
 class AbilityCardsParser:
     """
@@ -40,10 +42,6 @@ class AbilityCardsParser:
     def run(self):
         output = {}
         for self.hero_key, hero in self.parsed_heroes.items():
-            # skip disabled heroes
-            if hero['IsDisabled']:
-                continue
-
             hero_abilities = {'Name': hero['Name']}
             for self.ability_index, ability in hero['BoundAbilities'].items():
                 try:
@@ -52,15 +50,16 @@ class AbilityCardsParser:
                         hero_abilities[self.ability_index] = parsed_ui
                 except Exception as e:
                     # only exit the parser for a supported wiki language
-                    if self.language in ['english', 'russian']:
+                    # AND hero is not unreleased
+                    if self.language in SUPPORTED_LANGS and not hero['InDevelopment']:
                         logger.error(
-                            f'Failed to parse ui for ability {ability["Key"]} for'
+                            f'Failed to parse ui for ability {ability["Key"]} for '
                             f'language {self.language}'
                         )
                         raise e
                     else:
-                        logger.warning(
-                            f'Failed to parse ui for ability {ability["Key"]} for'
+                        logger.trace(
+                            f'Failed to parse ui for ability {ability["Key"]} for '
                             f'language {self.language}'
                         )
 
