@@ -39,7 +39,7 @@ def format_description(description, *data_sets):
     description = description.replace('</Panel>', '')
 
     # keybind icons are formatted as {g:citadel_keybind:<key_name>}
-    description = re.sub(r"\{g:citadel_keybind:'([^']+)'\}", _replace_keybind, description)
+    description = re.sub(r"\s*\{g:citadel_keybind:'([^']+)'\}\s*", _replace_keybind, description)
 
     return _replace_variables(description, data)
 
@@ -80,7 +80,7 @@ def _replace_keybind(match):
     if replace_string is None:
         raise Exception(f'Missing keybind map for {key}')
 
-    return replace_string
+    return f' {replace_string} '
 
 
 # format description with data. eg. "When you are above {s:LifeThreshold}% health"
