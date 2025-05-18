@@ -100,15 +100,6 @@ class Parser:
             if key not in self.localizations[language]:
                 self.localizations[language][key] = value
 
-            # 'heroes' group is storing extra English labels for each language, causing it to throw
-            # duplicate key error. This is a temporary measure to keep patch updates going
-            elif group != 'heroes':
-                current_value = self.localizations[language][key]
-                logger.warning(
-                    f'Key {key} with value "{value}" already exists in {language} localization '
-                    + f'data with value "{current_value}."'
-                )
-
     def run(self):
         logger.trace('Parsing...')
         os.system(f'cp "{self.DATA_DIR}/version.txt" "{self.OUTPUT_DIR}/version.txt"')
