@@ -51,12 +51,13 @@ class Parser:
     def _get_localization_groups(self):
         # set group priority as some keys are duplicated across groups,
         # where some values have mistakes. Eg. 'mods' has many mistakes and is low priority
-        GROUPS = ['main', 'gc', 'heroes', 'attributes', 'mods', 'patch_notes']
+        GROUPS = ['main', 'gc', 'heroes', 'attributes', 'mods']
 
-        # validate now groups have been missed
+        # validate that no groups have been missed from GROUPS
         all_groups = os.listdir(os.path.join(self.DATA_DIR, 'localizations'))
         for group in all_groups:
-            if group not in GROUPS:
+            # ignore patch_notes since this is handled by the changelog parser
+            if group not in GROUPS and group != 'patch_notes':
                 raise Exception(f'Missing localization group "{group}" in GROUPS')
 
         return GROUPS
