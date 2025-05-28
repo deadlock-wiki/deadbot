@@ -29,7 +29,8 @@ class Parser:
 
         self.language = language
         self.data = {'scripts': {}}
-        self.localization_groups = os.listdir(os.path.join(self.DATA_DIR, 'localizations'))
+        self.localization_groups = self._get_localization_groups()
+
         # Get all languages from localization_file i.e. citadel_attributes_english.json -> english
         self.languages = [
             localization_file.split('citadel_' + self.localization_groups[0] + '_')[1].split(
@@ -46,6 +47,20 @@ class Parser:
         if not os.path.exists(self.OUTPUT_DIR):
             os.makedirs(self.OUTPUT_DIR)
         shutil.copy(f'{self.DATA_DIR}/version.txt', f'{self.OUTPUT_DIR}/version.txt')
+
+    def _get_localization_groups(self):
+        # set group priority as some keys are duplicated across groups,
+        # where some values have mistakes. Eg. 'mods' has many mistakes and is low priority
+        GROUPS = ['main', 'gc', 'heroes', 'attributes', 'mods']
+
+        # validate that no groups have been missed from GROUPS
+        all_groups = os.listdir(os.path.join(self.DATA_DIR, 'localizations'))
+        for group in all_groups:
+            # ignore patch_notes since this is handled by the changelog parser
+            if group not in GROUPS and group != 'patch_notes':
+                raise Exception(f'Missing localization group "{group}" in GROUPS')
+
+        return GROUPS
 
     def _load_vdata(self):
         # Convert .vdata_c to .vdata and .json
