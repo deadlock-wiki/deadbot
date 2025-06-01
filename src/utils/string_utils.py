@@ -34,10 +34,6 @@ def format_description(description, *data_sets):
     if description is None:
         return None
 
-    # remove <Panel ...></Panel> tags until we properly support them
-    description = re.sub(r'<Panel\b[^>]*>', '', description)
-    description = description.replace('</Panel>', '')
-
     # keybind icons are formatted as {g:citadel_keybind:<key_name>}
     description = re.sub(r"\{g:citadel_keybind:'([^']+)'\}", _replace_keybind, description)
 
