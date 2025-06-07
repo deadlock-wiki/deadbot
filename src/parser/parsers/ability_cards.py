@@ -51,17 +51,16 @@ class AbilityCardsParser:
                 except Exception as e:
                     # only exit the parser for a supported wiki language
                     # AND hero is not unreleased
+                    err_message = (
+                        f'Failed to parse ui - hero: {hero["Name"]}, ability: '
+                        f'{self.ability_index} - {ability["Key"]}, language: {self.language} - {e}'
+                    )
+
                     if self.language in SUPPORTED_LANGS and not hero['InDevelopment']:
-                        logger.error(
-                            f'Failed to parse ui for ability {ability["Key"]} for '
-                            f'language {self.language}'
-                        )
+                        logger.error(err_message)
                         raise e
                     else:
-                        logger.trace(
-                            f'Failed to parse ui for ability {ability["Key"]} for '
-                            f'language {self.language}'
-                        )
+                        logger.trace(err_message)
 
             output[self.hero_key] = hero_abilities
 

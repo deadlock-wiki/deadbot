@@ -179,6 +179,7 @@ SCALE_TYPE_MAP = {
     'EWeaponDamageScale': 'weapon_damage',
     'EMaxChargesIncrease': 'max_charges',
     'ELevelUpBoons': 'power_increase',
+    'EBaseWeaponDamageIncrease': 'weapon_damage_increase',
 }
 
 
