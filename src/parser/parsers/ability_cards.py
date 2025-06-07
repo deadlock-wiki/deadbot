@@ -238,7 +238,7 @@ class AbilityCardsParser:
                         attribute['key'] = value
 
                 case 'm_bRequiresAbilityUpgrade':
-                    attribute['requires_upgrade'] = True
+                    attribute['requires_upgrade'] = value
 
                 case 'm_bShowPropertyValue':
                     # this has no use at the moment, as we want to always show the prop value
