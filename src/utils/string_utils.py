@@ -60,6 +60,7 @@ KEYBIND_MAP = {
     'Roll': 'Shift',
     'Mantle': 'Space',
     'Crouch': 'Ctrl',
+    'AbilityMelee': 'Melee',
     'Ability1': '1',
     'Ability2': '2',
     'Ability3': '3',
