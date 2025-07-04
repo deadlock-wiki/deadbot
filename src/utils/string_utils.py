@@ -109,8 +109,9 @@ def _replace_variables(desc, data):
             return f'IGNORED[{key}]'
 
         logger.warning(f'Could not find variable for key {key}')
-        return f'UNKNOWN[{key}]'
-        # raise Exception(f'Data not found for "{key}"')
+
+        # return f'UNKNOWN[{key}]'
+        raise Exception(f'Data not found for "{key}"')
 
     formatted_desc = re.sub(r'\[?\{s:(.*?)\}\]?', replace_match, desc)
     return formatted_desc
