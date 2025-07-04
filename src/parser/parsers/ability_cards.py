@@ -477,10 +477,19 @@ class AbilityCardsParser:
             if token_override is not None:
                 overrides[token_override] = value
 
+        # take a copy to prevent modifying the output data
+        format_data = data.copy()
+
+        # if our incoming data has a scale attribute eg. {Scale: {Prop: 'Damage', Value: 50} },
+        # map it to  "<attr>_scale"
+        scale = format_data.get('Scale')
+        if scale:
+            format_data[f"{scale['Prop']}_scale"] = scale['Value']
+
         # required variables to insert into the description
         format_vars = (
             overrides,
-            data,
+            format_data,
             {'ability_key': self.ability_index},
             {'hero_name': self._get_localized_string(self.hero_key)},
             self.localizations[self.language],
