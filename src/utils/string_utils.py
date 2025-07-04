@@ -34,9 +34,6 @@ def format_description(description, *data_sets):
     if description is None:
         return None
 
-    # keybind icons are formatted as {g:citadel_keybind:<key_name>}
-    description = re.sub(r"\{g:citadel_keybind:'([^']+)'\}", _replace_keybind, description)
-
     return _replace_variables(description, data)
 
 
@@ -51,42 +48,6 @@ IGNORE_KEYS = [
     'DisarmDuration',
     '​ไซเลนเซอร์​adius',
 ]
-
-KEYBIND_MAP = {
-    'Attack': '{{Mouse|1}}',
-    'ADS': '{{Mouse|2}}',
-    'AltCast': '{{Mouse|3}}',
-    'Reload': 'R',
-    'Roll': 'Shift',
-    'Mantle': 'Space',
-    'Crouch': 'Ctrl',
-    'AbilityMelee': 'Melee',
-    'Ability1': '1',
-    'Ability2': '2',
-    'Ability3': '3',
-    'Ability4': '4',
-    'MoveDown': 'Down',
-    'MoveForward': 'Forward',
-}
-
-
-def _replace_keybind(match):
-    key = match.group(1)
-    replace_string = KEYBIND_MAP.get(key)
-
-    if replace_string is None:
-        raise Exception(f'Missing keybind map for {key}')
-
-    start, end = match.span()
-
-    before = match.string[start - 1] if start > 0 else ''
-    after = match.string[end] if end < len(match.string) else ''
-
-    # if not surrounded by html tags or spaces, add spaces
-    prefix = '' if before in ['>', ' '] else ' '
-    suffix = '' if after in ['<', ' '] else ' '
-
-    return f'{prefix}{replace_string}{suffix}'
 
 
 # format description with data. eg. "When you are above {s:LifeThreshold}% health"
