@@ -10,23 +10,23 @@ class ItemParser:
     """Parses item data from game files, including base stats and scaling (Spirit/Boon)."""
 
     DEFAULT_SCALING_TYPE_MAP = {
-        "ETechPower": "Spirit",               # Spirit scaling 
-        "ELevelUpBoons": "Boon",              # Boon scaling 
+        "ETechPower": "Spirit",  # Spirit scaling
+        "ELevelUpBoons": "Boon",  # Boon scaling
         # Add new mappings here as needed; can be overridden via constructor
     }
 
     def __init__(
         self,
-        abilities_ Dict[str, Any],
-        generic_ Dict[str, Any],
+        abilities_data: Dict[str, Any],
+        generic_data: Dict[str, Any],
         localizations: Dict[str, str],
-        scaling_type_map: Optional[Dict[str, str]] = None
+        scaling_type_map: Optional[Dict[str, str]] = None,
     ):
         """
         Initialize the parser.
 
-        :param abilities_ Raw game ability data (from abilities.vdata)
-        :param generic_ Shared constants (e.g., prices per tier)
+        :param abilities_data: Raw game ability data (from abilities.vdata)
+        :param generic_data: Shared constants (e.g., prices per tier)
         :param localizations: String translations by key
         :param scaling_type_map: Optional override for scaling type mapping (e.g., ETechPower → Spirit)
         """
@@ -103,7 +103,9 @@ class ItemParser:
             'Description': '',
             'Cost': cost,
             'Tier': tier,
-            'Activation': maps.get_ability_activation(item_value.get('m_eAbilityActivation', '')),
+            'Activation': maps.get_ability_activation(
+                item_value.get('m_eAbilityActivation', '')
+            ),
             'Slot': maps.get_slot_type(item_value.get('m_eItemSlotType')),
             'Components': None,
             'TargetTypes': target_types,
