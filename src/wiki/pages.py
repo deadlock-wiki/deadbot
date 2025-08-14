@@ -7,6 +7,7 @@ DATA_PAGE_FILE_MAP = {
     'GenericData.json': 'json/generic-data.json',
     'HeroData.json': 'json/hero-data.json',
     'ItemData.json': 'json/item-data.json',
+    'NpcData.json': 'json/npc-data.json',
     'Lang en.json': 'localizations/english.json',
     'Lang es.json': 'localizations/spanish.json',
     'Lang ru.json': 'localizations/russian.json',
