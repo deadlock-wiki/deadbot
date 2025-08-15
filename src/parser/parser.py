@@ -242,14 +242,18 @@ class Parser:
 
     def _parse_npcs(self):
         logger.trace('Parsing NPCs...')
-        parsed_npcs = npc_units.NpcParser(
-            self.data['scripts']['npc_units'],
-            self.localizations[self.language],
-        ).run()
+        if 'npc_units' in self.data['scripts']:
+            parsed_npcs = npc_units.NpcParser(
+                self.data['scripts']['npc_units'],
+                self.localizations[self.language],
+            ).run()
 
-        json_utils.write(
-            self.OUTPUT_DIR + '/json/npc-data.json', json_utils.sort_dict(parsed_npcs)
-        )
+            json_utils.write(
+                self.OUTPUT_DIR + '/json/npc-data.json', json_utils.sort_dict(parsed_npcs)
+            )
+        else:
+            logger.warning("Skipping NPC parsing because 'npc_units.json' was not found in the input data.")
+
 
     def _parse_attributes(self):
         logger.trace('Parsing Attributes...')
