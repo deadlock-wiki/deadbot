@@ -40,7 +40,7 @@ class NpcParser:
             'neutral_normal': self._parse_neutral_trooper,
             'neutral_strong': self._parse_neutral_trooper,
             'npc_super_neutral': self._parse_midboss,
-            'neutral_sinners_sacrifice': self._parse_sinners_sacrifice,
+            'neutral_vault': self._parse_sinners_sacrifice,
             'citadel_item_pickup_rejuv': self._parse_rejuvenator,
         }
 
@@ -309,7 +309,7 @@ class NpcParser:
         return stats
 
     def _parse_sinners_sacrifice(self, data):
-        """Parses Sinner's Sacrifice (neutral_sinners_sacrifice)."""
+        """Parses Sinner's Sacrifice (neutral_vault)."""
         return {
             'RetaliateDamage': self._sanitize_float(data.get('m_flRetaliateDamage')),
             'GoldReward': self._sanitize_float(data.get('m_flGoldReward')),
