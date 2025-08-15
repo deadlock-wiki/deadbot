@@ -252,8 +252,10 @@ class Parser:
                 self.OUTPUT_DIR + '/json/npc-data.json', json_utils.sort_dict(parsed_npcs)
             )
         else:
-            logger.warning("Skipping NPC parsing because 'npc_units.json' was not found in the input data.")
-
+            logger.warning(
+                "Skipping NPC parsing because 'npc_units.json' was not found "
+                "in the input data."
+            )
 
     def _parse_attributes(self):
         logger.trace('Parsing Attributes...')
