@@ -175,8 +175,12 @@ class HeroParser:
         weapon_prim_id = hero_value['m_mapBoundAbilities']['ESlot_Weapon_Primary']
 
         # Parse weapon stats
+        if 'weapon_prim_id' not in self.abilities_data:
+            return weapon_stats
         weapon_prim = self.abilities_data[weapon_prim_id]['m_WeaponInfo']
         w = weapon_prim
+
+        bullet_speed = self._calc_bullet_velocity(w['m_BulletSpeedCurve']['m_spline']) if 'm_BulletSpeedCurve' in w else None
 
         weapon_stats = {
             'BulletDamage': w['m_flBulletDamage'],
@@ -186,7 +190,7 @@ class HeroParser:
             'ReloadMovespeed': float(w['m_flReloadMoveSpeed']) / 10000,
             'ReloadDelay': w.get('m_flReloadSingleBulletsInitialDelay', 0),
             'ReloadSingle': w.get('m_bReloadSingleBullets', False),
-            'BulletSpeed': self._calc_bullet_velocity(w['m_BulletSpeedCurve']['m_spline']),
+            'BulletSpeed': bullet_speed,
             'FalloffStartRange': w['m_flDamageFalloffStartRange'] / ENGINE_UNITS_PER_METER,
             'FalloffEndRange': w['m_flDamageFalloffEndRange'] / ENGINE_UNITS_PER_METER,
             'FalloffStartScale': w['m_flDamageFalloffStartScale'],
