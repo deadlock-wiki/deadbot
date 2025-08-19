@@ -229,7 +229,10 @@ class ChangelogFetcher:
         return li_start, li_end
 
     def _localize(self, key):
-        return self.localization_data_en.get(key, None)
+        value = self.localization_data_en.get(key, None)
+        if value is None:
+            raise Exception(f'Localized string not found for key {key}')
+        return value
 
     def fetch_forum_changelogs(self):
         """download rss feed from changelog forum and save all available entries"""

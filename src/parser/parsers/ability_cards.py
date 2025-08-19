@@ -41,9 +41,9 @@ class AbilityCardsParser:
 
     def run(self):
         output = {}
-        for self.hero_key, hero in self.parsed_heroes.items():
-            hero_abilities = {'Name': hero['Name']}
-            for self.ability_index, ability in hero['BoundAbilities'].items():
+        for self.hero_key, self.hero in self.parsed_heroes.items():
+            hero_abilities = {'Name': self.hero['Name']}
+            for self.ability_index, ability in self.hero['BoundAbilities'].items():
                 try:
                     parsed_ui = self._parse_ability_card(ability)
                     if parsed_ui is not None:
@@ -52,11 +52,11 @@ class AbilityCardsParser:
                     # only exit the parser for a supported wiki language
                     # AND hero is not unreleased
                     err_message = (
-                        f'Failed to parse ui - hero: {hero["Name"]}, ability: '
+                        f'Failed to parse ui - hero: {self.hero["Name"]}, ability: '
                         f'{self.ability_index} - {ability["Key"]}, language: {self.language} - {e}'
                     )
 
-                    if self.language in SUPPORTED_LANGS and not hero['InDevelopment']:
+                    if self.language in SUPPORTED_LANGS and not self.hero['InDevelopment']:
                         logger.error(err_message)
                         raise e
                     else:
@@ -72,7 +72,9 @@ class AbilityCardsParser:
 
         parsed_ui = {
             'Key': self.ability_key,
-            'Name': self._get_localized_string(self.ability_key),
+            'Name': self._get_localized_string(
+                self.ability_key, fallback=f'Unknown({self.ability_key})'
+            ),
         }
 
         ability_desc_key = self.ability_key + '_desc'
@@ -83,7 +85,7 @@ class AbilityCardsParser:
             format_vars = (
                 self.ability,
                 {'ability_key': self.ability_index},
-                {'hero_name': self._get_localized_string(self.hero_key)},
+                {'hero_name': self.hero['Name']},
                 self.localizations[self.language],
             )
             ability_desc = string_utils.format_description(ability_desc, *format_vars)
@@ -141,7 +143,7 @@ class AbilityCardsParser:
                     format_vars = (
                         self.ability,
                         {'ability_key': self.ability_index},
-                        {'hero_name': self._get_localized_string(self.hero_key)},
+                        {'hero_name': self.hero['Name']},
                         self.localizations[self.language],
                     )
                     parsed_info_section['DescKey'] = desc_key
@@ -178,7 +180,9 @@ class AbilityCardsParser:
                 if title_key != '':
                     title = self._get_localized_string(title_key)
 
-            ability_props = props['m_vecAbilityProperties']
+            ability_props = props.get('m_vecAbilityProperties')
+            if not ability_props:
+                continue
 
             for ability_prop in ability_props:
                 if title is None:
@@ -206,7 +210,9 @@ class AbilityCardsParser:
                 prop_object.update(
                     {
                         'Key': attr_key,
-                        'Name': self._get_localized_string(attr_key + '_label'),
+                        'Name': self._get_localized_string(
+                            attr_key + '_label', fallback=f'Unknown({attr_key})'
+                        ),
                         'Value': self.ability[attr_key],
                     }
                 )
@@ -449,10 +455,6 @@ class AbilityCardsParser:
     def _get_raw_ability_attr(self, attr_key):
         return self._get_raw_ability()['m_mapAbilityProperties'].get(attr_key)
 
-    # def _get_raw_ability_upgrade(self, ability_key, upgrade_index):
-    #     raw_ability =  self._get_raw_ability(ability_key)
-    #     return raw_ability['m_vecAbilityUpgrades'][upgrade_index]['m_vecPropertyUpgrades']
-
     def _get_raw_ability(self):
         return self.abilities[self.ability_key]
 
@@ -491,14 +493,14 @@ class AbilityCardsParser:
             overrides,
             format_data,
             {'ability_key': self.ability_index},
-            {'hero_name': self._get_localized_string(self.hero_key)},
+            {'hero_name': self.hero['Name']},
             self.localizations[self.language],
         )
 
         formatted_desc = string_utils.format_description(desc, *format_vars)
         return formatted_desc
 
-    def _get_localized_string(self, key):
+    def _get_localized_string(self, key, fallback=None):
         OVERRIDES = {
             'MoveSlowPercent_label': 'MovementSlow_label',
             'BonusHealthRegen_label': 'HealthRegen_label',
@@ -512,6 +514,9 @@ class AbilityCardsParser:
             'InvisRegen_label': 'InvisRegen_Label',
             'EvasionChance_label': 'EvasionChance_Label',
             'DelayBetweenShots_label': 'DelayBetweenShots_Label',
+            'TossDuration_label': 'TossDuration_postvalue_label',
+            'MissingHealthDamagePercentage_label': 'VenomMissingHealthDamagePercentage_label',
+            'RakeHealPerKill_label': 'RakeHealPerKill_postvalue_label',
         }
 
         key = OVERRIDES.get(key, key)
@@ -522,5 +527,8 @@ class AbilityCardsParser:
         # Default to English if not found in current language
         if key in self.localizations['english']:
             return self.localizations['english'][key]
+
+        if fallback is not None:
+            return fallback
 
         raise Exception(f'No localized string for key {key}')
