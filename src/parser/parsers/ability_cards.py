@@ -57,8 +57,12 @@ class AbilityCardsParser:
                     )
 
                     if self.language in SUPPORTED_LANGS and not self.hero['InDevelopment']:
-                        logger.error(err_message)
-                        raise e
+                        # disabled heroes are not always functional, so only warn about this
+                        if self.hero['IsDisabled']:
+                            logger.warning(err_message)
+                        else:
+                            logger.error(err_message)
+                            raise e
                     else:
                         logger.trace(err_message)
 
