@@ -1,4 +1,4 @@
-from python_mermaid.diagram import MermaidDiagram, Node, Link
+from python_mermaid.diagram import Node, Link
 
 import utils.string_utils as string_utils
 import parser.maps as maps
@@ -34,7 +34,8 @@ class ItemParser:
                 logger.error(f'Failed to parse item {key}')
                 raise e
 
-        chart = MermaidDiagram(title='Items', nodes=self.nodes, links=self.links)
+        # chart = MermaidDiagram(title='Items', nodes=self.nodes, links=self.links)
+        chart = None
 
         return (all_items, chart)
 
@@ -102,7 +103,7 @@ class ItemParser:
             ):  # upgrade_headhunter doesnt yet (as of writing) have a localized name, making it
                 # otherwise not appear in item-component-tree.txt
                 parent_name = key
-            self._add_children_to_tree(parent_name, parsed_item_data['Components'])
+            # self._add_children_to_tree(parent_name, parsed_item_data['Components'])
 
         return parsed_item_data
 
@@ -123,8 +124,6 @@ class ItemParser:
     def _add_children_to_tree(self, parent_key, child_keys):
         """Add items to mermaid tree"""
         for child_key in child_keys:
-            if self.localizations.get(child_key) is None or parent_key is None:
-                continue
             self.links.append(Link(Node(self.localizations.get(child_key)), Node(parent_key)))
 
     def _format_pipe_sep_string(self, pipe_sep_string, map_func):
