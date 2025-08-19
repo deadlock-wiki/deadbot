@@ -229,9 +229,6 @@ class ChangelogFetcher:
         return li_start, li_end
 
     def _localize(self, key):
-        if key.startswith('hero_'):
-            key = 'Steam_RP_' + key
-
         value = self.localization_data_en.get(key, None)
         if value is None:
             raise Exception(f'Localized string not found for key {key}')

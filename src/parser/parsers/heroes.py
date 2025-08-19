@@ -20,7 +20,7 @@ class HeroParser:
                 hero_value = self.hero_data[hero_key]
 
                 hero_stats = {
-                    'Name': self.localizations.get('Steam_RP_' + hero_key, None),
+                    'Name': self.localizations.get(hero_key, None),
                     'BoundAbilities': self._parse_hero_abilities(hero_value),
                     'InDevelopment': hero_value['m_bInDevelopment'],
                     'IsDisabled': hero_value['m_bDisabled'],

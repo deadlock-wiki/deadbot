@@ -83,6 +83,8 @@ def decompile(DEADLOCK_PATH, WORK_DIR, DECOMPILER_CMD, force=False):
     folders = [
         'citadel_attributes',
         'citadel_gc',
+        'citadel_gc_hero_names',
+        'citadel_gc_mod_names',
         'citadel_heroes',
         'citadel_main',
         'citadel_mods',
