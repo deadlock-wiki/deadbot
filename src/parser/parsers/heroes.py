@@ -175,8 +175,9 @@ class HeroParser:
         weapon_prim_id = hero_value['m_mapBoundAbilities']['ESlot_Weapon_Primary']
 
         # Parse weapon stats
-        if 'weapon_prim_id' not in self.abilities_data:
+        if weapon_prim_id not in self.abilities_data:
             return weapon_stats
+
         weapon_prim = self.abilities_data[weapon_prim_id]['m_WeaponInfo']
         w = weapon_prim
 
