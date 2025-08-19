@@ -57,12 +57,8 @@ class AbilityCardsParser:
                     )
 
                     if self.language in SUPPORTED_LANGS and not self.hero['InDevelopment']:
-                        # disabled heroes are not always functional, so only warn about this
-                        if self.hero['IsDisabled']:
-                            logger.warning(err_message)
-                        else:
-                            logger.error(err_message)
-                            raise e
+                        logger.error(err_message)
+                        raise e
                     else:
                         logger.trace(err_message)
 
@@ -76,7 +72,9 @@ class AbilityCardsParser:
 
         parsed_ui = {
             'Key': self.ability_key,
-            'Name': self._get_localized_string(self.ability_key),
+            'Name': self._get_localized_string(
+                self.ability_key, fallback=f'Unknown({self.ability_key})'
+            ),
         }
 
         ability_desc_key = self.ability_key + '_desc'
@@ -184,7 +182,7 @@ class AbilityCardsParser:
 
             ability_props = props.get('m_vecAbilityProperties')
             if not ability_props:
-                return
+                continue
 
             for ability_prop in ability_props:
                 if title is None:
@@ -212,7 +210,9 @@ class AbilityCardsParser:
                 prop_object.update(
                     {
                         'Key': attr_key,
-                        'Name': self._get_localized_string(attr_key + '_label'),
+                        'Name': self._get_localized_string(
+                            attr_key + '_label', fallback=f'Unknown({attr_key})'
+                        ),
                         'Value': self.ability[attr_key],
                     }
                 )
@@ -455,10 +455,6 @@ class AbilityCardsParser:
     def _get_raw_ability_attr(self, attr_key):
         return self._get_raw_ability()['m_mapAbilityProperties'].get(attr_key)
 
-    # def _get_raw_ability_upgrade(self, ability_key, upgrade_index):
-    #     raw_ability =  self._get_raw_ability(ability_key)
-    #     return raw_ability['m_vecAbilityUpgrades'][upgrade_index]['m_vecPropertyUpgrades']
-
     def _get_raw_ability(self):
         return self.abilities[self.ability_key]
 
@@ -504,7 +500,7 @@ class AbilityCardsParser:
         formatted_desc = string_utils.format_description(desc, *format_vars)
         return formatted_desc
 
-    def _get_localized_string(self, key):
+    def _get_localized_string(self, key, fallback=None):
         OVERRIDES = {
             'MoveSlowPercent_label': 'MovementSlow_label',
             'BonusHealthRegen_label': 'HealthRegen_label',
@@ -531,5 +527,8 @@ class AbilityCardsParser:
         # Default to English if not found in current language
         if key in self.localizations['english']:
             return self.localizations['english'][key]
+
+        if fallback is not None:
+            return fallback
 
         raise Exception(f'No localized string for key {key}')
