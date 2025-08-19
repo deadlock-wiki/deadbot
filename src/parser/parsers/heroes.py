@@ -181,6 +181,12 @@ class HeroParser:
         weapon_prim = self.abilities_data[weapon_prim_id]['m_WeaponInfo']
         w = weapon_prim
 
+        # Safely calculate bullet speed from the new direct key
+        raw_bullet_speed = w.get('m_flBulletSpeed')
+        bullet_speed = (
+            raw_bullet_speed / ENGINE_UNITS_PER_METER if raw_bullet_speed is not None else None
+        )
+
         weapon_stats = {
             'BulletDamage': w['m_flBulletDamage'],
             'RoundsPerSecond': 1 / w['m_flCycleTime'],
@@ -189,7 +195,7 @@ class HeroParser:
             'ReloadMovespeed': float(w['m_flReloadMoveSpeed']) / 10000,
             'ReloadDelay': w.get('m_flReloadSingleBulletsInitialDelay', 0),
             'ReloadSingle': w.get('m_bReloadSingleBullets', False),
-            'BulletSpeed': w.get('m_flBulletSpeed') / ENGINE_UNITS_PER_METER if w.get('m_flBulletSpeed') is not None else None,
+            'BulletSpeed': bullet_speed,
             'FalloffStartRange': w['m_flDamageFalloffStartRange'] / ENGINE_UNITS_PER_METER,
             'FalloffEndRange': w['m_flDamageFalloffEndRange'] / ENGINE_UNITS_PER_METER,
             'FalloffStartScale': w['m_flDamageFalloffStartScale'],
