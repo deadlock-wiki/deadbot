@@ -3,7 +3,7 @@ from typing import Dict, Any, Optional
 from python_mermaid.diagram import MermaidDiagram, Node, Link
 import utils.string_utils as string_utils
 import parser.maps as maps
-from parser.maps import SCALE_TYPE_MAP, get_scale_type
+from parser.maps import get_scale_type
 from loguru import logger
 
 class ItemParser:
@@ -85,9 +85,10 @@ class ItemParser:
         # ignore description formatting for disabled items
         if not parsed_item_data['IsDisabled']:
             description = self.localizations.get(key + '_desc')
-            parsed_item_data['Description'] = string_utils.format_description(
+            formatted_description = string_utils.format_description(
                 description, parsed_item_data, self.localizations
             )
+            parsed_item_data['Description'] = formatted_description
         else:
             description = self.localizations.get(key + '_desc')
             parsed_item_data['Description'] = description
