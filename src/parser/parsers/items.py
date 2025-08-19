@@ -62,7 +62,9 @@ class ItemParser:
             'Description': '',
             'Cost': str(cost),
             'Tier': tier,
-            'Activation': maps.get_ability_activation(item_value['m_eAbilityActivation']),
+            'Activation': maps.get_ability_activation(
+                item_value['m_eAbilityActivation']
+            ),
             'Slot': maps.get_slot_type(item_value.get('m_eItemSlotType')),
             'Components': None,
             'TargetTypes': target_types,
@@ -104,7 +106,9 @@ class ItemParser:
 
         return parsed_item_data
     
-    def _extract_scaling(self, attr: Dict[str, Any], item_key: str, attr_key: str) -> Optional[Dict[str, Any]]:
+    def _extract_scaling(
+        self, attr: Dict[str, Any], item_key: str, attr_key: str
+    ) -> Optional[Dict[str, Any]]:
         """
         Return nested scaling dict for an attribute (matches hero data schema).
         """
