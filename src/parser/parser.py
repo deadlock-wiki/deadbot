@@ -51,7 +51,7 @@ class Parser:
     def _get_localization_groups(self):
         # set group priority as some keys are duplicated across groups,
         # where some values have mistakes. Eg. 'mods' has many mistakes and is low priority
-        GROUPS = ['main', 'gc', 'heroes', 'attributes', 'mods']
+        GROUPS = ['main', 'gc', 'gc_mod_names', 'gc_hero_names', 'heroes', 'attributes', 'mods']
 
         # validate that no groups have been missed from GROUPS
         all_groups = os.listdir(os.path.join(self.DATA_DIR, 'localizations'))
@@ -112,8 +112,17 @@ class Parser:
             # that are not needed but shared across groups
             if key in ['Language']:
                 continue
-            if key not in self.localizations[language]:
-                self.localizations[language][key] = value
+
+            # Split keys on "/" if present
+            # eg. "upgrade_berserker/modifier_berserker/modifier_berserker_damage_stack": "Berserker"
+            subkeys = key.split('/')
+
+            for subkey in subkeys:
+                if subkey not in self.localizations[language]:
+                    # some keys have an unneeded ":n" on the end
+                    if subkey.endswith(':n'):
+                        subkey = subkey[:-2]
+                    self.localizations[language][subkey] = value
 
     def run(self):
         logger.trace('Parsing...')

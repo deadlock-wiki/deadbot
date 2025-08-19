@@ -182,6 +182,7 @@ SCALE_TYPE_MAP = {
     'ELevelUpBoons': 'power_increase',
     'EBaseWeaponDamageIncrease': 'weapon_damage_increase',
     'EWeaponPower': 'weapon_power',
+    'EStatsCount': 'stats_count',
 }
 
 

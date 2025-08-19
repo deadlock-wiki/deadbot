@@ -175,8 +175,17 @@ class HeroParser:
         weapon_prim_id = hero_value['m_mapBoundAbilities']['ESlot_Weapon_Primary']
 
         # Parse weapon stats
+        if weapon_prim_id not in self.abilities_data:
+            return weapon_stats
+
         weapon_prim = self.abilities_data[weapon_prim_id]['m_WeaponInfo']
         w = weapon_prim
+
+        # Safely calculate bullet speed from the new direct key
+        raw_bullet_speed = w.get('m_flBulletSpeed')
+        bullet_speed = (
+            raw_bullet_speed / ENGINE_UNITS_PER_METER if raw_bullet_speed is not None else None
+        )
 
         weapon_stats = {
             'BulletDamage': w['m_flBulletDamage'],
@@ -186,7 +195,7 @@ class HeroParser:
             'ReloadMovespeed': float(w['m_flReloadMoveSpeed']) / 10000,
             'ReloadDelay': w.get('m_flReloadSingleBulletsInitialDelay', 0),
             'ReloadSingle': w.get('m_bReloadSingleBullets', False),
-            'BulletSpeed': self._calc_bullet_velocity(w['m_BulletSpeedCurve']['m_spline']),
+            'BulletSpeed': bullet_speed,
             'FalloffStartRange': w['m_flDamageFalloffStartRange'] / ENGINE_UNITS_PER_METER,
             'FalloffEndRange': w['m_flDamageFalloffEndRange'] / ENGINE_UNITS_PER_METER,
             'FalloffStartScale': w['m_flDamageFalloffStartScale'],
@@ -358,41 +367,3 @@ class HeroParser:
             output_data[mapped_key] = data[key]
 
         return output_data
-
-    def _calc_bullet_velocity(self, spline):
-        """Calculates bullet velocity of a spline, ensuring its linear"""
-        """
-        Transforms
-        [
-            {
-                "x": 0.0,
-                "y": 23999.998047,
-                "m_flSlopeIncoming": 0.0,
-                "m_flSlopeOutgoing": 0.0
-            },
-            {
-                "x": 100.0,
-                "y": 23999.998047,
-                "m_flSlopeIncoming": 0.0,
-                "m_flSlopeOutgoing": 0.0
-            }
-        ]
-
-        to
-
-        23999.998047
-        """
-
-        # Confirm its linear
-        for point in spline:
-            if point['m_flSlopeIncoming'] != 0 or point['m_flSlopeOutgoing'] != 0:
-                raise Exception('Bullet speed curve is not linear')
-
-        # Confirm its constant
-        last_y = spline[0]['y']
-        for point in spline:
-            if point['y'] != last_y:
-                raise Exception('Bullet speed curve is not constant')
-
-        # If constant, return the y
-        return last_y / ENGINE_UNITS_PER_METER
