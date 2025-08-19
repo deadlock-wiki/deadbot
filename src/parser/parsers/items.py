@@ -82,7 +82,7 @@ class ItemParser:
             if 'm_strValue' in item_ability_attrs[attr_key]:
                 parsed_item_data[attr_key] = item_ability_attrs[attr_key]['m_strValue']
             else:
-                logger.warning(f'Missing m_strValue attr in item {key} attribute {attr_key}')
+                logger.trace(f'Missing m_strValue attr in item {key} attribute {attr_key}')
 
         # ignore description formatting for disabled items
         if not parsed_item_data['IsDisabled']:
@@ -123,6 +123,8 @@ class ItemParser:
     def _add_children_to_tree(self, parent_key, child_keys):
         """Add items to mermaid tree"""
         for child_key in child_keys:
+            if self.localizations.get(child_key) is None or parent_key is None:
+                continue
             self.links.append(Link(Node(self.localizations.get(child_key)), Node(parent_key)))
 
     def _format_pipe_sep_string(self, pipe_sep_string, map_func):

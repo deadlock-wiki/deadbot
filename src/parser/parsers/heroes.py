@@ -20,7 +20,7 @@ class HeroParser:
                 hero_value = self.hero_data[hero_key]
 
                 hero_stats = {
-                    'Name': self.localizations.get(hero_key, None),
+                    'Name': self.localizations.get('Steam_RP_' + hero_key, None),
                     'BoundAbilities': self._parse_hero_abilities(hero_value),
                     'InDevelopment': hero_value['m_bInDevelopment'],
                     'IsDisabled': hero_value['m_bDisabled'],
@@ -180,7 +180,11 @@ class HeroParser:
         weapon_prim = self.abilities_data[weapon_prim_id]['m_WeaponInfo']
         w = weapon_prim
 
-        bullet_speed = self._calc_bullet_velocity(w['m_BulletSpeedCurve']['m_spline']) if 'm_BulletSpeedCurve' in w else None
+        bullet_speed = (
+            self._calc_bullet_velocity(w['m_BulletSpeedCurve']['m_spline'])
+            if 'm_BulletSpeedCurve' in w
+            else None
+        )
 
         weapon_stats = {
             'BulletDamage': w['m_flBulletDamage'],
