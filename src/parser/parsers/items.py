@@ -90,7 +90,7 @@ class ItemParser:
                     scaled_key = f"{attr_key}_scaling"
                     parsed_item_data[scaled_key] = {scaling_type: scaling_value}
             else:
-                logger.warning(f'Missing m_strValue attr in item {key} attribute {attr_key}')
+                logger.trace(f'Missing m_strValue attr in item {key} attribute {attr_key}')
 
         # ignore description formatting for disabled items
         if not parsed_item_data['IsDisabled']:
