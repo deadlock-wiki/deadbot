@@ -1,18 +1,14 @@
+import math
+from typing import Dict, Any, Optional
 from python_mermaid.diagram import MermaidDiagram, Node, Link
 import utils.string_utils as string_utils
 import parser.maps as maps
+from parser.maps import SCALE_TYPE_MAP, get_scale_type
 from loguru import logger
 
 class ItemParser:
     nodes = []
     links = []
-    
-    # Define scaling types that we want to extract
-    # This makes it easy to add new scaling types in the future
-    SCALING_TYPES = {
-        'ETechPower': 'Spirit Scaling',
-        'ELevelUpBoons': 'Boon Scaling'
-    }
     
     def __init__(self, abilities_data, generic_data, localizations):
         self.abilities_data = abilities_data
@@ -78,19 +74,13 @@ class ItemParser:
         for attr_key in item_ability_attrs.keys():
             attr = item_ability_attrs[attr_key]
             
+            # Store attribute and optional scaling
             if 'm_strValue' in attr:
-                # Keep the original string value for backward compatibility
                 parsed_item_data[attr_key] = attr['m_strValue']
-                
-                # Check for scaling information
-                scaling_info = self._extract_scaling_info(attr, key, attr_key)
-                if scaling_info:
-                    scaling_type, scaling_value = scaling_info
-                    # Create a new key with _scaling suffix
-                    scaled_key = f"{attr_key}_scaling"
-                    parsed_item_data[scaled_key] = {scaling_type: scaling_value}
-            else:
-                logger.trace(f'Missing m_strValue attr in item {key} attribute {attr_key}')
+
+            scaling = self._extract_scaling(attr, key, attr_key)
+            if scaling:
+                parsed_item_data.setdefault("Attributes", {})[attr_key] = scaling
 
         # ignore description formatting for disabled items
         if not parsed_item_data['IsDisabled']:
@@ -112,35 +102,37 @@ class ItemParser:
 
         return parsed_item_data
     
-    def _extract_scaling_info(self, attr, item_key, attr_key):
+    def _extract_scaling(self, attr: Dict[str, Any], item_key: str, attr_key: str) -> Optional[Dict[str, Any]]:
         """
-        Extract scaling information from an attribute if it exists.
-        Returns a tuple of (scaling_type, scaling_value) or None if no scaling is found.
-        
-        Args:
-            attr: The attribute dictionary to check for scaling info
-            item_key: The key of the item being parsed (for logging)
-            attr_key: The key of the attribute being parsed (for logging)
+        Return nested scaling dict for an attribute (matches hero data schema).
         """
-        if 'm_subclassScaleFunction' in attr:
-            scale_func = attr['m_subclassScaleFunction']
-            if 'm_eSpecificStatScaleType' in scale_func:
-                stat_scale_type = scale_func['m_eSpecificStatScaleType']
-                # Check if this is a scaling type we're interested in
-                if stat_scale_type in self.SCALING_TYPES:
-                    scaling_type = self.SCALING_TYPES[stat_scale_type]
-                    raw_scaling_value = scale_func.get('m_flStatScale')
-                    if raw_scaling_value is not None:
-                        # Safely convert to float with error handling
-                        try:
-                            scaling_value = float(raw_scaling_value)
-                            return (scaling_type, scaling_value)
-                        except (ValueError, TypeError):
-                            logger.warning(
-                                f"Invalid scaling value: {raw_scaling_value} " 
-                                f"in {item_key}.{attr_key}"
-                            )
-        return None
+        scale_func = attr.get('m_subclassScaleFunction')
+        if not isinstance(scale_func, dict):
+            return None
+
+        raw_value = scale_func.get('m_flStatScale')
+        if raw_value is None:
+            return None
+
+        scale_type = scale_func.get('m_eSpecificStatScaleType')
+        human_type = get_scale_type(scale_type)
+        if not human_type:
+            return None
+
+        try:
+            value = float(raw_value)
+            if math.isnan(value) or math.isinf(value):
+                return None
+        except (ValueError, TypeError):
+            return None
+
+        return {
+            "Value": value,
+            "Scale": {
+                "Value": value,
+                "Type": human_type
+            }
+        }
     
     def _is_disabled(self, item):
         is_disabled = False
