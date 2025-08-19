@@ -85,10 +85,11 @@ class ItemParser:
         # ignore description formatting for disabled items
         if not parsed_item_data['IsDisabled']:
             description = self.localizations.get(key + '_desc')
-            formatted_description = string_utils.format_description(
-                description, parsed_item_data, self.localizations
+            parsed_item_data['Description'] = string_utils.format_description(
+                description,
+                parsed_item_data,
+                self.localizations,
             )
-            parsed_item_data['Description'] = formatted_description
         else:
             description = self.localizations.get(key + '_desc')
             parsed_item_data['Description'] = description
