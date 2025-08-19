@@ -276,7 +276,7 @@ class ChangelogParser:
             hero = self.heroes[hero_key]
             for _, ability_data in hero['BoundAbilities'].items():
                 if ability_data['Key'] == ability_key_to_search:
-                    return self.localization_en[hero_key]
+                    return self.localization_en['Steam_RP_' + hero_key]
 
         return None
 
