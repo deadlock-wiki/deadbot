@@ -2,6 +2,7 @@ import math
 from typing import Dict, Any, Optional
 from python_mermaid.diagram import MermaidDiagram, Node, Link
 import utils.string_utils as string_utils
+import utils.num_utils as num_utils
 import parser.maps as maps
 from parser.maps import get_scale_type
 from loguru import logger
