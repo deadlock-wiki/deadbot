@@ -76,13 +76,16 @@ class ItemParser:
         for attr_key in item_ability_attrs.keys():
             attr = item_ability_attrs[attr_key]
             
-            # Store attribute and optional scaling
-            if 'm_strValue' in attr:
-                parsed_item_data[attr_key] = attr['m_strValue']
+            scaling_data = self._extract_scaling(attr, key, attr_key)
 
-            scaling = self._extract_scaling(attr, key, attr_key)
-            if scaling:
-                parsed_item_data.setdefault("Attributes", {})[attr_key] = scaling
+            if scaling_data:
+                # Place the structured attribute directly on the item object
+                parsed_item_data[attr_key] = scaling_data
+            elif 'm_strValue' in attr:
+                # Otherwise, it's a simple key-value pair at the top level
+                parsed_item_data[attr_key] = attr['m_strValue']
+            else:
+                logger.trace(f'Missing m_strValue attr in item {key} attribute {attr_key}')
 
         # ignore description formatting for disabled items
         if not parsed_item_data['IsDisabled']:
@@ -116,8 +119,12 @@ class ItemParser:
         if not isinstance(scale_func, dict):
             return None
 
-        raw_value = scale_func.get('m_flStatScale')
-        if raw_value is None:
+        raw_scale_value = scale_func.get('m_flStatScale')
+        if raw_scale_value is None:
+            return None
+            
+        base_value_str = attr.get('m_strValue')
+        if base_value_str is None:
             return None
 
         scale_type = scale_func.get('m_eSpecificStatScaleType')
@@ -126,16 +133,17 @@ class ItemParser:
             return None
 
         try:
-            value = float(raw_value)
-            if math.isnan(value) or math.isinf(value):
+            base_value = float(base_value_str)
+            scale_value = float(raw_scale_value)
+            if math.isnan(scale_value) or math.isinf(scale_value):
                 return None
         except (ValueError, TypeError):
             return None
 
         return {
-            "Value": value,
+            "Value": base_value,
             "Scale": {
-                "Value": value,
+                "Value": scale_value,
                 "Type": human_type
             }
         }
