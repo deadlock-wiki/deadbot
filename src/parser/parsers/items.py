@@ -133,8 +133,8 @@ class ItemParser:
             return None
 
         try:
-            base_value = float(base_value_str)
-            scale_value = float(raw_scale_value)
+            base_value = num_utils.assert_number(base_value_str)
+            scale_value = num_utils.assert_number(raw_scale_value)
             if math.isnan(scale_value) or math.isinf(scale_value):
                 return None
         except (ValueError, TypeError):
