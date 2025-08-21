@@ -237,12 +237,16 @@ class NpcParser:
                     modifier.get('m_strModifierName')
                     == 'MODIFIER_VALUE_BULLET_DAMAGE_REDUCTION_PERCENT'
                 ):
-                    stats['IntrinsicBulletResistance'] = num_utils.assert_number(modifier.get('m_flValue'))
+                    stats['IntrinsicBulletResistance'] = num_utils.assert_number(
+                        modifier.get('m_flValue')
+                    )
                 elif (
                     modifier.get('m_strModifierName')
                     == 'MODIFIER_VALUE_ABILITY_DAMAGE_REDUCTION_PERCENT'
                 ):
-                    stats['IntrinsicAbilityResistance'] = num_utils.assert_number(modifier.get('m_flValue'))
+                    stats['IntrinsicAbilityResistance'] = num_utils.assert_number(
+                        modifier.get('m_flValue')
+                    )
         return stats
 
     def _parse_midboss(self, data):
@@ -258,7 +262,9 @@ class NpcParser:
                     modifier.get('m_strModifierName')
                     == 'MODIFIER_VALUE_HEALTH_REGEN_PER_SECOND'
                 ):
-                    stats['HealthRegenPerSecond'] = num_utils.assert_number(modifier.get('m_flValue'))
+                    stats['HealthRegenPerSecond'] = num_utils.assert_number(
+                        modifier.get('m_flValue')
+                    )
         return stats
 
     def _parse_sinners_sacrifice(self, data):
@@ -280,15 +286,21 @@ class NpcParser:
         REJUV_HEALTH_INDEX = 0
         REJUV_FIRERATE_INDEX = 1
         REJUV_SPIRIT_DMG_INDEX = 2
-        
+
         stats = {}
         rebirth_data = self._deep_get(data, 'm_RebirthModifier')
         if rebirth_data:
             stats['RespawnDelay'] = num_utils.assert_number(rebirth_data.get('m_flRespawnDelay'))
             script_values = rebirth_data.get('m_vecScriptValues')
-            
+
             if script_values and isinstance(script_values, list) and len(script_values) >= 3:
-                stats['BonusMaxHealth'] = num_utils.assert_number(script_values[REJUV_HEALTH_INDEX])
-                stats['BonusFireRate'] = num_utils.assert_number(script_values[REJUV_FIRERATE_INDEX])
-                stats['BonusSpiritDamage'] = num_utils.assert_number(script_values[REJUV_SPIRIT_DMG_INDEX])
+                stats['BonusMaxHealth'] = num_utils.assert_number(
+                    script_values[REJUV_HEALTH_INDEX]
+                )
+                stats['BonusFireRate'] = num_utils.assert_number(
+                    script_values[REJUV_FIRERATE_INDEX]
+                )
+                stats['BonusSpiritDamage'] = num_utils.assert_number(
+                    script_values[REJUV_SPIRIT_DMG_INDEX]
+                )
         return stats
