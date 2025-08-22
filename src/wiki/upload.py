@@ -3,6 +3,7 @@ import mwclient
 import json
 from utils import json_utils, game_utils, meta_utils
 from .pages import DATA_PAGE_FILE_MAP, IGNORE_PAGES
+from loguru import logger
 
 
 class WikiUpload:
@@ -18,7 +19,7 @@ class WikiUpload:
         deadbot_version = meta_utils.get_deadbot_version()
         self.upload_message = f'DeadBot v{deadbot_version}-{game_version}'
 
-        print('Uploading Data to Wiki -', self.upload_message)
+        logger.info('Uploading Data to Wiki -', self.upload_message)
 
         self.auth = {
             'user': os.environ.get('BOT_WIKI_USER'),
@@ -31,11 +32,12 @@ class WikiUpload:
         if not self.auth['password']:
             raise Exception('BOT_WIKI_PASS env var is required to upload to wiki')
 
-        self.site = mwclient.Site('deadlocked.wiki', path='/')
+        self.site = mwclient.Site('deadlock.wiki', path='/')
         self.site.login(self.auth['user'], self.auth['password'])
 
     def update_data_pages(self):
-        for page in self.site.pages:
+        namespace_id = self._get_namespace_id(self.DATA_NAMESPACE)
+        for page in self.site.allpages(namespace=namespace_id):
             page_name_obj = self._split_page_name(page.name)
             namespace = page_name_obj['namespace']
             page_name = page_name_obj['page_name']
@@ -48,7 +50,7 @@ class WikiUpload:
             # If file is not found in either page map or ignore list, add a warning to resolve that
             if file_path is None:
                 if page_name not in IGNORE_PAGES:
-                    print(
+                    logger.warning(
                         f'[WARN] Missing file map for data page "{page_name}".'
                         'Either add a corresponding file path or add it to the ignore list'
                     )
@@ -61,7 +63,14 @@ class WikiUpload:
     def _update_page(self, page, updated_text):
         if page.text() != updated_text:
             page.save(updated_text, summary=self.upload_message, minor=False, bot=True)
-            print(f'Page "{page.name}" updated')
+            logger.success(f'Page "{page.name}" updated')
+
+    def _get_namespace_id(self, search_namespace):
+        for namespace_id, namespace in self.site.namespaces.items():
+            if namespace == search_namespace:
+                return namespace_id
+
+        raise Exception(f'Namespace {search_namespace} not found')
 
     def _split_page_name(self, full_page_name: str):
         """

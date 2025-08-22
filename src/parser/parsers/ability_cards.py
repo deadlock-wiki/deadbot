@@ -1,5 +1,8 @@
 import parser.maps as maps
 import utils.string_utils as string_utils
+from loguru import logger
+
+SUPPORTED_LANGS = ['english', 'russian', 'schinese']
 
 
 class AbilityCardsParser:
@@ -31,21 +34,35 @@ class AbilityCardsParser:
         self.localizations = localizations
         self.localization_updates = {}
 
+        self.DESC_KEY_IGNORE_LIST = [
+            'citadel_ability_chrono_kinetic_carbine_t1_desc',
+            'ability_smoke_bomb_t1_desc',
+        ]
+
+        self.not_found_localization_keys = []
+
     def run(self):
         output = {}
-        for self.hero_key, hero in self.parsed_heroes.items():
-            # skip disabled heroes
-            if hero['IsDisabled']:
-                continue
-
-            hero_abilities = {'Name': hero['Name']}
-            for self.ability_index, ability in hero['BoundAbilities'].items():
+        for self.hero_key, self.hero in self.parsed_heroes.items():
+            hero_abilities = {'Name': self.hero['Name']}
+            for self.ability_index, ability in self.hero['BoundAbilities'].items():
                 try:
                     parsed_ui = self._parse_ability_card(ability)
                     if parsed_ui is not None:
                         hero_abilities[self.ability_index] = parsed_ui
                 except Exception as e:
-                    raise Exception(f'[ERROR] Failed to parse ui for ability {ability["Key"]}', e)
+                    # only exit the parser for a supported wiki language
+                    # AND hero is not unreleased
+                    err_message = (
+                        f'Failed to parse ui - hero: {self.hero["Name"]}, ability: '
+                        f'{self.ability_index} - {ability["Key"]}, language: {self.language} - {e}'
+                    )
+
+                    if self.language in SUPPORTED_LANGS and not self.hero['InDevelopment']:
+                        logger.error(err_message)
+                        raise e
+                    else:
+                        logger.trace(err_message)
 
             output[self.hero_key] = hero_abilities
 
@@ -57,7 +74,9 @@ class AbilityCardsParser:
 
         parsed_ui = {
             'Key': self.ability_key,
-            'Name': self._get_localized_string(self.ability_key),
+            'Name': self._get_localized_string(
+                self.ability_key, fallback=f'Unknown({self.ability_key})'
+            ),
         }
 
         ability_desc_key = self.ability_key + '_desc'
@@ -67,9 +86,9 @@ class AbilityCardsParser:
             # required variables to insert into the description
             format_vars = (
                 self.ability,
-                maps.KEYBIND_MAP,
                 {'ability_key': self.ability_index},
-                {'hero_name': self._get_localized_string(self.hero_key)},
+                {'hero_name': self.hero['Name']},
+                self.localizations[self.language],
             )
             ability_desc = string_utils.format_description(ability_desc, *format_vars)
             parsed_ui['DescKey'] = ability_desc_key
@@ -125,9 +144,9 @@ class AbilityCardsParser:
                     # required variables to insert into the description
                     format_vars = (
                         self.ability,
-                        maps.KEYBIND_MAP,
                         {'ability_key': self.ability_index},
-                        {'hero_name': self._get_localized_string(self.hero_key)},
+                        {'hero_name': self.hero['Name']},
+                        self.localizations[self.language],
                     )
                     parsed_info_section['DescKey'] = desc_key
 
@@ -163,7 +182,9 @@ class AbilityCardsParser:
                 if title_key != '':
                     title = self._get_localized_string(title_key)
 
-            ability_props = props['m_vecAbilityProperties']
+            ability_props = props.get('m_vecAbilityProperties')
+            if not ability_props:
+                continue
 
             for ability_prop in ability_props:
                 if title is None:
@@ -191,7 +212,9 @@ class AbilityCardsParser:
                 prop_object.update(
                     {
                         'Key': attr_key,
-                        'Name': self._get_localized_string(attr_key + '_label'),
+                        'Name': self._get_localized_string(
+                            attr_key + '_label', fallback=f'Unknown({attr_key})'
+                        ),
                         'Value': self.ability[attr_key],
                     }
                 )
@@ -223,14 +246,14 @@ class AbilityCardsParser:
                         attribute['key'] = value
 
                 case 'm_bRequiresAbilityUpgrade':
-                    attribute['requires_upgrade'] = True
+                    attribute['requires_upgrade'] = value
 
                 case 'm_bShowPropertyValue':
                     # this has no use at the moment, as we want to always show the prop value
                     continue
 
                 case _:
-                    print('[ERROR] Unhandled property', attr)
+                    logger.error('Unhandled property', attr)
 
         return attribute
 
@@ -284,6 +307,18 @@ class AbilityCardsParser:
                 'Value': self.ability.get(prop),
             }
 
+            raw_attr = self._get_raw_ability_attr(prop)
+            if raw_attr is None:
+                continue
+
+            attr_type = raw_attr.get('m_strCSSClass')
+            if attr_type is not None:
+                data['Type'] = attr_type
+
+            scale = self._get_scale(prop)
+            if scale is not None:
+                data['Scale'] = scale
+
             # These props are directly referenced and should live on the top level
             if prop in [
                 'AbilityCharges',
@@ -301,16 +336,6 @@ class AbilityCardsParser:
             if prop in self.used_attributes:
                 continue
 
-            raw_attr = self._get_raw_ability_attr(prop)
-
-            attr_type = raw_attr.get('m_strCSSClass')
-            if attr_type is not None:
-                data['Type'] = attr_type
-
-            scale = self._get_scale(prop)
-            if scale is not None:
-                data['Scale'] = scale
-
             match attr_type:
                 case 'cooldown' | 'charge_cooldown':
                     rest_of_data['Cooldown'][prop] = data
@@ -318,7 +343,7 @@ class AbilityCardsParser:
                 case 'duration':
                     rest_of_data['Duration'][prop] = data
 
-                case 'range' | 'distance' | 'radius':
+                case 'range' | 'distance' | 'radius' | 'time':
                     rest_of_data['Range'][prop] = data
 
                 case 'damage' | 'bullet_damage' | 'tech_damage' | 'melee_damage':
@@ -342,7 +367,7 @@ class AbilityCardsParser:
                 case None | '':
                     rest_of_data['Other'][prop] = data
                 case _:
-                    raise Exception(f'Unhandled ability attr type {attr_type}')
+                    raise Exception(f'Unhandled ability attr type "{attr_type}" on {prop} attribute')
 
         # Clear out any empty arrays
         cleared_data = {}
@@ -360,7 +385,7 @@ class AbilityCardsParser:
 
             # this key in particular is not accurate to the one in game
             ignore_desc_key = False
-            if desc_key == 'citadel_ability_chrono_kinetic_carbine_t1_desc':
+            if desc_key in self.DESC_KEY_IGNORE_LIST:
                 ignore_desc_key = True
 
             if desc_key in self.localizations[self.language] and not ignore_desc_key:
@@ -432,10 +457,6 @@ class AbilityCardsParser:
     def _get_raw_ability_attr(self, attr_key):
         return self._get_raw_ability()['m_mapAbilityProperties'].get(attr_key)
 
-    # def _get_raw_ability_upgrade(self, ability_key, upgrade_index):
-    #     raw_ability =  self._get_raw_ability(ability_key)
-    #     return raw_ability['m_vecAbilityUpgrades'][upgrade_index]['m_vecPropertyUpgrades']
-
     def _get_raw_ability(self):
         return self.abilities[self.ability_key]
 
@@ -460,19 +481,28 @@ class AbilityCardsParser:
             if token_override is not None:
                 overrides[token_override] = value
 
+        # take a copy to prevent modifying the output data
+        format_data = data.copy()
+
+        # if our incoming data has a scale attribute eg. {Scale: {Prop: 'Damage', Value: 50} },
+        # map it to  "<attr>_scale"
+        scale = format_data.get('Scale')
+        if scale:
+            format_data[f"{scale['Prop']}_scale"] = scale['Value']
+
         # required variables to insert into the description
         format_vars = (
             overrides,
-            data,
-            maps.KEYBIND_MAP,
+            format_data,
             {'ability_key': self.ability_index},
-            {'hero_name': self._get_localized_string(self.hero_key)},
+            {'hero_name': self.hero['Name']},
+            self.localizations[self.language],
         )
 
         formatted_desc = string_utils.format_description(desc, *format_vars)
         return formatted_desc
 
-    def _get_localized_string(self, key):
+    def _get_localized_string(self, key, fallback=None):
         OVERRIDES = {
             'MoveSlowPercent_label': 'MovementSlow_label',
             'BonusHealthRegen_label': 'HealthRegen_label',
@@ -486,6 +516,8 @@ class AbilityCardsParser:
             'InvisRegen_label': 'InvisRegen_Label',
             'EvasionChance_label': 'EvasionChance_Label',
             'DelayBetweenShots_label': 'DelayBetweenShots_Label',
+            'MissingHealthDamagePercentage_label': 'VenomMissingHealthDamagePercentage_label',
+            'ability_doorman_bomb_explosion': 'ability_doorman_bomb_Explosion',
         }
 
         key = OVERRIDES.get(key, key)
@@ -493,8 +525,22 @@ class AbilityCardsParser:
         if key in self.localizations[self.language]:
             return self.localizations[self.language][key]
 
+        # some keys use "_postvalue_label" on the end instead of "_label"
+        if key.endswith('_label'):
+            postvalue_key = key[:-6] + '_postvalue_label'
+            if postvalue_key in self.localizations[self.language]:
+                return self.localizations[self.language][postvalue_key]
+
         # Default to English if not found in current language
         if key in self.localizations['english']:
             return self.localizations['english'][key]
+
+        # prevent repeat logging of the same missing key
+        if self.language == 'english' and key not in self.not_found_localization_keys:
+            logger.warning(f'No localized string for key {key}, using fallback instead')
+            self.not_found_localization_keys.append(key)
+
+        if fallback is not None:
+            return fallback
 
         raise Exception(f'No localized string for key {key}')

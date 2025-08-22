@@ -1,6 +1,7 @@
 TARGET_TYPE_MAP = {
     'CITADEL_UNIT_TARGET_ALL_ENEMY': 'AllEnemy',
     'CITADEL_UNIT_TARGET_ALL_FRIENDLY': 'AllFriendly',
+    'CITADEL_UNIT_TARGET_BOSS_ENEMY': 'BossEnemy',
     'CITADEL_UNIT_TARGET_CREEP_ENEMY': 'CreepEnemy',
     'CITADEL_UNIT_TARGET_HERO_ENEMY': 'HeroEnemy',
     'CITADEL_UNIT_TARGET_HERO_FRIENDLY': 'HeroFriendly',
@@ -57,7 +58,8 @@ def get_shop_filter(value):
 ABILITY_ACTIVATION_MAP = {
     'CITADEL_ABILITY_ACTIVATION_INSTANT_CAST': 'InstantCast',
     'CITADEL_ABILITY_ACTIVATION_PASSIVE': 'Passive',
-    'CITADEL_ABILITY_ACTIVATION_PRESS': 'ActivationPress',
+    'CITADEL_ABILITY_ACTIVATION_PRESS_TOGGLE': 'Toggle',
+    'CITADEL_ABILITY_ACTIVATION_PRESS': 'Press',
 }
 
 
@@ -109,6 +111,10 @@ ATTRIBUTE_MANUAL_MAP = {
     },
     'MaxMoveSpeed': {'label': 'MoveSpeedMax_label', 'postfix': 'MoveSpeedMax_postfix'},
     'BaseWeaponDamageIncrease': {'label': 'WeaponPower_label', 'postfix': 'WeaponPower_postfix'},
+    'OOCHealthRegen': {
+        'label': 'OutOfCombatHealthRegen_label',
+        'postfix': 'OutOfCombatHealthRegen_prefix',
+    },
 }
 
 
@@ -118,12 +124,15 @@ def get_attr_manual_map():
 
 LEVEL_MOD_MAP = {
     'MODIFIER_VALUE_BASE_BULLET_DAMAGE_FROM_LEVEL': 'BulletDamage',
+    'MODIFIER_VALUE_BASE_BULLET_DAMAGE_FROM_LEVEL_ALT_FIRE': 'BulletDamageAltFire',
     'MODIFIER_VALUE_BASE_MELEE_DAMAGE_FROM_LEVEL': 'MeleeDamage',
     'MODIFIER_VALUE_BASE_HEALTH_FROM_LEVEL': 'MaxHealth',
     'MODIFIER_VALUE_TECH_DAMAGE_PERCENT': 'TechDamagePerc',
     'MODIFIER_VALUE_TECH_ARMOR_DAMAGE_RESIST': 'TechResist',
     'MODIFIER_VALUE_BULLET_ARMOR_DAMAGE_RESIST': 'BulletResist',
     'MODIFIER_VALUE_BONUS_ATTACK_RANGE': 'BonusAttackRange',
+    'MODIFIER_VALUE_BOON_COUNT': 'PowerIncreases',
+    'MODIFIER_VALUE_TECH_POWER': 'TechPower',
 }
 
 
@@ -141,20 +150,6 @@ def get_bound_abilities(value):
         return parts[2] + parts[3]
     return parts[2]
 
-
-KEYBIND_MAP = {
-    'iv_attack': '{{Mouse|1}}',
-    'iv_attack2': '{{Mouse|2}}',
-    'key_alt_cast': '{{Mouse|3}}',
-    'key_reload': 'R',
-    'key_innate_1': 'Shift',
-    'in_mantle': 'Space',
-    'key_duck': 'Ctrl',
-    'in_ability1': '1',
-    'in_ability2': '2',
-    'in_ability3': '3',
-    'in_ability4': '4',
-}
 
 LOCALIZATION_OVERRIDE_MAP = {
     'MaxChargeDuration': 'SpeedBoostDuration',
@@ -183,6 +178,11 @@ SCALE_TYPE_MAP = {
     'EBulletDamage': 'damage',
     'ETechDuration': 'duration',
     'EWeaponDamageScale': 'weapon_damage',
+    'EMaxChargesIncrease': 'max_charges',
+    'ELevelUpBoons': 'power_increase',
+    'EBaseWeaponDamageIncrease': 'weapon_damage_increase',
+    'EWeaponPower': 'weapon_power',
+    'EStatsCount': 'stats_count',
 }
 
 
