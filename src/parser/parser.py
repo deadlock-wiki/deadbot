@@ -52,7 +52,7 @@ class Parser:
     def _get_localization_groups(self):
         # set group priority as some keys are duplicated across groups,
         # where some values have mistakes. Eg. 'mods' has many mistakes and is low priority
-        GROUPS = ['main', 'gc', 'heroes', 'attributes', 'mods']
+        GROUPS = ['main', 'gc', 'gc_mod_names', 'gc_hero_names', 'heroes', 'attributes', 'mods']
 
         # validate that no groups have been missed from GROUPS
         all_groups = os.listdir(os.path.join(self.DATA_DIR, 'localizations'))
@@ -247,9 +247,7 @@ class Parser:
             self.localizations[self.language],
         ).run()
 
-        json_utils.write(
-            self.OUTPUT_DIR + '/json/npc-data.json', json_utils.sort_dict(parsed_npcs)
-        )
+        json_utils.write(self.OUTPUT_DIR + '/json/npc-data.json', json_utils.sort_dict(parsed_npcs))
 
     def _parse_attributes(self):
         logger.trace('Parsing Attributes...')
