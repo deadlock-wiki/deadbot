@@ -1,14 +1,16 @@
+import math
+from typing import Dict, Any, Optional
 from python_mermaid.diagram import MermaidDiagram, Node, Link
-
 import utils.string_utils as string_utils
+import utils.num_utils as num_utils
 import parser.maps as maps
+from parser.maps import get_scale_type
 from loguru import logger
-
 
 class ItemParser:
     nodes = []
     links = []
-
+    
     def __init__(self, abilities_data, generic_data, localizations):
         self.abilities_data = abilities_data
         self.generic_data = generic_data
@@ -16,31 +18,24 @@ class ItemParser:
 
     def run(self):
         all_items = {}
-
         for key in self.abilities_data:
             ability = self.abilities_data[key]
             if type(ability) is not dict:
                 continue
-
             if 'm_eAbilityType' not in ability:
                 continue
-
             if ability['m_eAbilityType'] != 'EAbilityType_Item':
                 continue
-
             try:
                 all_items[key] = self._parse_item(key)
             except Exception as e:
                 logger.error(f'Failed to parse item {key}')
                 raise e
-
         chart = MermaidDiagram(title='Items', nodes=self.nodes, links=self.links)
-
         return (all_items, chart)
 
     def _parse_item(self, key):
         ability = self.abilities_data[key]
-
         item_value = ability
         item_ability_attrs = item_value['m_mapAbilityProperties']
 
@@ -59,7 +54,6 @@ class ItemParser:
             )
 
         tier = maps.get_tier(item_value.get('m_iItemTier'))
-
         cost = None
         if tier is not None:
             cost = self.generic_data['m_nItemPricePerTier'][int(tier)]
@@ -69,18 +63,28 @@ class ItemParser:
             'Description': '',
             'Cost': str(cost),
             'Tier': tier,
-            'Activation': maps.get_ability_activation(item_value['m_eAbilityActivation']),
+            'Activation': maps.get_ability_activation(
+                item_value['m_eAbilityActivation']
+            ),
             'Slot': maps.get_slot_type(item_value.get('m_eItemSlotType')),
             'Components': None,
-            # 'ImagePath': str(item_value.get('m_strAbilityImage', None)),
             'TargetTypes': target_types,
             'ShopFilters': shop_filters,
             'IsDisabled': self._is_disabled(item_value),
         }
-
+        
+        # Process attributes and extract scaling information
         for attr_key in item_ability_attrs.keys():
-            if 'm_strValue' in item_ability_attrs[attr_key]:
-                parsed_item_data[attr_key] = item_ability_attrs[attr_key]['m_strValue']
+            attr = item_ability_attrs[attr_key]
+            
+            scaling_data = self._extract_scaling(attr, key, attr_key)
+
+            if scaling_data:
+                # Place the structured attribute directly on the item object
+                parsed_item_data[attr_key] = scaling_data
+            elif 'm_strValue' in attr:
+                # Otherwise, it's a simple key-value pair at the top level
+                parsed_item_data[attr_key] = attr['m_strValue']
             else:
                 logger.trace(f'Missing m_strValue attr in item {key} attribute {attr_key}')
 
@@ -88,24 +92,63 @@ class ItemParser:
         if not parsed_item_data['IsDisabled']:
             description = self.localizations.get(key + '_desc')
             parsed_item_data['Description'] = string_utils.format_description(
-                description, parsed_item_data, self.localizations
+                description,
+                parsed_item_data,
+                self.localizations,
             )
         else:
             description = self.localizations.get(key + '_desc')
             parsed_item_data['Description'] = description
-
+        
+        # Process item components if they exist
         if 'm_vecComponentItems' in item_value:
             parsed_item_data['Components'] = item_value['m_vecComponentItems']
             parent_name = parsed_item_data['Name']
-            if (
-                parent_name is None
-            ):  # upgrade_headhunter doesnt yet (as of writing) have a localized name, making it
-                # otherwise not appear in item-component-tree.txt
+            if parent_name is None:
                 parent_name = key
             self._add_children_to_tree(parent_name, parsed_item_data['Components'])
 
         return parsed_item_data
+    
+    def _extract_scaling(
+        self, attr: Dict[str, Any], item_key: str, attr_key: str
+    ) -> Optional[Dict[str, Any]]:
+        """
+        Return nested scaling dict for an attribute (matches hero data schema).
+        """
+        scale_func = attr.get('m_subclassScaleFunction')
+        if not isinstance(scale_func, dict):
+            return None
 
+        raw_scale_value = scale_func.get('m_flStatScale')
+        if raw_scale_value is None:
+            return None
+            
+        base_value_str = attr.get('m_strValue')
+        if base_value_str is None:
+            return None
+
+        scale_type = scale_func.get('m_eSpecificStatScaleType')
+        human_type = get_scale_type(scale_type)
+        if not human_type:
+            return None
+
+        try:
+            base_value = num_utils.assert_number(base_value_str)
+            scale_value = num_utils.assert_number(raw_scale_value)
+            if math.isnan(scale_value) or math.isinf(scale_value):
+                return None
+        except (ValueError, TypeError):
+            return None
+
+        return {
+            "Value": base_value,
+            "Scale": {
+                "Value": scale_value,
+                "Type": human_type
+            }
+        }
+    
     def _is_disabled(self, item):
         is_disabled = False
         if 'm_bDisabled' in item:
@@ -117,7 +160,6 @@ class ItemParser:
                 is_disabled = False
             else:
                 raise ValueError(f'New unexpected value for m_bDisabled: {flag}')
-
         return is_disabled
 
     def _add_children_to_tree(self, parent_key, child_keys):
@@ -128,7 +170,6 @@ class ItemParser:
     def _format_pipe_sep_string(self, pipe_sep_string, map_func):
         """
         Formats pipe separated string and maps the value
-
         eg. "A | B | C" to [map(A), map(B), map(C)]
         """
         output_array = []
