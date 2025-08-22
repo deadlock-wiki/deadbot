@@ -517,6 +517,7 @@ class AbilityCardsParser:
             'EvasionChance_label': 'EvasionChance_Label',
             'DelayBetweenShots_label': 'DelayBetweenShots_Label',
             'MissingHealthDamagePercentage_label': 'VenomMissingHealthDamagePercentage_label',
+            'ability_doorman_bomb_explosion': 'ability_doorman_bomb_Explosion',
         }
 
         key = OVERRIDES.get(key, key)
