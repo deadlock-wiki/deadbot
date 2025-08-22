@@ -1,9 +1,11 @@
 import os
 import argparse
+from dotenv import load_dotenv
+load_dotenv()
 
 ARG_PARSER = argparse.ArgumentParser(
     prog='DeadBot',
-    description='Bot that lives to serve deadlocked.wiki',
+    description='Bot that lives to serve deadlock.wiki',
     epilog='Process Deadlock game files and extract data and stats',
 )
 

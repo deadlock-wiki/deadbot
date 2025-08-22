@@ -9,6 +9,7 @@ from .parsers import (
     attributes,
     souls,
     generics,
+    npc_units,
 )
 from utils import json_utils
 from loguru import logger
@@ -29,7 +30,8 @@ class Parser:
 
         self.language = language
         self.data = {'scripts': {}}
-        self.localization_groups = os.listdir(os.path.join(self.DATA_DIR, 'localizations'))
+        self.localization_groups = self._get_localization_groups()
+
         # Get all languages from localization_file i.e. citadel_attributes_english.json -> english
         self.languages = [
             localization_file.split('citadel_' + self.localization_groups[0] + '_')[1].split(
@@ -46,6 +48,20 @@ class Parser:
         if not os.path.exists(self.OUTPUT_DIR):
             os.makedirs(self.OUTPUT_DIR)
         shutil.copy(f'{self.DATA_DIR}/version.txt', f'{self.OUTPUT_DIR}/version.txt')
+
+    def _get_localization_groups(self):
+        # set group priority as some keys are duplicated across groups,
+        # where some values have mistakes. Eg. 'mods' has many mistakes and is low priority
+        GROUPS = ['main', 'gc', 'gc_mod_names', 'gc_hero_names', 'heroes', 'attributes', 'mods']
+
+        # validate that no groups have been missed from GROUPS
+        all_groups = os.listdir(os.path.join(self.DATA_DIR, 'localizations'))
+        for group in all_groups:
+            # ignore patch_notes since this is handled by the changelog parser
+            if group not in GROUPS and group != 'patch_notes':
+                raise Exception(f'Missing localization group "{group}" in GROUPS')
+
+        return GROUPS
 
     def _load_vdata(self):
         # Convert .vdata_c to .vdata and .json
@@ -97,17 +113,17 @@ class Parser:
             # that are not needed but shared across groups
             if key in ['Language']:
                 continue
-            if key not in self.localizations[language]:
-                self.localizations[language][key] = value
 
-            # 'heroes' group is storing extra English labels for each language, causing it to throw
-            # duplicate key error. This is a temporary measure to keep patch updates going
-            elif group != 'heroes':
-                current_value = self.localizations[language][key]
-                logger.warning(
-                    f'Key {key} with value "{value}" already exists in {language} localization '
-                    + f'data with value "{current_value}."'
-                )
+            # Split keys on "/" if present
+            # eg. "upgrade_berserker/modifier_berserker/modifier_berserker_damage_stack": "Berserker"
+            subkeys = key.split('/')
+
+            for subkey in subkeys:
+                if subkey not in self.localizations[language]:
+                    # some keys have an unneeded ":n" on the end
+                    if subkey.endswith(':n'):
+                        subkey = subkey[:-2]
+                    self.localizations[language][subkey] = value
 
     def run(self):
         logger.trace('Parsing...')
@@ -116,6 +132,7 @@ class Parser:
         parsed_heroes = self._parse_heroes(parsed_abilities)
         self._parsed_ability_cards(parsed_heroes)
         self._parse_items()
+        self._parse_npcs()
         self._parse_attributes()
         self._parse_localizations()
         self._parse_soul_unlocks()
@@ -231,6 +248,15 @@ class Parser:
 
         with open(self.OUTPUT_DIR + '/item-component-tree.txt', 'w') as f:
             f.write(str(item_component_chart))
+
+    def _parse_npcs(self):
+        logger.trace('Parsing NPCs...')
+        parsed_npcs = npc_units.NpcParser(
+            self.data['scripts']['npc_units'],
+            self.localizations[self.language],
+        ).run()
+
+        json_utils.write(self.OUTPUT_DIR + '/json/npc-data.json', json_utils.sort_dict(parsed_npcs))
 
     def _parse_attributes(self):
         logger.trace('Parsing Attributes...')

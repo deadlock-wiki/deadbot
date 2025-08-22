@@ -2,6 +2,10 @@ import sys
 import os
 import re
 
+from loguru import logger
+
+from utils import num_utils
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import parser.maps as maps
 
@@ -30,36 +34,7 @@ def format_description(description, *data_sets):
     if description is None:
         return None
 
-    # replace valve's highlight class with a simple text bold
-    description = re.sub(r'<span\s+([^>]*)>', replace_span_match, description)
-    # replace tags like <%s>, <%s1> etc. with </span>
-    description = re.sub(r'<%s\d?>', '</span>', description)
-
-    # remove <Panel ...></Panel> tags until we properly support them
-    description = re.sub(r'<Panel\b[^>]*>', '', description)
-    description = description.replace('</Panel>', '')
-
     return _replace_variables(description, data)
-
-
-STYLE_MAP = {
-    'class="highlight"': '<span style="font-weight: bold;">',
-    'class="highlight+"': '<span style="font-weight: bold;">',
-    'class="diminish"': '<span style="font-style: italic;">',
-    'class="highlight_spirit"': '<span style="font-weight: bold;">',
-    'class="highlight_weapon"': '<span style="font-weight: bold;">',
-    'id="TestID"/': '<span>',
-}
-
-
-def replace_span_match(match):
-    key = match.group(1)
-
-    style = STYLE_MAP.get(key)
-    if style is None:
-        raise Exception(f'Missing style map for {key}')
-
-    return style
 
 
 # Keys to ignore errors, as they are manually verified as having no valid override
@@ -83,16 +58,20 @@ def _replace_variables(desc, data):
         key = maps.override_localization(key)
         if key in data:
             value = str(data[key])
-            # strip out "m" (metres), as it we just want the formatted
-            # description should contain any units
-            if value.endswith('m'):
-                return value[: -len('m')]
+
+            # strip out units of measure to prevent duplicates eg. "Cooldown reduced by 5ss"
+            stripped_value = num_utils.remove_uom(value)
+            if type(stripped_value) in [float, int]:
+                return str(stripped_value)
 
             return value
 
         if key in IGNORE_KEYS:
-            return f'UNKNOWN[{key}]'
+            return f'IGNORED[{key}]'
 
+        logger.warning(f'Could not find variable for key {key}')
+
+        # return f'UNKNOWN[{key}]'
         raise Exception(f'Data not found for "{key}"')
 
     formatted_desc = re.sub(r'\[?\{s:(.*?)\}\]?', replace_match, desc)

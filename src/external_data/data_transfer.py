@@ -54,12 +54,14 @@ class DataTransfer:
 
     def export_data(self):
         """Export local decompiled game data to an S3 bucket"""
-        version = self._get_current_version()
+        version_data = self._get_current_version()
+        version = version_data['ClientVersion']
+        timestamp = f"{version_data['VersionDate']} {version_data['VersionTime']}"
         if version in self._get_versions():
-            logger.info(f'Version {version} already exists on s3')
+            logger.info(f'Version {version} ({timestamp}) already exists on s3')
             return
 
-        logger.info(f'Exporting data for patch version {version}...')
+        logger.info(f'Exporting data for patch version {version} ({timestamp})...')
 
         self.s3.write(version, self.DATA_DIR)
 
@@ -76,7 +78,7 @@ class DataTransfer:
             [key, value] = pair.split('=')
             version_data[key] = value
 
-        return version_data['ClientVersion']
+        return version_data
 
     def _get_versions(self):
         return self.s3.get_folders()
