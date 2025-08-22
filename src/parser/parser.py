@@ -9,6 +9,7 @@ from .parsers import (
     attributes,
     souls,
     generics,
+    npc_units,
 )
 from utils import json_utils
 from loguru import logger
@@ -131,6 +132,7 @@ class Parser:
         parsed_heroes = self._parse_heroes(parsed_abilities)
         self._parsed_ability_cards(parsed_heroes)
         self._parse_items()
+        self._parse_npcs()
         self._parse_attributes()
         self._parse_localizations()
         self._parse_soul_unlocks()
@@ -246,6 +248,15 @@ class Parser:
 
         with open(self.OUTPUT_DIR + '/item-component-tree.txt', 'w') as f:
             f.write(str(item_component_chart))
+
+    def _parse_npcs(self):
+        logger.trace('Parsing NPCs...')
+        parsed_npcs = npc_units.NpcParser(
+            self.data['scripts']['npc_units'],
+            self.localizations[self.language],
+        ).run()
+
+        json_utils.write(self.OUTPUT_DIR + '/json/npc-data.json', json_utils.sort_dict(parsed_npcs))
 
     def _parse_attributes(self):
         logger.trace('Parsing Attributes...')
