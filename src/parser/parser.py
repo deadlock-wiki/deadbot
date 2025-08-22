@@ -52,7 +52,7 @@ class Parser:
     def _get_localization_groups(self):
         # set group priority as some keys are duplicated across groups,
         # where some values have mistakes. Eg. 'mods' has many mistakes and is low priority
-        GROUPS = ['main', 'gc', 'gc_mod_names', 'gc_hero_names', 'heroes', 'attributes', 'mods']
+        GROUPS = ['main', 'gc', 'heroes', 'attributes', 'mods']
 
         # validate that no groups have been missed from GROUPS
         all_groups = os.listdir(os.path.join(self.DATA_DIR, 'localizations'))
@@ -113,17 +113,8 @@ class Parser:
             # that are not needed but shared across groups
             if key in ['Language']:
                 continue
-
-            # Split keys on "/" if present
-            # eg. "upgrade_berserker/modifier_berserker/modifier_berserker_damage_stack": "Berserker"
-            subkeys = key.split('/')
-
-            for subkey in subkeys:
-                if subkey not in self.localizations[language]:
-                    # some keys have an unneeded ":n" on the end
-                    if subkey.endswith(':n'):
-                        subkey = subkey[:-2]
-                    self.localizations[language][subkey] = value
+            if key not in self.localizations[language]:
+                self.localizations[language][key] = value
 
     def run(self):
         logger.trace('Parsing...')
@@ -251,20 +242,14 @@ class Parser:
 
     def _parse_npcs(self):
         logger.trace('Parsing NPCs...')
-        if 'npc_units' in self.data['scripts']:
-            parsed_npcs = npc_units.NpcParser(
-                self.data['scripts']['npc_units'],
-                self.localizations[self.language],
-            ).run()
+        parsed_npcs = npc_units.NpcParser(
+            self.data['scripts']['npc_units'],
+            self.localizations[self.language],
+        ).run()
 
-            json_utils.write(
-                self.OUTPUT_DIR + '/json/npc-data.json', json_utils.sort_dict(parsed_npcs)
-            )
-        else:
-            logger.warning(
-                "Skipping NPC parsing because 'npc_units.json' was not found "
-                "in the input data."
-            )
+        json_utils.write(
+            self.OUTPUT_DIR + '/json/npc-data.json', json_utils.sort_dict(parsed_npcs)
+        )
 
     def _parse_attributes(self):
         logger.trace('Parsing Attributes...')
