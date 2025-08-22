@@ -113,8 +113,17 @@ class Parser:
             # that are not needed but shared across groups
             if key in ['Language']:
                 continue
-            if key not in self.localizations[language]:
-                self.localizations[language][key] = value
+
+            # Split keys on "/" if present
+            # eg. "upgrade_berserker/modifier_berserker/modifier_berserker_damage_stack": "Berserker"
+            subkeys = key.split('/')
+
+            for subkey in subkeys:
+                if subkey not in self.localizations[language]:
+                    # some keys have an unneeded ":n" on the end
+                    if subkey.endswith(':n'):
+                        subkey = subkey[:-2]
+                    self.localizations[language][subkey] = value
 
     def run(self):
         logger.trace('Parsing...')
