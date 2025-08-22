@@ -39,6 +39,8 @@ class AbilityCardsParser:
             'ability_smoke_bomb_t1_desc',
         ]
 
+        self.not_found_localization_keys = []
+
     def run(self):
         output = {}
         for self.hero_key, self.hero in self.parsed_heroes.items():
@@ -514,9 +516,7 @@ class AbilityCardsParser:
             'InvisRegen_label': 'InvisRegen_Label',
             'EvasionChance_label': 'EvasionChance_Label',
             'DelayBetweenShots_label': 'DelayBetweenShots_Label',
-            'TossDuration_label': 'TossDuration_postvalue_label',
             'MissingHealthDamagePercentage_label': 'VenomMissingHealthDamagePercentage_label',
-            'RakeHealPerKill_label': 'RakeHealPerKill_postvalue_label',
         }
 
         key = OVERRIDES.get(key, key)
@@ -524,9 +524,20 @@ class AbilityCardsParser:
         if key in self.localizations[self.language]:
             return self.localizations[self.language][key]
 
+        # some keys use "_postvalue_label" on the end instead of "_label"
+        if key.endswith('_label'):
+            postvalue_key = key[:-6] + '_postvalue_label'
+            if postvalue_key in self.localizations[self.language]:
+                return self.localizations[self.language][postvalue_key]
+
         # Default to English if not found in current language
         if key in self.localizations['english']:
             return self.localizations['english'][key]
+
+        # prevent repeat logging of the same missing key
+        if self.language == 'english' and key not in self.not_found_localization_keys:
+            logger.warning(f'No localized string for key {key}, using fallback instead')
+            self.not_found_localization_keys.append(key)
 
         if fallback is not None:
             return fallback
