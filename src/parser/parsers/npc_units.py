@@ -236,7 +236,6 @@ class NpcParser:
         """Parses Neutral Troopers (weak, normal, strong)."""
         stats = {
             'MaxHealth': self._read_value(data, 'm_nMaxHealth'),
-            'PlayerDPS': self._read_value(data, 'm_flPlayerDPS'),
             'GoldReward': self._read_value(data, 'm_flGoldReward'),
             'GoldRewardBonusPercentPerMinute': self._read_value(
                 data, 'm_flGoldRewardBonusPercentPerMinute'
