@@ -114,16 +114,15 @@ class Parser:
             if key in ['Language']:
                 continue
 
-            # Split keys on "/" if present
-            # eg. "upgrade_berserker/modifier_berserker/modifier_berserker_damage_stack": "Berserker"
-            subkeys = key.split('/')
+            if key not in self.localizations[language]:
+                self.localizations[language][key] = value
 
-            for subkey in subkeys:
-                if subkey not in self.localizations[language]:
-                    # some keys have an unneeded ":n" on the end
-                    if subkey.endswith(':n'):
-                        subkey = subkey[:-2]
-                    self.localizations[language][subkey] = value
+            # some keys, eg. hero_infernus:n end with ":n"
+            # this can interfere with localization, so we should also save it without the ":n"
+            if key.endswith(':n'):
+                key_without_suffix = key[:-2]
+                if key_without_suffix not in self.localizations[language]:
+                    self.localizations[language][key_without_suffix] = value
 
     def run(self):
         logger.trace('Parsing...')
