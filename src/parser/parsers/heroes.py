@@ -206,6 +206,7 @@ class HeroParser:
             'BulletsPerBurst': w.get('m_iBurstShotCount', 1),
             'BurstInterShotInterval': w.get('m_flIntraBurstCycleTime', 0),
             'ShootMoveSpeed': w.get('m_flShootMoveSpeedPercent', 1.0),
+            'HitOnceAcrossAllBullets': w.get('m_bHitOnceAcrossAllBullets', False),
             #'BulletRadius': w['m_flBulletRadius'] / ENGINE_UNITS_PER_METER,
         }
 
@@ -252,6 +253,7 @@ class HeroParser:
             'BulletDamage': weapon_stats['BulletDamage'],
             'BulletsPerShot': weapon_stats['BulletsPerShot'],
             'BulletsPerBurst': weapon_stats['BulletsPerBurst'],
+            'HitOnceAcrossAllBullets': weapon_stats['HitOnceAcrossAllBullets'],
         }
 
     def _calc_dps(self, dps_stats, type='burst'):
@@ -274,14 +276,15 @@ class HeroParser:
         # Abbreivated dictionary for easier access
         d = dps_stats.copy()
 
+        # If damage is dealt once for all bullets (e.g. shotguns), treat as 1 bullet for DPS
+        bullets_per_shot = 1 if d['HitOnceAcrossAllBullets'] else d['BulletsPerShot']
+
         cycle_time = 1 / d['RoundsPerSecond']
         total_cycle_time = cycle_time + d['BulletsPerBurst'] * d['BurstInterShotInterval']
 
         # Burst DPS accounts for burst weapons and assumes maximum spinup (if applicable)
         if type == 'burst':
-            return (
-                d['BulletDamage'] * d['BulletsPerShot'] * d['BulletsPerBurst'] / (total_cycle_time)
-            )
+            return d['BulletDamage'] * bullets_per_shot * d['BulletsPerBurst'] / (total_cycle_time)
 
         # Sustained DPS also accounts for reloads/clipsize
         elif type == 'sustained':
@@ -295,7 +298,7 @@ class HeroParser:
             # More bullets per shot doesn't consume more bullets in the clip,
             # so think of it as bullet per bullet
             # BulletsPerBurst does consume more bullets in the clip
-            damage_from_clip = d['BulletDamage'] * d['BulletsPerShot'] * d['ClipSize']
+            damage_from_clip = d['BulletDamage'] * bullets_per_shot * d['ClipSize']
             return damage_from_clip / (time_to_empty_clip + time_to_reload)
 
         else:
