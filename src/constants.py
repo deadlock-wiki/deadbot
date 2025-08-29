@@ -4,6 +4,3 @@ ARGS = parameters.load_arguments()
 
 # Inches per meter, as engine units are inches
 ENGINE_UNITS_PER_METER = 1 / 0.0254
-
-APP_ID = '1422450'
-DEPOT_ID = '1422456'

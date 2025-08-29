@@ -37,8 +37,9 @@ Run with `poetry run deadbot`
 <summary>`poetry run deadbot -h`</summary>
 
 ```sh
-usage: DeadBot [-h] [-i DL_PATH] [-w WORKDIR] [-n INPUTDIR] [-o OUTPUT] [--decompiler_cmd DECOMPILER_CMD] [--import_files IMPORT_FILES] [--build_num BUILD_NUM] [-v] [--iam_key IAM_KEY]
-               [--iam_secret IAM_SECRET] [--bucket BUCKET] [-d] [-p] [-u] [-s] [-c] [--force]
+usage: DeadBot [-h] [-i DL_PATH] [-w WORKDIR] [-n INPUTDIR] [-o OUTPUT] [--decompiler_cmd DECOMPILER_CMD] [--import_files IMPORT_FILES] [--build_num BUILD_NUM] [-v] [--iam_key IAM_KEY] [--iam_secret IAM_SECRET]
+               [--bucket BUCKET] [--steam_username STEAM_USERNAME] [--steam_password STEAM_PASSWORD] [--depot_downloader_dir DEPOT_DOWNLOADER_DIR] [--steam_cmd STEAM_CMD] [--manifest_id MANIFEST_ID] [--steam_download] [-d]
+               [-p] [-u] [-s] [-c] [--force]
 
 Bot that lives to serve deadlock.wiki
 
@@ -68,12 +69,25 @@ s3 config:
                         AWS iam secret for updating bucket (overrides IAM_SECRET environment variable)
   --bucket BUCKET       S3 bucket name to push to (overrides BUCKET environment variable)
 
+steam config:
+  --steam_username STEAM_USERNAME
+                        Steam username for downloading game files (also set with STEAM_USERNAME environment variable)
+  --steam_password STEAM_PASSWORD
+                        Steam password for downloading game files (also set with STEAM_PASSWORD environment variable)
+  --depot_downloader_dir DEPOT_DOWNLOADER_DIR
+                        Path to DepotDownloader directory that contains the executable (also set with DEPOT_DOWNLOADER_DIR environment variable)
+  --steam_cmd STEAM_CMD
+                        Path to steamcmd executable (also set with STEAM_CMD environment variable)
+  --manifest_id MANIFEST_ID
+                        Manifest id to download, defaults to 'latest' (also set with MANIFEST_ID environment variable). Browse them at https://steamdb.info/depot/1422456/manifests/
+
 bot actions:
   -d, --decompile       Decompiles Deadlock game files. (also set with DECOMPILE environment variable)
   -p, --parse           Parses decompiled game files into json and csv (overrides PARSE env variable)
   -u, --wiki_upload     Upload parsed data to the Wiki (also set with WIKI_UPLOAD environment variable)
   -s, --s3_push         Push current data to s3
   -c, --changelogs      Fetch/parse forum and local changelogs. (also set with CHANGELOGS env variable)
+  --steam_download      Download Deadlock game files from SteamDB. (also set with STEAM_DOWNLOAD environment variable)
   --force               Forces decompilation even if game files and workdir versions match
 
 Process Deadlock game files and extract data and stats

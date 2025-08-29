@@ -28,8 +28,7 @@ def main():
     logger.add(
         sys.stderr,
         level=log_level,
-        format='<white><dim>{time:YYYY-MM-DD HH:mm:ss.SSS} | </dim>'
-        '</white><level>{level:<7} <dim>|</dim> <normal>{message}</normal></level>',
+        format='<white><dim>{time:YYYY-MM-DD HH:mm:ss.SSS} | </dim>' '</white><level>{level:<7} <dim>|</dim> <normal>{message}</normal></level>',
     )
 
     data_transfer = DataTransfer(args.workdir, args.bucket, args.iam_key, args.iam_secret)
@@ -42,8 +41,11 @@ def main():
         else:
             raise Exception('iam_key and iam_secret must be set for s3')
 
-    logger.trace(f"Downloading manifest '{args.manifest_id}'...")
-    act_versioning(args)
+    if is_truthy(args.steam_download):
+        logger.info(f"Downloading manifest '{args.manifest_id}'...")
+        act_download_game_files(args)
+    else:
+        logger.trace('! Skipping Game Download !')
 
     if is_truthy(args.decompile):
         logger.info('Decompiling source files...')
@@ -79,19 +81,15 @@ def main():
     logger.success('Done!')
 
 
-def act_versioning(args):
+def act_download_game_files(args):
     if args.manifest_id == 'latest':
         # Retrieve latest manifest-id
-        manifest_id = steamcmd.SteamCMD(
-            args.steam_cmd, args.steam_username, args.steam_password
-        ).run()
+        manifest_id = steamcmd.SteamCMD(args.steam_cmd, args.steam_username, args.steam_password).get_latest_manifest_id()
         logger.trace(f'Found the latest manifest id: {manifest_id}')
     else:
         manifest_id = args.manifest_id
 
-    depot_downloader.DepotDownloader(
-        args.output, args.depot_downloader_dir, args.steam_username, args.steam_password
-    ).run(manifest_id)
+    depot_downloader.DepotDownloader(args.output, args.depot_downloader_dir, args.steam_username, args.steam_password).run(manifest_id)
 
 
 def act_gamefile_parse(args):
@@ -103,9 +101,7 @@ def act_gamefile_parse(args):
 
 
 def act_changelog_parse(args):
-    herolab_patch_notes_path = os.path.join(
-        args.workdir, 'localizations', 'patch_notes', 'citadel_patch_notes_english.json'
-    )
+    herolab_patch_notes_path = os.path.join(args.workdir, 'localizations', 'patch_notes', 'citadel_patch_notes_english.json')
     chlog_fetcher = fetch_changelogs.ChangelogFetcher(
         update_existing=False,
         input_dir=args.inputdir,
