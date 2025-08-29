@@ -2,7 +2,7 @@ import parser.maps as maps
 import utils.string_utils as string_utils
 from loguru import logger
 
-SUPPORTED_LANGS = ['english', 'russian', 'schinese']
+SUPPORTED_LANGS = ['english', 'russian']
 
 
 class AbilityCardsParser:
