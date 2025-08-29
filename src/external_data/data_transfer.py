@@ -1,6 +1,7 @@
 import os
 import shutil
 from .s3 import S3
+from loguru import logger
 
 
 class DataTransfer:
@@ -25,7 +26,7 @@ class DataTransfer:
             versions = self._get_versions()
             version = max(versions)
 
-        print(f'Importing game files for version {version}...')
+        logger.info(f'Importing game files for version {version}...')
 
         files = self.s3.list_files(version)
         if files is None:
@@ -53,12 +54,14 @@ class DataTransfer:
 
     def export_data(self):
         """Export local decompiled game data to an S3 bucket"""
-        version = self._get_current_version()
+        version_data = self._get_current_version()
+        version = version_data['ClientVersion']
+        timestamp = f"{version_data['VersionDate']} {version_data['VersionTime']}"
         if version in self._get_versions():
-            print(f'Version {version} already exists on s3')
+            logger.info(f'Version {version} ({timestamp}) already exists on s3')
             return
 
-        print(f'Exporting data for patch version {version}...')
+        logger.info(f'Exporting data for patch version {version} ({timestamp})...')
 
         self.s3.write(version, self.DATA_DIR)
 
@@ -75,7 +78,7 @@ class DataTransfer:
             [key, value] = pair.split('=')
             version_data[key] = value
 
-        return version_data['ClientVersion']
+        return version_data
 
     def _get_versions(self):
         return self.s3.get_folders()
@@ -90,4 +93,4 @@ class DataTransfer:
                 elif os.path.isdir(file_path):
                     shutil.rmtree(file_path)
             except Exception as e:
-                print(f'[ERROR] Failed to delete {file_path} - {e}')
+                logger.error(f' Failed to delete {file_path} - {e}')

@@ -1,0 +1,181 @@
+[ General ]
+
+- Bullet Cycle Time for all heroes increased by 5% (effectively reduces gun DPS globally by 5%)
+- Spirit bonus based on souls spent in the tree is increased by 25%
+- Ability base damage and AP bonus damage reduced by ~8% (spirit power growth unaffected)
+- Spirit gained from leveling reduced from 1.25 to 1.1
+- Ultimate cooldowns increased by 10% (affects base and upgrades, so the total CD with AP is 10% longer)
+- 300 Souls Boon now gives an AP instead of an Ability Unlock
+- 600 Souls Boon now gives an Ability Unlock instead of a AP
+- Small neutral camp bounty increased by 15%
+- Zip Line after taking Base Guardians in a lane increased from +120% to +140%
+- Zip Line after taking Base Guardians in a lane ramp up time reduced from 4s to 3s
+- Rejuv bonus duration changed from 4 minutes to 3/4/5
+- Rejuv trooper health bonus reduced from 200/230/260% to 170/200/230%
+- Mid Boss total bounty increased from 500 + 50/min to 2000 + 50/min (evenly split among the team that kills the boss, unrelated to rejuv secure)
+- Mid Boss shield regeneration changed from 100 + 8/min to 50 + 7/min
+- Mid Boss HP increased by 15%
+- Mid Boss warning sound now plays at 70% HP rather than 60%
+- Rejuv drop duration reduced from 8s to 7s
+- Mid Boss Spirit Resistance from abilities reduced from 30% to 20%
+- Mid Boss Spirit Resistance from items reduced from 50% to 20%
+- Walker Spirit resistance reduced from 30% to 25%
+- Guardian base resistance increased from 40% to 60% (decays 10 minutes still, same values as creeps)
+- Guardian total bounty reduced from 1650 to 1000
+- Walker total bounty reduced from 4500 to 3500
+- Base hero kill value reduced from 300 to 250 (still ramps to end value over 40 minutes, so primarily affects the very early phase)
+- End hero kill value increased from 2000 to 2200
+- Bullet Lifesteal vs creeps increased from 50% to 60%
+- Spirit Lifesteal vs creeps increased from 33% to 40%
+- Comeback values are now roughly 25% stronger (this was released before this patch in a recent update)
+- Fixed a bug causing soul orb shots towards the end of the contested window to not register as hits on the server
+- Fixed some AoE abilities not hitting midboss (Kelvin Frost Grenade, Lady Geist Blood Bomb, Holliday Barrel)
+- Fixed various camera issues with Calico's Ava Form and Viscous's Goo Ball
+- Fixed an issue where Souls were shared with anyone that punched a Sinner's Sacrifice, regardless of the duration or team
+- Fixed a bug where players could exit the map if they tried to teleport into specific corners
+
+
+
+[ Weapon Items ]
+
+- Restorative Shot: Heal from heroes increased from 40 to 50
+- Restorative Shot: Heal from NPCs/Orbs increased from 15 to 20
+
+- Split Shot: Duration increased from 4.5s to 5s
+- Split Shot: Cooldown reduced from 16s to 14s
+- Weakening Headshot: No longer has a 3s cooldown
+- Swift Striker: Fire Rate reduced from 20% to 18%
+
+- Toxic Bullets: Buildup is now 15% harder
+- Blood Tribute: Health Drain reduced from 50 to 40
+- Blood Tribute: No longer grants +125 Bonus Health
+- Blood Tribute: Now grants +8% Spirit Resist
+- Express Shot cooldown reduced from 4s to 3s
+- Express Shot: Weapon Damage increased from 150% to 165%
+- Express Shot: Fixed Kinetic Carbine using the primary values rather than secondary values on the item
+- Cultists Sacrifice: Cooldown reduced from 260s to 250s
+
+- Ricochet: Fire Rate reduced from 25% to 20%
+- Ricochet: No longer bounces off objectives
+- Shadow Weave: Ambush Fire Rate increased from +30% to +35%
+- Spellslinger: Now only activates while in combat
+
+
+
+[ Vitality Items ]
+
+- Melee Lifesteal: Now has double cooldown when triggered via light melee
+- Rebuttal: Bonus Health increased from +50 to +75
+
+- Weapon Shielding: Move Speed bonus increased from 1 to 1.5
+- Weapon Shielding: Cooldown reduced from 40s to 35s
+- Spirit Shielding: Move Speed bonus increased from 1 to 1.5
+- Spirit Shielding: Cooldown reduced from 40s to 35s
+- Guardian Ward: Buff duration increased from 5s to 6s
+- Reactive Barrier: Spirit Resist increased from +5% to +6%
+
+- Lifestrike: Now has double cooldown when triggered via light melee.
+- Fortitude: Regen reduced from 3% to 2%
+- Fortitude: No longer grants +22% Weapon Damage
+- Veilwalker: Heal now scales with boons (+3)
+- Counterspell: Cooldown reduced from 25s to 20s
+- Counterspell: Now also grants +100 Health and +8 Spirit Power
+- Counterspell: Successful parry now provides +150 Heal
+- Trophy Collector: Souls per minute increased from 20 to 23
+
+- Inhibitor: Now uses the buildup proc mechanic
+- Inhibitor: Debuff duration increased from 3s to 4s
+- Siphon Bullets: Now grants Bullet Resistance instead of Spirit Resistance
+- Cheat Death: Now grants Bullet Resistance instead of Spirit Resistance
+- Cheat Death: Cooldown reduced from 120s to 100s
+- Divine Barrier: Buff duration increased from 5s to 6s
+- Witchmail: Cooldown reduction per hit increased from 3s to 4s
+- Unstoppable: Fixed Silencer’s passive interaction during this state
+
+
+
+[ Spirit Items ]
+
+- Rusted Barrel: Health increased from +50 to +60
+- Rusted Barrel: Now provides +0.5 Sprint
+- Rusted Barrel: Cooldown reduced from 30s to 25s
+- Disarming Hex: Cooldown reduced from 30s to 25s
+- Spirit Strike: Now has double cooldown when triggered via light melee.
+
+- Slowing Hex: Now provides +0.5 Sprint
+- Slowing Hex: Debuff effects stays on for longer so it's easier to see
+- Spirit Sap: Spirit Power reduction increased from -12 to -15
+
+- Spirit Snatch: Now has double cooldown when triggered via light melee.
+- Knockdown: Now provides +6% Ability Range
+- Knockdown: Cooldown reduced from 40s to 35s
+- Rapid Recharge: Spirit Power for charged abilities increased from +16 to +20
+
+- Cooldown Reduction stat is now renamed to Ability Cooldown Reduction and no longer affects items (all existing CDR is now Ability Cooldown Reduction)
+- Added a new T4 Spirit Item, Transcendent Cooldown. Builds from Superior Cooldown. Provides +30% Ability Cooldown Reduction and +30% Item Cooldown Reduction
+- Superior Cooldown: Ability Cooldown Reduction increased from 24% to 25%
+
+- Boundless Spirit: Percentage spirit bonus increased from 13% to 15%
+- Vortex Web: Now provides +1 Sprint
+- Vortex Web: Capture Radius increased from 11m to 12m
+- Ethereal Shift: Cooldown reduced from 22s to 20s
+- Ethereal Shift: Move Speed while channeling increased from 3.5 to 4
+
+
+
+[ Heroes ]
+
+- Abrams: Shoulder Charge T3 increased from -18s to -22s
+- Abrams: Infernal Resilience T3 increased from +6% to +7%
+
+- Infernus: Bullet damage growth per boon reduced from 0.16 to 0.12
+- Infernus: Afterburn DPS reduced by 13% (still affected by the global base reductions as well, so the total amount is larger than this. This applies to all other patch note lines that reduces damage as well)
+- Infernus: Afterburn spirit scaling increased from 0.56 to 0.66
+- Infernus: Flame Dash T2 DPS reduced by 10%
+- Infernus: Flame Dash spirit power scaling increased from 0.7 to 0.8
+
+- Ivy: Bullet growth reduced from 0.16 to 0.15
+- Ivy: No longer ignores shooting speed penalty
+- Ivy: Watcher’s Covenant now grants the shooting speed benefit to you and your tethered ally
+
+- Kelvin: Frozen Shelter now freezes Urn (like it does other objectives)
+
+- Lady Geist: Base bullet damage reduced from 23 to 21
+- Lady Geist: Essence Bomb arming time increased from 0.5s to 0.65s
+- Lady Geist: Malice health cost increased from 6% to 7%
+- Lady Geist: Malice T2 changed from "+30 Damage and 7% Damage Amp” to “+30 Damage and +4 Blood Shards”
+- Lady Geist: Malice T3 changed from "+6 Blood Shards" to "+7% Damage Amp"
+- Lady Geist: Soul Exchange cast range reduced from 6m to 5.5m
+
+- Lash: Flog cast range reduced from 25m to 20m
+- Lash: Ground Strike damage height reduced from 3.3m to 3m
+
+- McGinnis: Medicinal Specter now comes out faster and has a better visual que
+- McGinnis: Heavy Barrage DPS increased by 6%
+- McGinnis: Fixed Mini Turrets missing targets that are on the ground from Stun or Sliding
+- McGinnis: Fixed Mini Turrets not targeting Phase 1 of the Patron after shields are down
+- McGinnis: Health per boon increased from 52 to 56
+
+- Mirage: Djinn's Mark now has a range limit on application (45m)
+- Mirage: Fixed Cases where Mirage's Tornado would get Stuck and/or Go through Walls
+
+- Paradox: Gun recoil adjustments to make it smoother
+
+- Pocket: Fixed Cloak sliding up walls very quickly
+- Pocket: Fixed Cloak sometimes getting stuck on the lip of a corner
+- Pocket: Fixed Cloak issue where you would teleport far shoter than expected
+
+- Seven: Storm Cloud DPS reduced by 10%
+
+- Sinclair: Base bullet damage reduced from 20 to 17
+- Sinclair: Bullet velocity reduced from 340 to 300
+- Sinclair: Rabbit Hex cast range reduced from 30m to 24m
+- Sinclair: Rabbit Hex detonation delay increased from 0.7 to 0.9
+- Sinclair: Rabbit Hex move speed increased from 22% to 36%
+- Sinclair: Can no longer teleport back to assistant while silenced or cursed
+
+- Warden: Base bullet damage reduced from 17.6 to 17
+
+- Wraith: Card Trick T3 slow increased from 25% to 30%
+- Wraith: Card Trick spirit scaling increased from 1.1 to 1.2
+- Wraith: Project Mind fixed going no where if the player is on uneven ground

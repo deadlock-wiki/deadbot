@@ -114,7 +114,7 @@ class HeroParser:
         Meaningful stats are ones that are either scaled by level/power increase,
         or have differing base values across the hero pool
 
-        These are displayed on the deadlocked.wiki/Hero_Comparison page, among others in the future.
+        These are displayed on the deadlock.wiki/Hero_Comparison page, among others in the future.
         """
         # Storing in dict with bool entry instead of list so its hashable on the frontend
 
@@ -175,8 +175,17 @@ class HeroParser:
         weapon_prim_id = hero_value['m_mapBoundAbilities']['ESlot_Weapon_Primary']
 
         # Parse weapon stats
+        if weapon_prim_id not in self.abilities_data:
+            return weapon_stats
+
         weapon_prim = self.abilities_data[weapon_prim_id]['m_WeaponInfo']
         w = weapon_prim
+
+        # Safely calculate bullet speed from the new direct key
+        raw_bullet_speed = w.get('m_flBulletSpeed')
+        bullet_speed = (
+            raw_bullet_speed / ENGINE_UNITS_PER_METER if raw_bullet_speed is not None else None
+        )
 
         weapon_stats = {
             'BulletDamage': w['m_flBulletDamage'],
@@ -186,7 +195,7 @@ class HeroParser:
             'ReloadMovespeed': float(w['m_flReloadMoveSpeed']) / 10000,
             'ReloadDelay': w.get('m_flReloadSingleBulletsInitialDelay', 0),
             'ReloadSingle': w.get('m_bReloadSingleBullets', False),
-            'BulletSpeed': self._calc_bullet_velocity(w['m_BulletSpeedCurve']['m_spline']),
+            'BulletSpeed': bullet_speed,
             'FalloffStartRange': w['m_flDamageFalloffStartRange'] / ENGINE_UNITS_PER_METER,
             'FalloffEndRange': w['m_flDamageFalloffEndRange'] / ENGINE_UNITS_PER_METER,
             'FalloffStartScale': w['m_flDamageFalloffStartScale'],
@@ -197,6 +206,7 @@ class HeroParser:
             'BulletsPerBurst': w.get('m_iBurstShotCount', 1),
             'BurstInterShotInterval': w.get('m_flIntraBurstCycleTime', 0),
             'ShootMoveSpeed': w.get('m_flShootMoveSpeedPercent', 1.0),
+            'HitOnceAcrossAllBullets': w.get('m_bHitOnceAcrossAllBullets', False),
             #'BulletRadius': w['m_flBulletRadius'] / ENGINE_UNITS_PER_METER,
         }
 
@@ -243,6 +253,7 @@ class HeroParser:
             'BulletDamage': weapon_stats['BulletDamage'],
             'BulletsPerShot': weapon_stats['BulletsPerShot'],
             'BulletsPerBurst': weapon_stats['BulletsPerBurst'],
+            'HitOnceAcrossAllBullets': weapon_stats['HitOnceAcrossAllBullets'],
         }
 
     def _calc_dps(self, dps_stats, type='burst'):
@@ -265,14 +276,15 @@ class HeroParser:
         # Abbreivated dictionary for easier access
         d = dps_stats.copy()
 
+        # If damage is dealt once for all bullets (e.g. shotguns), treat as 1 bullet for DPS
+        bullets_per_shot = 1 if d['HitOnceAcrossAllBullets'] else d['BulletsPerShot']
+
         cycle_time = 1 / d['RoundsPerSecond']
         total_cycle_time = cycle_time + d['BulletsPerBurst'] * d['BurstInterShotInterval']
 
         # Burst DPS accounts for burst weapons and assumes maximum spinup (if applicable)
         if type == 'burst':
-            return (
-                d['BulletDamage'] * d['BulletsPerShot'] * d['BulletsPerBurst'] / (total_cycle_time)
-            )
+            return d['BulletDamage'] * bullets_per_shot * d['BulletsPerBurst'] / (total_cycle_time)
 
         # Sustained DPS also accounts for reloads/clipsize
         elif type == 'sustained':
@@ -286,7 +298,7 @@ class HeroParser:
             # More bullets per shot doesn't consume more bullets in the clip,
             # so think of it as bullet per bullet
             # BulletsPerBurst does consume more bullets in the clip
-            damage_from_clip = d['BulletDamage'] * d['BulletsPerShot'] * d['ClipSize']
+            damage_from_clip = d['BulletDamage'] * bullets_per_shot * d['ClipSize']
             return damage_from_clip / (time_to_empty_clip + time_to_reload)
 
         else:
@@ -300,7 +312,7 @@ class HeroParser:
         Dps scaling = dps * bullet dmg scaling / bullet dmg
         """
         # Scalings example is the content of SpiritScaling or LevelScaling
-        # Displayed on deadlocked.wiki/Hero_Comparison
+        # Displayed on deadlock.wiki/Hero_Comparison
         dps_stats = dps_stats_.copy()
         dps_stats_scaled = dps_stats_.copy()
 
@@ -358,41 +370,3 @@ class HeroParser:
             output_data[mapped_key] = data[key]
 
         return output_data
-
-    def _calc_bullet_velocity(self, spline):
-        """Calculates bullet velocity of a spline, ensuring its linear"""
-        """
-        Transforms
-        [
-            {
-                "x": 0.0,
-                "y": 23999.998047,
-                "m_flSlopeIncoming": 0.0,
-                "m_flSlopeOutgoing": 0.0
-            },
-            {
-                "x": 100.0,
-                "y": 23999.998047,
-                "m_flSlopeIncoming": 0.0,
-                "m_flSlopeOutgoing": 0.0
-            }
-        ]
-
-        to
-
-        23999.998047
-        """
-
-        # Confirm its linear
-        for point in spline:
-            if point['m_flSlopeIncoming'] != 0 or point['m_flSlopeOutgoing'] != 0:
-                raise Exception('Bullet speed curve is not linear')
-
-        # Confirm its constant
-        last_y = spline[0]['y']
-        for point in spline:
-            if point['y'] != last_y:
-                raise Exception('Bullet speed curve is not constant')
-
-        # If constant, return the y
-        return last_y / ENGINE_UNITS_PER_METER

@@ -1,8 +1,6 @@
 import subprocess
 import os
-import json
-import utils.json_utils as json_utils
-from utils.game_utils import load_game_info
+from loguru import logger
 import shutil
 from constants import APP_ID, DEPOT_ID
 
@@ -18,7 +16,6 @@ class DepotDownloader:
         self.depot_downloader_cmd_dir = depot_downloader_cmd_dir
         self.steam_username = steam_username
         self.steam_password = steam_password
-        self.verbose = verbose  # future proofing for verbose argument
         self.depot_downloader_output = 'deadlock-data'
         self.manifest_path = os.path.join(self.depot_downloader_output, 'manifest.txt')
 
@@ -55,13 +52,13 @@ class DepotDownloader:
             steam_inf_path = os.path.join(
                 self.depot_downloader_output, 'game', 'citadel', 'steam.inf'
             )
-            print('DepotDownloader output: ' + result.stdout)
+            logger.debug('DepotDownloader output: ' + result.stdout)
             if not os.path.exists(steam_inf_path):
                 raise Exception(f'Fatal error: {steam_inf_path} not found')
 
         except Exception as e:
-            #if result is not None:
-                #print('DepotDownloader output: ' + result.stdout)
+            # if result is not None:
+            # print('DepotDownloader output: ' + result.stdout)
             raise Exception(f'Error occured while parsing manifest {manifest_id}, error: {e}')
             # Possible errors that cause exceptions include:
             # RateLimiting by Steam
@@ -75,17 +72,15 @@ class DepotDownloader:
             dir_to_rm = os.path.join(self.depot_downloader_output, dir)
             if os.path.exists(dir_to_rm):
                 shutil.rmtree(dir_to_rm)
-
-                if self.verbose:
-                    print(f'Cleared {dir_to_rm}')
+                logger.trace(f'Cleared {dir_to_rm}')
 
     def _read_downloaded_manifest_id(self):
         if not os.path.exists(self.manifest_path):
             return None
-        
+
         with open(self.manifest_path, 'r') as f:
             return f.read().strip()
-        
+
     def _write_downloaded_manifest_id(self, manifest_id):
         with open(self.manifest_path, 'w') as f:
             f.write(manifest_id)
@@ -94,7 +89,7 @@ class DepotDownloader:
         # Check if the manifest is already downloaded
         downloaded_manifest_id = self._read_downloaded_manifest_id()
         if downloaded_manifest_id == manifest_id:
-            print(f'Already downloaded manifest {manifest_id}')
+            logger.trace(f'Already downloaded manifest {manifest_id}')
             return
 
         # Clear the existing data

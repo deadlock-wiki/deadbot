@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "DeadBot" 
-version = "0.2.3"  # REQUIRED, although can be dynamic
-description = "Bot that lives to serve deadlocked.wiki"
+version = "0.4.0-beta.2"
+description = "Bot that lives to serve deadlock.wiki"
 readme = "README.md"
 authors=[]
 
@@ -21,6 +21,7 @@ python-dotenv = "^1.0.1"
 feedparser = "^6.0.11"
 requests = "^2.32.3"
 bs4 = "^0.0.2"
+loguru = "^0.7.2"
 
 [tool.ruff]
 line-length = 101

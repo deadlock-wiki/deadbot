@@ -1,3 +1,6 @@
+from loguru import logger
+
+
 def load_game_info(game_info_path):
     """
     Loads steam game version info from steam.inf file.
@@ -16,5 +19,6 @@ def load_game_info(game_info_path):
                 # first item is the key, the rest are the value in case there's multiple `=`
                 version_info[split_line[0]] = split_line[1]
     except Exception as e:
-        print(f'[ERROR]: Issue opening game info file at {game_info_path}: {e}')
+        logger.error(f'Issue opening game info file at {game_info_path}')
+        raise e
     return version_info

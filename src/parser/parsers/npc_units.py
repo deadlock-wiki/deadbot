@@ -1,0 +1,306 @@
+from loguru import logger
+import utils.json_utils as json_utils
+import utils.num_utils as num_utils
+
+
+class NpcParser:
+    """
+    Parses the npc_units.vdata file to extract stats for various NPCs,
+    including troopers, bosses, neutral units, and other game objects.
+    """
+
+    def __init__(self, npc_units_data, localizations):
+        """
+        Initializes the parser with necessary data.
+
+        Args:
+            npc_units_data (dict): The raw data from npc_units.vdata.
+            localizations (dict): The localization data for mapping keys to names.
+        """
+        self.npc_units_data = npc_units_data
+        self.localizations = localizations
+        self.NPC_PARSERS = {
+            'trooper_normal': self._parse_trooper_ranged,
+            'trooper_melee': self._parse_trooper_melee,
+            'trooper_medic': self._parse_trooper_medic,
+            'npc_boss_tier1': self._parse_guardian,
+            'npc_barrack_boss': self._parse_base_guardian,
+            'destroyable_building': self._parse_shrine,
+            'npc_boss_tier2': self._parse_walker,
+            'npc_boss_tier3': self._parse_patron,
+            'neutral_weak': self._parse_neutral_trooper,
+            'neutral_normal': self._parse_neutral_trooper,
+            'neutral_strong': self._parse_neutral_trooper,
+            'npc_super_neutral': self._parse_midboss,
+            'neutral_vault': self._parse_sinners_sacrifice,
+            'citadel_item_pickup_rejuv': self._parse_rejuvenator,
+        }
+
+    def run(self, strict=True):
+        """
+        The main execution method. Iterates through all known NPC keys
+        and parses their data, returning a consolidated dictionary.
+        """
+        all_npcs = {}
+        for key in self.NPC_PARSERS.keys():
+            if key not in self.npc_units_data:
+                logger.warning(f"NPC key '{key}' not found in npc_units_data. Skipping.")
+                continue
+
+            npc_data = self.npc_units_data[key]
+            try:
+                parser_method = self.NPC_PARSERS[key]
+                parsed_data = parser_method(npc_data)
+                parsed_data['Name'] = self.localizations.get(key, key)
+                all_npcs[key] = json_utils.sort_dict(parsed_data)
+            except Exception as e:
+                logger.error(f"Failed to parse NPC '{key}': {e}")
+                if strict:
+                    raise e
+        return all_npcs
+
+    # --- Helper Methods ---
+
+    def _deep_get(self, data, *keys):
+        """Safely access nested dictionary keys."""
+        for key in keys:
+            if not isinstance(data, dict) or key not in data:
+                return None
+            data = data[key]
+        return data
+
+    def _read_value(self, data, *keys):
+        """Combines deep_get and assert_number for cleaner parsing."""
+        value = self._deep_get(data, *keys)
+        return num_utils.assert_number(value)
+
+    # --- Trooper Parsers ---
+
+    def _parse_trooper_shared(self, data):
+        """Parses stats that are common to all trooper types."""
+        stats = {
+            'MaxHealth': self._read_value(data, 'm_nMaxHealth'),
+            'PlayerDPS': self._read_value(data, 'm_flPlayerDPS'),
+            'TrooperDPS': self._read_value(data, 'm_flTrooperDPS'),
+            'T1BossDPS': self._read_value(data, 'm_flT1BossDPS'),
+            'BarrackBossDPS': self._read_value(data, 'm_flBarrackBossDPS'),
+            'SightRangePlayers': self._read_value(data, 'm_flSightRangePlayers'),
+            'RunSpeed': self._read_value(data, 'm_flRunSpeed'),
+            'DamageReductionNearEnemyBase': self._read_value(
+                data, 'm_EnemyTrooperDamageReduction', 'm_flDamageReductionForTroopers'
+            ),
+        }
+        return stats
+
+    def _parse_trooper_ranged(self, data):
+        return self._parse_trooper_shared(data)
+
+    def _parse_trooper_medic(self, data):
+        return self._parse_trooper_shared(data)
+
+    def _parse_trooper_melee(self, data):
+        stats = self._parse_trooper_shared(data)
+        stats.update(
+            {
+                'MeleeDamage': self._read_value(data, 'm_flMeleeDamage'),
+                'MeleeAttemptRange': self._read_value(data, 'm_flMeleeAttemptRange'),
+            }
+        )
+        return stats
+
+    # --- Objective & Boss Parsers ---
+
+    def _parse_guardian(self, data):
+        return {
+            'MaxHealth': self._read_value(data, 'm_nMaxHealth'),
+            'PlayerDPS': self._read_value(data, 'm_flPlayerDPS'),
+            'TrooperDPS': self._read_value(data, 'm_flTrooperDPS'),
+            'InvulnerabilityRange': self._read_value(data, 'm_flInvulRange'),
+            'PlayerDamageResistance': self._read_value(data, 'm_flPlayerDamageResistPct'),
+            'TrooperDamageResistanceBase': self._read_value(data, 'm_flT1BossDPSBaseResist'),
+            'TrooperDamageResistanceMax': self._read_value(data, 'm_flT1BossDPSMaxResist'),
+        }
+
+    def _parse_base_guardian(self, data):
+        stats = self._parse_guardian(data)
+        stats.update(
+            {
+                # Backdoor protection modifier provides damage mitigation and health regen.
+                'BackdoorHealthRegen': self._read_value(
+                    data, 'm_BackdoorProtectionModifier', 'm_flHealthPerSecondRegen'
+                ),
+                'BackdoorPlayerDamageMitigation': self._read_value(
+                    data,
+                    'm_BackdoorProtectionModifier',
+                    'm_flBackdoorProtectionDamageMitigationFromPlayers',
+                ),
+                # Bullet resist modifier reduces damage based on nearby enemy heroes.
+                'BackdoorBulletResistBase': self._read_value(
+                    data, 'm_BackdoorBulletResistModifier', 'm_BulletResist'
+                ),
+                'BackdoorBulletResistReductionPerHero': self._read_value(
+                    data, 'm_BackdoorBulletResistModifier', 'm_BulletResistReductionPerHero'
+                ),
+            }
+        )
+        return stats
+
+    def _parse_shrine(self, data):
+        return {
+            'MaxHealth': self._read_value(data, 'm_iMaxHealthGenerator'),
+            'AntiSnipeRange': self._read_value(data, 'm_RangedArmorModifier', 'm_flInvulnRange'),
+            'BulletResistBase': self._read_value(
+                data, 'm_BackdoorBulletResistModifier', 'm_BulletResist'
+            ),
+            'BulletResistReductionPerHero': self._read_value(
+                data, 'm_BackdoorBulletResistModifier', 'm_BulletResistReductionPerHero'
+            ),
+        }
+
+    def _parse_walker(self, data):
+        stats = {
+            'MaxHealth': self._read_value(data, 'm_nMaxHealth'),
+            'StompDamage': self._read_value(data, 'm_flStompDamage'),
+            'StompDamageMaxHealthPercent': self._read_value(
+                data, 'm_flStompDamageMaxHealthPercent'
+            ),
+            'StompRadius': self._read_value(data, 'm_flStompImpactRadius'),
+            'StompStunDuration': self._read_value(data, 'm_flStunDuration'),
+            'StompKnockup': self._read_value(data, 'm_flStompTossUpMagnitude'),
+            'InvulnerabilityRange': self._read_value(data, 'm_flInvulRange'),
+            'FriendlyAuraSpiritArmor': self._read_value(
+                data, 'm_FriendlyAuraModifier', 'MODIFIER_VALUE_SPIRIT_ARMOR'
+            ),
+            'FriendlyAuraBulletArmor': self._read_value(
+                data, 'm_FriendlyAuraModifier', 'MODIFIER_VALUE_BULLET_ARMOR'
+            ),
+            'NearbyEnemyResistanceValues': self._deep_get(
+                data, 'm_NearbyEnemyResist', 'm_flResistValues'
+            ),
+            'RangedResistanceMinRange': self._read_value(
+                data, 'm_RangedArmorModifier', 'm_flRangeMin'
+            ),
+            'RangedResistanceMaxRange': self._read_value(
+                data, 'm_RangedArmorModifier', 'm_flRangeMax'
+            ),
+            'BackdoorHealthRegen': self._read_value(
+                data, 'm_BackdoorProtectionModifier', 'm_flHealthPerSecondRegen'
+            ),
+            'BackdoorPlayerDamageMitigation': self._read_value(
+                data,
+                'm_BackdoorProtectionModifier',
+                'm_flBackdoorProtectionDamageMitigationFromPlayers',
+            ),
+        }
+        return stats
+
+    def _parse_patron(self, data):
+        stats = {
+            'MaxHealthPhase1': self._read_value(data, 'm_nMaxHealth'),
+            'MaxHealthPhase2': self._read_value(data, 'm_nPhase2Health'),
+            'LaserDPSToPlayers': self._read_value(data, 'm_flLaserDPSToPlayers'),
+            'LaserDPSMaxHealthPercent': self._read_value(data, 'm_flLaserDPSMaxHealth'),
+            'IsUnkillableInPhase1': 'm_Phase1Modifier' in data,
+            'HealthGrowthPerMinute': self._read_value(
+                data, 'm_ObjectiveHealthGrowthPhase1', 'm_iGrowthPerMinute'
+            ),
+            'RangedResistanceMinRange': self._read_value(
+                data, 'm_RangedArmorModifier', 'm_flRangeMin'
+            ),
+            'RangedResistanceMaxRange': self._read_value(
+                data, 'm_RangedArmorModifier', 'm_flRangeMax'
+            ),
+            'BackdoorHealthRegen': self._read_value(
+                data, 'm_BackdoorProtection', 'm_flHealthPerSecondRegen'
+            ),
+            'BackdoorPlayerDamageMitigation': self._read_value(
+                data, 'm_BackdoorProtection', 'm_flBackdoorProtectionDamageMitigationFromPlayers'
+            ),
+        }
+        return stats
+
+    # --- Neutral Unit Parsers ---
+
+    def _parse_neutral_trooper(self, data):
+        """Parses Neutral Troopers (weak, normal, strong)."""
+        stats = {
+            'MaxHealth': self._read_value(data, 'm_nMaxHealth'),
+            'PlayerDPS': self._read_value(data, 'm_flPlayerDPS'),
+            'GoldReward': self._read_value(data, 'm_flGoldReward'),
+            'GoldRewardBonusPercentPerMinute': self._read_value(
+                data, 'm_flGoldRewardBonusPercentPerMinute'
+            ),
+        }
+        if 'm_vecIntrinsicModifiers' in data:
+            for modifier in data['m_vecIntrinsicModifiers']:
+                if (
+                    modifier.get('m_strModifierName')
+                    == 'MODIFIER_VALUE_BULLET_DAMAGE_REDUCTION_PERCENT'
+                ):
+                    stats['IntrinsicBulletResistance'] = num_utils.assert_number(
+                        modifier.get('m_flValue')
+                    )
+                elif (
+                    modifier.get('m_strModifierName')
+                    == 'MODIFIER_VALUE_ABILITY_DAMAGE_REDUCTION_PERCENT'
+                ):
+                    stats['IntrinsicAbilityResistance'] = num_utils.assert_number(
+                        modifier.get('m_flValue')
+                    )
+        return stats
+
+    def _parse_midboss(self, data):
+        """Parses the Midboss (npc_super_neutral)."""
+        stats = {
+            'StartingHealth': self._read_value(data, 'm_iStartingHealth'),
+            'HealthGainPerMinute': self._read_value(data, 'm_iHealthGainPerMinute'),
+            'PlayerDPS': self._read_value(data, 'm_flPlayerDPS'),
+        }
+        if 'm_vecIntrinsicModifiers' in data:
+            for modifier in data['m_vecIntrinsicModifiers']:
+                if (
+                    modifier.get('m_strModifierName')
+                    == 'MODIFIER_VALUE_HEALTH_REGEN_PER_SECOND'
+                ):
+                    stats['HealthRegenPerSecond'] = num_utils.assert_number(
+                        modifier.get('m_flValue')
+                    )
+        return stats
+
+    def _parse_sinners_sacrifice(self, data):
+        """Parses Sinner's Sacrifice (neutral_vault)."""
+        return {
+            'RetaliateDamage': self._read_value(data, 'm_flRetaliateDamage'),
+            'GoldReward': self._read_value(data, 'm_flGoldReward'),
+            'GoldRewardBonusPercentPerMinute': self._read_value(
+                data, 'm_flGoldRewardBonusPercentPerMinute'
+            ),
+        }
+
+    # --- Item & Object Parsers ---
+
+    def _parse_rejuvenator(self, data):
+        """Parses the Rejuvenator pickup (citadel_item_pickup_rejuv)."""
+        # Define constants for the script values array to avoid magic numbers.
+        # The order is based on observation of the game data.
+        REJUV_HEALTH_INDEX = 0
+        REJUV_FIRERATE_INDEX = 1
+        REJUV_SPIRIT_DMG_INDEX = 2
+
+        stats = {}
+        rebirth_data = self._deep_get(data, 'm_RebirthModifier')
+        if rebirth_data:
+            stats['RespawnDelay'] = num_utils.assert_number(rebirth_data.get('m_flRespawnDelay'))
+            script_values = rebirth_data.get('m_vecScriptValues')
+
+            if script_values and isinstance(script_values, list) and len(script_values) >= 3:
+                stats['BonusMaxHealth'] = num_utils.assert_number(
+                    script_values[REJUV_HEALTH_INDEX]
+                )
+                stats['BonusFireRate'] = num_utils.assert_number(
+                    script_values[REJUV_FIRERATE_INDEX]
+                )
+                stats['BonusSpiritDamage'] = num_utils.assert_number(
+                    script_values[REJUV_SPIRIT_DMG_INDEX]
+                )
+        return stats
