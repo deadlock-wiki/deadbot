@@ -10,7 +10,7 @@ from decompiler import decompile
 import constants
 from changelogs import parse_changelogs, fetch_changelogs
 from parser import parser
-from versioning import depot_downloader, steamcmd
+from steam import depot_downloader, steamcmd
 from external_data.data_transfer import DataTransfer
 from wiki.upload import WikiUpload
 from utils.string_utils import is_truthy
