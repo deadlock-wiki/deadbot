@@ -153,6 +153,7 @@ def get_bound_abilities(value):
 
 LOCALIZATION_OVERRIDE_MAP = {
     'MaxChargeDuration': 'SpeedBoostDuration',
+    'MinDPS': 'MinDps',
 }
 
 
