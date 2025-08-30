@@ -51,8 +51,7 @@ class WikiUpload:
             if file_path is None:
                 if page_name not in IGNORE_PAGES:
                     logger.warning(
-                        f'[WARN] Missing file map for data page "{page_name}".'
-                        'Either add a corresponding file path or add it to the ignore list'
+                        f'[WARN] Missing file map for data page "{page_name}".' 'Either add a corresponding file path or add it to the ignore list'
                     )
                 continue
 

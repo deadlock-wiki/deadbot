@@ -76,8 +76,7 @@ class SoulUnlockParser:
                 mapped_su_data.update(self._flatten_su_data(value))
             else:
                 raise ValueError(
-                    f'Unknown key {key} in soul unlock data. Please update SOUL_UNLOCK_MAP. '
-                    + 'Map should contain all non-dict type keys'
+                    f'Unknown key {key} in soul unlock data. Please update SOUL_UNLOCK_MAP. ' + 'Map should contain all non-dict type keys'
                 )
 
         return mapped_su_data

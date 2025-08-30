@@ -66,9 +66,7 @@ class ChangelogFetcher:
         self.changelogs_to_file()
 
     def load_localization(self):
-        self.localization_data_en = json_utils.read(
-            os.path.join(self.OUTPUT_DIR, 'localizations', 'english.json')
-        )
+        self.localization_data_en = json_utils.read(os.path.join(self.OUTPUT_DIR, 'localizations', 'english.json'))
 
     def get_txt(self, changelog_path):
         self._process_local_changelogs(changelog_path)
@@ -99,12 +97,8 @@ class ChangelogFetcher:
             file_utils.write(f'{raw_output_dir}/{changelog_id}.txt', changelog)
             file_utils.write(f'{raw_input_dir}/{changelog_id}.txt', changelog)
 
-        json_utils.write(
-            f'{self.OUTPUT_DIR}/changelogs/changelog_configs.json', self.changelog_configs
-        )
-        json_utils.write(
-            f'{self.INPUT_DIR}/changelogs/changelog_configs.json', self.changelog_configs
-        )
+        json_utils.write(f'{self.OUTPUT_DIR}/changelogs/changelog_configs.json', self.changelog_configs)
+        json_utils.write(f'{self.INPUT_DIR}/changelogs/changelog_configs.json', self.changelog_configs)
 
     def _fetch_update_html(self, link):
         html = request.urlopen(link).read()
@@ -164,11 +158,7 @@ class ChangelogFetcher:
 
             # Ensure the date was able to be removed and was in the correct format
             if len(remaining_str) == len(string):
-                logger.warning(
-                    'Date format may not have been able to be parsed '
-                    + 'correctly to (yyyy-mm-dd), parsed date is '
-                    + date
-                )
+                logger.warning('Date format may not have been able to be parsed ' + 'correctly to (yyyy-mm-dd), parsed date is ' + date)
 
             # Parse full description by accumulating each description separated by <li> tags
             # <li>Text 1<li>Text 2</li> -> Text 1\nText 2\n

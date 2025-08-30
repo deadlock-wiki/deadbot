@@ -46,9 +46,7 @@ class AbilityParser:
             if 'm_vecAbilityUpgrades' not in ability:
                 continue
             else:
-                ability_data['Upgrades'] = self._parse_upgrades(
-                    ability_data, ability['m_vecAbilityUpgrades']
-                )
+                ability_data['Upgrades'] = self._parse_upgrades(ability_data, ability['m_vecAbilityUpgrades'])
 
             formatted_ability_data = {}
             for attr_key, attr_value in ability_data.items():

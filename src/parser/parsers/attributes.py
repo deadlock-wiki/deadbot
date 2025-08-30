@@ -26,9 +26,7 @@ class AttributeParser:
                         all_attributes[category_name] = {}
 
                     # Add attributes this hero contains to the categories' stats
-                    all_attributes[category_name].update(
-                        self._parse_shop_stat_display(category_stats)
-                    )
+                    all_attributes[category_name].update(self._parse_shop_stat_display(category_stats))
 
         # Specify order for lua as it isn't capable of iterating jsons in the order it appears
         order_lists = {}
@@ -48,11 +46,7 @@ class AttributeParser:
 
         # Reorder 1st level to be in the order they are displayed in game
         # and which happens to be the best for UX reasons
-        all_attributes = {
-            category: all_attributes[category]
-            for category in category_order
-            if category in all_attributes
-        }
+        all_attributes = {category: all_attributes[category] for category in category_order if category in all_attributes}
 
         return (all_attributes, order_lists)
 

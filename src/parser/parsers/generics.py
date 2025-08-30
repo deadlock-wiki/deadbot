@@ -35,9 +35,7 @@ class GenericParser:
 
         # If there ie existing data, validate the structure
         if existing_generics is not None:
-            invalid_keys = json_utils.validate_structures(
-                existing_generics, parsed_generics, self.STRUCTURE_KEYS_TO_VALIDATE
-            )
+            invalid_keys = json_utils.validate_structures(existing_generics, parsed_generics, self.STRUCTURE_KEYS_TO_VALIDATE)
 
             if len(invalid_keys) > 0:
                 logger.warning(
