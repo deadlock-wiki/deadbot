@@ -13,8 +13,8 @@ class DepotDownloader:
             raise Exception(f'Could not find DepotDownloader at path "{depot_downloader_dir}"')
         self.depot_downloader_dir = depot_downloader_dir
 
-        self.app_id = APP_ID  # deadlock's app_id
-        self.depot_id = DEPOT_ID  # the big depot
+        self.app_id = APP_ID
+        self.depot_id = DEPOT_ID
 
         self.output_dir = output_dir
         self.steam_username = steam_username
@@ -53,7 +53,7 @@ class DepotDownloader:
             self.steam_password,
             '-remember-password',
             '-filelist',
-            'input-data/depot_downloader_file_list.txt',  # module requires it passed via file
+            'input-data/depot_downloader_file_list.txt',
             '-dir',
             self.depot_downloader_output,
         ]
