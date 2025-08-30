@@ -38,7 +38,7 @@ Run with `poetry run deadbot`
 
 ```sh
 usage: DeadBot [-h] [-i DL_PATH] [-w WORKDIR] [-n INPUTDIR] [-o OUTPUT] [--decompiler_cmd DECOMPILER_CMD] [--import_files IMPORT_FILES] [--build_num BUILD_NUM] [-v] [--iam_key IAM_KEY] [--iam_secret IAM_SECRET]
-               [--bucket BUCKET] [--steam_username STEAM_USERNAME] [--steam_password STEAM_PASSWORD] [--depot_downloader_dir DEPOT_DOWNLOADER_DIR] [--steam_cmd STEAM_CMD] [--manifest_id MANIFEST_ID] [--steam_download] [-d]
+               [--bucket BUCKET] [--steam_username STEAM_USERNAME] [--steam_password STEAM_PASSWORD] [--depot_downloader_dir DEPOT_DOWNLOADER_DIR] [--manifest_id MANIFEST_ID] [--steam_download] [-d]
                [-p] [-u] [-s] [-c] [--force]
 
 Bot that lives to serve deadlock.wiki
@@ -76,8 +76,6 @@ steam config:
                         Steam password for downloading game files (also set with STEAM_PASSWORD environment variable)
   --depot_downloader_dir DEPOT_DOWNLOADER_DIR
                         Path to DepotDownloader directory that contains the executable (also set with DEPOT_DOWNLOADER_DIR environment variable)
-  --steam_cmd STEAM_CMD
-                        Path to steamcmd executable (also set with STEAM_CMD environment variable)
   --manifest_id MANIFEST_ID
                         Manifest id to download, defaults to 'latest' (also set with MANIFEST_ID environment variable). Browse them at https://steamdb.info/depot/1422456/manifests/
 

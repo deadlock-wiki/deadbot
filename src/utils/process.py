@@ -8,9 +8,6 @@ def run_process(params, name=''):
     Args:
         params (list[str] | str): The command and arguments to execute
         name (str, optional): An optional name to identify the process in logs. Defaults to ''
-
-    Returns:
-        str: Output from process
     """
     try:
         process = subprocess.Popen(  # noqa: F821
@@ -25,4 +22,3 @@ def run_process(params, name=''):
         raise Exception(f'Failed to run {name} process', e)
 
     process.wait()
-    return process.stdout.decode('utf-8')

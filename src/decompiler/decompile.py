@@ -21,8 +21,6 @@ def decompile(DEADLOCK_PATH, WORK_DIR, DECOMPILER_CMD, force=False):
         None
     """
 
-    # Define paths
-    DEADLOCK_PATH = 'deadlock-data'
     os.makedirs(WORK_DIR, exist_ok=True)
     steam_inf_path = f'{DEADLOCK_PATH}/game/citadel/steam.inf'
     version_path = f'{WORK_DIR}/version.txt'
@@ -31,10 +29,7 @@ def decompile(DEADLOCK_PATH, WORK_DIR, DECOMPILER_CMD, force=False):
     if os.path.exists(version_path) and filecmp.cmp(steam_inf_path, version_path):
         game_version = g_util.load_game_info(steam_inf_path)
         if not force:
-            logger.info(
-                f'Version {game_version["ClientVersion"]} is '
-                + 'already decompiled, skipping decompile step'
-            )
+            logger.info(f'Version {game_version["ClientVersion"]} is ' + 'already decompiled, skipping decompile step')
             return
 
     # clear data to ensure no old data is left around
@@ -61,10 +56,7 @@ def decompile(DEADLOCK_PATH, WORK_DIR, DECOMPILER_CMD, force=False):
         input_path = DEADLOCK_PATH + '/game/citadel/pak01_dir.vpk'
         VPK_FILEPATH = file + '.vdata_c'
         # Run the decompiler
-        dec_cmd = (
-            DECOMPILER_CMD
-            + f' -i "{input_path}" --output "{WORK_DIR}/vdata" --vpk_filepath "{VPK_FILEPATH}" -d'
-        )
+        dec_cmd = DECOMPILER_CMD + f' -i "{input_path}" --output "{WORK_DIR}/vdata" --vpk_filepath "{VPK_FILEPATH}" -d'
 
         os.system(dec_cmd)
 

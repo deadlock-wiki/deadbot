@@ -10,7 +10,7 @@ from decompiler import decompile
 import constants
 from changelogs import parse_changelogs, fetch_changelogs
 from parser import parser
-from steam import depot_downloader, steamcmd
+from steam import depot_downloader
 from external_data.data_transfer import DataTransfer
 from wiki.upload import WikiUpload
 from utils.string_utils import is_truthy
@@ -42,7 +42,7 @@ def main():
             raise Exception('iam_key and iam_secret must be set for s3')
 
     if is_truthy(args.steam_download):
-        logger.info(f"Downloading manifest '{args.manifest_id}'...")
+        logger.info('Downloading game data...')
         act_download_game_files(args)
     else:
         logger.trace('! Skipping Game Download !')
@@ -82,14 +82,9 @@ def main():
 
 
 def act_download_game_files(args):
-    if args.manifest_id == 'latest':
-        # Retrieve latest manifest-id
-        manifest_id = steamcmd.SteamCMD(args.steam_cmd, args.steam_username, args.steam_password).get_latest_manifest_id()
-        logger.trace(f'Found the latest manifest id: {manifest_id}')
-    else:
-        manifest_id = args.manifest_id
-
-    depot_downloader.DepotDownloader(args.output, args.depot_downloader_dir, args.steam_username, args.steam_password).run(manifest_id)
+    depot_downloader.DepotDownloader(
+        output_dir=args.output, depot_downloader_dir=args.depot_downloader_dir, steam_username=args.steam_username, steam_password=args.steam_password
+    ).run(args.manifest_id)
 
 
 def act_gamefile_parse(args):

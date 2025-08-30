@@ -86,14 +86,9 @@ def arg_group_steam(parser):
         default=os.getenv('DEPOT_DOWNLOADER_DIR', None),
     )
     group_steam.add_argument(
-        '--steam_cmd',
-        help='Path to steamcmd executable (also set with STEAM_CMD environment' + ' variable)',
-        default=os.getenv('STEAM_CMD', None),
-    )
-    group_steam.add_argument(
         '--manifest_id',
         help="Manifest id to download, defaults to 'latest' (also set with MANIFEST_ID environment variable). Browse them at https://steamdb.info/depot/1422456/manifests/",
-        default=os.getenv('MANIFEST_ID', 'latest'),
+        default=os.getenv('MANIFEST_ID', None),
     )
     return group_steam
 
