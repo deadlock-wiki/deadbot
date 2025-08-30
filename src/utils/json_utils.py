@@ -110,9 +110,7 @@ def validate_structures(datas1, datas2, structure_keys_to_validate):
                     # of each element that are dictionaries
                     for i, elem in enumerate(datas1[key]):
                         if isinstance(elem, dict):
-                            more_invalid_keys = validate_structures(
-                                elem, datas2[key][i], elem.keys()
-                            )
+                            more_invalid_keys = validate_structures(elem, datas2[key][i], elem.keys())
                             if len(more_invalid_keys) > 0:
                                 invalid_keys[key] = more_invalid_keys
 

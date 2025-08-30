@@ -29,15 +29,11 @@ class HeroParser:
                     'IsSelectable': hero_value.get('m_bPlayerSelectable', True),
                 }
 
-                hero_stats.update(
-                    self._map_attr_names(hero_value['m_mapStartingStats'], maps.get_hero_attr)
-                )
+                hero_stats.update(self._map_attr_names(hero_value['m_mapStartingStats'], maps.get_hero_attr))
 
                 # Change formatting on some numbers to match whats shown in game
                 hero_stats['StaminaCooldown'] = 1 / hero_stats['StaminaRegenPerSecond']
-                hero_stats['CritDamageReceivedScale'] = (
-                    hero_stats['CritDamageReceivedScale'] - 1
-                ) * 100
+                hero_stats['CritDamageReceivedScale'] = (hero_stats['CritDamageReceivedScale'] - 1) * 100
                 hero_stats['TechRange'] = hero_stats['TechRange'] - 1
                 hero_stats['TechDuration'] = hero_stats['TechDuration'] - 1
                 hero_stats['ReloadSpeed'] = hero_stats['ReloadSpeed'] - 1
@@ -71,9 +67,7 @@ class HeroParser:
                         del hero_stats['LevelScaling']['MeleeDamage']
 
                     # Remove scalings if they are 0.0
-                    hero_stats['LevelScaling'] = {
-                        k: v for k, v in hero_stats['LevelScaling'].items() if v != 0.0
-                    }
+                    hero_stats['LevelScaling'] = {k: v for k, v in hero_stats['LevelScaling'].items() if v != 0.0}
 
                 # Parse DPS and Sustained DPS level scaling
                 if 'DPS' in weapon_stats:
@@ -84,9 +78,7 @@ class HeroParser:
 
                     for scaling_container in scaling_containers:
                         for dps_type, dps_type_localized in zip(dps_types, dps_types_localized):
-                            dps_scaling = self._calc_dps_scaling(
-                                dps_stats, hero_stats[scaling_container], dps_type
-                            )
+                            dps_scaling = self._calc_dps_scaling(dps_stats, hero_stats[scaling_container], dps_type)
 
                             if dps_scaling != 0.0:
                                 hero_stats[scaling_container][dps_type_localized] = dps_scaling
@@ -131,10 +123,7 @@ class HeroParser:
                     continue
 
                 # Ensure the data isn't a localization key
-                if isinstance(stat_value, str) and (
-                    any(str_to_match in stat_value for str_to_match in ['hero_', 'weapon_'])
-                    or stat_key == 'Name'
-                ):
+                if isinstance(stat_value, str) and (any(str_to_match in stat_value for str_to_match in ['hero_', 'weapon_']) or stat_key == 'Name'):
                     continue
 
                 # Add the stat's value to the dict
@@ -183,9 +172,7 @@ class HeroParser:
 
         # Safely calculate bullet speed from the new direct key
         raw_bullet_speed = w.get('m_flBulletSpeed')
-        bullet_speed = (
-            raw_bullet_speed / ENGINE_UNITS_PER_METER if raw_bullet_speed is not None else None
-        )
+        bullet_speed = raw_bullet_speed / ENGINE_UNITS_PER_METER if raw_bullet_speed is not None else None
 
         weapon_stats = {
             'BulletDamage': w['m_flBulletDamage'],
@@ -226,9 +213,7 @@ class HeroParser:
 
         weapon_stats['WeaponName'] = weapon_prim_id
         # i.e. citadel_weapon_kelvin_set to citadel_weapon_hero_kelvin_set
-        weapon_stats['WeaponDescription'] = weapon_prim_id.replace(
-            'citadel_weapon_', 'citadel_weapon_hero_'
-        )
+        weapon_stats['WeaponDescription'] = weapon_prim_id.replace('citadel_weapon_', 'citadel_weapon_hero_')
 
         # Parse weapon types
         shop_ui_weapon_stats = hero_value['m_ShopStatDisplay']['m_eWeaponStatsDisplay']
@@ -246,9 +231,7 @@ class HeroParser:
             'ReloadDelay': weapon_stats['ReloadDelay'],
             'ReloadTime': weapon_stats['ReloadTime'],
             'ClipSize': weapon_stats['ClipSize'],
-            'RoundsPerSecond': weapon_stats['RoundsPerSecondAtMaxSpin']
-            if 'SpinAcceleration' in weapon_stats
-            else weapon_stats['RoundsPerSecond'],
+            'RoundsPerSecond': weapon_stats['RoundsPerSecondAtMaxSpin'] if 'SpinAcceleration' in weapon_stats else weapon_stats['RoundsPerSecond'],
             'BurstInterShotInterval': weapon_stats['BurstInterShotInterval'],
             'BulletDamage': weapon_stats['BulletDamage'],
             'BulletsPerShot': weapon_stats['BulletsPerShot'],
@@ -350,15 +333,11 @@ class HeroParser:
         """
         spirit_scalings = hero_value['m_mapScalingStats']
         for hero_scaling_key, hero_scaling_value in spirit_scalings.items():
-            parsed_spirit_scaling[maps.get_hero_attr(hero_scaling_key)] = hero_scaling_value[
-                'flScale'
-            ]
+            parsed_spirit_scaling[maps.get_hero_attr(hero_scaling_key)] = hero_scaling_value['flScale']
 
             # Ensure the only scalar in here is ETechPower
             if 'ETechPower' != hero_scaling_value['eScalingStat']:
-                raise Exception(
-                    f'Expected scaling key "ETechPower" but is: {hero_scaling_value["eScalingStat"]}'
-                )
+                raise Exception(f'Expected scaling key "ETechPower" but is: {hero_scaling_value["eScalingStat"]}')
 
         return parsed_spirit_scaling
 
