@@ -20,6 +20,8 @@ RUN python3 -m poetry install --no-root && rm -rf $POETRY_CACHE_DIR
 COPY . .
 RUN python3 -m poetry install
 
+RUN chmod +x /repo/scripts/steam_db_download_deadlock.sh
+
 ENV BUCKET='deadlock-game-files'
 
 # directory config
