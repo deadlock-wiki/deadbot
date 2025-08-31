@@ -7,10 +7,11 @@ import parser.maps as maps
 from parser.maps import get_scale_type
 from loguru import logger
 
+
 class ItemParser:
     nodes = []
     links = []
-    
+
     def __init__(self, abilities_data, generic_data, localizations):
         self.abilities_data = abilities_data
         self.generic_data = generic_data
@@ -42,16 +43,12 @@ class ItemParser:
         # Assign target types
         target_types = None
         if 'm_nAbilityTargetTypes' in item_value:
-            target_types = self._format_pipe_sep_string(
-                item_value['m_nAbilityTargetTypes'], maps.get_target_type
-            )
+            target_types = self._format_pipe_sep_string(item_value['m_nAbilityTargetTypes'], maps.get_target_type)
 
         # Assign shop filters
         shop_filters = None
         if 'm_eShopFilters' in item_value:
-            shop_filters = self._format_pipe_sep_string(
-                item_value['m_eShopFilters'], maps.get_shop_filter
-            )
+            shop_filters = self._format_pipe_sep_string(item_value['m_eShopFilters'], maps.get_shop_filter)
 
         tier = maps.get_tier(item_value.get('m_iItemTier'))
         cost = None
@@ -63,20 +60,18 @@ class ItemParser:
             'Description': '',
             'Cost': str(cost),
             'Tier': tier,
-            'Activation': maps.get_ability_activation(
-                item_value['m_eAbilityActivation']
-            ),
+            'Activation': maps.get_ability_activation(item_value['m_eAbilityActivation']),
             'Slot': maps.get_slot_type(item_value.get('m_eItemSlotType')),
             'Components': None,
             'TargetTypes': target_types,
             'ShopFilters': shop_filters,
             'IsDisabled': self._is_disabled(item_value),
         }
-        
+
         # Process attributes and extract scaling information
         for attr_key in item_ability_attrs.keys():
             attr = item_ability_attrs[attr_key]
-            
+
             scaling_data = self._extract_scaling(attr, key, attr_key)
 
             if scaling_data:
@@ -99,7 +94,7 @@ class ItemParser:
         else:
             description = self.localizations.get(key + '_desc')
             parsed_item_data['Description'] = description
-        
+
         # Process item components if they exist
         if 'm_vecComponentItems' in item_value:
             parsed_item_data['Components'] = item_value['m_vecComponentItems']
@@ -109,10 +104,8 @@ class ItemParser:
             self._add_children_to_tree(parent_name, parsed_item_data['Components'])
 
         return parsed_item_data
-    
-    def _extract_scaling(
-        self, attr: Dict[str, Any], item_key: str, attr_key: str
-    ) -> Optional[Dict[str, Any]]:
+
+    def _extract_scaling(self, attr: Dict[str, Any], item_key: str, attr_key: str) -> Optional[Dict[str, Any]]:
         """
         Return nested scaling dict for an attribute (matches hero data schema).
         """
@@ -123,7 +116,7 @@ class ItemParser:
         raw_scale_value = scale_func.get('m_flStatScale')
         if raw_scale_value is None:
             return None
-            
+
         base_value_str = attr.get('m_strValue')
         if base_value_str is None:
             return None
@@ -141,14 +134,8 @@ class ItemParser:
         except (ValueError, TypeError):
             return None
 
-        return {
-            "Value": base_value,
-            "Scale": {
-                "Value": scale_value,
-                "Type": human_type
-            }
-        }
-    
+        return {'Value': base_value, 'Scale': {'Value': scale_value, 'Type': human_type}}
+
     def _is_disabled(self, item):
         is_disabled = False
         if 'm_bDisabled' in item:

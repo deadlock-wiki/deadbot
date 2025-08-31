@@ -10,6 +10,7 @@ from decompiler import decompile
 import constants
 from changelogs import parse_changelogs, fetch_changelogs
 from parser import parser
+from steam import depot_downloader
 from external_data.data_transfer import DataTransfer
 from wiki.upload import WikiUpload
 from utils.string_utils import is_truthy
@@ -27,8 +28,7 @@ def main():
     logger.add(
         sys.stderr,
         level=log_level,
-        format='<white><dim>{time:YYYY-MM-DD HH:mm:ss.SSS} | </dim>'
-        '</white><level>{level:<7} <dim>|</dim> <normal>{message}</normal></level>',
+        format='<white><dim>{time:YYYY-MM-DD HH:mm:ss.SSS} | </dim>' '</white><level>{level:<7} <dim>|</dim> <normal>{message}</normal></level>',
     )
 
     data_transfer = DataTransfer(args.workdir, args.bucket, args.iam_key, args.iam_secret)
@@ -40,6 +40,12 @@ def main():
             data_transfer.import_data(version=args.build_num)
         else:
             raise Exception('iam_key and iam_secret must be set for s3')
+
+    if is_truthy(args.steam_download):
+        logger.info('Downloading game data...')
+        act_download_game_files(args)
+    else:
+        logger.trace('! Skipping Game Download !')
 
     if is_truthy(args.decompile):
         logger.info('Decompiling source files...')
@@ -75,6 +81,12 @@ def main():
     logger.success('Done!')
 
 
+def act_download_game_files(args):
+    depot_downloader.DepotDownloader(
+        output_dir=args.output, depot_downloader_cmd=args.depot_downloader_cmd, steam_username=args.steam_username, steam_password=args.steam_password
+    ).run(args.manifest_id)
+
+
 def act_gamefile_parse(args):
     game_parser = parser.Parser(args.workdir, args.output)
     game_parser.run()
@@ -84,9 +96,7 @@ def act_gamefile_parse(args):
 
 
 def act_changelog_parse(args):
-    herolab_patch_notes_path = os.path.join(
-        args.workdir, 'localizations', 'patch_notes', 'citadel_patch_notes_english.json'
-    )
+    herolab_patch_notes_path = os.path.join(args.workdir, 'localizations', 'patch_notes', 'citadel_patch_notes_english.json')
     chlog_fetcher = fetch_changelogs.ChangelogFetcher(
         update_existing=False,
         input_dir=args.inputdir,
