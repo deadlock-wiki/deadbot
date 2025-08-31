@@ -81,9 +81,9 @@ def arg_group_steam(parser):
         default=os.getenv('STEAM_PASSWORD', None),
     )
     group_steam.add_argument(
-        '--depot_downloader_dir',
-        help='Path to DepotDownloader directory that contains the executable (also set with DEPOT_DOWNLOADER_DIR environment' + ' variable)',
-        default=os.getenv('DEPOT_DOWNLOADER_DIR', None),
+        '--depot_downloader_cmd',
+        help='Path to DepotDownloader directory that contains the executable (also set with DEPOT_DOWNLOADER_CMD environment' + ' variable)',
+        default=os.getenv('DEPOT_DOWNLOADER_CMD', None),
     )
     group_steam.add_argument(
         '--manifest_id',

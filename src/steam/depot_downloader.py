@@ -6,12 +6,12 @@ from .constants import APP_ID, DEPOT_ID
 
 
 class DepotDownloader:
-    def __init__(self, output_dir, depot_downloader_dir, steam_username, steam_password):
-        if not depot_downloader_dir:
+    def __init__(self, output_dir, depot_downloader_cmd, steam_username, steam_password):
+        if not depot_downloader_cmd:
             raise Exception('Config for DepotDownloader path is required')
-        if not os.path.exists(depot_downloader_dir):
-            raise Exception(f'Could not find DepotDownloader at path "{depot_downloader_dir}"')
-        self.depot_downloader_dir = depot_downloader_dir
+        if not os.path.exists(depot_downloader_cmd):
+            raise Exception(f'Could not find DepotDownloader at path "{depot_downloader_cmd}"')
+        self.depot_downloader_cmd = depot_downloader_cmd
 
         self.app_id = APP_ID
         self.depot_id = DEPOT_ID
@@ -41,7 +41,7 @@ class DepotDownloader:
         logger.trace(f'Downloading game with manifest id {manifest_id}')
 
         subprocess_params = [
-            os.path.join(self.depot_downloader_dir),
+            os.path.join(self.depot_downloader_cmd),
             '-app',
             self.app_id,
             '-depot',
@@ -85,7 +85,7 @@ class DepotDownloader:
         latest_manifest_dir = os.path.join(self.depot_downloader_output, 'temp')
 
         subprocess_params = [
-            os.path.join(self.depot_downloader_dir),
+            os.path.join(self.depot_downloader_cmd),
             '-app',
             self.app_id,
             '-depot',

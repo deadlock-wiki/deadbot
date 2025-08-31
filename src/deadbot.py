@@ -83,7 +83,7 @@ def main():
 
 def act_download_game_files(args):
     depot_downloader.DepotDownloader(
-        output_dir=args.output, depot_downloader_dir=args.depot_downloader_dir, steam_username=args.steam_username, steam_password=args.steam_password
+        output_dir=args.output, depot_downloader_cmd=args.depot_downloader_cmd, steam_username=args.steam_username, steam_password=args.steam_password
     ).run(args.manifest_id)
 
 
