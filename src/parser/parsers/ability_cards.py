@@ -2,7 +2,7 @@ import parser.maps as maps
 import utils.string_utils as string_utils
 from loguru import logger
 
-SUPPORTED_LANGS = ['english', 'russian', 'schinese']
+SUPPORTED_LANGS = ['english', 'russian']
 
 
 class AbilityCardsParser:
@@ -74,9 +74,7 @@ class AbilityCardsParser:
 
         parsed_ui = {
             'Key': self.ability_key,
-            'Name': self._get_localized_string(
-                self.ability_key, fallback=f'Unknown({self.ability_key})'
-            ),
+            'Name': self._get_localized_string(self.ability_key, fallback=f'Unknown({self.ability_key})'),
         }
 
         ability_desc_key = self.ability_key + '_desc'
@@ -212,9 +210,7 @@ class AbilityCardsParser:
                 prop_object.update(
                     {
                         'Key': attr_key,
-                        'Name': self._get_localized_string(
-                            attr_key + '_label', fallback=f'Unknown({attr_key})'
-                        ),
+                        'Name': self._get_localized_string(attr_key + '_label', fallback=f'Unknown({attr_key})'),
                         'Value': self.ability[attr_key],
                     }
                 )
@@ -412,9 +408,7 @@ class AbilityCardsParser:
             if 'm_flStatScale' in raw_scale:
                 return {
                     'Value': raw_scale['m_flStatScale'],
-                    'Type': maps.get_scale_type(
-                        raw_scale.get('m_eSpecificStatScaleType', 'ETechPower')
-                    ),
+                    'Type': maps.get_scale_type(raw_scale.get('m_eSpecificStatScaleType', 'ETechPower')),
                 }
 
         return None

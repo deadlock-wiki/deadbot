@@ -1,4 +1,4 @@
-name: Docker
+name: Release
 
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
@@ -72,3 +72,27 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          
+      - name: Build deadbot executable
+        run: |         
+          docker run --rm \
+            -v ${{ github.workspace }}/dist:/repo/dist \
+            --entrypoint bash \
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }} \
+            -c "poetry run pyinstaller --onefile src/deadbot.py"
+
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ github.ref_name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload deadbot executable to Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist/deadbot
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -34,12 +34,8 @@ class Parser:
 
         # Get all languages from localization_file i.e. citadel_attributes_english.json -> english
         self.languages = [
-            localization_file.split('citadel_' + self.localization_groups[0] + '_')[1].split(
-                '.json'
-            )[0]
-            for localization_file in os.listdir(
-                os.path.join(self.DATA_DIR, 'localizations', self.localization_groups[0])
-            )
+            localization_file.split('citadel_' + self.localization_groups[0] + '_')[1].split('.json')[0]
+            for localization_file in os.listdir(os.path.join(self.DATA_DIR, 'localizations', self.localization_groups[0]))
         ]
 
         self._load_vdata()
@@ -72,9 +68,7 @@ class Parser:
             if file_name.endswith('.json'):
                 # path/to/scripts/abilities.json -> abilities
                 key = file_name.split('.')[0].split('/')[-1]
-                self.data['scripts'][key] = json_utils.read(
-                    os.path.join(self.DATA_DIR, scripts_path, file_name)
-                )
+                self.data['scripts'][key] = json_utils.read(os.path.join(self.DATA_DIR, scripts_path, file_name))
 
     def _load_localizations(self):
         """
@@ -114,16 +108,15 @@ class Parser:
             if key in ['Language']:
                 continue
 
-            # Split keys on "/" if present
-            # eg. "upgrade_berserker/modifier_berserker/modifier_berserker_damage_stack": "Berserker"
-            subkeys = key.split('/')
+            if key not in self.localizations[language]:
+                self.localizations[language][key] = value
 
-            for subkey in subkeys:
-                if subkey not in self.localizations[language]:
-                    # some keys have an unneeded ":n" on the end
-                    if subkey.endswith(':n'):
-                        subkey = subkey[:-2]
-                    self.localizations[language][subkey] = value
+            # some keys, eg. hero_infernus:n end with ":n"
+            # this can interfere with localization, so we should also save it without the ":n"
+            if key.endswith(':n'):
+                key_without_suffix = key[:-2]
+                if key_without_suffix not in self.localizations[language]:
+                    self.localizations[language][key_without_suffix] = value
 
     def run(self):
         logger.trace('Parsing...')
@@ -148,9 +141,7 @@ class Parser:
     def _parse_generics(self):
         logger.trace('Parsing Generics...')
         generic_data_path = self.OUTPUT_DIR + '/json/generic-data.json'
-        parsed_generics = generics.GenericParser(
-            generic_data_path, self.data['scripts']['generic_data']
-        ).run()
+        parsed_generics = generics.GenericParser(generic_data_path, self.data['scripts']['generic_data']).run()
 
         json_utils.write(generic_data_path, json_utils.sort_dict(parsed_generics))
 
@@ -199,9 +190,7 @@ class Parser:
                     'Key': ability_data['Key'],
                 }
 
-        json_utils.write(
-            self.OUTPUT_DIR + '/json/hero-data.json', json_utils.sort_dict(stripped_heroes)
-        )
+        json_utils.write(self.OUTPUT_DIR + '/json/hero-data.json', json_utils.sort_dict(stripped_heroes))
         return parsed_heroes
 
     def _parse_abilities(self):
@@ -212,9 +201,7 @@ class Parser:
             self.localizations[self.language],
         ).run()
 
-        json_utils.write(
-            self.OUTPUT_DIR + '/json/ability-data.json', json_utils.sort_dict(parsed_abilities)
-        )
+        json_utils.write(self.OUTPUT_DIR + '/json/ability-data.json', json_utils.sort_dict(parsed_abilities))
         return parsed_abilities
 
     def _parsed_ability_cards(self, parsed_heroes):
@@ -242,9 +229,7 @@ class Parser:
             self.localizations[self.language],
         ).run()
 
-        json_utils.write(
-            self.OUTPUT_DIR + '/json/item-data.json', json_utils.sort_dict(parsed_items)
-        )
+        json_utils.write(self.OUTPUT_DIR + '/json/item-data.json', json_utils.sort_dict(parsed_items))
 
         with open(self.OUTPUT_DIR + '/item-component-tree.txt', 'w') as f:
             f.write(str(item_component_chart))
@@ -260,9 +245,7 @@ class Parser:
 
     def _parse_attributes(self):
         logger.trace('Parsing Attributes...')
-        (parsed_attributes, attribute_orders) = attributes.AttributeParser(
-            self.data['scripts']['heroes'], self.localizations[self.language]
-        ).run()
+        (parsed_attributes, attribute_orders) = attributes.AttributeParser(self.data['scripts']['heroes'], self.localizations[self.language]).run()
 
         json_utils.write(self.OUTPUT_DIR + '/json/attribute-data.json', parsed_attributes)
         json_utils.write(self.OUTPUT_DIR + '/json/stat-infobox-order.json', attribute_orders)

@@ -86,9 +86,7 @@ class NpcParser:
             'BarrackBossDPS': self._read_value(data, 'm_flBarrackBossDPS'),
             'SightRangePlayers': self._read_value(data, 'm_flSightRangePlayers'),
             'RunSpeed': self._read_value(data, 'm_flRunSpeed'),
-            'DamageReductionNearEnemyBase': self._read_value(
-                data, 'm_EnemyTrooperDamageReduction', 'm_flDamageReductionForTroopers'
-            ),
+            'DamageReductionNearEnemyBase': self._read_value(data, 'm_EnemyTrooperDamageReduction', 'm_flDamageReductionForTroopers'),
         }
         return stats
 
@@ -126,21 +124,15 @@ class NpcParser:
         stats.update(
             {
                 # Backdoor protection modifier provides damage mitigation and health regen.
-                'BackdoorHealthRegen': self._read_value(
-                    data, 'm_BackdoorProtectionModifier', 'm_flHealthPerSecondRegen'
-                ),
+                'BackdoorHealthRegen': self._read_value(data, 'm_BackdoorProtectionModifier', 'm_flHealthPerSecondRegen'),
                 'BackdoorPlayerDamageMitigation': self._read_value(
                     data,
                     'm_BackdoorProtectionModifier',
                     'm_flBackdoorProtectionDamageMitigationFromPlayers',
                 ),
                 # Bullet resist modifier reduces damage based on nearby enemy heroes.
-                'BackdoorBulletResistBase': self._read_value(
-                    data, 'm_BackdoorBulletResistModifier', 'm_BulletResist'
-                ),
-                'BackdoorBulletResistReductionPerHero': self._read_value(
-                    data, 'm_BackdoorBulletResistModifier', 'm_BulletResistReductionPerHero'
-                ),
+                'BackdoorBulletResistBase': self._read_value(data, 'm_BackdoorBulletResistModifier', 'm_BulletResist'),
+                'BackdoorBulletResistReductionPerHero': self._read_value(data, 'm_BackdoorBulletResistModifier', 'm_BulletResistReductionPerHero'),
             }
         )
         return stats
@@ -149,43 +141,25 @@ class NpcParser:
         return {
             'MaxHealth': self._read_value(data, 'm_iMaxHealthGenerator'),
             'AntiSnipeRange': self._read_value(data, 'm_RangedArmorModifier', 'm_flInvulnRange'),
-            'BulletResistBase': self._read_value(
-                data, 'm_BackdoorBulletResistModifier', 'm_BulletResist'
-            ),
-            'BulletResistReductionPerHero': self._read_value(
-                data, 'm_BackdoorBulletResistModifier', 'm_BulletResistReductionPerHero'
-            ),
+            'BulletResistBase': self._read_value(data, 'm_BackdoorBulletResistModifier', 'm_BulletResist'),
+            'BulletResistReductionPerHero': self._read_value(data, 'm_BackdoorBulletResistModifier', 'm_BulletResistReductionPerHero'),
         }
 
     def _parse_walker(self, data):
         stats = {
             'MaxHealth': self._read_value(data, 'm_nMaxHealth'),
             'StompDamage': self._read_value(data, 'm_flStompDamage'),
-            'StompDamageMaxHealthPercent': self._read_value(
-                data, 'm_flStompDamageMaxHealthPercent'
-            ),
+            'StompDamageMaxHealthPercent': self._read_value(data, 'm_flStompDamageMaxHealthPercent'),
             'StompRadius': self._read_value(data, 'm_flStompImpactRadius'),
             'StompStunDuration': self._read_value(data, 'm_flStunDuration'),
             'StompKnockup': self._read_value(data, 'm_flStompTossUpMagnitude'),
             'InvulnerabilityRange': self._read_value(data, 'm_flInvulRange'),
-            'FriendlyAuraSpiritArmor': self._read_value(
-                data, 'm_FriendlyAuraModifier', 'MODIFIER_VALUE_SPIRIT_ARMOR'
-            ),
-            'FriendlyAuraBulletArmor': self._read_value(
-                data, 'm_FriendlyAuraModifier', 'MODIFIER_VALUE_BULLET_ARMOR'
-            ),
-            'NearbyEnemyResistanceValues': self._deep_get(
-                data, 'm_NearbyEnemyResist', 'm_flResistValues'
-            ),
-            'RangedResistanceMinRange': self._read_value(
-                data, 'm_RangedArmorModifier', 'm_flRangeMin'
-            ),
-            'RangedResistanceMaxRange': self._read_value(
-                data, 'm_RangedArmorModifier', 'm_flRangeMax'
-            ),
-            'BackdoorHealthRegen': self._read_value(
-                data, 'm_BackdoorProtectionModifier', 'm_flHealthPerSecondRegen'
-            ),
+            'FriendlyAuraSpiritArmor': self._read_value(data, 'm_FriendlyAuraModifier', 'MODIFIER_VALUE_SPIRIT_ARMOR'),
+            'FriendlyAuraBulletArmor': self._read_value(data, 'm_FriendlyAuraModifier', 'MODIFIER_VALUE_BULLET_ARMOR'),
+            'NearbyEnemyResistanceValues': self._deep_get(data, 'm_NearbyEnemyResist', 'm_flResistValues'),
+            'RangedResistanceMinRange': self._read_value(data, 'm_RangedArmorModifier', 'm_flRangeMin'),
+            'RangedResistanceMaxRange': self._read_value(data, 'm_RangedArmorModifier', 'm_flRangeMax'),
+            'BackdoorHealthRegen': self._read_value(data, 'm_BackdoorProtectionModifier', 'm_flHealthPerSecondRegen'),
             'BackdoorPlayerDamageMitigation': self._read_value(
                 data,
                 'm_BackdoorProtectionModifier',
@@ -201,21 +175,11 @@ class NpcParser:
             'LaserDPSToPlayers': self._read_value(data, 'm_flLaserDPSToPlayers'),
             'LaserDPSMaxHealthPercent': self._read_value(data, 'm_flLaserDPSMaxHealth'),
             'IsUnkillableInPhase1': 'm_Phase1Modifier' in data,
-            'HealthGrowthPerMinute': self._read_value(
-                data, 'm_ObjectiveHealthGrowthPhase1', 'm_iGrowthPerMinute'
-            ),
-            'RangedResistanceMinRange': self._read_value(
-                data, 'm_RangedArmorModifier', 'm_flRangeMin'
-            ),
-            'RangedResistanceMaxRange': self._read_value(
-                data, 'm_RangedArmorModifier', 'm_flRangeMax'
-            ),
-            'BackdoorHealthRegen': self._read_value(
-                data, 'm_BackdoorProtection', 'm_flHealthPerSecondRegen'
-            ),
-            'BackdoorPlayerDamageMitigation': self._read_value(
-                data, 'm_BackdoorProtection', 'm_flBackdoorProtectionDamageMitigationFromPlayers'
-            ),
+            'HealthGrowthPerMinute': self._read_value(data, 'm_ObjectiveHealthGrowthPhase1', 'm_iGrowthPerMinute'),
+            'RangedResistanceMinRange': self._read_value(data, 'm_RangedArmorModifier', 'm_flRangeMin'),
+            'RangedResistanceMaxRange': self._read_value(data, 'm_RangedArmorModifier', 'm_flRangeMax'),
+            'BackdoorHealthRegen': self._read_value(data, 'm_BackdoorProtection', 'm_flHealthPerSecondRegen'),
+            'BackdoorPlayerDamageMitigation': self._read_value(data, 'm_BackdoorProtection', 'm_flBackdoorProtectionDamageMitigationFromPlayers'),
         }
         return stats
 
@@ -227,26 +191,14 @@ class NpcParser:
             'MaxHealth': self._read_value(data, 'm_nMaxHealth'),
             'PlayerDPS': self._read_value(data, 'm_flPlayerDPS'),
             'GoldReward': self._read_value(data, 'm_flGoldReward'),
-            'GoldRewardBonusPercentPerMinute': self._read_value(
-                data, 'm_flGoldRewardBonusPercentPerMinute'
-            ),
+            'GoldRewardBonusPercentPerMinute': self._read_value(data, 'm_flGoldRewardBonusPercentPerMinute'),
         }
         if 'm_vecIntrinsicModifiers' in data:
             for modifier in data['m_vecIntrinsicModifiers']:
-                if (
-                    modifier.get('m_strModifierName')
-                    == 'MODIFIER_VALUE_BULLET_DAMAGE_REDUCTION_PERCENT'
-                ):
-                    stats['IntrinsicBulletResistance'] = num_utils.assert_number(
-                        modifier.get('m_flValue')
-                    )
-                elif (
-                    modifier.get('m_strModifierName')
-                    == 'MODIFIER_VALUE_ABILITY_DAMAGE_REDUCTION_PERCENT'
-                ):
-                    stats['IntrinsicAbilityResistance'] = num_utils.assert_number(
-                        modifier.get('m_flValue')
-                    )
+                if modifier.get('m_strModifierName') == 'MODIFIER_VALUE_BULLET_DAMAGE_REDUCTION_PERCENT':
+                    stats['IntrinsicBulletResistance'] = num_utils.assert_number(modifier.get('m_flValue'))
+                elif modifier.get('m_strModifierName') == 'MODIFIER_VALUE_ABILITY_DAMAGE_REDUCTION_PERCENT':
+                    stats['IntrinsicAbilityResistance'] = num_utils.assert_number(modifier.get('m_flValue'))
         return stats
 
     def _parse_midboss(self, data):
@@ -258,13 +210,8 @@ class NpcParser:
         }
         if 'm_vecIntrinsicModifiers' in data:
             for modifier in data['m_vecIntrinsicModifiers']:
-                if (
-                    modifier.get('m_strModifierName')
-                    == 'MODIFIER_VALUE_HEALTH_REGEN_PER_SECOND'
-                ):
-                    stats['HealthRegenPerSecond'] = num_utils.assert_number(
-                        modifier.get('m_flValue')
-                    )
+                if modifier.get('m_strModifierName') == 'MODIFIER_VALUE_HEALTH_REGEN_PER_SECOND':
+                    stats['HealthRegenPerSecond'] = num_utils.assert_number(modifier.get('m_flValue'))
         return stats
 
     def _parse_sinners_sacrifice(self, data):
@@ -272,9 +219,7 @@ class NpcParser:
         return {
             'RetaliateDamage': self._read_value(data, 'm_flRetaliateDamage'),
             'GoldReward': self._read_value(data, 'm_flGoldReward'),
-            'GoldRewardBonusPercentPerMinute': self._read_value(
-                data, 'm_flGoldRewardBonusPercentPerMinute'
-            ),
+            'GoldRewardBonusPercentPerMinute': self._read_value(data, 'm_flGoldRewardBonusPercentPerMinute'),
         }
 
     # --- Item & Object Parsers ---
@@ -294,13 +239,7 @@ class NpcParser:
             script_values = rebirth_data.get('m_vecScriptValues')
 
             if script_values and isinstance(script_values, list) and len(script_values) >= 3:
-                stats['BonusMaxHealth'] = num_utils.assert_number(
-                    script_values[REJUV_HEALTH_INDEX]
-                )
-                stats['BonusFireRate'] = num_utils.assert_number(
-                    script_values[REJUV_FIRERATE_INDEX]
-                )
-                stats['BonusSpiritDamage'] = num_utils.assert_number(
-                    script_values[REJUV_SPIRIT_DMG_INDEX]
-                )
+                stats['BonusMaxHealth'] = num_utils.assert_number(script_values[REJUV_HEALTH_INDEX])
+                stats['BonusFireRate'] = num_utils.assert_number(script_values[REJUV_FIRERATE_INDEX])
+                stats['BonusSpiritDamage'] = num_utils.assert_number(script_values[REJUV_SPIRIT_DMG_INDEX])
         return stats

@@ -1,6 +1,7 @@
 import os
 import argparse
 from dotenv import load_dotenv
+
 load_dotenv()
 
 ARG_PARSER = argparse.ArgumentParser(
@@ -67,6 +68,31 @@ def arg_group_base(parser):
     )
 
 
+def arg_group_steam(parser):
+    group_steam = parser.add_argument_group('steam config')
+    group_steam.add_argument(
+        '--steam_username',
+        help='Steam username for downloading game files (also set with STEAM_USERNAME ' + 'environment variable)',
+        default=os.getenv('STEAM_USERNAME', None),
+    )
+    group_steam.add_argument(
+        '--steam_password',
+        help='Steam password for downloading game files (also set with STEAM_PASSWORD environment' + ' variable)',
+        default=os.getenv('STEAM_PASSWORD', None),
+    )
+    group_steam.add_argument(
+        '--depot_downloader_cmd',
+        help='Path to DepotDownloader directory that contains the executable (also set with DEPOT_DOWNLOADER_CMD environment' + ' variable)',
+        default=os.getenv('DEPOT_DOWNLOADER_CMD', None),
+    )
+    group_steam.add_argument(
+        '--manifest_id',
+        help="Manifest id to download, defaults to 'latest' (also set with MANIFEST_ID environment variable). Browse them at https://steamdb.info/depot/1422456/manifests/",
+        default=os.getenv('MANIFEST_ID', None),
+    )
+    return group_steam
+
+
 # Parameters and arguments and flags oh my
 def arg_group_s3(parser):
     # s3 config
@@ -122,6 +148,11 @@ def arg_group_action(parser):
         help='Fetch/parse forum and local changelogs. (also set with CHANGELOGS env variable)',
     )
     group_actions.add_argument(
+        '--steam_download',
+        action='store_true',
+        help='Download Deadlock game files from SteamDB. (also set with STEAM_DOWNLOAD environment variable)',
+    )
+    group_actions.add_argument(
         '--force',
         action='store_true',
         help='Forces decompilation even if game files and workdir versions match',
@@ -133,11 +164,14 @@ def load_arguments():
     # Setup / Base config Flags
     arg_group_base(ARG_PARSER)
     arg_group_s3(ARG_PARSER)
+    arg_group_steam(ARG_PARSER)
     # Operational Flags
     arg_group_action(ARG_PARSER)
     args = ARG_PARSER.parse_args()
 
     # environment var checks for flags
+    if not args.steam_download:
+        args.steam_download = os.getenv('STEAM_DOWNLOAD', False)
     if not args.decompile:
         args.decompile = os.getenv('DECOMPILE', False)
     if not args.parse:

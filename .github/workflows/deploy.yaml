@@ -102,8 +102,10 @@ jobs:
         run: docker-compose up --exit-code-from deadbot
         working-directory: deadbot
         env:
+          # Import files from S3, parse them, and upload to the wiki if on master branch
           IMPORT_FILES: true
-          DECOMPILE: false
+          PARSE: true
+          CLEANUP: true
           WIKI_UPLOAD: ${{ needs.get-branch.outputs.branch == 'master' || github.event.inputs.wiki-upload == 'true' }}
           IAM_KEY: ${{ secrets.IAM_KEY }}
           IAM_SECRET: ${{ secrets.IAM_SECRET }}
