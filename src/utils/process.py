@@ -1,5 +1,4 @@
 import subprocess
-import os
 from loguru import logger
 
 
@@ -11,14 +10,8 @@ def run_process(params, name=''):
         name (str, optional): An optional name to identify the process in logs. Defaults to ''
     """
     try:
-        # Handle shell scripts on Windows by explicitly using bash
-        if isinstance(params, str) and params.endswith('.sh') and os.name == 'nt':
-            params = ['bash', params]
-        elif isinstance(params, list) and len(params) > 0 and params[0].endswith('.sh') and os.name == 'nt':
-            params = ['bash'] + params
-
         process = subprocess.Popen(  # noqa: F821
-            params, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True
+            f'bash {params}', stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True
         )
 
         with process.stdout:
