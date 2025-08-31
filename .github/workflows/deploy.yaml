@@ -1,9 +1,6 @@
 name: Deploy
 on: 
   push:
-    paths:
-      - 'src/**'
-      - '.github/workflows/deploy.yaml'
 
   pull_request:
     types: [opened]
