@@ -35,6 +35,7 @@ class DepotDownloader:
 
         # self._clear_dl_data()
         self._download(manifest_id)
+        self._write_downloaded_manifest_id(manifest_id)
 
     def _download(self, manifest_id):
         logger.trace(f'Downloading game with manifest id {manifest_id}')
@@ -97,6 +98,7 @@ class DepotDownloader:
             '-dir',
             latest_manifest_dir,
             '-manifest-only',
+            '-validate',
         ]
 
         run_process(subprocess_params, name='get-latest-manifest-id')
