@@ -82,7 +82,8 @@ class DepotDownloader:
             return f.read().strip()
 
     def _get_latest_manifest_id(self):
-        latest_manifest_dir = os.path.join(self.depot_downloader_output, 'temp')
+        # create temporary folder to store manifest file
+        temp_dir = os.path.join(self.depot_downloader_output, 'temp')
 
         subprocess_params = [
             os.path.join(self.depot_downloader_cmd),
@@ -96,7 +97,7 @@ class DepotDownloader:
             self.steam_password,
             '-remember-password',
             '-dir',
-            latest_manifest_dir,
+            temp_dir,
             '-manifest-only',
             '-validate',
         ]
@@ -104,12 +105,12 @@ class DepotDownloader:
         run_process(subprocess_params, name='get-latest-manifest-id')
 
         manifest_id = None
-        for filename in os.listdir(latest_manifest_dir):
+        for filename in os.listdir(temp_dir):
             if filename.startswith('manifest'):
                 # manifest formatted as manifest_<depot_id>_<manifest_id>.txt
                 manifest_id = filename.replace('manifest_', '').replace('.txt', '').split('_')[-1]
 
-        shutil.rmtree(latest_manifest_dir)
+        shutil.rmtree(temp_dir)
         return manifest_id
 
     def _write_downloaded_manifest_id(self, manifest_id):
