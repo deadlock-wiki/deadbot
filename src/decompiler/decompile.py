@@ -2,7 +2,6 @@ import os
 import decompiler.kv3_to_json as kv3_to_json
 import decompiler.localization as localization
 import filecmp
-import shutil
 import utils.game_utils as g_util
 from loguru import logger
 from utils.process import run_process
@@ -42,10 +41,6 @@ def decompile(deadlock_dir, work_dir, force=False):
         if not force:
             logger.info(f'Version {game_version["ClientVersion"]} is already decompiled, skipping decompile step')
             return
-
-    # clear data to ensure no old data is left around
-    shutil.rmtree(work_dir)
-    os.makedirs(work_dir, exist_ok=True)
 
     os.system(f'cp "{steam_inf_path}" "{version_path}"')
     for gamefile, workfile in GAMEFILE_TO_WORK_DIR.items():

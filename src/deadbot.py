@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import os
-import shutil
 import sys
 from loguru import logger
 
@@ -32,12 +31,8 @@ def main():
 
     if is_truthy(args.decompile):
         logger.info('Decompiling source files...')
-        try:
-            decompile(args.dl_path, args.workdir, args.force)
-        except Exception as e:
-            # if decompile fails, clear it out for next run
-            shutil.rmtree(args.workdir)
-            raise e
+        decompile(args.dl_path, args.workdir, args.force)
+
     else:
         logger.trace('! Skipping Decompiler !')
 
