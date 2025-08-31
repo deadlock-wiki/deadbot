@@ -1,6 +1,9 @@
 FROM python:3.11-slim
 RUN apt update && apt upgrade -y && apt install -y wget unzip libicu-dev binutils
 
+# git is needed for downloading game data from SteamDB repo
+RUN sudo apt install git-all
+
 WORKDIR /tools
 
 ENV POETRY_VER="1.8.3"
