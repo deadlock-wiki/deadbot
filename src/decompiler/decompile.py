@@ -29,7 +29,8 @@ def decompile(deadlock_dir, work_dir, force=False):
         None
     """
     # Download gamefiles from steamdb
-    run_process('./scripts/steam_db_download_deadlock.sh', name='download-deadlock-files')
+    script_path = os.path.join(os.path.dirname(__file__), '..', '..', 'scripts', 'steam_db_download_deadlock.sh')
+    run_process(script_path, name='download-deadlock-files')
 
     os.makedirs(work_dir, exist_ok=True)
     steam_inf_path = f'{deadlock_dir}/game/citadel/steam.inf'

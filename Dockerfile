@@ -2,7 +2,7 @@ FROM python:3.11-slim
 RUN apt update && apt upgrade -y && apt install -y wget unzip libicu-dev binutils
 
 # git is needed for downloading game data from SteamDB repo
-RUN apt install git-all
+RUN apt install -y --no-install-recommends git
 
 WORKDIR /tools
 
