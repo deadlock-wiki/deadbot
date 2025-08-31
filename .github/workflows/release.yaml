@@ -72,15 +72,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-
-      - name: Install pyinstaller in container
-        run: |
-          docker run --rm \
-          -v ${{ github.workspace }}/dist:/repo/dist \
-          --entrypoint bash \
-          ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }} \
-          python3 -m pip install pyinstaller
-
+          
       - name: Build deadbot executable
         run: |         
           docker run --rm \

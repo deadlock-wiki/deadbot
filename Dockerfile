@@ -28,6 +28,9 @@ WORKDIR /repo
 COPY pyproject.toml poetry.lock ./
 RUN python3 -m poetry install --no-root && rm -rf $POETRY_CACHE_DIR
 
+# install pyinstaller to enable building deadbot.exe for release
+RUN python3 -m pip install pyinstaller
+
 # Now install deadbot
 COPY . .
 RUN python3 -m poetry install
