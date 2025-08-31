@@ -1,13 +1,19 @@
-FROM python:3.12-slim
-RUN apt update && apt upgrade -y && apt install -y wget unzip libicu-dev
-
+FROM python:3.11-slim
+RUN apt update && apt upgrade -y && apt install -y wget unzip libicu-dev binutils
 
 WORKDIR /tools
-# Valve Resource Format Version https://github.com/ValveResourceFormat/ValveResourceFormat/releases
-ENV VRF_VER="10.2"
-# used to decompile game .vpk and .vdata_c files
-RUN wget https://github.com/ValveResourceFormat/ValveResourceFormat/releases/download/$VRF_VER/Decompiler-linux-x64.zip && unzip Decompiler-linux-x64.zip
-ENV DECOMPILER_CMD=/tools/Decompiler
+
+RUN wget https://github.com/ValveResourceFormat/ValveResourceFormat/releases/download/14.1/cli-linux-x64.zip \
+    && unzip cli-linux-x64.zip \
+    && rm cli-linux-x64.zip \
+    && chmod +x Source2Viewer-CLI
+ENV DECOMPILER_CMD=/tools/Source2Viewer-CLI
+
+RUN wget https://github.com/SteamRE/DepotDownloader/releases/download/DepotDownloader_3.4.0/DepotDownloader-linux-x64.zip \
+    && unzip DepotDownloader-linux-x64.zip \
+    && rm DepotDownloader-linux-x64.zip \
+    && chmod +x DepotDownloader
+ENV DEPOT_DOWNLOADER_CMD=/tools/DepotDownloader
 
 ENV POETRY_VER="1.8.3"
 RUN python3 -m pip install poetry==$POETRY_VER
@@ -22,18 +28,12 @@ WORKDIR /repo
 COPY pyproject.toml poetry.lock ./
 RUN python3 -m poetry install --no-root && rm -rf $POETRY_CACHE_DIR
 
+# install pyinstaller to enable building deadbot.exe for release
+RUN python3 -m pip install pyinstaller
+
 # Now install deadbot
 COPY . .
 RUN python3 -m poetry install
-
-# runtime config
-ENV IMPORT_FILES=true
-ENV DECOMPILE=false
-ENV PARSE=true
-ENV CHANGELOGS=true
-ENV WIKI_UPLOAD=false
-ENV CLEANUP=true
-ENV S3_PUSH=false
 
 ENV BUCKET='deadlock-game-files'
 

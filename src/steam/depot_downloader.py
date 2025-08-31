@@ -30,7 +30,7 @@ class DepotDownloader:
         # Check if the manifest is already downloaded
         downloaded_manifest_id = self._read_downloaded_manifest_id()
         if downloaded_manifest_id == manifest_id:
-            logger.trace(f'Already downloaded manifest {manifest_id}')
+            logger.info(f'Already downloaded manifest {manifest_id}')
             return
 
         # self._clear_dl_data()
