@@ -28,4 +28,6 @@ def run_process(params, name=''):
     except Exception as e:
         raise Exception(f'Failed to run {name} process', e)
 
-    process.wait()
+    exit_code = process.wait()
+    if exit_code != 0:
+        raise Exception(f'Process {name} exited with code {exit_code}')
