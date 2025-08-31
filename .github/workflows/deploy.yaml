@@ -102,13 +102,11 @@ jobs:
         run: docker-compose up --exit-code-from deadbot
         working-directory: deadbot
         env:
-          # Import files from S3, parse them, and upload to the wiki if on master branch
-          IMPORT_FILES: true
+          # Decompile game files, parse them, and upload to the wiki
+          DECOMPILE: true
           PARSE: true
           CLEANUP: true
-          WIKI_UPLOAD: ${{ needs.get-branch.outputs.branch == 'master' || github.event.inputs.wiki-upload == 'true' }}
-          IAM_KEY: ${{ secrets.IAM_KEY }}
-          IAM_SECRET: ${{ secrets.IAM_SECRET }}
+          WIKI_UPLOAD: ${{ github.event.inputs.wiki-upload == 'true' }}
           BOT_WIKI_USER: ${{ secrets.BOT_WIKI_USER }}
           BOT_WIKI_PASS: ${{ secrets.BOT_WIKI_PASS }}
           VERBOSE: ${{ secrets.ACTIONS_RUNNER_DEBUG == 'true' }}
