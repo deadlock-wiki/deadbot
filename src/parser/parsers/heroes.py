@@ -27,6 +27,7 @@ class HeroParser:
                     'IsRecommended': hero_value.get('m_bNewPlayerRecommended', False),
                     'InHeroLabs': hero_value.get('m_bAvailableInHeroLabs', False),
                     'IsSelectable': hero_value.get('m_bPlayerSelectable', True),
+                    'Type': self._parse_hero_type(hero_value),
                 }
 
                 hero_stats.update(self._map_attr_names(hero_value['m_mapStartingStats'], maps.get_hero_attr))
@@ -143,6 +144,18 @@ class HeroParser:
                         meaningful_stats[level_key] = True
 
         return meaningful_stats
+
+    def _parse_hero_type(self, hero_value):
+        hero_type = hero_value.get('m_eHeroType')
+        if hero_type is None:
+            return None
+
+        hero_type = hero_type.replace('ECitadelHeroType_', '')
+        hero_localization_str = f"Citadel_HeroGrid_{hero_type}"
+
+        # Get hero type from localization, but fallback to the raw value if not found
+        return self.localizations.get(hero_localization_str, hero_type)
+
 
     def _parse_hero_abilities(self, hero_value):
         bound_abilities = hero_value['m_mapBoundAbilities']
