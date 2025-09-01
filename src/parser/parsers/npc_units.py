@@ -28,6 +28,7 @@ class NpcParser:
             'npc_barrack_boss': self._parse_base_guardian,
             'destroyable_building': self._parse_shrine,
             'npc_boss_tier2': self._parse_walker,
+            'npc_boss_tier2_weak': self._parse_walker,
             'npc_boss_tier3': self._parse_patron,
             'neutral_trooper_weak': self._parse_neutral_trooper,
             'neutral_trooper_normal': self._parse_neutral_trooper,
@@ -167,6 +168,10 @@ class NpcParser:
         }
 
     def _parse_walker(self, data):
+        invuln_range = self._read_value(data, 'm_flInvulModifierRange')
+        if invuln_range is None:
+            invuln_range = self._read_value(data, 'm_flInvulRange')
+
         stats = {
             'MaxHealth': self._read_value(data, 'm_nMaxHealth'),
             'StompDamage': self._read_value(data, 'm_flStompDamage'),
@@ -176,13 +181,7 @@ class NpcParser:
             'StompRadius': self._read_value(data, 'm_flStompImpactRadius'),
             'StompStunDuration': self._read_value(data, 'm_flStunDuration'),
             'StompKnockup': self._read_value(data, 'm_flStompTossUpMagnitude'),
-            'InvulnerabilityRange': self._read_value(data, 'm_flInvulRange'),
-            'FriendlyAuraSpiritArmor': self._read_value(
-                data, 'm_FriendlyAuraModifier', 'MODIFIER_VALUE_SPIRIT_ARMOR'
-            ),
-            'FriendlyAuraBulletArmor': self._read_value(
-                data, 'm_FriendlyAuraModifier', 'MODIFIER_VALUE_BULLET_ARMOR'
-            ),
+            'InvulnerabilityRange': invuln_range,
             'NearbyEnemyResistanceValues': self._deep_get(
                 data, 'm_NearbyEnemyResist', 'm_flResistValues'
             ),
@@ -201,6 +200,29 @@ class NpcParser:
                 'm_flBackdoorProtectionDamageMitigationFromPlayers',
             ),
         }
+
+        # Parse friendly aura bonuses from the nested script values list using a data-driven map.
+        AURA_MODIFIER_MAP = {
+            'MODIFIER_VALUE_TECH_ARMOR_DAMAGE_RESIST': 'FriendlyAuraSpiritArmor',
+            'MODIFIER_VALUE_BULLET_ARMOR_DAMAGE_RESIST': 'FriendlyAuraBulletArmor',
+        }
+        
+        # Initialize keys to null.
+        for key in AURA_MODIFIER_MAP.values():
+            stats[key] = None
+
+        script_values = self._deep_get(
+            data, 'm_FriendlyAuraModifier', 'm_modifierProvidedByAura', 'm_vecScriptValues'
+        )
+
+        if script_values and isinstance(script_values, list):
+            for script_value in script_values:
+                if isinstance(script_value, dict):
+                    modifier_name = script_value.get('m_eModifierValue')
+                    if modifier_name in AURA_MODIFIER_MAP:
+                        output_key = AURA_MODIFIER_MAP[modifier_name]
+                        stats[output_key] = num_utils.assert_number(script_value.get('m_value'))
+
         return stats
 
     def _parse_patron(self, data):
