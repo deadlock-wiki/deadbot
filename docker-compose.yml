@@ -6,6 +6,7 @@ services:
       dockerfile: ./Dockerfile
     environment:
       # runtime config
+      IMPORT_FILES: ${IMPORT_FILES}
       DECOMPILE: ${DECOMPILE}
       CHANGELOGS: ${CHANGELOGS}
       PARSE: ${PARSE}
