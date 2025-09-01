@@ -99,7 +99,7 @@ jobs:
         run: docker-compose up --exit-code-from deadbot
         working-directory: deadbot
         env:
-          # Decompile game files, parse them, and upload to the wiki
+          IMPORT_FILES: true
           DECOMPILE: true
           PARSE: true
           CLEANUP: true

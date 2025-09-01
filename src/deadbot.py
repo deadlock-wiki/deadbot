@@ -5,11 +5,13 @@ from loguru import logger
 
 from dotenv import load_dotenv
 
+from steam.depot_downloader import DepotDownloader
 from utils import csv_writer
-from decompiler.decompile import decompile
+from decompiler.decompiler import Decompiler
 import constants
 from changelogs import parse_changelogs, fetch_changelogs
 from parser import parser
+from utils.process import run_process
 from wiki.upload import WikiUpload
 from utils.string_utils import is_truthy
 
@@ -29,10 +31,28 @@ def main():
         format='<white><dim>{time:YYYY-MM-DD HH:mm:ss.SSS} | </dim>' '</white><level>{level:<7} <dim>|</dim> <normal>{message}</normal></level>',
     )
 
+    # import game files from steamdb github and localization files using depot downloader
+    if is_truthy(args.import_files):
+        logger.info('Importing game files...')
+        script_path = os.path.join(os.path.dirname(__file__), '..', 'scripts', 'steam_db_download_deadlock.sh')
+        run_process(script_path, name='download-deadlock-files')
+        # non-english localizations are imported using depot downloader
+        if not is_truthy(args.english_only):
+            logger.info('Downloading non-english localizations...')
+            DepotDownloader(
+                output_dir=args.workdir,
+                deadlock_dir=args.dldir,
+                depot_downloader_cmd=args.depot_downloader_cmd,
+                steam_username=args.steam_username,
+                steam_password=args.steam_username,
+                force=args.force,
+            ).run(args.manifest_id)
+    else:
+        logger.trace('! Skipping Import !')
+
     if is_truthy(args.decompile):
         logger.info('Decompiling source files...')
-        decompile(args.dl_path, args.workdir, args.force)
-
+        Decompiler(deadlock_dir=args.dldir, work_dir=args.workdir, force=args.force).run()
     else:
         logger.trace('! Skipping Decompiler !')
 
