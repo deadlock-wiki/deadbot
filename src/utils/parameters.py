@@ -95,6 +95,7 @@ def arg_group_action(parser):
     group_actions.add_argument(
         '-i',
         '--import_files',
+        action='store_true',
         help='Import the game files from SteamDB and localization files using DepotDownloader (also set with IMPORT_FILES environment variable)',
     )
     group_actions.add_argument(
