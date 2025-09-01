@@ -44,7 +44,7 @@ def main():
                 deadlock_dir=args.dldir,
                 depot_downloader_cmd=args.depot_downloader_cmd,
                 steam_username=args.steam_username,
-                steam_password=args.steam_username,
+                steam_password=args.steam_password,
                 force=args.force,
             ).run(args.manifest_id)
     else:
