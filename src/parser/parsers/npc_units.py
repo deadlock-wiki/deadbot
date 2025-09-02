@@ -147,15 +147,22 @@ class NpcParser:
     # --- Objective & Boss Parsers ---
 
     def _parse_guardian(self, data):
-        return {
+        stats = {
             'MaxHealth': self._read_value(data, 'm_nMaxHealth'),
             'PlayerDPS': self._read_value(data, 'm_flPlayerDPS'),
             'TrooperDPS': self._read_value(data, 'm_flTrooperDPS'),
+            'MeleeDamage': self._read_value(data, 'm_flMeleeDamage'),
+            'MeleeAttemptRange': self._read_value(data, 'm_flMeleeAttemptRange'),
             'InvulnerabilityRange': self._read_value(data, 'm_flInvulRange'),
             'PlayerDamageResistance': self._read_value(data, 'm_flPlayerDamageResistPct'),
             'TrooperDamageResistanceBase': self._read_value(data, 'm_flT1BossDPSBaseResist'),
             'TrooperDamageResistanceMax': self._read_value(data, 'm_flT1BossDPSMaxResist'),
+            'TrooperDamageResistanceRampUpTime': self._read_value(
+                data, 'm_flT1BossDPSMaxResistTimeInSeconds'
+            ),
         }
+        stats.update(self._parse_intrinsic_modifiers(data))
+        return stats
 
     def _parse_base_guardian(self, data):
         stats = self._parse_guardian(data)
@@ -274,11 +281,19 @@ class NpcParser:
         stats = {
             'MaxHealthPhase1': self._read_value(data, 'm_nMaxHealth'),
             'MaxHealthPhase2': self._read_value(data, 'm_nPhase2Health'),
+            'SightRangePlayers': self._read_value(data, 'm_flSightRangePlayers'),
             'LaserDPSToPlayers': self._read_value(data, 'm_flLaserDPSToPlayers'),
+            'LaserDPSToNPCs': self._read_value(data, 'm_flLaserDPSToNPCs'),
             'LaserDPSMaxHealthPercent': self._read_value(data, 'm_flLaserDPSMaxHealth'),
             'IsUnkillableInPhase1': 'm_Phase1Modifier' in data,
-            'HealthGrowthPerMinute': self._read_value(
+            'HealthGrowthPerMinutePhase1': self._read_value(
                 data, 'm_ObjectiveHealthGrowthPhase1', 'm_iGrowthPerMinute'
+            ),
+            'HealthGrowthPerMinutePhase2': self._read_value(
+                data, 'm_ObjectiveHealthGrowthPhase2', 'm_iGrowthPerMinute'
+            ),
+            'OutOfCombatHealthRegen': self._read_value(
+                data, 'm_ObjectiveRegen', 'm_flOutOfCombatHealthRegen'
             ),
             'RangedResistanceMinRange': self._read_value(
                 data, 'm_RangedArmorModifier', 'm_flRangeMin'
