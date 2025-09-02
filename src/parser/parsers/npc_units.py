@@ -365,12 +365,12 @@ class NpcParser:
 
             if script_values and isinstance(script_values, list) and len(script_values) >= 3:
                 stats['BonusMaxHealth'] = num_utils.assert_number(
-                    script_values[REJUV_HEALTH_INDEX]
+                    script_values[REJUV_HEALTH_INDEX].get('m_value')
                 )
                 stats['BonusFireRate'] = num_utils.assert_number(
-                    script_values[REJUV_FIRERATE_INDEX]
+                    script_values[REJUV_FIRERATE_INDEX].get('m_value')
                 )
                 stats['BonusSpiritDamage'] = num_utils.assert_number(
-                    script_values[REJUV_SPIRIT_DMG_INDEX]
+                    script_values[REJUV_SPIRIT_DMG_INDEX].get('m_value')
                 )
         return stats
