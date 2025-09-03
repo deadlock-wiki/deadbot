@@ -22,10 +22,9 @@ When adding parameters:
 def arg_group_base(parser):
     group_base = parser.add_argument_group('path configs')
     group_base.add_argument(
-        '-i',
-        '--dl_path',
-        help='Path to Deadlock game files (also set with DEADLOCK_PATH environment variable)',
-        default=os.getenv('DEADLOCK_PATH'),
+        '--dldir',
+        help='Path to Deadlock game files (also set with DEADLOCK_DIR environment variable)',
+        default=os.getenv('DEADLOCK_DIR'),
     )
     group_base.add_argument(
         '-w',
@@ -46,25 +45,23 @@ def arg_group_base(parser):
         default=os.getenv('OUTPUT_DIR', os.path.abspath(os.getcwd()) + '/output-data'),
     )
     group_base.add_argument(
-        '--decompiler_cmd',
-        help='Command for Valve Resource Format tool (also set with DECOMPILER_CMD env variable)',
-        default=os.getenv('DECOMPILER_CMD', 'tools/Decompiler'),
+        '--english-only',
+        action='store_true',
+        help='Only parse for english localizations (also set with ENGLISH_ONLY environment variable)',
+        default=os.getenv('ENGLISH_ONLY', False),
     )
     group_base.add_argument(
-        '--import_files',
-        help='Import the decompiled game files from an S3 bucket',
-    )
-    group_base.add_argument(
-        '--build_num',
-        help='Build number of the game files to be used. Defaults to current build',
-        default=os.getenv('BUILD_NUM', None),
+        '--force',
+        action='store_true',
+        help='Forces decompilation even if game files and workdir versions match',
+        default=os.getenv('FORCE', False),
     )
     group_base.add_argument(
         '-v',
         '--verbose',
+        action='store_true',
         help='Print verbose output for extensive logging',
         default=os.getenv('VERBOSE', False),
-        action='store_true',
     )
 
 
@@ -93,30 +90,14 @@ def arg_group_steam(parser):
     return group_steam
 
 
-# Parameters and arguments and flags oh my
-def arg_group_s3(parser):
-    # s3 config
-    group_s3 = parser.add_argument_group('s3 config')
-    group_s3.add_argument(
-        '--iam_key',
-        help='AWS iam key for updating bucket (overrides IAM_KEY environment variable)',
-        default=os.getenv('IAM_KEY'),
-    )
-    group_s3.add_argument(
-        '--iam_secret',
-        help='AWS iam secret for updating bucket (overrides IAM_SECRET environment variable)',
-        default=os.getenv('IAM_SECRET'),
-    )
-    group_s3.add_argument(
-        '--bucket',
-        help='S3 bucket name to push to (overrides BUCKET environment variable)',
-        default=os.getenv('BUCKET', 'deadlock-game-files'),
-    )
-    return group_s3
-
-
 def arg_group_action(parser):
     group_actions = parser.add_argument_group('bot actions')
+    group_actions.add_argument(
+        '-i',
+        '--import_files',
+        action='store_true',
+        help='Import the game files from SteamDB and localization files using DepotDownloader (also set with IMPORT_FILES environment variable)',
+    )
     group_actions.add_argument(
         '-d',
         '--decompile',
@@ -136,26 +117,10 @@ def arg_group_action(parser):
         help='Upload parsed data to the Wiki (also set with WIKI_UPLOAD environment variable)',
     )
     group_actions.add_argument(
-        '-s',
-        '--s3_push',
-        action='store_true',
-        help='Push current data to s3',
-    )
-    group_actions.add_argument(
         '-c',
         '--changelogs',
         action='store_true',
         help='Fetch/parse forum and local changelogs. (also set with CHANGELOGS env variable)',
-    )
-    group_actions.add_argument(
-        '--steam_download',
-        action='store_true',
-        help='Download Deadlock game files from SteamDB. (also set with STEAM_DOWNLOAD environment variable)',
-    )
-    group_actions.add_argument(
-        '--force',
-        action='store_true',
-        help='Forces decompilation even if game files and workdir versions match',
     )
     return group_actions
 
@@ -163,15 +128,14 @@ def arg_group_action(parser):
 def load_arguments():
     # Setup / Base config Flags
     arg_group_base(ARG_PARSER)
-    arg_group_s3(ARG_PARSER)
     arg_group_steam(ARG_PARSER)
     # Operational Flags
     arg_group_action(ARG_PARSER)
     args = ARG_PARSER.parse_args()
 
     # environment var checks for flags
-    if not args.steam_download:
-        args.steam_download = os.getenv('STEAM_DOWNLOAD', False)
+    if not args.import_files:
+        args.import_files = os.getenv('IMPORT_FILES', False)
     if not args.decompile:
         args.decompile = os.getenv('DECOMPILE', False)
     if not args.parse:
@@ -180,10 +144,6 @@ def load_arguments():
         args.changelogs = os.getenv('CHANGELOGS', False)
     if not args.wiki_upload:
         args.wiki_upload = os.getenv('WIKI_UPLOAD', False)
-    if not args.s3_push:
-        args.s3_push = os.getenv('S3_PUSH', False)
-    if not args.import_files:
-        args.import_files = os.getenv('IMPORT_FILES', False)
     if not args.verbose:
         args.verbose = os.getenv('VERBOSE', False)
     return args

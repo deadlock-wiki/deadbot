@@ -1,4 +1,3 @@
-version: '3'
 services:
   deadbot:
     image: ghcr.io/deadlock-wiki/deadbot:latest
@@ -8,14 +7,16 @@ services:
     environment:
       # runtime config
       IMPORT_FILES: ${IMPORT_FILES}
+      ENGLISH_ONLY: ${ENGLISH_ONLY}
       DECOMPILE: ${DECOMPILE}
-      CHANGELOGS: 'true'
-      PARSE: 'true'
+      CHANGELOGS: ${CHANGELOGS}
+      PARSE: ${PARSE}
       WIKI_UPLOAD: ${WIKI_UPLOAD}
-      CLEANUP: 'true'
+      FORCE: ${FORCE}
+      CLEANUP: ${CLEANUP}
       VERBOSE: ${VERBOSE}
-      IAM_KEY: ${IAM_KEY}
-      IAM_SECRET: ${IAM_SECRET}
+      STEAM_USERNAME: ${STEAM_USERNAME}
+      STEAM_PASSWORD: ${STEAM_PASSWORD}
       BOT_WIKI_USER: ${BOT_WIKI_USER}
       BOT_WIKI_PASS: ${BOT_WIKI_PASS}
     volumes:

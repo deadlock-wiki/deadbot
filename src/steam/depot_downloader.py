@@ -2,15 +2,20 @@ import os
 import shutil
 from loguru import logger
 from utils.process import run_process
-from .constants import APP_ID, DEPOT_ID
+
+APP_ID = '1422450'  # deadlock's app_id
+DEPOT_ID = '1422456'  # the big depot
 
 
 class DepotDownloader:
-    def __init__(self, output_dir, depot_downloader_cmd, steam_username, steam_password):
+    def __init__(self, output_dir, deadlock_dir, depot_downloader_cmd, steam_username, steam_password, force):
         if not depot_downloader_cmd:
             raise Exception('Config for DepotDownloader path is required')
         if not os.path.exists(depot_downloader_cmd):
             raise Exception(f'Could not find DepotDownloader at path "{depot_downloader_cmd}"')
+        if not steam_username or not steam_password:
+            raise Exception('Steam username and password are required')
+
         self.depot_downloader_cmd = depot_downloader_cmd
 
         self.app_id = APP_ID
@@ -19,8 +24,9 @@ class DepotDownloader:
         self.output_dir = output_dir
         self.steam_username = steam_username
         self.steam_password = steam_password
-        self.depot_downloader_output = './game-data/'
-        self.manifest_path = os.path.join(self.depot_downloader_output, 'manifest.txt')
+        self.deadlock_dir = deadlock_dir
+        self.manifest_path = os.path.join(self.deadlock_dir, 'manifest.txt')
+        self.force = force
 
     def run(self, manifest_id):
         # no input manifest id downloads the latest version
@@ -29,16 +35,17 @@ class DepotDownloader:
 
         # Check if the manifest is already downloaded
         downloaded_manifest_id = self._read_downloaded_manifest_id()
-        if downloaded_manifest_id == manifest_id:
+        if downloaded_manifest_id == manifest_id and not self.force:
             logger.info(f'Already downloaded manifest {manifest_id}')
             return
 
-        # self._clear_dl_data()
         self._download(manifest_id)
         self._write_downloaded_manifest_id(manifest_id)
 
     def _download(self, manifest_id):
         logger.trace(f'Downloading game with manifest id {manifest_id}')
+
+        file_list_path = os.path.join(os.path.dirname(__file__), 'depot_downloader_file_list.txt')
 
         subprocess_params = [
             os.path.join(self.depot_downloader_cmd),
@@ -54,25 +61,15 @@ class DepotDownloader:
             self.steam_password,
             '-remember-password',
             '-filelist',
-            'input-data/depot_downloader_file_list.txt',
+            file_list_path,
             '-dir',
-            self.depot_downloader_output,
+            self.deadlock_dir,
         ]
-
         run_process(subprocess_params, name='download-game-files')
 
-        steam_inf_path = os.path.join(self.depot_downloader_output, 'game', 'citadel', 'steam.inf')
+        steam_inf_path = os.path.join(self.deadlock_dir, 'game', 'citadel', 'steam.inf')
         if not os.path.exists(steam_inf_path):
             raise Exception(f'Fatal error: {steam_inf_path} not found')
-
-    def _clear_dl_data(self):
-        """Clear downloaded data, but not the manifest.txt"""
-        dirs = ['.DepotDownloader', 'game']
-        for dir in dirs:
-            dir_to_rm = os.path.join(self.depot_downloader_output, dir)
-            if os.path.exists(dir_to_rm):
-                shutil.rmtree(dir_to_rm)
-                logger.trace(f'Cleared {dir_to_rm}')
 
     def _read_downloaded_manifest_id(self):
         if not os.path.exists(self.manifest_path):
@@ -83,7 +80,7 @@ class DepotDownloader:
 
     def _get_latest_manifest_id(self):
         # create temporary folder to store manifest file
-        temp_dir = os.path.join(self.depot_downloader_output, 'temp')
+        temp_dir = os.path.join(self.deadlock_dir, 'temp')
 
         subprocess_params = [
             os.path.join(self.depot_downloader_cmd),
@@ -101,7 +98,6 @@ class DepotDownloader:
             '-manifest-only',
             '-validate',
         ]
-
         run_process(subprocess_params, name='get-latest-manifest-id')
 
         manifest_id = None
@@ -114,5 +110,6 @@ class DepotDownloader:
         return manifest_id
 
     def _write_downloaded_manifest_id(self, manifest_id):
+        print('Writing manifest id', manifest_id, 'to', self.manifest_path)
         with open(self.manifest_path, 'w') as f:
             f.write(manifest_id)
