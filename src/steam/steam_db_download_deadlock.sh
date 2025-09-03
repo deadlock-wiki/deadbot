@@ -10,6 +10,7 @@ fi
 if [ -d "$GAME_DIR/.git" ]; then
     echo "Updating existing GameTracking-Deadlock repository in $GAME_DIR"
     cd $GAME_DIR
+    git stash
     git pull
     cd ..
 else
