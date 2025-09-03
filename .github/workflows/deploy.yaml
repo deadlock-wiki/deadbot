@@ -102,6 +102,7 @@ jobs:
           IMPORT_FILES: true
           DECOMPILE: true
           PARSE: true
+          CHANGELOGS: true
           CLEANUP: true
           WIKI_UPLOAD: ${{ needs.get-branch.outputs.branch == 'master' || github.event.inputs.wiki-upload == 'true' }}          
           STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
