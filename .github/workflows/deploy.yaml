@@ -52,9 +52,9 @@ jobs:
           fi
 
 
-  # Parse decompiled data stored on S3 and commit the changes to deadlock-data repo.
+  # Parse game data and commit the parsed output to deadlock-data repo. 
   # This repo is kept separate to keep the deadbot repo diff cleaner, whilst allowing
-  # for easy source control and diff viewing.
+  # for easy source control and diff viewing
   parse:
     name: Parse
     runs-on: ubuntu-latest
@@ -104,6 +104,8 @@ jobs:
           PARSE: true
           CLEANUP: true
           WIKI_UPLOAD: ${{ github.event.inputs.wiki-upload == 'true' }}
+          STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
+          STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
           BOT_WIKI_USER: ${{ secrets.BOT_WIKI_USER }}
           BOT_WIKI_PASS: ${{ secrets.BOT_WIKI_PASS }}
           VERBOSE: ${{ secrets.ACTIONS_RUNNER_DEBUG == 'true' }}

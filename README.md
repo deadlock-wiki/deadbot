@@ -15,12 +15,12 @@ Some data has been processed and formatted for google sheets:\
 2. **[OPTIONAL]** Add Python scripts dir to your environment. This lets you omit `python -m` when calling third-party modules
     - Get <python_path> with `python -m site --user-base`
     - Add to ~/.bash_profile - `export PATH="$PATH:<python_path>/Python311/Scripts"`
-
 3. `python3 -m pip install poetry`
 4. `python3 -m poetry install`
 5. `python3 -m pre_commit install`
 8. Setup environment variables in`.env` using `.env.example` as an example
     - **[OPTIONAL]** Clone [deadlock-data](https://github.com/deadlock-wiki/deadlock-data) repo and set `$OUTPUT_DIR` to `deadlock-data/data/current` directory to allow for easier diff viewing
+    - **[OPTIONAL]** For non-english parsing, download DepotDownloader CLI from https://github.com/SteamRE/DepotDownloader/releases 
 
 ### Usage
 
