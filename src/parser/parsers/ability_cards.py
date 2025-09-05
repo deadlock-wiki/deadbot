@@ -488,6 +488,7 @@ class AbilityCardsParser:
         format_vars = (
             overrides,
             format_data,
+            self.ability,
             {'ability_key': self.ability_index},
             {'hero_name': self.hero['Name']},
             self.localizations[self.language],
