@@ -154,6 +154,9 @@ def get_bound_abilities(value):
 LOCALIZATION_OVERRIDE_MAP = {
     'MaxChargeDuration': 'SpeedBoostDuration',
     'MinDPS': 'MinDps',
+    'BulletVulnerbility': 'BulletVulnerability',
+    'DebuffDuration': 'Duration',
+    'EspejismoDjinnsMarkMaxStacks': 'DjinnsMarkMaxStacks',
 }
 
 
