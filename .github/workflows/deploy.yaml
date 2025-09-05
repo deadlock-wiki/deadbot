@@ -12,6 +12,11 @@ on:
         description: Upload output data to the Wiki
         default: false
 
+      english-only:
+        type: boolean
+        description: Only parse English localizations
+        default: false
+
 jobs:
   # Each event type has a different variable for the branch name
   get-branch:
@@ -100,6 +105,7 @@ jobs:
         working-directory: deadbot
         env:
           IMPORT_FILES: true
+          ENGLISH_ONLY: ${{ github.event.inputs.english-only == 'true' }}
           DECOMPILE: true
           PARSE: true
           CHANGELOGS: true
