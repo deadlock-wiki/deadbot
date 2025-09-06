@@ -61,7 +61,6 @@ jobs:
       branch: develop
       english-only: ${{ github.event.inputs.english-only == 'true' }}
       version: ${{ needs.check-update.outputs.new_version }}
-      verbose: ${{ secrets.ACTIONS_RUNNER_DEBUG }}
     secrets:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
       STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
@@ -78,7 +77,6 @@ jobs:
       branch: master
       english-only: ${{ github.event.inputs.english-only == 'true' }}
       version: ${{ needs.check-update.outputs.new_version }}
-      verbose: ${{ secrets.ACTIONS_RUNNER_DEBUG }}
     secrets:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
       STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
