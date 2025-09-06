@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+
+# Compares the version in pyproject.toml between master and current branch, ignoring beta versions
+# If it has changed - exit 0
+# If it has not changed - exit 1
+
 set -euo pipefail
 
 # Get current branch version

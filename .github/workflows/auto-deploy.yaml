@@ -37,7 +37,7 @@ jobs:
         run: |
           cd deadbot
           chmod +x ./scripts/check_for_update.sh
-          new_version=$(./scripts/check_for_update.sh)
+          new_version=$(./.github/workflows/scripts/check_for_update.sh './steamdb' './deadlock-data')
           echo "new_version=$new_version" >> $GITHUB_OUTPUT
 
       - name: Run Deadbot deployment (develop)
