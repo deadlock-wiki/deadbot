@@ -40,12 +40,17 @@ def kv3_to_json(kv3_obj, output_file):
 
 # Removes subclass features from kv3 file and writes to json
 def remove_subclass(path):
-    with open(path, 'r') as f:
+    with open(path, 'r', encoding='utf-8') as f:
         content = f.read()
-        # subclass features in kv3 don't seem to be supported in the keyvalues3 python library
-        content = content.replace('subclass:', '')
+    
+    # 1. Fix the non-standard "subclass:" syntax by simply removing it.
+    content = content.replace('subclass:', '')
+    
+    # 2. Fix the data corruption bug by replacing the problematic empty resource 
+    #    with a standard empty string before the parser sees it.
+    content = content.replace('resource_name:""', '""')
 
-    with open(path, 'w') as f:
+    with open(path, 'w', encoding='utf-8') as f:
         f.write(content)
 
 
