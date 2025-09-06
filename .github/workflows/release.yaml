@@ -32,6 +32,7 @@ jobs:
           fetch-depth: 0
       
       - name: Get master branch data
+        if: github.event_name == 'pull_request'
         run: git fetch origin master:master
 
       # Fails the CI as a reminder if version has not been incremented
