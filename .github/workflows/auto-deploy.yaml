@@ -58,7 +58,7 @@ jobs:
     if: ${{ needs.check-update.outputs.new_version != '' || github.event.inputs.force == 'true' }}
     uses: ./.github/workflows/deploy.yaml
     with:
-      branch: develop
+      branch-override: develop
       english-only: ${{ github.event.inputs.english-only == 'true' }}
       version: ${{ needs.check-update.outputs.new_version }}
     secrets:
@@ -74,7 +74,7 @@ jobs:
     if: ${{ needs.check-update.outputs.new_version != '' || github.event.inputs.force == 'true' }}
     uses: ./.github/workflows/deploy.yaml
     with:
-      branch: master
+      branch-override: master
       english-only: ${{ github.event.inputs.english-only == 'true' }}
       version: ${{ needs.check-update.outputs.new_version }}
     secrets:
