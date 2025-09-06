@@ -49,8 +49,9 @@ jobs:
         id: branch
         run: |
           # override with input branch if it exists
-          if [[ -n "${{ github.event.inputs.branch-override }}" ]]; then
-            echo "branch=${{ github.event.inputs.branch-override }}" >> $GITHUB_OUTPUT
+          BRANCH_OVERRIDE="${{ github.event.inputs.branch-override || '' }}"
+          if [[ -n "$BRANCH_OVERRIDE" ]]; then
+              echo "branch=$BRANCH_OVERRIDE" >> $GITHUB_OUTPUT
           elif [[ "${GITHUB_EVENT_NAME}" == "push" ]]; then
             echo "branch=${{ github.ref_name }}" >> $GITHUB_OUTPUT
           elif [[ "${GITHUB_EVENT_NAME}" == "pull_request" ]]; then
