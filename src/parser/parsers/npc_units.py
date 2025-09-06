@@ -28,6 +28,7 @@ class NpcParser:
             'npc_barrack_boss': self._parse_base_guardian,
             'destroyable_building': self._parse_shrine,
             'npc_boss_tier2': self._parse_walker,
+            'npc_boss_tier2_weak': self._parse_walker,
             'npc_boss_tier3': self._parse_patron,
             'neutral_trooper_weak': self._parse_neutral_trooper,
             'neutral_trooper_normal': self._parse_neutral_trooper,
@@ -81,6 +82,36 @@ class NpcParser:
         value = self._deep_get(data, *keys)
         return num_utils.assert_number(value)
 
+    def _parse_intrinsic_modifiers(self, data):
+        """
+        Parses intrinsic modifiers from the 'm_vecIntrinsicModifiers' list,
+        shared by several NPC types.
+        """
+        intrinsics = {}
+        if 'm_vecIntrinsicModifiers' not in data:
+            return intrinsics
+
+        # A map to convert raw modifier keys to friendly output keys.
+        MODIFIER_MAP = {
+            'MODIFIER_VALUE_BULLET_DAMAGE_REDUCTION_PERCENT': 'IntrinsicBulletResistance',
+            'MODIFIER_VALUE_ABILITY_DAMAGE_REDUCTION_PERCENT': 'IntrinsicAbilityResistance',
+            'MODIFIER_VALUE_HEALTH_REGEN_PER_SECOND': 'HealthRegenPerSecond',
+        }
+
+        for modifier in data['m_vecIntrinsicModifiers']:
+            if 'm_vecScriptValues' in modifier:
+                for script_value in modifier['m_vecScriptValues']:
+                    if not isinstance(script_value, dict):
+                        continue
+                    
+                    modifier_name = script_value.get('m_eModifierValue')
+                    if modifier_name in MODIFIER_MAP:
+                        output_key = MODIFIER_MAP[modifier_name]
+                        intrinsics[output_key] = num_utils.assert_number(
+                            script_value.get('m_value')
+                        )
+        return intrinsics
+
     # --- Trooper Parsers ---
 
     def _parse_trooper_shared(self, data):
@@ -116,15 +147,22 @@ class NpcParser:
     # --- Objective & Boss Parsers ---
 
     def _parse_guardian(self, data):
-        return {
+        stats = {
             'MaxHealth': self._read_value(data, 'm_nMaxHealth'),
             'PlayerDPS': self._read_value(data, 'm_flPlayerDPS'),
             'TrooperDPS': self._read_value(data, 'm_flTrooperDPS'),
+            'MeleeDamage': self._read_value(data, 'm_flMeleeDamage'),
+            'MeleeAttemptRange': self._read_value(data, 'm_flMeleeAttemptRange'),
             'InvulnerabilityRange': self._read_value(data, 'm_flInvulRange'),
             'PlayerDamageResistance': self._read_value(data, 'm_flPlayerDamageResistPct'),
             'TrooperDamageResistanceBase': self._read_value(data, 'm_flT1BossDPSBaseResist'),
             'TrooperDamageResistanceMax': self._read_value(data, 'm_flT1BossDPSMaxResist'),
+            'TrooperDamageResistanceRampUpTime': self._read_value(
+                data, 'm_flT1BossDPSMaxResistTimeInSeconds'
+            ),
         }
+        stats.update(self._parse_intrinsic_modifiers(data))
+        return stats
 
     def _parse_base_guardian(self, data):
         stats = self._parse_guardian(data)
@@ -167,8 +205,16 @@ class NpcParser:
         }
 
     def _parse_walker(self, data):
+        invuln_range = self._read_value(data, 'm_flInvulModifierRange')
+        if invuln_range is None:
+            invuln_range = self._read_value(data, 'm_flInvulRange')
+
         stats = {
             'MaxHealth': self._read_value(data, 'm_nMaxHealth'),
+            'MeleeAttemptRange': self._read_value(data, 'm_flMeleeAttemptRange'),
+            'SightRangePlayers': self._read_value(data, 'm_flSightRangePlayers'),
+            'SightRangeNPCs': self._read_value(data, 'm_flSightRangeNPCs'),
+            'PlayerInitialSightRange': self._read_value(data, 'm_flPlayerInitialSightRange'),
             'StompDamage': self._read_value(data, 'm_flStompDamage'),
             'StompDamageMaxHealthPercent': self._read_value(
                 data, 'm_flStompDamageMaxHealthPercent'
@@ -176,15 +222,19 @@ class NpcParser:
             'StompRadius': self._read_value(data, 'm_flStompImpactRadius'),
             'StompStunDuration': self._read_value(data, 'm_flStunDuration'),
             'StompKnockup': self._read_value(data, 'm_flStompTossUpMagnitude'),
-            'InvulnerabilityRange': self._read_value(data, 'm_flInvulRange'),
-            'FriendlyAuraSpiritArmor': self._read_value(
-                data, 'm_FriendlyAuraModifier', 'MODIFIER_VALUE_SPIRIT_ARMOR'
+            'InvulnerabilityRange': invuln_range,
+            'BoundAbilities': self._deep_get(data, 'm_mapBoundAbilities'),
+            'FriendlyAuraRadius': self._read_value(
+                data, 'm_FriendlyAuraModifier', 'm_flAuraRadius'
             ),
-            'FriendlyAuraBulletArmor': self._read_value(
-                data, 'm_FriendlyAuraModifier', 'MODIFIER_VALUE_BULLET_ARMOR'
+            'NearbyEnemyResistanceRange': self._read_value(
+                data, 'm_NearbyEnemyResist', 'm_flNearbyEnemyResistRange'
             ),
             'NearbyEnemyResistanceValues': self._deep_get(
                 data, 'm_NearbyEnemyResist', 'm_flResistValues'
+            ),
+            'RangedResistanceMaxValue': self._read_value(
+                data, 'm_RangedArmorModifier', 'm_flBulletResistancePctMax'
             ),
             'RangedResistanceMinRange': self._read_value(
                 data, 'm_RangedArmorModifier', 'm_flRangeMin'
@@ -201,17 +251,49 @@ class NpcParser:
                 'm_flBackdoorProtectionDamageMitigationFromPlayers',
             ),
         }
+        stats.update(self._parse_intrinsic_modifiers(data))
+
+        # Parse friendly aura bonuses from the nested script values list using a data-driven map.
+        AURA_MODIFIER_MAP = {
+            'MODIFIER_VALUE_TECH_ARMOR_DAMAGE_RESIST': 'FriendlyAuraSpiritArmor',
+            'MODIFIER_VALUE_BULLET_ARMOR_DAMAGE_RESIST': 'FriendlyAuraBulletArmor',
+        }
+        
+        # Initialize keys to null.
+        for key in AURA_MODIFIER_MAP.values():
+            stats[key] = None
+
+        script_values = self._deep_get(
+            data, 'm_FriendlyAuraModifier', 'm_modifierProvidedByAura', 'm_vecScriptValues'
+        )
+
+        if script_values and isinstance(script_values, list):
+            for script_value in script_values:
+                if isinstance(script_value, dict):
+                    modifier_name = script_value.get('m_eModifierValue')
+                    if modifier_name in AURA_MODIFIER_MAP:
+                        output_key = AURA_MODIFIER_MAP[modifier_name]
+                        stats[output_key] = num_utils.assert_number(script_value.get('m_value'))
+
         return stats
 
     def _parse_patron(self, data):
         stats = {
             'MaxHealthPhase1': self._read_value(data, 'm_nMaxHealth'),
             'MaxHealthPhase2': self._read_value(data, 'm_nPhase2Health'),
+            'SightRangePlayers': self._read_value(data, 'm_flSightRangePlayers'),
             'LaserDPSToPlayers': self._read_value(data, 'm_flLaserDPSToPlayers'),
+            'LaserDPSToNPCs': self._read_value(data, 'm_flLaserDPSToNPCs'),
             'LaserDPSMaxHealthPercent': self._read_value(data, 'm_flLaserDPSMaxHealth'),
             'IsUnkillableInPhase1': 'm_Phase1Modifier' in data,
-            'HealthGrowthPerMinute': self._read_value(
+            'HealthGrowthPerMinutePhase1': self._read_value(
                 data, 'm_ObjectiveHealthGrowthPhase1', 'm_iGrowthPerMinute'
+            ),
+            'HealthGrowthPerMinutePhase2': self._read_value(
+                data, 'm_ObjectiveHealthGrowthPhase2', 'm_iGrowthPerMinute'
+            ),
+            'OutOfCombatHealthRegen': self._read_value(
+                data, 'm_ObjectiveRegen', 'm_flOutOfCombatHealthRegen'
             ),
             'RangedResistanceMinRange': self._read_value(
                 data, 'm_RangedArmorModifier', 'm_flRangeMin'
@@ -241,25 +323,7 @@ class NpcParser:
                 data, 'm_flGoldRewardBonusPercentPerMinute'
             ),
         }
-        if 'm_vecIntrinsicModifiers' in data:
-            for modifier in data['m_vecIntrinsicModifiers']:
-                if 'm_vecScriptValues' in modifier:
-                    for script_value in modifier['m_vecScriptValues']:
-                        modifier_name = script_value.get('m_eModifierValue')
-                        if (
-                            modifier_name
-                            == 'MODIFIER_VALUE_BULLET_DAMAGE_REDUCTION_PERCENT'
-                        ):
-                            stats['IntrinsicBulletResistance'] = num_utils.assert_number(
-                                script_value.get('m_value')
-                            )
-                        elif (
-                            modifier_name
-                            == 'MODIFIER_VALUE_ABILITY_DAMAGE_REDUCTION_PERCENT'
-                        ):
-                            stats['IntrinsicAbilityResistance'] = num_utils.assert_number(
-                                script_value.get('m_value')
-                            )
+        stats.update(self._parse_intrinsic_modifiers(data))
         return stats
 
     def _parse_midboss(self, data):
@@ -268,18 +332,7 @@ class NpcParser:
             'StartingHealth': self._read_value(data, 'm_iStartingHealth'),
             'HealthGainPerMinute': self._read_value(data, 'm_iHealthGainPerMinute'),
         }
-        if 'm_vecIntrinsicModifiers' in data:
-            for modifier in data['m_vecIntrinsicModifiers']:
-                if 'm_vecScriptValues' in modifier:
-                    for script_value in modifier['m_vecScriptValues']:
-                        modifier_name = script_value.get('m_eModifierValue')
-                        if (
-                            modifier_name
-                            == 'MODIFIER_VALUE_HEALTH_REGEN_PER_SECOND'
-                        ):
-                            stats['HealthRegenPerSecond'] = num_utils.assert_number(
-                                script_value.get('m_value')
-                            )
+        stats.update(self._parse_intrinsic_modifiers(data))
         return stats
 
     def _parse_sinners_sacrifice(self, data):
@@ -312,12 +365,12 @@ class NpcParser:
 
             if script_values and isinstance(script_values, list) and len(script_values) >= 3:
                 stats['BonusMaxHealth'] = num_utils.assert_number(
-                    script_values[REJUV_HEALTH_INDEX]
+                    script_values[REJUV_HEALTH_INDEX].get('m_value')
                 )
                 stats['BonusFireRate'] = num_utils.assert_number(
-                    script_values[REJUV_FIRERATE_INDEX]
+                    script_values[REJUV_FIRERATE_INDEX].get('m_value')
                 )
                 stats['BonusSpiritDamage'] = num_utils.assert_number(
-                    script_values[REJUV_SPIRIT_DMG_INDEX]
+                    script_values[REJUV_SPIRIT_DMG_INDEX].get('m_value')
                 )
         return stats
