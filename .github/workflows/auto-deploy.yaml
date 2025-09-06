@@ -27,13 +27,13 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: deadlock-wiki/deadbot
-          branch: master
+          ref: master
 
       - name: Checkout SteamDB repo
         uses: actions/checkout@v4
         with: 
           repository: SteamDatabase/GameTracking-Deadlock
-          branch: master
+          ref: master
           path: steamdb
           token:  ${{ secrets.GH_TOKEN }} 
 
@@ -41,7 +41,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: deadlock-wiki/deadlock-data
-          branch: master
+          ref: master
           path: deadlock-data
           token:  ${{ secrets.GH_TOKEN }}   
 
