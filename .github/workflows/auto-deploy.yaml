@@ -3,6 +3,8 @@ name: Auto Deploy
 on:
   schedule:
     - cron: '*/30 * * * *'
+    
+  workflow_dispatch:
 
 jobs:
   auto-deploy:
