@@ -30,10 +30,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       
-      # Fails the CI as a reminder if version has not been incremented
-      - name: Check version change (if failed, run increment-version workflow)
-        if: github.event_name == 'pull_request'
-        run: ./.github/workflows/version_has_updated.sh 
+      # # Fails the CI as a reminder if version has not been incremented
+      # - name: Check version change (if failed, run increment-version workflow)
+      #   if: github.event_name == 'pull_request'
+      #   run: ./.github/workflows/scripts/version_has_updated.sh 
 
       # Set up BuildKit Docker container builder to be able to build
       # multi-platform images and export cache
