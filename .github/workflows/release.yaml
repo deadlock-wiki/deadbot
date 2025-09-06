@@ -5,7 +5,7 @@ on:
     branches: [ "master" ]
 
   pull_request:
-    branches: [ "master" ]
+    # branches: [ "master" ]
 
 env:
   # matches docker-compose.yml
@@ -18,7 +18,7 @@ env:
 jobs:
   release:
     runs-on: ubuntu-latest
-    environment: prod
+    # environment: prod
     permissions:
       contents: write
       packages: write
