@@ -3,8 +3,18 @@ name: Auto Deploy
 on:
   schedule:
     - cron: '*/30 * * * *'
-    
+
   workflow_dispatch:
+    inputs:
+      english-only:
+        type: boolean
+        description: Only parse English localizations
+        default: false
+      
+      force:
+        type: boolean
+        description: Run deployments even if version has not changed
+        default: false
 
 jobs:
   auto-deploy:
@@ -43,15 +53,17 @@ jobs:
           echo "new_version=$new_version" >> $GITHUB_OUTPUT
 
       - name: Run Deadbot deployment (develop)
-        if: ${{ steps.check_update.outputs.new_version != '' }}
+        if: ${{ steps.check_update.outputs.new_version != '' || github.event.inputs.force == 'true' }}
         uses: ./.github/workflows/deploy.yaml
         with:
           branch: develop
+          english-only: ${{ github.event.inputs.english-only == 'true' }}
           version: ${{ steps.check_update.outputs.new_version }}
 
       - name: Run Deadbot deployment (master)
-        if: ${{ steps.check_update.outputs.new_version != '' }}
+        if: ${{ steps.check_update.outputs.new_version != '' || github.event.inputs.force == 'true' }}
         uses: ./.github/workflows/deploy.yaml
         with:
           branch: master
+          english-only: ${{ github.event.inputs.english-only == 'true' }}
           version: ${{ steps.check_update.outputs.new_version }}
