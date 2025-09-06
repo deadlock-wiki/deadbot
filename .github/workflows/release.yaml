@@ -29,8 +29,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 
-      
+          fetch-depth: 0
+          fetch-tags: true   
+
       # Fails the CI as a reminder if version has not been incremented
       - name: Version increment check
         if: github.event_name == 'pull_request'
