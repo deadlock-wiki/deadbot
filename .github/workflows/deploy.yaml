@@ -12,11 +12,6 @@ on:
         description: Only parse English localizations
         default: false
 
-      wiki-upload:
-        type: boolean
-        description: Upload output data to the Wiki
-        default: false
-
   workflow_call:
     inputs:
       # just used to name the parse job
@@ -121,7 +116,7 @@ jobs:
           PARSE: true
           CHANGELOGS: true
           CLEANUP: true
-          WIKI_UPLOAD: ${{ needs.get-branch.outputs.branch == 'master' || github.event.inputs.wiki-upload == 'true' }}          
+          WIKI_UPLOAD: ${{ needs.get-branch.outputs.branch == 'master' }}          
           STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
           STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
           BOT_WIKI_USER: ${{ secrets.BOT_WIKI_USER }}
