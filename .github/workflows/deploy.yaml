@@ -1,20 +1,32 @@
 name: Deploy
+run-name: Deploy${{ github.event.inputs.version && format(' v%s', github.event.inputs.version) }}${{ github.event.inputs.branch && format(' (%s)', github.event.inputs.branch) }}
 on: 
   push:
-    paths:
-      - 'src/**'
-      - '.github/workflows/deploy.yaml'
 
   pull_request:
     types: [opened]
 
   workflow_dispatch:
     inputs:
-      wiki-upload:
+      english-only:
         type: boolean
-        description: Upload output data to the Wiki
+        description: Only parse English localizations
+        default: false
+        
+  workflow_call:
+    inputs:
+      # branch override used by auto-deploy.yaml, as the schedule only runs on the default branch
+      branch:
+        type: string
+
+      english-only:
+        type: boolean
         default: false
 
+      # just used to name the parse job
+      version:
+        type: string
+        
 jobs:
   # Each event type has a different variable for the branch name
   get-branch:
@@ -26,7 +38,10 @@ jobs:
       - name: Determine branch name
         id: branch
         run: |
-          if [[ "${GITHUB_EVENT_NAME}" == "push" ]]; then
+          # override with input branch if it exists
+          if [[ -n "${{ github.event.inputs.branch }}" ]]; then
+            echo "branch=${{ github.event.inputs.branch }}" >> $GITHUB_OUTPUT
+          elif [[ "${GITHUB_EVENT_NAME}" == "push" ]]; then
             echo "branch=${{ github.ref_name }}" >> $GITHUB_OUTPUT
           elif [[ "${GITHUB_EVENT_NAME}" == "pull_request" ]]; then
             echo "branch=${{ github.head_ref }}" >> $GITHUB_OUTPUT
@@ -54,10 +69,9 @@ jobs:
             echo "branch_exists=true" >> $GITHUB_OUTPUT
           fi
 
-
-  # Parse decompiled data stored on S3 and commit the changes to deadlock-data repo.
+  # Parse game data and commit the parsed output to deadlock-data repo. 
   # This repo is kept separate to keep the deadbot repo diff cleaner, whilst allowing
-  # for easy source control and diff viewing.
+  # for easy source control and diff viewing
   parse:
     name: Parse
     runs-on: ubuntu-latest
@@ -102,13 +116,15 @@ jobs:
         run: docker-compose up --exit-code-from deadbot
         working-directory: deadbot
         env:
-          # Import files from S3, parse them, and upload to the wiki if on master branch
           IMPORT_FILES: true
+          ENGLISH_ONLY: ${{ github.event.inputs.english-only == 'true' }}
+          DECOMPILE: true
           PARSE: true
+          CHANGELOGS: true
           CLEANUP: true
-          WIKI_UPLOAD: ${{ needs.get-branch.outputs.branch == 'master' || github.event.inputs.wiki-upload == 'true' }}
-          IAM_KEY: ${{ secrets.IAM_KEY }}
-          IAM_SECRET: ${{ secrets.IAM_SECRET }}
+          WIKI_UPLOAD: ${{ needs.get-branch.outputs.branch == 'master' }}          
+          STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
+          STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
           BOT_WIKI_USER: ${{ secrets.BOT_WIKI_USER }}
           BOT_WIKI_PASS: ${{ secrets.BOT_WIKI_PASS }}
           VERBOSE: ${{ secrets.ACTIONS_RUNNER_DEBUG == 'true' }}
@@ -132,10 +148,7 @@ jobs:
         run: git pull origin ${{ needs.get-branch.outputs.branch }} -X ours     
 
       - name: Copy files to data repo
-        run: |
-          rm -rf ./deadlock-data/data
-          mkdir ./deadlock-data/data
-          
+        run: |         
           cp -r ./deadbot/output-data/. ./deadlock-data/data
       
       - name: Commit and push changes to data repo
@@ -144,5 +157,3 @@ jobs:
           git add -A
           git commit -m "Re-parsed game files" || echo "No changes to commit"
           git push --force-with-lease origin ${{ needs.get-branch.outputs.branch }}
-
-          
