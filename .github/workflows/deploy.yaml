@@ -1,4 +1,4 @@
-name: Deploy${{ github.event.inputs.version && format(' v%s', github.event.inputs.version) }}${{ github.event.inputs.branch && format(' (%s)', github.event.inputs.branch) }}
+name: Deploy
 on: 
   push:
 
