@@ -32,7 +32,9 @@ jobs:
       # Fails the CI as a reminder if version has not been incremented
       - name: Version increment check
         if: github.event_name == 'pull_request'
-        run: ./.github/workflows/scripts/version_has_updated.sh 
+        run: |
+          chmod +x ./.github/workflows/scripts/version_has_updated.sh 
+          ./.github/workflows/scripts/version_has_updated.sh 
 
       # Set up BuildKit Docker container builder to be able to build
       # multi-platform images and export cache
