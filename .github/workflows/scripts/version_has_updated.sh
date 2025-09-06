@@ -14,7 +14,7 @@ echo "Current branch version: $current_version (base: $current_base)"
 echo "Master branch version:  $master_version (base: $master_base)"
 
 if [[ "$current_base" == "$master_base" ]]; then
-  echo "❌ Version did not change (ignoring beta suffix)."
+  echo "❌ Version has not changed, please update pyproject.toml version."
   exit 1
 else
   echo "✅ Version changed."

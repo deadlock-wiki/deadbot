@@ -4,18 +4,7 @@ on:
     paths: 'src/**'
     branches:
       - 'develop'
-  
-  workflow_dispatch:
-    inputs:
-      type:
-        description: 'Release type'
-        required: true
-        type: choice
-        options:
-          - major
-          - minor
-          - patch
-          
+
 jobs:
   increment-version:
     name: Increment Version
@@ -33,7 +22,7 @@ jobs:
         git config pull.rebase true    
     
     - name: Increment version
-      run: python3 ./scripts/increment_version.py "${{ github.event.inputs.type != '' && github.event.inputs.type || 'beta' }}"
+      run: python3 ./scripts/increment_version.py beta
 
     - name: Commit updated version
       run: |
