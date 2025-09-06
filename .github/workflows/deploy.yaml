@@ -1,5 +1,4 @@
 name: Deploy
-run-name: Deploy${{ github.event.inputs.version && format(' v%s', github.event.inputs.version) }}${{ github.event.inputs.branch && format(' (%s)', github.event.inputs.branch) }}
 on: 
   push:
 
@@ -16,17 +15,25 @@ on:
   workflow_call:
     inputs:
       # branch override used by auto-deploy.yaml, as the schedule only runs on the default branch
-      branch:
+      branch-override:
         type: string
-
+        required: true
       english-only:
         type: boolean
         default: false
 
-      # just used to name the parse job
-      version:
-        type: string
-        
+    secrets:
+      GH_TOKEN:
+        required: true
+      STEAM_USERNAME:
+        required: true
+      STEAM_PASSWORD:
+        required: true
+      BOT_WIKI_USER:
+        required: true
+      BOT_WIKI_PASS:
+        required: true
+
 jobs:
   # Each event type has a different variable for the branch name
   get-branch:
@@ -39,8 +46,8 @@ jobs:
         id: branch
         run: |
           # override with input branch if it exists
-          if [[ -n "${{ github.event.inputs.branch }}" ]]; then
-            echo "branch=${{ github.event.inputs.branch }}" >> $GITHUB_OUTPUT
+          if [[ -n "${{ inputs.branch-override }}" ]]; then
+            echo "branch=${{ inputs.branch-override }}" >> $GITHUB_OUTPUT
           elif [[ "${GITHUB_EVENT_NAME}" == "push" ]]; then
             echo "branch=${{ github.ref_name }}" >> $GITHUB_OUTPUT
           elif [[ "${GITHUB_EVENT_NAME}" == "pull_request" ]]; then
