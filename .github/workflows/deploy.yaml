@@ -1,22 +1,31 @@
-name: Deploy
+name: Deploy${{ github.event.inputs.version && format(' v%s', github.event.inputs.version) }}${{ github.event.inputs.branch && format(' (%s)', github.event.inputs.branch) }}
 on: 
   push:
 
   pull_request:
     types: [opened]
-
+        
   workflow_dispatch:
     inputs:
-      wiki-upload:
-        type: boolean
-        description: Upload output data to the Wiki
-        default: false
-
       english-only:
         type: boolean
         description: Only parse English localizations
         default: false
 
+      wiki-upload:
+        type: boolean
+        description: Upload output data to the Wiki
+        default: false
+
+  workflow_call:
+    inputs:
+      # just used to name the github action run
+      version:
+        type: string
+      # branch override used by auto-deploy.yaml, as the schedule can only run on default branch
+      branch:
+        type: string
+        
 jobs:
   # Each event type has a different variable for the branch name
   get-branch:
@@ -28,7 +37,10 @@ jobs:
       - name: Determine branch name
         id: branch
         run: |
-          if [[ "${GITHUB_EVENT_NAME}" == "push" ]]; then
+          # override with input branch if it exists
+          if [[ -n "${{ github.event.inputs.branch }}" ]]; then
+            echo "branch=${{ github.event.inputs.branch }}" >> $GITHUB_OUTPUT
+          elif [[ "${GITHUB_EVENT_NAME}" == "push" ]]; then
             echo "branch=${{ github.ref_name }}" >> $GITHUB_OUTPUT
           elif [[ "${GITHUB_EVENT_NAME}" == "pull_request" ]]; then
             echo "branch=${{ github.head_ref }}" >> $GITHUB_OUTPUT
@@ -55,7 +67,6 @@ jobs:
           else
             echo "branch_exists=true" >> $GITHUB_OUTPUT
           fi
-
 
   # Parse game data and commit the parsed output to deadlock-data repo. 
   # This repo is kept separate to keep the deadbot repo diff cleaner, whilst allowing
