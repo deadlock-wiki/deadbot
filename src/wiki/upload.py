@@ -55,7 +55,10 @@ class WikiUpload:
                     )
                 continue
 
-            data = json_utils.read(f'{self.OUTPUT_DIR}/{file_path}')
+            data = json_utils.read(f'{self.OUTPUT_DIR}/{file_path}', ignore_error=True)
+            if data is None:
+                return
+
             json_string = json.dumps(data, indent=4)
             self._update_page(page, json_string)
 

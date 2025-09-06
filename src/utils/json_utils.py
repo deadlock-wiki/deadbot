@@ -2,17 +2,23 @@ import json
 import os
 
 
-def read(path):
+def read(path, ignore_error=False):
     """
     Read data from a JSON file to memory.
     Args:
         path (str): The path to the JSON file.
+        ignore_error (bool, optional): If true, return None instead of throwing an error (eg. file not found).
     Returns:
         dict: The data from the JSON file.
     """
-    # Explicitly specify encoding='utf-8' to handle non-ASCII characters correctly
-    with open(path, 'r', encoding='utf-8') as f:
-        return json.load(f)
+    try:
+        # Explicitly specify encoding='utf-8' to handle non-ASCII characters correctly
+        with open(path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except Exception as e:
+        if ignore_error:
+            return None
+        raise e
 
 
 def write(path, data):
