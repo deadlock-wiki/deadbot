@@ -60,7 +60,6 @@ jobs:
     with:
       branch-override: develop
       english-only: ${{ github.event.inputs.english-only == 'true' }}
-      version: ${{ needs.check-update.outputs.new_version }}
     secrets:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
       STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
@@ -76,7 +75,6 @@ jobs:
     with:
       branch-override: master
       english-only: ${{ github.event.inputs.english-only == 'true' }}
-      version: ${{ needs.check-update.outputs.new_version }}
     secrets:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
       STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}

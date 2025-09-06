@@ -1,5 +1,4 @@
 name: Deploy
-run-name: Deploy${{ github.event.inputs.version && format(' v%s', github.event.inputs.version) }}${{ github.event.inputs.branch && format(' (%s)', github.event.inputs.branch) }}
 on: 
   push:
 
@@ -22,9 +21,6 @@ on:
       english-only:
         type: boolean
         default: false
-      # just used to name the parse job
-      version:
-        type: string
 
     secrets:
       GH_TOKEN:
