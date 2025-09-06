@@ -30,7 +30,9 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          fetch-tags: true   
+      
+      - name: Get master branch data
+        run: git fetch origin master:master
 
       # Fails the CI as a reminder if version has not been incremented
       - name: Version increment check
