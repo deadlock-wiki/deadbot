@@ -1,0 +1,55 @@
+name: Auto Deploy
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+
+jobs:
+  auto-deploy:
+    name: Check for new version and Deploy
+    runs-on: ubuntu-latest
+    environment: prod
+    steps:
+      - name: Checkout Deadbot repo
+        uses: actions/checkout@v4
+        with:
+          repository: deadlock-wiki/deadbot
+          branch: master
+
+      - name: Checkout SteamDB repo
+        uses: actions/checkout@v4
+        with: 
+          repository: SteamDatabase/GameTracking-Deadlock
+          branch: master
+          path: steamdb
+          token:  ${{ secrets.GH_TOKEN }} 
+
+      - name: Checkout deadlock-data repo
+        uses: actions/checkout@v4
+        with:
+          repository: deadlock-wiki/deadlock-data
+          branch: master
+          path: deadlock-data
+          token:  ${{ secrets.GH_TOKEN }}   
+
+      - name: Check for new Deadlock version
+        id: check_update
+        run: |
+          cd deadbot
+          chmod +x ./scripts/check_for_update.sh
+          new_version=$(./scripts/check_for_update.sh)
+          echo "new_version=$new_version" >> $GITHUB_OUTPUT
+
+      - name: Run Deadbot deployment (develop)
+        if: ${{ steps.check_update.outputs.new_version != '' }}
+        uses: ./.github/workflows/deploy.yaml
+        with:
+          branch: develop
+          version: ${{ steps.check_update.outputs.new_version }}
+
+      - name: Run Deadbot deployment (master)
+        if: ${{ steps.check_update.outputs.new_version != '' }}
+        uses: ./.github/workflows/deploy.yaml
+        with:
+          branch: master
+          version: ${{ steps.check_update.outputs.new_version }}
