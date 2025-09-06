@@ -1,4 +1,5 @@
 name: Deploy
+run-name: Deploy${{ github.event.inputs.version && format(' v%s', github.event.inputs.version) }}${{ github.event.inputs.branch && format(' (%s)', github.event.inputs.branch) }}
 on: 
   push:
 
@@ -72,7 +73,7 @@ jobs:
   # This repo is kept separate to keep the deadbot repo diff cleaner, whilst allowing
   # for easy source control and diff viewing
   parse:
-    name: Parse${{ github.event.inputs.version && format(' v%s', github.event.inputs.version) }}${{ github.event.inputs.branch && format(' (%s)', github.event.inputs.branch) }}
+    name: Parse
     runs-on: ubuntu-latest
     needs: [get-branch, check-branch]
     if: ${{ needs.check-branch.outputs.branch_exists == 'true' }}
