@@ -17,9 +17,11 @@ on:
         default: false
 
 jobs:
-  auto-deploy:
-    name: Check for new version and Deploy
+  check-update:
+    name: Check for new version
     runs-on: ubuntu-latest
+    outputs:
+      new_version: ${{ steps.check_version.outputs.new_version }}
     steps:
       - name: Checkout Deadbot repo
         uses: actions/checkout@v4
@@ -44,24 +46,28 @@ jobs:
           token:  ${{ secrets.GH_TOKEN }}   
 
       - name: Check for new Deadlock version
-        id: check_update
+        id: check_version
         run: |
           chmod +x ./.github/workflows/scripts/check_for_update.sh
           new_version=$(./.github/workflows/scripts/check_for_update.sh './steamdb' './deadlock-data')
           echo "new_version=$new_version" >> $GITHUB_OUTPUT
 
-      - name: Run Deadbot deployment (develop)
-        if: ${{ steps.check_update.outputs.new_version != '' || github.event.inputs.force == 'true' }}
-        uses: ./.github/workflows/deploy.yaml
-        with:
-          branch: develop
-          english-only: ${{ github.event.inputs.english-only == 'true' }}
-          version: ${{ steps.check_update.outputs.new_version }}
-
-      - name: Run Deadbot deployment (master)
-        if: ${{ steps.check_update.outputs.new_version != '' || github.event.inputs.force == 'true' }}
-        uses: ./.github/workflows/deploy.yaml
-        with:
-          branch: master
-          english-only: ${{ github.event.inputs.english-only == 'true' }}
-          version: ${{ steps.check_update.outputs.new_version }}
+  deploy-develop:
+    name: Deploy develop
+    needs: check-update
+    if: ${{ needs.check-update.outputs.new_version != '' || github.event.inputs.force == 'true' }}
+    uses: ./.github/workflows/deploy.yaml
+    with:
+      branch: develop
+      english-only: ${{ github.event.inputs.english-only == 'true' }}
+      version: ${{ needs.check-update.outputs.new_version }}
+  
+  deploy-master:
+    name: Deploy master
+    needs: check-update
+    if: ${{ needs.check-update.outputs.new_version != '' || github.event.inputs.force == 'true' }}
+    uses: ./.github/workflows/deploy.yaml
+    with:
+      branch: master
+      english-only: ${{ github.event.inputs.english-only == 'true' }}
+      version: ${{ needs.check-update.outputs.new_version }}
