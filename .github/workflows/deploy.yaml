@@ -18,15 +18,27 @@ on:
       # branch override used by auto-deploy.yaml, as the schedule only runs on the default branch
       branch:
         type: string
-
       english-only:
         type: boolean
         default: false
-
       # just used to name the parse job
       version:
         type: string
-        
+
+    secrets:
+      GH_TOKEN:
+        required: true
+      STEAM_USERNAME:
+        required: true
+      STEAM_PASSWORD:
+        required: true
+      BOT_WIKI_USER:
+        required: true
+      BOT_WIKI_PASS:
+        required: true
+      ACTIONS_RUNNER_DEBUG:
+        required: false
+
 jobs:
   # Each event type has a different variable for the branch name
   get-branch:
