@@ -46,7 +46,6 @@ jobs:
       - name: Check for new Deadlock version
         id: check_update
         run: |
-          cd deadbot
           chmod +x ./.github/workflows/scripts/check_for_update.sh
           new_version=$(./.github/workflows/scripts/check_for_update.sh './steamdb' './deadlock-data')
           echo "new_version=$new_version" >> $GITHUB_OUTPUT
