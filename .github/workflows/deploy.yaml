@@ -136,6 +136,15 @@ jobs:
           BOT_WIKI_PASS: ${{ secrets.BOT_WIKI_PASS }}
           VERBOSE: ${{ secrets.ACTIONS_RUNNER_DEBUG == 'true' }}
 
+      - name: Read versions
+        id: read_versions
+        run: |
+          DEADBOT_VERSION=$(grep -m1 '^version' pyproject.toml | sed 's/version *= *"\(.*\)"/\1/')
+          echo "deadbot=$DEADBOT_VERSION" >> $GITHUB_OUTPUT
+          
+          DEADLOCK_VERSION=$(grep '^ClientVersion=' "./decompiled-data/version.txt" | cut -d'=' -f2)
+          echo "deadlock=$DEADLOCK_VERSION" >> $GITHUB_OUTPUT
+
       - name: Configure Git for deadbot repo
         working-directory: deadbot 
         run: |
@@ -162,5 +171,5 @@ jobs:
         working-directory: deadlock-data 
         run: |
           git add -A
-          git commit -m "Re-parsed game files" || echo "No changes to commit"
+          git commit -m "Deadbot Deploy v{{ steps.read_versions.outputs.deadbot }} for Client {{ steps.read_versions.outputs.deadlock }}" || echo "No changes to commit"
           git push --force-with-lease origin ${{ needs.get-branch.outputs.branch }}
