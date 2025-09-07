@@ -179,5 +179,5 @@ jobs:
           DATE: ${{ steps.read_versions.outputs.date }}
         run: |
           git add -A
-          git commit -m "Deadbot Deploy v$DEADBOT_VER | Client $DEADLOCK_VER - $DATE" || echo "No changes to commit"
+          git commit -m "Deadbot v$DEADBOT_VER | Client $DEADLOCK_VER - $DATE" || echo "No changes to commit"
           git push --force-with-lease origin ${{ needs.get-branch.outputs.branch }}
