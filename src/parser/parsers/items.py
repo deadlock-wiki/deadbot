@@ -78,8 +78,10 @@ class ItemParser:
                 # Place the structured attribute directly on the item object
                 parsed_item_data[attr_key] = scaling_data
             elif 'm_strValue' in attr:
-                # Otherwise, it's a simple key-value pair at the top level
-                parsed_item_data[attr_key] = attr['m_strValue']
+                value = num_utils.assert_number(attr['m_strValue'])
+                # ignore attributes with a value of 0
+                if value != 0:
+                    parsed_item_data[attr_key] = value
             else:
                 logger.trace(f'Missing m_strValue attr in item {key} attribute {attr_key}')
 
