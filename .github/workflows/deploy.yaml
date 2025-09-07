@@ -138,6 +138,7 @@ jobs:
 
       - name: Read versions
         id: read_versions
+        working-directory: deadbot
         run: |
           DEADBOT_VERSION=$(grep -m1 '^version' pyproject.toml | sed 's/version *= *"\(.*\)"/\1/')
           echo "deadbot=$DEADBOT_VERSION" >> $GITHUB_OUTPUT
