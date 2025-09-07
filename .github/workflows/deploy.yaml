@@ -145,6 +145,9 @@ jobs:
           DEADLOCK_VERSION=$(grep '^ClientVersion=' "./decompiled-data/version.txt" | cut -d'=' -f2)
           echo "deadlock=$DEADLOCK_VERSION" >> $GITHUB_OUTPUT
 
+          DATE=$(grep '^VersionDate=' "./decompiled-data/version.txt" | cut -d'=' -f2)
+          echo "date=$DATE" >> $GITHUB_OUTPUT
+
       - name: Configure Git for deadbot repo
         working-directory: deadbot 
         run: |
@@ -171,5 +174,5 @@ jobs:
         working-directory: deadlock-data 
         run: |
           git add -A
-          git commit -m "Deadbot Deploy v{{ steps.read_versions.outputs.deadbot }} for Client {{ steps.read_versions.outputs.deadlock }}" || echo "No changes to commit"
+          git commit -m "Deadbot Deploy v${{ steps.read_versions.outputs.deadbot }} | Client ${{ steps.read_versions.outputs.deadlock }} - ${{ steps.read_versions.outputs.date }}" || echo "No changes to commit"
           git push --force-with-lease origin ${{ needs.get-branch.outputs.branch }}
