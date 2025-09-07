@@ -171,8 +171,12 @@ jobs:
           cp -r ./deadbot/output-data/. ./deadlock-data/data
       
       - name: Commit and push changes to data repo
-        working-directory: deadlock-data 
+        working-directory: deadlock-data
+        env:
+          DEADBOT_VER: ${{ steps.read_versions.outputs.deadbot }}
+          DEADLOCK_VER: ${{ steps.read_versions.outputs.deadlock }}
+          DATE: ${{ steps.read_versions.outputs.date }}
         run: |
           git add -A
-          git commit -m "Deadbot Deploy v${{ steps.read_versions.outputs.deadbot }} | Client ${{ steps.read_versions.outputs.deadlock }} - ${{ steps.read_versions.outputs.date }}" || echo "No changes to commit"
+          git commit -m "Deadbot Deploy v$DEADBOT_VER | Client $DEADLOCK_VER - $DATE" || echo "No changes to commit"
           git push --force-with-lease origin ${{ needs.get-branch.outputs.branch }}
