@@ -1,5 +1,5 @@
-# <img src="assets/Bebop_card.png" width="36">  DeadBot 
-DeadBot is an Open Source automation tool for aggregating data from the raw game files with the purpose of accurately maintaining the Deadlock Wiki - https://deadlock.wiki/
+# <img src="assets/Bebop_card.png" width="36">  Deadbot 
+Deadbot is an Open Source automation tool for aggregating data from the raw game files with the purpose of accurately maintaining the Deadlock Wiki - https://deadlock.wiki/
 
 ## Guide
 All output data can be found in the [deadlock-data](https://github.com/deadlock-wiki/deadlock-data) repository, which includes numeric game data and all patch changelogs
@@ -33,7 +33,7 @@ Run with `poetry run deadbot`
 <summary>`poetry run deadbot -h`</summary>
 
 ```sh
-usage: DeadBot [-h] [-i DL_PATH] [-w WORKDIR] [-n INPUTDIR] [-o OUTPUT] [--build_num BUILD_NUM] [-v] [-d] [-p] [-u] [-c] [--force]
+usage: Deadbot [-h] [-i DL_PATH] [-w WORKDIR] [-n INPUTDIR] [-o OUTPUT] [--build_num BUILD_NUM] [-v] [-d] [-p] [-u] [-c] [--force]
 
 Bot that lives to serve deadlock.wiki
 
@@ -129,7 +129,7 @@ service:
 ```
 
 ## Contributing
-DeadBot is currently early in its development and welcomes new contributors to get involved no matter what level experience you have.
+Deadbot is currently early in its development and welcomes new contributors to get involved no matter what level experience you have.
 
 Regularly discussed in the wiki channel on [The Deadlock Wiki discord server](https://discord.com/invite/3FJpr53dfu). Ask for access on there if you are interested in contributing.
 
