@@ -49,7 +49,6 @@ jobs:
         run: |
           chmod +x ./.github/workflows/scripts/check_for_update.sh
           new_version=$(./.github/workflows/scripts/check_for_update.sh './steamdb' './deadlock-data')
-          echo "DEBUG: new_version=$new_version"
           echo "new_version=$new_version" >> $GITHUB_OUTPUT
 
   deploy-develop:
