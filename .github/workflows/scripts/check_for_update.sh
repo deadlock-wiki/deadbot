@@ -5,7 +5,8 @@ set -o pipefail  # fail if any part of a pipe fails
 
 # Compares the Deadlock client versions between deadlock-data master and the latest on steamdb
 # If steamdb has a later version available, it outputs the new version number
-
+echo "TEST" >> "$GITHUB_OUTPUT"
+exit 0
 # local repository paths for steamdb and deadlock-data
 STEAMDB=$1
 DEADLOCK_DATA=$2
