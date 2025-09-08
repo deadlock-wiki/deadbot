@@ -25,8 +25,9 @@ else
     exit 1
 fi
 
-latest_version=$(grep '^ClientVersion=' $latest_inf_file | cut -d'=' -f2)
-deployed_version=$(grep '^ClientVersion=' $deployed_inf_file | cut -d'=' -f2)   
+latest_version=$(grep '^ClientVersion=' "$latest_inf_file" | cut -d'=' -f2 | tr -d '\r' | xargs)
+deployed_version=$(grep '^ClientVersion=' "$deployed_inf_file" | cut -d'=' -f2 | tr -d '\r' | xargs)
+
 echo LATEST $latest_version DEPLOYED $deployed_version
 if [[ -z "$latest_version" ]]; then
     echo "Error: Latest version not found in $latest_inf_file" >&2
