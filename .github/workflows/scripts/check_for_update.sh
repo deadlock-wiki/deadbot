@@ -29,8 +29,8 @@ latest_version=$(grep '^ClientVersion=' $latest_inf_file | cut -d'=' -f2)
 deployed_version=$(grep '^ClientVersion=' $deployed_inf_file | cut -d'=' -f2)   
 
 if [[ "$latest_version" == "$deployed_version" ]]; then
-    echo $latest_version
     exit 0
 else
+    echo $latest_version
     exit 0
 fi
