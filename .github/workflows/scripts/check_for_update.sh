@@ -28,6 +28,7 @@ fi
 latest_version=$(grep '^ClientVersion=' $latest_inf_file | cut -d'=' -f2)
 deployed_version=$(grep '^ClientVersion=' $deployed_inf_file | cut -d'=' -f2)   
 
+echo LATEST $latest_version DEPLOYED $deployed_version
 if [[ "$latest_version" == "$deployed_version" ]]; then
     exit 0
 else
