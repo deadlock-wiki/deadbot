@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Compares the Deadlock client versions between deadlock-data master and the latest on steamdb
 # If steamdb has a later version available, it outputs the new version number
