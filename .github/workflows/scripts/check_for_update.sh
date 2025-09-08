@@ -2,11 +2,9 @@
 set -e  # exit on error
 set -u  # fail on unset variables
 set -o pipefail  # fail if any part of a pipe fails
-
 # Compares the Deadlock client versions between deadlock-data master and the latest on steamdb
 # If steamdb has a later version available, it outputs the new version number
-echo "TEST" >> "$GITHUB_OUTPUT"
-exit 0
+
 # local repository paths for steamdb and deadlock-data
 STEAMDB=$1
 DEADLOCK_DATA=$2
@@ -36,6 +34,6 @@ echo LATEST $latest_version DEPLOYED $deployed_version
 if [[ "$latest_version" == "$deployed_version" ]]; then
     exit 0
 else
-    echo "new_version=$latest_version" >> "$GITHUB_OUTPUT"
+    echo $latest_version
     exit 0
 fi
