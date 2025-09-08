@@ -54,7 +54,7 @@ jobs:
   deploy-develop:
     name: Deploy develop
     needs: check-update
-    if: ${{ needs.check-update.outputs.new_version != '' || github.event.inputs.force == 'true' }}
+    if: ${{ needs.check-update.outputs.new_version || github.event.inputs.force == 'true' }}
     uses: ./.github/workflows/deploy.yaml
     with:
       branch-override: develop
@@ -69,7 +69,7 @@ jobs:
   deploy-master:
     name: Deploy master
     needs: check-update
-    if: ${{ needs.check-update.outputs.new_version != '' || github.event.inputs.force == 'true' }}
+    if: ${{ needs.check-update.outputs.new_version || github.event.inputs.force == 'true' }}
     uses: ./.github/workflows/deploy.yaml
     with:
       branch-override: master
