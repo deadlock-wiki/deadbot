@@ -56,31 +56,28 @@ jobs:
     runs-on: ubuntu-latest
     needs: check-update
     if: ${{ needs.check-update.outputs.new_version || github.event.inputs.force == 'true' }}
-    steps:
-      - name: TEST
-        run: echo DEBUG ${{ needs.check-update.outputs.new_version }}
-  #   uses: ./.github/workflows/deploy.yaml
-  #   with:
-  #     branch-override: develop
-  #     english-only: ${{ github.event.inputs.english-only == 'true' }}
-  #   secrets:
-  #     GH_TOKEN: ${{ secrets.GH_TOKEN }}
-  #     STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
-  #     STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
-  #     BOT_WIKI_USER: ${{ secrets.BOT_WIKI_USER }}
-  #     BOT_WIKI_PASS: ${{ secrets.BOT_WIKI_PASS }}
+    uses: ./.github/workflows/deploy.yaml
+    with:
+      branch-override: develop
+      english-only: ${{ github.event.inputs.english-only == 'true' }}
+    secrets:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
+      STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
+      BOT_WIKI_USER: ${{ secrets.BOT_WIKI_USER }}
+      BOT_WIKI_PASS: ${{ secrets.BOT_WIKI_PASS }}
   
-  # deploy-master:
-  #   name: Deploy master
-  #   needs: check-update
-  #   if: ${{ needs.check-update.outputs.new_version || github.event.inputs.force == 'true' }}
-  #   uses: ./.github/workflows/deploy.yaml
-  #   with:
-  #     branch-override: master
-  #     english-only: ${{ github.event.inputs.english-only == 'true' }}
-  #   secrets:
-  #     GH_TOKEN: ${{ secrets.GH_TOKEN }}
-  #     STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
-  #     STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
-  #     BOT_WIKI_USER: ${{ secrets.BOT_WIKI_USER }}
-  #     BOT_WIKI_PASS: ${{ secrets.BOT_WIKI_PASS }}
+  deploy-master:
+    name: Deploy master
+    needs: check-update
+    if: ${{ needs.check-update.outputs.new_version || github.event.inputs.force == 'true' }}
+    uses: ./.github/workflows/deploy.yaml
+    with:
+      branch-override: master
+      english-only: ${{ github.event.inputs.english-only == 'true' }}
+    secrets:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
+      STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
+      BOT_WIKI_USER: ${{ secrets.BOT_WIKI_USER }}
+      BOT_WIKI_PASS: ${{ secrets.BOT_WIKI_PASS }}
