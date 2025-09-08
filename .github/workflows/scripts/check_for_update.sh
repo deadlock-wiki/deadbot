@@ -35,6 +35,6 @@ echo LATEST $latest_version DEPLOYED $deployed_version
 if [[ "$latest_version" == "$deployed_version" ]]; then
     exit 0
 else
-    echo $latest_version
+    echo "new_version=$latest_version" >> "$GITHUB_OUTPUT"
     exit 0
 fi
