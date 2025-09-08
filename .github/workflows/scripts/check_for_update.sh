@@ -1,7 +1,5 @@
 #!/bin/bash
-set -e  # exit on error
-set -u  # fail on unset variables
-set -o pipefail  # fail if any part of a pipe fails
+
 # Compares the Deadlock client versions between deadlock-data master and the latest on steamdb
 # If steamdb has a later version available, it outputs the new version number
 
