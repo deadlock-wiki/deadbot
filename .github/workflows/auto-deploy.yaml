@@ -57,7 +57,8 @@ jobs:
     needs: check-update
     if: ${{ needs.check-update.outputs.new_version || github.event.inputs.force == 'true' }}
     steps:
-      run: echo DEBUG ${{ needs.check-update.outputs.new_version }}
+      - name: TEST
+        run: echo DEBUG ${{ needs.check-update.outputs.new_version }}
   #   uses: ./.github/workflows/deploy.yaml
   #   with:
   #     branch-override: develop
