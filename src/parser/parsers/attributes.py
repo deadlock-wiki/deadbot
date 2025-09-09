@@ -123,24 +123,10 @@ class AttributeParser:
             stats += category_stats['m_vecDisplayStats']
         if 'm_vecOtherDisplayStats' in category_stats:
             stats += category_stats['m_vecOtherDisplayStats']
-        # Process all stats in the category
-        stats = []
-        if 'm_vecDisplayStats' in category_stats:
-            stats += category_stats['m_vecDisplayStats']
-        if 'm_vecOtherDisplayStats' in category_stats:
-            stats += category_stats['m_vecOtherDisplayStats']
 
         # Add to parsed stats
         for stat in stats:
             stat_mapped = maps.get_hero_attr(stat)
-        # Add to parsed stats
-        for stat in stats:
-            stat_mapped = maps.get_hero_attr(stat)
-
-            # Add stat if not already present
-            if stat_mapped not in category_attributes:
-                category_attributes[stat_mapped] = {}
-            # Add stat if not already present
             if stat_mapped not in category_attributes:
                 category_attributes[stat_mapped] = {}
 
