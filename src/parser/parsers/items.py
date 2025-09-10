@@ -74,14 +74,21 @@ class ItemParser:
 
             scaling_data = self._extract_scaling(attr, key, attr_key)
 
+                        # Create a set of keys that should not be overwritten
+            protected_keys = {'Name', 'Description', 'Cost', 'Tier', 'Activation', 'Slot', 'Components', 'TargetTypes', 'ShopFilters', 'IsDisabled'}
+            
+            # If the attribute key is one of the protected keys, skip it to prevent overwriting.
+            if attr_key in protected_keys:
+                continue
+
             if scaling_data:
-                # Place the structured attribute directly on the item object
                 parsed_item_data[attr_key] = scaling_data
             elif 'm_strValue' in attr:
                 value = num_utils.assert_number(attr['m_strValue'])
-                # ignore attributes with a value of 0
-                if value != 0:
-                    parsed_item_data[attr_key] = value
+                # Only filter if the value is a number and it is zero
+                if isinstance(value, (int, float)) and value == 0:
+                    continue # Skip this zero-value attribute
+                parsed_item_data[attr_key] = value
             else:
                 logger.trace(f'Missing m_strValue attr in item {key} attribute {attr_key}')
 
