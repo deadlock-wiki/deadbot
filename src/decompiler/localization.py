@@ -36,11 +36,20 @@ def process_files(input_folder, output_folder):
                 match = line_pattern.search(stripped_line)
                 if match:
                     left = match.group(1)
-                    right = match.group(2).strip()
+                    raw_right = match.group(2)
 
-                    # Perform required replacements for wiki display.
-                    right = right.replace('\\n', '<br>')
-                    right = right.replace('\\"', '"')
+                    # Perform a series of safe, ordered replacements to handle C-style escapes
+                    # without corrupting Unicode characters.
+                    # 1. Handle escaped backslashes first to prevent them from interfering.
+                    # 2. Handle escaped quotes and newlines.
+                    unescaped_right = raw_right.replace('\\\\', '\\')
+                    unescaped_right = unescaped_right.replace('\\"', '"')
+                    unescaped_right = unescaped_right.replace("\\'", "'")
+                    unescaped_right = unescaped_right.replace('\\n', '\n')
+
+                    # Now that the string is properly un-escaped, we can safely replace the
+                    # literal newline characters with <br> tags for the wiki.
+                    right = unescaped_right.replace('\n', '<br>').strip()
 
                     out[left] = right
                 else:
