@@ -1,7 +1,6 @@
 import json
 import os
 import re
-from loguru import logger
 
 
 def process_files(input_folder, output_folder):
@@ -52,13 +51,6 @@ def process_files(input_folder, output_folder):
                     right = unescaped_right.replace('\n', '<br>').strip()
 
                     out[left] = right
-                else:
-                    # Log lines that look like they should have matched, which could indicate a format change.
-                    if '"' in stripped_line:
-                        logger.debug(
-                            f'Skipping malformed localization line in {filename}: '
-                            f'"{stripped_line}"'
-                        )
 
             output_file_json = os.path.join(output_folder, filename.replace('.txt', '.json'))
             # Ensure consistent Unix-style line endings.
