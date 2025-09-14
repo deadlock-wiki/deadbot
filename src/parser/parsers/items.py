@@ -74,7 +74,7 @@ class ItemParser:
 
             scaling_data = self._extract_scaling(attr, key, attr_key)
 
-                        # Create a set of keys that should not be overwritten
+            # Create a set of keys that should not be overwritten
             protected_keys = {'Name', 'Description', 'Cost', 'Tier', 'Activation', 'Slot', 'Components', 'TargetTypes', 'ShopFilters', 'IsDisabled'}
             
             # If the attribute key is one of the protected keys, skip it to prevent overwriting.
