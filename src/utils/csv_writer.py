@@ -12,5 +12,6 @@ def export_json_file_to_csv(file_name, OUTPUT_DIR):
 
 def convert_array_to_string(value):
     if isinstance(value, list):
-        return ', '.join(str(value))
+        print(value)
+        return ', '.join(value)
     return value
