@@ -58,8 +58,8 @@ class ItemParser:
         parsed_item_data = {
             'Name': self.localizations.get(key),
             'Description': '',
-            'Cost': str(cost),
-            'Tier': tier,
+            'Cost': cost,
+            'Tier': int(tier) if tier is not None else None,
             'Activation': maps.get_ability_activation(item_value['m_eAbilityActivation']),
             'Slot': maps.get_slot_type(item_value.get('m_eItemSlotType')),
             'Components': None,
