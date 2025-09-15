@@ -58,8 +58,8 @@ class ItemParser:
         parsed_item_data = {
             'Name': self.localizations.get(key),
             'Description': '',
-            'Cost': str(cost),
-            'Tier': tier,
+            'Cost': cost,
+            'Tier': int(tier) if tier is not None else None,
             'Activation': maps.get_ability_activation(item_value['m_eAbilityActivation']),
             'Slot': maps.get_slot_type(item_value.get('m_eItemSlotType')),
             'Components': None,
@@ -75,11 +75,13 @@ class ItemParser:
             scaling_data = self._extract_scaling(attr, key, attr_key)
 
             if scaling_data:
-                # Place the structured attribute directly on the item object
                 parsed_item_data[attr_key] = scaling_data
             elif 'm_strValue' in attr:
-                # Otherwise, it's a simple key-value pair at the top level
-                parsed_item_data[attr_key] = attr['m_strValue']
+                value = num_utils.assert_number(attr['m_strValue'])
+                # Only filter if the value is a number and it is zero
+                if isinstance(value, (int, float)) and value == 0:
+                    continue # Skip this zero-value attribute
+                parsed_item_data[attr_key] = value
             else:
                 logger.trace(f'Missing m_strValue attr in item {key} attribute {attr_key}')
 

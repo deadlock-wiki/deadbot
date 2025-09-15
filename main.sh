@@ -7,7 +7,7 @@ if [ -f ".env" ]; then
 fi
 
 # Configured completly from env vars:
-python3 src/deadbot.py
+poetry run deadbot
 
 # cleanup
 if [ "$CLEANUP" = true ]; then
