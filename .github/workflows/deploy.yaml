@@ -2,15 +2,18 @@ name: Deploy
 on: 
   push:
 
-  pull_request:
-    types: [opened]
-
   workflow_dispatch:
     inputs:
       english-only:
         type: boolean
         description: Only parse English localizations
         default: false
+  
+  # runs after PR Open to ensure the deadlock-data branch has been created
+  workflow_run:
+    workflows: [PR Opened]
+    types:
+      - completed
         
   workflow_call:
     inputs:
@@ -52,6 +55,8 @@ jobs:
             echo "branch=${{ github.head_ref }}" >> $GITHUB_OUTPUT
           elif [[ "${GITHUB_EVENT_NAME}" == "workflow_dispatch" ]]; then 
             echo "branch=${{ github.ref_name }}" >> $GITHUB_OUTPUT
+          elif [[ "${GITHUB_EVENT_NAME}" == "workflow_run" ]]; then
+            echo "branch=${{ github.event.workflow_run.head_branch }}" >> $GITHUB_OUTPUT
           else
             echo "branch=INVALID_EVENT_BRANCH_UNKNOWN" >> $GITHUB_OUTPUT
           fi
