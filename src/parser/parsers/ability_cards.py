@@ -1,3 +1,4 @@
+from utils import num_utils
 import utils.string_utils as string_utils
 from loguru import logger
 
@@ -308,6 +309,11 @@ class AbilityCardsParser:
                 continue
 
             prop_value = self.ability.get(prop)
+
+            # this set of data can contains a lot of zeroes, which are of no use
+            if num_utils.is_zero(prop_value):
+                continue
+
             if isinstance(prop_value, dict):
                 data.update(prop_value)
             else:

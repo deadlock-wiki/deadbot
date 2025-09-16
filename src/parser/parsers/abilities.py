@@ -33,7 +33,7 @@ class AbilityParser:
             for key in stats:
                 stat = stats[key]
                 value = self._get_stat_value(key, stat)
-                scale = self._get_scale(stat)  #
+                scale = self._get_scale(stat)
                 if scale:
                     ability_data[key] = {'Value': value, 'Scale': scale}
                 else:
@@ -46,9 +46,7 @@ class AbilityParser:
 
             formatted_ability_data = {}
             for attr_key, attr_value in ability_data.items():
-                # strip attrs with value of 0, as that just means it is irrelevant
-                if attr_value != '0':
-                    formatted_ability_data[attr_key] = num_utils.remove_uom(attr_value)
+                formatted_ability_data[attr_key] = num_utils.remove_uom(attr_value)
 
             all_abilities[ability_key] = json_utils.sort_dict(formatted_ability_data)
 
@@ -109,7 +107,7 @@ class AbilityParser:
 
         # if the value ends with "m", it is already converted to the correct units
         if isinstance(value, str) and value.endswith('m'):
-            return num_utils.assert_number(value[:-1])
+            return value
 
         # specific to ChannelMoveSpeed, a "-1" indicates stationary, so no need to convert units
         if key == 'ChannelMoveSpeed' and value == '-1':
