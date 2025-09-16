@@ -342,7 +342,7 @@ class AbilityCardsParser:
                 case 'range' | 'distance' | 'radius' | 'time':
                     rest_of_data['Range'][prop] = data
 
-                case 'damage' | 'bullet_damage' | 'tech_damage' | 'melee_damage':
+                case 'damage' | 'bullet_damage' | 'tech_damage' | 'melee_damage' | 'fire_rate':
                     rest_of_data['Damage'][prop] = data
 
                 case 'healing' | 'health':
@@ -351,7 +351,7 @@ class AbilityCardsParser:
                 case 'bullet_armor_up' | 'tech_armor_up':
                     rest_of_data['Buff'][prop] = data
 
-                case 'slow':
+                case 'slow' | 'tech_armor_down' | 'bullet_armor_down':
                     rest_of_data['Debuff'][prop] = data
 
                 case 'cast':

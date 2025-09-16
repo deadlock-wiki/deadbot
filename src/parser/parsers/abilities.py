@@ -32,15 +32,7 @@ class AbilityParser:
             stats = ability['m_mapAbilityProperties']
             for key in stats:
                 stat = stats[key]
-
-                value = None
-
-                if 'm_strValue' in stat:
-                    value = stat['m_strValue']
-
-                elif 'm_strVAlue' in stat:
-                    value = stat['m_strVAlue']
-
+                value = self._get_stat_value(key, stat)
                 ability_data[key] = value
 
             if 'm_vecAbilityUpgrades' not in ability:
@@ -101,3 +93,42 @@ class AbilityParser:
             parsed_upgrade_sets.append(parsed_upgrade_set)
 
         return parsed_upgrade_sets
+
+    def _get_stat_value(self, key, stat):
+        value = None
+
+        if 'm_strValue' in stat:
+            value = stat['m_strValue']
+        elif 'm_strVAlue' in stat:
+            value = stat['m_strVAlue']
+        else:
+            return None
+
+        # if the value ends with "m", it is already converted to the correct units
+        if isinstance(value, str) and value.endswith('m'):
+            return num_utils.assert_number(value[:-1])
+
+        # specific to ChannelMoveSpeed, a "-1" indicates stationary, so no need to convert units
+        if key == 'ChannelMoveSpeed' and value == '-1':
+            return -1
+
+        units = stat.get('m_eDisplayUnits')
+        strClass = stat.get('m_strCSSClass')
+
+        # some ranges are written as "1500 2000" to denote a specific range
+        if strClass == 'range':
+            ranges = value.split(' ')
+            if len(ranges) == 2:
+                lower = num_utils.assert_number(ranges[0])
+                upper = num_utils.assert_number(ranges[1])
+                if units in ['EDisplayUnit_Meters', 'EDisplayUnit_MetersPerSecond']:
+                    return f'{lower/4} {upper/4}'
+                else:
+                    return f'{lower} {upper}'
+
+        value = num_utils.assert_number(value)
+
+        if units in ['EDisplayUnit_Meters', 'EDisplayUnit_MetersPerSecond']:
+            return num_utils.assert_number(value / 4)
+
+        return value
