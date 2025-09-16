@@ -33,7 +33,11 @@ class AbilityParser:
             for key in stats:
                 stat = stats[key]
                 value = self._get_stat_value(key, stat)
-                ability_data[key] = value
+                scale = self._get_scale(stat)  #
+                if scale:
+                    ability_data[key] = {'Value': value, 'Scale': scale}
+                else:
+                    ability_data[key] = value
 
             if 'm_vecAbilityUpgrades' not in ability:
                 continue
@@ -80,7 +84,6 @@ class AbilityParser:
                         case 'm_eScaleStatFilter':
                             scale_type = upgrade[key]
 
-                # TODO - handle different types of upgrades
                 if upgrade_type in ['EAddToBase', None]:
                     parsed_upgrade_set[prop] = value
                 elif upgrade_type in ['EAddToScale', 'EMultiplyScale']:
@@ -132,3 +135,20 @@ class AbilityParser:
             return num_utils.assert_number(value / 4)
 
         return value
+
+    def _get_scale(self, stat):
+        """
+        Get scale data for the ability attribute, which will refer to how the value of the attribute
+        scales with another stat, usually Spirit
+        """
+        if 'm_subclassScaleFunction' in stat:
+            scale = stat['m_subclassScaleFunction']
+            # Only include scale with a value, as not sure what
+            # any others mean so far.
+            if 'm_flStatScale' in scale:
+                return {
+                    'Value': scale['m_flStatScale'],
+                    'Type': maps.get_scale_type(scale.get('m_eSpecificStatScaleType', 'ETechPower')),
+                }
+
+        return None

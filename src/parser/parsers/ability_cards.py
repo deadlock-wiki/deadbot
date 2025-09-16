@@ -1,4 +1,3 @@
-import parser.maps as maps
 import utils.string_utils as string_utils
 from loguru import logger
 
@@ -211,17 +210,19 @@ class AbilityCardsParser:
                     {
                         'Key': attr_key,
                         'Name': self._get_localized_string(attr_key + '_label', fallback=f'Unknown({attr_key})'),
-                        'Value': self.ability[attr_key],
-                    }
+                    },
                 )
+
+                attr_value = self.ability[attr_key]
+                if isinstance(attr_value, dict):
+                    prop_object.update(attr_value)
+                else:
+                    prop_object['Value'] = attr_value
 
                 attr_type = raw_attr.get('m_strCSSClass')
                 if attr_type is not None:
                     prop_object['Type'] = attr_type
 
-                scale = self._get_scale(attr_key)
-                if scale is not None:
-                    prop_object['Scale'] = scale
                 self.used_attributes.append(attr_key)
 
                 main_block['Props'].append(prop_object)
@@ -264,15 +265,15 @@ class AbilityCardsParser:
             if name is not None:
                 prop_object['Name'] = name
 
-            prop_object['Value'] = self.ability.get(prop)
+            prop_value = self.ability.get(prop)
+            if isinstance(prop_value, dict):
+                prop_object.update(prop_value)
+            else:
+                prop_object['Value'] = prop_value
 
             attr_type = self._get_raw_ability_attr(prop).get('m_strCSSClass')
             if attr_type is not None:
                 prop_object['Type'] = attr_type
-
-            scale = self._get_scale(prop)
-            if scale is not None:
-                prop_object['Scale'] = scale
 
             alt_block.append(prop_object)
 
@@ -300,20 +301,21 @@ class AbilityCardsParser:
         for prop in self.ability:
             data = {
                 'Name': self._get_ability_display_name(prop),
-                'Value': self.ability.get(prop),
             }
 
             raw_attr = self._get_raw_ability_attr(prop)
             if raw_attr is None:
                 continue
 
+            prop_value = self.ability.get(prop)
+            if isinstance(prop_value, dict):
+                data.update(prop_value)
+            else:
+                data['Value'] = prop_value
+
             attr_type = raw_attr.get('m_strCSSClass')
             if attr_type is not None:
                 data['Type'] = attr_type
-
-            scale = self._get_scale(prop)
-            if scale is not None:
-                data['Scale'] = scale
 
             # These props are directly referenced and should live on the top level
             if prop in [
@@ -394,24 +396,6 @@ class AbilityCardsParser:
             parsed_upgrades.append(upgrade)
 
         return parsed_upgrades
-
-    def _get_scale(self, attr):
-        """
-        Get scale data for the ability attribute, which will refer to how the value of the attribute
-        scales with another stat, usually Spirit
-        """
-        raw_attr = self._get_raw_ability_attr(attr)
-        if 'm_subclassScaleFunction' in raw_attr:
-            raw_scale = raw_attr['m_subclassScaleFunction']
-            # Only include scale with a value, as not sure what
-            # any others mean so far.
-            if 'm_flStatScale' in raw_scale:
-                return {
-                    'Value': raw_scale['m_flStatScale'],
-                    'Type': maps.get_scale_type(raw_scale.get('m_eSpecificStatScaleType', 'ETechPower')),
-                }
-
-        return None
 
     def _get_uom(self, attr, value):
         """
