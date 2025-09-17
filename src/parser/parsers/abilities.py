@@ -107,7 +107,7 @@ class AbilityParser:
 
         # if the value ends with "m", it is already converted to the correct units
         if isinstance(value, str) and value.endswith('m'):
-            return value
+            return num_utils.assert_number(value[:-1])
 
         # specific to ChannelMoveSpeed, a "-1" indicates stationary, so no need to convert units
         if key == 'ChannelMoveSpeed' and value == '-1':
