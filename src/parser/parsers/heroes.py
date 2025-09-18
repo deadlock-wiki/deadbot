@@ -34,7 +34,14 @@ class HeroParser:
 
                 # Change formatting on some numbers to match whats shown in game
                 hero_stats['StaminaCooldown'] = 1 / hero_stats['StaminaRegenPerSecond']
-                hero_stats['CritDamageReceivedScale'] = (hero_stats['CritDamageReceivedScale'] - 1) * 100
+                
+                # Convert scale values to percentages and rename keys for clarity
+                received_scale = hero_stats.pop('CritDamageReceivedScale')
+                hero_stats['CritDamageReceivedPercent'] = round((received_scale - 1) * 100, 2)
+                
+                bonus_scale = hero_stats.pop('CritDamageBonusScale')
+                hero_stats['CritDamageBonusPercent'] = round((bonus_scale - 1) * 100, 2)
+                
                 hero_stats['TechRange'] = hero_stats['TechRange'] - 1
                 hero_stats['TechDuration'] = hero_stats['TechDuration'] - 1
                 hero_stats['ReloadSpeed'] = hero_stats['ReloadSpeed'] - 1

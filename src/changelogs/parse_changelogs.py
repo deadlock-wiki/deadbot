@@ -220,7 +220,7 @@ class ChangelogParser:
                     remaining_description = remaining_description.replace(remappable_text, '')
                     new_changelog[index]['Description'] = description
 
-        return changelog
+        return new_changelog
 
     def _get_resources(self):
         resources = {}
