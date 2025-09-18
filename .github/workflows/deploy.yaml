@@ -112,9 +112,6 @@ jobs:
           git switch ${{ needs.get-branch.outputs.branch }}
         continue-on-error: true  # Allow the job to stop if this step fails
         
-      - name: Install docker-compose
-        run: sudo apt-get install -y docker-compose
-
       - name: Build Deadbot
         working-directory: deadbot
         run: |
@@ -124,7 +121,7 @@ jobs:
             -t deadbot .
 
       - name: Run Deadbot
-        run: docker-compose up --exit-code-from deadbot
+        run: docker compose up --exit-code-from deadbot
         working-directory: deadbot
         env:
           IMPORT_FILES: true
