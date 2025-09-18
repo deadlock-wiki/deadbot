@@ -110,7 +110,8 @@ jobs:
           git switch ${{ needs.get-branch.outputs.branch }}
         continue-on-error: true  # Allow the job to stop if this step fails
 
-      - name: Build & Run Deadbot
+
+      - name: Build Deadbot
         working-directory: deadbot
         run: |
           docker buildx create --use
@@ -120,7 +121,9 @@ jobs:
             -t deadbot:latest \
             --load .
 
-          docker compose up --exit-code-from deadbot --abort-on-container-exit
+      - name: Run Deadbot
+        working-directory: deadbot
+        run: docker compose up --exit-code-from deadbot --abort-on-container-exit
         env:
           IMPORT_FILES: true
           ENGLISH_ONLY: ${{ github.event.inputs.english-only == 'true' }}
