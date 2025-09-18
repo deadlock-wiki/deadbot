@@ -116,8 +116,12 @@ jobs:
         run: sudo apt-get install -y docker-compose
 
       - name: Build Deadbot
-        run: docker-compose build
-        working-directory: deadbot 
+        working-directory: deadbot
+        run: |
+          docker buildx build \
+            --cache-from type=gha \
+            --cache-to type=gha,mode=max \
+            -t deadbot .
 
       - name: Run Deadbot
         run: docker-compose up --exit-code-from deadbot
