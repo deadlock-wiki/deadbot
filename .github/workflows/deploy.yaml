@@ -117,9 +117,10 @@ jobs:
           docker buildx create --use
           docker buildx build \
             --cache-from type=gha \
-            --cache-to type=gha,mode=max,scope=gha \
+            --cache-to type=gha,mode=max \
             -t deadbot:latest \
-            --load .
+            --load \
+            --progress=plain .
 
       - name: Run Deadbot
         working-directory: deadbot
