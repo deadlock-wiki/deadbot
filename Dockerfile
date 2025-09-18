@@ -1,17 +1,18 @@
 FROM python:3.11-slim
-RUN apt update && apt upgrade -y && apt install -y wget unzip libicu-dev binutils
 
-# git is needed for downloading game data from SteamDB repo
-RUN apt install -y --no-install-recommends git
+RUN apt update && apt upgrade -y && \
+    apt install -y --no-install-recommends wget unzip libicu-dev binutils git dos2unix && \
+    rm -rf /var/lib/apt/lists/*
 
 WORKDIR /tools
 
-ENV POETRY_VER="1.8.3"
-RUN python3 -m pip install poetry==$POETRY_VER
-ENV POETRY_NO_INTERACTION=1 \
+ENV POETRY_VER="1.8.3" \
+    POETRY_NO_INTERACTION=1 \
     POETRY_VIRTUALENVS_IN_PROJECT=0 \
     POETRY_VIRTUALENVS_CREATE=False \
     POETRY_CACHE_DIR=/tmp/poetry_cache
+
+RUN python3 -m pip install poetry==$POETRY_VER
 
 ENV DEPOT_DOWNLOADER_VER="3.4.0"
 RUN wget https://github.com/SteamRE/DepotDownloader/releases/download/DepotDownloader_$DEPOT_DOWNLOADER_VER/DepotDownloader-linux-x64.zip \
@@ -29,14 +30,12 @@ RUN python3 -m poetry install --no-root && rm -rf $POETRY_CACHE_DIR
 # Now install deadbot
 COPY . .
 RUN python3 -m poetry install
-RUN apt-get install -y dos2unix && dos2unix /repo/src/steam/steam_db_download_deadlock.sh
+RUN dos2unix /repo/src/steam/steam_db_download_deadlock.sh && \
+    chmod +x /repo/src/steam/steam_db_download_deadlock.sh
 
-RUN chmod +x /repo/src/steam/steam_db_download_deadlock.sh
-
-# directory config
-ENV DEADLOCK_DIR="/data"
-ENV WORK_DIR="/work"
-ENV INPUT_DIR="/input"
-ENV OUTPUT_DIR="/output"
+ENV DEADLOCK_DIR="/data" \
+    WORK_DIR="/work" \
+    INPUT_DIR="/input" \
+    OUTPUT_DIR="/output"
 
 ENTRYPOINT [ "python3", "src/deadbot.py" ]

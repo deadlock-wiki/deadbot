@@ -110,14 +110,14 @@ jobs:
           git switch ${{ needs.get-branch.outputs.branch }}
         continue-on-error: true  # Allow the job to stop if this step fails
 
-
+      # ****
       - name: Build Deadbot
         working-directory: deadbot
         run: |
           docker buildx create --use
           docker buildx build \
-            --cache-from type=gha \
-            --cache-to type=gha,mode=max \
+            --cache-from type=gha,scope=deadbot \
+            --cache-to type=gha,mode=max,scope=deadbot \
             -t deadbot:latest \
             --load \
             --progress=plain .
