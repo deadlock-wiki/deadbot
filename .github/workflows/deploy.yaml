@@ -111,18 +111,18 @@ jobs:
           git fetch origin ${{ needs.get-branch.outputs.branch }}
           git switch ${{ needs.get-branch.outputs.branch }}
         continue-on-error: true  # Allow the job to stop if this step fails
-        
-      - name: Build Deadbot
+
+      - name: Build & Run Deadbot
         working-directory: deadbot
         run: |
+          docker buildx create --use
           docker buildx build \
             --cache-from type=gha \
-            --cache-to type=gha,mode=max \
-            -t deadbot .
+            --cache-to type=gha,mode=max,scope=gha \
+            -t deadbot:latest \
+            --load .
 
-      - name: Run Deadbot
-        run: docker compose up --exit-code-from deadbot
-        working-directory: deadbot
+          docker compose up --exit-code-from deadbot --abort-on-container-exit
         env:
           IMPORT_FILES: true
           ENGLISH_ONLY: ${{ github.event.inputs.english-only == 'true' }}
@@ -130,7 +130,7 @@ jobs:
           PARSE: true
           CHANGELOGS: true
           CLEANUP: true
-          WIKI_UPLOAD: ${{ needs.get-branch.outputs.branch == 'master' }}          
+          WIKI_UPLOAD: ${{ needs.get-branch.outputs.branch == 'master' }}
           STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
           STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
           BOT_WIKI_USER: ${{ vars.BOT_WIKI_USER }}

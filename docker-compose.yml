@@ -1,11 +1,10 @@
 services:
   deadbot:
-    image: ghcr.io/deadlock-wiki/deadbot:latest
+    image: deadbot:latest
     build:
       context: .
       dockerfile: ./Dockerfile
     environment:
-      # runtime config
       IMPORT_FILES: ${IMPORT_FILES}
       ENGLISH_ONLY: ${ENGLISH_ONLY}
       DECOMPILE: ${DECOMPILE}
