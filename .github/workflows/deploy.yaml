@@ -96,6 +96,14 @@ jobs:
           path: deadlock-data
           token:  ${{ secrets.GH_TOKEN }}     
 
+      - name: Configure Git for deadbot repo
+        working-directory: deadbot 
+        run: |
+          git config --global user.email "deadbot1101@gmail.com"
+          git config --global user.name "Deadbot0"
+          git config --global --add safe.directory ./data
+          git config pull.rebase true    
+
       - name: Configure Git for data repo
         working-directory: deadlock-data 
         run: |
@@ -110,15 +118,35 @@ jobs:
           git switch ${{ needs.get-branch.outputs.branch }}
         continue-on-error: true  # Allow the job to stop if this step fails
 
+      - uses: docker/setup-buildx-action@v3
+        with:
+          install: true
+          driver: docker-container
+
       - name: Build Deadbot
-        working-directory: deadbot
-        run: |
-          docker buildx build \
-            --cache-from type=gha,scope=deadbot \
-            --cache-to type=gha,mode=max,scope=deadbot \
-            -t deadbot:latest \
-            --load \
-            --progress=plain .
+        uses: docker/build-push-action@v6
+        with:
+          context: ./deadbot
+          file: ./deadbot/Dockerfile
+          push: false
+          tags: deadbot:latest
+          cache-from: type=gha,scope=deadbot-${{ needs.get-branch.outputs.branch }}
+          cache-to: type=gha,mode=max,scope=deadbot-${{ needs.get-branch.outputs.branch }}
+          load: true   
+
+      - name: Cache game-data
+        uses: actions/cache@v4
+        with:
+          path: deadbot/game-data
+          key: deadbot-game-${{ hashFiles('deadbot/src/steam/**/*') }}
+          restore-keys: deadbot-game-
+
+      - name: Cache decompiled-data
+        uses: actions/cache@v4
+        with:
+          path: deadbot/decompiled-data
+          key: deadbot-decompiled-${{ hashFiles('deadbot/src/decompiler/**/*') }}
+          restore-keys: deadbot-decompiled-
 
       - name: Run Deadbot
         working-directory: deadbot
@@ -129,7 +157,7 @@ jobs:
           DECOMPILE: true
           PARSE: true
           CHANGELOGS: true
-          CLEANUP: true
+          CLEANUP: false
           WIKI_UPLOAD: ${{ needs.get-branch.outputs.branch == 'master' }}
           STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
           STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
@@ -149,13 +177,6 @@ jobs:
 
           DATE=$(grep '^VersionDate=' "./decompiled-data/version.txt" | cut -d'=' -f2)
           echo "date=$DATE" >> $GITHUB_OUTPUT
-
-      - name: Configure Git for deadbot repo
-        working-directory: deadbot 
-        run: |
-          git config --global user.email "deadbot1101@gmail.com"
-          git config --global user.name "Deadbot0"
-          git config pull.rebase true     
           
       - name: Commit and push input-data changes to deadbot
         working-directory: deadbot

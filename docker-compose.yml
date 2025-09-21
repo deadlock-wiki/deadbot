@@ -19,9 +19,7 @@ services:
       BOT_WIKI_USER: ${BOT_WIKI_USER}
       BOT_WIKI_PASS: ${BOT_WIKI_PASS}
     volumes:
+      - "./game-data:/data"
       - "./decompiled-data:/work"
       - "./input-data:/input"
       - "./output-data:/output"
-    #
-    # - 'C:\Program Files (x86)\Steam\steamapps\common\Deadlock':'/data:ro'
-    # - "/mnt/SteamLibrary/steamapps/common/Deadlock":"/data:ro"

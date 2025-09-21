@@ -1,6 +1,6 @@
 FROM python:3.11-slim
 
-RUN apt update && apt upgrade -y && \
+RUN apt update && \
     apt install -y --no-install-recommends wget unzip libicu-dev binutils git dos2unix && \
     rm -rf /var/lib/apt/lists/*
 
@@ -12,7 +12,7 @@ ENV POETRY_VER="1.8.3" \
     POETRY_VIRTUALENVS_CREATE=False \
     POETRY_CACHE_DIR=/tmp/poetry_cache
 
-RUN python3 -m pip install poetry==$POETRY_VER
+RUN pip install poetry==$POETRY_VER
 
 ENV DEPOT_DOWNLOADER_VER="3.4.0"
 RUN wget https://github.com/SteamRE/DepotDownloader/releases/download/DepotDownloader_$DEPOT_DOWNLOADER_VER/DepotDownloader-linux-x64.zip \
@@ -23,13 +23,10 @@ ENV DEPOT_DOWNLOADER_CMD="/tools/DepotDownloader"
 
 WORKDIR /repo
 
-# Install build dependencies first
 COPY pyproject.toml poetry.lock ./
-RUN python3 -m poetry install --no-root && rm -rf $POETRY_CACHE_DIR
+RUN poetry install --no-root
 
-# Now install deadbot
 COPY . .
-RUN python3 -m poetry install
 RUN dos2unix /repo/src/steam/steam_db_download_deadlock.sh && \
     chmod +x /repo/src/steam/steam_db_download_deadlock.sh
 
