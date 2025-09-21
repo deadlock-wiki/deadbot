@@ -25,24 +25,40 @@ jobs:
     steps:
       - name: Checkout Deadbot repo
         uses: actions/checkout@v4
-        with:
-          repository: deadlock-wiki/deadbot
 
-      - name: Checkout SteamDB repo
-        uses: actions/checkout@v4
-        with: 
-          repository: SteamDatabase/GameTracking-Deadlock
-          ref: master
+      - name: Cache SteamDB repo
+        uses: actions/cache@v4
+        with:
           path: steamdb
-          token:  ${{ secrets.GH_TOKEN }} 
+          key: steamdb
+          restore-keys: steamdb
 
-      - name: Checkout deadlock-data repo
-        uses: actions/checkout@v4
+      - name: Update SteamDB repo
+        run: |
+          if [ -d steamdb ]; then
+            cd steamdb
+            git reset --hard
+            git pull
+          else
+            git clone https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/SteamDatabase/GameTracking-Deadlock.git steamdb
+          fi
+
+      - name: Cache deadlock-data repo
+        uses: actions/cache@v4
         with:
-          repository: deadlock-wiki/deadlock-data
-          ref: master
           path: deadlock-data
-          token:  ${{ secrets.GH_TOKEN }}   
+          key: deadlock-data
+          restore-keys: deadlock-data
+
+      - name: Update deadlock-data repo
+        run: |
+          if [ -d deadlock-data ]; then
+            cd deadlock-data
+            git reset --hard
+            git pull
+          else
+            git clone https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/deadlock-wiki/deadlock-data.git deadlock-data
+          fi
 
       - name: Check for new Deadlock version
         id: check_version
