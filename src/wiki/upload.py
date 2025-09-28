@@ -61,6 +61,23 @@ class WikiUpload:
             json_string = json.dumps(data, indent=4)
             self._update_page(page, json_string)
 
+    def upload_new_page(self, title, content):
+        """
+        Uploads a new page to the wiki if it doesn't already exist.
+
+        Args:
+            title (str): The full title of the page (e.g., "Changelog/2024-01-01").
+            content (str): The wikitext content for the new page.
+        """
+        page = self.site.pages[title]
+        if page.exists:
+            logger.info(f'Page "{title}" already exists, skipping creation.')
+            return
+
+        logger.info(f'Creating new page: "{title}"')
+        page.save(content, summary=self.upload_message)
+        logger.success(f'Successfully created page "{title}"')
+
     def _update_page(self, page, updated_text):
         page.save(updated_text, summary=self.upload_message, minor=False, bot=True)
         logger.success(f'Page "{page.name}" updated')
