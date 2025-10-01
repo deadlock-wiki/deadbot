@@ -88,14 +88,20 @@ class AbilityParser:
                         case 'm_eScaleStatFilter':
                             scale_type = upgrade[key]
 
-                # TODO - handle different types of upgrades
                 if upgrade_type in ['EAddToBase', None]:
-                    parsed_upgrade_set[prop] = value
+                    if parsed_upgrade_set.get(prop) is None:
+                        parsed_upgrade_set[prop] = value
+                    # if it is a dict (ie. for a scale value), assign the base value
+                    elif isinstance(parsed_upgrade_set.get(prop), dict):
+                        parsed_upgrade_set[prop]['Value'] = value
+
                 elif upgrade_type in ['EAddToScale', 'EMultiplyScale']:
-                    parsed_upgrade_set['Scale'] = {
-                        'Prop': prop,
-                        'Value': value,
-                        'Type': maps.get_scale_type(scale_type),
+                    parsed_upgrade_set[prop] = {
+                        'Value': parsed_upgrade_set.get(prop, 0),
+                        'Scale': {
+                            'Value': value,
+                            'Type': maps.get_scale_type(scale_type),
+                        },
                     }
 
             parsed_upgrade_sets.append(parsed_upgrade_set)
