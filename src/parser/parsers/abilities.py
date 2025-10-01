@@ -32,16 +32,12 @@ class AbilityParser:
             stats = ability['m_mapAbilityProperties']
             for key in stats:
                 stat = stats[key]
-
-                value = None
-
-                if 'm_strValue' in stat:
-                    value = stat['m_strValue']
-
-                elif 'm_strVAlue' in stat:
-                    value = stat['m_strVAlue']
-
-                ability_data[key] = value
+                value = self._get_stat_value(key, stat)
+                scale = self._get_scale(stat)
+                if scale:
+                    ability_data[key] = {'Value': value, 'Scale': scale}
+                else:
+                    ability_data[key] = value
 
             if 'm_vecAbilityUpgrades' not in ability:
                 continue
@@ -50,9 +46,7 @@ class AbilityParser:
 
             formatted_ability_data = {}
             for attr_key, attr_value in ability_data.items():
-                # strip attrs with value of 0, as that just means it is irrelevant
-                if attr_value != '0':
-                    formatted_ability_data[attr_key] = num_utils.remove_uom(attr_value)
+                formatted_ability_data[attr_key] = num_utils.remove_uom(attr_value)
 
             all_abilities[ability_key] = json_utils.sort_dict(formatted_ability_data)
 
@@ -88,7 +82,6 @@ class AbilityParser:
                         case 'm_eScaleStatFilter':
                             scale_type = upgrade[key]
 
-                # TODO - handle different types of upgrades
                 if upgrade_type in ['EAddToBase', None]:
                     parsed_upgrade_set[prop] = value
                 elif upgrade_type in ['EAddToScale', 'EMultiplyScale']:
@@ -101,3 +94,59 @@ class AbilityParser:
             parsed_upgrade_sets.append(parsed_upgrade_set)
 
         return parsed_upgrade_sets
+
+    def _get_stat_value(self, key, stat):
+        value = None
+
+        if 'm_strValue' in stat:
+            value = stat['m_strValue']
+        elif 'm_strVAlue' in stat:
+            value = stat['m_strVAlue']
+        else:
+            return None
+
+        # if the value ends with "m", it is already converted to the correct units
+        if isinstance(value, str) and value.endswith('m'):
+            return num_utils.assert_number(value[:-1])
+
+        # specific to ChannelMoveSpeed, a "-1" indicates stationary, so no need to convert units
+        if key == 'ChannelMoveSpeed' and value == '-1':
+            return -1
+
+        units = stat.get('m_eDisplayUnits')
+        strClass = stat.get('m_strCSSClass')
+
+        # some ranges are written as "1500 2000" to denote a specific range
+        if strClass == 'range':
+            ranges = value.split(' ')
+            if len(ranges) == 2:
+                lower = num_utils.assert_number(ranges[0])
+                upper = num_utils.assert_number(ranges[1])
+                if units in ['EDisplayUnit_Meters', 'EDisplayUnit_MetersPerSecond']:
+                    return f'{lower/4} {upper/4}'
+                else:
+                    return f'{lower} {upper}'
+
+        value = num_utils.assert_number(value)
+
+        if units in ['EDisplayUnit_Meters', 'EDisplayUnit_MetersPerSecond']:
+            return num_utils.assert_number(value / 4)
+
+        return value
+
+    def _get_scale(self, stat):
+        """
+        Get scale data for the ability attribute, which will refer to how the value of the attribute
+        scales with another stat, usually Spirit
+        """
+        if 'm_subclassScaleFunction' in stat:
+            scale = stat['m_subclassScaleFunction']
+            # Only include scale with a value, as not sure what
+            # any others mean so far.
+            if 'm_flStatScale' in scale:
+                return {
+                    'Value': scale['m_flStatScale'],
+                    'Type': maps.get_scale_type(scale.get('m_eSpecificStatScaleType', 'ETechPower')),
+                }
+
+        return None

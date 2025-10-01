@@ -172,18 +172,20 @@ def override_localization(attr):
 
 
 SCALE_TYPE_MAP = {
-    'ETechPower': 'spirit',
-    'ELightMeleeDamage': 'melee',
-    'ETechRange': 'range',
-    'ETechCooldown': 'cooldown',
-    'EBulletDamage': 'damage',
-    'ETechDuration': 'duration',
-    'EWeaponDamageScale': 'weapon_damage',
-    'EMaxChargesIncrease': 'max_charges',
-    'ELevelUpBoons': 'power_increase',
     'EBaseWeaponDamageIncrease': 'weapon_damage_increase',
-    'EWeaponPower': 'weapon_power',
+    'EBulletDamage': 'damage',
+    'EHealingOutput': 'healing',
+    'EHeavyMeleeDamage': 'heavy_melee',
+    'ELevelUpBoons': 'power_increase',
+    'ELightMeleeDamage': 'melee',
+    'EMaxChargesIncrease': 'max_charges',
     'EStatsCount': 'stats_count',
+    'ETechCooldown': 'cooldown',
+    'ETechDuration': 'duration',
+    'ETechPower': 'spirit',
+    'ETechRange': 'range',
+    'EWeaponDamageScale': 'weapon_damage',
+    'EWeaponPower': 'weapon_power',
 }
 
 
