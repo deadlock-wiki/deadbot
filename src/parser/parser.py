@@ -201,7 +201,11 @@ class Parser:
             self.localizations[self.language],
         ).run()
 
-        json_utils.write(self.OUTPUT_DIR + '/json/ability-data.json', json_utils.sort_dict(parsed_abilities))
+        stripped_abilities = {}
+        for key, ability in parsed_abilities.items():
+            stripped_abilities[key] = json_utils.strip_zeroes(ability)
+
+        json_utils.write(self.OUTPUT_DIR + '/json/ability-data.json', json_utils.sort_dict(stripped_abilities))
         return parsed_abilities
 
     def _parsed_ability_cards(self, parsed_heroes):

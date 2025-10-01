@@ -42,3 +42,14 @@ def remove_uom(value):
             return string
         return stripped_string
     return assert_number(string)
+
+
+def is_zero(value):
+    """Checks if a value is zero reliably, as to avoid the edge case where False==0 -> True"""
+    if isinstance(value, bool):
+        return False
+
+    if isinstance(value, (int, float)) and value == 0:
+        return True
+
+    return False

@@ -1,6 +1,8 @@
 import json
 import os
 
+from utils import num_utils
+
 
 def read(path, ignore_error=False):
     """
@@ -121,3 +123,12 @@ def validate_structures(datas1, datas2, structure_keys_to_validate):
                                 invalid_keys[key] = more_invalid_keys
 
     return invalid_keys
+
+
+def strip_zeroes(obj: dict):
+    output = obj.copy()
+    for key, value in obj.items():
+        if num_utils.is_zero(value):
+            output.pop(key)
+
+    return output
