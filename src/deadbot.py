@@ -101,18 +101,18 @@ def act_changelog_parse(args, wiki_upload=None):
     )
     chlog_fetcher.run()
 
-    # If wiki upload is enabled, format and upload each changelog as a new page
+    # If wiki upload is enabled, format and upload each changelog page.
     if wiki_upload:
-        logger.info('Formatting and uploading new changelog pages...')
+        logger.info('Formatting and uploading changelog pages...')
         try:
-            # Load data required for formatting entity names
+            # Load data required for formatting entity names.
             hero_data = json_utils.read(os.path.join(args.output, 'json/hero-data.json'))
             item_data = json_utils.read(os.path.join(args.output, 'json/item-data.json'))
             ability_data = json_utils.read(os.path.join(args.output, 'json/ability-data.json'))
 
             for changelog_id, raw_text in chlog_fetcher.changelogs.items():
                 config = chlog_fetcher.changelog_configs.get(changelog_id)
-                # Skip if config is missing or if it's a Hero Lab entry
+                # Skip if config is missing or if it's a Hero Lab entry.
                 if not config or config.get('is_hero_lab'):
                     continue
 
@@ -121,15 +121,15 @@ def act_changelog_parse(args, wiki_upload=None):
                     logger.warning(f"Changelog '{changelog_id}' is missing a date. Skipping wiki page creation.")
                     continue
 
-                # Call the new wikitext formatter
+                # Format the raw text into wikitext.
                 formatted_wikitext = wikitext_formatter.format_changelog(raw_text, hero_data, item_data, ability_data)
 
-                # Convert YYYY-MM-DD to a datetime object
+                # Convert YYYY-MM-DD to a datetime object.
                 date_obj = datetime.strptime(changelog_date, '%Y-%m-%d')
-                # Format it into "Month_Day,_Year" for the wiki title
+                # Format it into "Month_Day,_Year" for the wiki title.
                 wiki_date_str = f"{date_obj.strftime('%B')}_{date_obj.day},_{date_obj.year}"
 
-                # Construct the title and upload the new page
+                # Construct the title and upload the page.
                 page_title = f'Update:{wiki_date_str}'
                 wiki_upload.upload_new_page(page_title, formatted_wikitext)
 
@@ -138,7 +138,7 @@ def act_changelog_parse(args, wiki_upload=None):
         except Exception as e:
             logger.error(f'An unexpected error occurred during changelog page upload: {e}')
 
-    # Now that we gathered the changelogs, extract out data for the Data namespace
+    # Process the changelogs for tagged data extraction (for the Data: namespace).
     chlog_parser = parse_changelogs.ChangelogParser(args.output)
     chlog_parser.run_all(chlog_fetcher.changelogs)
     return chlog_parser

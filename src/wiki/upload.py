@@ -42,12 +42,12 @@ class WikiUpload:
             namespace = page_name_obj['namespace']
             page_name = page_name_obj['page_name']
 
-            # filter for the "Data" namespace, as that is where all generated data lives on the wiki
+            # Filter for pages in the "Data" namespace.
             if namespace != self.DATA_NAMESPACE:
                 continue
 
             file_path = DATA_PAGE_FILE_MAP.get(page_name)
-            # If file is not found in either page map or ignore list, add a warning to resolve that
+            # If a file path is not defined for a page, log a warning.
             if file_path is None:
                 if page_name not in IGNORE_PAGES:
                     logger.warning(f'Missing file map for data page "{page_name}". Either add a corresponding file path or add it to the ignore list')
@@ -63,11 +63,11 @@ class WikiUpload:
 
     def upload_new_page(self, title, content):
         """
-        Uploads a new page to the wiki if it doesn't already exist.
+        Uploads a page to the wiki if it doesn't already exist.
 
         Args:
-            title (str): The full title of the page (e.g., "Changelog/2024-01-01").
-            content (str): The wikitext content for the new page.
+            title (str): The full title of the page (e.g., "Update:May_27,_2025").
+            content (str): The wikitext content for the page.
         """
         page = self.site.pages[title]
         if page.exists:
