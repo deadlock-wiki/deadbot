@@ -134,13 +134,6 @@ jobs:
           cache-to: type=gha,mode=max,scope=deadbot-${{ needs.get-branch.outputs.branch }}
           load: true   
 
-      - name: Cache game-data
-        uses: actions/cache@v4
-        with:
-          path: deadbot/game-data
-          key: deadbot-game-${{ hashFiles('deadbot/src/steam/**/*') }}
-          restore-keys: deadbot-game-
-
       - name: Cache decompiled-data
         uses: actions/cache@v4
         with:
@@ -182,7 +175,7 @@ jobs:
         working-directory: deadbot
         run: |
           git add input-data
-          git commit -m "chore: updated input data" || echo "No changes to commit"
+          git commit -m "[skip ci] chore: updated input data" || echo "No changes to commit"
           git push --force-with-lease origin ${{ needs.get-branch.outputs.branch }}
 
       - name: Pull data branch

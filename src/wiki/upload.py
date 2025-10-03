@@ -50,22 +50,20 @@ class WikiUpload:
             # If file is not found in either page map or ignore list, add a warning to resolve that
             if file_path is None:
                 if page_name not in IGNORE_PAGES:
-                    logger.warning(
-                        f'[WARN] Missing file map for data page "{page_name}".' 'Either add a corresponding file path or add it to the ignore list'
-                    )
+                    logger.warning(f'Missing file map for data page "{page_name}". Either add a corresponding file path or add it to the ignore list')
                 continue
 
             data = json_utils.read(f'{self.OUTPUT_DIR}/{file_path}', ignore_error=True)
             if data is None:
+                logger.warning(f'Missing data for page "{page_name}": {file_path}')
                 return
 
             json_string = json.dumps(data, indent=4)
             self._update_page(page, json_string)
 
     def _update_page(self, page, updated_text):
-        if page.text() != updated_text:
-            page.save(updated_text, summary=self.upload_message, minor=False, bot=True)
-            logger.success(f'Page "{page.name}" updated')
+        page.save(updated_text, summary=self.upload_message, minor=False, bot=True)
+        logger.success(f'Page "{page.name}" updated')
 
     def _get_namespace_id(self, search_namespace):
         for namespace_id, namespace in self.site.namespaces.items():

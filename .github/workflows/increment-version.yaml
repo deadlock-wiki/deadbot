@@ -27,5 +27,5 @@ jobs:
     - name: Commit updated version
       run: |
         git add pyproject.toml
-        git commit -m "chore: incremented version" || echo "No changes to commit"
+        git commit -m "[skip ci] chore: incremented version" || echo "No changes to commit"
         git push --force-with-lease origin ${{ github.ref_name }}

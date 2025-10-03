@@ -79,8 +79,8 @@ class ItemParser:
             elif 'm_strValue' in attr:
                 value = num_utils.assert_number(attr['m_strValue'])
                 # Only filter if the value is a number and it is zero
-                if isinstance(value, (int, float)) and value == 0:
-                    continue # Skip this zero-value attribute
+                if num_utils.is_zero(value):
+                    continue  # Skip this zero-value attribute
                 parsed_item_data[attr_key] = value
             else:
                 logger.trace(f'Missing m_strValue attr in item {key} attribute {attr_key}')
