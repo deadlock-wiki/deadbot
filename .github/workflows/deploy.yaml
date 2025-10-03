@@ -134,13 +134,6 @@ jobs:
           cache-to: type=gha,mode=max,scope=deadbot-${{ needs.get-branch.outputs.branch }}
           load: true   
 
-      - name: Cache game-data
-        uses: actions/cache@v4
-        with:
-          path: deadbot/game-data
-          key: deadbot-game-${{ hashFiles('deadbot/src/steam/**/*') }}
-          restore-keys: deadbot-game-
-
       - name: Cache decompiled-data
         uses: actions/cache@v4
         with:
