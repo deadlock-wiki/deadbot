@@ -27,8 +27,8 @@ def format_changelog(
     entity_to_template = {}
     data_sources = [
         (hero_data, "HeroIcon"),
-        (item_data, "ItemIcon"),
         (ability_data, "AbilityIcon"),
+        (item_data, "ItemIcon"),
     ]
 
     for data, template_name in data_sources:
