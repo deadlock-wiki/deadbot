@@ -468,11 +468,11 @@ class AbilityCardsParser:
         # take a copy to prevent modifying the output data
         format_data = data.copy()
 
-        # if our incoming data has a scale attribute eg. {Scale: {Prop: 'Damage', Value: 50} },
-        # map it to  "<attr>_scale"
-        scale = format_data.get('Scale')
-        if scale:
-            format_data[f"{scale['Prop']}_scale"] = scale['Value']
+        # For a Scale, map the base and scale values to separate variables for description formatting
+        for attr, value in data.items():
+            if isinstance(value, dict) and 'Scale' in value:
+                format_data[attr] = value['Value']
+                format_data[f'{attr}_scale'] = value['Scale']['Value']
 
         # required variables to insert into the description
         format_vars = (
