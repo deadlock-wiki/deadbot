@@ -101,6 +101,9 @@ def act_changelog_parse(args, wiki_upload=None):
     )
     chlog_fetcher.run()
 
+    # Get the changelog ID to test from an environment variable
+    test_changelog_id = os.getenv('TEST_SINGLE_CHANGELOG_ID')
+
     # If wiki upload is enabled, format and upload each changelog page.
     if wiki_upload:
         logger.info('Formatting and uploading changelog pages...')
@@ -109,8 +112,18 @@ def act_changelog_parse(args, wiki_upload=None):
             hero_data = json_utils.read(os.path.join(args.output, 'json/hero-data.json'))
             item_data = json_utils.read(os.path.join(args.output, 'json/item-data.json'))
             ability_data = json_utils.read(os.path.join(args.output, 'json/ability-data.json'))
+            
+            # If in test mode, filter the dictionary to only the target changelog
+            changelogs_to_process = chlog_fetcher.changelogs
+            if test_changelog_id:
+                if test_changelog_id in changelogs_to_process:
+                    logger.warning(f'TEST MODE: Processing only changelog ID "{test_changelog_id}"')
+                    changelogs_to_process = {test_changelog_id: changelogs_to_process[test_changelog_id]}
+                else:
+                    logger.error(f'Test changelog ID "{test_changelog_id}" not found. Aborting upload.')
+                    changelogs_to_process = {}
 
-            for changelog_id, raw_text in chlog_fetcher.changelogs.items():
+            for changelog_id, raw_text in changelogs_to_process.items():
                 config = chlog_fetcher.changelog_configs.get(changelog_id)
                 # Skip if config is missing or if it's a Hero Lab entry.
                 if not config or config.get('is_hero_lab'):

@@ -63,20 +63,35 @@ class WikiUpload:
 
     def upload_new_page(self, title, content):
         """
-        Uploads a page to the wiki if it doesn't already exist.
+        Uploads a page to the wiki. Behavior changes for test runs.
 
         Args:
             title (str): The full title of the page (e.g., "Update:May_27,_2025").
             content (str): The wikitext content for the page.
         """
+        # Check for environment variables that signal a test run
+        sandbox_title = os.getenv('WIKI_SANDBOX_PAGE_TITLE')
+        is_test_overwrite_mode = os.getenv('WIKI_TEST_OVERWRITE') == 'true'
+
+        is_test_mode = bool(sandbox_title)
+        if is_test_mode:
+            title = sandbox_title
+            logger.warning(f'SANDBOX MODE: Redirecting upload to page "{title}"')
+
         page = self.site.pages[title]
-        if page.exists:
-            logger.info(f'Page "{title}" already exists, skipping creation.')
+
+        # In a normal run, only create new pages.
+        # In a test run with overwrite enabled, always save.
+        if page.exists and not (is_test_mode and is_test_overwrite_mode):
+            logger.info(f'Page "{title}" already exists, skipping.')
             return
 
-        logger.info(f'Creating new page: "{title}"')
-        page.save(content, summary=self.upload_message)
-        logger.success(f'Successfully created page "{title}"')
+        action = "Overwriting" if page.exists else "Creating"
+        summary = f"Test upload: {self.upload_message}" if is_test_mode else self.upload_message
+
+        logger.info(f'{action} page: "{title}"')
+        page.save(content, summary=summary)
+        logger.success(f'Successfully saved page "{title}"')
 
     def _update_page(self, page, updated_text):
         page.save(updated_text, summary=self.upload_message, minor=False, bot=True)
