@@ -134,16 +134,17 @@ def act_changelog_parse(args, wiki_upload=None):
                     logger.warning(f"Changelog '{changelog_id}' is missing a date. Skipping wiki page creation.")
                     continue
 
-                # --- CHANGE 2: Build the full page content with the {{Update layout}} template ---
-                # First, format the body of the changelog.
                 formatted_body = wikitext_formatter.format_changelog(raw_text, hero_data, item_data, ability_data)
 
-                # Then, construct the full page wikitext.
                 date_obj = datetime.strptime(changelog_date, '%Y-%m-%d')
                 
                 source_link = config.get('link', '')
                 # Create a fallback title from the link if one isn't available.
-                source_title = source_link.split('/')[-2].replace('-', ' ') if source_link else f"{date_obj.strftime('%m-%d-%Y')} Update"
+                source_title = (
+                    source_link.split('/')[-2].split('.')[0].replace('-update', ' Update')
+                    if source_link
+                    else f"{date_obj.strftime('%m-%d-%Y')} Update"
+                )
 
                 full_page_content = f"""{{{{Update layout
 | prev_update = 
@@ -156,13 +157,10 @@ def act_changelog_parse(args, wiki_upload=None):
 | notes = 
 {formatted_body}
 }}}}"""
-                # --- End of Change 2 ---
 
-                # Construct the title for the wiki page.
                 wiki_date_str = f"{date_obj.strftime('%B')}_{date_obj.day},_{date_obj.year}"
                 page_title = f'Update:{wiki_date_str}'
                 
-                # Upload the complete page content.
                 wiki_upload.upload_new_page(page_title, full_page_content)
 
         except FileNotFoundError as e:
@@ -170,7 +168,6 @@ def act_changelog_parse(args, wiki_upload=None):
         except Exception as e:
             logger.error(f'An unexpected error occurred during changelog page upload: {e}')
 
-    # Process the changelogs for tagged data extraction (for the Data: namespace).
     chlog_parser = parse_changelogs.ChangelogParser(args.output)
     chlog_parser.run_all(chlog_fetcher.changelogs)
     return chlog_parser
