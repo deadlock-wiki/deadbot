@@ -134,17 +134,36 @@ def act_changelog_parse(args, wiki_upload=None):
                     logger.warning(f"Changelog '{changelog_id}' is missing a date. Skipping wiki page creation.")
                     continue
 
-                # Format the raw text into wikitext.
-                formatted_wikitext = wikitext_formatter.format_changelog(raw_text, hero_data, item_data, ability_data)
+                # --- CHANGE 2: Build the full page content with the {{Update layout}} template ---
+                # First, format the body of the changelog.
+                formatted_body = wikitext_formatter.format_changelog(raw_text, hero_data, item_data, ability_data)
 
-                # Convert YYYY-MM-DD to a datetime object.
+                # Then, construct the full page wikitext.
                 date_obj = datetime.strptime(changelog_date, '%Y-%m-%d')
-                # Format it into "Month_Day,_Year" for the wiki title.
-                wiki_date_str = f"{date_obj.strftime('%B')}_{date_obj.day},_{date_obj.year}"
+                
+                source_link = config.get('link', '')
+                # Create a fallback title from the link if one isn't available.
+                source_title = source_link.split('/')[-2].replace('-', ' ') if source_link else f"{date_obj.strftime('%m-%d-%Y')} Update"
 
-                # Construct the title and upload the page.
+                full_page_content = f"""{{{{Update layout
+| prev_update = 
+| month = {date_obj.strftime('%B')}
+| day = {date_obj.day}
+| year = {date_obj.year}
+| next_update = 
+| source = {source_link}
+| source_title = {source_title}
+| notes = 
+{formatted_body}
+}}}}"""
+                # --- End of Change 2 ---
+
+                # Construct the title for the wiki page.
+                wiki_date_str = f"{date_obj.strftime('%B')}_{date_obj.day},_{date_obj.year}"
                 page_title = f'Update:{wiki_date_str}'
-                wiki_upload.upload_new_page(page_title, formatted_wikitext)
+                
+                # Upload the complete page content.
+                wiki_upload.upload_new_page(page_title, full_page_content)
 
         except FileNotFoundError as e:
             logger.error(f'Could not find required data files for changelog formatting: {e}. Skipping changelog page uploads.')

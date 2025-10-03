@@ -36,7 +36,9 @@ def format_changelog(
             continue
         for entry in data.values():
             name = entry.get("Name")
-            if name:  # Ensure name is not None or empty
+            # Only add active (not disabled) entities to the template map.
+            is_disabled = entry.get("IsDisabled", False)
+            if name and not is_disabled:
                 entity_to_template[name] = f"{{{{{template_name}|{name}}}}}"
 
     # Sort all unique entity names by length in descending order.
