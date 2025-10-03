@@ -175,7 +175,7 @@ jobs:
         working-directory: deadbot
         run: |
           git add input-data
-          git commit -m "chore: updated input data" || echo "No changes to commit"
+          git commit -m "[skip ci] chore: updated input data" || echo "No changes to commit"
           git push --force-with-lease origin ${{ needs.get-branch.outputs.branch }}
 
       - name: Pull data branch
