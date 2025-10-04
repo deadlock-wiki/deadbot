@@ -42,12 +42,12 @@ class WikiUpload:
             namespace = page_name_obj['namespace']
             page_name = page_name_obj['page_name']
 
-            # filter for the "Data" namespace, as that is where all generated data lives on the wiki
+            # Filter for pages in the "Data" namespace.
             if namespace != self.DATA_NAMESPACE:
                 continue
 
             file_path = DATA_PAGE_FILE_MAP.get(page_name)
-            # If file is not found in either page map or ignore list, add a warning to resolve that
+            # If a file path is not defined for a page, log a warning.
             if file_path is None:
                 if page_name not in IGNORE_PAGES:
                     logger.warning(f'Missing file map for data page "{page_name}". Either add a corresponding file path or add it to the ignore list')
@@ -60,6 +60,38 @@ class WikiUpload:
 
             json_string = json.dumps(data, indent=4)
             self._update_page(page, json_string)
+
+    def upload_new_page(self, title, content):
+        """
+        Uploads a page to the wiki. Behavior changes for test runs.
+
+        Args:
+            title (str): The full title of the page (e.g., "Update:May_27,_2025").
+            content (str): The wikitext content for the page.
+        """
+        # Check for environment variables that signal a test run
+        sandbox_title = os.getenv('WIKI_SANDBOX_PAGE_TITLE')
+        is_test_overwrite_mode = os.getenv('WIKI_TEST_OVERWRITE') == 'true'
+
+        is_test_mode = bool(sandbox_title)
+        if is_test_mode:
+            title = sandbox_title
+            logger.warning(f'SANDBOX MODE: Redirecting upload to page "{title}"')
+
+        page = self.site.pages[title]
+
+        # In a normal run, only create new pages.
+        # In a test run with overwrite enabled, always save.
+        if page.exists and not (is_test_mode and is_test_overwrite_mode):
+            logger.info(f'Page "{title}" already exists, skipping.')
+            return
+
+        action = "Overwriting" if page.exists else "Creating"
+        summary = f"Test upload: {self.upload_message}" if is_test_mode else self.upload_message
+
+        logger.info(f'{action} page: "{title}"')
+        page.save(content, summary=summary)
+        logger.success(f'Successfully saved page "{title}"')
 
     def _update_page(self, page, updated_text):
         page.save(updated_text, summary=self.upload_message, minor=False, bot=True)
