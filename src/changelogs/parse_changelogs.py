@@ -76,25 +76,10 @@ class ChangelogParser:
             logger.error(f'Could not find required data files for changelog formatting: {e}. Skipping wikitext generation.')
             return
 
-        # --- TEST-ONLY ---
-        # Get the changelog ID to test from an environment variable
-        test_changelog_id = os.getenv('TEST_SINGLE_CHANGELOG_ID')
-
-        changelogs_to_process = changelogs
-        if test_changelog_id:
-            if test_changelog_id in changelogs_to_process:
-                logger.warning(f'TEST MODE: Processing only changelog ID "{test_changelog_id}"')
-                changelogs_to_process = {test_changelog_id: changelogs_to_process[test_changelog_id]}
-            else:
-                logger.error(f'Test changelog ID "{test_changelog_id}" not found. No wikitext will be generated.')
-                changelogs_to_process = {}
-        # ---
-        # changelogs_to_process = changelogs # Original Line
-
         output_path = os.path.join(self.OUTPUT_DIR, 'changelogs', 'wiki')
         os.makedirs(output_path, exist_ok=True)
 
-        for changelog_id, raw_text in changelogs_to_process.items():
+        for changelog_id, raw_text in changelogs.items():
             config = changelog_configs.get(changelog_id)
             # Skip if config is missing or if it's a Hero Lab entry.
             if not config or config.get('is_hero_lab'):
