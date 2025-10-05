@@ -1,6 +1,7 @@
 import os
 import mwclient
 import json
+from datetime import datetime
 from utils import json_utils, game_utils, meta_utils
 from .pages import DATA_PAGE_FILE_MAP, IGNORE_PAGES
 from loguru import logger
@@ -19,8 +20,6 @@ class WikiUpload:
         deadbot_version = meta_utils.get_deadbot_version()
         self.upload_message = f'Deadbot v{deadbot_version}-{game_version}'
 
-        logger.info('Uploading Data to Wiki -', self.upload_message)
-
         self.auth = {
             'user': os.environ.get('BOT_WIKI_USER'),
             'password': os.environ.get('BOT_WIKI_PASS'),
@@ -34,6 +33,46 @@ class WikiUpload:
 
         self.site = mwclient.Site('deadlock.wiki', path='/')
         self.site.login(self.auth['user'], self.auth['password'])
+
+    def run(self):
+        logger.info(f'Uploading Data to Wiki - {self.upload_message}')
+        self.update_data_pages()
+        self._upload_changelog_pages()
+
+    def _upload_changelog_pages(self):
+        """
+        Reads formatted changelog files and uploads them to the wiki.
+        """
+        changelog_dir = os.path.join(self.OUTPUT_DIR, 'changelogs', 'wiki')
+        if not os.path.isdir(changelog_dir):
+            logger.trace(f'Changelog wiki directory not found at "{changelog_dir}", skipping changelog upload.')
+            return
+
+        logger.info('Uploading changelog pages...')
+        for filename in sorted(os.listdir(changelog_dir)):
+            if not filename.endswith('.txt'):
+                continue
+
+            changelog_id = filename.replace('.txt', '')
+            try:
+                # Changelog IDs are typically 'YYYY-MM-DD' or 'YYYY-MM-DD-1'.
+                # We only care about the date part for the page title.
+                date_part = '-'.join(changelog_id.split('-')[:3])
+                date_obj = datetime.strptime(date_part, '%Y-%m-%d')
+
+                wiki_date_str = f"{date_obj.strftime('%B')}_{date_obj.day},_{date_obj.year}"
+                page_title = f'Update:{wiki_date_str}'
+
+                filepath = os.path.join(changelog_dir, filename)
+                with open(filepath, 'r', encoding='utf-8') as f:
+                    content = f.read()
+
+                self.upload_new_page(page_title, content)
+
+            except ValueError:
+                logger.error(f"Could not parse date from changelog filename '{filename}'. Skipping.")
+            except Exception as e:
+                logger.error(f"Failed to upload changelog from '{filename}': {e}")
 
     def update_data_pages(self):
         namespace_id = self._get_namespace_id(self.DATA_NAMESPACE)
