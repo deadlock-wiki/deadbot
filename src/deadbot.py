@@ -107,3 +107,4 @@ def act_changelog_parse(args):
 
 if __name__ == '__main__':
     main()
+    
