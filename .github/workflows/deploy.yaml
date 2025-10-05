@@ -11,7 +11,7 @@ on:
         type: boolean
         description: Only parse English localizations
         default: false
-      # --- TEST-ONLY ---
+      # Test lines
       test_changelog_id:
         description: 'TEST ONLY: The changelog ID to test (e.g., "2024-10-24").'
         required: false
@@ -162,16 +162,13 @@ jobs:
           PARSE: true
           CHANGELOGS: true
           CLEANUP: false
-          # --- TEST-ONLY ---
           WIKI_UPLOAD: ${{ needs.get-branch.outputs.branch == 'master' || github.event.inputs.test_sandbox_page != '' }}
-          # ---
-          # WIKI_UPLOAD: ${{ needs.get-branch.outputs.branch == 'master' }} # Original line
           STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
           STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
           BOT_WIKI_USER: ${{ vars.BOT_WIKI_USER }}
           BOT_WIKI_PASS: ${{ secrets.BOT_WIKI_PASS }}
           VERBOSE: ${{ secrets.ACTIONS_RUNNER_DEBUG == 'true' }}
-          # --- TEST-ONLY ---
+          # TEST lines
           TEST_SINGLE_CHANGELOG_ID: ${{ github.event.inputs.test_changelog_id }}
           WIKI_SANDBOX_PAGE_TITLE: ${{ github.event.inputs.test_sandbox_page }}
           WIKI_TEST_OVERWRITE: ${{ github.event.inputs.test_overwrite_page }}
