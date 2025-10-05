@@ -358,3 +358,4 @@ class ChangelogParser:
 
     def get_lang_en(self):
         return json_utils.read(self.OUTPUT_DIR + '/localizations/english.json')
+        

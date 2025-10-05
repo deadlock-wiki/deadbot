@@ -162,3 +162,4 @@ class WikiUpload:
             return {'namespace': 'Main', 'page_name': full_page_name}
 
         return {'namespace': split_page[0], 'page_name': split_page[1]}
+        
