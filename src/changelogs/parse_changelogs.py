@@ -114,22 +114,22 @@ class ChangelogParser:
             if source_link:
                 # Example slug: 10-02-2025-update.84332
                 slug = source_link.split('/')[-2]
-                title_part = slug.split('.')[0]
-                # Replaces hyphens with spaces and capitalizes, e.g., "10 02 2025 Update"
-                source_title = title_part.replace('-', ' ').title()
+                title_part = slug.split('.')[0]  # e.g., "10-02-2025-update"
+                # Specifically replace '-update' to preserve date hyphens
+                source_title = title_part.replace('-update', ' Update')
             else:
                 # Fallback title if no link is present
                 source_title = f"{date_obj.strftime('%m-%d-%Y')} Update"
 
             full_page_content = f"""{{{{Update layout
-| prev_update = 
+| prev_update =
 | month = {date_obj.strftime('%B')}
 | day = {date_obj.day}
 | year = {date_obj.year}
-| next_update = 
+| next_update =
 | source = {source_link}
 | source_title = {source_title}
-| notes = 
+| notes =
 {formatted_body}
 }}}}"""
 
