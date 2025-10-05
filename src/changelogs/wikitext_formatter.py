@@ -1,6 +1,7 @@
 import re
 from typing import Dict, Any
 
+
 def format_changelog(
     raw_text: str,
     hero_data: Dict[str, Any],
@@ -21,32 +22,32 @@ def format_changelog(
         str: The formatted wikitext string.
     """
     if not raw_text:
-        return ""
+        return ''
 
     # Create a mapping from entity names to their wikitext templates.
     entity_to_template = {}
     data_sources = [
-        (hero_data, "HeroIcon"),
-        (ability_data, "AbilityIcon"),
-        (item_data, "ItemIcon"),
+        (hero_data, 'HeroIcon'),
+        (ability_data, 'AbilityIcon'),
+        (item_data, 'ItemIcon'),
     ]
 
     for data, template_name in data_sources:
         if not data:
             continue
         for entry in data.values():
-            name = entry.get("Name")
+            name = entry.get('Name')
             # Only add active (not disabled) entities to the template map.
-            is_disabled = entry.get("IsDisabled", False)
+            is_disabled = entry.get('IsDisabled', False)
             if name and not is_disabled:
-                entity_to_template[name] = f"{{{{{template_name}|{name}}}}}"
+                entity_to_template[name] = f'{{{{{template_name}|{name}}}}}'
 
     # Sort all unique entity names by length in descending order.
     # This is crucial for the regex to match longer names first (e.g., "Smoke Bomb" before "Smoke").
     sorted_names = sorted(list(entity_to_template.keys()), key=len, reverse=True)
 
     # Convert line-starting hyphens to asterisks for wiki lists.
-    wikitext = re.sub(r"^- ", "* ", raw_text, flags=re.MULTILINE)
+    wikitext = re.sub(r'^- ', '* ', raw_text, flags=re.MULTILINE)
 
     if not sorted_names:
         return wikitext
