@@ -42,11 +42,11 @@ def kv3_to_json(kv3_obj, output_file):
 def remove_subclass(path):
     with open(path, 'r', encoding='utf-8') as f:
         content = f.read()
-    
+
     # 1. Fix the non-standard "subclass:" syntax by simply removing it.
     content = content.replace('subclass:', '')
-    
-    # 2. Fix the data corruption bug by replacing the problematic empty resource 
+
+    # 2. Fix the data corruption bug by replacing the problematic empty resource
     #    with a standard empty string before the parser sees it.
     content = content.replace('resource_name:""', '""')
 
