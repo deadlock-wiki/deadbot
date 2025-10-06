@@ -40,7 +40,7 @@ class WikiUpload:
 
     def run(self):
         logger.info(f'Uploading Data to Wiki - {self.upload_message}')
-        self.update_data_pages()
+        self._update_data_pages()
         self._upload_changelog_pages()
 
     def _upload_changelog_pages(self):
@@ -78,7 +78,7 @@ class WikiUpload:
             except Exception as e:
                 logger.error(f"Failed to upload changelog from '{filename}': {e}")
 
-    def update_data_pages(self):
+    def _update_data_pages(self):
         namespace_id = self._get_namespace_id(self.DATA_NAMESPACE)
         for page in self.site.allpages(namespace=namespace_id):
             page_name_obj = self._split_page_name(page.name)
