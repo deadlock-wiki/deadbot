@@ -111,16 +111,21 @@ def arg_group_action(parser):
         help='Parses decompiled game files into json and csv (overrides PARSE env variable)',
     )
     group_actions.add_argument(
+        '-c',
+        '--changelogs',
+        action='store_true',
+        help='Fetch/parse forum and local changelogs. (also set with CHANGELOGS env variable)',
+    )
+    group_actions.add_argument(
         '-u',
         '--wiki_upload',
         action='store_true',
         help='Upload parsed data to the Wiki (also set with WIKI_UPLOAD environment variable)',
     )
     group_actions.add_argument(
-        '-c',
-        '--changelogs',
+        '--dry_run',
         action='store_true',
-        help='Fetch/parse forum and local changelogs. (also set with CHANGELOGS env variable)',
+        help='Run the wiki upload in dry-run mode (also set with DRY_RUN environment variable)',
     )
     return group_actions
 
@@ -144,6 +149,8 @@ def load_arguments():
         args.changelogs = os.getenv('CHANGELOGS', False)
     if not args.wiki_upload:
         args.wiki_upload = os.getenv('WIKI_UPLOAD', False)
+    if not args.dry_run:
+        args.dry_run = os.getenv('DRY_RUN', False)
     if not args.verbose:
         args.verbose = os.getenv('VERBOSE', False)
     return args

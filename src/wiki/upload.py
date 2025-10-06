@@ -12,9 +12,13 @@ class WikiUpload:
     Uploads a set of specified data to deadlock.wiki via the MediaWiki API
     """
 
-    def __init__(self, output_dir):
+    def __init__(self, output_dir, dry_run=False):
         self.OUTPUT_DIR = output_dir
         self.DATA_NAMESPACE = 'Data'
+
+        if dry_run:
+            logger.info('Wiki upload is running in dry-run mode. No changes will be made to the wiki.')
+        self.dry_run = dry_run
 
         game_version = game_utils.load_game_info(f'{self.OUTPUT_DIR}/version.txt')['ClientVersion']
         deadbot_version = meta_utils.get_deadbot_version()
@@ -114,12 +118,19 @@ class WikiUpload:
             return
 
         logger.info(f'Creating new page: "{title}"')
+        if self.dry_run:
+            return
+
         page.save(content, summary=self.upload_message)
         logger.success(f'Successfully created page "{title}"')
 
     def _update_page(self, page, updated_text):
+        logger.info(f'Updating page: "{page.name}"')
+        if self.dry_run:
+            return
+
         page.save(updated_text, summary=self.upload_message, minor=False, bot=True)
-        logger.success(f'Page "{page.name}" updated')
+        logger.success(f'Successfully updated page "{page.name}"')
 
     def _get_namespace_id(self, search_namespace):
         for namespace_id, namespace in self.site.namespaces.items():

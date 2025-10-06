@@ -33,7 +33,7 @@ Run with `poetry run deadbot`
 <summary>`poetry run deadbot -h`</summary>
 
 ```sh
-usage: Deadbot [-h] [-i DL_PATH] [-w WORKDIR] [-n INPUTDIR] [-o OUTPUT] [--build_num BUILD_NUM] [-v] [-d] [-p] [-u] [-c] [--force]
+usage: Deadbot [-h] [--dldir DLDIR] [-w WORKDIR] [-n INPUTDIR] [-o OUTPUT] [--english-only] [--force] [-v] [--steam_username STEAM_USERNAME] [--steam_password STEAM_PASSWORD] [--depot_downloader_cmd DEPOT_DOWNLOADER_CMD] [--manifest_id MANIFEST_ID] [-i] [-d] [-p] [-c] [-u] [--dry_run]
 
 Bot that lives to serve deadlock.wiki
 
@@ -41,24 +41,34 @@ options:
   -h, --help            show this help message and exit
 
 path configs:
-  -i DL_PATH, --dl_path DL_PATH
-                        Path to Deadlock game files (also set with DEADLOCK_DIR environment variable)
+  --dldir DLDIR         Path to Deadlock game files (also set with DEADLOCK_DIR environment variable)
   -w WORKDIR, --workdir WORKDIR
                         Directory for temp working files (also set with WORK_DIR environment variable)
   -n INPUTDIR, --inputdir INPUTDIR
                         Input directory for changelogs and wiki pages (also set with OUTPUT_DIR env variable)
   -o OUTPUT, --output OUTPUT
                         Output directory (also set with OUTPUT_DIR environment variable)
-  --build_num BUILD_NUM
-                        Build number of the game files to be used. Defaults to current build
+  --english-only        Only parse for english localizations (also set with ENGLISH_ONLY environment variable)
+  --force               Forces decompilation even if game files and workdir versions match
   -v, --verbose         Print verbose output for extensive logging
 
+steam config:
+  --steam_username STEAM_USERNAME
+                        Steam username for downloading game files (also set with STEAM_USERNAME environment variable)
+  --steam_password STEAM_PASSWORD
+                        Steam password for downloading game files (also set with STEAM_PASSWORD environment variable)
+  --depot_downloader_cmd DEPOT_DOWNLOADER_CMD
+                        Path to DepotDownloader directory that contains the executable (also set with DEPOT_DOWNLOADER_CMD environment variable)
+  --manifest_id MANIFEST_ID
+                        Manifest id to download, defaults to 'latest' (also set with MANIFEST_ID environment variable). Browse them at https://steamdb.info/depot/1422456/manifests/
+
 bot actions:
+  -i, --import_files    Import the game files from SteamDB and localization files using DepotDownloader (also set with IMPORT_FILES environment variable)
   -d, --decompile       Decompiles Deadlock game files. (also set with DECOMPILE environment variable)
   -p, --parse           Parses decompiled game files into json and csv (overrides PARSE env variable)
-  -u, --wiki_upload     Upload parsed data to the Wiki (also set with WIKI_UPLOAD environment variable)
   -c, --changelogs      Fetch/parse forum and local changelogs. (also set with CHANGELOGS env variable)
-  --force               Forces decompilation even if game files and workdir versions match
+  -u, --wiki_upload     Upload parsed data to the Wiki (also set with WIKI_UPLOAD environment variable)
+  --dry_run             Run the wiki upload in dry-run mode (also set with DRY_RUN environment variable)
 
 Process Deadlock game files and extract data and stats
 ```
