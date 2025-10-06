@@ -22,6 +22,7 @@ class Parser:
         work_dir,
         output_dir,
         language='english',
+        english_only=False,
     ):
         # constants
         self.OUTPUT_DIR = output_dir
@@ -32,11 +33,15 @@ class Parser:
         self.data = {'scripts': {}}
         self.localization_groups = self._get_localization_groups()
 
-        # Get all languages from localization_file i.e. citadel_attributes_english.json -> english
-        self.languages = [
-            localization_file.split('citadel_' + self.localization_groups[0] + '_')[1].split('.json')[0]
-            for localization_file in os.listdir(os.path.join(self.DATA_DIR, 'localizations', self.localization_groups[0]))
-        ]
+        if english_only:
+            self.languages = ['english']
+            self.language = 'english'
+        else:
+            # Get all languages from localization_file i.e. citadel_attributes_english.json -> english
+            self.languages = [
+                localization_file.split('citadel_' + self.localization_groups[0] + '_')[1].split('.json')[0]
+                for localization_file in os.listdir(os.path.join(self.DATA_DIR, 'localizations', self.localization_groups[0]))
+            ]
 
         self._load_vdata()
         self._load_localizations()

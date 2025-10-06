@@ -1,7 +1,11 @@
 import os
+from datetime import datetime
+from loguru import logger
 
 import utils.json_utils as json_utils
+from utils import file_utils
 from .tags import ChangelogTags as Tags
+from . import wikitext_formatter
 
 
 class ChangelogParser:
@@ -58,6 +62,65 @@ class ChangelogParser:
         os.makedirs(self.OUTPUT_CHANGELOGS, exist_ok=True)
         json_utils.write(self.OUTPUT_CHANGELOGS + f'/versions/{version}.json', changelog_with_icons)
         return changelog_with_icons
+
+    def format_and_save_wikitext_changelogs(self, changelogs, changelog_configs):
+        """
+        Formats changelogs into wikitext and saves them to files for later upload.
+        """
+        try:
+            # Load data required for formatting entity names.
+            hero_data = json_utils.read(os.path.join(self.OUTPUT_DIR, 'json/hero-data.json'))
+            item_data = json_utils.read(os.path.join(self.OUTPUT_DIR, 'json/item-data.json'))
+            ability_data = json_utils.read(os.path.join(self.OUTPUT_DIR, 'json/ability-data.json'))
+        except FileNotFoundError as e:
+            logger.error(f'Could not find required data files for changelog formatting: {e}. Skipping wikitext generation.')
+            return
+
+        output_path = os.path.join(self.OUTPUT_DIR, 'changelogs', 'wiki')
+        os.makedirs(output_path, exist_ok=True)
+
+        for changelog_id, raw_text in changelogs.items():
+            config = changelog_configs.get(changelog_id)
+            # Skip if config is missing or if it's a Hero Lab entry.
+            if not config or config.get('is_hero_lab'):
+                continue
+
+            changelog_date = config.get('date')
+            if not changelog_date:
+                logger.warning(f"Changelog '{changelog_id}' is missing a date. Skipping wiki page creation.")
+                continue
+
+            formatted_body = wikitext_formatter.format_changelog(raw_text, hero_data, item_data, ability_data)
+
+            date_obj = datetime.strptime(changelog_date, '%Y-%m-%d')
+
+            source_link = config.get('link', '')
+            source_title = ''
+            if source_link:
+                # Example slug: 10-02-2025-update.84332
+                slug = source_link.split('/')[-2]
+                title_part = slug.split('.')[0]  # e.g., "10-02-2025-update"
+                # Specifically replace '-update' to preserve date hyphens
+                source_title = title_part.replace('-update', ' Update')
+            else:
+                # Fallback title if no link is present
+                source_title = f"{date_obj.strftime('%m-%d-%Y')} Update"
+
+            full_page_content = f"""{{{{Update layout
+| prev_update =
+| month = {date_obj.strftime('%B')}
+| day = {date_obj.day}
+| year = {date_obj.year}
+| next_update =
+| source = {source_link}
+| source_title = {source_title}
+| notes =
+{formatted_body}
+}}}}"""
+
+            file_utils.write(os.path.join(output_path, f'{changelog_id}.txt'), full_page_content)
+
+        logger.success(f'Formatted changelogs saved to {output_path}')
 
     # Parse a given line for assignable tags
     def _parse_tags(self, current_heading, line):
