@@ -79,7 +79,7 @@ def main():
 
 
 def act_gamefile_parse(args):
-    game_parser = parser.Parser(args.workdir, args.output)
+    game_parser = parser.Parser(args.workdir, args.output, english_only=args.english_only)
     game_parser.run()
     logger.trace('Exporting to CSV...')
     csv_writer.export_json_file_to_csv('item-data', args.output)
