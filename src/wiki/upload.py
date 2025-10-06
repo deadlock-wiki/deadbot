@@ -114,7 +114,7 @@ class WikiUpload:
         """
         page = self.site.pages[title]
         if page.exists:
-            logger.info(f'Page "{title}" already exists, skipping creation.')
+            logger.trace(f'Page "{title}" already exists, skipping creation.')
             return
 
         logger.info(f'Creating new page: "{title}"')
