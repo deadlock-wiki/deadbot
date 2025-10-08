@@ -86,6 +86,7 @@ poetry run deadbot --import_files --parse
     | `OUTPUT_DIR` | `../deadlock-data/data/current` | ❌ (Defaults to `./output-data`) | Where the parsed data files will be saved. |
     | `DEPOT_DOWNLOADER_CMD` | `C:\Tools\DepotDownloader.exe` | ❌ (For non-English parsing) | Path to the DepotDownloader executable. |
 
+    For full configuration see [Parameters](#parameters)
 5.  **Run the bot:**
     You can run specific tasks using flags. All flags can also be set as booleans in your `.env` file.
     ```sh
@@ -97,6 +98,27 @@ poetry run deadbot --import_files --parse
     ```
 
 ---
+## Parameters
+| Section          | Argument                                      | Description                                                                                                                             | Environment Var        |
+| ---------------- | --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| **General**      | `-h, --help`                                  | Show help message and exit.                                                                                                             |                        |
+|                  | `-w, --workdir WORKDIR`                       | Directory for temporary working files.                                                                                                  | `WORK_DIR`             |
+|                  | `-n, --inputdir INPUTDIR`                     | Input directory for changelogs and wiki pages.                                                                                          | `INPUT_DIR`            |
+|                  | `-o, --output OUTPUT`                         | Output directory for generated files.                                                                                                   | `OUTPUT_DIR`           |
+|                  | `--english-only`                              | Only parse English localizations.                                                                                                       | `ENGLISH_ONLY`         |
+|                  | `--force`                                     | Forces decompilation even if game files and workdir versions match.                                                                     |                        |
+|                  | `-v, --verbose`                               | Enable verbose logging for detailed output.                                                                                             |                        |
+| **Steam Config** | `--steam_username STEAM_USERNAME`             | Steam username for downloading game files.                                                                                              | `STEAM_USERNAME`       |
+|                  | `--steam_password STEAM_PASSWORD`             | Steam password for downloading game files.                                                                                              | `STEAM_PASSWORD`       |
+|                  | `--depot_downloader_cmd DEPOT_DOWNLOADER_CMD` | Path to the **DepotDownloader** executable directory.                                                                                   | `DEPOT_DOWNLOADER_CMD` |
+|                  | `--manifest_id MANIFEST_ID`                   | Manifest ID to download. Defaults to `latest`. Browse manifests: [SteamDB Depot 1422456](https://steamdb.info/depot/1422456/manifests/) | `MANIFEST_ID`          |
+| **Bot Actions**  | `-i, --import_files`                          | Import game and localization files using DepotDownloader.                                                                               | `IMPORT_FILES`         |
+|                  | `-d, --decompile`                             | Decompile Deadlock game files.                                                                                                          | `DECOMPILE`            |
+|                  | `-p, --parse`                                 | Parse decompiled files into JSON and CSV.                                                                                               | `PARSE`                |
+|                  | `-c, --changelogs`                            | Fetch and parse both forum and local changelogs.                                                                                        | `CHANGELOGS`           |
+|                  | `-u, --wiki_upload`                           | Upload parsed data to the Wiki.                                                                                                         | `WIKI_UPLOAD`          |
+|                  | `--dry_run`                                   | Run wiki upload in dry-run mode (no actual upload).                                                                                     | `DRY_RUN`              |
+
 
 ## Docker
 You can also run Deadbot using Docker, which is how it's deployed in production.

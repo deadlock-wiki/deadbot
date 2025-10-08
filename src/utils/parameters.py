@@ -108,13 +108,13 @@ def arg_group_action(parser):
         '-p',
         '--parse',
         action='store_true',
-        help='Parses decompiled game files into json and csv (overrides PARSE env variable)',
+        help='Parses decompiled game files into json and csv (also set with PARSE environment variable)',
     )
     group_actions.add_argument(
         '-c',
         '--changelogs',
         action='store_true',
-        help='Fetch/parse forum and local changelogs. (also set with CHANGELOGS env variable)',
+        help='Fetch/parse forum and local changelogs. (also set with CHANGELOGS environment variable)',
     )
     group_actions.add_argument(
         '-u',
