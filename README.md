@@ -8,7 +8,7 @@
 Deadbot is an open-source automation tool for extracting and processing game data for Valve's upcoming hero shooter, *Deadlock*. Its primary purpose is to accurately populate and maintain the [Deadlock Wiki](https://deadlock.wiki/).
 
 ### Key Features
-*   **Data Extraction:** Automatically downloads the latest game files from Steam depots.
+*   **Data Extraction:** Downloads the latest game files by cloning the [SteamDB GameTracking-Deadlock repository](https://github.com/SteamDatabase/GameTracking-Deadlock) and using DepotDownloader for non-English localizations.
 *   **Decompilation:** Processes raw game assets (`.vdata_c`, localization files) into structured JSON.
 *   **Data Parsing:** Parses decompiled files to extract detailed stats for heroes, abilities, items, and NPCs.
 *   **Changelog Aggregation:** Fetches official patch notes and in-game "Hero Lab" changes.
@@ -24,7 +24,7 @@ Deadbot uses a two-repository system to separate logic from data:
 2.  **[deadlock-data](https://github.com/deadlock-wiki/deadlock-data):** Stores the JSON, CSV, localization, and changelog files produced by this tool. Keeping data in a separate repository allows for clean, version-controlled tracking of game data changes over time.
 
 The data flow is as follows:
-**Steam Game Files → Deadbot (Parse) → `deadlock-data` Repository → Deadlock Wiki**
+**SteamDB GameTracking Repo → Deadbot (Parse) → `deadlock-data` Repository → Deadlock Wiki**
 
 ---
 
@@ -35,15 +35,23 @@ The data flow is as follows:
 *   [Python 3.11+](https://www.python.org/)
 *   [Poetry](https://python-poetry.org/docs/#installation) (Python dependency manager)
 
-### Quick Start: Parse Local Game Files
-If you already have Deadlock installed and just want the data, run one of these one-liners:
+### Usage Scenarios
 
+#### 1. Parsing Existing Local Game Files
+If you already have Deadlock installed, this is the fastest way to get the data.
 ```sh
 # For Linux/macOS
 DEADLOCK_DIR="/path/to/Steam/steamapps/common/Deadlock" poetry run deadbot --parse
 
 # For Windows PowerShell
 $env:DEADLOCK_DIR="C:\Program Files (x86)\Steam\steamapps\common\Deadlock"; poetry run deadbot --parse
+```
+
+#### 2. Downloading and Parsing Game Files
+If you don't have the game files locally, Deadbot can download them for you. This is the method used by the automated workflows.
+```sh
+# This will clone game files into the DEADLOCK_DIR specified in your .env file
+poetry run deadbot --import_files --parse
 ```
 
 ### Full Installation
@@ -70,14 +78,13 @@ $env:DEADLOCK_DIR="C:\Program Files (x86)\Steam\steamapps\common\Deadlock"; poet
     ```
     Then, edit the `.env` file with your desired paths and credentials.
 
-    | Variable               | Example Value                         | Required?                       |
-    | ---------------------- | ------------------------------------- | ------------------------------- |
-    | `DEADLOCK_DIR`         | `C:\Steam\common\Deadlock`            | ✅                              |
-    | `STEAM_USERNAME`       | `mySteamLogin`                        | ❌ (Only for downloading files) |
-    | `STEAM_PASSWORD`       | `mySteamPassword`                     | ❌ (Only for downloading files) |
-    | `OUTPUT_DIR`           | `../deadlock-data/data/current`       | ❌ (Defaults to `./output-data`)  |
-    | `DEPOT_DOWNLOADER_CMD` | `C:\Tools\DepotDownloader.exe`        | ❌ (For non-English parsing)  |
-
+    | Variable | Example Value | Required? | Description |
+    | --- | --- | --- | --- |
+    | `DEADLOCK_DIR` | `C:\Steam\common\Deadlock` | ✅ | Path to local game files, or destination for downloaded files. |
+    | `STEAM_USERNAME` | `mySteamLogin` | ❌ (Only for downloading) | Your Steam account username. |
+    | `STEAM_PASSWORD` | `mySteamPassword` | ❌ (Only for downloading) | Your Steam account password. |
+    | `OUTPUT_DIR` | `../deadlock-data/data/current` | ❌ (Defaults to `./output-data`) | Where the parsed data files will be saved. |
+    | `DEPOT_DOWNLOADER_CMD` | `C:\Tools\DepotDownloader.exe` | ❌ (For non-English parsing) | Path to the DepotDownloader executable. |
 
 5.  **Run the bot:**
     You can run specific tasks using flags. All flags can also be set as booleans in your `.env` file.
@@ -113,6 +120,11 @@ This project uses GitHub Actions to automate its workflow:
 *   **Pull Request Integration:** When a PR is opened in `deadbot`, a corresponding draft PR is automatically created in `deadlock-data` to show the impact of the changes on the output files.
 *   **CI Checks:** All PRs are automatically linted and tested to ensure code quality.
 *   **Release Management:** Merging to `master` triggers a release workflow that builds and pushes a new Docker image and creates a GitHub release.
+
+---
+
+## Acknowledgements
+This project relies on the excellent work of the SteamDB team for tracking and providing access to Deadlock's game files via their [GameTracking-Deadlock](https://github.com/SteamDatabase/GameTracking-Deadlock) repository.
 
 ---
 
