@@ -1,9 +1,22 @@
 name: Deploy
 on: 
   push:
+    branches:
+      - develop
+      - master
+    paths:
+      - 'src/**'
+      - 'Dockerfile'
+      - '.github/workflows/deploy.yaml'
+      - 'poetry.lock'
 
   pull_request:
-    types: [opened]
+    types: [synchronize, opened, reopened]
+    paths:
+      - 'src/**'
+      - 'Dockerfile'
+      - '.github/workflows/deploy.yaml'
+      - 'poetry.lock'
 
   workflow_dispatch:
     inputs:
