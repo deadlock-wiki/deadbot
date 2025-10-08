@@ -1,146 +1,124 @@
-# <img src="assets/Bebop_card.png" width="36">  Deadbot 
-Deadbot is an Open Source automation tool for aggregating data from the raw game files with the purpose of accurately maintaining the Deadlock Wiki - https://deadlock.wiki/
+# <img src="assets/Bebop_card.png" width="36">  Deadbot
 
-## Guide
-All output data can be found in the [deadlock-data](https://github.com/deadlock-wiki/deadlock-data) repository, which includes numeric game data and all patch changelogs
+[![CI Status](https://github.com/deadlock-wiki/deadbot/actions/workflows/ci.yaml/badge.svg)](https://github.com/deadlock-wiki/deadbot/actions/workflows/ci.yaml)
+[![Release](https://github.com/deadlock-wiki/deadbot/actions/workflows/release.yaml/badge.svg)](https://github.com/deadlock-wiki/deadbot/actions/workflows/release.yaml)
+![Python Version](https://img.shields.io/badge/python-3.11+-blue.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-### Google Sheets 
-Some data has been processed and formatted for google sheets:\
-[Item Data](https://docs.google.com/spreadsheets/d/1p_uRmHc-XDJGBQeSbilOlMRboepZP5GMTsaFcFf--1c/edit?usp=sharing)
+Deadbot is an open-source automation tool for extracting and processing game data for Valve's upcoming hero shooter, *Deadlock*. Its primary purpose is to accurately populate and maintain the [Deadlock Wiki](https://deadlock.wiki/).
 
-## Installation
+### Key Features
+*   **Data Extraction:** Automatically downloads the latest game files from Steam depots.
+*   **Decompilation:** Processes raw game assets (`.vdata_c`, localization files) into structured JSON.
+*   **Data Parsing:** Parses decompiled files to extract detailed stats for heroes, abilities, items, and NPCs.
+*   **Changelog Aggregation:** Fetches official patch notes and in-game "Hero Lab" changes.
+*   **Wiki Integration:** Formats data and changelogs into wikitext and uploads them directly to the Deadlock Wiki.
 
-### Setup 
-1. Install Python 3.11+
-2. **[OPTIONAL]** Add Python scripts dir to your environment. This lets you omit `python -m` when calling third-party modules
-    - Get <python_path> with `python -m site --user-base`
-    - Add to ~/.bash_profile - `export PATH="$PATH:<python_path>/Python311/Scripts"`
-3. `python3 -m pip install poetry`
-4. `python3 -m poetry install`
-5. `python3 -m pre_commit install`
-8. Setup environment variables in`.env` using `.env.example` as an example
-    - **[OPTIONAL]** Clone [deadlock-data](https://github.com/deadlock-wiki/deadlock-data) repo and set `$OUTPUT_DIR` to `deadlock-data/data/current` directory to allow for easier diff viewing
-    - **[OPTIONAL]** For non-english parsing, download DepotDownloader CLI from https://github.com/SteamRE/DepotDownloader/releases 
+---
 
-### Usage
+## Project Architecture
 
-Run with `poetry run deadbot`
+Deadbot uses a two-repository system to separate logic from data:
 
-* `bash main.sh` to run end-to-end decompilation and perform optional cleanup. Runs based on env vars.
+1.  **[deadbot (This Repository)](https://github.com/deadlock-wiki/deadbot):** Contains all the Python code for decompiling, parsing, and uploading data.
+2.  **[deadlock-data](https://github.com/deadlock-wiki/deadlock-data):** Stores the JSON, CSV, localization, and changelog files produced by this tool. Keeping data in a separate repository allows for clean, version-controlled tracking of game data changes over time.
 
-<details>
+The data flow is as follows:
+**Steam Game Files → Deadbot (Parse) → `deadlock-data` Repository → Deadlock Wiki**
 
-<summary>`poetry run deadbot -h`</summary>
+---
 
-```sh
-usage: Deadbot [-h] [--dldir DLDIR] [-w WORKDIR] [-n INPUTDIR] [-o OUTPUT] [--english-only] [--force] [-v] [--steam_username STEAM_USERNAME] [--steam_password STEAM_PASSWORD] [--depot_downloader_cmd DEPOT_DOWNLOADER_CMD] [--manifest_id MANIFEST_ID] [-i] [-d] [-p] [-c] [-u] [--dry_run]
+## Getting Started
 
-Bot that lives to serve deadlock.wiki
+### Prerequisites
+*   [Git](https://git-scm.com/)
+*   [Python 3.11+](https://www.python.org/)
+*   [Poetry](https://python-poetry.org/docs/#installation) (Python dependency manager)
 
-options:
-  -h, --help            show this help message and exit
-
-path configs:
-  --dldir DLDIR         Path to Deadlock game files (also set with DEADLOCK_DIR environment variable)
-  -w WORKDIR, --workdir WORKDIR
-                        Directory for temp working files (also set with WORK_DIR environment variable)
-  -n INPUTDIR, --inputdir INPUTDIR
-                        Input directory for changelogs and wiki pages (also set with OUTPUT_DIR env variable)
-  -o OUTPUT, --output OUTPUT
-                        Output directory (also set with OUTPUT_DIR environment variable)
-  --english-only        Only parse for english localizations (also set with ENGLISH_ONLY environment variable)
-  --force               Forces decompilation even if game files and workdir versions match
-  -v, --verbose         Print verbose output for extensive logging
-
-steam config:
-  --steam_username STEAM_USERNAME
-                        Steam username for downloading game files (also set with STEAM_USERNAME environment variable)
-  --steam_password STEAM_PASSWORD
-                        Steam password for downloading game files (also set with STEAM_PASSWORD environment variable)
-  --depot_downloader_cmd DEPOT_DOWNLOADER_CMD
-                        Path to DepotDownloader directory that contains the executable (also set with DEPOT_DOWNLOADER_CMD environment variable)
-  --manifest_id MANIFEST_ID
-                        Manifest id to download, defaults to 'latest' (also set with MANIFEST_ID environment variable). Browse them at https://steamdb.info/depot/1422456/manifests/
-
-bot actions:
-  -i, --import_files    Import the game files from SteamDB and localization files using DepotDownloader (also set with IMPORT_FILES environment variable)
-  -d, --decompile       Decompiles Deadlock game files. (also set with DECOMPILE environment variable)
-  -p, --parse           Parses decompiled game files into json and csv (overrides PARSE env variable)
-  -c, --changelogs      Fetch/parse forum and local changelogs. (also set with CHANGELOGS env variable)
-  -u, --wiki_upload     Upload parsed data to the Wiki (also set with WIKI_UPLOAD environment variable)
-  --dry_run             Run the wiki upload in dry-run mode (also set with DRY_RUN environment variable)
-
-Process Deadlock game files and extract data and stats
-```
-
-</details>
-
-Run configured through env vars:
+### Quick Start: Parse Local Game Files
+If you already have Deadlock installed and just want the data, run one of these one-liners:
 
 ```sh
-source .env
-python3 src/deadbot.py
-# or
-python3 src/deadbot.py -dp
-# or
-python3 src/deadbot.py --decompile --parse
+# For Linux/macOS
+DEADLOCK_DIR="/path/to/Steam/steamapps/common/Deadlock" poetry run deadbot --parse
+
+# For Windows PowerShell
+$env:DEADLOCK_DIR="C:\Program Files (x86)\Steam\steamapps\common\Deadlock"; poetry run deadbot --parse
 ```
 
-Decompile:
+### Full Installation
+1.  **Clone the repository:**
+    ```sh
+    git clone https://github.com/deadlock-wiki/deadbot.git
+    cd deadbot
+    ```
 
-```sh
-DL_PATH=...
-OUTPUT=...
-WORK_DIR=...
-OUTPUT=...
-python3 src/deadbot.py -d
-# or
-python3 src/deadbot.py -i $DL_PATH -w $WORKDIR -o $OUTPUT -d
-```
+2.  **Install dependencies using Poetry:**
+    ```sh
+    poetry install
+    ```
 
-Parse:
+3.  **Set up pre-commit hooks (for development):**
+    ```sh
+    poetry run pre-commit install
+    ```
 
-```sh
-DL_PATH=...
-OUTPUT=...
-WORK_DIR=...
-OUTPUT=...
-python3 src/deadbot.py -p
-# or
-python3 src/deadbot.py -i $DL_PATH -w $WORKDIR -o $OUTPUT -p
-```
+4.  **Configure your environment:**
+    Copy the example environment file.
+    ```sh
+    cp .env.example .env
+    ```
+    Then, edit the `.env` file with your desired paths and credentials.
+
+    | Variable               | Example Value                         | Required?                       |
+    | ---------------------- | ------------------------------------- | ------------------------------- |
+    | `DEADLOCK_DIR`         | `C:\Steam\common\Deadlock`            | ✅                              |
+    | `STEAM_USERNAME`       | `mySteamLogin`                        | ❌ (Only for downloading files) |
+    | `STEAM_PASSWORD`       | `mySteamPassword`                     | ❌ (Only for downloading files) |
+    | `OUTPUT_DIR`           | `../deadlock-data/data/current`       | ❌ (Defaults to `./output-data`)  |
+    | `DEPOT_DOWNLOADER_CMD` | `C:\Tools\DepotDownloader.exe`        | ❌ (For non-English parsing)  |
+
+
+5.  **Run the bot:**
+    You can run specific tasks using flags. All flags can also be set as booleans in your `.env` file.
+    ```sh
+    # Run a full process: download, decompile, and parse
+    poetry run deadbot --import_files --decompile --parse
+
+    # Just parse existing files
+    poetry run deadbot --parse
+    ```
+
+---
 
 ## Docker
+You can also run Deadbot using Docker, which is how it's deployed in production.
 
-```sh
-docker run \
-  -v "$DEADLOCK_DIR":/data
-  -v ./output-data:/output \
-  ghcr.io/deadlock_wiki/deadbot:latest
-```
+1.  **Build the image:**
+    ```sh
+    docker compose build
+    ```
+2.  **Run the container:**
+    Make sure your `.env` file is configured, as `docker-compose` will use it to set environment variables inside the container.
+    ```sh
+    docker compose up
+    ```
+    This command will build the image if it doesn't exist, then start the container and run the bot.
 
-Build image with `docker-compose build`
+---
 
-Run with `docker-compose up`
+## Automation (CI/CD)
+This project uses GitHub Actions to automate its workflow:
+*   **Auto-Deploy:** A scheduled action checks for game updates on SteamDB every hour. If a new version is found, it automatically runs the full data pipeline and commits the updated data to the `deadlock-data` repository.
+*   **Pull Request Integration:** When a PR is opened in `deadbot`, a corresponding draft PR is automatically created in `deadlock-data` to show the impact of the changes on the output files.
+*   **CI Checks:** All PRs are automatically linted and tested to ensure code quality.
+*   **Release Management:** Merging to `master` triggers a release workflow that builds and pushes a new Docker image and creates a GitHub release.
 
-Be sure to setup volumes:
-
-```yml
-service:
-    deadbot:
-        ...
-        volumes:
-        # mount game files
-        - "C:\Program Files (x86)\Steam\steamapps\common\Deadlock:/data"
-          # or
-        - "/mnt/SteamLibrary/steamapps/common/Deadlock:/data"
-        # and an output dir
-        - "./output-data:/output"
-```
+---
 
 ## Contributing
-Deadbot is currently early in its development and welcomes new contributors to get involved no matter what level experience you have.
+Deadbot is in active development and welcomes new contributors! Whether you're experienced or new to coding, your help is appreciated.
 
-Regularly discussed in the wiki channel on [The Deadlock Wiki discord server](https://discord.com/invite/3FJpr53dfu). Ask for access on there if you are interested in contributing.
+*   The best place to get involved is the `#wiki-tech` channel on **[The Deadlock Wiki Discord server](https://discord.com/invite/3FJpr53dfu)**; ask for contributor access and ping `@hariyosaag` if you’re not sure where to start.
 
-At the moment the work is fairly ad-hoc, so find me on discord as "HariyoSaag" if you're not sure where to start.
+For those who prefer to jump right in, check out the **[good first issues](https://github.com/deadlock-wiki/deadbot/labels/good%20first%20issue)** to find easy ways to contribute.
