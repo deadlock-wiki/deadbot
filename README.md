@@ -1,8 +1,8 @@
 # <img src="assets/Bebop_card.png" width="36">  Deadbot
 
-[![CI Status](https://github.com/deadlock-wiki/deadbot/actions/workflows/ci.yaml/badge.svg)](https://github.com/deadlock-wiki/deadbot/actions/workflows/ci.yaml)
-[![Release](https://github.com/deadlock-wiki/deadbot/actions/workflows/release.yaml/badge.svg)](https://github.com/deadlock-wiki/deadbot/actions/workflows/release.yaml)
+[![Latest Release](https://img.shields.io/github/v/release/deadlock-wiki/deadbot)](https://github.com/deadlock-wiki/deadbot/releases/latest)
 ![Python Version](https://img.shields.io/badge/python-3.11+-blue.svg)
+[![Deployment](https://github.com/deadlock-wiki/deadbot/actions/workflows/deploy.yaml/badge.svg?query=branch%3Amaster)](https://github.com/deadlock-wiki/deadbot/actions/workflows/deploy.yaml?query=branch%3Amaster)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Deadbot is an open-source automation tool for extracting and processing game data for Valve's upcoming hero shooter, *Deadlock*. Its primary purpose is to accurately populate and maintain the [Deadlock Wiki](https://deadlock.wiki/).
