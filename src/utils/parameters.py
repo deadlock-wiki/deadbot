@@ -24,7 +24,7 @@ def arg_group_base(parser):
     group_base.add_argument(
         '--dldir',
         help='Path to Deadlock game files (also set with DEADLOCK_DIR environment variable)',
-        default=os.getenv('DEADLOCK_DIR'),
+        default=os.getenv('DEADLOCK_DIR', os.path.abspath(os.getcwd()) + '/game-data'),
     )
     group_base.add_argument(
         '-w',

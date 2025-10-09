@@ -80,7 +80,7 @@ poetry run deadbot --import_files --parse
 
     | Variable | Example Value | Required? | Description |
     | --- | --- | --- | --- |
-    | `DEADLOCK_DIR` | `C:\Steam\common\Deadlock` | ✅ | Path to local game files, or destination for downloaded files. |
+    | `DEADLOCK_DIR` | `C:\Steam\common\Deadlock` | ❌ (Defaults to `./game-data`) | Path to local game files, or destination for downloaded files. |
     | `STEAM_USERNAME` | `mySteamLogin` | ❌ (Only for downloading) | Your Steam account username. |
     | `STEAM_PASSWORD` | `mySteamPassword` | ❌ (Only for downloading) | Your Steam account password. |
     | `OUTPUT_DIR` | `../deadlock-data/data/current` | ❌ (Defaults to `./output-data`) | Where the parsed data files will be saved. |
