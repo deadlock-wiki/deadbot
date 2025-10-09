@@ -14,6 +14,9 @@ Deadbot is an open-source automation tool for extracting and processing game dat
 *   **Changelog Aggregation:** Fetches official patch notes and in-game "Hero Lab" changes.
 *   **Wiki Integration:** Formats game data as JSON and changelogs into wikitext and uploads them directly to the Deadlock Wiki.
 
+
+> **Want to contribute?** Deadbot is a community-driven project and we're always looking for new contributors. [Find out how you can help!](#contributing)
+
 ---
 
 ## Project Architecture
