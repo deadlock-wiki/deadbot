@@ -139,11 +139,12 @@ You can also run Deadbot using Docker, which is how it's deployed in production.
 ---
 
 ## Automation (CI/CD)
-This project uses GitHub Actions to automate its workflow:
-*   **Auto-Deploy:** A scheduled action checks for game updates on SteamDB every hour. If a new version is found, it automatically runs the full data pipeline and commits the updated data to the `deadlock-data` repository.
-*   **Pull Request Integration:** When a PR is opened in `deadbot`, a corresponding draft PR is automatically created in `deadlock-data` to show the impact of the changes on the output files.
-*   **CI Checks:** All PRs are automatically linted and tested to ensure code quality.
-*   **Release Management:** Merging to `master` triggers a release workflow that builds and pushes a new Docker image and creates a GitHub release.
+This project uses GitHub Actions to automate its workflow. The central script is `deploy.yaml`, which handles the full data processing pipeline.
+*   **Deployment Workflow (`deploy.yaml`):** This is the core pipeline responsible for parsing all game data and committing the results to the `deadlock-data` repository. It is triggered by pushes to `master` and `develop`, manual runs, and by the other automation workflows.
+**Auto-Deploy (`auto-deploy.yaml`):** A scheduled action that runs hourly to check for game updates on SteamDB. If an update is found, it triggers the main Deployment Workflow.
+*   **Pull Request Integration:** When a PR is opened in `deadbot`, the Deployment Workflow runs on the feature branch. A corresponding draft PR is then automatically created in `deadlock-data` to show the impact of the code changes on the parsed output.
+*   **CI Checks (`ci.yaml`):** All PRs are automatically linted and checked to ensure code quality before they can be merged.
+*   **Release Management (`release.yaml`):** Merging to `master` triggers a release workflow that builds and pushes a new Docker image and creates a versioned GitHub release.
 
 ---
 
