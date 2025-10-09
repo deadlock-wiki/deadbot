@@ -31,33 +31,29 @@ The data flow is as follows:
 
 ---
 
-## Getting Started
+## Usage
+The recommended way to use Deadbot is by downloading the pre-built executable. This method does not require Python, Poetry, or any other development tools.
+
+1.  **Download the executable** for your operating system from the [**latest release**](https://github.com/deadlock-wiki/deadbot/releases/latest).
+2.  (On macOS/Linux) Make the file executable: `chmod +x ./deadbot`
+3.  Run commands from your terminal. For example, to parse a local Deadlock installation:
+
+    ```sh
+    # On macOS/Linux
+    ./deadbot --dldir "/path/to/Deadlock" --parse
+
+    # On Windows
+    .\deadbot.exe --dldir "C:\Path\To\Deadlock" --parse
+    ```
+
+## Developer Setup
 
 ### Prerequisites
 *   [Git](https://git-scm.com/)
 *   [Python 3.11+](https://www.python.org/)
 *   [Poetry](https://python-poetry.org/docs/#installation) (Python dependency manager)
 
-### Usage Scenarios
-
-#### 1. Parsing Existing Local Game Files
-If you already have Deadlock installed, this is the fastest way to get the data.
-```sh
-# For Linux/macOS
-DEADLOCK_DIR="/path/to/Steam/steamapps/common/Deadlock" poetry run deadbot --parse
-
-# For Windows PowerShell
-$env:DEADLOCK_DIR="C:\Program Files (x86)\Steam\steamapps\common\Deadlock"; poetry run deadbot --parse
-```
-
-#### 2. Downloading and Parsing Game Files
-If you don't have the game files locally, Deadbot can download them for you. This is the method used by the automated workflows.
-```sh
-# This will clone game files into the DEADLOCK_DIR specified in your .env file
-poetry run deadbot --import_files --parse
-```
-
-### Full Installation
+### Installation
 1.  **Clone the repository:**
     ```sh
     git clone https://github.com/deadlock-wiki/deadbot.git
@@ -74,8 +70,8 @@ poetry run deadbot --import_files --parse
     poetry run pre-commit install
     ```
 
-4.  **Configure your environment:**
-    Copy the example environment file.
+4.  **Configure your environment (Optional):**
+    You can create a `.env` file to configure the bot's behavior.
     ```sh
     cp .env.example .env
     ```
@@ -89,18 +85,27 @@ poetry run deadbot --import_files --parse
     | `OUTPUT_DIR` | `../deadlock-data/data/current` | ❌ (Defaults to `./output-data`) | Where the parsed data files will be saved. |
     | `DEPOT_DOWNLOADER_CMD` | `C:\Tools\DepotDownloader.exe` | ❌ (For non-English parsing) | Path to the DepotDownloader executable. |
 
-    For full configuration see [Parameters](#parameters)
-5.  **Run the bot:**
-    The simplest way to run the bot is by using `poetry run deadbot`, which will use your `.env` file for configuration.
+    For a full list of all parameters, see the [Parameters](#parameters) section below.
 
-    You can override any `.env` setting by providing command-line flags. For example, to run a full import and parse regardless of your `.env` settings:
-    ```sh
-    # Run a full process: download, decompile, and parse
-    poetry run deadbot --import_files --decompile --parse
+### Run Commands
+The simplest way to run the bot is by using `poetry run deadbot`, which will use your `.env` file for configuration.
 
-    # Just parse existing files
-    poetry run deadbot --parse
-    ```
+You can override any `.env` setting by providing command-line flags. Here are a few examples:
+
+#### 1. Parsing Existing Local Game Files
+```sh
+# For Linux/macOS
+DEADLOCK_DIR="/path/to/Steam/steamapps/common/Deadlock" poetry run deadbot --parse
+
+# For Windows PowerShell
+$env:DEADLOCK_DIR="C:\Program Files (x86)\Steam\steamapps\common\Deadlock"; poetry run deadbot --parse
+```
+
+#### 2. Downloading and Parsing Game Files
+```sh
+# This will clone game files into the DEADLOCK_DIR specified in your .env file
+poetry run deadbot --import_files --parse
+```
 
 ---
 ## Parameters
