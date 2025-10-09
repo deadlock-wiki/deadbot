@@ -88,7 +88,9 @@ poetry run deadbot --import_files --parse
 
     For full configuration see [Parameters](#parameters)
 5.  **Run the bot:**
-    You can run specific tasks using flags. All flags can also be set as booleans in your `.env` file.
+    The simplest way to run the bot is by using `poetry run deadbot`, which will use your `.env` file for configuration.
+
+    You can override any `.env` setting by providing command-line flags. For example, to run a full import and parse regardless of your `.env` settings:
     ```sh
     # Run a full process: download, decompile, and parse
     poetry run deadbot --import_files --decompile --parse
