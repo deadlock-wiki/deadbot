@@ -114,7 +114,7 @@ jobs:
   merge-back-to-develop:
     name: Merge master back to develop
     runs-on: ubuntu-latest
-    needs: release # This job depends on the 'release' job completing successfully
+    needs: release
     if: github.event_name != 'pull_request'
     permissions:
       contents: write # Needed to push to the develop branch
