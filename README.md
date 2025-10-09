@@ -12,7 +12,7 @@ Deadbot is an open-source automation tool for extracting and processing game dat
 *   **Decompilation:** Processes raw game assets (`.vdata_c`, localization files) into structured JSON.
 *   **Data Parsing:** Parses decompiled files to extract detailed stats for heroes, abilities, items, and NPCs.
 *   **Changelog Aggregation:** Fetches official patch notes and in-game "Hero Lab" changes.
-*   **Wiki Integration:** Formats data and changelogs into wikitext and uploads them directly to the Deadlock Wiki.
+*   **Wiki Integration:** Formats game data as JSON and changelogs into wikitext and uploads them directly to the Deadlock Wiki.
 
 ---
 
