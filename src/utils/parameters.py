@@ -22,9 +22,10 @@ When adding parameters:
 def arg_group_base(parser):
     group_base = parser.add_argument_group('path configs')
     group_base.add_argument(
+        '-g',
         '--dldir',
         help='Path to Deadlock game files (also set with DEADLOCK_DIR environment variable)',
-        default=os.getenv('DEADLOCK_DIR'),
+        default=os.getenv('DEADLOCK_DIR', os.path.abspath(os.getcwd()) + '/game-data'),
     )
     group_base.add_argument(
         '-w',
@@ -108,7 +109,13 @@ def arg_group_action(parser):
         '-p',
         '--parse',
         action='store_true',
-        help='Parses decompiled game files into json and csv (overrides PARSE env variable)',
+        help='Parses decompiled game files into json and csv (also set with PARSE environment variable)',
+    )
+    group_actions.add_argument(
+        '-c',
+        '--changelogs',
+        action='store_true',
+        help='Fetch/parse forum and local changelogs. (also set with CHANGELOGS environment variable)',
     )
     group_actions.add_argument(
         '-u',
@@ -117,10 +124,9 @@ def arg_group_action(parser):
         help='Upload parsed data to the Wiki (also set with WIKI_UPLOAD environment variable)',
     )
     group_actions.add_argument(
-        '-c',
-        '--changelogs',
+        '--dry_run',
         action='store_true',
-        help='Fetch/parse forum and local changelogs. (also set with CHANGELOGS env variable)',
+        help='Run the wiki upload in dry-run mode (also set with DRY_RUN environment variable)',
     )
     return group_actions
 
@@ -144,6 +150,8 @@ def load_arguments():
         args.changelogs = os.getenv('CHANGELOGS', False)
     if not args.wiki_upload:
         args.wiki_upload = os.getenv('WIKI_UPLOAD', False)
+    if not args.dry_run:
+        args.dry_run = os.getenv('DRY_RUN', False)
     if not args.verbose:
         args.verbose = os.getenv('VERBOSE', False)
     return args

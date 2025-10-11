@@ -70,8 +70,8 @@ def main():
 
     if is_truthy(args.wiki_upload):
         logger.info('Running Wiki Upload...')
-        wiki_upload = WikiUpload(args.output)
-        wiki_upload.update_data_pages()
+        wiki_upload = WikiUpload(args.output, dry_run=args.dry_run)
+        wiki_upload.run()
     else:
         logger.trace('! Skipping Wiki Upload !')
 
@@ -79,7 +79,7 @@ def main():
 
 
 def act_gamefile_parse(args):
-    game_parser = parser.Parser(args.workdir, args.output)
+    game_parser = parser.Parser(args.workdir, args.output, english_only=args.english_only)
     game_parser.run()
     logger.trace('Exporting to CSV...')
     csv_writer.export_json_file_to_csv('item-data', args.output)
@@ -96,9 +96,12 @@ def act_changelog_parse(args):
     )
     chlog_fetcher.run()
 
-    # Now that we gathered the changelogs, extract out data
     chlog_parser = parse_changelogs.ChangelogParser(args.output)
     chlog_parser.run_all(chlog_fetcher.changelogs)
+    chlog_parser.format_and_save_wikitext_changelogs(
+        chlog_fetcher.changelogs,
+        chlog_fetcher.changelog_configs,
+    )
     return chlog_parser
 
 
