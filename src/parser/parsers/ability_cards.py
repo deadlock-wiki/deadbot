@@ -192,10 +192,6 @@ class AbilityCardsParser:
 
                 parsed_prop = self._parse_ability_prop(ability_prop)
 
-                # skip property that requires ability to be upgraded
-                if parsed_prop['requires_upgrade']:
-                    continue
-
                 attr_key = parsed_prop['key']
                 if attr_key is None:
                     raise Exception(f"Missing value for ability {self.ability['Name']}")
