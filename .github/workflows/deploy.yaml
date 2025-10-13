@@ -143,7 +143,9 @@ jobs:
           file: ./deadbot/Dockerfile
           push: false
           tags: deadbot:latest
-          cache-from: type=gha,scope=deadbot-${{ needs.get-branch.outputs.branch }}
+          cache-from: |
+            type=gha,scope=deadbot-master
+            type=gha,scope=deadbot-${{ needs.get-branch.outputs.branch }}
           cache-to: type=gha,mode=max,scope=deadbot-${{ needs.get-branch.outputs.branch }}
           load: true   
 
