@@ -121,8 +121,16 @@ class NpcParser:
             'T1BossDPS': self._read_value(data, 'm_flT1BossDPS'),
             'BarrackBossDPS': self._read_value(data, 'm_flBarrackBossDPS'),
             'SightRangePlayers': self._read_value(data, 'm_flSightRangePlayers'),
+            'SightRangeNPCs': self._read_value(data, 'm_flSightRangeNPCs'),
             'RunSpeed': self._read_value(data, 'm_flRunSpeed'),
+            'WalkSpeed': self._read_value(data, 'm_flWalkSpeed'),
+            'WeaponRange': self._read_value(data, 'm_WeaponInfo', 'm_flRange'),
             'DamageReductionNearEnemyBase': self.trooper_damage_reduction_from_objective,
+            # Resistances
+            'PlayerDamageResistance': self._read_value(data, 'm_flPlayerDamageResistPct'),
+            'TrooperDamageResistance': self._read_value(data, 'm_flTrooperDamageResistPct'),
+            'T2BossDamageResistance': self._read_value(data, 'm_flT2BossDamageResistPct'),
+            'T3BossDamageResistance': self._read_value(data, 'm_flT3BossDamageResistPct'),
         }
         return stats
 
@@ -151,6 +159,8 @@ class NpcParser:
             'TrooperDPS': self._read_value(data, 'm_flTrooperDPS'),
             'MeleeDamage': self._read_value(data, 'm_flMeleeDamage'),
             'MeleeAttemptRange': self._read_value(data, 'm_flMeleeAttemptRange'),
+            'SightRangePlayers': self._read_value(data, 'm_flSightRangePlayers'),
+            'SightRangeNPCs': self._read_value(data, 'm_flSightRangeNPCs'),
             'InvulnerabilityRange': self._read_value(data, 'm_flInvulRange'),
             'PlayerDamageResistance': self._read_value(data, 'm_flPlayerDamageResistPct'),
             'TrooperDamageResistanceBase': self._read_value(data, 'm_flT1BossDPSBaseResist'),
@@ -183,12 +193,14 @@ class NpcParser:
         return stats
 
     def _parse_shrine(self, data):
-        return {
+        stats = {
             'MaxHealth': self._read_value(data, 'm_iMaxHealthGenerator'),
             'AntiSnipeRange': self._read_value(data, 'm_RangedArmorModifier', 'm_flInvulnRange'),
             'BulletResistBase': self._read_value(data, 'm_BackdoorBulletResistModifier', 'm_BulletResist'),
             'BulletResistReductionPerHero': self._read_value(data, 'm_BackdoorBulletResistModifier', 'm_BulletResistReductionPerHero'),
         }
+        stats.update(self._parse_intrinsic_modifiers(data))
+        return stats
 
     def _parse_walker(self, data):
         invuln_range = self._read_value(data, 'm_flInvulModifierRange')
@@ -250,12 +262,18 @@ class NpcParser:
             'MaxHealthPhase1': self._read_value(data, 'm_nMaxHealth'),
             'MaxHealthPhase2': self._read_value(data, 'm_nPhase2Health'),
             'SightRangePlayers': self._read_value(data, 'm_flSightRangePlayers'),
+            'MoveSpeed': self._read_value(data, 'm_flDefaultMoveSpeed'),
+            'MoveSpeedNoShield': self._read_value(data, 'm_flNoShieldMoveSpeed'),
             'LaserDPSToPlayers': self._read_value(data, 'm_flLaserDPSToPlayers'),
             'LaserDPSToNPCs': self._read_value(data, 'm_flLaserDPSToNPCs'),
             'LaserDPSMaxHealthPercent': self._read_value(data, 'm_flLaserDPSMaxHealth'),
+            'LaserDPSToPlayersNoShield': self._read_value(data, 'm_flNoShieldLaserDPSToPlayers'),
+            'LaserDPSToNPCsNoShield': self._read_value(data, 'm_flNoShieldLaserDPSToNPCs'),
             'IsUnkillableInPhase1': 'm_Phase1Modifier' in data,
             'HealthGrowthPerMinutePhase1': self._read_value(data, 'm_ObjectiveHealthGrowthPhase1', 'm_iGrowthPerMinute'),
+            'HealthGrowthStartTimePhase1': self._read_value(data, 'm_ObjectiveHealthGrowthPhase1', 'm_iGrowthStartTimeInMinutes'),
             'HealthGrowthPerMinutePhase2': self._read_value(data, 'm_ObjectiveHealthGrowthPhase2', 'm_iGrowthPerMinute'),
+            'HealthGrowthStartTimePhase2': self._read_value(data, 'm_ObjectiveHealthGrowthPhase2', 'm_iGrowthStartTimeInMinutes'),
             'OutOfCombatHealthRegen': self._read_value(data, 'm_ObjectiveRegen', 'm_flOutOfCombatHealthRegen'),
             'RangedResistanceMinRange': self._read_value(data, 'm_RangedArmorModifier', 'm_flRangeMin'),
             'RangedResistanceMaxRange': self._read_value(data, 'm_RangedArmorModifier', 'm_flRangeMax'),
@@ -266,6 +284,7 @@ class NpcParser:
                 'm_flBackdoorProtectionDamageMitigationFromPlayers',
             ),
         }
+        stats.update(self._parse_intrinsic_modifiers(data))
         return stats
 
     # --- Neutral Unit Parsers ---
@@ -295,6 +314,10 @@ class NpcParser:
             'RetaliateDamage': self._read_value(data, 'm_flRetaliateDamage'),
             'GoldReward': self._read_value(data, 'm_flGoldReward'),
             'GoldRewardBonusPercentPerMinute': self._read_value(data, 'm_flGoldRewardBonusPercentPerMinute'),
+            'DamagedByAbilities': self._deep_get(data, 'm_bDamagedByAbilities'),
+            'DamagedByBullets': self._deep_get(data, 'm_bDamagedByBullets'),
+            'MinigameDuration': self._read_value(data, 'm_flVaultMiniGameTime'),
+            'MinigameHitWindow': self._read_value(data, 'm_flVaultMiniGameHitWindow'),
         }
 
     # --- Item & Object Parsers ---
@@ -311,6 +334,7 @@ class NpcParser:
         rebirth_data = self._deep_get(data, 'm_RebirthModifier')
         if rebirth_data:
             stats['RespawnDelay'] = num_utils.assert_number(rebirth_data.get('m_flRespawnDelay'))
+            stats['RespawnLifePercent'] = num_utils.assert_number(rebirth_data.get('m_flRespawnLifePct'))
             script_values = rebirth_data.get('m_vecScriptValues')
 
             if script_values and isinstance(script_values, list) and len(script_values) >= 3:
