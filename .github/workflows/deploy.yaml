@@ -24,10 +24,6 @@ on:
         type: boolean
         description: Only parse English localizations
         default: false
-      dry_run:
-        type: boolean
-        description: Run in dry-run mode (no wiki edits)
-        default: false
         
   workflow_call:
     inputs:
