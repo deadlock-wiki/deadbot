@@ -148,21 +148,16 @@ class NpcParser:
         if not bound_abilities:
             return {}
 
-        # A map for cleaner, more descriptive ability names in the output
-        ABILITY_NAME_MAP = {
-            'citadel_ability_tier2boss_rocket_barrage': 'RocketBarrage',
-            'citadel_ability_tier2boss_laser_beam': 'LaserBeam',
-            'citadel_ability_tier3boss_damage_pulse': 'DamagePulse',
-            'ability_medic_trooper_heal': 'Heal',
-        }
-
         parsed_abilities = {}
         for slot, ability_key in bound_abilities.items():
             ability_stats = self._parse_specific_ability_stats(ability_key)
-            if ability_stats:
-                # Use the descriptive name from the map, or fall back to the generic one
-                clean_name = ABILITY_NAME_MAP.get(ability_key, ability_key.split('_')[-1].capitalize())
-                parsed_abilities[clean_name] = ability_stats
+            if ability_stats is None:
+                continue
+
+            display_name = self.localizations.get(ability_key) or ' '.join(word.capitalize() for word in ability_key.split('_')[-2:])
+
+            ability_stats['Key'] = ability_key
+            parsed_abilities[display_name] = ability_stats
 
         return parsed_abilities
 
