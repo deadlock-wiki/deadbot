@@ -211,9 +211,10 @@ class NpcParser:
 
         # --- Patron Damage Pulse ---
         if ability_key == 'citadel_ability_tier3boss_damage_pulse':
-            # This ability's stats are in a different spot
-            modifier = self._deep_get(self.abilities_data[ability_key], 'm_AutoIntrinsicModifiers', 0)
-            if modifier:
+            # This ability's stats are in a list, so we handle it manually instead of using _deep_get for the index.
+            modifiers_list = self._deep_get(self.abilities_data[ability_key], 'm_AutoIntrinsicModifiers')
+            if modifiers_list and isinstance(modifiers_list, list) and len(modifiers_list) > 0:
+                modifier = modifiers_list[0]
                 return {
                     'PulseRadius': self._read_value(modifier, 'm_flRadius'),
                     'MaxTargets': self._read_value(modifier, 'm_iMaxTargets'),
