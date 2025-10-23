@@ -64,7 +64,7 @@ class NpcParser:
             npc_data = self.npc_units_data[key]
             try:
                 parser_method = self.NPC_PARSERS[key]
-                parsed_data = parser_method(npc_data)
+                parsed_data = parser_method(npc_data, key)
                 parsed_data['Name'] = self.localizations.get(key, key)
                 all_npcs[key] = json_utils.sort_dict(parsed_data)
             except Exception as e:
@@ -116,9 +116,33 @@ class NpcParser:
                         intrinsics[output_key] = num_utils.assert_number(script_value.get('m_value'))
         return intrinsics
 
+    def _parse_spawn_info(self, npc_key):
+        """
+        Parses initial spawn delay and respawn interval from misc_data.
+        Maps the npc_key (e.g., 'neutral_trooper_weak') to the corresponding
+        key in misc_data (e.g., 'neutral_camp_weak').
+        """
+        spawn_info = {}
+        # This map connects the npc_units key to the misc_data key
+        SPAWNER_MAP = {
+            'neutral_trooper_weak': 'neutral_camp_weak',
+            'neutral_trooper_normal': 'neutral_camp_medium',
+            'neutral_trooper_strong': 'neutral_camp_strong',
+            'npc_super_neutral': 'neutral_camp_midboss',
+            'neutral_sinners_sacrifice': 'neutral_camp_vaults',
+        }
+
+        spawner_key = SPAWNER_MAP.get(npc_key)
+        if spawner_key and spawner_key in self.misc_data:
+            spawner_data = self.misc_data[spawner_key]
+            spawn_info['InitialSpawnDelay'] = self._read_value(spawner_data, 'm_iInitialSpawnDelayInSeconds')
+            spawn_info['SpawnInterval'] = self._read_value(spawner_data, 'm_iSpawnIntervalInSeconds')
+
+        return spawn_info
+
     # --- Trooper Parsers ---
 
-    def _parse_trooper_shared(self, data):
+    def _parse_trooper_shared(self, data, npc_key=None):
         """Parses stats that are common to all trooper types."""
         stats = {
             'MaxHealth': self._read_value(data, 'm_nMaxHealth'),
@@ -140,14 +164,14 @@ class NpcParser:
         }
         return stats
 
-    def _parse_trooper_ranged(self, data):
-        return self._parse_trooper_shared(data)
+    def _parse_trooper_ranged(self, data, npc_key=None):
+        return self._parse_trooper_shared(data, npc_key)
 
-    def _parse_trooper_medic(self, data):
-        return self._parse_trooper_shared(data)
+    def _parse_trooper_medic(self, data, npc_key=None):
+        return self._parse_trooper_shared(data, npc_key)
 
-    def _parse_trooper_melee(self, data):
-        stats = self._parse_trooper_shared(data)
+    def _parse_trooper_melee(self, data, npc_key=None):
+        stats = self._parse_trooper_shared(data, npc_key)
         stats.update(
             {
                 'MeleeDamage': self._read_value(data, 'm_flMeleeDamage'),
@@ -158,7 +182,7 @@ class NpcParser:
 
     # --- Objective & Boss Parsers ---
 
-    def _parse_guardian(self, data):
+    def _parse_guardian(self, data, npc_key=None):
         stats = {
             'MaxHealth': self._read_value(data, 'm_nMaxHealth'),
             'PlayerDPS': self._read_value(data, 'm_flPlayerDPS'),
@@ -176,7 +200,7 @@ class NpcParser:
         stats.update(self._parse_intrinsic_modifiers(data))
         return stats
 
-    def _parse_base_guardian(self, data):
+    def _parse_base_guardian(self, data, npc_key=None):
         stats = self._parse_guardian(data)
         stats.update(
             {
@@ -198,7 +222,7 @@ class NpcParser:
         )
         return stats
 
-    def _parse_shrine(self, data):
+    def _parse_shrine(self, data, npc_key=None):
         stats = {
             'MaxHealth': self._read_value(data, 'm_iMaxHealthGenerator'),
             'AntiSnipeRange': self._read_value(data, 'm_RangedArmorModifier', 'm_flInvulnRange'),
@@ -208,7 +232,7 @@ class NpcParser:
         stats.update(self._parse_intrinsic_modifiers(data))
         return stats
 
-    def _parse_walker(self, data):
+    def _parse_walker(self, data, npc_key=None):
         invuln_range = self._read_value(data, 'm_flInvulModifierRange')
         if invuln_range is None:
             invuln_range = self._read_value(data, 'm_flInvulRange')
@@ -263,7 +287,7 @@ class NpcParser:
 
         return stats
 
-    def _parse_patron(self, data):
+    def _parse_patron(self, data, npc_key=None):
         stats = {
             'MaxHealthPhase1': self._read_value(data, 'm_nMaxHealth'),
             'MaxHealthPhase2': self._read_value(data, 'm_nPhase2Health'),
@@ -295,17 +319,19 @@ class NpcParser:
 
     # --- Neutral Unit Parsers ---
 
-    def _parse_neutral_trooper(self, data):
+    def _parse_neutral_trooper(self, data, npc_key=None):
         """Parses Neutral Troopers (weak, normal, strong)."""
         stats = {
             'MaxHealth': self._read_value(data, 'm_nMaxHealth'),
             'GoldReward': self._read_value(data, 'm_flGoldReward'),
             'GoldRewardBonusPercentPerMinute': self._read_value(data, 'm_flGoldRewardBonusPercentPerMinute'),
         }
+        npc_key = self.localizations.get(data['Name'], data['Name'])
+        stats.update(self._parse_spawn_info(npc_key))
         stats.update(self._parse_intrinsic_modifiers(data))
         return stats
 
-    def _parse_midboss(self, data):
+    def _parse_midboss(self, data, npc_key=None):
         """Parses the Midboss (npc_super_neutral)."""
         stats = {
             'StartingHealth': self._read_value(data, 'm_iStartingHealth'),
@@ -314,7 +340,7 @@ class NpcParser:
         stats.update(self._parse_intrinsic_modifiers(data))
         return stats
 
-    def _parse_sinners_sacrifice(self, data):
+    def _parse_sinners_sacrifice(self, data, npc_key=None):
         """Parses Sinner's Sacrifice (neutral_vault)."""
         return {
             'RetaliateDamage': self._read_value(data, 'm_flRetaliateDamage'),
@@ -328,7 +354,7 @@ class NpcParser:
 
     # --- Item & Object Parsers ---
 
-    def _parse_rejuvenator(self, data):
+    def _parse_rejuvenator(self, data, npc_key=None):
         """Parses the Rejuvenator pickup (citadel_item_pickup_rejuv)."""
         # Define constants for the script values array to avoid magic numbers.
         # The order is based on observation of the game data.
