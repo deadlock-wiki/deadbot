@@ -353,7 +353,7 @@ class NpcParser:
 
     def _parse_sinners_sacrifice(self, data, npc_key=None):
         """Parses Sinner's Sacrifice (neutral_vault)."""
-        return {
+        stats = {
             'RetaliateDamage': self._read_value(data, 'm_flRetaliateDamage'),
             'GoldReward': self._read_value(data, 'm_flGoldReward'),
             'GoldRewardBonusPercentPerMinute': self._read_value(data, 'm_flGoldRewardBonusPercentPerMinute'),
@@ -362,6 +362,8 @@ class NpcParser:
             'MinigameDuration': self._read_value(data, 'm_flVaultMiniGameTime'),
             'MinigameHitWindow': self._read_value(data, 'm_flVaultMiniGameHitWindow'),
         }
+        stats.update(self._parse_spawn_info(npc_key))
+        return stats
 
     # --- Item & Object Parsers ---
 
