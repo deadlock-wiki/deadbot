@@ -140,6 +140,90 @@ class NpcParser:
 
         return spawn_info
 
+    def _parse_bound_abilities(self, npc_data):
+        """
+        Looks for m_mapBoundAbilities and calls a specific parser for each ability found.
+        """
+        bound_abilities = self._deep_get(npc_data, 'm_mapBoundAbilities')
+        if not bound_abilities:
+            return {}
+
+        # A map for cleaner, more descriptive ability names in the output
+        ABILITY_NAME_MAP = {
+            'citadel_ability_tier2boss_rocket_barrage': 'RocketBarrage',
+            'citadel_ability_tier2boss_laser_beam': 'LaserBeam',
+            'citadel_ability_tier3boss_damage_pulse': 'DamagePulse',
+            'ability_medic_trooper_heal': 'Heal',
+        }
+
+        parsed_abilities = {}
+        for slot, ability_key in bound_abilities.items():
+            ability_stats = self._parse_specific_ability_stats(ability_key)
+            if ability_stats:
+                # Use the descriptive name from the map, or fall back to the generic one
+                clean_name = ABILITY_NAME_MAP.get(ability_key, ability_key.split('_')[-1].capitalize())
+                parsed_abilities[clean_name] = ability_stats
+
+        return parsed_abilities
+
+    def _parse_specific_ability_stats(self, ability_key):
+        """
+        Contains parsing logic for specific, known abilities by their key.
+        Returns a dictionary of stats for a given ability.
+        """
+        if ability_key not in self.abilities_data:
+            return None
+
+        props = self.abilities_data[ability_key].get('m_mapAbilityProperties', {})
+
+        # --- Trooper Medic Heal ---
+        if ability_key == 'ability_medic_trooper_heal':
+            return {
+                'Cooldown': self._read_value(props, 'AbilityCooldown', 'm_strValue'),
+                'CastRange': self._read_value(props, 'AbilityCastRange', 'm_strValue'),
+                'HealTroopers': self._read_value(props, 'Heal_Troopers', 'm_strValue'),
+                'HealPlayers': self._read_value(props, 'Heal_Players', 'm_strValue'),
+                'HealPlayersPostLane': self._read_value(props, 'Heal_Players_Post_Lane', 'm_strValue'),
+            }
+
+        # --- Walker Rocket Barrage ---
+        if ability_key == 'citadel_ability_tier2boss_rocket_barrage':
+            return {
+                'Cooldown': self._read_value(props, 'AbilityCooldown', 'm_strValue'),
+                'CastRange': self._read_value(props, 'AbilityCastRange', 'm_strValue'),
+                'RocketsPerVolley': self._read_value(props, 'GrenadesInVolley', 'm_strValue'),
+                'VolleyInterval': self._read_value(props, 'VolleyInterval', 'm_strValue'),
+                'DirectDamage': self._read_value(props, 'Damage', 'm_strValue'),
+                'ExplosionRadius': self._read_value(props, 'Radius', 'm_strValue'),
+                'GroundFireDuration': self._read_value(props, 'FireDuration', 'm_strValue'),
+                'GroundFireDPS': self._read_value(props, 'FireDPS', 'm_strValue'),
+            }
+
+        # --- Walker Laser Beam ---
+        if ability_key == 'citadel_ability_tier2boss_laser_beam':
+            return {
+                'Cooldown': self._read_value(props, 'AbilityCooldown', 'm_strValue'),
+                'MaxRange': self._read_value(props, 'AbilityCastRange', 'm_strValue'),
+                'DamageVsHeroes': self._read_value(props, 'DPS', 'm_strValue'),
+                'MaxHealthPercentDamage': self._read_value(props, 'MaxHPDPS', 'm_strValue'),
+                'DamageVsCreeps': self._read_value(props, 'CreepDPS', 'm_strValue'),
+            }
+
+        # --- Patron Damage Pulse ---
+        if ability_key == 'citadel_ability_tier3boss_damage_pulse':
+            # This ability's stats are in a different spot
+            modifier = self._deep_get(self.abilities_data[ability_key], 'm_AutoIntrinsicModifiers', 0)
+            if modifier:
+                return {
+                    'PulseRadius': self._read_value(modifier, 'm_flRadius'),
+                    'MaxTargets': self._read_value(modifier, 'm_iMaxTargets'),
+                    'DamagePerPulse': self._read_value(modifier, 'm_flDamagePerPulse'),
+                    'PulseInterval': self._read_value(modifier, 'm_flTickRate'),
+                }
+
+        # Return None if no specific parser is found for this ability key
+        return None
+
     # --- Trooper Parsers ---
 
     def _parse_trooper_shared(self, data, npc_key=None):
@@ -168,7 +252,9 @@ class NpcParser:
         return self._parse_trooper_shared(data, npc_key)
 
     def _parse_trooper_medic(self, data, npc_key=None):
-        return self._parse_trooper_shared(data, npc_key)
+        stats = self._parse_trooper_shared(data, npc_key)
+        stats['Abilities'] = self._parse_bound_abilities(data)
+        return stats
 
     def _parse_trooper_melee(self, data, npc_key=None):
         stats = self._parse_trooper_shared(data, npc_key)
@@ -201,7 +287,7 @@ class NpcParser:
         return stats
 
     def _parse_base_guardian(self, data, npc_key=None):
-        stats = self._parse_guardian(data)
+        stats = self._parse_guardian(data, npc_key)
         stats.update(
             {
                 # Backdoor protection modifier provides damage mitigation and health regen.
@@ -239,17 +325,11 @@ class NpcParser:
 
         stats = {
             'MaxHealth': self._read_value(data, 'm_nMaxHealth'),
-            'MeleeAttemptRange': self._read_value(data, 'm_flMeleeAttemptRange'),
             'SightRangePlayers': self._read_value(data, 'm_flSightRangePlayers'),
             'SightRangeNPCs': self._read_value(data, 'm_flSightRangeNPCs'),
             'PlayerInitialSightRange': self._read_value(data, 'm_flPlayerInitialSightRange'),
-            'StompDamage': self._read_value(data, 'm_flStompDamage'),
-            'StompDamageMaxHealthPercent': self._read_value(data, 'm_flStompDamageMaxHealthPercent'),
-            'StompRadius': self._read_value(data, 'm_flStompImpactRadius'),
-            'StompStunDuration': self._read_value(data, 'm_flStunDuration'),
-            'StompKnockup': self._read_value(data, 'm_flStompTossUpMagnitude'),
             'InvulnerabilityRange': invuln_range,
-            'BoundAbilities': self._deep_get(data, 'm_mapBoundAbilities'),
+            'Abilities': self._parse_bound_abilities(data),
             'FriendlyAuraRadius': self._read_value(data, 'm_FriendlyAuraModifier', 'm_flAuraRadius'),
             'NearbyEnemyResistanceRange': self._read_value(data, 'm_NearbyEnemyResist', 'm_flNearbyEnemyResistRange'),
             'NearbyEnemyResistanceValues': self._deep_get(data, 'm_NearbyEnemyResist', 'm_flResistValues'),
@@ -263,6 +343,18 @@ class NpcParser:
                 'm_flBackdoorProtectionDamageMitigationFromPlayers',
             ),
         }
+
+        # Manually add the stomp ability stats into the 'Abilities' dictionary
+        # as its stats are defined directly on the NPC, not in an external file.
+        stats['Abilities']['Stomp'] = {
+            'AttemptRange': self._read_value(data, 'm_flMeleeAttemptRange'),
+            'Damage': self._read_value(data, 'm_flStompDamage'),
+            'MaxHealthPercentDamage': self._read_value(data, 'm_flStompDamageMaxHealthPercent'),
+            'EffectRadius': self._read_value(data, 'm_flStompImpactRadius'),
+            'StunDuration': self._read_value(data, 'm_flStunDuration'),
+            'Knockup': self._read_value(data, 'm_flStompTossUpMagnitude'),
+        }
+
         stats.update(self._parse_intrinsic_modifiers(data))
 
         # Parse friendly aura bonuses from the nested script values list using a data-driven map.
@@ -314,6 +406,7 @@ class NpcParser:
                 'm_flBackdoorProtectionDamageMitigationFromPlayers',
             ),
         }
+        stats['Abilities'] = self._parse_bound_abilities(data)
         stats.update(self._parse_intrinsic_modifiers(data))
         return stats
 
@@ -326,7 +419,6 @@ class NpcParser:
             'GoldReward': self._read_value(data, 'm_flGoldReward'),
             'GoldRewardBonusPercentPerMinute': self._read_value(data, 'm_flGoldRewardBonusPercentPerMinute'),
         }
-        npc_key = self.localizations.get(data['Name'], data['Name'])
         stats.update(self._parse_spawn_info(npc_key))
         stats.update(self._parse_intrinsic_modifiers(data))
         return stats
