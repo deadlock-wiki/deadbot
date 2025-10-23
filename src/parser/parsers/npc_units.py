@@ -337,6 +337,17 @@ class NpcParser:
             'StartingHealth': self._read_value(data, 'm_iStartingHealth'),
             'HealthGainPerMinute': self._read_value(data, 'm_iHealthGainPerMinute'),
         }
+
+        # Parse the regenerating shield from modifiers_data
+        shield_modifier = self.modifiers_data.get('midboss_modifier_damage_resistance', {})
+        stats['Shield'] = {
+            'BaseAbsorptionPerSecond': self._read_value(shield_modifier, 'm_flDamageResistancePerSecond'),
+            'ScalingAbsorptionPerMinute': self._read_value(shield_modifier, 'm_flDamageResistanceBonusPerGameMinute'),
+        }
+
+        # Parse spawn times from misc_data
+        stats.update(self._parse_spawn_info(npc_key))
+
         stats.update(self._parse_intrinsic_modifiers(data))
         return stats
 
