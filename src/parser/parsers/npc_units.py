@@ -382,11 +382,6 @@ class NpcParser:
             'SightRangePlayers': self._read_value(data, 'm_flSightRangePlayers'),
             'MoveSpeed': self._read_value(data, 'm_flDefaultMoveSpeed'),
             'MoveSpeedNoShield': self._read_value(data, 'm_flNoShieldMoveSpeed'),
-            'LaserDPSToPlayers': self._read_value(data, 'm_flLaserDPSToPlayers'),
-            'LaserDPSToNPCs': self._read_value(data, 'm_flLaserDPSToNPCs'),
-            'LaserDPSMaxHealthPercent': self._read_value(data, 'm_flLaserDPSMaxHealth'),
-            'LaserDPSToPlayersNoShield': self._read_value(data, 'm_flNoShieldLaserDPSToPlayers'),
-            'LaserDPSToNPCsNoShield': self._read_value(data, 'm_flNoShieldLaserDPSToNPCs'),
             'IsUnkillableInPhase1': 'm_Phase1Modifier' in data,
             'HealthGrowthPerMinutePhase1': self._read_value(data, 'm_ObjectiveHealthGrowthPhase1', 'm_iGrowthPerMinute'),
             'HealthGrowthStartTimePhase1': self._read_value(data, 'm_ObjectiveHealthGrowthPhase1', 'm_iGrowthStartTimeInMinutes'),
@@ -403,6 +398,16 @@ class NpcParser:
             ),
         }
         stats['Abilities'] = self._parse_bound_abilities(data)
+
+        # Manually add the Laser Beam ability stats into the 'Abilities' dictionary.
+        stats['Abilities']['LaserBeam'] = {
+            'DPSToPlayers': self._read_value(data, 'm_flLaserDPSToPlayers'),
+            'DPSToNPCs': self._read_value(data, 'm_flLaserDPSToNPCs'),
+            'DPSMaxHealthPercent': self._read_value(data, 'm_flLaserDPSMaxHealth'),
+            'DPSToPlayersNoShield': self._read_value(data, 'm_flNoShieldLaserDPSToPlayers'),
+            'DPSToNPCsNoShield': self._read_value(data, 'm_flNoShieldLaserDPSToNPCs'),
+        }
+
         stats.update(self._parse_intrinsic_modifiers(data))
         return stats
 
