@@ -57,6 +57,7 @@ class Decompiler:
             'game/citadel/pak01_dir/scripts/abilities': 'scripts/abilities',
             'game/citadel/pak01_dir/scripts/generic_data': 'scripts/generic_data',
             'game/citadel/pak01_dir/scripts/misc': 'scripts/misc',
+            'game/citadel/pak01_dir/scripts/modifiers': 'scripts/modifiers',
             'game/citadel/pak01_dir/scripts/npc_units': 'scripts/npc_units',
         }
 

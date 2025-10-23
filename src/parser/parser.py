@@ -246,8 +246,11 @@ class Parser:
     def _parse_npcs(self):
         logger.trace('Parsing NPCs...')
         parsed_npcs = npc_units.NpcParser(
-            self.data['scripts']['npc_units'],
-            self.localizations[self.language],
+            npc_units_data=self.data['scripts']['npc_units'],
+            abilities_data=self.data['scripts']['abilities'],
+            modifiers_data=self.data['scripts'].get('modifiers', {}),
+            misc_data=self.data['scripts'].get('misc', {}),
+            localizations=self.localizations[self.language],
         ).run()
 
         json_utils.write(self.OUTPUT_DIR + '/json/npc-data.json', json_utils.sort_dict(parsed_npcs))

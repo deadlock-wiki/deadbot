@@ -9,15 +9,21 @@ class NpcParser:
     including troopers, bosses, neutral units, and other game objects.
     """
 
-    def __init__(self, npc_units_data, localizations):
+    def __init__(self, npc_units_data, abilities_data, modifiers_data, misc_data, localizations):
         """
         Initializes the parser with necessary data.
 
         Args:
             npc_units_data (dict): The raw data from npc_units.vdata.
+            abilities_data (dict): The raw data from abilities.vdata.
+            modifiers_data (dict): The raw data from modifiers.vdata.
+            misc_data (dict): The raw data from misc.vdata.
             localizations (dict): The localization data for mapping keys to names.
         """
         self.npc_units_data = npc_units_data
+        self.abilities_data = abilities_data
+        self.modifiers_data = modifiers_data
+        self.misc_data = misc_data
         self.localizations = localizations
         self.trooper_damage_reduction_from_objective = None
         self.NPC_PARSERS = {
