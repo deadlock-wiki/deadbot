@@ -10,6 +10,7 @@ DATA_PAGE_FILE_MAP = {
     'NpcData.json': 'json/npc-data.json',
     'Lang en.json': 'localizations/english.json',
     'Lang es.json': 'localizations/spanish.json',
+    'Lang ko.json': 'localizations/koreana.json',
     'Lang ru.json': 'localizations/russian.json',
     'Lang tr.json': 'localizations/turkish.json',
     'Lang zh-hans.json': 'localizations/schinese.json',
