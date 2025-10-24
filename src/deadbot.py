@@ -45,14 +45,14 @@ def main():
                 depot_downloader_cmd=args.depot_downloader_cmd,
                 steam_username=args.steam_username,
                 steam_password=args.steam_password,
-                force=args.force,
+                force=is_truthy(args.force),
             ).run(args.manifest_id)
     else:
         logger.trace('! Skipping Import !')
 
     if is_truthy(args.decompile):
         logger.info('Decompiling source files...')
-        Decompiler(deadlock_dir=args.dldir, work_dir=args.workdir, force=args.force).run()
+        Decompiler(deadlock_dir=args.dldir, work_dir=args.workdir, force=is_truthy(args.force)).run()
     else:
         logger.trace('! Skipping Decompiler !')
 
@@ -70,7 +70,7 @@ def main():
 
     if is_truthy(args.wiki_upload):
         logger.info('Running Wiki Upload...')
-        wiki_upload = WikiUpload(args.output, dry_run=args.dry_run)
+        wiki_upload = WikiUpload(args.output, dry_run=is_truthy(args.dry_run))
         wiki_upload.run()
     else:
         logger.trace('! Skipping Wiki Upload !')
@@ -79,7 +79,7 @@ def main():
 
 
 def act_gamefile_parse(args):
-    game_parser = parser.Parser(args.workdir, args.output, english_only=args.english_only)
+    game_parser = parser.Parser(args.workdir, args.output, english_only=is_truthy(args.english_only))
     game_parser.run()
     logger.trace('Exporting to CSV...')
     csv_writer.export_json_file_to_csv('item-data', args.output)
