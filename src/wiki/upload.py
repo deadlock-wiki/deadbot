@@ -24,19 +24,21 @@ class WikiUpload:
         deadbot_version = meta_utils.get_deadbot_version()
         self.upload_message = f'Deadbot v{deadbot_version}-{game_version}'
 
-        self.auth = {
-            'user': os.environ.get('BOT_WIKI_USER'),
-            'password': os.environ.get('BOT_WIKI_PASS'),
-        }
-
-        if not self.auth['user']:
-            raise Exception('BOT_WIKI_USER env var is required to upload to wiki')
-
-        if not self.auth['password']:
-            raise Exception('BOT_WIKI_PASS env var is required to upload to wiki')
-
         self.site = mwclient.Site('deadlock.wiki', path='/')
-        self.site.login(self.auth['user'], self.auth['password'])
+
+        if not self.dry_run:
+            self.auth = {
+                'user': os.environ.get('BOT_WIKI_USER'),
+                'password': os.environ.get('BOT_WIKI_PASS'),
+            }
+
+            if not self.auth['user']:
+                raise Exception('BOT_WIKI_USER env var is required to upload to wiki')
+
+            if not self.auth['password']:
+                raise Exception('BOT_WIKI_PASS env var is required to upload to wiki')
+
+            self.site.login(self.auth['user'], self.auth['password'])
 
     def run(self):
         logger.info(f'Uploading Data to Wiki - {self.upload_message}')

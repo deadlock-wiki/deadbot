@@ -11,7 +11,7 @@ on:
       - 'poetry.lock'
 
   pull_request:
-    types: [synchronize, opened, reopened]
+    types: [opened, reopened]
     paths:
       - 'src/**'
       - 'Dockerfile'
