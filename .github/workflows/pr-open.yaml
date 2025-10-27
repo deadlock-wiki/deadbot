@@ -71,6 +71,6 @@ jobs:
 
           new_body="$current_body
 
-          _Parsed data in [deadlock-data PR](${{ steps.create_data_pr.outputs.pr_url }})_"
+          _Parsed data in [deadlock-data PR](${{ steps.create_data_pr.outputs.pr_url }}) - Reopen deadbot PR or run deploy workflow for this branch [here](https://github.com/deadlock-wiki/deadbot/actions/workflows/deploy.yaml) to reparse the data_"
 
           gh pr edit ${{ github.event.number }} --body "$new_body"  
