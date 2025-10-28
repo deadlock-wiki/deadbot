@@ -7,40 +7,22 @@
 STEAMDB=$1
 DEADLOCK_DATA=$2
 
-# Read the file and extract ClientVersion
-latest_inf_file="${STEAMDB}/game/citadel/steam.inf"
-if [[ -f "$latest_inf_file" ]]; then
-    client_version=$(grep '^ClientVersion=' "$latest_inf_file" | cut -d'=' -f2)
-else
-    echo "Error: steam.inf file not found at $latest_inf_file" >&2
-    exit 1
-fi
+latest_file=$STEAMDB/game/citadel/steam.inf
+deployed_file=$DEADLOCK_DATA/data/version.txt
 
-# same thing for deadlock data
-deployed_inf_file="${DEADLOCK_DATA}/data/version.txt"
-if [[ -f "$deployed_inf_file" ]]; then
-    client_version=$(grep '^ClientVersion=' "$deployed_inf_file" | cut -d'=' -f2)
-else
-    echo "Error: version.txt file not found at $deployed_inf_file" >&2
-    exit 1
-fi
+# --- existence checks ---
+[[ -f $latest_file ]]   || { echo "Error: $latest_file not found" >&2;   exit 1; }
+[[ -f $deployed_file ]] || { echo "Error: $deployed_file not found" >&2; exit 1; }
 
-latest_version=$(grep '^ClientVersion=' "$latest_inf_file" | cut -d'=' -f2 | tr -d '\r' | xargs)
-deployed_version=$(grep '^ClientVersion=' "$deployed_inf_file" | cut -d'=' -f2 | tr -d '\r' | xargs)
+# --- extract versions ---
+latest_version=$(grep -m1 '^ClientVersion=' "$latest_file"   | cut -d= -f2 | tr -d '\r')
+deployed_version=$(grep -m1 '^ClientVersion=' "$deployed_file" | cut -d= -f2 | tr -d '\r')
 
-if [[ -z "$latest_version" ]]; then
-    echo "Error: Latest version not found in $latest_inf_file" >&2
-    exit 1
-fi
+# --- non-empty checks ---
+[[ -n $latest_version ]]   || { echo "Error: no ClientVersion in $latest_file" >&2;   exit 1; }
+[[ -n $deployed_version ]] || { echo "Error: no ClientVersion in $deployed_file" >&2; exit 1; }
 
-if [[ -z "$deployed_version" ]]; then
-    echo "Error: Deployed version not found in $deployed_inf_file" >&2
-    exit 1
-fi
-
-if [[ "$latest_version" == "$deployed_version" ]]; then
-    exit 0
-else
-    echo $latest_version
-    exit 0
+# --- compare and output new version if different ---
+if [[ $latest_version != "$deployed_version" ]]; then
+    echo "$latest_version"
 fi
