@@ -83,7 +83,7 @@ jobs:
   
   deploy-master:
     name: Deploy master
-    needs: check-update
+    needs: [check-update, deploy-develop]
     if: ${{ needs.check-update.outputs.new_version || github.event.inputs.force == 'true' }}
     uses: ./.github/workflows/deploy.yaml
     with:
