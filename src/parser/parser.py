@@ -247,7 +247,6 @@ class Parser:
         logger.trace('Parsing NPCs...')
         parsed_npcs = npc_units.NpcParser(
             npc_units_data=self.data['scripts']['npc_units'],
-            abilities_data=self.data['scripts']['abilities'],
             modifiers_data=self.data['scripts']['modifiers'],
             misc_data=self.data['scripts']['misc'],
             localizations=self.localizations[self.language],

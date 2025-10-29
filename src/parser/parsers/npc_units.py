@@ -9,19 +9,17 @@ class NpcParser:
     including troopers, bosses, neutral units, and other game objects.
     """
 
-    def __init__(self, npc_units_data, abilities_data, modifiers_data, misc_data, localizations):
+    def __init__(self, npc_units_data, modifiers_data, misc_data, localizations):
         """
         Initializes the parser with necessary data.
 
         Args:
             npc_units_data (dict): The raw data from npc_units.vdata.
-            abilities_data (dict): The raw data from abilities.vdata.
             modifiers_data (dict): The raw data from modifiers.vdata.
             misc_data (dict): The raw data from misc.vdata.
             localizations (dict): The localization data for mapping keys to names.
         """
         self.npc_units_data = npc_units_data
-        self.abilities_data = abilities_data
         self.modifiers_data = modifiers_data
         self.misc_data = misc_data
         self.localizations = localizations
@@ -140,86 +138,6 @@ class NpcParser:
 
         return spawn_info
 
-    def _parse_bound_abilities(self, npc_data):
-        """
-        Looks for m_mapBoundAbilities and calls a specific parser for each ability found.
-        """
-        bound_abilities = self._deep_get(npc_data, 'm_mapBoundAbilities')
-        if not bound_abilities:
-            return {}
-
-        parsed_abilities = {}
-        for slot, ability_key in bound_abilities.items():
-            ability_stats = self._parse_specific_ability_stats(ability_key)
-            if ability_stats is None:
-                continue
-
-            display_name = self.localizations.get(ability_key) or ' '.join(word.capitalize() for word in ability_key.split('_')[-2:])
-
-            ability_stats['Key'] = ability_key
-            parsed_abilities[display_name] = ability_stats
-
-        return parsed_abilities
-
-    def _parse_specific_ability_stats(self, ability_key):
-        """
-        Contains parsing logic for specific, known abilities by their key.
-        Returns a dictionary of stats for a given ability.
-        """
-        if ability_key not in self.abilities_data:
-            return None
-
-        props = self.abilities_data[ability_key].get('m_mapAbilityProperties', {})
-
-        # --- Trooper Medic Heal ---
-        if ability_key == 'ability_medic_trooper_heal':
-            return {
-                'Cooldown': self._read_value(props, 'AbilityCooldown', 'm_strValue'),
-                'CastRange': self._read_value(props, 'AbilityCastRange', 'm_strValue'),
-                'HealTroopers': self._read_value(props, 'Heal_Troopers', 'm_strValue'),
-                'HealPlayers': self._read_value(props, 'Heal_Players', 'm_strValue'),
-                'HealPlayersPostLane': self._read_value(props, 'Heal_Players_Post_Lane', 'm_strValue'),
-            }
-
-        # --- Walker Rocket Barrage ---
-        if ability_key == 'citadel_ability_tier2boss_rocket_barrage':
-            return {
-                'Cooldown': self._read_value(props, 'AbilityCooldown', 'm_strValue'),
-                'CastRange': self._read_value(props, 'AbilityCastRange', 'm_strValue'),
-                'RocketsPerVolley': self._read_value(props, 'GrenadesInVolley', 'm_strValue'),
-                'VolleyInterval': self._read_value(props, 'VolleyInterval', 'm_strValue'),
-                'DirectDamage': self._read_value(props, 'Damage', 'm_strValue'),
-                'ExplosionRadius': self._read_value(props, 'Radius', 'm_strValue'),
-                'GroundFireDuration': self._read_value(props, 'FireDuration', 'm_strValue'),
-                'GroundFireDPS': self._read_value(props, 'FireDPS', 'm_strValue'),
-            }
-
-        # --- Walker Laser Beam ---
-        if ability_key == 'citadel_ability_tier2boss_laser_beam':
-            return {
-                'Cooldown': self._read_value(props, 'AbilityCooldown', 'm_strValue'),
-                'MaxRange': self._read_value(props, 'AbilityCastRange', 'm_strValue'),
-                'DamageVsHeroes': self._read_value(props, 'DPS', 'm_strValue'),
-                'MaxHealthPercentDamage': self._read_value(props, 'MaxHPDPS', 'm_strValue'),
-                'DamageVsCreeps': self._read_value(props, 'CreepDPS', 'm_strValue'),
-            }
-
-        # --- Patron Damage Pulse ---
-        if ability_key == 'citadel_ability_tier3boss_damage_pulse':
-            # This ability's stats are in a list, so we handle it manually instead of using _deep_get for the index.
-            modifiers_list = self._deep_get(self.abilities_data[ability_key], 'm_AutoIntrinsicModifiers')
-            if modifiers_list and isinstance(modifiers_list, list) and len(modifiers_list) > 0:
-                modifier = modifiers_list[0]
-                return {
-                    'PulseRadius': self._read_value(modifier, 'm_flRadius'),
-                    'MaxTargets': self._read_value(modifier, 'm_iMaxTargets'),
-                    'DamagePerPulse': self._read_value(modifier, 'm_flDamagePerPulse'),
-                    'PulseInterval': self._read_value(modifier, 'm_flTickRate'),
-                }
-
-        # Return None if no specific parser is found for this ability key
-        return None
-
     # --- Trooper Parsers ---
 
     def _parse_trooper_shared(self, data, npc_key=None):
@@ -249,7 +167,7 @@ class NpcParser:
 
     def _parse_trooper_medic(self, data, npc_key=None):
         stats = self._parse_trooper_shared(data, npc_key)
-        stats['Abilities'] = self._parse_bound_abilities(data)
+        stats['BoundAbilities'] = self._deep_get(data, 'm_mapBoundAbilities')
         return stats
 
     def _parse_trooper_melee(self, data, npc_key=None):
@@ -321,11 +239,17 @@ class NpcParser:
 
         stats = {
             'MaxHealth': self._read_value(data, 'm_nMaxHealth'),
+            'MeleeAttemptRange': self._read_value(data, 'm_flMeleeAttemptRange'),
             'SightRangePlayers': self._read_value(data, 'm_flSightRangePlayers'),
             'SightRangeNPCs': self._read_value(data, 'm_flSightRangeNPCs'),
             'PlayerInitialSightRange': self._read_value(data, 'm_flPlayerInitialSightRange'),
+            'StompDamage': self._read_value(data, 'm_flStompDamage'),
+            'StompDamageMaxHealthPercent': self._read_value(data, 'm_flStompDamageMaxHealthPercent'),
+            'StompRadius': self._read_value(data, 'm_flStompImpactRadius'),
+            'StompStunDuration': self._read_value(data, 'm_flStunDuration'),
+            'StompKnockup': self._read_value(data, 'm_flStompTossUpMagnitude'),
             'InvulnerabilityRange': invuln_range,
-            'Abilities': self._parse_bound_abilities(data),
+            'BoundAbilities': self._deep_get(data, 'm_mapBoundAbilities'),
             'FriendlyAuraRadius': self._read_value(data, 'm_FriendlyAuraModifier', 'm_flAuraRadius'),
             'NearbyEnemyResistanceRange': self._read_value(data, 'm_NearbyEnemyResist', 'm_flNearbyEnemyResistRange'),
             'NearbyEnemyResistanceValues': self._deep_get(data, 'm_NearbyEnemyResist', 'm_flResistValues'),
@@ -339,18 +263,6 @@ class NpcParser:
                 'm_flBackdoorProtectionDamageMitigationFromPlayers',
             ),
         }
-
-        # Manually add the stomp ability stats into the 'Abilities' dictionary
-        # as its stats are defined directly on the NPC, not in an external file.
-        stats['Abilities']['Stomp'] = {
-            'AttemptRange': self._read_value(data, 'm_flMeleeAttemptRange'),
-            'Damage': self._read_value(data, 'm_flStompDamage'),
-            'MaxHealthPercentDamage': self._read_value(data, 'm_flStompDamageMaxHealthPercent'),
-            'EffectRadius': self._read_value(data, 'm_flStompImpactRadius'),
-            'StunDuration': self._read_value(data, 'm_flStunDuration'),
-            'Knockup': self._read_value(data, 'm_flStompTossUpMagnitude'),
-        }
-
         stats.update(self._parse_intrinsic_modifiers(data))
 
         # Parse friendly aura bonuses from the nested script values list using a data-driven map.
@@ -382,6 +294,11 @@ class NpcParser:
             'SightRangePlayers': self._read_value(data, 'm_flSightRangePlayers'),
             'MoveSpeed': self._read_value(data, 'm_flDefaultMoveSpeed'),
             'MoveSpeedNoShield': self._read_value(data, 'm_flNoShieldMoveSpeed'),
+            'LaserDPSToPlayers': self._read_value(data, 'm_flLaserDPSToPlayers'),
+            'LaserDPSToNPCs': self._read_value(data, 'm_flLaserDPSToNPCs'),
+            'LaserDPSMaxHealthPercent': self._read_value(data, 'm_flLaserDPSMaxHealth'),
+            'LaserDPSToPlayersNoShield': self._read_value(data, 'm_flNoShieldLaserDPSToPlayers'),
+            'LaserDPSToNPCsNoShield': self._read_value(data, 'm_flNoShieldLaserDPSToNPCs'),
             'IsUnkillableInPhase1': 'm_Phase1Modifier' in data,
             'HealthGrowthPerMinutePhase1': self._read_value(data, 'm_ObjectiveHealthGrowthPhase1', 'm_iGrowthPerMinute'),
             'HealthGrowthStartTimePhase1': self._read_value(data, 'm_ObjectiveHealthGrowthPhase1', 'm_iGrowthStartTimeInMinutes'),
@@ -396,18 +313,8 @@ class NpcParser:
                 'm_BackdoorProtection',
                 'm_flBackdoorProtectionDamageMitigationFromPlayers',
             ),
+            'BoundAbilities': self._deep_get(data, 'm_mapBoundAbilities'),
         }
-        stats['Abilities'] = self._parse_bound_abilities(data)
-
-        # Manually add the Laser Beam ability stats into the 'Abilities' dictionary.
-        stats['Abilities']['LaserBeam'] = {
-            'DPSToPlayers': self._read_value(data, 'm_flLaserDPSToPlayers'),
-            'DPSToNPCs': self._read_value(data, 'm_flLaserDPSToNPCs'),
-            'DPSMaxHealthPercent': self._read_value(data, 'm_flLaserDPSMaxHealth'),
-            'DPSToPlayersNoShield': self._read_value(data, 'm_flNoShieldLaserDPSToPlayers'),
-            'DPSToNPCsNoShield': self._read_value(data, 'm_flNoShieldLaserDPSToNPCs'),
-        }
-
         stats.update(self._parse_intrinsic_modifiers(data))
         return stats
 

@@ -39,10 +39,20 @@ class AbilityParser:
                 else:
                     ability_data[key] = value
 
-            if 'm_vecAbilityUpgrades' not in ability:
-                continue
-            else:
+            # Special handling for Patron's Damage Pulse, which stores stats in a unique location.
+            if ability_key == 'citadel_ability_tier3boss_damage_pulse':
+                modifiers_list = ability.get('m_AutoIntrinsicModifiers')
+                if modifiers_list and isinstance(modifiers_list, list) and len(modifiers_list) > 0:
+                    modifier = modifiers_list[0]
+                    ability_data['PulseRadius'] = num_utils.assert_number(modifier.get('m_flRadius'))
+                    ability_data['MaxTargets'] = num_utils.assert_number(modifier.get('m_iMaxTargets'))
+                    ability_data['DamagePerPulse'] = num_utils.assert_number(modifier.get('m_flDamagePerPulse'))
+                    ability_data['PulseInterval'] = num_utils.assert_number(modifier.get('m_flTickRate'))
+
+            if 'm_vecAbilityUpgrades' in ability:
                 ability_data['Upgrades'] = self._parse_upgrades(ability_data, ability['m_vecAbilityUpgrades'])
+            else:
+                ability_data['Upgrades'] = []
 
             formatted_ability_data = {}
             for attr_key, attr_value in ability_data.items():
