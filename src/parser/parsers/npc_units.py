@@ -9,7 +9,7 @@ class NpcParser:
     including troopers, bosses, neutral units, and other game objects.
     """
 
-    def __init__(self, npc_units_data, modifiers_data, misc_data, localizations):
+    def __init__(self, npc_units_data, modifiers_data, misc_data, localizations, parsed_abilities):
         """
         Initializes the parser with necessary data.
 
@@ -18,11 +18,13 @@ class NpcParser:
             modifiers_data (dict): The raw data from modifiers.vdata.
             misc_data (dict): The raw data from misc.vdata.
             localizations (dict): The localization data for mapping keys to names.
+            parsed_abilities (dict): The pre-parsed ability data.
         """
         self.npc_units_data = npc_units_data
         self.modifiers_data = modifiers_data
         self.misc_data = misc_data
         self.localizations = localizations
+        self.parsed_abilities = parsed_abilities
         self.trooper_damage_reduction_from_objective = None
         self.NPC_PARSERS = {
             'trooper_normal': self._parse_trooper_ranged,
@@ -85,6 +87,25 @@ class NpcParser:
         """Combines deep_get and assert_number for cleaner parsing."""
         value = self._deep_get(data, *keys)
         return num_utils.assert_number(value)
+
+    def _parse_npc_abilities(self, raw_abilities):
+        """
+        Parses the raw m_mapBoundAbilities dictionary by looking up ability
+        details in the pre-parsed abilities dictionary.
+        """
+        if not isinstance(raw_abilities, dict):
+            return None
+
+        formatted_abilities = {}
+        for slot, ability_key in raw_abilities.items():
+            slot_number = slot.split('_')[-1]
+            if not slot_number.isdigit() or ability_key not in self.parsed_abilities:
+                continue
+
+            ability_data = self.parsed_abilities[ability_key]
+            formatted_abilities[slot_number] = {'Name': ability_data['Name'], 'Key': ability_key}
+
+        return formatted_abilities if formatted_abilities else None
 
     def _parse_intrinsic_modifiers(self, data):
         """
@@ -167,7 +188,7 @@ class NpcParser:
 
     def _parse_trooper_medic(self, data, npc_key=None):
         stats = self._parse_trooper_shared(data, npc_key)
-        stats['BoundAbilities'] = self._deep_get(data, 'm_mapBoundAbilities')
+        stats['BoundAbilities'] = self._parse_npc_abilities(self._deep_get(data, 'm_mapBoundAbilities'))
         return stats
 
     def _parse_trooper_melee(self, data, npc_key=None):
@@ -249,7 +270,7 @@ class NpcParser:
             'StompStunDuration': self._read_value(data, 'm_flStunDuration'),
             'StompKnockup': self._read_value(data, 'm_flStompTossUpMagnitude'),
             'InvulnerabilityRange': invuln_range,
-            'BoundAbilities': self._deep_get(data, 'm_mapBoundAbilities'),
+            'BoundAbilities': self._parse_npc_abilities(self._deep_get(data, 'm_mapBoundAbilities')),
             'FriendlyAuraRadius': self._read_value(data, 'm_FriendlyAuraModifier', 'm_flAuraRadius'),
             'NearbyEnemyResistanceRange': self._read_value(data, 'm_NearbyEnemyResist', 'm_flNearbyEnemyResistRange'),
             'NearbyEnemyResistanceValues': self._deep_get(data, 'm_NearbyEnemyResist', 'm_flResistValues'),
@@ -313,7 +334,7 @@ class NpcParser:
                 'm_BackdoorProtection',
                 'm_flBackdoorProtectionDamageMitigationFromPlayers',
             ),
-            'BoundAbilities': self._deep_get(data, 'm_mapBoundAbilities'),
+            'BoundAbilities': self._parse_npc_abilities(self._deep_get(data, 'm_mapBoundAbilities')),
         }
         stats.update(self._parse_intrinsic_modifiers(data))
         return stats
