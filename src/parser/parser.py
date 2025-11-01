@@ -130,7 +130,7 @@ class Parser:
         parsed_heroes = self._parse_heroes(parsed_abilities)
         self._parsed_ability_cards(parsed_heroes)
         self._parse_items()
-        self._parse_npcs()
+        self._parse_npcs(parsed_abilities)
         self._parse_attributes()
         self._parse_localizations()
         self._parse_soul_unlocks()
@@ -243,11 +243,14 @@ class Parser:
         with open(self.OUTPUT_DIR + '/item-component-tree.txt', 'w') as f:
             f.write(str(item_component_chart))
 
-    def _parse_npcs(self):
+    def _parse_npcs(self, parsed_abilities):
         logger.trace('Parsing NPCs...')
         parsed_npcs = npc_units.NpcParser(
-            self.data['scripts']['npc_units'],
-            self.localizations[self.language],
+            npc_units_data=self.data['scripts']['npc_units'],
+            modifiers_data=self.data['scripts']['modifiers'],
+            misc_data=self.data['scripts']['misc'],
+            localizations=self.localizations[self.language],
+            parsed_abilities=parsed_abilities,
         ).run()
 
         json_utils.write(self.OUTPUT_DIR + '/json/npc-data.json', json_utils.sort_dict(parsed_npcs))

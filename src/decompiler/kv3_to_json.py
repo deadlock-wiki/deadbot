@@ -3,30 +3,28 @@ import keyvalues3 as kv3
 from utils import json_utils
 
 
-# Recursively accesses all nested objects and hosts json-serializable values in the returned dict
+# Recursively converts any object from the kv3 library into a standard, JSON-serializable Python object.
 def kv3_to_dict(kv3_obj):
-    # Include all items that are dicts
-    dict = {}
+    # Return basic types (str, int, float, bool, None) as-is.
+    if isinstance(kv3_obj, (str, int, float, bool)) or kv3_obj is None:
+        return kv3_obj
 
-    # If cannot access attributes, end recursion
+    # If the object is a list, recursively convert each item.
+    if isinstance(kv3_obj, list):
+        return [kv3_to_dict(item) for item in kv3_obj]
+
+    # If the object is dict-like (has .items()), recursively convert its values.
     try:
-        items = kv3_obj.items()
+        return {k: kv3_to_dict(v) for k, v in kv3_obj.items()}
     except AttributeError:
-        return None
+        pass
 
-    for key, value in items:
-        # Only include values that are json serializable
-        if not json_utils.is_json_serializable(value):
-            try:
-                value = kv3_to_dict(value)
-                if value is None:
-                    continue  # Continue to next value if its not serializable
-            except TypeError:
-                return None
+    # Handle special Valve types like 'resource_name:' by unwrapping the 'flagged_value' object.
+    if kv3_obj.__class__.__name__ == 'flagged_value' and hasattr(kv3_obj, 'value'):
+        return kv3_to_dict(kv3_obj.value)
 
-        dict[key] = value
-
-    return dict
+    # As a fallback, convert any other unknown object type to its string representation.
+    return str(kv3_obj)
 
 
 # Converts kv3 object to dict, then writes dict to json
