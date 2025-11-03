@@ -47,7 +47,8 @@ class HeroParser:
                 hero_stats['ReloadSpeed'] = hero_stats['ReloadSpeed'] - 1
 
                 hero_stats['SpiritScaling'] = self._parse_spirit_scaling(hero_value)
-                weapon_stats = self._parse_hero_weapon(hero_value)
+                # Pass hero_key to correctly construct the primary weapon name
+                weapon_stats = self._parse_hero_weapon(hero_value, hero_key)
                 hero_stats.update(weapon_stats)
 
                 # Lore, Playstyle, and Role keys from localization
@@ -78,22 +79,20 @@ class HeroParser:
                     hero_stats['LevelScaling'] = {k: v for k, v in hero_stats['LevelScaling'].items() if v != 0.0}
 
                 # Parse DPS and Sustained DPS level scaling
-                if 'DPS' in weapon_stats:
-                    dps_stats = self._get_dps_stats(weapon_stats)
+                if 'DPS' in hero_stats:
+                    dps_stats = self._get_dps_stats(hero_stats)
                     scaling_containers = ['LevelScaling', 'SpiritScaling']
                     dps_types = ['burst', 'sustained']
                     dps_types_localized = ['DPS', 'SustainedDPS']
 
                     for scaling_container in scaling_containers:
                         for dps_type, dps_type_localized in zip(dps_types, dps_types_localized):
-                            dps_scaling = self._calc_dps_scaling(dps_stats, hero_stats[scaling_container], dps_type)
+                            dps_scaling = self._calc_dps_scaling(dps_stats, hero_stats.get(scaling_container, {}), dps_type)
 
                             if dps_scaling != 0.0:
+                                if scaling_container not in hero_stats:
+                                    hero_stats[scaling_container] = {}
                                 hero_stats[scaling_container][dps_type_localized] = dps_scaling
-
-                hero_stats['WeaponName'] = 'citadel_weapon_' + hero_key + '_set'
-                # i.e. citadel_weapon_hero_kelvin_set
-                hero_stats['WeaponDescription'] = hero_stats['WeaponName'] + '_desc'
 
                 if 'm_RecommendedUpgrades' in hero_value:
                     hero_stats['RecommendedItems'] = hero_value['m_RecommendedUpgrades']
@@ -117,7 +116,6 @@ class HeroParser:
         These are displayed on the deadlock.wiki/Hero_Comparison page, among others in the future.
         """
         # Storing in dict with bool entry instead of list so its hashable on the frontend
-
         heroes_data = all_hero_stats.copy()
         stats_previous_value = {}
         meaningful_stats = {}
@@ -137,7 +135,6 @@ class HeroParser:
                 # Add the stat's value to the dict
                 if stat_key not in stats_previous_value:
                     stats_previous_value[stat_key] = stat_value
-
                 # If its already tracked, and is different to current value, mark as meaningful
                 else:
                     if stats_previous_value[stat_key] != stat_value:
@@ -165,76 +162,124 @@ class HeroParser:
 
     def _parse_hero_abilities(self, hero_value):
         bound_abilities = hero_value['m_mapBoundAbilities']
-
         abilities = {}
         for ability_position, bound_ability_key in bound_abilities.items():
             # ignore any abilities without any parsed data
             if bound_ability_key not in self.parsed_abilities:
                 continue
             abilities[ability_position] = self.parsed_abilities[bound_ability_key]
+        return self._map_attr_names(abilities, maps.get_bound_abilities)
 
-        mapped_abilities = self._map_attr_names(abilities, maps.get_bound_abilities)
+    def _parse_weapon_stats(self, weapon_info_block):
+        """
+        Parses a 'm_WeaponInfo' block for a primary or alternate fire mode.
+        Returns a dictionary of parsed weapon stats.
+        """
+        w = weapon_info_block
+        stats = {}
 
-        return mapped_abilities
-
-    def _parse_hero_weapon(self, hero_value):
-        weapon_stats = {}
-
-        weapon_prim_id = hero_value['m_mapBoundAbilities']['ESlot_Weapon_Primary']
-
-        # Parse weapon stats
-        if weapon_prim_id not in self.abilities_data:
-            return weapon_stats
-
-        weapon_prim = self.abilities_data[weapon_prim_id]['m_WeaponInfo']
-        w = weapon_prim
-
-        # Safely calculate bullet speed from the new direct key
+        # Safely parse all weapon attributes using .get() to prevent KeyErrors
         raw_bullet_speed = w.get('m_flBulletSpeed')
-        bullet_speed = raw_bullet_speed / ENGINE_UNITS_PER_METER if raw_bullet_speed is not None else None
+        stats['BulletSpeed'] = raw_bullet_speed / ENGINE_UNITS_PER_METER if raw_bullet_speed is not None else None
 
-        weapon_stats = {
-            'BulletDamage': w['m_flBulletDamage'],
-            'RoundsPerSecond': 1 / w['m_flCycleTime'],
-            'ClipSize': w['m_iClipSize'],
-            'ReloadTime': w['m_reloadDuration'],
-            'ReloadMovespeed': float(w['m_flReloadMoveSpeed']) / 10000,
-            'ReloadDelay': w.get('m_flReloadSingleBulletsInitialDelay', 0),
-            'ReloadSingle': w.get('m_bReloadSingleBullets', False),
-            'BulletSpeed': bullet_speed,
-            'FalloffStartRange': w['m_flDamageFalloffStartRange'] / ENGINE_UNITS_PER_METER,
-            'FalloffEndRange': w['m_flDamageFalloffEndRange'] / ENGINE_UNITS_PER_METER,
-            'FalloffStartScale': w['m_flDamageFalloffStartScale'],
-            'FalloffEndScale': w['m_flDamageFalloffEndScale'],
-            'FalloffBias': w['m_flDamageFalloffBias'],
-            'BulletGravityScale': w['m_flBulletGravityScale'],
-            'BulletsPerShot': w['m_iBullets'],
-            'BulletsPerBurst': w.get('m_iBurstShotCount', 1),
-            'BurstInterShotInterval': w.get('m_flIntraBurstCycleTime', 0),
-            'ShootMoveSpeed': w.get('m_flShootMoveSpeedPercent', 1.0),
-            'HitOnceAcrossAllBullets': w.get('m_bHitOnceAcrossAllBullets', False),
-            #'BulletRadius': w['m_flBulletRadius'] / ENGINE_UNITS_PER_METER,
-        }
+        # Core Stats
+        stats['BulletDamage'] = w.get('m_flBulletDamage', 0)
+        stats['RoundsPerSecond'] = 1 / w['m_flCycleTime'] if w.get('m_flCycleTime') and w['m_flCycleTime'] > 0 else 0
+        stats['ClipSize'] = w.get('m_iClipSize')
+        stats['ReloadTime'] = w.get('m_reloadDuration')
+        stats['ReloadMovespeed'] = float(w.get('m_flReloadMoveSpeed', '0')) / 10000
+        stats['ReloadDelay'] = w.get('m_flReloadSingleBulletsInitialDelay', 0)
+        stats['ReloadSingle'] = w.get('m_bReloadSingleBullets', False)
 
-        if 'm_bSpinsUp' in w and w['m_bSpinsUp'] == 1:
-            weapon_stats.update(
-                {
-                    'RoundsPerSecondAtMaxSpin': 1 / w['m_flMaxSpinCycleTime'],
-                    'SpinAcceleration': w['m_flSpinIncreaseRate'],
-                    'SpinDeceleration': w['m_flSpinDecayRate'],
-                }
-            )
+        # Falloff and Range
+        stats['FalloffStartRange'] = w.get('m_flDamageFalloffStartRange', 0) / ENGINE_UNITS_PER_METER
+        stats['FalloffEndRange'] = w.get('m_flDamageFalloffEndRange', 0) / ENGINE_UNITS_PER_METER
+        stats['FalloffStartScale'] = w.get('m_flDamageFalloffStartScale', 1.0)
+        stats['FalloffEndScale'] = w.get('m_flDamageFalloffEndScale', 1.0)
+        stats['FalloffBias'] = w.get('m_flDamageFalloffBias', 0.5)
 
-        dps_stats = self._get_dps_stats(weapon_stats)
+        # Bullet Properties
+        stats['BulletGravityScale'] = w.get('m_flBulletGravityScale', 0)
+        stats['BulletsPerShot'] = w.get('m_iBullets', 1)
+        stats['BulletsPerBurst'] = w.get('m_iBurstShotCount', 1)
+        stats['BurstInterShotInterval'] = w.get('m_flIntraBurstCycleTime', 0)
+        stats['ShootMoveSpeed'] = w.get('m_flShootMoveSpeedPercent', 1.0)
+        stats['HitOnceAcrossAllBullets'] = w.get('m_bHitOnceAcrossAllBullets', False)
+        stats['CanCrit'] = w.get('m_bCanCrit', True)
+        stats['AmmoConsumedPerShot'] = w.get('m_iAmmoConsumedPerShot', 1)
 
-        weapon_stats['DPS'] = self._calc_dps(dps_stats, 'burst')
-        weapon_stats['SustainedDPS'] = self._calc_dps(dps_stats, 'sustained')
+        # Explosive Properties (often for alt-fire)
+        if 'm_flExplosionRadius' in w:
+            stats['ExplosionRadius'] = w['m_flExplosionRadius'] / ENGINE_UNITS_PER_METER
+        if 'm_flExplosionDamageScaleAtMaxRadius' in w:
+            stats['ExplosionDamageScaleAtMaxRadius'] = w['m_flExplosionDamageScaleAtMaxRadius']
 
-        weapon_stats['WeaponName'] = weapon_prim_id
-        # i.e. citadel_weapon_kelvin_set to citadel_weapon_hero_kelvin_set
-        weapon_stats['WeaponDescription'] = weapon_prim_id.replace('citadel_weapon_', 'citadel_weapon_hero_')
+        # Spin-up Properties
+        if w.get('m_bSpinsUp'):
+            max_spin_cycle_time = w.get('m_flMaxSpinCycleTime')
+            stats['RoundsPerSecondAtMaxSpin'] = 1 / max_spin_cycle_time if max_spin_cycle_time and max_spin_cycle_time > 0 else 0
+            stats['SpinAcceleration'] = w.get('m_flSpinIncreaseRate', 0)
+            stats['SpinDeceleration'] = w.get('m_flSpinDecayRate', 0)
 
-        # Parse weapon types
+        # Calculate DPS
+        dps_stats = self._get_dps_stats(stats)
+        if dps_stats.get('RoundsPerSecond', 0) > 0:
+            stats['DPS'] = self._calc_dps(dps_stats, 'burst')
+            stats['SustainedDPS'] = self._calc_dps(dps_stats, 'sustained')
+
+        return stats
+
+    def _parse_hero_weapon(self, hero_value, hero_key):
+        weapon_stats = {}
+        bound_abilities = hero_value['m_mapBoundAbilities']
+
+        # --- Parse Primary Weapon ---
+        primary_slot = 'ESlot_Weapon_Primary'
+        if primary_slot in bound_abilities:
+            weapon_prim_id = bound_abilities[primary_slot]
+            if weapon_prim_id in self.abilities_data and 'm_WeaponInfo' in self.abilities_data[weapon_prim_id]:
+                primary_ability_data = self.abilities_data[weapon_prim_id]
+                weapon_stats = self._parse_weapon_stats(primary_ability_data['m_WeaponInfo'])
+
+                # The primary weapon name/description key is constructed from the hero's key, not its own ability ID.
+                # e.g., hero_shiv -> citadel_weapon_hero_shiv_set
+                weapon_stats['WeaponName'] = f"citadel_weapon_hero_{hero_key.replace('hero_', '')}_set"
+                weapon_stats['WeaponDescription'] = weapon_stats['WeaponName'] + '_desc'
+
+        # --- Parse Alternate Fire Weapon ---
+        # It's not in a special slot, but is an ability with a specific behavior flag.
+        for slot, ability_id in bound_abilities.items():
+            if slot == primary_slot:
+                continue  # Skip the primary weapon we've already parsed
+
+            ability_data = self.abilities_data.get(ability_id)
+            if not ability_data:
+                continue
+
+            # Check if this ability is flagged as an alternative weapon
+            if 'CITADEL_ABILITY_BEHAVIOR_IS_ALTERNATIVE_WEAPON' in ability_data.get('m_AbilityBehaviorsBits', ''):
+                if 'm_WeaponInfo' in ability_data:
+                    alt_stats = self._parse_weapon_stats(ability_data['m_WeaponInfo'])
+
+                    # Inherit clip/reload stats from primary if missing, for accurate DPS calculation
+                    if alt_stats.get('ClipSize') is None:
+                        alt_stats['ClipSize'] = weapon_stats.get('ClipSize')
+                    if alt_stats.get('ReloadTime') is None:
+                        alt_stats['ReloadTime'] = weapon_stats.get('ReloadTime')
+
+                    # Recalculate DPS with potentially inherited stats
+                    alt_dps_stats = self._get_dps_stats(alt_stats)
+                    if alt_dps_stats.get('RoundsPerSecond', 0) > 0:
+                        alt_stats['DPS'] = self._calc_dps(alt_dps_stats, 'burst')
+                        alt_stats['SustainedDPS'] = self._calc_dps(alt_dps_stats, 'sustained')
+
+                    # Alt-fire uses its own ability ID for its name and description key.
+                    alt_stats['WeaponName'] = ability_id
+                    alt_stats['WeaponDescription'] = f'{ability_id}_desc'
+                    weapon_stats['AltFire'] = alt_stats
+                    break  # Assume only one alt-fire per hero
+
+        # --- Parse Weapon Types (Tags) ---
         shop_ui_weapon_stats = hero_value['m_ShopStatDisplay']['m_eWeaponStatsDisplay']
         if 'm_eWeaponAttributes' in shop_ui_weapon_stats:
             types = shop_ui_weapon_stats['m_eWeaponAttributes'].split(' | ')
@@ -246,16 +291,20 @@ class HeroParser:
         """Returns a dictionary of stats used to calculate DPS"""
         # TODO: These (among others) should be grouped under a "Weapon" key in hero data
         return {
-            'ReloadSingle': weapon_stats['ReloadSingle'],
-            'ReloadDelay': weapon_stats['ReloadDelay'],
-            'ReloadTime': weapon_stats['ReloadTime'],
-            'ClipSize': weapon_stats['ClipSize'],
-            'RoundsPerSecond': weapon_stats['RoundsPerSecondAtMaxSpin'] if 'SpinAcceleration' in weapon_stats else weapon_stats['RoundsPerSecond'],
-            'BurstInterShotInterval': weapon_stats['BurstInterShotInterval'],
-            'BulletDamage': weapon_stats['BulletDamage'],
-            'BulletsPerShot': weapon_stats['BulletsPerShot'],
-            'BulletsPerBurst': weapon_stats['BulletsPerBurst'],
-            'HitOnceAcrossAllBullets': weapon_stats['HitOnceAcrossAllBullets'],
+            'ReloadSingle': weapon_stats.get('ReloadSingle'),
+            'ReloadDelay': weapon_stats.get('ReloadDelay'),
+            'ReloadTime': weapon_stats.get('ReloadTime'),
+            'ClipSize': weapon_stats.get('ClipSize'),
+            'RoundsPerSecond': (
+                weapon_stats.get('RoundsPerSecondAtMaxSpin')
+                if 'SpinAcceleration' in weapon_stats and weapon_stats.get('RoundsPerSecondAtMaxSpin')
+                else weapon_stats.get('RoundsPerSecond')
+            ),
+            'BurstInterShotInterval': weapon_stats.get('BurstInterShotInterval'),
+            'BulletDamage': weapon_stats.get('BulletDamage'),
+            'BulletsPerShot': weapon_stats.get('BulletsPerShot'),
+            'BulletsPerBurst': weapon_stats.get('BulletsPerBurst'),
+            'HitOnceAcrossAllBullets': weapon_stats.get('HitOnceAcrossAllBullets'),
         }
 
     def _calc_dps(self, dps_stats, type='burst'):
@@ -264,44 +313,48 @@ class HeroParser:
         # a burst of damage where delta time is 0
         # sustained has delta time of infinity
         # meaning, sustained takes into account time-to-empty clip and reload time
+        d = {k: v for k, v in dps_stats.items() if v is not None}
 
-        # All reload actions have ReloadDelay played first,
-        # but typically only single bullet reloads have a non-zero delay
-        # i.e.
-        # ReloadDelay of .5,
-        # ReloadTime of 1,
-        # ClipSize of 10,
-        # =time to reload 1 bullet is 1.5s, time to reload 10 bullets is 10.5s
-
-        # BurstInterShotInterval represents time between shots in a burst
-
-        # Abbreivated dictionary for easier access
-        d = dps_stats.copy()
+        if d.get('RoundsPerSecond', 0) == 0:
+            return 0
 
         # If damage is dealt once for all bullets (e.g. shotguns), treat as 1 bullet for DPS
-        bullets_per_shot = 1 if d['HitOnceAcrossAllBullets'] else d['BulletsPerShot']
-
+        bullets_per_shot = 1 if d.get('HitOnceAcrossAllBullets') else d.get('BulletsPerShot', 1)
         cycle_time = 1 / d['RoundsPerSecond']
-        total_cycle_time = cycle_time + d['BulletsPerBurst'] * d['BurstInterShotInterval']
+        # BurstInterShotInterval represents time between shots in a burst
+        total_cycle_time = cycle_time + d.get('BulletsPerBurst', 1) * d.get('BurstInterShotInterval', 0)
+
+        if total_cycle_time == 0:
+            return 0
 
         # Burst DPS accounts for burst weapons and assumes maximum spinup (if applicable)
         if type == 'burst':
-            return d['BulletDamage'] * bullets_per_shot * d['BulletsPerBurst'] / (total_cycle_time)
+            return d.get('BulletDamage', 0) * bullets_per_shot * d.get('BulletsPerBurst', 1) / total_cycle_time
 
         # Sustained DPS also accounts for reloads/clipsize
         elif type == 'sustained':
-            if d['ReloadSingle']:
+            clip_size = d.get('ClipSize', 0)
+            if clip_size == 0:
+                # For weapons with no clip (like Bebop's beam), sustained DPS is the same as burst DPS
+                return d.get('BulletDamage', 0) * bullets_per_shot * d.get('BulletsPerBurst', 1) / total_cycle_time
+
+            # All reload actions have ReloadDelay played first,
+            # but typically only single bullet reloads have a non-zero delay
+            if d.get('ReloadSingle'):
                 # If reloading 1 bullet at a time, reload time is actually per bullet
-                time_to_reload = d['ReloadTime'] * d['ClipSize']
+                time_to_reload = d.get('ReloadTime', 0) * clip_size
             else:
-                time_to_reload = d['ReloadTime']
-            time_to_reload += d['ReloadDelay']
-            time_to_empty_clip = d['ClipSize'] / d['BulletsPerBurst'] * (total_cycle_time)
-            # More bullets per shot doesn't consume more bullets in the clip,
-            # so think of it as bullet per bullet
-            # BulletsPerBurst does consume more bullets in the clip
-            damage_from_clip = d['BulletDamage'] * bullets_per_shot * d['ClipSize']
-            return damage_from_clip / (time_to_empty_clip + time_to_reload)
+                time_to_reload = d.get('ReloadTime', 0)
+
+            time_to_reload += d.get('ReloadDelay', 0)
+            time_to_empty_clip = clip_size / d.get('BulletsPerBurst', 1) * total_cycle_time
+            # BulletsPerShot doesn't consume more ammo, but BulletsPerBurst does.
+            damage_from_clip = d.get('BulletDamage', 0) * bullets_per_shot * clip_size
+
+            total_time = time_to_empty_clip + time_to_reload
+            if total_time == 0:
+                return 0
+            return damage_from_clip / total_time
 
         else:
             raise Exception('Invalid DPS type, must be one of: ' + ', '.join(['burst', 'sustained']))
@@ -309,18 +362,13 @@ class HeroParser:
     def _calc_dps_scaling(self, dps_stats_, scalings, type='burst'):
         """
         Calc DPS level/spirit scaling based on the scalars.
-
-        i.e. with bullet dmg scaling
-        Dps scaling = dps * bullet dmg scaling / bullet dmg
         """
-        # Scalings example is the content of SpiritScaling or LevelScaling
-        # Displayed on deadlock.wiki/Hero_Comparison
         dps_stats = dps_stats_.copy()
         dps_stats_scaled = dps_stats_.copy()
 
         # Increase all stats by the scalar
         for scalar_key, scalar_value in scalings.items():
-            if scalar_key in dps_stats_scaled:
+            if scalar_key in dps_stats_scaled and dps_stats_scaled[scalar_key] is not None:
                 dps_stats_scaled[scalar_key] += scalar_value
 
         scaled_dps = self._calc_dps(dps_stats_scaled, type)
@@ -333,17 +381,16 @@ class HeroParser:
             return None
 
         parsed_spirit_scaling = {}
-
-        """ 
+        """
             Transform each value within m_mapScalingStats from
-            
+
             "MaxMoveSpeed": {
                 "eScalingStat": "ETechPower",
                 "flScale": 0.04
             },
-            
+
             to
-            
+
             "MaxMoveSpeed": 0.04
         # `spirit_scalings` is a dictionary that contains scaling stats for a hero. Each key in
         # `spirit_scalings` corresponds to a specific attribute of the hero (e.g., "MaxMoveSpeed"),
