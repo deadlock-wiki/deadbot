@@ -47,9 +47,11 @@ class HeroParser:
                 hero_stats['ReloadSpeed'] = hero_stats['ReloadSpeed'] - 1
 
                 hero_stats['SpiritScaling'] = self._parse_spirit_scaling(hero_value)
-                # Pass hero_key to correctly construct the primary weapon name
-                weapon_stats = self._parse_hero_weapon(hero_value, hero_key)
-                hero_stats.update(weapon_stats)
+
+                # Parse weapon data and nest it under a 'Weapon' key
+                weapon_data = self._parse_hero_weapon(hero_value, hero_key)
+                if weapon_data:
+                    hero_stats['Weapon'] = weapon_data
 
                 # Lore, Playstyle, and Role keys from localization
                 for key in ['Lore', 'Playstyle', 'Role']:
@@ -79,8 +81,8 @@ class HeroParser:
                     hero_stats['LevelScaling'] = {k: v for k, v in hero_stats['LevelScaling'].items() if v != 0.0}
 
                 # Parse DPS and Sustained DPS level scaling
-                if 'DPS' in hero_stats:
-                    dps_stats = self._get_dps_stats(hero_stats)
+                if 'Weapon' in hero_stats and 'DPS' in hero_stats['Weapon']:
+                    dps_stats = self._get_dps_stats(hero_stats['Weapon'])
                     scaling_containers = ['LevelScaling', 'SpiritScaling']
                     dps_types = ['burst', 'sustained']
                     dps_types_localized = ['DPS', 'SustainedDPS']
@@ -92,6 +94,7 @@ class HeroParser:
                             if dps_scaling != 0.0:
                                 if scaling_container not in hero_stats:
                                     hero_stats[scaling_container] = {}
+                                # We store the scaling at the top level, not in the weapon object
                                 hero_stats[scaling_container][dps_type_localized] = dps_scaling
 
                 if 'm_RecommendedUpgrades' in hero_value:
@@ -104,48 +107,45 @@ class HeroParser:
 
         return all_hero_stats, meaningful_stats
 
+    def _flatten_and_compare(self, data_dict, stats_previous_value, meaningful_stats, prefix=''):
+        """
+        Recursively walks a dictionary, flattens its keys, and compares values
+        to identify "meaningful" stats that vary between heroes.
+        """
+        for key, value in data_dict.items():
+            full_key = f'{prefix}{key}'
+
+            # Skip non-stat values like lists or localization keys
+            if isinstance(value, list) or (isinstance(value, str) and (any(s in value for s in ['hero_', 'weapon_']) or key == 'Name')):
+                continue
+
+            # Recursive step: if value is a dict, delve deeper
+            if isinstance(value, dict):
+                self._flatten_and_compare(value, stats_previous_value, meaningful_stats, prefix=f'{full_key}.')
+            # Base case: if value is a stat, perform comparison
+            else:
+                if full_key not in stats_previous_value:
+                    stats_previous_value[full_key] = value
+                elif stats_previous_value[full_key] != value:
+                    meaningful_stats[full_key] = True
+
     def _get_meaningful_stats(self, all_hero_stats):
         """
-        Gets list of meaningful stats that are non-constant stats.
-
-        Returns meaningful_stats dict
-
-        Meaningful stats are ones that are either scaled by level/power increase,
-        or have differing base values across the hero pool
-
-        These are displayed on the deadlock.wiki/Hero_Comparison page, among others in the future.
+        Gets list of meaningful stats that are non-constant stats by recursively
+        comparing all hero properties.
         """
-        # Storing in dict with bool entry instead of list so its hashable on the frontend
-        heroes_data = all_hero_stats.copy()
         stats_previous_value = {}
         meaningful_stats = {}
 
-        # Iterate heroes
-        for hero_key, hero_data in heroes_data.items():
-            # Iterate hero stats
-            for stat_key, stat_value in hero_data.items():
-                # Must not be a container type, nor a bool
-                if isinstance(stat_value, dict) or isinstance(stat_value, list):
-                    continue
+        for hero_data in all_hero_stats.values():
+            # Use the recursive helper to compare all stats, including nested ones
+            self._flatten_and_compare(hero_data, stats_previous_value, meaningful_stats)
 
-                # Ensure the data isn't a localization key
-                if isinstance(stat_value, str) and (any(str_to_match in stat_value for str_to_match in ['hero_', 'weapon_']) or stat_key == 'Name'):
-                    continue
-
-                # Add the stat's value to the dict
-                if stat_key not in stats_previous_value:
-                    stats_previous_value[stat_key] = stat_value
-                # If its already tracked, and is different to current value, mark as meaningful
-                else:
-                    if stats_previous_value[stat_key] != stat_value:
-                        meaningful_stats[stat_key] = True
-
-            # If it has any scaling stats, mark them as meaningful
-            scaling_containers = ['LevelScaling', 'SpiritScaling']
-            for scaling_container in scaling_containers:
+            # Scaling stats are handled separately as they are always meaningful if present
+            for scaling_container in ['LevelScaling', 'SpiritScaling']:
                 if scaling_container in hero_data:
-                    for level_key in hero_data[scaling_container].keys():
-                        meaningful_stats[level_key] = True
+                    for key in hero_data[scaling_container]:
+                        meaningful_stats[key] = True
 
         return meaningful_stats
 
@@ -289,7 +289,6 @@ class HeroParser:
 
     def _get_dps_stats(self, weapon_stats):
         """Returns a dictionary of stats used to calculate DPS"""
-        # TODO: These (among others) should be grouped under a "Weapon" key in hero data
         return {
             'ReloadSingle': weapon_stats.get('ReloadSingle'),
             'ReloadDelay': weapon_stats.get('ReloadDelay'),
