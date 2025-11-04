@@ -233,7 +233,7 @@ class HeroParser:
         weapon_stats = {}
         bound_abilities = hero_value['m_mapBoundAbilities']
 
-        # --- Parse Primary Weapon ---
+        # Primary weapon
         primary_slot = 'ESlot_Weapon_Primary'
         if primary_slot in bound_abilities:
             weapon_prim_id = bound_abilities[primary_slot]
@@ -246,7 +246,7 @@ class HeroParser:
                 weapon_stats['WeaponName'] = f"citadel_weapon_hero_{hero_key.replace('hero_', '')}_set"
                 weapon_stats['WeaponDescription'] = weapon_stats['WeaponName'] + '_desc'
 
-        # --- Parse Alternate Fire Weapon ---
+        # Alt-fire weapon
         # It's not in a special slot, but is an ability with a specific behavior flag.
         for slot, ability_id in bound_abilities.items():
             if slot == primary_slot:
@@ -261,13 +261,13 @@ class HeroParser:
                 if 'm_WeaponInfo' in ability_data:
                     alt_stats = self._parse_weapon_stats(ability_data['m_WeaponInfo'])
 
-                    # Inherit clip/reload stats from primary if missing, for accurate DPS calculation
+                    # Inherit clip/reload stats from primary if missing for accurate DPS calculation
                     if alt_stats.get('ClipSize') is None:
                         alt_stats['ClipSize'] = weapon_stats.get('ClipSize')
                     if alt_stats.get('ReloadTime') is None:
                         alt_stats['ReloadTime'] = weapon_stats.get('ReloadTime')
 
-                    # Recalculate DPS with potentially inherited stats
+                    # Recalculate DPS with inherited stats if needed
                     alt_dps_stats = self._get_dps_stats(alt_stats)
                     if alt_dps_stats.get('RoundsPerSecond', 0) > 0:
                         alt_stats['DPS'] = self._calc_dps(alt_dps_stats, 'burst')
@@ -279,7 +279,7 @@ class HeroParser:
                     weapon_stats['AltFire'] = alt_stats
                     break  # Assume only one alt-fire per hero
 
-        # --- Parse Weapon Types (Tags) ---
+        # Weapon Types (Tags)
         shop_ui_weapon_stats = hero_value['m_ShopStatDisplay']['m_eWeaponStatsDisplay']
         if 'm_eWeaponAttributes' in shop_ui_weapon_stats:
             types = shop_ui_weapon_stats['m_eWeaponAttributes'].split(' | ')
