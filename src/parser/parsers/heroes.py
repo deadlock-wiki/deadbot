@@ -182,12 +182,11 @@ class HeroParser:
             abilities[ability_position] = self.parsed_abilities[bound_ability_key]
         return self._map_attr_names(abilities, maps.get_bound_abilities)
 
-    def _parse_weapon_stats(self, weapon_info_block):
+    def _parse_weapon_stats(self, weapon_info):
         """
         Parses a 'm_WeaponInfo' block for a primary or alternate fire mode.
         Returns a dictionary of parsed weapon stats.
         """
-        w = weapon_info_block
         stats = {}
 
         # Safely parse all weapon attributes using .get() to prevent KeyErrors
