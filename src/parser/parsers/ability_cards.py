@@ -217,6 +217,9 @@ class AbilityCardsParser:
                     },
                 )
 
+                if 'status_effect' in parsed_prop:
+                    prop_object['StatusEffect'] = parsed_prop.get('status_effect')
+
                 attr_value = self.ability[attr_key]
                 if isinstance(attr_value, dict):
                     prop_object.update(attr_value)
@@ -242,9 +245,10 @@ class AbilityCardsParser:
                     attribute['key'] = value
 
                 case 'm_strImportantProperty':
-                    # This is only used in case m_strStatusEffectValue is not found
                     if attribute['key'] is None:
                         attribute['key'] = value
+                    if value.startswith('StatusEffect'):
+                        attribute['status_effect'] = value.replace('StatusEffect', '')
 
                 case 'm_bRequiresAbilityUpgrade':
                     attribute['requires_upgrade'] = value
