@@ -113,10 +113,6 @@ class AbilityCardsParser:
         # track used attributes to avoid duplicate values in other categories
         self.used_attributes = ['Key', 'Name', 'Upgrades']
         for index, info_section in enumerate(info_sections):
-            # skip any UI that requires an upgraded ability to display it
-            if info_section.get('m_strAbilityPropertyUpgradeRequired') not in [None, '']:
-                continue
-
             for key in info_section:
                 if key not in handled_keys:
                     raise Exception(f'Unhandled key in info section {key}')
@@ -127,6 +123,17 @@ class AbilityCardsParser:
                 'Main': None,
                 'Alt': None,
             }
+
+            # Some info boxes should only display when a certain attribute has been upgraded
+            # For simplicity, this is stored as the upgrade index
+            required_prop = info_section.get('m_strAbilityPropertyUpgradeRequired')
+            if required_prop not in ['', None]:
+                for upgr_index, upgrade in enumerate(self.ability['Upgrades']):
+                    if upgrade.get(required_prop) is not None:
+                        parsed_info_section['RequiresUpgradeIndex'] = upgr_index
+                        break
+                if parsed_info_section.get('RequiresUpgradeIndex') is None:
+                    raise Exception(f'No upgrade found for required property {required_prop}')
 
             desc_key = info_section.get('m_strLocString')
             if desc_key is not None and desc_key != '':
@@ -275,7 +282,6 @@ class AbilityCardsParser:
             alt_block.append(prop_object)
 
             self.used_attributes.append(prop)
-
         return alt_block
 
     def _parse_rest_of_data(self):
