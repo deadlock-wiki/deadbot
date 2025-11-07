@@ -120,8 +120,8 @@ class AbilityCardsParser:
             # Each info section consists of some combination of
             # title, description, main properties, and alternate properties
             parsed_info_section = {
-                'Main': None,
-                'Alt': None,
+                'Main': [],
+                'Alt': [],
             }
 
             # Some info boxes should only display when a certain attribute has been upgraded
