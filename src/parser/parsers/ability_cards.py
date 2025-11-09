@@ -120,7 +120,7 @@ class AbilityCardsParser:
             # Each info section consists of some combination of
             # title, description, main properties, and alternate properties
             parsed_info_section = {
-                'Main': [],
+                'Main': {},
                 'Alt': [],
             }
 
