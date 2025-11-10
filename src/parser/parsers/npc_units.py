@@ -1,6 +1,7 @@
 from loguru import logger
 import utils.json_utils as json_utils
 import utils.num_utils as num_utils
+from constants import ENGINE_UNITS_PER_METER
 
 
 class NpcParser:
@@ -74,6 +75,12 @@ class NpcParser:
         return all_npcs
 
     # --- Helper Methods ---
+
+    def _convert_distance(self, value):
+        """Converts raw engine units (inches) to meters."""
+        if value is None or value == 0:
+            return value
+        return value / ENGINE_UNITS_PER_METER
 
     def _deep_get(self, data, *keys):
         """Safely access nested dictionary keys."""
@@ -169,11 +176,11 @@ class NpcParser:
             'TrooperDPS': self._read_value(data, 'm_flTrooperDPS'),
             'T1BossDPS': self._read_value(data, 'm_flT1BossDPS'),
             'BarrackBossDPS': self._read_value(data, 'm_flBarrackBossDPS'),
-            'SightRangePlayers': self._read_value(data, 'm_flSightRangePlayers'),
-            'SightRangeNPCs': self._read_value(data, 'm_flSightRangeNPCs'),
-            'RunSpeed': self._read_value(data, 'm_flRunSpeed'),
-            'WalkSpeed': self._read_value(data, 'm_flWalkSpeed'),
-            'WeaponRange': self._read_value(data, 'm_WeaponInfo', 'm_flRange'),
+            'SightRangePlayers': self._convert_distance(self._read_value(data, 'm_flSightRangePlayers')),
+            'SightRangeNPCs': self._convert_distance(self._read_value(data, 'm_flSightRangeNPCs')),
+            'RunSpeed': self._convert_distance(self._read_value(data, 'm_flRunSpeed')),
+            'WalkSpeed': self._convert_distance(self._read_value(data, 'm_flWalkSpeed')),
+            'WeaponRange': self._convert_distance(self._read_value(data, 'm_WeaponInfo', 'm_flRange')),
             'DamageReductionNearEnemyBase': self.trooper_damage_reduction_from_objective,
             # Resistances
             'PlayerDamageResistance': self._read_value(data, 'm_flPlayerDamageResistPct'),
@@ -196,7 +203,7 @@ class NpcParser:
         stats.update(
             {
                 'MeleeDamage': self._read_value(data, 'm_flMeleeDamage'),
-                'MeleeAttemptRange': self._read_value(data, 'm_flMeleeAttemptRange'),
+                'MeleeAttemptRange': self._convert_distance(self._read_value(data, 'm_flMeleeAttemptRange')),
             }
         )
         return stats
@@ -209,10 +216,10 @@ class NpcParser:
             'PlayerDPS': self._read_value(data, 'm_flPlayerDPS'),
             'TrooperDPS': self._read_value(data, 'm_flTrooperDPS'),
             'MeleeDamage': self._read_value(data, 'm_flMeleeDamage'),
-            'MeleeAttemptRange': self._read_value(data, 'm_flMeleeAttemptRange'),
-            'SightRangePlayers': self._read_value(data, 'm_flSightRangePlayers'),
-            'SightRangeNPCs': self._read_value(data, 'm_flSightRangeNPCs'),
-            'InvulnerabilityRange': self._read_value(data, 'm_flInvulRange'),
+            'MeleeAttemptRange': self._convert_distance(self._read_value(data, 'm_flMeleeAttemptRange')),
+            'SightRangePlayers': self._convert_distance(self._read_value(data, 'm_flSightRangePlayers')),
+            'SightRangeNPCs': self._convert_distance(self._read_value(data, 'm_flSightRangeNPCs')),
+            'InvulnerabilityRange': self._convert_distance(self._read_value(data, 'm_flInvulRange')),
             'PlayerDamageResistance': self._read_value(data, 'm_flPlayerDamageResistPct'),
             'TrooperDamageResistanceBase': self._read_value(data, 'm_flT1BossDPSBaseResist'),
             'TrooperDamageResistanceMax': self._read_value(data, 'm_flT1BossDPSMaxResist'),
@@ -246,7 +253,7 @@ class NpcParser:
     def _parse_shrine(self, data, npc_key=None):
         stats = {
             'MaxHealth': self._read_value(data, 'm_iMaxHealthGenerator'),
-            'AntiSnipeRange': self._read_value(data, 'm_RangedArmorModifier', 'm_flInvulnRange'),
+            'AntiSnipeRange': self._convert_distance(self._read_value(data, 'm_RangedArmorModifier', 'm_flInvulnRange')),
             'BulletResistBase': self._read_value(data, 'm_BackdoorBulletResistModifier', 'm_BulletResist'),
             'BulletResistReductionPerHero': self._read_value(data, 'm_BackdoorBulletResistModifier', 'm_BulletResistReductionPerHero'),
         }
@@ -254,29 +261,29 @@ class NpcParser:
         return stats
 
     def _parse_walker(self, data, npc_key=None):
-        invuln_range = self._read_value(data, 'm_flInvulModifierRange')
-        if invuln_range is None:
-            invuln_range = self._read_value(data, 'm_flInvulRange')
+        invuln_range_raw = self._read_value(data, 'm_flInvulModifierRange')
+        if invuln_range_raw is None:
+            invuln_range_raw = self._read_value(data, 'm_flInvulRange')
 
         stats = {
             'MaxHealth': self._read_value(data, 'm_nMaxHealth'),
-            'MeleeAttemptRange': self._read_value(data, 'm_flMeleeAttemptRange'),
-            'SightRangePlayers': self._read_value(data, 'm_flSightRangePlayers'),
-            'SightRangeNPCs': self._read_value(data, 'm_flSightRangeNPCs'),
-            'PlayerInitialSightRange': self._read_value(data, 'm_flPlayerInitialSightRange'),
+            'MeleeAttemptRange': self._convert_distance(self._read_value(data, 'm_flMeleeAttemptRange')),
+            'SightRangePlayers': self._convert_distance(self._read_value(data, 'm_flSightRangePlayers')),
+            'SightRangeNPCs': self._convert_distance(self._read_value(data, 'm_flSightRangeNPCs')),
+            'PlayerInitialSightRange': self._convert_distance(self._read_value(data, 'm_flPlayerInitialSightRange')),
             'StompDamage': self._read_value(data, 'm_flStompDamage'),
             'StompDamageMaxHealthPercent': self._read_value(data, 'm_flStompDamageMaxHealthPercent'),
-            'StompRadius': self._read_value(data, 'm_flStompImpactRadius'),
+            'StompRadius': self._convert_distance(self._read_value(data, 'm_flStompImpactRadius')),
             'StompStunDuration': self._read_value(data, 'm_flStunDuration'),
             'StompKnockup': self._read_value(data, 'm_flStompTossUpMagnitude'),
-            'InvulnerabilityRange': invuln_range,
+            'InvulnerabilityRange': self._convert_distance(invuln_range_raw),
             'BoundAbilities': self._parse_npc_abilities(self._deep_get(data, 'm_mapBoundAbilities')),
-            'FriendlyAuraRadius': self._read_value(data, 'm_FriendlyAuraModifier', 'm_flAuraRadius'),
-            'NearbyEnemyResistanceRange': self._read_value(data, 'm_NearbyEnemyResist', 'm_flNearbyEnemyResistRange'),
+            'FriendlyAuraRadius': self._convert_distance(self._read_value(data, 'm_FriendlyAuraModifier', 'm_flAuraRadius')),
+            'NearbyEnemyResistanceRange': self._convert_distance(self._read_value(data, 'm_NearbyEnemyResist', 'm_flNearbyEnemyResistRange')),
             'NearbyEnemyResistanceValues': self._deep_get(data, 'm_NearbyEnemyResist', 'm_flResistValues'),
             'RangedResistanceMaxValue': self._read_value(data, 'm_RangedArmorModifier', 'm_flBulletResistancePctMax'),
-            'RangedResistanceMinRange': self._read_value(data, 'm_RangedArmorModifier', 'm_flRangeMin'),
-            'RangedResistanceMaxRange': self._read_value(data, 'm_RangedArmorModifier', 'm_flRangeMax'),
+            'RangedResistanceMinRange': self._convert_distance(self._read_value(data, 'm_RangedArmorModifier', 'm_flRangeMin')),
+            'RangedResistanceMaxRange': self._convert_distance(self._read_value(data, 'm_RangedArmorModifier', 'm_flRangeMax')),
             'BackdoorHealthRegen': self._read_value(data, 'm_BackdoorProtectionModifier', 'm_flHealthPerSecondRegen'),
             'BackdoorPlayerDamageMitigation': self._read_value(
                 data,
@@ -312,9 +319,9 @@ class NpcParser:
         stats = {
             'MaxHealthPhase1': self._read_value(data, 'm_nMaxHealth'),
             'MaxHealthPhase2': self._read_value(data, 'm_nPhase2Health'),
-            'SightRangePlayers': self._read_value(data, 'm_flSightRangePlayers'),
-            'MoveSpeed': self._read_value(data, 'm_flDefaultMoveSpeed'),
-            'MoveSpeedNoShield': self._read_value(data, 'm_flNoShieldMoveSpeed'),
+            'SightRangePlayers': self._convert_distance(self._read_value(data, 'm_flSightRangePlayers')),
+            'MoveSpeed': self._convert_distance(self._read_value(data, 'm_flDefaultMoveSpeed')),
+            'MoveSpeedNoShield': self._convert_distance(self._read_value(data, 'm_flNoShieldMoveSpeed')),
             'LaserDPSToPlayers': self._read_value(data, 'm_flLaserDPSToPlayers'),
             'LaserDPSToNPCs': self._read_value(data, 'm_flLaserDPSToNPCs'),
             'LaserDPSMaxHealthPercent': self._read_value(data, 'm_flLaserDPSMaxHealth'),
@@ -326,8 +333,8 @@ class NpcParser:
             'HealthGrowthPerMinutePhase2': self._read_value(data, 'm_ObjectiveHealthGrowthPhase2', 'm_iGrowthPerMinute'),
             'HealthGrowthStartTimePhase2': self._read_value(data, 'm_ObjectiveHealthGrowthPhase2', 'm_iGrowthStartTimeInMinutes'),
             'OutOfCombatHealthRegen': self._read_value(data, 'm_ObjectiveRegen', 'm_flOutOfCombatHealthRegen'),
-            'RangedResistanceMinRange': self._read_value(data, 'm_RangedArmorModifier', 'm_flRangeMin'),
-            'RangedResistanceMaxRange': self._read_value(data, 'm_RangedArmorModifier', 'm_flRangeMax'),
+            'RangedResistanceMinRange': self._convert_distance(self._read_value(data, 'm_RangedArmorModifier', 'm_flRangeMin')),
+            'RangedResistanceMaxRange': self._convert_distance(self._read_value(data, 'm_RangedArmorModifier', 'm_flRangeMax')),
             'BackdoorHealthRegen': self._read_value(data, 'm_BackdoorProtection', 'm_flHealthPerSecondRegen'),
             'BackdoorPlayerDamageMitigation': self._read_value(
                 data,
