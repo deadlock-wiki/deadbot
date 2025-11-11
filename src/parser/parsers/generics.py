@@ -70,3 +70,45 @@ class GenericParser:
             new[new_key] = value
 
         return new
+
+
+def parse_misc_vdata_powerups(self, misc_vdata_content: dict) -> list:
+        """
+        Parses 'PowerupBuffStats' from misc.vdata content.
+
+        Assumes misc_vdata_content is a dictionary-like structure
+        resulting from parsing the .vdata file.
+        """
+        powerup_buff_stats = []
+        # The misc.vdata content is likely nested, often under a main key like "C_DOTA_MiscData".
+        # We need to find the "PowerupBuffStats" section within it.
+        # It's common for vdata files to have a single root dictionary.
+        root_data = misc_vdata_content
+        if isinstance(misc_vdata_content, dict) and len(misc_vdata_content) == 1:
+            # If there's a single top-level key (e.g., "C_DOTA_MiscData"), go into it.
+            root_key = next(iter(misc_vdata_content))
+            if isinstance(misc_vdata_content[root_key], dict):
+                root_data = misc_vdata_content[root_key]
+            else:
+                logger.warning(f"Unexpected structure in misc_vdata_content, expected dict under '{root_key}'.")
+                return []
+        elif not isinstance(misc_vdata_content, dict):
+            logger.warning(f"Unexpected type for misc_vdata_content, expected dict, got {type(misc_vdata_content)}.")
+            return []
+
+        if "PowerupBuffStats" in root_data and isinstance(root_data["PowerupBuffStats"], dict):
+            raw_powerup_data = root_data["PowerupBuffStats"]
+            for powerup_name, stats in raw_powerup_data.items():
+                if isinstance(stats, dict):
+                    # Apply prefix removal to the keys within each powerup's stats
+                    cleaned_stats = self._remove_prefixes(stats, self.POSSIBLE_PREFIXES)
+                    powerup_buff_stats.append({
+                        "name": powerup_name,
+                        "stats": cleaned_stats
+                    })
+                else:
+                    logger.warning(f"Unexpected structure for powerup '{powerup_name}', expected dict, got {type(stats)}.")
+        else:
+            logger.warning("Could not find 'PowerupBuffStats' section in misc.vdata content.")
+
+        return powerup_buff_stats
