@@ -1,14 +1,15 @@
+import math
 from constants import ENGINE_UNITS_PER_METER
 
 
-def convert_engine_units_to_meters(engine_units: float, decimal_places: int = 2) -> float:
+def convert_engine_units_to_meters(engine_units: int | float, sigfigs: int = 4) -> float:
     """
     Convert engine units to meters with proper precision handling.
     Eliminates floating-point artifacts by rounding to a reasonable precision.
 
     Args:
         engine_units: Raw value in engine units
-        decimal_places: Number of decimal places to round to (default: 2)
+        sigfigs: Number of significant figures to round to (default: 4)
 
     Returns:
         Value in meters, rounded and cleaned of floating-point artifacts
@@ -17,8 +18,8 @@ def convert_engine_units_to_meters(engine_units: float, decimal_places: int = 2)
         return engine_units
 
     meters = engine_units / ENGINE_UNITS_PER_METER
-    # Round to specified decimal places to avoid floating-point precision artifacts
-    return round(meters, decimal_places)
+    # Round to specified significant figures to avoid floating-point precision artifacts
+    return round_sig_figs(meters, sigfigs)
 
 
 def assert_number(value):
@@ -76,3 +77,13 @@ def is_zero(value):
         return True
 
     return False
+
+
+def round_sig_figs(value: float | int, sigfigs: int):
+    if value == 0.0:
+        return 0.0
+
+    if value == 0:
+        return 0
+
+    return round(value, sigfigs - int(math.floor(math.log10(abs(value)))) - 1)
