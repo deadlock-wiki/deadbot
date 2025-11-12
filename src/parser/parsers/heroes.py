@@ -1,6 +1,6 @@
 import parser.maps as maps
 import utils.json_utils as json_utils
-from constants import ENGINE_UNITS_PER_METER
+from utils.num_utils import convert_engine_units_to_meters
 
 
 class HeroParser:
@@ -189,11 +189,8 @@ class HeroParser:
         """
         stats = {}
 
-        # Safely parse all weapon attributes using .get() to prevent KeyErrors
-        raw_bullet_speed = weapon_info.get('m_flBulletSpeed')
-        stats['BulletSpeed'] = raw_bullet_speed / ENGINE_UNITS_PER_METER if raw_bullet_speed is not None else None
-
         # Core Stats
+        stats['BulletSpeed'] = convert_engine_units_to_meters(weapon_info.get('m_flBulletSpeed'))
         stats['BulletDamage'] = weapon_info.get('m_flBulletDamage', 0)
         stats['RoundsPerSecond'] = 1 / weapon_info['m_flCycleTime'] if weapon_info.get('m_flCycleTime') and weapon_info['m_flCycleTime'] > 0 else 0
         stats['ClipSize'] = weapon_info.get('m_iClipSize')
@@ -203,8 +200,8 @@ class HeroParser:
         stats['ReloadSingle'] = weapon_info.get('m_bReloadSingleBullets', False)
 
         # Falloff and Range
-        stats['FalloffStartRange'] = weapon_info.get('m_flDamageFalloffStartRange', 0) / ENGINE_UNITS_PER_METER
-        stats['FalloffEndRange'] = weapon_info.get('m_flDamageFalloffEndRange', 0) / ENGINE_UNITS_PER_METER
+        stats['FalloffStartRange'] = convert_engine_units_to_meters(weapon_info.get('m_flDamageFalloffStartRange', 0))
+        stats['FalloffEndRange'] = convert_engine_units_to_meters(weapon_info.get('m_flDamageFalloffEndRange', 0))
         stats['FalloffStartScale'] = weapon_info.get('m_flDamageFalloffStartScale', 1.0)
         stats['FalloffEndScale'] = weapon_info.get('m_flDamageFalloffEndScale', 1.0)
         stats['FalloffBias'] = weapon_info.get('m_flDamageFalloffBias', 0.5)
@@ -221,7 +218,7 @@ class HeroParser:
 
         # Explosive Properties (often for alt-fire)
         if 'm_flExplosionRadius' in weapon_info:
-            stats['ExplosionRadius'] = weapon_info['m_flExplosionRadius'] / ENGINE_UNITS_PER_METER
+            stats['ExplosionRadius'] = convert_engine_units_to_meters(weapon_info['m_flExplosionRadius'])
         if 'm_flExplosionDamageScaleAtMaxRadius' in weapon_info:
             stats['ExplosionDamageScaleAtMaxRadius'] = weapon_info['m_flExplosionDamageScaleAtMaxRadius']
 
@@ -320,9 +317,9 @@ class HeroParser:
     def _calc_dps(self, dps_stats, type='burst'):
         """Calculates Burst or Sustained DPS of a weapon"""
         # Burst, not to be confused with burst as in burst fire, but rather
-        # a burst of damage where delta time is 0
-        # sustained has delta time of infinity
-        # meaning, sustained takes into account time-to-empty clip and reload time
+        # a burst of damage where delta time is 0.
+        # Sustained has a delta time of infinity, meaning it takes into
+        # account time-to-empty-clip and reload time.
         stats = {k: v for k, v in dps_stats.items() if v is not None}
 
         if stats.get('RoundsPerSecond', 0) == 0:
@@ -339,14 +336,18 @@ class HeroParser:
 
         # Burst DPS accounts for burst weapons and assumes maximum spinup (if applicable)
         if type == 'burst':
-            return stats.get('BulletDamage', 0) * bullets_per_shot * stats.get('BulletsPerBurst', 1) / total_cycle_time
+            dps = stats.get('BulletDamage', 0) * bullets_per_shot * stats.get('BulletsPerBurst', 1) / total_cycle_time
+            # Clean floating-point artifacts by formatting to a string with 4 decimal places and re-casting to float.
+            return float(f'{dps:.4f}')
 
         # Sustained DPS also accounts for reloads/clipsize
         elif type == 'sustained':
             clip_size = stats.get('ClipSize', 0)
             if clip_size == 0:
                 # For weapons with no clip (like Bebop's beam), sustained DPS is the same as burst DPS
-                return stats.get('BulletDamage', 0) * bullets_per_shot * stats.get('BulletsPerBurst', 1) / total_cycle_time
+                sustained_dps = stats.get('BulletDamage', 0) * bullets_per_shot * stats.get('BulletsPerBurst', 1) / total_cycle_time
+                # Clean floating-point artifacts by formatting to a string with 4 decimal places and re-casting to float.
+                return float(f'{sustained_dps:.4f}')
 
             # All reload actions have ReloadDelay played first,
             # but typically only single bullet reloads have a non-zero delay
@@ -364,7 +365,10 @@ class HeroParser:
             total_time = time_to_empty_clip + time_to_reload
             if total_time == 0:
                 return 0
-            return damage_from_clip / total_time
+
+            sustained_dps = damage_from_clip / total_time
+            # Clean floating-point artifacts by formatting to a string with 4 decimal places and re-casting to float.
+            return float(f'{sustained_dps:.4f}')
 
         else:
             raise Exception('Invalid DPS type, must be one of: ' + ', '.join(['burst', 'sustained']))
@@ -384,7 +388,7 @@ class HeroParser:
         scaled_dps = self._calc_dps(dps_stats_scaled, type)
         dps = self._calc_dps(dps_stats, type)
 
-        return scaled_dps - dps
+        return round(scaled_dps - dps, 4)
 
     def _parse_spirit_scaling(self, hero_value):
         if 'm_mapScalingStats' not in hero_value:
