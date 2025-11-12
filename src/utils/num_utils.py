@@ -1,4 +1,25 @@
 import math
+from constants import ENGINE_UNITS_PER_METER
+
+
+def convert_engine_units_to_meters(engine_units: float, decimal_places: int = 2) -> float:
+    """
+    Convert engine units to meters with proper precision handling.
+    Eliminates floating-point artifacts by rounding to a reasonable precision.
+
+    Args:
+        engine_units: Raw value in engine units
+        decimal_places: Number of decimal places to round to (default: 2)
+
+    Returns:
+        Value in meters, rounded and cleaned of floating-point artifacts
+    """
+    if engine_units is None or engine_units == 0:
+        return engine_units
+
+    meters = engine_units / ENGINE_UNITS_PER_METER
+    # Round to specified decimal places to avoid floating-point precision artifacts
+    return round(meters, decimal_places)
 
 
 def assert_number(value):
