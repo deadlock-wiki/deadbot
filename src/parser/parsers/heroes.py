@@ -1,7 +1,6 @@
 import parser.maps as maps
 import utils.json_utils as json_utils
-from utils.num_utils import convert_engine_units_to_meters
-from utils.num_utils import round_sig_figs
+from utils.num_utils import convert_engine_units_to_meters, round_sig_figs
 
 
 class HeroParser:
@@ -351,8 +350,7 @@ class HeroParser:
         # Burst DPS accounts for burst weapons and assumes maximum spinup (if applicable)
         if type == 'burst':
             dps = stats.get('BulletDamage', 0) * bullets_per_shot * stats.get('BulletsPerBurst', 1) / total_cycle_time
-            # Clean floating-point artifacts by formatting to a string with 4 decimal places and re-casting to float.
-            return float(f'{dps:.4f}')
+            return dps
 
         # Sustained DPS also accounts for reloads/clipsize
         elif type == 'sustained':
@@ -360,8 +358,7 @@ class HeroParser:
             if clip_size == 0:
                 # For weapons with no clip (like Bebop's beam), sustained DPS is the same as burst DPS
                 sustained_dps = stats.get('BulletDamage', 0) * bullets_per_shot * stats.get('BulletsPerBurst', 1) / total_cycle_time
-                # Clean floating-point artifacts by formatting to a string with 4 decimal places and re-casting to float.
-                return float(f'{sustained_dps:.4f}')
+                return sustained_dps
 
             # All reload actions have ReloadDelay played first,
             # but typically only single bullet reloads have a non-zero delay
@@ -381,8 +378,7 @@ class HeroParser:
                 return 0
 
             sustained_dps = damage_from_clip / total_time
-            # Clean floating-point artifacts by formatting to a string with 4 decimal places and re-casting to float.
-            return float(f'{sustained_dps:.4f}')
+            return sustained_dps
 
         else:
             raise Exception('Invalid DPS type, must be one of: ' + ', '.join(['burst', 'sustained']))
@@ -402,7 +398,7 @@ class HeroParser:
         scaled_dps = self._calc_dps(dps_stats_scaled, type)
         dps = self._calc_dps(dps_stats, type)
 
-        return round(scaled_dps - dps, 4)
+        return round_sig_figs(scaled_dps - dps, 5)
 
     def _parse_spirit_scaling(self, hero_value):
         if 'm_mapScalingStats' not in hero_value:
