@@ -1,3 +1,6 @@
+import math
+
+
 def assert_number(value):
     """
     Ensure any input numbers, or stringified numbers are converted
@@ -53,3 +56,9 @@ def is_zero(value):
         return True
 
     return False
+
+
+def round_sig_figs(value: float | int, sigfigs: int):
+    if value == 0:
+        return 0
+    return round(value, sigfigs - int(math.floor(math.log10(abs(value)))) - 1)

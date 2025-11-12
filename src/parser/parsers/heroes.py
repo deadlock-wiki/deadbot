@@ -1,6 +1,7 @@
 import parser.maps as maps
 import utils.json_utils as json_utils
 from constants import ENGINE_UNITS_PER_METER
+from utils.num_utils import round_sig_figs
 
 
 class HeroParser:
@@ -37,10 +38,10 @@ class HeroParser:
 
                 # Convert scale values to percentages and rename keys for clarity
                 received_scale = hero_stats.pop('CritDamageReceivedScale')
-                hero_stats['CritDamageReceivedPercent'] = round((received_scale - 1) * 100, 2)
+                hero_stats['CritDamageReceivedPercent'] = round_sig_figs((received_scale - 1) * 100, 5)
 
                 bonus_scale = hero_stats.pop('CritDamageBonusScale')
-                hero_stats['CritDamageBonusPercent'] = round((bonus_scale - 1) * 100, 2)
+                hero_stats['CritDamageBonusPercent'] = round_sig_figs((bonus_scale - 1) * 100, 5)
 
                 hero_stats['TechRange'] = hero_stats['TechRange'] - 1
                 hero_stats['TechDuration'] = hero_stats['TechDuration'] - 1
@@ -74,7 +75,7 @@ class HeroParser:
                         md_scalar = hero_stats['LevelScaling']['MeleeDamage']
                         hero_stats['LevelScaling']['LightMeleeDamage'] = md_scalar
 
-                        hero_stats['LevelScaling']['HeavyMeleeDamage'] = md_scalar * hl_ratio
+                        hero_stats['LevelScaling']['HeavyMeleeDamage'] = round_sig_figs(md_scalar * hl_ratio, 5)
                         del hero_stats['LevelScaling']['MeleeDamage']
 
                     # Remove scalings if they are 0.0
@@ -95,7 +96,7 @@ class HeroParser:
                                 if scaling_container not in hero_stats:
                                     hero_stats[scaling_container] = {}
                                 # We store the scaling at the top level, not in the weapon object
-                                hero_stats[scaling_container][dps_type_localized] = dps_scaling
+                                hero_stats[scaling_container][dps_type_localized] = round_sig_figs(dps_scaling, 5)
 
                 if 'm_RecommendedUpgrades' in hero_value:
                     hero_stats['RecommendedItems'] = hero_value['m_RecommendedUpgrades']
@@ -195,7 +196,7 @@ class HeroParser:
 
         # Core Stats
         stats['BulletDamage'] = weapon_info.get('m_flBulletDamage', 0)
-        stats['RoundsPerSecond'] = self._calc_rounds_per_sec(weapon_info)
+        stats['RoundsPerSecond'] = round_sig_figs(self._calc_rounds_per_sec(weapon_info), 5)
         stats['ClipSize'] = weapon_info.get('m_iClipSize')
         stats['ReloadTime'] = weapon_info.get('m_reloadDuration')
         stats['ReloadMovespeed'] = float(weapon_info.get('m_flReloadMoveSpeed', '0')) / 10000
@@ -235,8 +236,8 @@ class HeroParser:
         # Calculate DPS
         dps_stats = self._get_dps_stats(stats)
         if dps_stats.get('RoundsPerSecond', 0) > 0:
-            stats['DPS'] = self._calc_dps(dps_stats, 'burst')
-            stats['SustainedDPS'] = self._calc_dps(dps_stats, 'sustained')
+            stats['DPS'] = round_sig_figs(self._calc_dps(dps_stats, 'burst'), 5)
+            stats['SustainedDPS'] = round_sig_figs(self._calc_dps(dps_stats, 'sustained'), 5)
 
         return stats
 
@@ -281,8 +282,8 @@ class HeroParser:
                     # Recalculate DPS with inherited stats if needed
                     alt_dps_stats = self._get_dps_stats(alt_stats)
                     if alt_dps_stats.get('RoundsPerSecond', 0) > 0:
-                        alt_stats['DPS'] = self._calc_dps(alt_dps_stats, 'burst')
-                        alt_stats['SustainedDPS'] = self._calc_dps(alt_dps_stats, 'sustained')
+                        alt_stats['DPS'] = round_sig_figs(self._calc_dps(alt_dps_stats, 'burst'), 5)
+                        alt_stats['SustainedDPS'] = round_sig_figs(self._calc_dps(alt_dps_stats, 'sustained'), 5)
 
                     # Alt-fire uses its own ability ID for its name and description key.
                     alt_stats['NameKey'] = ability_id
