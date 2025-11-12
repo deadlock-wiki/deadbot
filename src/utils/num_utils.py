@@ -1,3 +1,27 @@
+import math
+from constants import ENGINE_UNITS_PER_METER
+
+
+def convert_engine_units_to_meters(engine_units: int | float, sigfigs: int = 4) -> float:
+    """
+    Convert engine units to meters with proper precision handling.
+    Eliminates floating-point artifacts by rounding to a reasonable precision.
+
+    Args:
+        engine_units: Raw value in engine units
+        sigfigs: Number of significant figures to round to (default: 4)
+
+    Returns:
+        Value in meters, rounded and cleaned of floating-point artifacts
+    """
+    if engine_units is None or engine_units == 0:
+        return engine_units
+
+    meters = engine_units / ENGINE_UNITS_PER_METER
+    # Round to specified significant figures to avoid floating-point precision artifacts
+    return round_sig_figs(meters, sigfigs)
+
+
 def assert_number(value):
     """
     Ensure any input numbers, or stringified numbers are converted
@@ -53,3 +77,13 @@ def is_zero(value):
         return True
 
     return False
+
+
+def round_sig_figs(value: float | int, sigfigs: int):
+    if value == 0.0:
+        return 0.0
+
+    if value == 0:
+        return 0
+
+    return round(value, sigfigs - int(math.floor(math.log10(abs(value)))) - 1)
