@@ -195,7 +195,7 @@ class HeroParser:
 
         # Core Stats
         stats['BulletDamage'] = weapon_info.get('m_flBulletDamage', 0)
-        stats['RoundsPerSecond'] = 1 / weapon_info['m_flCycleTime'] if weapon_info.get('m_flCycleTime') and weapon_info['m_flCycleTime'] > 0 else 0
+        stats['RoundsPerSecond'] = self._calc_rounds_per_sec(weapon_info)
         stats['ClipSize'] = weapon_info.get('m_iClipSize')
         stats['ReloadTime'] = weapon_info.get('m_reloadDuration')
         stats['ReloadMovespeed'] = float(weapon_info.get('m_flReloadMoveSpeed', '0')) / 10000
@@ -317,6 +317,20 @@ class HeroParser:
             'HitOnceAcrossAllBullets': weapon_stats.get('HitOnceAcrossAllBullets'),
         }
 
+    def _calc_rounds_per_sec(self, weapon_info):
+        """
+        Calculates the rounds per second of a mouse click by dividing the total bullets per shot
+        by the total shot time, taking consideration of the cooldown between shots during a burst
+        """
+        shot_cd = weapon_info.get('m_flCycleTime', 0)
+        burst_cd = weapon_info.get('m_flBurstShotCooldown', 0)
+        intra_burst_cd = weapon_info.get('m_flIntraBurstCycleTime', 0)
+        bullets_per_shot = weapon_info.get('m_iBurstShotCount', 0)
+
+        total_shot_time = bullets_per_shot * intra_burst_cd + shot_cd + burst_cd
+
+        return bullets_per_shot / total_shot_time
+
     def _calc_dps(self, dps_stats, type='burst'):
         """Calculates Burst or Sustained DPS of a weapon"""
         # Burst, not to be confused with burst as in burst fire, but rather
@@ -331,8 +345,7 @@ class HeroParser:
         # If damage is dealt once for all bullets (e.g. shotguns), treat as 1 bullet for DPS
         bullets_per_shot = 1 if stats.get('HitOnceAcrossAllBullets') else stats.get('BulletsPerShot', 1)
         cycle_time = 1 / stats['RoundsPerSecond']
-        # BurstInterShotInterval represents time between shots in a burst
-        total_cycle_time = cycle_time + stats.get('BulletsPerBurst', 1) * stats.get('BurstInterShotInterval', 0)
+        total_cycle_time = cycle_time * stats.get('BulletsPerBurst', 1)
 
         if total_cycle_time == 0:
             return 0
