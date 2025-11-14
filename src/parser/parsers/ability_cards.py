@@ -193,45 +193,44 @@ class AbilityCardsParser:
                 parsed_prop = self._parse_ability_prop(ability_prop)
 
                 attr_key = parsed_prop['key']
-                if attr_key is None:
-                    raise Exception(f"Missing value for ability {self.ability['Name']}")
-
-                # This is probably an upgrade attr that is not tagged as such, so it will
-                # not be shown in the main block
-                if attr_key not in self.ability:
+                if attr_key in [None, '']:
                     continue
 
-                raw_attr = self._get_raw_ability_attr(attr_key)
+                if attr_key.startswith('StatusEffect'):
+                    name_key = f'Citadel_{attr_key}'
+                else:
+                    name_key = attr_key + '_label'
 
                 prop_object.update(
                     {
                         'Key': attr_key,
-                        'Name': self._get_localized_string(attr_key + '_label', fallback=f'Unknown({attr_key})'),
+                        'Name': self._get_localized_string(name_key, fallback=f'Unknown({attr_key})'),
                     },
                 )
 
                 if 'status_effect' in parsed_prop:
                     prop_object['StatusEffect'] = parsed_prop.get('status_effect')
 
-                attr_value = self.ability[attr_key]
-                if isinstance(attr_value, dict):
-                    prop_object.update(attr_value)
-                else:
-                    prop_object['Value'] = attr_value
-
-                attr_type = raw_attr.get('m_strCSSClass')
-                if attr_type is not None:
-                    prop_object['Type'] = attr_type
-
                 self.used_attributes.append(attr_key)
-
                 main_block['Props'].append(prop_object)
+
+                # Some attrs don't have an attr value, eg. "Invisible" status effect
+                if attr_key in self.ability:
+                    raw_attr = self._get_raw_ability_attr(attr_key)
+                    attr_value = self.ability[attr_key]
+                    if isinstance(attr_value, dict):
+                        prop_object.update(attr_value)
+                    else:
+                        prop_object['Value'] = attr_value
+
+                    attr_type = raw_attr.get('m_strCSSClass')
+                    if attr_type is not None:
+                        prop_object['Type'] = attr_type
 
         return main_block
 
     def _parse_ability_prop(self, ability_prop):
         attribute = {'key': None, 'requires_upgrade': False}
-
         for attr, value in ability_prop.items():
             match attr:
                 case 'm_strStatusEffectValue':
