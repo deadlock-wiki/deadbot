@@ -390,21 +390,32 @@ class NpcParser:
 
     def _parse_rejuvenator(self, data, npc_key=None):
         """Parses the Rejuvenator pickup (citadel_item_pickup_rejuv)."""
-        # Define constants for the script values array to avoid magic numbers.
-        # The order is based on observation of the game data.
-        REJUV_HEALTH_INDEX = 0
-        REJUV_FIRERATE_INDEX = 1
-        REJUV_SPIRIT_DMG_INDEX = 2
-
         stats = {}
         rebirth_data = self._deep_get(data, 'm_RebirthModifier')
-        if rebirth_data:
-            stats['RespawnDelay'] = num_utils.assert_number(rebirth_data.get('m_flRespawnDelay'))
-            stats['RespawnLifePercent'] = num_utils.assert_number(rebirth_data.get('m_flRespawnLifePct'))
-            script_values = rebirth_data.get('m_vecScriptValues')
+        if not rebirth_data:
+            return stats
 
-            if script_values and isinstance(script_values, list) and len(script_values) >= 3:
-                stats['BonusMaxHealth'] = num_utils.assert_number(script_values[REJUV_HEALTH_INDEX].get('m_value'))
-                stats['BonusFireRate'] = num_utils.assert_number(script_values[REJUV_FIRERATE_INDEX].get('m_value'))
-                stats['BonusSpiritDamage'] = num_utils.assert_number(script_values[REJUV_SPIRIT_DMG_INDEX].get('m_value'))
+        stats['RespawnDelay'] = num_utils.assert_number(rebirth_data.get('m_flRespawnDelay'))
+        stats['RespawnLifePercent'] = num_utils.assert_number(rebirth_data.get('m_flRespawnLifePct'))
+
+        script_values = rebirth_data.get('m_vecScriptValues')
+        if not script_values or not isinstance(script_values, list):
+            return stats
+
+        # Maps the raw modifier keys from 'm_vecScriptValues' to friendly output keys.
+        REBIRTH_MODIFIER_MAP = {
+            'MODIFIER_VALUE_HEALTH_MAX_PERCENT': 'BonusMaxHealth',
+            'MODIFIER_VALUE_FIRE_RATE': 'BonusFireRate',
+            'MODIFIER_VALUE_TECH_DAMAGE_PERCENT': 'BonusSpiritDamage',
+        }
+
+        for script_value in script_values:
+            if not isinstance(script_value, dict):
+                continue
+
+            modifier_name = script_value.get('m_eModifierValue')
+            if modifier_name in REBIRTH_MODIFIER_MAP:
+                output_key = REBIRTH_MODIFIER_MAP[modifier_name]
+                stats[output_key] = num_utils.assert_number(script_value.get('m_value'))
+
         return stats
