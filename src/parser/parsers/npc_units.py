@@ -257,7 +257,55 @@ class NpcParser:
         stats.update(self._parse_intrinsic_modifiers(data))
         return stats
 
+    def _parse_walker_aura(self, data):
+        """Parses the friendly aura stats for the Walker boss."""
+        stats = {
+            'FriendlyAuraRadius': convert_engine_units_to_meters(self._read_value(data, 'm_FriendlyAuraModifier', 'm_flAuraRadius')),
+        }
+
+        AURA_MODIFIER_MAP = {
+            'MODIFIER_VALUE_TECH_ARMOR_DAMAGE_RESIST': 'FriendlyAuraSpiritArmor',
+            'MODIFIER_VALUE_BULLET_ARMOR_DAMAGE_RESIST': 'FriendlyAuraBulletArmor',
+        }
+
+        # Initialize keys to null.
+        for key in AURA_MODIFIER_MAP.values():
+            stats[key] = None
+
+        script_values = self._deep_get(data, 'm_FriendlyAuraModifier', 'm_modifierProvidedByAura', 'm_vecScriptValues')
+        if isinstance(script_values, list):
+            for script_value in script_values:
+                if isinstance(script_value, dict):
+                    modifier_name = script_value.get('m_eModifierValue')
+                    if modifier_name in AURA_MODIFIER_MAP:
+                        output_key = AURA_MODIFIER_MAP[modifier_name]
+                        stats[output_key] = num_utils.assert_number(script_value.get('m_value'))
+        return stats
+
+    def _parse_walker_resistances(self, data):
+        """Parses the various damage resistance stats for the Walker boss."""
+        return {
+            'NearbyEnemyResistanceRange': convert_engine_units_to_meters(self._read_value(data, 'm_NearbyEnemyResist', 'm_flNearbyEnemyResistRange')),
+            'NearbyEnemyResistanceValues': self._deep_get(data, 'm_NearbyEnemyResist', 'm_flResistValues'),
+            'RangedResistanceMaxValue': self._read_value(data, 'm_RangedArmorModifier', 'm_flBulletResistancePctMax'),
+            'RangedResistanceMinRange': convert_engine_units_to_meters(self._read_value(data, 'm_RangedArmorModifier', 'm_flRangeMin')),
+            'RangedResistanceMaxRange': convert_engine_units_to_meters(self._read_value(data, 'm_RangedArmorModifier', 'm_flRangeMax')),
+        }
+
+    def _parse_walker_backdoor_protection(self, data):
+        """Parses the backdoor protection stats for the Walker boss."""
+        return {
+            'BackdoorHealthRegen': self._read_value(data, 'm_BackdoorProtectionModifier', 'm_flHealthPerSecondRegen'),
+            'BackdoorPlayerDamageMitigation': self._read_value(
+                data,
+                'm_BackdoorProtectionModifier',
+                'm_flBackdoorProtectionDamageMitigationFromPlayers',
+            ),
+        }
+
     def _parse_walker(self, data, npc_key=None):
+        # The invulnerability range key differs between the standard and 'weak' walker variants.
+        # Check for the primary key first, then fall back to the secondary.
         invuln_range_raw = self._read_value(data, 'm_flInvulModifierRange')
         if invuln_range_raw is None:
             invuln_range_raw = self._read_value(data, 'm_flInvulRange')
@@ -275,40 +323,13 @@ class NpcParser:
             'StompKnockup': self._read_value(data, 'm_flStompTossUpMagnitude'),
             'InvulnerabilityRange': convert_engine_units_to_meters(invuln_range_raw),
             'BoundAbilities': self._parse_npc_abilities(self._deep_get(data, 'm_mapBoundAbilities')),
-            'FriendlyAuraRadius': convert_engine_units_to_meters(self._read_value(data, 'm_FriendlyAuraModifier', 'm_flAuraRadius')),
-            'NearbyEnemyResistanceRange': convert_engine_units_to_meters(self._read_value(data, 'm_NearbyEnemyResist', 'm_flNearbyEnemyResistRange')),
-            'NearbyEnemyResistanceValues': self._deep_get(data, 'm_NearbyEnemyResist', 'm_flResistValues'),
-            'RangedResistanceMaxValue': self._read_value(data, 'm_RangedArmorModifier', 'm_flBulletResistancePctMax'),
-            'RangedResistanceMinRange': convert_engine_units_to_meters(self._read_value(data, 'm_RangedArmorModifier', 'm_flRangeMin')),
-            'RangedResistanceMaxRange': convert_engine_units_to_meters(self._read_value(data, 'm_RangedArmorModifier', 'm_flRangeMax')),
-            'BackdoorHealthRegen': self._read_value(data, 'm_BackdoorProtectionModifier', 'm_flHealthPerSecondRegen'),
-            'BackdoorPlayerDamageMitigation': self._read_value(
-                data,
-                'm_BackdoorProtectionModifier',
-                'm_flBackdoorProtectionDamageMitigationFromPlayers',
-            ),
         }
+
+        # Update stats by calling specialized helper methods
+        stats.update(self._parse_walker_aura(data))
+        stats.update(self._parse_walker_resistances(data))
+        stats.update(self._parse_walker_backdoor_protection(data))
         stats.update(self._parse_intrinsic_modifiers(data))
-
-        # Parse friendly aura bonuses from the nested script values list using a data-driven map.
-        AURA_MODIFIER_MAP = {
-            'MODIFIER_VALUE_TECH_ARMOR_DAMAGE_RESIST': 'FriendlyAuraSpiritArmor',
-            'MODIFIER_VALUE_BULLET_ARMOR_DAMAGE_RESIST': 'FriendlyAuraBulletArmor',
-        }
-
-        # Initialize keys to null.
-        for key in AURA_MODIFIER_MAP.values():
-            stats[key] = None
-
-        script_values = self._deep_get(data, 'm_FriendlyAuraModifier', 'm_modifierProvidedByAura', 'm_vecScriptValues')
-
-        if isinstance(script_values, list):
-            for script_value in script_values:
-                if isinstance(script_value, dict):
-                    modifier_name = script_value.get('m_eModifierValue')
-                    if modifier_name in AURA_MODIFIER_MAP:
-                        output_key = AURA_MODIFIER_MAP[modifier_name]
-                        stats[output_key] = num_utils.assert_number(script_value.get('m_value'))
 
         return stats
 
