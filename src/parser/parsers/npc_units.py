@@ -113,7 +113,8 @@ class NpcParser:
         shared by several NPC types.
         """
         intrinsics = {}
-        if 'm_vecIntrinsicModifiers' not in data:
+        intrinsic_modifiers = self._deep_get(data, 'm_vecIntrinsicModifiers')
+        if not isinstance(intrinsic_modifiers, list):
             return intrinsics
 
         # A map to convert raw modifier keys to friendly output keys.
@@ -123,16 +124,19 @@ class NpcParser:
             'MODIFIER_VALUE_HEALTH_REGEN_PER_SECOND': 'HealthRegenPerSecond',
         }
 
-        for modifier in data['m_vecIntrinsicModifiers']:
-            if 'm_vecScriptValues' in modifier:
-                for script_value in modifier['m_vecScriptValues']:
-                    if not isinstance(script_value, dict):
-                        continue
+        for modifier in intrinsic_modifiers:
+            script_values = self._deep_get(modifier, 'm_vecScriptValues')
+            if not isinstance(script_values, list):
+                continue
 
-                    modifier_name = script_value.get('m_eModifierValue')
-                    if modifier_name in MODIFIER_MAP:
-                        output_key = MODIFIER_MAP[modifier_name]
-                        intrinsics[output_key] = num_utils.assert_number(script_value.get('m_value'))
+            for script_value in script_values:
+                if not isinstance(script_value, dict):
+                    continue
+
+                modifier_name = script_value.get('m_eModifierValue')
+                if modifier_name in MODIFIER_MAP:
+                    output_key = MODIFIER_MAP[modifier_name]
+                    intrinsics[output_key] = num_utils.assert_number(script_value.get('m_value'))
         return intrinsics
 
     def _parse_spawn_info(self, npc_key):
@@ -298,7 +302,7 @@ class NpcParser:
 
         script_values = self._deep_get(data, 'm_FriendlyAuraModifier', 'm_modifierProvidedByAura', 'm_vecScriptValues')
 
-        if script_values and isinstance(script_values, list):
+        if isinstance(script_values, list):
             for script_value in script_values:
                 if isinstance(script_value, dict):
                     modifier_name = script_value.get('m_eModifierValue')
@@ -399,7 +403,7 @@ class NpcParser:
         stats['RespawnLifePercent'] = num_utils.assert_number(rebirth_data.get('m_flRespawnLifePct'))
 
         script_values = rebirth_data.get('m_vecScriptValues')
-        if not script_values or not isinstance(script_values, list):
+        if not isinstance(script_values, list):
             return stats
 
         # Maps the raw modifier keys from 'm_vecScriptValues' to friendly output keys.
