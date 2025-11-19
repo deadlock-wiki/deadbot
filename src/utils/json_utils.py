@@ -132,3 +132,18 @@ def strip_zeroes(obj: dict):
             output.pop(key)
 
     return output
+
+
+def deep_get(data, *keys):
+    """Safely access nested dictionary keys."""
+    for key in keys:
+        if not isinstance(data, dict) or key not in data:
+            return None
+        data = data[key]
+    return data
+
+
+def read_value(data, *keys):
+    """Safely access nested dictionary keys and convert to number if possible."""
+    value = deep_get(data, *keys)
+    return num_utils.assert_number(value)
