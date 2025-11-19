@@ -163,6 +163,21 @@ class NpcParser:
 
         return spawn_info
 
+    def _parse_backdoor_protection(self, data, key='m_BackdoorProtectionModifier'):
+        """Parses common backdoor protection stats."""
+        return {
+            'BackdoorHealthRegen': self._read_value(data, key, 'm_flHealthPerSecondRegen'),
+            'BackdoorPlayerDamageMitigation': self._read_value(data, key, 'm_flBackdoorProtectionDamageMitigationFromPlayers'),
+        }
+
+    def _parse_ranged_resistance(self, data):
+        """Parses ranged armor modifier stats."""
+        return {
+            'RangedResistanceMaxValue': self._read_value(data, 'm_RangedArmorModifier', 'm_flBulletResistancePctMax'),
+            'RangedResistanceMinRange': convert_engine_units_to_meters(self._read_value(data, 'm_RangedArmorModifier', 'm_flRangeMin')),
+            'RangedResistanceMaxRange': convert_engine_units_to_meters(self._read_value(data, 'm_RangedArmorModifier', 'm_flRangeMax')),
+        }
+
     # --- Trooper Parsers ---
 
     def _parse_trooper_shared(self, data, npc_key=None):
@@ -227,15 +242,9 @@ class NpcParser:
 
     def _parse_base_guardian(self, data, npc_key=None):
         stats = self._parse_guardian(data, npc_key)
+        stats.update(self._parse_backdoor_protection(data))
         stats.update(
             {
-                # Backdoor protection modifier provides damage mitigation and health regen.
-                'BackdoorHealthRegen': self._read_value(data, 'm_BackdoorProtectionModifier', 'm_flHealthPerSecondRegen'),
-                'BackdoorPlayerDamageMitigation': self._read_value(
-                    data,
-                    'm_BackdoorProtectionModifier',
-                    'm_flBackdoorProtectionDamageMitigationFromPlayers',
-                ),
                 # Bullet resist modifier reduces damage based on nearby enemy heroes.
                 'BackdoorBulletResistBase': self._read_value(data, 'm_BackdoorBulletResistModifier', 'm_BulletResist'),
                 'BackdoorBulletResistReductionPerHero': self._read_value(
@@ -284,24 +293,16 @@ class NpcParser:
 
     def _parse_walker_resistances(self, data):
         """Parses the various damage resistance stats for the Walker boss."""
-        return {
+        stats = {
             'NearbyEnemyResistanceRange': convert_engine_units_to_meters(self._read_value(data, 'm_NearbyEnemyResist', 'm_flNearbyEnemyResistRange')),
             'NearbyEnemyResistanceValues': self._deep_get(data, 'm_NearbyEnemyResist', 'm_flResistValues'),
-            'RangedResistanceMaxValue': self._read_value(data, 'm_RangedArmorModifier', 'm_flBulletResistancePctMax'),
-            'RangedResistanceMinRange': convert_engine_units_to_meters(self._read_value(data, 'm_RangedArmorModifier', 'm_flRangeMin')),
-            'RangedResistanceMaxRange': convert_engine_units_to_meters(self._read_value(data, 'm_RangedArmorModifier', 'm_flRangeMax')),
         }
+        stats.update(self._parse_ranged_resistance(data))
+        return stats
 
     def _parse_walker_backdoor_protection(self, data):
         """Parses the backdoor protection stats for the Walker boss."""
-        return {
-            'BackdoorHealthRegen': self._read_value(data, 'm_BackdoorProtectionModifier', 'm_flHealthPerSecondRegen'),
-            'BackdoorPlayerDamageMitigation': self._read_value(
-                data,
-                'm_BackdoorProtectionModifier',
-                'm_flBackdoorProtectionDamageMitigationFromPlayers',
-            ),
-        }
+        return self._parse_backdoor_protection(data)
 
     def _parse_walker(self, data, npc_key=None):
         # The invulnerability range key differs between the standard and 'weak' walker variants.
@@ -351,16 +352,12 @@ class NpcParser:
             'HealthGrowthPerMinutePhase2': self._read_value(data, 'm_ObjectiveHealthGrowthPhase2', 'm_iGrowthPerMinute'),
             'HealthGrowthStartTimePhase2': self._read_value(data, 'm_ObjectiveHealthGrowthPhase2', 'm_iGrowthStartTimeInMinutes'),
             'OutOfCombatHealthRegen': self._read_value(data, 'm_ObjectiveRegen', 'm_flOutOfCombatHealthRegen'),
-            'RangedResistanceMinRange': convert_engine_units_to_meters(self._read_value(data, 'm_RangedArmorModifier', 'm_flRangeMin')),
-            'RangedResistanceMaxRange': convert_engine_units_to_meters(self._read_value(data, 'm_RangedArmorModifier', 'm_flRangeMax')),
-            'BackdoorHealthRegen': self._read_value(data, 'm_BackdoorProtection', 'm_flHealthPerSecondRegen'),
-            'BackdoorPlayerDamageMitigation': self._read_value(
-                data,
-                'm_BackdoorProtection',
-                'm_flBackdoorProtectionDamageMitigationFromPlayers',
-            ),
             'BoundAbilities': self._parse_npc_abilities(self._deep_get(data, 'm_mapBoundAbilities')),
         }
+
+        stats.update(self._parse_ranged_resistance(data))
+        # Patron uses a slightly different key for backdoor protection
+        stats.update(self._parse_backdoor_protection(data, key='m_BackdoorProtection'))
         stats.update(self._parse_intrinsic_modifiers(data))
         return stats
 
