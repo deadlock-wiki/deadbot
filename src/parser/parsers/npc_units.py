@@ -2,6 +2,7 @@ from loguru import logger
 import utils.json_utils as json_utils
 import utils.num_utils as num_utils
 from utils.num_utils import convert_engine_units_to_meters
+import parser.maps as maps
 
 
 class NpcParser:
@@ -105,13 +106,6 @@ class NpcParser:
         if not isinstance(intrinsic_modifiers, list):
             return intrinsics
 
-        # A map to convert raw modifier keys to friendly output keys.
-        MODIFIER_MAP = {
-            'MODIFIER_VALUE_BULLET_DAMAGE_REDUCTION_PERCENT': 'IntrinsicBulletResistance',
-            'MODIFIER_VALUE_ABILITY_DAMAGE_REDUCTION_PERCENT': 'IntrinsicAbilityResistance',
-            'MODIFIER_VALUE_HEALTH_REGEN_PER_SECOND': 'HealthRegenPerSecond',
-        }
-
         for modifier in intrinsic_modifiers:
             script_values = json_utils.deep_get(modifier, 'm_vecScriptValues')
             if not isinstance(script_values, list):
@@ -122,8 +116,8 @@ class NpcParser:
                     continue
 
                 modifier_name = script_value.get('m_eModifierValue')
-                if modifier_name in MODIFIER_MAP:
-                    output_key = MODIFIER_MAP[modifier_name]
+                output_key = maps.get_npc_intrinsic_modifier(modifier_name)
+                if output_key:
                     intrinsics[output_key] = num_utils.assert_number(script_value.get('m_value'))
         return intrinsics
 
@@ -260,22 +254,15 @@ class NpcParser:
             'FriendlyAuraRadius': convert_engine_units_to_meters(json_utils.read_value(data, 'm_FriendlyAuraModifier', 'm_flAuraRadius')),
         }
 
-        AURA_MODIFIER_MAP = {
-            'MODIFIER_VALUE_TECH_ARMOR_DAMAGE_RESIST': 'FriendlyAuraSpiritArmor',
-            'MODIFIER_VALUE_BULLET_ARMOR_DAMAGE_RESIST': 'FriendlyAuraBulletArmor',
-        }
-
-        # Initialize keys to null.
-        for key in AURA_MODIFIER_MAP.values():
-            stats[key] = None
+        # Parse friendly aura bonuses from script values
 
         script_values = json_utils.deep_get(data, 'm_FriendlyAuraModifier', 'm_modifierProvidedByAura', 'm_vecScriptValues')
         if isinstance(script_values, list):
             for script_value in script_values:
                 if isinstance(script_value, dict):
                     modifier_name = script_value.get('m_eModifierValue')
-                    if modifier_name in AURA_MODIFIER_MAP:
-                        output_key = AURA_MODIFIER_MAP[modifier_name]
+                    output_key = maps.get_npc_aura_modifier(modifier_name)
+                    if output_key:
                         stats[output_key] = num_utils.assert_number(script_value.get('m_value'))
         return stats
 
@@ -414,20 +401,13 @@ class NpcParser:
         if not isinstance(script_values, list):
             return stats
 
-        # Maps the raw modifier keys from 'm_vecScriptValues' to friendly output keys.
-        REBIRTH_MODIFIER_MAP = {
-            'MODIFIER_VALUE_HEALTH_MAX_PERCENT': 'BonusMaxHealth',
-            'MODIFIER_VALUE_FIRE_RATE': 'BonusFireRate',
-            'MODIFIER_VALUE_TECH_DAMAGE_PERCENT': 'BonusSpiritDamage',
-        }
-
         for script_value in script_values:
             if not isinstance(script_value, dict):
                 continue
 
             modifier_name = script_value.get('m_eModifierValue')
-            if modifier_name in REBIRTH_MODIFIER_MAP:
-                output_key = REBIRTH_MODIFIER_MAP[modifier_name]
+            output_key = maps.get_npc_rebirth_modifier(modifier_name)
+            if output_key:
                 stats[output_key] = num_utils.assert_number(script_value.get('m_value'))
 
         return stats
