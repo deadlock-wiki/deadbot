@@ -102,12 +102,12 @@ class NpcParser:
         shared by several NPC types.
         """
         intrinsics = {}
-        intrinsic_modifiers = json_utils.deep_get(data, 'm_vecIntrinsicModifiers')
+        intrinsic_modifiers = data.get('m_vecIntrinsicModifiers')
         if not isinstance(intrinsic_modifiers, list):
             return intrinsics
 
         for modifier in intrinsic_modifiers:
-            script_values = json_utils.deep_get(modifier, 'm_vecScriptValues')
+            script_values = modifier.get('m_vecScriptValues')
             if not isinstance(script_values, list):
                 continue
 
@@ -189,7 +189,7 @@ class NpcParser:
 
     def _parse_trooper_medic(self, data, npc_key=None):
         stats = self._parse_trooper_shared(data, npc_key)
-        stats['BoundAbilities'] = self._parse_npc_abilities(json_utils.deep_get(data, 'm_mapBoundAbilities'))
+        stats['BoundAbilities'] = self._parse_npc_abilities(data.get('m_mapBoundAbilities'))
         return stats
 
     def _parse_trooper_melee(self, data, npc_key=None):
@@ -300,7 +300,7 @@ class NpcParser:
             'StompStunDuration': json_utils.read_value(data, 'm_flStunDuration'),
             'StompKnockup': json_utils.read_value(data, 'm_flStompTossUpMagnitude'),
             'InvulnerabilityRange': convert_engine_units_to_meters(invuln_range_raw),
-            'BoundAbilities': self._parse_npc_abilities(json_utils.deep_get(data, 'm_mapBoundAbilities')),
+            'BoundAbilities': self._parse_npc_abilities(data.get('m_mapBoundAbilities')),
         }
 
         # Update stats by calling specialized helper methods
@@ -329,7 +329,7 @@ class NpcParser:
             'HealthGrowthPerMinutePhase2': json_utils.read_value(data, 'm_ObjectiveHealthGrowthPhase2', 'm_iGrowthPerMinute'),
             'HealthGrowthStartTimePhase2': json_utils.read_value(data, 'm_ObjectiveHealthGrowthPhase2', 'm_iGrowthStartTimeInMinutes'),
             'OutOfCombatHealthRegen': json_utils.read_value(data, 'm_ObjectiveRegen', 'm_flOutOfCombatHealthRegen'),
-            'BoundAbilities': self._parse_npc_abilities(json_utils.deep_get(data, 'm_mapBoundAbilities')),
+            'BoundAbilities': self._parse_npc_abilities(data.get('m_mapBoundAbilities')),
         }
 
         stats.update(self._parse_ranged_resistance(data))
@@ -377,8 +377,8 @@ class NpcParser:
             'RetaliateDamage': json_utils.read_value(data, 'm_flRetaliateDamage'),
             'GoldReward': json_utils.read_value(data, 'm_flGoldReward'),
             'GoldRewardBonusPercentPerMinute': json_utils.read_value(data, 'm_flGoldRewardBonusPercentPerMinute'),
-            'DamagedByAbilities': json_utils.deep_get(data, 'm_bDamagedByAbilities'),
-            'DamagedByBullets': json_utils.deep_get(data, 'm_bDamagedByBullets'),
+            'DamagedByAbilities': data.get('m_bDamagedByAbilities'),
+            'DamagedByBullets': data.get('m_bDamagedByBullets'),
             'MinigameDuration': json_utils.read_value(data, 'm_flVaultMiniGameTime'),
             'MinigameHitWindow': json_utils.read_value(data, 'm_flVaultMiniGameHitWindow'),
         }
@@ -390,7 +390,7 @@ class NpcParser:
     def _parse_rejuvenator(self, data, npc_key=None):
         """Parses the Rejuvenator pickup (citadel_item_pickup_rejuv)."""
         stats = {}
-        rebirth_data = json_utils.deep_get(data, 'm_RebirthModifier')
+        rebirth_data = data.get('m_RebirthModifier')
         if not rebirth_data:
             return stats
 
