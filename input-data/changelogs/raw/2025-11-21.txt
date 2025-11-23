@@ -323,3 +323,5 @@ Cooldown Reduction Changes:
 - Neutrals bounty increased by 5%
 - Warden: Bullet damage growth per boon reduced from 0.53 to 0.47
 - Drifter: Base health reduced from 750 to 675
+---
+- Fixed a bug with falloff calculation that was often causing guns to do much more damage than intended. We'll be monitoring to do subsequent adjustments after this.
