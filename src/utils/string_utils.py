@@ -62,12 +62,10 @@ def _replace_variables(desc, data):
             # strip out units of measure to prevent duplicates eg. "Cooldown reduced by 5ss"
             stripped_value = num_utils.remove_uom(value)
             if type(stripped_value) in [float, int]:
-                rounded_value = num_utils.round_sig_figs(stripped_value, 3)
+                if isinstance(stripped_value, float) and stripped_value.is_integer():
+                    return str(int(stripped_value))
 
-                if isinstance(rounded_value, float) and rounded_value.is_integer():
-                    return str(int(rounded_value))
-
-                return str(rounded_value)
+                return str(stripped_value)
 
             return value
 
