@@ -22,14 +22,17 @@ def convert_engine_units_to_meters(engine_units: int | float, sigfigs: int = 4) 
     return round_sig_figs(meters, sigfigs)
 
 
-def assert_number(value):
+def assert_number(value: int | float | str):
     """
     Ensure any input numbers, or stringified numbers are converted
     to their appropriate type
 
     Otherwise, return original value
     """
-    if isinstance(value, float) | isinstance(value, int):
+    if isinstance(value, float):
+        return fix_float_garbage(value)
+
+    if isinstance(value, int):
         return value
 
     if value is None:
@@ -46,6 +49,26 @@ def assert_number(value):
         return int(value)
     except (TypeError, ValueError):
         return value
+
+
+def fix_float_garbage(x: float, max_decimals=3, eps=1e-5):
+    """
+    Round values if they appear to have float artifacts
+    Eg. 12.599999 should be rounded as 12.6, as the excess precision is not helpful
+
+    Args:
+        x (float): Float value to be rounded
+        max_decimals (int, optional): Maximum decimal places to round to. Defaults to 3.
+        eps (_type_, optional): Minimum difference to the rounded value that deems the float as garbage. Defaults to 1e-5.
+
+    Returns:
+        float: If garbage, return rounded value, otherwise return the original
+    """
+    for d in range(1, max_decimals + 1):
+        candidate = round(x, d)
+        if abs(x - candidate) < eps:
+            return candidate
+    return x
 
 
 def remove_uom(value):
@@ -80,7 +103,7 @@ def is_zero(value):
 
 
 def round_sig_figs(value: float | int, sigfigs: int):
-    if value == 0.0:
+    if isinstance(value, float) and value == 0.0:
         return 0.0
 
     if value == 0:

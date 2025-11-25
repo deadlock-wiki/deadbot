@@ -62,6 +62,9 @@ def _replace_variables(desc, data):
             # strip out units of measure to prevent duplicates eg. "Cooldown reduced by 5ss"
             stripped_value = num_utils.remove_uom(value)
             if type(stripped_value) in [float, int]:
+                if isinstance(stripped_value, float) and stripped_value.is_integer():
+                    return str(int(stripped_value))
+
                 return str(stripped_value)
 
             return value
