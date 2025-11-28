@@ -289,7 +289,9 @@ class NpcParser:
             invuln_range_raw = json_utils.read_value(data, 'm_flInvulRange')
 
         stats = {
-            'MaxHealth': json_utils.read_value(data, 'm_nMaxHealth'),
+            'MaxHealthLevel1': json_utils.read_value(data, 'm_nMaxHealth'),
+            'MaxHealthLevel2': json_utils.read_value(data, 'm_EmpoweredModifierLevel1', 'm_nMaxHealth'),
+            'MaxHealthLevel3': json_utils.read_value(data, 'm_EmpoweredModifierLevel2', 'm_nMaxHealth'),
             'MeleeAttemptRange': convert_engine_units_to_meters(json_utils.read_value(data, 'm_flMeleeAttemptRange')),
             'SightRangePlayers': convert_engine_units_to_meters(json_utils.read_value(data, 'm_flSightRangePlayers')),
             'SightRangeNPCs': convert_engine_units_to_meters(json_utils.read_value(data, 'm_flSightRangeNPCs')),
