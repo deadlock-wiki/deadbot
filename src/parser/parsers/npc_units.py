@@ -298,9 +298,11 @@ class NpcParser:
             'PlayerInitialSightRange': convert_engine_units_to_meters(json_utils.read_value(data, 'm_flPlayerInitialSightRange')),
             'StompDamage': json_utils.read_value(data, 'm_flStompDamage'),
             'StompDamageMaxHealthPercent': json_utils.read_value(data, 'm_flStompDamageMaxHealthPercent'),
+            'StompDamageTrooperRate': json_utils.read_value(data, 'm_flStompDamageTrooperRate'),
             'StompRadius': convert_engine_units_to_meters(json_utils.read_value(data, 'm_flStompImpactRadius')),
             'StompStunDuration': json_utils.read_value(data, 'm_flStunDuration'),
             'StompKnockup': json_utils.read_value(data, 'm_flStompTossUpMagnitude'),
+            'BackdoorProtectionRange': convert_engine_units_to_meters(json_utils.read_value(data, 'm_flBackDoorProtectionRange')),
             'InvulnerabilityRange': convert_engine_units_to_meters(invuln_range_raw),
             'BoundAbilities': self._parse_npc_abilities(data.get('m_mapBoundAbilities')),
         }
