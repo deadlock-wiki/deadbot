@@ -289,16 +289,20 @@ class NpcParser:
             invuln_range_raw = json_utils.read_value(data, 'm_flInvulRange')
 
         stats = {
-            'MaxHealth': json_utils.read_value(data, 'm_nMaxHealth'),
+            'MaxHealthLevel1': json_utils.read_value(data, 'm_nMaxHealth'),
+            'MaxHealthLevel2': json_utils.read_value(data, 'm_EmpoweredModifierLevel1', 'm_nMaxHealth'),
+            'MaxHealthLevel3': json_utils.read_value(data, 'm_EmpoweredModifierLevel2', 'm_nMaxHealth'),
             'MeleeAttemptRange': convert_engine_units_to_meters(json_utils.read_value(data, 'm_flMeleeAttemptRange')),
             'SightRangePlayers': convert_engine_units_to_meters(json_utils.read_value(data, 'm_flSightRangePlayers')),
             'SightRangeNPCs': convert_engine_units_to_meters(json_utils.read_value(data, 'm_flSightRangeNPCs')),
             'PlayerInitialSightRange': convert_engine_units_to_meters(json_utils.read_value(data, 'm_flPlayerInitialSightRange')),
             'StompDamage': json_utils.read_value(data, 'm_flStompDamage'),
             'StompDamageMaxHealthPercent': json_utils.read_value(data, 'm_flStompDamageMaxHealthPercent'),
+            'StompDamageTrooperRate': json_utils.read_value(data, 'm_flStompDamageTrooperRate'),
             'StompRadius': convert_engine_units_to_meters(json_utils.read_value(data, 'm_flStompImpactRadius')),
             'StompStunDuration': json_utils.read_value(data, 'm_flStunDuration'),
             'StompKnockup': json_utils.read_value(data, 'm_flStompTossUpMagnitude'),
+            'BackdoorProtectionRange': convert_engine_units_to_meters(json_utils.read_value(data, 'm_flBackDoorProtectionRange')),
             'InvulnerabilityRange': convert_engine_units_to_meters(invuln_range_raw),
             'BoundAbilities': self._parse_npc_abilities(data.get('m_mapBoundAbilities')),
         }
