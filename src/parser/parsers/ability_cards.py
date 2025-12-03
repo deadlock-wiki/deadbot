@@ -133,7 +133,7 @@ class AbilityCardsParser:
                         parsed_info_section['RequiresUpgradeIndex'] = upgr_index
                         break
                 if parsed_info_section.get('RequiresUpgradeIndex') is None:
-                    raise Exception(f'No upgrade found for required property {required_prop}')
+                    logger.warning(f'No upgrade found for required property {required_prop}')
 
             desc_key = info_section.get('m_strLocString')
             if desc_key is not None and desc_key != '':
