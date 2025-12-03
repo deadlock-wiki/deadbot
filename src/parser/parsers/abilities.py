@@ -50,7 +50,7 @@ class AbilityParser:
                     ability_data['PulseInterval'] = num_utils.assert_number(modifier.get('m_flTickRate'))
 
             if 'm_vecAbilityUpgrades' in ability:
-                ability_data['Upgrades'] = self._parse_upgrades(ability_data, ability['m_vecAbilityUpgrades'])
+                ability_data['Upgrades'] = self._parse_upgrades(ability)
             else:
                 ability_data['Upgrades'] = []
 
@@ -62,7 +62,8 @@ class AbilityParser:
 
         return all_abilities
 
-    def _parse_upgrades(self, ability_data, upgrade_sets):
+    def _parse_upgrades(self, ability):
+        upgrade_sets = ability['m_vecAbilityUpgrades']
         parsed_upgrade_sets = []
 
         for index, upgrade_set in enumerate(upgrade_sets):
@@ -91,6 +92,11 @@ class AbilityParser:
 
                         case 'm_eScaleStatFilter':
                             scale_type = upgrade[key]
+
+                # if stat has a base value, convert the upgrade value to the appropriate units
+                stat = json_utils.deep_get(ability, 'm_mapAbilityProperties', prop)
+                if stat:
+                    value = self._convert_stat(stat, upgrade[key], value)
 
                 if upgrade_type in ['EAddToBase', None]:
                     if parsed_upgrade_set.get(prop) is None:
@@ -122,6 +128,19 @@ class AbilityParser:
         else:
             return None
 
+        return self._convert_stat(stat, key, value)
+
+    def _convert_stat(self, stat: dict, key: str, value: str | int | float):
+        """Convert a value to the correct unit of measure and format based on the raw stat's information
+
+        Args:
+            stat (dict): Raw ability stat which includes information on its units and class
+            key (str): Key of ability stat
+            value (str | int | float): Value of ability stat
+
+        Returns:
+            int | float: Converted value
+        """
         # if the value ends with "m", it is already converted to the correct units
         if isinstance(value, str) and value.endswith('m'):
             return num_utils.assert_number(value[:-1])
@@ -134,20 +153,20 @@ class AbilityParser:
         strClass = stat.get('m_strCSSClass')
 
         # some ranges are written as "1500 2000" to denote a specific range
-        if strClass == 'range':
+        if isinstance(value, str) and strClass == 'range':
             ranges = value.split(' ')
             if len(ranges) == 2:
                 lower = num_utils.assert_number(ranges[0])
                 upper = num_utils.assert_number(ranges[1])
                 if units in ['EDisplayUnit_Meters', 'EDisplayUnit_MetersPerSecond']:
-                    return f'{lower/4} {upper/4}'
+                    return f'{num_utils.convert_engine_units_to_meters(lower)} {num_utils.convert_engine_units_to_meters(upper)}'
                 else:
                     return f'{lower} {upper}'
 
         value = num_utils.assert_number(value)
 
         if units in ['EDisplayUnit_Meters', 'EDisplayUnit_MetersPerSecond']:
-            return num_utils.assert_number(value / 4)
+            return num_utils.convert_engine_units_to_meters(value)
 
         return value
 
