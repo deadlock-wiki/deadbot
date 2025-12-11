@@ -79,6 +79,12 @@ class ChangelogParser:
         output_path = os.path.join(self.OUTPUT_DIR, 'changelogs', 'wiki')
         os.makedirs(output_path, exist_ok=True)
 
+        # Sort keys to determine chronological order
+        # We filter for valid dates and exclude 'is_hero_lab' so main updates only link to previous main updates.
+        sorted_update_ids = sorted(
+            [k for k, v in changelog_configs.items() if v.get('date') and not v.get('is_hero_lab')], key=lambda k: changelog_configs[k]['date']
+        )
+
         for changelog_id, raw_text in changelogs.items():
             config = changelog_configs.get(changelog_id)
             # Skip if config is missing or if it's a Hero Lab entry.
@@ -94,6 +100,22 @@ class ChangelogParser:
 
             date_obj = datetime.strptime(changelog_date, '%Y-%m-%d')
 
+            # Calculate Previous Link using {{Update link}}
+            prev_update_link = ''
+            if changelog_id in sorted_update_ids:
+                curr_idx = sorted_update_ids.index(changelog_id)
+                # If there is a previous update in the list
+                if curr_idx > 0:
+                    prev_id = sorted_update_ids[curr_idx - 1]
+                    prev_config = changelog_configs[prev_id]
+                    try:
+                        prev_date = datetime.strptime(prev_config['date'], '%Y-%m-%d')
+                        # Format: {{Update link|Month|Day|Year}}
+                        # Double braces {{ }} are required to escape them in an f-string
+                        prev_update_link = f"{{{{Update link|{prev_date.strftime('%B')}|{prev_date.day}|{prev_date.year}}}}}"
+                    except ValueError:
+                        pass
+
             source_link = config.get('link', '')
             source_title = ''
             if source_link:
@@ -107,7 +129,7 @@ class ChangelogParser:
                 source_title = f"{date_obj.strftime('%m-%d-%Y')} Update"
 
             full_page_content = f"""{{{{Update layout
-| prev_update =
+| prev_update = {prev_update_link}
 | month = {date_obj.strftime('%B')}
 | day = {date_obj.day}
 | year = {date_obj.year}

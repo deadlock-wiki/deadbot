@@ -1,6 +1,7 @@
 import os
 import mwclient
 import json
+import re
 from datetime import datetime
 from utils import json_utils, game_utils, meta_utils
 from .pages import DATA_PAGE_FILE_MAP, IGNORE_PAGES
@@ -44,6 +45,7 @@ class WikiUpload:
         logger.info(f'Uploading Data to Wiki - {self.upload_message}')
         self._update_data_pages()
         self._upload_changelog_pages()
+        self._update_latest_chain()
 
     def _upload_changelog_pages(self):
         """
@@ -63,10 +65,17 @@ class WikiUpload:
             try:
                 # Changelog IDs are typically 'YYYY-MM-DD' or 'YYYY-MM-DD-1'.
                 # We only care about the date part for the page title.
-                date_part = '-'.join(changelog_id.split('-')[:3])
+                parts = changelog_id.split('-')
+                date_part = '-'.join(parts[:3])
+                suffix = ''
+
+                # If there is a 4th part (e.g. 2024-10-18-1)
+                if len(parts) > 3:
+                    suffix = f'_(Patch_{int(parts[3]) + 1})'
+
                 date_obj = datetime.strptime(date_part, '%Y-%m-%d')
 
-                wiki_date_str = f"{date_obj.strftime('%B')}_{date_obj.day},_{date_obj.year}"
+                wiki_date_str = f"{date_obj.strftime('%B')}_{date_obj.day},_{date_obj.year}{suffix}"
                 page_title = f'Update:{wiki_date_str}'
 
                 filepath = os.path.join(changelog_dir, filename)
@@ -108,23 +117,108 @@ class WikiUpload:
 
     def upload_new_page(self, title, content):
         """
-        Uploads a page to the wiki if it doesn't already exist.
-
+        Uploads a page to the wiki if it doesn't already exist
         Args:
             title (str): The full title of the page (e.g., "Update:May_27,_2025").
             content (str): The wikitext content for the page.
         """
         page = self.site.pages[title]
         if page.exists:
-            logger.trace(f'Page "{title}" already exists, skipping creation.')
-            return
+            current_content = page.text()
+            if current_content.strip() == content.strip():
+                logger.trace(f'Page "{title}" is up to date, skipping.')
+                return
+            else:
+                logger.info(f'Updating existing page: "{title}" with new formatting.')
+        else:
+            logger.info(f'Creating new page: "{title}"')
 
-        logger.info(f'Creating new page: "{title}"')
         if self.dry_run:
             return
 
         page.save(content, summary=self.upload_message)
-        logger.success(f'Successfully created page "{title}"')
+        logger.success(f'Successfully saved page "{title}"')
+
+    def _update_latest_chain(self):
+        """
+        Looks at the two most recent changelogs.
+        Edits the 'next_update' field of the 2nd most recent patch
+        to point to the most recent patch.
+        Preserves all other content on the page.
+        """
+        changelog_dir = os.path.join(self.OUTPUT_DIR, 'changelogs', 'wiki')
+        if not os.path.isdir(changelog_dir):
+            return
+
+        # Get all changelog files sorted by date
+        # We rely on filenames YYYY-MM-DD.txt being naturally sortable
+        files = sorted([f for f in os.listdir(changelog_dir) if f.endswith('.txt')])
+
+        if len(files) < 2:
+            return  # Need at least 2 updates to create a link
+
+        # Identify the 'Previous' (Dec 3) and 'Latest' (Dec 16)
+        latest_file = files[-1]
+        prev_file = files[-2]
+
+        try:
+            # Parse Latest (The Target)
+            latest_id = latest_file.replace('.txt', '')
+            parts = latest_id.split('-')
+            date_part = '-'.join(parts[:3])
+            latest_date = datetime.strptime(date_part, '%Y-%m-%d')
+
+            # Create the string: {{Update link|December|16|2025}}
+            # Double braces are needed for f-string escaping
+            next_link_str = f"{{{{Update link|{latest_date.strftime('%B')}|{latest_date.day}|{latest_date.year}}}}}"
+
+            # Parse Previous (The Page to Edit)
+            prev_id = prev_file.replace('.txt', '')
+            p_parts = prev_id.split('-')
+            p_date_part = '-'.join(p_parts[:3])
+            p_suffix = ''
+            if len(p_parts) > 3:
+                p_suffix = f'_(Patch_{int(p_parts[3]) + 1})'
+
+            prev_date = datetime.strptime(p_date_part, '%Y-%m-%d')
+            prev_page_title = f"Update:{prev_date.strftime('%B')}_{prev_date.day},_{prev_date.year}{p_suffix}"
+
+        except ValueError as e:
+            logger.error(f'Failed to parse dates for chaining: {e}')
+            return
+
+        # Fetch the existing page content for 'Previous'
+        page = self.site.pages[prev_page_title]
+        if not page.exists:
+            logger.warning(f'Could not find previous page {prev_page_title} to link next update.')
+            return
+
+        current_text = page.text()
+
+        # Check if it already has the link (idempotency)
+        if next_link_str in current_text:
+            logger.trace(f'Page {prev_page_title} is already linked to next update.')
+            return
+
+        # Surgical Edit using Regex
+        # Look for "| next_update =" followed by anything until a new line or pipe
+        # We capture the key group (group 1) to preserve spacing/formatting
+        pattern = r'(\|\s*next_update\s*=\s*)(.*?)(\n|\|)'
+
+        # Function to ensure we don't accidentally overwrite if regex fails match
+        if not re.search(pattern, current_text):
+            logger.warning(f"Could not find '| next_update =' parameter in {prev_page_title}")
+            return
+
+        # Replace whatever was in next_update with our new link
+        # \1 restores "| next_update = ", \3 restores the newline/pipe
+        new_text = re.sub(pattern, f'\\1{next_link_str}\\3', current_text, count=1)
+
+        logger.info(f'Linking {prev_page_title} -> {next_link_str}')
+
+        if not self.dry_run:
+            page.save(new_text, summary=f"Deadbot: Linking next update to {latest_date.strftime('%Y-%m-%d')}")
+            logger.success(f'Updated {prev_page_title} with next link.')
 
     def _update_page(self, page, updated_text):
         logger.info(f'Updating page: "{page.name}"')

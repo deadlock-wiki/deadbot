@@ -8,6 +8,7 @@ from urllib import request
 from utils import file_utils, json_utils
 from typing import TypedDict
 from .constants import CHANGELOG_RSS_URL
+from collections import defaultdict
 
 
 class ChangelogConfig(TypedDict):
@@ -103,11 +104,59 @@ class ChangelogFetcher:
     def _fetch_update_html(self, link):
         html = request.urlopen(link).read()
         soup = BeautifulSoup(html, features='html.parser')
-        entries = []
-        # Find all <div> tags with class 'bbWrapper' (xenforo message body div)
-        for div in soup.find_all('div', class_='bbWrapper'):
-            entries.append(div.text.strip())
-        return entries
+
+        # Dictionary to group posts by date string 'YYYY-MM-DD'
+        content_by_date = defaultdict(list)
+
+        # XenForo posts are wrapped in <article class="message ...">
+        articles = soup.find_all('article', class_='message')
+
+        base_url = 'https://forums.playdeadlock.com'
+
+        for i, article in enumerate(articles):
+            # Extract the Date
+            time_elem = article.find('time', class_='u-dt')
+            if not time_elem or not time_elem.has_attr('datetime'):
+                continue
+
+            try:
+                dt_str = time_elem['datetime']
+                post_date = dt_str.split('T')[0]
+            except (IndexError, KeyError):
+                continue
+
+            # Extract the Link
+            if i == 0:
+                # The first post found is the Main Thread.
+                # Use the canonical link passed into the function (e.g. /threads/update.123/)
+                post_link = link
+            else:
+                # For subsequent posts (comments/hotfixes), find the specific permalink
+                post_link = None
+                attribution = article.find('ul', class_='message-attribution-main')
+                if attribution:
+                    a_tag = attribution.find('a', href=True)
+                    if a_tag:
+                        href = a_tag['href']
+                        if href.startswith('http'):
+                            post_link = href
+                        else:
+                            post_link = base_url + href
+
+                # Fallback if extraction fails
+                if not post_link:
+                    post_link = link
+
+            # Extract the Content
+            content_div = article.find('div', class_='bbWrapper')
+            if not content_div:
+                continue
+
+            text = content_div.text.strip()
+            if text:
+                content_by_date[post_date].append({'text': text, 'link': post_link})
+
+        return content_by_date
 
     def get_gamefile_changelogs(self):
         """Read and parse the Hero Labs changelogs in the game files"""
@@ -245,26 +294,45 @@ class ChangelogFetcher:
             try:
                 int(version)
             except ValueError:
-                raise ValueError(f'Version {version} must be numerical')
+                # Fallback for URLs that might end in a trailing slash or differ in format
+                try:
+                    version = entry.link.split('/')[-2].split('.')[-1]
+                    int(version)
+                except ValueError:
+                    logger.warning(f'Could not parse version ID from {entry.link}')
+                    continue
+
             if version is None or version == '':
                 raise ValueError(f'Version {version} must not be blank/missing')
 
-            if not self.update_existing and (version in self.changelogs.keys()):
-                skip_num += 1
-                continue
+            # We don't skip based on thread ID existence alone anymore,
+            # as new comments on the same thread might be new updates.
             try:
-                full_text = '\n---\n'.join(self._fetch_update_html(entry.link))
-            except Exception:
-                logger.error(f'Issue with parsing RSS feed item {entry.link}')
+                updates_by_date = self._fetch_update_html(entry.link)
+            except Exception as e:
+                logger.error(f'Issue with parsing RSS feed item {entry.link}: {e}')
+                continue
 
-            changelog_id = self._create_changelog_id(date, version)
-            self.changelogs[changelog_id] = full_text
-            self.changelog_configs[changelog_id] = {
-                'forum_id': version,
-                'date': date,
-                'link': entry.link,
-                'is_hero_lab': False,
-            }
+            # Process each date found in the thread
+            for date_key, posts in updates_by_date.items():
+                # Join all text blocks from this specific day
+                full_text = '\n---\n'.join([p['text'] for p in posts])
+
+                # Use the link from the FIRST post of the day.
+                # If it's the main thread, it will use the thread link.
+                # If it's a reply (hotfix), it will use the specific post link.
+                specific_link = posts[0]['link']
+
+                # Create or reuse changelog ID
+                changelog_id = self._create_changelog_id(date_key, version)
+
+                self.changelogs[changelog_id] = full_text
+                self.changelog_configs[changelog_id] = {
+                    'forum_id': version,
+                    'date': date_key,
+                    'link': specific_link,
+                    'is_hero_lab': False,
+                }
 
         if skip_num > 0:
             logger.trace(f'Skipped {skip_num} RSS items that already exists')
