@@ -10,7 +10,8 @@ from typing import TypedDict
 from .constants import CHANGELOG_RSS_URL
 from collections import defaultdict
 from datetime import datetime
-from zoneinfo import ZoneInfo  # Standard in Python 3.9+
+from zoneinfo import ZoneInfo
+import re
 
 
 class ChangelogConfig(TypedDict):
@@ -291,25 +292,19 @@ class ChangelogFetcher:
     def fetch_forum_changelogs(self):
         """download rss feed from changelog forum and save all available entries"""
         logger.trace('Parsing Changelog RSS feed')
-        # fetches 20 most recent entries
         feed = feedparser.parse(self.RSS_URL)
         skip_num = 0
+
+        # Bucket to collect all updates grouped by date
+        # date -> list of { 'version': str, 'text': str, 'link': str }
+        updates_by_day = defaultdict(list)
+
         for entry in feed.entries:
-            # Dependent on thread title being in the format "mm-dd-yyyy Update"
-            date = entry.title.replace(' Update', '')
-
-            # Restrict to first 10 chars "10-18-2024 2" to "10-18-2024"
-            date_format = 'mm-dd-yyyy'
-            if len(date) > len(date_format):
-                date = date[: len(date_format)]
-            date = format_date(date)
-
+            # Parse version ID from URL
             version = entry.link.split('.')[-1].split('/')[0]
-            # Raise error if version isnt numerical
             try:
                 int(version)
             except ValueError:
-                # Fallback for URLs that might end in a trailing slash or differ in format
                 try:
                     version = entry.link.split('/')[-2].split('.')[-1]
                     int(version)
@@ -318,43 +313,108 @@ class ChangelogFetcher:
                     continue
 
             if version is None or version == '':
-                raise ValueError(f'Version {version} must not be blank/missing')
+                continue
 
             try:
-                updates_by_date = self._fetch_update_html(entry.link)
+                # Scrape this thread for date-grouped posts
+                thread_updates = self._fetch_update_html(entry.link)
             except Exception as e:
                 logger.error(f'Issue with parsing RSS feed item {entry.link}: {e}')
                 continue
 
-            # Process each date found in the thread
-            for date_key, posts in updates_by_date.items():
-                # Join all text blocks from this specific day
+            # Add these updates to our master bucket
+            for date_key, posts in thread_updates.items():
+                # Join text if multiple posts exist within ONE thread for ONE day (unlikely but possible)
                 text_parts = []
                 for i, p in enumerate(posts):
                     content = p['text']
-                    # If there are multiple posts on the same day, separate them with "Patch X" headers
-                    # We use === Headers === for Wikitext compatibility in the Smart Append logic
                     if i > 0:
                         content = f'=== Patch {i + 1} ===\n{content}'
                     text_parts.append(content)
 
                 full_text = '\n\n'.join(text_parts)
-
-                # Use the link from the FIRST post of the day.
-                # If it's the main thread, it will use the thread link.
-                # If it's a reply (hotfix), it will use the specific post link.
                 specific_link = posts[0]['link']
 
-                # Create or reuse changelog ID
-                changelog_id = self._create_changelog_id(date_key, version)
+                updates_by_day[date_key].append({'version': version, 'text': full_text, 'link': specific_link})
 
-                self.changelogs[changelog_id] = full_text
+        # Now process the gathered updates day by day
+        for date_key, entries in updates_by_day.items():
+            # Use strict date ID (e.g., "2025-11-21")
+            changelog_id = date_key
+
+            # Determine if we already have a "Main" thread config for this date
+            existing_config = self.changelog_configs.get(changelog_id)
+
+            # If we have multiple entries for one day (e.g. Thread A and Thread B),
+            # we need to decide which one is "Main" (base text) and which is "Appended".
+            # If we already have a config on disk, that one is Main.
+
+            main_entry = None
+            append_entries = []
+
+            # Find the main entry
+            if existing_config:
+                # Find the entry that matches the existing config's forum ID
+                for e in entries:
+                    if e['version'] == existing_config['forum_id']:
+                        main_entry = e
+                        break
+
+                # All other entries are appended
+                for e in entries:
+                    if e != main_entry:
+                        append_entries.append(e)
+            else:
+                # No existing config, pick the first one as main
+                # (You might want to sort by version ID here if you want consistency)
+                entries.sort(key=lambda x: x['version'])
+                main_entry = entries[0]
+                append_entries = entries[1:]
+
+            # Set Base Text
+            current_text = ''
+
+            # If we found the main thread in the RSS feed, use its new text (refreshing it)
+            if main_entry:
+                current_text = main_entry['text']
+                # Ensure config is set/updated
                 self.changelog_configs[changelog_id] = {
-                    'forum_id': version,
+                    'forum_id': main_entry['version'],
                     'date': date_key,
-                    'link': specific_link,
+                    'link': main_entry['link'],
                     'is_hero_lab': False,
                 }
+            elif existing_config and changelog_id in self.changelogs:
+                # Main thread wasn't in RSS (fell off?), but we have it on disk. Keep it.
+                current_text = self.changelogs[changelog_id]
+            else:
+                # Should not happen given logic above, but safety fallback
+                continue
+
+            # Append other threads
+            # Calculate starting patch number based on existing headers
+            # If text has "=== Patch 2 ===", max is 2. Next is 3.
+            # If text has no headers, assume it's just the base patch (1). Next is 2.
+
+            # Helper to count patches in text
+            def get_next_patch_num(txt):
+                matches = re.findall(r'=== Patch (\d+) ===', txt)
+                if matches:
+                    return max(map(int, matches)) + 1
+                return 2
+
+            for entry in append_entries:
+                # Check duplication: simple check to see if this text block is already present
+                # This prevents appending the same hotfix thread multiple times on re-runs
+                if entry['text'] in current_text:
+                    continue
+
+                patch_num = get_next_patch_num(current_text)
+                header = f'=== Patch {patch_num} ==='
+                current_text += f"\n\n{header}\n{entry['text']}"
+
+            # Save
+            self.changelogs[changelog_id] = current_text
 
         if skip_num > 0:
             logger.trace(f'Skipped {skip_num} RSS items that already exists')
@@ -377,33 +437,13 @@ class ChangelogFetcher:
                 logger.warning(f'Issue with {file}, skipping')
 
     def _create_changelog_id(self, date, forum_id, i=0):
-        """
-        Creating a custom id based on the date by appending _<i>
-        if its another patch for the same day, i.e.:
-        2024-10-29
-        2024-10-29-1
-        2024-10-29-2
-        """
-
-        # (2024-12-17, 0) -> 2024-12-17
-        # (2024-12-17, 1) -> 2024-12-17-1
+        # This function is now legacy/unused for RSS, but kept for Hero Labs compatibility if needed
         id = date if i == 0 else f'{date}-{i}'
-
-        # Existing config for this date
         existing_config = self.changelog_configs.get(id, None)
-
-        # If this id doesn't yet exist, use it
         if existing_config is None:
             return id
-        # Else same date already exists
-
-        # If the forum id is the same, use the same changelog id
-        # which will update the existing record
         if existing_config['forum_id'] == forum_id:
             return id
-        # Else forum id's are different, so different patches on the same day
-
-        # Recursively check if the next id is available
         return self._create_changelog_id(date, forum_id, i + 1)
 
 

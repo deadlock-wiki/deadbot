@@ -65,7 +65,9 @@ class WikiUpload:
 
         latest_filename = files[-1]  # The last file in the sorted list is the most recent
 
-        for filename in files:
+        recent_files = files[-10:]
+
+        for filename in recent_files:
             changelog_id = filename.replace('.txt', '')
             try:
                 # Changelog IDs are typically 'YYYY-MM-DD' or 'YYYY-MM-DD-1'.
