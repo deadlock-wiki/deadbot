@@ -9,6 +9,8 @@ from utils import file_utils, json_utils
 from typing import TypedDict
 from .constants import CHANGELOG_RSS_URL
 from collections import defaultdict
+from datetime import datetime
+from zoneinfo import ZoneInfo  # Standard in Python 3.9+
 
 
 class ChangelogConfig(TypedDict):
@@ -113,6 +115,14 @@ class ChangelogFetcher:
 
         base_url = 'https://forums.playdeadlock.com'
 
+        # Target Timezone: Valve HQ (US/Pacific)
+        try:
+            target_tz = ZoneInfo('US/Pacific')
+        except Exception:
+            # Fallback to UTC if tzdata is missing in docker
+            logger.warning('US/Pacific timezone not found, falling back to UTC.')
+            target_tz = ZoneInfo('UTC')
+
         for i, article in enumerate(articles):
             # Extract the Date
             time_elem = article.find('time', class_='u-dt')
@@ -121,8 +131,13 @@ class ChangelogFetcher:
 
             try:
                 dt_str = time_elem['datetime']
-                post_date = dt_str.split('T')[0]
-            except (IndexError, KeyError):
+                # Parse ISO string (e.g. 2024-11-21T01:00:00+0000)
+                dt_utc = datetime.fromisoformat(dt_str)
+                # Convert to Valve HQ time
+                dt_valve = dt_utc.astimezone(target_tz)
+                post_date = dt_valve.strftime('%Y-%m-%d')
+            except (IndexError, KeyError, ValueError) as e:
+                logger.warning(f'Failed to parse date from post: {e}')
                 continue
 
             # Extract the Link
@@ -305,8 +320,6 @@ class ChangelogFetcher:
             if version is None or version == '':
                 raise ValueError(f'Version {version} must not be blank/missing')
 
-            # We don't skip based on thread ID existence alone anymore,
-            # as new comments on the same thread might be new updates.
             try:
                 updates_by_date = self._fetch_update_html(entry.link)
             except Exception as e:
@@ -316,7 +329,16 @@ class ChangelogFetcher:
             # Process each date found in the thread
             for date_key, posts in updates_by_date.items():
                 # Join all text blocks from this specific day
-                full_text = '\n---\n'.join([p['text'] for p in posts])
+                text_parts = []
+                for i, p in enumerate(posts):
+                    content = p['text']
+                    # If there are multiple posts on the same day, separate them with "Patch X" headers
+                    # We use === Headers === for Wikitext compatibility in the Smart Append logic
+                    if i > 0:
+                        content = f'=== Patch {i + 1} ===\n{content}'
+                    text_parts.append(content)
+
+                full_text = '\n\n'.join(text_parts)
 
                 # Use the link from the FIRST post of the day.
                 # If it's the main thread, it will use the thread link.
