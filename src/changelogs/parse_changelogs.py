@@ -104,7 +104,6 @@ class ChangelogParser:
             prev_update_link = ''
             if changelog_id in sorted_update_ids:
                 curr_idx = sorted_update_ids.index(changelog_id)
-                # If there is a previous update in the list
                 if curr_idx > 0:
                     prev_id = sorted_update_ids[curr_idx - 1]
                     prev_config = changelog_configs[prev_id]
@@ -119,13 +118,23 @@ class ChangelogParser:
             source_link = config.get('link', '')
             source_title = ''
             if source_link:
-                # Example slug: 10-02-2025-update.84332
-                slug = source_link.split('/')[-2]
-                title_part = slug.split('.')[0]  # e.g., "10-02-2025-update"
-                # Specifically replace '-update' to preserve date hyphens
+                # Logic to extract title from URL
+                parts = source_link.split('/')
+                slug = ''
+                for part in parts:
+                    if '-update' in part:
+                        slug = part
+                        break
+                if not slug and len(parts) >= 2:
+                    slug = parts[-2] if parts[-1] == '' else parts[-1]
+
+                title_part = slug.split('.')[0]
                 source_title = title_part.replace('-update', ' Update')
+
+                # Check for reply indicators in the URL
+                if '/post-' in source_link or '/posts/' in source_link:
+                    source_title += ' (Reply)'
             else:
-                # Fallback title if no link is present
                 source_title = f"{date_obj.strftime('%m-%d-%Y')} Update"
 
             full_page_content = f"""{{{{Update layout
