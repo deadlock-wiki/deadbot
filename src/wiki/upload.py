@@ -7,6 +7,9 @@ from utils import json_utils, game_utils, meta_utils
 from .pages import DATA_PAGE_FILE_MAP, IGNORE_PAGES
 from loguru import logger
 
+# Number of most recent files to process to prevent touching ancient history
+MAX_RECENT_UPLOADS = 10
+
 
 class WikiUpload:
     """
@@ -65,7 +68,8 @@ class WikiUpload:
 
         latest_filename = files[-1]  # The last file in the sorted list is the most recent
 
-        recent_files = files[-10:]
+        # Only process the most recent updates to avoid touching historical data.
+        recent_files = files[-MAX_RECENT_UPLOADS:]
 
         for filename in recent_files:
             changelog_id = filename.replace('.txt', '')

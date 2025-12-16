@@ -105,6 +105,11 @@ class ChangelogFetcher:
         json_utils.write(f'{self.INPUT_DIR}/changelogs/changelog_configs.json', self.changelog_configs)
 
     def _fetch_update_html(self, link):
+        """
+        Fetches the HTML content of a forum link and extracts posts grouped by date.
+        Returns:
+            dict: { 'YYYY-MM-DD': [ {'text': str, 'link': str}, ... ] }
+        """
         html = request.urlopen(link).read()
         soup = BeautifulSoup(html, features='html.parser')
 
