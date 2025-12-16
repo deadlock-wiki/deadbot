@@ -1,0 +1,110 @@
+- The 10% move speed slow from taking damage is now a 20% slow only for the portion over the hero's base move speed
+- Move Speed bonuses now stack diminishingly
+- Base move speed reduced by 0.1 (except for heroes lower than 6.5)
+- Heroes with move speed spirit scaling have the values reduced by 40%
+- Updated move speed values on items:
+- Active Reload: Move speed reduced from 1 to 0.75​- Backstabber: Move speed reduced from 1.75 to 1.5​- Fleetfoot: Move speed reduced from 3.5 to 3.25​- Enduring Speed: Move speed reduced from 2.25 to 2.0​- Guardian Ward: Move speed reduced from 3 to 2.75​- Spirit Shielding: Move speed reduced from 1.75 to 1.5​- Weapon Shielding: Move speed reduced from 1.75 to 1.5​- Blood Tribute: Move speed reduced from 2.25 to 2​- Burst Fire: Move speed reduced from 1.5 to 1.25​- Headhunter: Move speed reduced from 2 to 1.75​- Heroic Aura: Move speed reduced from 2.5 to 2.25​- Counterspell: Move speed reduced from 2 to 1.75​- Debuff Remover: Move speed reduced from 2.5 to 2.25​- Fortitude: Move speed reduced from 1.5 to 1.25​- Veil Walker: Invis move speed reduced from 4 to 3.5​- Radiant Regeneration: Move speed reduced from 2 to 1.75​- Surge of Power: Move speed reduced from 2 to 1.75​- Frenzy: Move speed reduced from 1 to 0.75​- Frenzy: Active move speed reduced from 3 to 2.5​- Divine Barrier: Move speed reduced from 3 to 2.75​- Healing Tempo: Move speed reduced from 1.5 to 1.25​- Juggernaut: Move speed reduced from 2.25 to 2​- Ethereal Shift: Move speed reduced from 3 to 2.5​- Sprint ramp rate reduced from 0.75/sec to 0.6/sec
+- Sprint now starts accelerating for sprint speeds over +2.5 rather than only after +3
+- Base sprint speed reduced by 0.4
+- Wraith: Sprint speed spirit power scaling reduced from 0.6 to 0.5
+- Updated sprint values on items:
+- Sprint Boots: Sprint reduced from 2.2 to 2.0​- Long Range: Sprint reduced from 1 to 0.75​- Swift Striker: Sprint reduced from 1 to 0.75​- Mystic Slow: Sprint reduced from 1 to 0.75​- Heroic Aura: Sprint reduced from 2 to 1.5​- Hunter's Aura: Sprint reduced from 1 to 0.75​- Sharpshooter: Sprint reduced from 1.5 to 1​- Rescue Beam: Sprint reduced from 1 to 0.75​- Trophy Collector: Sprint reduced from 2.2 to 2.0​- Disarming Hex: Sprint reduced from 1 to 0.75​- Shadow Weave: Sprint reduced from 2 to 1.5​- Lightning Scroll: Sprint reduced from 1 to 0.75​- Vortex Web: Sprint reduced from 1 to 0.75​- Enduring Speed: Slow resist reduced from 30% to 25%
+- Fleetfoot: Active slow resist reduced from 40% to 35%
+- Majestic Leap: Cooldown increased from 34s to 45s
+- Majestic Leap: Barrier scaling per boon reduced from 10 to 8
+
+
+- Bonus Health on all Weapon and Spirit items is reduced by ~25
+- Vitality investment tree bonuses changed from a % of base health to a fixed amount (from +8/10/13/17/34/39/44/48/52/56% to +75/125/200/275/525/625/750/1000/1200/1400)
+- Colossus: Bonus Health reduced from +600 to +300
+- Colossus: Now grants +15% Base Health
+- Siphon Bullets: Cooldown increased from 0.8s to 1.2s
+
+
+- Spirit investment tree 4.8k bonus reduced from 45 to 38
+- Surge of Power Imbued Ability Spirit reduced from 28 to 24
+- Rapid Recharge Charged Ability Spirit reduced from 20 to 16
+- Crippling Headshot: Bullet and Spirit Resist reduction from -18% to -16%
+- Focus Lens: Spirit Resist reduction reduced from -12% to -9% (affects Spirit Sap)
+- Spirit Snatch: Spirit Resist steal reduced from 15% to 12%
+- Tankbuster: Changed from doing % of Max Health to a % of Current Health
+- Tankbuster: Damage dealt increased from 5% to 7.5%
+
+
+- Trooper bounty reduced by 12%
+
+
+- Shrines health increased from 3000 to 7000
+- Killing both enemy shrines will now make all of your troopers stronger (30% hp and 30% damage)
+- Walker Rocket Barrage radius reduced from 6m to 5m
+
+
+- Medic orbs now heals allied troopers 30% more
+- Medic orbs regen on allied troopers is now applied over 8s instead of 2s
+- Medic Trooper HP increased from 260 to 350 (default trooper is 300)
+- Medic Trooper DPS vs other troopers increased from 35 to 45 (default trooper is 35)
+- Medic Troopers attack range vs troopers and players increased by +5m over the default
+- Medic Pack pickup range scales from 18m->26m to 18m->30m (over the same time period, 10min to 18min)
+
+
+- Urn: Bounty increased from 700 + 230/min to 1300 + 230/min
+- Urn: Comeback bounty now gives more souls
+- Urn: Bullet and Spirit resist for carrier increased from 30% to 50%
+- Urn: Bonus bounty for carrier increased from 25% to 35%
+
+
+- Increased kill bounty for solo kills (1 attacker in the kill) by 25%, and by 15% for duo kills
+- Increased portion of the bounty the killer gets relative to the assist portion
+- Increased comeback bounties for losing team a bit
+
+
+- Getting hit while on Jump Pad during the window now deals 15% max hp damage
+
+
+- Neutral HP reduced by 20%
+- Neutral HP growth increased from 0.5%/min to 2.1% (less HP before ~15 minutes, more afterwards)
+- Neutrals spirit resistance increased by 5%
+- Sinner's Sacrifice bounty reduced by 10%
+- Cultist Sacrifice: Cooldown increased from 260s to 270s
+- Unsecured souls claim period reworked. Previously the way it worked was any unsecured souls you gained were added to a rolling 165s window, where it was divided over that time and given out, with a minimum amount given per second of 1 soul. The new system drains 0.5% (of the remaining souls) + 1.6 (scales with the 8% bounty growth per minute).
+
+There are a few examples below to show how they compare. Old was 165s (assuming bounty was at least 165s). New is:
+
+1x Small Camp: 77s​2x Medium Camps: 163s​1x Hard Camp: 193s​4x Medium Camps: 230s​2x Hard Camps: 263s​1x Hard Camp + 3x Medium Camps: 270s​2x Hard Camp + 6x Medium Camps: 354s​
+
+
+
+- Fixed a bug causing AP Rounds to reduce damage on targets with negative resist
+- When Armor Piercing Rounds Proc's, Plated Armor can no longer stop the Proc'd Bullet.
+- Fixed Curse dispelling targets with Unstoppable state
+
+
+
+- Billy: Health regen reduced from 3 to 2.5
+- Billy: Blasted non-player effectiveness reduced from 35% to 25%
+- Billy: Blasted light melee effectiveness reduced from 50% to 40%
+- Billy: Chain Gang will now break slightly faster when target is out of LOS
+
+- Dynamo: Kinetic Pulse spirit scaling range reduced from 0.2 to 0.1
+- Dynamo: Health regen reduced from 2.5 to 1.75
+
+- Lady Geist: Stamina dash distance moved to bucket 3 (slower)
+- Lady Geist: Essence Bomb self damage spirit scaling reduced from 1.6 to 1.8
+- Lady Geist: Malice self damage increased from 7% to 9%
+
+- Mirage: Move speed reduced by 0.2
+- Mirage: Bullet damage per boon reduced from 0.616 to 0.5
+- Mirage: Djinn's Mark cooldown increased from 2.5s to 2.6s
+- Mirage: Djinn's Mark max range from 45m to 40m
+- Mirage: Traveler cooldown increased from 145s to 155s
+- Mirage: Traveler T1 cooldown from -25s to -35s
+
+- Shiv: Bloodletting deferred damage reduced from 30% to 25%
+- Shiv: Bloodletting T2 deferred damage increased from 10% to 15%
+- Shiv: Rage buildup rate reduced by 6%
+- Shiv: Killing Blow cast range reduced from 15m to 13m
+
+- Vindicta: Assassinate T2 reduced from +90 Max Bonus Damage to 80
+
+- Wraith: Bullet damage per boon reduced from 0.17 to 0.14
+- Wraith: Project Mind T2 spirit scaling reduced from 2.44 to 1.7
