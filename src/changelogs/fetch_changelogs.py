@@ -23,6 +23,7 @@ class ChangelogConfig(TypedDict):
     forum_id: str
     date: str
     link: str
+    newly_added_headers: list[str]
 
 
 class ChangelogString(TypedDict):
@@ -209,7 +210,6 @@ class ChangelogFetcher:
 
             # Create the raw changelog id (used as filename in raw folder)
             # i.e. 2024-10-29_HeroLab
-            raw_changelog_id = f'{date.replace("/", "-")}_HeroLab'
 
             # Parse hero name to create a header for the changelog entry
             # Citadel_PatchNotes_HeroLabs_hero_astro_1 ->
@@ -221,6 +221,7 @@ class ChangelogFetcher:
             header = f'[ HeroLab {hero_name_en} ]'
 
             # Initialize the changelog entry if its the first line for this hero's patch (version)
+            raw_changelog_id = f'{date.replace("/", "-")}_HeroLab'
             if raw_changelog_id not in gamefile_changelogs:
                 gamefile_changelogs[raw_changelog_id] = header + '\n'
             else:
@@ -329,7 +330,7 @@ class ChangelogFetcher:
 
             # Add these updates to our master bucket
             for date_key, posts in thread_updates.items():
-                # Join text if multiple posts exist within ONE thread for ONE day (unlikely but possible)
+                # Join text if multiple posts exist within ONE thread for ONE day
                 text_parts = []
                 for i, p in enumerate(posts):
                     content = p['text']
@@ -344,62 +345,37 @@ class ChangelogFetcher:
 
         # Now process the gathered updates day by day
         for date_key, entries in updates_by_day.items():
-            # Use strict date ID (e.g., "2025-11-21")
             changelog_id = date_key
 
-            # Determine if we already have a "Main" thread config for this date
-            existing_config = self.changelog_configs.get(changelog_id)
+            # Determine "Old" local text before we overwrite it.
+            # This allows us to detect what sections are truly "new" locally.
+            old_local_raw_path = os.path.join(self.INPUT_DIR, 'changelogs/raw', f'{changelog_id}.txt')
+            old_text = ''
+            if os.path.exists(old_local_raw_path):
+                old_text = file_utils.read(old_local_raw_path)
 
-            # If we have multiple entries for one day (e.g. Thread A and Thread B),
-            # we need to decide which one is "Main" (base text) and which is "Appended".
-            # If we already have a config on disk, that one is Main.
+            existing_config = self.changelog_configs.get(changelog_id)
 
             main_entry = None
             append_entries = []
 
             # Find the main entry
             if existing_config:
-                # Find the entry that matches the existing config's forum ID
                 for e in entries:
                     if e['version'] == existing_config['forum_id']:
                         main_entry = e
                         break
-
-                # All other entries are appended
                 for e in entries:
                     if e != main_entry:
                         append_entries.append(e)
             else:
-                # No existing config, pick the first one as main
-                # (You might want to sort by version ID here if you want consistency)
                 entries.sort(key=lambda x: x['version'])
                 main_entry = entries[0]
                 append_entries = entries[1:]
 
             # Set Base Text
-            current_text = ''
-
-            # If we found the main thread in the RSS feed, use its new text (refreshing it)
-            if main_entry:
-                current_text = main_entry['text']
-                # Ensure config is set/updated
-                self.changelog_configs[changelog_id] = {
-                    'forum_id': main_entry['version'],
-                    'date': date_key,
-                    'link': main_entry['link'],
-                    'is_hero_lab': False,
-                }
-            elif existing_config and changelog_id in self.changelogs:
-                # Main thread wasn't in RSS (fell off?), but we have it on disk. Keep it.
-                current_text = self.changelogs[changelog_id]
-            else:
-                # Should not happen given logic above, but safety fallback
-                continue
-
-            # Append other threads
-            # Calculate starting patch number based on existing headers
-            # If text has "=== Patch 2 ===", max is 2. Next is 3.
-            # If text has no headers, assume it's just the base patch (1). Next is 2.
+            current_text = main_entry['text'] if main_entry else (self.changelogs.get(changelog_id, ''))
+            new_headers_found = []
 
             # Helper to count patches in text
             def get_next_patch_num(txt):
@@ -409,17 +385,32 @@ class ChangelogFetcher:
                 return 2
 
             for entry in append_entries:
-                # Check duplication: simple check to see if this text block is already present
-                # This prevents appending the same hotfix thread multiple times on re-runs
                 if entry['text'] in current_text:
                     continue
 
                 patch_num = get_next_patch_num(current_text)
                 header = f'=== Patch {patch_num} ==='
+
+                # If this header didn't exist locally before, it's new
+                if header not in old_text:
+                    new_headers_found.append(header)
+
                 current_text += f"\n\n{header}\n{entry['text']}"
 
-            # Save
+            # Save to memory and update config
             self.changelogs[changelog_id] = current_text
+
+            config_entry = {
+                'forum_id': main_entry['version'] if main_entry else existing_config['forum_id'],
+                'date': date_key,
+                'link': main_entry['link'] if main_entry else existing_config['link'],
+                'is_hero_lab': False,
+            }
+
+            if new_headers_found:
+                config_entry['newly_added_headers'] = new_headers_found
+
+            self.changelog_configs[changelog_id] = config_entry
 
         if skip_num > 0:
             logger.trace(f'Skipped {skip_num} RSS items that already exists')
@@ -442,7 +433,7 @@ class ChangelogFetcher:
                 logger.warning(f'Issue with {file}, skipping')
 
     def _create_changelog_id(self, date, forum_id, i=0):
-        # This function is now legacy/unused for RSS, but kept for Hero Labs compatibility if needed
+        # Legacy/HeroLab fallback
         id = date if i == 0 else f'{date}-{i}'
         existing_config = self.changelog_configs.get(id, None)
         if existing_config is None:

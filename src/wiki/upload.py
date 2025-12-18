@@ -71,6 +71,9 @@ class WikiUpload:
         # Only process the most recent updates to avoid touching historical data.
         recent_files = files[-MAX_RECENT_UPLOADS:]
 
+        # Load config to check for newly added headers (hotfixes)
+        changelog_configs = json_utils.read(os.path.join(self.OUTPUT_DIR, 'changelogs/changelog_configs.json'), ignore_error=True) or {}
+
         for filename in recent_files:
             changelog_id = filename.replace('.txt', '')
             try:
@@ -93,8 +96,11 @@ class WikiUpload:
                 with open(filepath, 'r', encoding='utf-8') as f:
                     content = f.read()
 
-                # Pass is_latest=True only for the most recent file
-                self.upload_new_page(page_title, content, is_latest=(filename == latest_filename))
+                # Get specific new headers for this patch from local config
+                new_headers = changelog_configs.get(changelog_id, {}).get('newly_added_headers', [])
+
+                # Pass is_latest and the list of new headers to the upload function
+                self.upload_new_page(page_title, content, is_latest=(filename == latest_filename), new_headers=new_headers)
 
             except ValueError:
                 logger.error(f"Could not parse date from changelog filename '{filename}'. Skipping.")
@@ -127,79 +133,58 @@ class WikiUpload:
             json_string = json.dumps(data, indent=4)
             self._update_page(page, json_string)
 
-    def upload_new_page(self, title, content, is_latest=False):
+    def upload_new_page(self, title, content, is_latest=False, new_headers=None):
         """
         Uploads a page to the wiki if it doesn't already exist or if content changed.
         If it exists and is_latest is True, check for smart append opportunities (hotfixes).
         """
         page = self.site.pages[title]
         if page.exists:
-            current_content = page.text()
-            if current_content.strip() == content.strip():
-                logger.trace(f'Page "{title}" is up to date, skipping.')
-                return
+            # Smart append logic for hotfixes: only run if this is the latest patch
+            # and we have specific new sections identified locally.
+            if is_latest and new_headers:
+                current_content = page.text()
+                self._smart_append_hotfixes(page, current_content, content, new_headers)
             else:
-                # Only attempt smart append if this is the absolute latest patch
-                if is_latest:
-                    self._smart_append_hotfixes(page, current_content, content)
-                else:
-                    logger.trace(f'Page "{title}" exists and differs, but is not latest. Skipping to preserve history.')
+                logger.trace(f'Page "{title}" exists and differs, but is not latest. Skipping to preserve history.')
         else:
             logger.info(f'Creating new page: "{title}"')
             if not self.dry_run:
                 page.save(content, summary=self.upload_message)
                 logger.success(f'Successfully saved page "{title}"')
 
-    def _smart_append_hotfixes(self, page, current_text, new_generated_text):
+    def _smart_append_hotfixes(self, page, current_text, new_generated_text, new_headers):
         """
-        Parses the new generated text for headers like "=== Patch X ===".
-        If that header is missing from current_text, append that section
-        to the end of the template.
+        Appends only the sections that the fetcher identified as new locally.
+        This ignores the visual state of the wiki to give editors freedom.
         """
-        # Regex to find sections starting with === Patch N ===
-        # Captures Group 1: The Header
-        # Captures Group 2: The Body (non-greedy until next header or end of string)
-        patch_pattern = re.compile(r'(=== Patch \d+ ===)(.*?)(?=(=== Patch \d+ ===)|$)', re.DOTALL)
-
-        new_patches = patch_pattern.finditer(new_generated_text)
-
         text_to_append = []
-        found_new = False
 
-        for match in new_patches:
-            header = match.group(1).strip()  # === Patch 2 ===
-            body = match.group(2).rstrip()
+        for header in new_headers:
+            # Extract just this patch section from the new generated text
+            pattern = re.compile(rf'({re.escape(header)})(.*?)(?=(=== Patch \d+ ===)|$)', re.DOTALL)
+            match = pattern.search(new_generated_text)
 
-            # If this header does not exist in the live page
-            if header not in current_text:
-                logger.info(f"Found new hotfix section '{header}' missing from live page.")
-                text_to_append.append(f'\n\n{header}{body}')
-                found_new = True
-            else:
-                logger.trace(f"Hotfix section '{header}' already exists on page.")
+            if match:
+                section_content = match.group(0).rstrip()
+                # Bot trusts its local state that this is a new update
+                logger.info(f'Appending new section to Wiki: {header}')
+                text_to_append.append(f'\n\n{section_content}')
 
-        if not found_new:
-            logger.info(f'Page {page.name} exists and has no new hotfix sections to append.')
+        if not text_to_append:
             return
 
-        # Append logic: Insert before the closing }} of the Update layout template
+        # Perform the append before the closing }} of the layout template
         if current_text.strip().endswith('}}'):
-            # Remove the last brackets, add content, re-add brackets
             base_text = current_text.strip()
+            # Insert before the last two characters (the '}}')
+            new_page_text = base_text[:-2] + ''.join(text_to_append) + '\n}}'
 
-            # Check if it actually ends with }}
-            if base_text[-2:] == '}}':
-                formatted_append = ''.join(text_to_append)
-                new_page_text = base_text[:-2] + formatted_append + '\n}}'
-
-                logger.info(f'Appending {len(text_to_append)} new sections to {page.name}')
-                if not self.dry_run:
-                    page.save(new_page_text, summary='Deadbot: Appended new hotfix/patch notes')
-                    logger.success(f'Successfully appended hotfixes to {page.name}')
-            else:
-                logger.warning(f"Page {page.name} does not end with '}}', cannot safely append hotfix.")
+            if not self.dry_run:
+                page.save(new_page_text, summary='Deadbot: Appended new hotfix notes')
+                logger.success(f'Successfully appended {len(text_to_append)} sections to {page.name}')
         else:
-            logger.warning(f"Page {page.name} structure unrecognized (no closing '}}'), skipping append.")
+            logger.warning(f"Page {page.name} does not end with '}}', cannot safely append hotfix.")
 
     def _update_latest_chain(self):
         """
