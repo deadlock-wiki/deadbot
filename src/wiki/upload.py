@@ -48,6 +48,7 @@ class WikiUpload:
         logger.info(f'Uploading Data to Wiki - {self.upload_message}')
         self._update_data_pages()
         self._upload_changelog_pages()
+        self._process_hotfixes()
         self._update_latest_chain()
 
     def _upload_changelog_pages(self):
@@ -66,13 +67,8 @@ class WikiUpload:
         if not files:
             return
 
-        latest_filename = files[-1]  # The last file in the sorted list is the most recent
-
         # Only process the most recent updates to avoid touching historical data.
         recent_files = files[-MAX_RECENT_UPLOADS:]
-
-        # Load config to check for newly added headers (hotfixes)
-        changelog_configs = json_utils.read(os.path.join(self.OUTPUT_DIR, 'changelogs/changelog_configs.json'), ignore_error=True) or {}
 
         for filename in recent_files:
             changelog_id = filename.replace('.txt', '')
@@ -96,16 +92,54 @@ class WikiUpload:
                 with open(filepath, 'r', encoding='utf-8') as f:
                     content = f.read()
 
-                # Get specific new headers for this patch from local config
-                new_headers = changelog_configs.get(changelog_id, {}).get('newly_added_headers', [])
-
-                # Pass is_latest and the list of new headers to the upload function
-                self.upload_new_page(page_title, content, is_latest=(filename == latest_filename), new_headers=new_headers)
+                self.upload_new_page(page_title, content)
 
             except ValueError:
                 logger.error(f"Could not parse date from changelog filename '{filename}'. Skipping.")
             except Exception as e:
                 logger.error(f"Failed to upload changelog from '{filename}': {e}")
+
+    def _process_hotfixes(self):
+        """
+        Reads specifically identified hotfix sections from the fetcher and appends them
+        to their respective existing wiki pages.
+        """
+        hotfixes_path = os.path.join(self.OUTPUT_DIR, 'changelogs/hotfixes.json')
+        hotfixes = json_utils.read(hotfixes_path, ignore_error=True)
+        if not hotfixes:
+            return
+
+        logger.info(f'Processing {len(hotfixes)} hotfixes for appending...')
+        for hotfix in hotfixes:
+            try:
+                date_obj = datetime.strptime(hotfix['date'], '%Y-%m-%d')
+                # Assuming standard naming: Update:Month_Day,_Year
+                page_title = f"Update:{date_obj.strftime('%B')}_{date_obj.day},_{date_obj.year}"
+                page = self.site.pages[page_title]
+
+                if not page.exists:
+                    logger.trace(f'Skipping hotfix append for {page_title} as page does not exist.')
+                    continue
+
+                current_text = page.text()
+                # Idempotency check: don't append if the text is already there
+                if hotfix['text'] in current_text:
+                    logger.trace(f'Hotfix for {page_title} already exists on wiki, skipping.')
+                    continue
+
+                # Perform the append before the closing }} of the layout template
+                if current_text.strip().endswith('}}'):
+                    base_text = current_text.strip()
+                    new_page_text = base_text[:-2] + f"\n\n{hotfix['text']}\n}}"
+
+                    logger.info(f'Appending new hotfix section to Wiki page: {page_title}')
+                    if not self.dry_run:
+                        page.save(new_page_text, summary='Deadbot: Appended new hotfix notes')
+                        logger.success(f'Successfully appended hotfix to {page_title}')
+                else:
+                    logger.warning(f"Page {page_title} does not end with '}}', cannot safely append hotfix.")
+            except Exception as e:
+                logger.error(f"Failed to process hotfix for {hotfix.get('date')}: {e}")
 
     def _update_data_pages(self):
         namespace_id = self._get_namespace_id(self.DATA_NAMESPACE)
@@ -133,58 +167,25 @@ class WikiUpload:
             json_string = json.dumps(data, indent=4)
             self._update_page(page, json_string)
 
-    def upload_new_page(self, title, content, is_latest=False, new_headers=None):
+    def upload_new_page(self, title, content):
         """
-        Uploads a page to the wiki if it doesn't already exist or if content changed.
-        If it exists and is_latest is True, check for smart append opportunities (hotfixes).
+        Uploads a page to the wiki if it doesn't already exist.
+
+        Args:
+            title (str): The full title of the page (e.g., "Update:May_27,_2025").
+            content (str): The wikitext content for the page.
         """
         page = self.site.pages[title]
         if page.exists:
-            # Smart append logic for hotfixes: only run if this is the latest patch
-            # and we have specific new sections identified locally.
-            if is_latest and new_headers:
-                current_content = page.text()
-                self._smart_append_hotfixes(page, current_content, content, new_headers)
-            else:
-                logger.trace(f'Page "{title}" exists and differs, but is not latest. Skipping to preserve history.')
-        else:
-            logger.info(f'Creating new page: "{title}"')
-            if not self.dry_run:
-                page.save(content, summary=self.upload_message)
-                logger.success(f'Successfully saved page "{title}"')
-
-    def _smart_append_hotfixes(self, page, current_text, new_generated_text, new_headers):
-        """
-        Appends only the sections that the fetcher identified as new locally.
-        This ignores the visual state of the wiki to give editors freedom.
-        """
-        text_to_append = []
-
-        for header in new_headers:
-            # Extract just this patch section from the new generated text
-            pattern = re.compile(rf'({re.escape(header)})(.*?)(?=(=== Patch \d+ ===)|$)', re.DOTALL)
-            match = pattern.search(new_generated_text)
-
-            if match:
-                section_content = match.group(0).rstrip()
-                # Bot trusts its local state that this is a new update
-                logger.info(f'Appending new section to Wiki: {header}')
-                text_to_append.append(f'\n\n{section_content}')
-
-        if not text_to_append:
+            logger.trace(f'Page "{title}" already exists, skipping creation.')
             return
 
-        # Perform the append before the closing }} of the layout template
-        if current_text.strip().endswith('}}'):
-            base_text = current_text.strip()
-            # Insert before the last two characters (the '}}')
-            new_page_text = base_text[:-2] + ''.join(text_to_append) + '\n}}'
+        logger.info(f'Creating new page: "{title}"')
+        if self.dry_run:
+            return
 
-            if not self.dry_run:
-                page.save(new_page_text, summary='Deadbot: Appended new hotfix notes')
-                logger.success(f'Successfully appended {len(text_to_append)} sections to {page.name}')
-        else:
-            logger.warning(f"Page {page.name} does not end with '}}', cannot safely append hotfix.")
+        page.save(content, summary=self.upload_message)
+        logger.success(f'Successfully saved page "{title}"')
 
     def _update_latest_chain(self):
         """
@@ -204,28 +205,24 @@ class WikiUpload:
         if len(files) < 2:
             return  # Need at least 2 updates to create a link
 
-        # Identify the 'Previous' (Dec 3) and 'Latest' (Dec 16)
+        # Identify the 'Previous' and 'Latest'
         latest_file = files[-1]
         prev_file = files[-2]
 
         try:
             # Parse Latest (The Target)
             latest_id = latest_file.replace('.txt', '')
-            parts = latest_id.split('-')
-            date_part = '-'.join(parts[:3])
+            date_part = '-'.join(latest_id.split('-')[:3])
             latest_date = datetime.strptime(date_part, '%Y-%m-%d')
 
-            # Create the string: {{Update link|December|16|2025}}
-            # Double braces are needed for f-string escaping
+            # Create the string: {{Update link|Month|Day|Year}}
             next_link_str = f"{{{{Update link|{latest_date.strftime('%B')}|{latest_date.day}|{latest_date.year}}}}}"
 
             # Parse Previous (The Page to Edit)
             prev_id = prev_file.replace('.txt', '')
             p_parts = prev_id.split('-')
             p_date_part = '-'.join(p_parts[:3])
-            p_suffix = ''
-            if len(p_parts) > 3:
-                p_suffix = f'_(Patch_{int(p_parts[3]) + 1})'
+            p_suffix = f'_(Patch_{int(p_parts[3]) + 1})' if len(p_parts) > 3 else ''
 
             prev_date = datetime.strptime(p_date_part, '%Y-%m-%d')
             prev_page_title = f"Update:{prev_date.strftime('%B')}_{prev_date.day},_{prev_date.year}{p_suffix}"

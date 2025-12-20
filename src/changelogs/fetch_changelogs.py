@@ -5,6 +5,7 @@ from loguru import logger
 import feedparser
 from bs4 import BeautifulSoup
 from urllib import request
+from urllib.parse import urlparse
 from utils import file_utils, json_utils
 from typing import TypedDict
 from .constants import CHANGELOG_RSS_URL
@@ -17,13 +18,12 @@ import re
 class ChangelogConfig(TypedDict):
     """
     Each record in changelog_configs.json
-    Key is "changelod_id", default to forum_id, differs for herolab changelogs
+    Key is "changelog_id", default to forum_id, differs for herolab changelogs
     """
 
     forum_id: str
     date: str
     link: str
-    newly_added_headers: list[str]
 
 
 class ForumUpdate(TypedDict):
@@ -32,6 +32,13 @@ class ForumUpdate(TypedDict):
     version: str
     text: str
     link: str
+
+
+class Hotfix(TypedDict):
+    """Represents a hotfix section to be appended to an existing wiki page"""
+
+    date: str
+    text: str
 
 
 class ChangelogString(TypedDict):
@@ -48,13 +55,18 @@ class ChangelogFetcher:
     def __init__(self, update_existing, input_dir, output_dir, herolab_patch_notes_path):
         self.changelogs: dict[str, ChangelogString] = {}
         self.changelog_configs: dict[str, ChangelogConfig] = {}
+        self.hotfixes: list[Hotfix] = []
         self.update_existing = update_existing
         self.localization_data_en = {}
 
         self.INPUT_DIR = input_dir
         self.OUTPUT_DIR = output_dir
         self.RSS_URL = CHANGELOG_RSS_URL
-        self.FORUM_BASE_URL = self.RSS_URL.split('/forums')[0]
+
+        # Safely derive base url (e.g., https://forums.playdeadlock.com)
+        parsed_url = urlparse(self.RSS_URL)
+        self.FORUM_BASE_URL = f'{parsed_url.scheme}://{parsed_url.netloc}'
+
         self.HEROLABS_PATCH_NOTES_PATH = herolab_patch_notes_path
 
         self.TAGS_TO_REMOVE = ['<ul>', '</ul>', '<b>', '</b>', '<i>', '</i>']
@@ -114,6 +126,9 @@ class ChangelogFetcher:
         json_utils.write(f'{self.OUTPUT_DIR}/changelogs/changelog_configs.json', self.changelog_configs)
         json_utils.write(f'{self.INPUT_DIR}/changelogs/changelog_configs.json', self.changelog_configs)
 
+        # Save decoupled hotfixes for the uploader
+        json_utils.write(f'{self.OUTPUT_DIR}/changelogs/hotfixes.json', self.hotfixes)
+
     def _fetch_update_html(self, link):
         """
         Fetches the HTML content of a forum link and extracts posts grouped by date.
@@ -165,7 +180,8 @@ class ChangelogFetcher:
                         if href.startswith('http'):
                             post_link = href
                         else:
-                            post_link = self.FORUM_BASE_URL + href
+                            # Join base and relative path ensuring exactly one slash
+                            post_link = self.FORUM_BASE_URL.rstrip('/') + '/' + href.lstrip('/')
 
                 # Fallback if extraction fails
                 if not post_link:
@@ -200,15 +216,15 @@ class ChangelogFetcher:
             #   Changed y from x to z</li>"
 
             # Parse the date from the beginning of the string
-            date = string.split('\t')[0].replace('<b>', '').replace('</b>', '')
-            if len(date) > 10:
-                date = date[:10]
+            date_raw = string.split('\t')[0].replace('<b>', '').replace('</b>', '')
+            if len(date_raw) > 10:
+                date_raw = date_raw[:10]
 
             # Remove date from remaining string
-            remaining_str = string.replace(f'<b>{date}</b>\t\t\t', '')
+            remaining_str = string.replace(f'<b>{date_raw}</b>\t\t\t', '')
 
             # Reformat mm/dd/yyyy to yyyy-mm-dd
-            date = format_date(date)
+            date = format_date(date_raw)
 
             # Parse hero name to create a header for the changelog entry
             # Citadel_PatchNotes_HeroLabs_hero_astro_1 ->
@@ -230,7 +246,7 @@ class ChangelogFetcher:
 
             # Ensure the date was able to be removed and was in the correct format
             if len(remaining_str) == len(string):
-                logger.warning('Date format may not have been able to be parsed ' + 'correctly to (yyyy-mm-dd), parsed date is ' + date)
+                logger.warning(f'Date format may not have been able to be parsed correctly for {date}')
 
             # Parse full description by accumulating each description separated by <li> tags
             # <li>Text 1<li>Text 2</li> -> Text 1\nText 2\n
@@ -301,7 +317,6 @@ class ChangelogFetcher:
         logger.trace('Parsing Changelog RSS feed')
         # fetches 20 most recent entries
         feed = feedparser.parse(self.RSS_URL)
-        skip_num = 0
 
         # Bucket to collect all updates grouped by date
         updates_by_day: dict[str, list[ForumUpdate]] = defaultdict(list)
@@ -316,7 +331,6 @@ class ChangelogFetcher:
                     version = entry.link.split('/')[-2].split('.')[-1]
                     int(version)
                 except ValueError:
-                    logger.warning(f'Could not parse version ID from {entry.link}')
                     continue
 
             if version is None or version == '':
@@ -351,9 +365,7 @@ class ChangelogFetcher:
             # Determine "Old" local text before we overwrite it.
             # This allows us to detect what sections are truly "new" locally.
             old_local_raw_path = os.path.join(self.INPUT_DIR, 'changelogs/raw', f'{changelog_id}.txt')
-            old_text = ''
-            if os.path.exists(old_local_raw_path):
-                old_text = file_utils.read(old_local_raw_path)
+            old_text = file_utils.read(old_local_raw_path) if os.path.exists(old_local_raw_path) else ''
 
             existing_config = self.changelog_configs.get(changelog_id)
 
@@ -376,52 +388,43 @@ class ChangelogFetcher:
 
             # Set Base Text
             current_text = main_entry['text'] if main_entry else (self.changelogs.get(changelog_id, ''))
-            new_headers_found = []
 
-            # Check for headers in the base text that weren't there before (e.g. multi-post thread)
-            if old_text:
-                potential_headers = re.findall(r'=== Patch \d+ ===', current_text)
-                for h in potential_headers:
-                    if h not in old_text:
-                        new_headers_found.append(h)
+            # Helpers for patch manipulation
+            def get_patch_section(header, full_text):
+                pattern = re.compile(rf'({re.escape(header)})(.*?)(?=(=== Patch \d+ ===)|$)', re.DOTALL)
+                match = pattern.search(full_text)
+                return match.group(0).strip() if match else None
 
-            # Helper to count patches in text
             def get_next_patch_num(txt):
                 matches = re.findall(r'=== Patch (\d+) ===', txt)
                 if matches:
                     return max(map(int, matches)) + 1
                 return 2
 
+            # Merge any secondary entries found into the current text
+            final_text = current_text
             for entry in append_entries:
-                if entry['text'] in current_text:
-                    continue
+                if entry['text'] not in final_text:
+                    patch_num = get_next_patch_num(final_text)
+                    final_text += f"\n\n=== Patch {patch_num} ===\n{entry['text']}"
 
-                patch_num = get_next_patch_num(current_text)
-                header = f'=== Patch {patch_num} ==='
-
-                # If this header didn't exist locally before, it's new
-                if header not in old_text:
-                    new_headers_found.append(header)
-
-                current_text += f"\n\n{header}\n{entry['text']}"
+            # Detect any patches (=== Patch X ===) that are in the final text but NOT in the old file
+            potential_headers = re.findall(r'=== Patch \d+ ===', final_text)
+            for h in potential_headers:
+                if h not in old_text:
+                    section_text = get_patch_section(h, final_text)
+                    if section_text:
+                        self.hotfixes.append({'date': date_key, 'text': section_text})
 
             # Save to memory and update config
-            self.changelogs[changelog_id] = current_text
+            self.changelogs[changelog_id] = final_text
 
-            config_entry = {
+            self.changelog_configs[changelog_id] = {
                 'forum_id': main_entry['version'] if main_entry else existing_config['forum_id'],
                 'date': date_key,
                 'link': main_entry['link'] if main_entry else existing_config['link'],
                 'is_hero_lab': False,
             }
-
-            if new_headers_found:
-                config_entry['newly_added_headers'] = new_headers_found
-
-            self.changelog_configs[changelog_id] = config_entry
-
-        if skip_num > 0:
-            logger.trace(f'Skipped {skip_num} RSS items that already exists')
 
     def _process_local_changelogs(self, changelog_path):
         logger.trace('Parsing Changelog txt files')
