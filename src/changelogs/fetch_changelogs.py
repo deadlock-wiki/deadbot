@@ -291,6 +291,7 @@ class ChangelogFetcher:
     def fetch_forum_changelogs(self):
         """download rss feed from changelog forum and save all available entries"""
         logger.trace('Parsing Changelog RSS feed')
+        # fetches 20 most recent entries
         feed = feedparser.parse(self.RSS_URL)
         skip_num = 0
 
