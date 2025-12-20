@@ -202,9 +202,6 @@ class ChangelogFetcher:
             # Reformat mm/dd/yyyy to yyyy-mm-dd
             date = format_date(date)
 
-            # Create the raw changelog id (used as filename in raw folder)
-            # i.e. 2024-10-29_HeroLab
-
             # Parse hero name to create a header for the changelog entry
             # Citadel_PatchNotes_HeroLabs_hero_astro_1 ->
             # hero_astro ->
@@ -215,6 +212,8 @@ class ChangelogFetcher:
             header = f'[ HeroLab {hero_name_en} ]'
 
             # Initialize the changelog entry if its the first line for this hero's patch (version)
+            # Create the raw changelog id (used as filename in raw folder)
+            # i.e. 2024-10-29_HeroLab
             raw_changelog_id = f'{date.replace("/", "-")}_HeroLab'
             if raw_changelog_id not in gamefile_changelogs:
                 gamefile_changelogs[raw_changelog_id] = header + '\n'
