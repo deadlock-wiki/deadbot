@@ -122,12 +122,7 @@ class ChangelogFetcher:
         articles = soup.find_all('article', class_='message')
 
         # Target Timezone: Valve HQ (US/Pacific)
-        try:
-            target_tz = ZoneInfo('US/Pacific')
-        except Exception:
-            # Fallback to UTC if tzdata is missing in docker
-            logger.warning('US/Pacific timezone not found, falling back to UTC.')
-            target_tz = ZoneInfo('UTC')
+        target_tz = ZoneInfo('US/Pacific')
 
         for i, article in enumerate(articles):
             # Extract the Date
