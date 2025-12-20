@@ -26,6 +26,14 @@ class ChangelogConfig(TypedDict):
     newly_added_headers: list[str]
 
 
+class ForumUpdate(TypedDict):
+    """Represents a single update entry fetched from the forum"""
+
+    version: str
+    text: str
+    link: str
+
+
 class ChangelogString(TypedDict):
     """Each complete changelog in a <changelog_id>.json file"""
 
@@ -296,8 +304,7 @@ class ChangelogFetcher:
         skip_num = 0
 
         # Bucket to collect all updates grouped by date
-        # date -> list of { 'version': str, 'text': str, 'link': str }
-        updates_by_day = defaultdict(list)
+        updates_by_day: dict[str, list[ForumUpdate]] = defaultdict(list)
 
         for entry in feed.entries:
             # Parse version ID from URL
