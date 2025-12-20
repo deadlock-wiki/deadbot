@@ -377,6 +377,13 @@ class ChangelogFetcher:
             current_text = main_entry['text'] if main_entry else (self.changelogs.get(changelog_id, ''))
             new_headers_found = []
 
+            # Check for headers in the base text that weren't there before (e.g. multi-post thread)
+            if old_text:
+                potential_headers = re.findall(r'=== Patch \d+ ===', current_text)
+                for h in potential_headers:
+                    if h not in old_text:
+                        new_headers_found.append(h)
+
             # Helper to count patches in text
             def get_next_patch_num(txt):
                 matches = re.findall(r'=== Patch (\d+) ===', txt)
