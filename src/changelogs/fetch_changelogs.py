@@ -46,6 +46,7 @@ class ChangelogFetcher:
         self.INPUT_DIR = input_dir
         self.OUTPUT_DIR = output_dir
         self.RSS_URL = CHANGELOG_RSS_URL
+        self.FORUM_BASE_URL = self.RSS_URL.split('/forums')[0]
         self.HEROLABS_PATCH_NOTES_PATH = herolab_patch_notes_path
 
         self.TAGS_TO_REMOVE = ['<ul>', '</ul>', '<b>', '</b>', '<i>', '</i>']
@@ -120,8 +121,6 @@ class ChangelogFetcher:
         # XenForo posts are wrapped in <article class="message ...">
         articles = soup.find_all('article', class_='message')
 
-        base_url = 'https://forums.playdeadlock.com'
-
         # Target Timezone: Valve HQ (US/Pacific)
         try:
             target_tz = ZoneInfo('US/Pacific')
@@ -163,7 +162,7 @@ class ChangelogFetcher:
                         if href.startswith('http'):
                             post_link = href
                         else:
-                            post_link = base_url + href
+                            post_link = self.FORUM_BASE_URL + href
 
                 # Fallback if extraction fails
                 if not post_link:
