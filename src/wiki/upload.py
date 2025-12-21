@@ -123,7 +123,7 @@ class WikiUpload:
 
                     logger.info(f'Appending new hotfix section to Wiki page: {page_title}')
                     if not self.dry_run:
-                        page.save(new_page_text, summary='Deadbot: Appended new hotfix notes')
+                        page.save(new_page_text, summary=f'{self.upload_message}: Appended new hotfix notes')
                         logger.success(f'Successfully appended hotfix to {page_title}')
                 else:
                     logger.warning(f"Page {page_title} does not end with '}}', cannot safely append hotfix.")
@@ -248,7 +248,7 @@ class WikiUpload:
         logger.info(f'Linking {prev_page_title} -> {next_link_str}')
 
         if not self.dry_run:
-            page.save(new_text, summary=f"Deadbot: Linking next update to {latest_date.strftime('%Y-%m-%d')}")
+            page.save(new_text, summary=f"{self.upload_message}: Linking next update to {latest_date.strftime('%Y-%m-%d')}")
             logger.success(f'Updated {prev_page_title} with next link.')
 
     def _update_page(self, page, updated_text):
