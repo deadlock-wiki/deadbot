@@ -7,9 +7,6 @@ from utils import json_utils, game_utils, meta_utils
 from .pages import DATA_PAGE_FILE_MAP, IGNORE_PAGES
 from loguru import logger
 
-# Number of most recent files to process to prevent touching ancient history
-MAX_RECENT_UPLOADS = 10
-
 
 class WikiUpload:
     """
@@ -67,25 +64,17 @@ class WikiUpload:
         if not files:
             return
 
-        # Only process the most recent updates to avoid touching historical data.
-        recent_files = files[-MAX_RECENT_UPLOADS:]
-
-        for filename in recent_files:
+        for filename in files:
             changelog_id = filename.replace('.txt', '')
             try:
                 # Changelog IDs are typically 'YYYY-MM-DD' or 'YYYY-MM-DD-1'.
                 # We only care about the date part for the page title.
                 parts = changelog_id.split('-')
                 date_part = '-'.join(parts[:3])
-                suffix = ''
-
-                # If there is a 4th part (e.g. 2024-10-18-1)
-                if len(parts) > 3:
-                    suffix = f'_(Patch_{int(parts[3]) + 1})'
 
                 date_obj = datetime.strptime(date_part, '%Y-%m-%d')
 
-                wiki_date_str = f"{date_obj.strftime('%B')}_{date_obj.day},_{date_obj.year}{suffix}"
+                wiki_date_str = f"{date_obj.strftime('%B')}_{date_obj.day},_{date_obj.year}"
                 page_title = f'Update:{wiki_date_str}'
 
                 filepath = os.path.join(changelog_dir, filename)
@@ -220,12 +209,10 @@ class WikiUpload:
 
             # Parse Previous (The Page to Edit)
             prev_id = prev_file.replace('.txt', '')
-            p_parts = prev_id.split('-')
-            p_date_part = '-'.join(p_parts[:3])
-            p_suffix = f'_(Patch_{int(p_parts[3]) + 1})' if len(p_parts) > 3 else ''
+            p_date_part = '-'.join(prev_id.split('-')[:3])
 
             prev_date = datetime.strptime(p_date_part, '%Y-%m-%d')
-            prev_page_title = f"Update:{prev_date.strftime('%B')}_{prev_date.day},_{prev_date.year}{p_suffix}"
+            prev_page_title = f"Update:{prev_date.strftime('%B')}_{prev_date.day},_{prev_date.year}"
 
         except ValueError as e:
             logger.error(f'Failed to parse dates for chaining: {e}')
