@@ -1,6 +1,13 @@
 import re
 from typing import Dict, Any, List, Optional
 
+# List of Wiki page titles that should be ignored during auto-linking.
+# This prevents words in patch notes from incorrectly linking to pages with the same name
+# but different context
+IGNORED_PAGES = {
+    'Fall',
+}
+
 
 def format_changelog(
     raw_text: str,
@@ -56,6 +63,10 @@ def format_changelog(
 
             # Skip numeric pages (e.g. "7") to avoid matching parts of numbers (e.g. "7.5")
             if page.isdigit():
+                continue
+
+            # Skip words that shouldn't be auto-linked
+            if page in IGNORED_PAGES:
                 continue
 
             # Case 1: Exact Match
