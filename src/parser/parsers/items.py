@@ -23,9 +23,14 @@ class ItemParser:
             ability = self.abilities_data[key]
             if type(ability) is not dict:
                 continue
+
+            # Skip the base class for cosmetics
+            if key == 'cosmetic_base':
+                continue
+
             if 'm_eAbilityType' not in ability:
                 continue
-            if ability['m_eAbilityType'] != 'EAbilityType_Item':
+            if ability['m_eAbilityType'] not in ['EAbilityType_Item', 'EAbilityType_Cosmetic']:
                 continue
             try:
                 all_items[key] = self._parse_item(key)
@@ -38,7 +43,7 @@ class ItemParser:
     def _parse_item(self, key):
         ability = self.abilities_data[key]
         item_value = ability
-        item_ability_attrs = item_value['m_mapAbilityProperties']
+        item_ability_attrs = item_value.get('m_mapAbilityProperties', {})
 
         # Assign target types
         target_types = None
@@ -60,7 +65,7 @@ class ItemParser:
             'Description': '',
             'Cost': cost,
             'Tier': int(tier) if tier is not None else None,
-            'Activation': maps.get_ability_activation(item_value['m_eAbilityActivation']),
+            'Activation': maps.get_ability_activation(item_value.get('m_eAbilityActivation')),
             'Slot': maps.get_slot_type(item_value.get('m_eItemSlotType')),
             'Components': None,
             'TargetTypes': target_types,
@@ -84,6 +89,23 @@ class ItemParser:
                 parsed_item_data[attr_key] = value
             else:
                 logger.trace(f'Missing m_strValue attr in item {key} attribute {attr_key}')
+
+        if 'm_iMaxLevel' in item_value:
+            parsed_item_data['MaxLevel'] = item_value['m_iMaxLevel']
+
+        # Extract progression stats (e.g. for seasonal items like Snowball)
+        progression = {}
+        for k, v in item_value.items():
+            if k.startswith('m_progression'):
+                prop_name = k.replace('m_progression', '')
+                if isinstance(v, dict) and 'm_mapLevelsToValue' in v:
+                    prog_entry = {'Levels': v['m_mapLevelsToValue']}
+                    if 'm_eBetweenBehavior' in v:
+                        prog_entry['Behavior'] = v['m_eBetweenBehavior']
+                    progression[prop_name] = prog_entry
+
+        if progression:
+            parsed_item_data['Progression'] = progression
 
         # ignore description formatting for disabled items
         if not parsed_item_data['IsDisabled']:

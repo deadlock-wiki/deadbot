@@ -79,6 +79,12 @@ class ChangelogParser:
         output_path = os.path.join(self.OUTPUT_DIR, 'changelogs', 'wiki')
         os.makedirs(output_path, exist_ok=True)
 
+        # Sort keys to determine chronological order
+        # We filter for valid dates and exclude 'is_hero_lab' so main updates only link to previous main updates.
+        sorted_update_ids = sorted(
+            [k for k, v in changelog_configs.items() if v.get('date') and not v.get('is_hero_lab')], key=lambda k: changelog_configs[k]['date']
+        )
+
         for changelog_id, raw_text in changelogs.items():
             config = changelog_configs.get(changelog_id)
             # Skip if config is missing or if it's a Hero Lab entry.
@@ -94,20 +100,45 @@ class ChangelogParser:
 
             date_obj = datetime.strptime(changelog_date, '%Y-%m-%d')
 
+            # Calculate Previous Link using {{Update link}}
+            prev_update_link = ''
+            if changelog_id in sorted_update_ids:
+                curr_idx = sorted_update_ids.index(changelog_id)
+                if curr_idx > 0:
+                    prev_id = sorted_update_ids[curr_idx - 1]
+                    prev_config = changelog_configs[prev_id]
+                    try:
+                        prev_date = datetime.strptime(prev_config['date'], '%Y-%m-%d')
+                        # Format: {{Update link|Month|Day|Year}}
+                        # Double braces {{ }} are required to escape them in an f-string
+                        prev_update_link = f"{{{{Update link|{prev_date.strftime('%B')}|{prev_date.day}|{prev_date.year}}}}}"
+                    except ValueError:
+                        pass
+
             source_link = config.get('link', '')
             source_title = ''
             if source_link:
-                # Example slug: 10-02-2025-update.84332
-                slug = source_link.split('/')[-2]
-                title_part = slug.split('.')[0]  # e.g., "10-02-2025-update"
-                # Specifically replace '-update' to preserve date hyphens
+                # Logic to extract title from URL
+                parts = source_link.split('/')
+                slug = ''
+                for part in parts:
+                    if '-update' in part:
+                        slug = part
+                        break
+                if not slug and len(parts) >= 2:
+                    slug = parts[-2] if parts[-1] == '' else parts[-1]
+
+                title_part = slug.split('.')[0]
                 source_title = title_part.replace('-update', ' Update')
+
+                # Check for reply indicators in the URL
+                if '/post-' in source_link or '/posts/' in source_link:
+                    source_title += ' (Reply)'
             else:
-                # Fallback title if no link is present
                 source_title = f"{date_obj.strftime('%m-%d-%Y')} Update"
 
             full_page_content = f"""{{{{Update layout
-| prev_update =
+| prev_update = {prev_update_link}
 | month = {date_obj.strftime('%B')}
 | day = {date_obj.day}
 | year = {date_obj.year}
