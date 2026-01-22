@@ -219,9 +219,8 @@ class AbilityCardsParser:
                 else:
                     prop_object['Value'] = attr_value
 
-                attr_type = raw_attr.get('m_strCSSClass')
-                if attr_type is not None:
-                    prop_object['Type'] = attr_type
+                attr_type = raw_attr.get('m_strCSSClass') or "spirit"
+                prop_object['Type'] = attr_type
 
                 self.used_attributes.append(attr_key)
 
@@ -272,9 +271,8 @@ class AbilityCardsParser:
             else:
                 prop_object['Value'] = prop_value
 
-            attr_type = self._get_raw_ability_attr(prop).get('m_strCSSClass')
-            if attr_type is not None:
-                prop_object['Type'] = attr_type
+            attr_type = self._get_raw_ability_attr(prop).get('m_strCSSClass') or "spirit"
+            prop_object['Type'] = attr_type
 
             alt_block.append(prop_object)
 
@@ -319,9 +317,8 @@ class AbilityCardsParser:
             else:
                 data['Value'] = prop_value
 
-            attr_type = raw_attr.get('m_strCSSClass')
-            if attr_type is not None:
-                data['Type'] = attr_type
+            attr_type = raw_attr.get('m_strCSSClass') or "spirit"
+            data['Type'] = attr_type
 
             # These props are directly referenced and should live on the top level
             if prop in [
