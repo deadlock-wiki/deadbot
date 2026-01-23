@@ -253,7 +253,7 @@ class Parser:
             parsed_abilities=parsed_abilities,
         ).run()
 
-        json_utils.write(self.OUTPUT_DIR + '/json/npc-data.json', json_utils.sort_dict(parsed_npcs))
+        json_utils.write(self.OUTPUT_DIR + '/json/npc-data.json', parsed_npcs)
 
     def _parse_attributes(self):
         logger.trace('Parsing Attributes...')
