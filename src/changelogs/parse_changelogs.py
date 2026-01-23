@@ -171,6 +171,11 @@ class ChangelogParser:
                 continue
 
             if resource_name in line:
+                # Check if the tag is ignored/remapped to None BEFORE adding it or its type
+                # This prevents words like "Removed" -> "Rem" from adding the "Hero" type tag
+                if self._remap_tag(resource_name) is None:
+                    continue
+
                 tags = self._register_tag(tags, tag=resource_name)
 
                 # Also register the resource type
@@ -368,7 +373,9 @@ class ChangelogParser:
             hero = self.heroes[hero_key]
             for _, ability_data in hero['BoundAbilities'].items():
                 if ability_data['Key'] == ability_key_to_search:
-                    return self.localization_en[hero_key]
+                    # Use .get() without default. Returns None if key is missing (unreleased heroes).
+                    # This prevents KeyErrors and prevents tagging raw IDs.
+                    return self.localization_en.get(hero_key)
 
         return None
 
