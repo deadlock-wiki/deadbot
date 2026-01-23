@@ -164,7 +164,7 @@ class ChangelogTags:
 
         # texts in this list are not converted to tags
         # useful when they are otherwise added due to being a heading
-        self.ignore_list = ['Ranked Mode']
+        self.ignore_list = ['Ranked Mode', 'Rem']
 
         # remaps tags to a more general tag
         # ensure plural/longer forms are in the list before singular/shorter forms
