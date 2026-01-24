@@ -7,9 +7,8 @@ from utils.num_utils import convert_engine_units_to_meters
 class NpcParser:
     """
     Parses the npc_units.vdata file to extract stats for various NPCs.
-    Uses automatic discovery to crawl numeric and boolean attributes, handling
-    random ranges (lists), preventing greedy prefix stripping, and providing
-    deep alphabetized sorting of the entire output.
+    Uses automatic discovery for numeric, boolean, and logic flag attributes,
+    handling random ranges, targeting tiers, and deep nested mechanics like stagger bars.
     """
 
     def __init__(self, npc_units_data, modifiers_data, misc_data, localizations, parsed_abilities):
@@ -26,6 +25,7 @@ class NpcParser:
         self.STAT_PREFIXES = ['m_fl', 'm_n', 'm_i', 'm_b']
 
         # Keywords in float keys that trigger Inch -> Meter conversion.
+        # 'Magnitude' and 'Multiplier' are excluded as they are dimensionless scales.
         self.UNIT_CONVERSION_KEYWORDS = ['Range', 'Speed', 'Radius', 'Distance', 'Height', 'Width', 'Offset']
 
         # Scan for global game rules (e.g. Trooper damage reduction near enemy base).
@@ -41,13 +41,27 @@ class NpcParser:
                 return val
         return None
 
+    def _clean_valve_string(self, s, prefixes):
+        """Strips Valve prefixes and converts snake_case to CamelCase."""
+        temp = s
+        for p in prefixes:
+            temp = temp.replace(p, '')
+        return ''.join(word.capitalize() for word in temp.split('_'))
+
     def _process_value(self, val, clean_key, prefix):
         """
-        Sanitizes a single numeric/bool value and applies unit conversion if required.
+        Sanitizes a value, applies unit conversion for spatial floats,
+        and converts bitmask strings into logic flag lists.
         """
+        # 1. Handle logic flags/bitmasks (e.g., MODIFIER_STATE_INVULNERABLE)
+        if isinstance(val, str) and any(val.startswith(p) for p in ['MODIFIER_STATE_', 'MODIFIER_ATTRIBUTE_']):
+            flags = val.split('|')
+            return [self._clean_valve_string(f.strip(), ['MODIFIER_STATE_', 'MODIFIER_ATTRIBUTE_']) for f in flags]
+
+        # 2. Sanitize number and handle float garbage
         sanitized_val = num_utils.assert_number(val)
 
-        # Apply spatial conversion only to float prefixes (m_fl) with spatial keywords.
+        # 3. Handle unit conversion for float-prefixed spatial keywords
         if prefix == 'm_fl' and any(word in clean_key for word in self.UNIT_CONVERSION_KEYWORDS):
             return convert_engine_units_to_meters(sanitized_val)
 
@@ -74,7 +88,7 @@ class NpcParser:
             if found_prefix:
                 clean_key = key[len(found_prefix) :]
 
-                # Handle lists (ranges like [min, max]) vs scalar numbers
+                # Handle lists (random ranges like [390, 550]) vs scalar numbers
                 if isinstance(value, list):
                     results[clean_key] = [self._process_value(v, clean_key, found_prefix) for v in value]
                 else:
@@ -85,7 +99,7 @@ class NpcParser:
     def _parse_dynamic_modifiers(self, data):
         """
         Automatically discovers resistance or buff modifiers from script values.
-        Converts Enums (MODIFIER_VALUE_BULLET_RESIST) to CamelCase (BulletResist) and sorts.
+        Converts internal Enum strings to CamelCase and sorts the result.
         """
         intrinsics = {}
         intrinsic_modifiers = data.get('m_vecIntrinsicModifiers')
@@ -102,16 +116,29 @@ class NpcParser:
                 if not mod_enum:
                     continue
 
-                # Strip Enum prefix and convert to CamelCase
-                raw_name = mod_enum.replace('MODIFIER_VALUE_', '')
-                clean_name = ''.join(word.capitalize() for word in raw_name.split('_'))
-
+                clean_name = self._clean_valve_string(mod_enum, ['MODIFIER_VALUE_'])
                 intrinsics[clean_name] = num_utils.assert_number(script_value.get('m_value'))
 
         return json_utils.sort_dict(intrinsics)
 
+    def _parse_targeting_priority(self, data):
+        """Extracts AI targeting tiers (Hate Lists) into ordered clean categories."""
+        raw_tiers = data.get('m_vecTargettingTiers')
+        if not isinstance(raw_tiers, list):
+            return None
+
+        priority = []
+        for entry in raw_tiers:
+            cat = entry.get('m_eCategory', '')
+            # SKELE_TARGET_HERO -> Hero
+            clean_cat = cat.split('_')[-1].capitalize()
+            dist = convert_engine_units_to_meters(num_utils.assert_number(entry.get('m_flRange', 0)))
+            priority.append({'Category': clean_cat, 'Range': dist})
+
+        return priority
+
     def run(self, strict=True):
-        """Main execution logic. Returns an alphabetized collection of parsed NPCs."""
+        """Main execution logic. returns deeply alphabetized NPC data with metadata."""
         all_npcs = {}
 
         for key, data in self.npc_units_data.items():
@@ -119,25 +146,26 @@ class NpcParser:
                 continue
 
             npc_class = data.get('_class')
-            # specialized handler or generic unit fallback
+            # Route to specialized handler or fallback to generic discovery handler
             parser_method = self._get_parser_method(npc_class) or self._parse_generic_unit
 
             try:
                 parsed_data = parser_method(data, key)
                 if parsed_data:
+                    # Localization fallback
                     parsed_data['Name'] = self.localizations.get(key, key)
-                    # The handlers ensure nested blocks are sorted
+                    # Metadata preservation for Wiki Lua modules
+                    parsed_data['_class'] = npc_class
                     all_npcs[key] = json_utils.sort_dict(parsed_data)
             except Exception as e:
                 logger.warning(f"Failed to parse NPC '{key}': {e}")
                 if strict:
                     raise e
 
-        # Final sort on top-level NPC keys
         return json_utils.sort_dict(all_npcs)
 
     def _get_parser_method(self, npc_class):
-        """Routes specific engine classes to specialized logic handlers."""
+        """Routes specific engine classes to logic handlers."""
         CLASS_MAP = {
             'npc_trooper': self._parse_trooper,
             'npc_trooper_boss': self._parse_guardian,
@@ -151,42 +179,44 @@ class NpcParser:
             'npc_neutral_sinners_sacrifice_hideout': self._parse_neutral_unit,
             'citadel_item_pickup_rejuv': self._parse_rejuvenator,
             'citadel_item_pickup_rejuv_herotest': self._parse_rejuvenator,
+            'npc_necro_skele': self._parse_necro_skele,
         }
         return CLASS_MAP.get(npc_class)
 
-    def _is_class(self, data, target_class):
-        """Internal class string verification."""
-        return data.get('_class') == target_class
-
-    # --- Categorization Logic ---
+    # --- Specialized Logic Handlers ---
 
     def _parse_generic_unit(self, data, npc_key):
-        """Default categorization handler with deep sorted nested objects."""
-        # 1. Root Stats
+        """Default categorization logic with deep sorted nested objects."""
+        # 1. Root numeric/bool stats
         stats = self._crawl_stats(data)
 
-        # 2. Weapon (Sorted)
+        # 2. Weapon logic
         if 'm_WeaponInfo' in data:
             stats['Weapon'] = json_utils.sort_dict(self._crawl_stats(data['m_WeaponInfo']))
 
-        # 3. Backdoor/Protection (Sorted)
+        # 3. Backdoor/Protection logic
         bd_key = 'm_BackdoorProtectionModifier' if 'm_BackdoorProtectionModifier' in data else 'm_BackdoorProtection'
         if bd_key in data:
             stats['BackdoorProtection'] = json_utils.sort_dict(self._crawl_stats(data[bd_key]))
 
-        # 4. Resistances (Sorted)
+        # 4. Resistances (Ranged Armor) logic
         if 'm_RangedArmorModifier' in data:
             stats['RangedResistance'] = json_utils.sort_dict(self._crawl_stats(data['m_RangedArmorModifier']))
 
-        # 5. Modifiers (Self-sorted)
-        stats['Modifiers'] = self._parse_dynamic_modifiers(data)
-
-        # 6. Abilities (Self-sorted)
+        # 5. Abilities (Deep cross-reference)
         if 'm_mapBoundAbilities' in data:
             stats['BoundAbilities'] = self._parse_npc_abilities(data['m_mapBoundAbilities'])
 
-        # 7. Global Rules
-        if self._is_class(data, 'npc_trooper'):
+        # 6. Modifier discovery (resistance/buffs)
+        stats['Modifiers'] = self._parse_dynamic_modifiers(data)
+
+        # 7. AI Targeting priority
+        targeting = self._parse_targeting_priority(data)
+        if targeting:
+            stats['TargetingPriority'] = targeting
+
+        # 8. Apply global rules
+        if data.get('_class') == 'npc_trooper':
             stats['DamageReductionNearEnemyBase'] = self.trooper_damage_reduction_from_objective
 
         return stats
@@ -196,7 +226,7 @@ class NpcParser:
 
     def _parse_neutral_unit(self, data, npc_key):
         stats = self._parse_generic_unit(data, npc_key)
-        # Merges external timers from misc.vdata
+        # Link to external timers in misc.vdata
         stats.update(self._parse_spawn_info(npc_key))
         return stats
 
@@ -215,6 +245,17 @@ class NpcParser:
     def _parse_walker(self, data, npc_key):
         stats = self._parse_generic_unit(data, npc_key)
 
+        # Stagger Mechanics Discovery (Deep crawl)
+        stagger_root = data.get('m_StaggerWatcherModifier')
+        if stagger_root:
+            stagger_stats = self._crawl_stats(stagger_root)
+            # Dive into sub-blocks for stun/buildup stats
+            for sub in ['m_StaggeredModifier', 'm_BuildUpModifier']:
+                if sub in stagger_root:
+                    stagger_stats.update(self._crawl_stats(stagger_root[sub]))
+            stats['Stagger'] = json_utils.sort_dict(stagger_stats)
+
+        # Discovery and nested Aura properties
         if 'm_FriendlyAuraModifier' in data:
             aura = data['m_FriendlyAuraModifier']
             aura_stats = self._crawl_stats(aura)
@@ -223,11 +264,13 @@ class NpcParser:
                 aura_stats.update(self._parse_dynamic_modifiers({'m_vecIntrinsicModifiers': [inner_mod]}))
             stats['FriendlyAura'] = json_utils.sort_dict(aura_stats)
 
+        # Fix for falsy numeric preservation (Auditor Review): Use explicit None check
         invul_range_raw = json_utils.read_value(data, 'm_flInvulModifierRange')
         if invul_range_raw is None:
             invul_range_raw = json_utils.read_value(data, 'm_flInvulRange')
         stats['InvulnerabilityRange'] = convert_engine_units_to_meters(invul_range_raw)
 
+        # Discovery of empowered/test level variations
         for i in range(1, 4):
             key = f'm_EmpoweredModifierLevel{i}'
             if key in data:
@@ -237,6 +280,7 @@ class NpcParser:
 
     def _parse_patron(self, data, npc_key):
         stats = self._parse_generic_unit(data, npc_key)
+        # Discover unique growth phases
         for p in range(1, 3):
             key = f'm_ObjectiveHealthGrowthPhase{p}'
             if key in data:
@@ -249,6 +293,7 @@ class NpcParser:
 
     def _parse_midboss(self, data, npc_key):
         stats = self._parse_neutral_unit(data, npc_key)
+        # Discovery of shield data from external modifiers file
         shield_modifier = self.modifiers_data.get('midboss_modifier_damage_resistance', {})
         if shield_modifier:
             stats['Shield'] = json_utils.sort_dict(self._crawl_stats(shield_modifier))
@@ -258,12 +303,16 @@ class NpcParser:
         stats = {}
         if 'm_RebirthModifier' in data:
             stats = self._crawl_stats(data['m_RebirthModifier'])
+            # Crawl script values inside the modifier and sort
             stats.update(self._parse_dynamic_modifiers({'m_vecIntrinsicModifiers': [data['m_RebirthModifier']]}))
             stats = json_utils.sort_dict(stats)
         return stats
 
+    def _parse_necro_skele(self, data, npc_key):
+        return self._parse_neutral_unit(data, npc_key)
+
     def _parse_npc_abilities(self, raw_abilities):
-        """Cross-references abilities and returns alphabetized result."""
+        """Cross-references abilities to retrieve names and returns alphabetized result."""
         if not isinstance(raw_abilities, dict):
             return None
         formatted = {}
@@ -274,7 +323,7 @@ class NpcParser:
         return json_utils.sort_dict(formatted)
 
     def _parse_spawn_info(self, npc_key):
-        """Retrieves camp timings and returns an alphabetized dict."""
+        """Retrieves camp spawn timings from external misc data."""
         SPAWNER_MAP = {
             'neutral_trooper_weak': 'neutral_camp_weak',
             'neutral_trooper_normal': 'neutral_camp_medium',
