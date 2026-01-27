@@ -9,13 +9,12 @@ from loguru import logger
 
 
 class ItemParser:
-    nodes = []
-    links = []
-
     def __init__(self, abilities_data, generic_data, localizations):
         self.abilities_data = abilities_data
         self.generic_data = generic_data
         self.localizations = localizations
+        self.nodes = []
+        self.links = []
 
     def run(self):
         all_items = {}
@@ -60,6 +59,10 @@ class ItemParser:
         if tier is not None:
             cost = self.generic_data['m_nItemPricePerTier'][int(tier)]
 
+        # Determine if the item is in Street Brawl.
+        requirements = item_value.get('m_eAbilityRequirements', '')
+        is_street_brawl = 'ERequirementStreetBrawl' in [r.strip() for r in requirements.split('|')]
+
         parsed_item_data = {
             'Name': self.localizations.get(key),
             'Description': '',
@@ -71,6 +74,7 @@ class ItemParser:
             'TargetTypes': target_types,
             'ShopFilters': shop_filters,
             'IsDisabled': self._is_disabled(item_value),
+            'StreetBrawl': is_street_brawl,
         }
 
         # Process attributes and extract scaling information
