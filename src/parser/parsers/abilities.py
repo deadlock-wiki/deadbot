@@ -29,6 +29,12 @@ class AbilityParser:
                 'IsDisabled': ability.get('m_bDisabled', False),
             }
 
+            # Exclude Patron from being parsed as an ability.
+            # Patron is an Objective, but has an internal ability entry.
+            # Including it causes it to be tagged as "Hero" and "Ability" in changelogs.
+            if ability_data['Name'] == 'Patron':
+                continue
+
             stats = ability['m_mapAbilityProperties']
             for key in stats:
                 stat = stats[key]
