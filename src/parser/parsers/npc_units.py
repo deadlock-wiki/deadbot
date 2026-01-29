@@ -2,7 +2,6 @@ from loguru import logger
 import utils.json_utils as json_utils
 import utils.num_utils as num_utils
 from utils.num_utils import convert_engine_units_to_meters
-import parser.maps as maps
 
 
 class NpcParser:
@@ -22,7 +21,7 @@ class NpcParser:
 
         # Define prefixes
         # m_nav is added to prevent m_n from matching m_navHull -> avHull
-        raw_prefixes = ['m_fl', 'm_b', 'm_n', 'm_i', 'm_str', 'm_vec', 'm_map', 'm_e', 'm_s', 'm_', 'm_nav']
+        raw_prefixes = ['m_fl', 'm_b', 'm_n', 'm_i', 'm_str', 'm_vec', 'm_map', 'm_e', 'm_s', 'm_', 'm_nav', 'MODIFIER_VALUE_']
 
         # Sort by length descending to ensure "m_nav" (len 5) is matched before "m_n" (len 3)
         self.PREFIXES = sorted(raw_prefixes, key=len, reverse=True)
@@ -55,6 +54,7 @@ class NpcParser:
             'Hud',
             'Display',
             'Localization',
+            'NearDeathModifier',
         ]
 
         # Exceptions to the blocklist (stats that might contain blocked words)
@@ -226,14 +226,9 @@ class NpcParser:
             val = num_utils.assert_number(item.get('m_value'))
 
             if modifier_enum:
-                friendly_name = (
-                    maps.get_npc_intrinsic_modifier(modifier_enum)
-                    or maps.get_npc_aura_modifier(modifier_enum)
-                    or maps.get_npc_rebirth_modifier(modifier_enum)
-                    or modifier_enum
-                )
-
-                flat[friendly_name] = val
+                if modifier_enum.startswith('MODIFIER_VALUE_'):
+                    modifier_enum = modifier_enum[len('MODIFIER_VALUE_') :]
+                flat[modifier_enum] = val
         return flat
 
     def _resolve_abilities(self, bound_abilities):
