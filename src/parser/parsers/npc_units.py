@@ -233,25 +233,25 @@ class NpcParser:
 
     def _resolve_abilities(self, bound_abilities):
         """
-        Maps ability keys (citadel_ability_...) to their human-readable names.
+        Maps ability keys (citadel_ability_...) to their full stats or human-readable names.
         """
         if not isinstance(bound_abilities, dict):
             return bound_abilities
 
         resolved = {}
         for slot, key in bound_abilities.items():
-            ability_info = {
-                'Key': key,
-                'Name': key,  # Default to key
-            }
-
-            # Lookup name
             if key in self.parsed_abilities:
-                ability_info['Name'] = self.parsed_abilities[key]['Name']
-            elif key in self.localizations:
-                ability_info['Name'] = self.localizations[key]
-
-            resolved[slot] = ability_info
+                # Copy full ability stats from abilities parser
+                ability_data = self.parsed_abilities[key].copy()
+                ability_data['Key'] = key  # Ensure the key is explicitly set
+                resolved[slot] = ability_data
+            else:
+                # Fallback for missing abilities
+                ability_info = {
+                    'Key': key,
+                    'Name': self.localizations.get(key, key),
+                }
+                resolved[slot] = ability_info
         return resolved
 
     def _enhance_with_external_data(self, npc_key, parsed_data):
