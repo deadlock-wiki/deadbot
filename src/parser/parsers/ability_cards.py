@@ -476,6 +476,7 @@ class AbilityCardsParser:
 
         # required variables to insert into the description
         format_vars = (
+            self.ability,
             overrides,
             format_data,
             {'ability_key': self.ability_index},
