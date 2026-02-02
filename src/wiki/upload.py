@@ -45,13 +45,32 @@ class WikiUpload:
     def run(self):
         logger.info(f'Uploading Data to Wiki - {self.upload_message}')
         self._update_data_pages()
+        self.wiki_updates = self._get_existing_update_pages()
         self._upload_changelog_pages()
         self._process_hotfixes()
         self._update_latest_chain()
 
+    def _sort_changelog_files(self, files: List[str]) -> List[str]:
+        """
+        Sort changelog files with proper variant ordering.
+        Base file comes before variants.
+        """
+
+        def sort_key(filename):
+            base = filename.replace('.txt', '')
+            parts = base.split('-')
+            # parts[0:3] = ['2026', '01', '30'], parts[3] = '1' or missing
+            date_tuple = (int(parts[0]), int(parts[1]), int(parts[2])) if len(parts) >= 3 else (0, 0, 0)
+            # variant = 0 for base file, N for -N variants
+            variant = int(parts[3]) if len(parts) > 3 else 0
+            return (date_tuple, variant)
+
+        return sorted(files, key=sort_key)
+
     def _upload_changelog_pages(self):
         """
         Reads formatted changelog files and uploads them to the wiki.
+        Queries wiki state to ensure correct prev_update linking on first upload.
         """
         changelog_dir = os.path.join(self.OUTPUT_DIR, 'changelogs', 'wiki')
         if not os.path.isdir(changelog_dir):
@@ -60,10 +79,13 @@ class WikiUpload:
 
         logger.info('Uploading changelog pages...')
 
-        # Sort files to identify the absolute latest patch based on filename
-        files = sorted([f for f in os.listdir(changelog_dir) if f.endswith('.txt')])
+        # Get and sort files with proper variant ordering (base before -N)
+        files = self._sort_changelog_files([f for f in os.listdir(changelog_dir) if f.endswith('.txt')])
         if not files:
             return
+
+        # Track uploads in this run for correct intra-run linking
+        uploads_this_run: List[Tuple[datetime, str]] = []
 
         for filename in files:
             changelog_id = filename.replace('.txt', '')
@@ -77,12 +99,22 @@ class WikiUpload:
 
                 filepath = os.path.join(changelog_dir, filename)
                 with open(filepath, 'r', encoding='utf-8') as f:
-                    content = f.read()
+                    raw_content = f.read()
+
+                # Calculate correct prev_update based on wiki state + earlier uploads this run
+                # Pass current title to exclude self when handling same-date variants
+                prev_update_link = self._calculate_prev_update_link(date_obj, page_title, uploads_this_run)
+
+                # Inject the correct prev_update into the content
+                content = self._inject_prev_update(raw_content, prev_update_link)
 
                 self.upload_new_page(page_title, content)
 
-            except ValueError:
-                logger.error(f"Could not parse date from changelog filename '{filename}'. Skipping.")
+                # Track for subsequent iterations in this same run
+                uploads_this_run.append((date_obj, page_title))
+
+            except ValueError as e:
+                logger.error(f"Could not parse date from changelog filename '{filename}': {e}")
             except Exception as e:
                 logger.error(f"Failed to upload changelog from '{filename}': {e}")
 
@@ -148,21 +180,78 @@ class WikiUpload:
 
         return update_pages
 
+    def _calculate_prev_update_link(self, date_obj: datetime, current_title: str, uploads_this_run: List[Tuple[datetime, str]] = None) -> str:
+        """
+        Calculate the correct prev_update link by querying actual wiki state plus uploads in current run.
+        Uses <= for date comparison to handle same-date variants (e.g., 2026-01-30 and 2026-01-30-1).
+        Returns formatted {{Update link|...}} string or empty string if no previous update.
+        """
+        # Include entries with same date (for variants) but exclude self
+        all_candidates = [(d, t) for d, t in self.wiki_updates if d <= date_obj and t != current_title]
+
+        if uploads_this_run:
+            all_candidates.extend([(d, t) for d, t in uploads_this_run if d <= date_obj and t != current_title])
+
+        # Strictly earlier dates take precedence, but same-date earlier variants are valid
+        # Filter to only those strictly earlier OR same date with earlier variant (processed earlier in loop)
+        earlier_dates = [(d, t) for d, t in all_candidates if d < date_obj]
+        same_date = [(d, t) for d, t in all_candidates if d == date_obj]
+
+        # Prefer strictly earlier dates; only use same-date if no earlier dates exist
+        # (This shouldn't happen due to sort order, but for safety)
+        final_candidates = earlier_dates if earlier_dates else same_date
+
+        if not final_candidates:
+            return ''
+
+        # Get the most recent one among them (chronologically, then by upload order)
+        final_candidates.sort(key=lambda x: x[0])
+        prev_date, prev_title = final_candidates[-1]
+
+        # Format: {{Update link|Month|Day|Year}}
+        return f"{{{{Update link|{prev_date.strftime('%B')}|{prev_date.day}|{prev_date.year}}}}}"
+
+    def _inject_prev_update(self, content: str, prev_update_link: str) -> str:
+        """
+        Inject the correct prev_update link into the wikitext content.
+        Replaces any existing prev_update value or adds if missing.
+        """
+        if not prev_update_link:
+            # If no previous update, ensure prev_update is empty
+            pattern = r'(\|\s*prev_update\s*=\s*)(.*?)(?=\n\||\n\}\}|\Z)'
+            return re.sub(pattern, r'\1', content, count=1, flags=re.DOTALL)
+
+        # Check if prev_update field exists
+        pattern = r'(\|\s*prev_update\s*=\s*)(.*?)(?=\n\||\n\}\}|\Z)'
+        match = re.search(pattern, content, re.DOTALL)
+
+        if match:
+            # Replace existing value
+            return re.sub(pattern, rf'\1{prev_update_link}', content, count=1, flags=re.DOTALL)
+        else:
+            # Add prev_update field after the template opening
+            layout_match = re.search(r'(\{\{\s*Update\s+layout\s*\n)', content)
+            if layout_match:
+                insert_pos = layout_match.end()
+                return content[:insert_pos] + f'| prev_update = {prev_update_link}\n' + content[insert_pos:]
+            else:
+                # Fallback: prepend to content
+                return f'| prev_update = {prev_update_link}\n' + content
+
     def _update_latest_chain(self):
         """
-        Updates the linked list of updates on the wiki.
+        Updates the linked list of updates on the wiki by setting next_update on the previous page.
 
         Queries the wiki to find the most recent update page that is strictly earlier
-        than the current patch. This approach ensures the chain is correctly maintained
-        even if intermediate update pages were created manually on the wiki and do not
-        exist in the local files.
+        than the current patch and links it forward. This ensures the chain is correctly maintained
+        even if intermediate update pages were created manually on the wiki.
         """
         changelog_dir = os.path.join(self.OUTPUT_DIR, 'changelogs', 'wiki')
         if not os.path.isdir(changelog_dir):
             return
 
         # Get all changelog files sorted by date
-        files = sorted([f for f in os.listdir(changelog_dir) if f.endswith('.txt')])
+        files = self._sort_changelog_files([f for f in os.listdir(changelog_dir) if f.endswith('.txt')])
         if not files:
             return
 
@@ -177,15 +266,13 @@ class WikiUpload:
 
         latest_page_title = f"Update:{latest_date.strftime('%B')}_{latest_date.day},_{latest_date.year}"
 
-        # Fetch all existing update pages from the wiki
-        wiki_updates = self._get_existing_update_pages()
-
-        if not wiki_updates:
+        # Use cached wiki updates from earlier fetch
+        if not self.wiki_updates:
             logger.warning(f'No existing update pages found on wiki to link with {latest_page_title}')
             return
 
         # Filter for updates strictly earlier than the latest date
-        earlier_updates = [(date, title) for date, title in wiki_updates if date < latest_date]
+        earlier_updates = [(date, title) for date, title in self.wiki_updates if date < latest_date]
 
         if not earlier_updates:
             logger.info(f'No previous update found on wiki for {latest_page_title}')
@@ -199,9 +286,6 @@ class WikiUpload:
 
         # Link the previous update to the latest one
         self._link_updates(prev_page_title, latest_page_title, prev_date, latest_date)
-
-        # Also ensure the latest update's prev_update points to the correct page
-        self._fix_prev_update(latest_page_title, prev_date)
 
     def _link_updates(self, prev_title: str, next_title: str, prev_date: datetime, next_date: datetime):
         """
@@ -248,54 +332,6 @@ class WikiUpload:
             page.save(new_text, summary=f"{self.upload_message}: Linking next update to {next_date.strftime('%Y-%m-%d')}")
             logger.success(f'Updated {prev_title}')
 
-    def _fix_prev_update(self, page_title: str, correct_prev_date: datetime):
-        """
-        Ensure the prev_update field on page_title points to correct_prev_date.
-        This corrects cases where the initial upload may have linked to an incorrect
-        previous date due to missing manual update pages at the time of creation.
-        """
-        page = self.site.pages[page_title]
-        if not page.exists:
-            return
-
-        current_text = page.text()
-
-        # Robust idempotency check: normalize whitespace and match the template
-        normalized_pattern = (
-            r'\{\{\s*Update\s+link\s*\|\s*'
-            + re.escape(correct_prev_date.strftime('%B'))
-            + r'\s*\|\s*'
-            + str(correct_prev_date.day)
-            + r'\s*\|\s*'
-            + str(correct_prev_date.year)
-            + r'\s*\}\}'
-        )
-        if re.search(normalized_pattern, current_text):
-            logger.trace(f'Page {page_title} already has correct prev_update')
-            return
-
-        pattern = r'(\|\s*prev_update\s*=\s*)(.*?)(?=\n\||\n\}\}|\Z)'
-        match = re.search(pattern, current_text, re.DOTALL)
-
-        if not match:
-            logger.warning(f"Could not find '| prev_update =' parameter in {page_title}")
-            return
-
-        current_value = match.group(2).strip()
-        correct_prev_link = f"{{{{Update link|{correct_prev_date.strftime('%B')}|{correct_prev_date.day}|{correct_prev_date.year}}}}}"
-
-        # Fallback exact match (in case regex differs due to edge cases)
-        if current_value == correct_prev_link:
-            logger.trace(f'Page {page_title} already has correct prev_update')
-            return
-
-        # Value is incorrect, apply fix
-        new_text = re.sub(pattern, rf'\1{correct_prev_link}', current_text, count=1, flags=re.DOTALL)
-        logger.info(f'Correcting prev_update on {page_title} to point to {correct_prev_date.strftime("%Y-%m-%d")}')
-        if not self.dry_run:
-            page.save(new_text, summary=f'{self.upload_message}: Correcting previous update link')
-            logger.success(f'Updated {page_title}')
-
     def _process_hotfixes(self):
         """
         Reads specifically identified hotfix sections from the fetcher and appends them
@@ -310,6 +346,7 @@ class WikiUpload:
         for hotfix in hotfixes:
             try:
                 date_obj = datetime.strptime(hotfix['date'], '%Y-%m-%d')
+                # Assuming standard naming: Update:Month_Day,_Year
                 page_title = f"Update:{date_obj.strftime('%B')}_{date_obj.day},_{date_obj.year}"
                 page = self.site.pages[page_title]
 
