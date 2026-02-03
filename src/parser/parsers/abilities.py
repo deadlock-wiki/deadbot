@@ -1,3 +1,4 @@
+from loguru import logger
 import parser.maps as maps
 import utils.json_utils as json_utils
 import utils.num_utils as num_utils
@@ -11,62 +12,72 @@ class AbilityParser:
 
     def run(self):
         all_abilities = {}
+        ability_key = ''
+        try:
+            for ability_key in self.abilities_data:
+                ability = self._parse_ability(ability_key)
+                if ability:
+                    all_abilities[ability_key] = ability
 
-        for ability_key in self.abilities_data:
-            ability = self.abilities_data[ability_key]
-            if type(ability) is not dict:
-                continue
+            return all_abilities
+        except Exception as e:
+            logger.error(f'Failed to parse ability {ability_key} - {e}')
+            raise e
 
-            if 'm_eAbilityType' not in ability:
-                continue
+    def _parse_ability(self, ability_key):
+        ability = self.abilities_data[ability_key]
 
-            if ability['m_eAbilityType'] not in ['EAbilityType_Signature', 'EAbilityType_Ultimate']:
-                continue
+        if type(ability) is not dict:
+            return
 
-            ability_data = {
-                'Key': ability_key,
-                'Name': self.localizations.get(ability_key, None),
-                'IsDisabled': ability.get('m_bDisabled', False),
-            }
+        if 'm_eAbilityType' not in ability:
+            return
 
-            # Exclude Patron from being parsed as an ability.
-            # Patron is an Objective, but has an internal ability entry.
-            # Including it causes it to be tagged as "Hero" and "Ability" in changelogs.
-            if ability_data['Name'] == 'Patron':
-                continue
+        if ability['m_eAbilityType'] not in ['EAbilityType_Innate', 'EAbilityType_Signature', 'EAbilityType_Ultimate']:
+            return
 
-            stats = ability['m_mapAbilityProperties']
-            for key in stats:
-                stat = stats[key]
-                value = self._get_stat_value(key, stat)
-                scale = self._get_scale(stat)
-                if scale:
-                    ability_data[key] = {'Value': value, 'Scale': scale}
-                else:
-                    ability_data[key] = value
+        ability_data = {
+            'Key': ability_key,
+            'Name': self.localizations.get(ability_key, None),
+            'IsDisabled': ability.get('m_bDisabled', False),
+        }
 
-            # Special handling for Patron's Damage Pulse, which stores stats in a unique location.
-            if ability_key == 'citadel_ability_tier3boss_damage_pulse':
-                modifiers_list = ability.get('m_AutoIntrinsicModifiers')
-                if modifiers_list and isinstance(modifiers_list, list) and len(modifiers_list) > 0:
-                    modifier = modifiers_list[0]
-                    ability_data['PulseRadius'] = num_utils.assert_number(modifier.get('m_flRadius'))
-                    ability_data['MaxTargets'] = num_utils.assert_number(modifier.get('m_iMaxTargets'))
-                    ability_data['DamagePerPulse'] = num_utils.assert_number(modifier.get('m_flDamagePerPulse'))
-                    ability_data['PulseInterval'] = num_utils.assert_number(modifier.get('m_flTickRate'))
+        # Exclude Patron from being parsed as an ability.
+        # Patron is an Objective, but has an internal ability entry.
+        # Including it causes it to be tagged as "Hero" and "Ability" in changelogs.
+        if ability_data['Name'] == 'Patron':
+            return
 
-            if 'm_vecAbilityUpgrades' in ability:
-                ability_data['Upgrades'] = self._parse_upgrades(ability)
+        stats = ability.get('m_mapAbilityProperties', [])
+        for key in stats:
+            stat = stats[key]
+            value = self._get_stat_value(key, stat)
+            scale = self._get_scale(stat)
+            if scale:
+                ability_data[key] = {'Value': value, 'Scale': scale}
             else:
-                ability_data['Upgrades'] = []
+                ability_data[key] = value
 
-            formatted_ability_data = {}
-            for attr_key, attr_value in ability_data.items():
-                formatted_ability_data[attr_key] = num_utils.remove_uom(attr_value)
+        # Special handling for Patron's Damage Pulse, which stores stats in a unique location.
+        if ability_key == 'citadel_ability_tier3boss_damage_pulse':
+            modifiers_list = ability.get('m_AutoIntrinsicModifiers')
+            if modifiers_list and isinstance(modifiers_list, list) and len(modifiers_list) > 0:
+                modifier = modifiers_list[0]
+                ability_data['PulseRadius'] = num_utils.assert_number(modifier.get('m_flRadius'))
+                ability_data['MaxTargets'] = num_utils.assert_number(modifier.get('m_iMaxTargets'))
+                ability_data['DamagePerPulse'] = num_utils.assert_number(modifier.get('m_flDamagePerPulse'))
+                ability_data['PulseInterval'] = num_utils.assert_number(modifier.get('m_flTickRate'))
 
-            all_abilities[ability_key] = json_utils.sort_dict(formatted_ability_data)
+        if 'm_vecAbilityUpgrades' in ability:
+            ability_data['Upgrades'] = self._parse_upgrades(ability)
+        else:
+            ability_data['Upgrades'] = []
 
-        return all_abilities
+        formatted_ability_data = {}
+        for attr_key, attr_value in ability_data.items():
+            formatted_ability_data[attr_key] = num_utils.remove_uom(attr_value)
+
+        return json_utils.sort_dict(formatted_ability_data)
 
     def _parse_upgrades(self, ability):
         upgrade_sets = ability['m_vecAbilityUpgrades']
