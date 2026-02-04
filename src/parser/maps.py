@@ -182,6 +182,7 @@ SCALE_TYPE_MAP = {
     'ELevelUpBoons': 'power_increase',
     'ELightMeleeDamage': 'melee',
     'EMaxChargesIncrease': 'max_charges',
+    'EParryCooldown': 'parry_cd',
     'EStatsCount': 'stats_count',
     'ETechCooldown': 'cooldown',
     'ETechDuration': 'duration',

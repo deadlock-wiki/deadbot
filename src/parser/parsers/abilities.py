@@ -1,6 +1,7 @@
 import parser.maps as maps
 import utils.json_utils as json_utils
 import utils.num_utils as num_utils
+from loguru import logger
 
 
 class AbilityParser:
@@ -11,46 +12,56 @@ class AbilityParser:
 
     def run(self):
         all_abilities = {}
+        ability_key = ''
+        try:
+            for ability_key in self.abilities_data:
+                ability = self._parse_ability(ability_key)
+                if ability:
+                    all_abilities[ability_key] = ability
 
-        for ability_key in self.abilities_data:
-            ability = self.abilities_data[ability_key]
-            if type(ability) is not dict:
-                continue
+            return all_abilities
+        except Exception as e:
+            logger.error(f'Failed to parse ability {ability_key} - {e}')
+            raise e
 
-            if 'm_eAbilityType' not in ability:
-                continue
+    def _parse_ability(self, ability_key):
+        ability = self.abilities_data[ability_key]
 
-            if ability['m_eAbilityType'] not in ['EAbilityType_Signature', 'EAbilityType_Ultimate']:
-                continue
+        if type(ability) is not dict:
+            return None
 
-            ability_data = {
-                'Key': ability_key,
-                'Name': self.localizations.get(ability_key, None),
-                'IsDisabled': ability.get('m_bDisabled', False),
-            }
+        if 'm_eAbilityType' not in ability:
+            return None
 
-            stats = ability['m_mapAbilityProperties']
-            for key in stats:
-                stat = stats[key]
-                value = self._get_stat_value(key, stat)
-                scale = self._get_scale(stat)
-                if scale:
-                    ability_data[key] = {'Value': value, 'Scale': scale}
-                else:
-                    ability_data[key] = value
+        if ability['m_eAbilityType'] not in ['EAbilityType_Innate', 'EAbilityType_Signature', 'EAbilityType_Ultimate']:
+            return None
 
-            if 'm_vecAbilityUpgrades' in ability:
-                ability_data['Upgrades'] = self._parse_upgrades(ability)
+        ability_data = {
+            'Key': ability_key,
+            'Name': self.localizations.get(ability_key, None),
+            'IsDisabled': ability.get('m_bDisabled', False),
+        }
+
+        stats = ability.get('m_mapAbilityProperties', {})
+        for key in stats:
+            stat = stats[key]
+            value = self._get_stat_value(key, stat)
+            scale = self._get_scale(stat)
+            if scale:
+                ability_data[key] = {'Value': value, 'Scale': scale}
             else:
-                ability_data['Upgrades'] = []
+                ability_data[key] = value
 
-            formatted_ability_data = {}
-            for attr_key, attr_value in ability_data.items():
-                formatted_ability_data[attr_key] = num_utils.remove_uom(attr_value)
+        if 'm_vecAbilityUpgrades' in ability:
+            ability_data['Upgrades'] = self._parse_upgrades(ability)
+        else:
+            ability_data['Upgrades'] = []
 
-            all_abilities[ability_key] = json_utils.sort_dict(formatted_ability_data)
+        formatted_ability_data = {}
+        for attr_key, attr_value in ability_data.items():
+            formatted_ability_data[attr_key] = num_utils.remove_uom(attr_value)
 
-        return all_abilities
+        return json_utils.sort_dict(formatted_ability_data)
 
     def _parse_upgrades(self, ability):
         upgrade_sets = ability['m_vecAbilityUpgrades']
