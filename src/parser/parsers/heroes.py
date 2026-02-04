@@ -1,3 +1,4 @@
+import copy
 import parser.maps as maps
 import utils.json_utils as json_utils
 from utils.num_utils import convert_engine_units_to_meters, round_sig_figs
@@ -9,6 +10,10 @@ class HeroParser:
         self.abilities_data = abilities_data
         self.parsed_abilities = parsed_abilities
         self.localizations = localizations
+
+        # Ability 4 on werewolf changes abilities 1, 2 and 3. So we will instead create a duplicate hero with its own key
+        # in order to maintain the format of a hero having 4 abilities
+        self.hero_data['hero_werewolf_transformed'] = self._create_werewolf_transformed()
 
     def run(self):
         hero_keys = self.hero_data.keys()
@@ -107,6 +112,21 @@ class HeroParser:
 
         return all_hero_stats, meaningful_stats
 
+    def _create_werewolf_transformed(self):
+        """Create a copy hero_werewolf data and modify its bound abilities to use the transformed abilities and weapon"""
+        werewolf: dict = self.hero_data['hero_werewolf']
+        werewolf_transformed: dict = copy.deepcopy(werewolf)
+
+        transformation_ability = self.abilities_data['ability_werewolf_transformation']
+        modifier = transformation_ability['m_WerewolfModifier']
+
+        for key in werewolf_transformed['m_mapBoundAbilities']:
+            new_ability = modifier['m_mapWerewolfAbilities'].get(key)
+            if new_ability:
+                werewolf_transformed['m_mapBoundAbilities'][key] = new_ability
+
+        return werewolf_transformed
+
     def _get_meaningful_stats(self, all_hero_stats):
         """
         Gets list of meaningful stats that are non-constant stats.
@@ -179,6 +199,11 @@ class HeroParser:
             # ignore any abilities without any parsed data
             if bound_ability_key not in self.parsed_abilities:
                 continue
+
+            # ignore anything that isn't a standard ability slot
+            if ability_position not in ['ESlot_Signature_1', 'ESlot_Signature_2', 'ESlot_Signature_3', 'ESlot_Signature_4']:
+                continue
+
             abilities[ability_position] = self.parsed_abilities[bound_ability_key]
         return self._map_attr_names(abilities, maps.get_bound_abilities)
 
