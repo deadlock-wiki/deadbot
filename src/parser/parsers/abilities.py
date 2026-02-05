@@ -28,13 +28,13 @@ class AbilityParser:
         ability = self.abilities_data[ability_key]
 
         if type(ability) is not dict:
-            return None
+            return
 
         if 'm_eAbilityType' not in ability:
-            return None
+            return
 
         if ability['m_eAbilityType'] not in ['EAbilityType_Innate', 'EAbilityType_Signature', 'EAbilityType_Ultimate']:
-            return None
+            return
 
         ability_data = {
             'Key': ability_key,
@@ -127,7 +127,7 @@ class AbilityParser:
         elif 'm_strVAlue' in stat:
             value = stat['m_strVAlue']
         else:
-            return None
+            return
 
         return self._convert_stat(stat, key, value)
 
@@ -186,4 +186,4 @@ class AbilityParser:
                     'Type': maps.get_scale_type(scale.get('m_eSpecificStatScaleType', 'ETechPower')),
                 }
 
-        return None
+        return
