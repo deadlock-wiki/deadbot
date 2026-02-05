@@ -3,10 +3,11 @@ import mwclient
 import json
 import re
 from datetime import datetime
-from typing import List, Tuple, Optional
+from typing import List, Tuple
 from utils import json_utils, game_utils, meta_utils
 from .pages import DATA_PAGE_FILE_MAP, IGNORE_PAGES
 from loguru import logger
+from . import changelog_utils
 
 
 class WikiUpload:
@@ -42,6 +43,9 @@ class WikiUpload:
 
             self.site.login(self.auth['user'], self.auth['password'])
 
+        # Store wiki state to minimize API calls
+        self.wiki_updates: List[Tuple[datetime, str]] = []
+
     def run(self):
         logger.info(f'Uploading Data to Wiki - {self.upload_message}')
         self._update_data_pages()
@@ -50,22 +54,46 @@ class WikiUpload:
         self._process_hotfixes()
         self._update_latest_chain()
 
-    def _sort_changelog_files(self, files: List[str]) -> List[str]:
+    def _get_existing_update_pages(self) -> List[Tuple[datetime, str]]:
         """
-        Sort changelog files with proper variant ordering.
-        Base file comes before variants.
+        Fetch all Update pages from wiki and return list of (date, title) tuples.
+        Simplified by replacing underscores with spaces per maintainer suggestion.
         """
+        update_pages = []
+        try:
+            namespace_id = self._get_namespace_id('Update')
+            pages = self.site.allpages(namespace=namespace_id)
+            count = 0
 
-        def sort_key(filename):
-            base = filename.replace('.txt', '')
-            parts = base.split('-')
-            # parts[0:3] = ['2026', '01', '30'], parts[3] = '1' or missing
-            date_tuple = (int(parts[0]), int(parts[1]), int(parts[2])) if len(parts) >= 3 else (0, 0, 0)
-            # variant = 0 for base file, N for -N variants
-            variant = int(parts[3]) if len(parts) > 3 else 0
-            return (date_tuple, variant)
+            for page in pages:
+                count += 1
+                if ':' not in page.name:
+                    continue
 
-        return sorted(files, key=sort_key)
+                # Parse title part after "Update:"
+                title_part = page.name.split(':', 1)[1]
+
+                # Remove any subpage suffix (e.g., "/ru")
+                if '/' in title_part:
+                    title_part = title_part.split('/', 1)[0]
+
+                # Replace underscores with spaces to unify format (Maintainer suggestion)
+                normalized_title = title_part.replace('_', ' ')
+
+                try:
+                    date_obj = datetime.strptime(normalized_title, '%B %d, %Y')
+                    update_pages.append((date_obj, page.name))
+                except ValueError:
+                    logger.trace(f'Skipping page with non-date title: {page.name}')
+                    continue
+
+            logger.debug(f'Scanned {count} pages in Update namespace, found {len(update_pages)} valid update pages')
+
+        except Exception as e:
+            logger.error(f'Failed to fetch existing update pages: {e}')
+            return []
+
+        return update_pages
 
     def _upload_changelog_pages(self):
         """
@@ -79,8 +107,8 @@ class WikiUpload:
 
         logger.info('Uploading changelog pages...')
 
-        # Get and sort files with proper variant ordering (base before -N)
-        files = self._sort_changelog_files([f for f in os.listdir(changelog_dir) if f.endswith('.txt')])
+        # Get and sort files with proper variant ordering via utility
+        files = changelog_utils.sort_changelog_files([f for f in os.listdir(changelog_dir) if f.endswith('.txt')])
         if not files:
             return
 
@@ -90,7 +118,7 @@ class WikiUpload:
         for filename in files:
             changelog_id = filename.replace('.txt', '')
             try:
-                date_obj = self._parse_changelog_date_from_id(changelog_id)
+                date_obj = changelog_utils.parse_changelog_date_from_id(changelog_id)
                 if not date_obj:
                     raise ValueError(f'Invalid date format in {changelog_id}')
 
@@ -102,11 +130,10 @@ class WikiUpload:
                     raw_content = f.read()
 
                 # Calculate correct prev_update based on wiki state + earlier uploads this run
-                # Pass current title to exclude self when handling same-date variants
-                prev_update_link = self._calculate_prev_update_link(date_obj, page_title, uploads_this_run)
+                prev_update_link = changelog_utils.calculate_prev_update_link(date_obj, page_title, self.wiki_updates, uploads_this_run)
 
-                # Inject the correct prev_update into the content
-                content = self._inject_prev_update(raw_content, prev_update_link)
+                # Inject the link into the wikitext content
+                content = changelog_utils.inject_prev_update(raw_content, prev_update_link)
 
                 self.upload_new_page(page_title, content)
 
@@ -117,220 +144,6 @@ class WikiUpload:
                 logger.error(f"Could not parse date from changelog filename '{filename}': {e}")
             except Exception as e:
                 logger.error(f"Failed to upload changelog from '{filename}': {e}")
-
-    def _parse_changelog_date_from_id(self, changelog_id: str) -> Optional[datetime]:
-        """Parse date from changelog ID like '2026-01-30' or '2026-01-30-1'."""
-        try:
-            parts = changelog_id.split('-')
-            # Handle both 'YYYY-MM-DD' and 'YYYY-MM-DD-N' formats
-            date_part = '-'.join(parts[:3])
-            return datetime.strptime(date_part, '%Y-%m-%d')
-        except (ValueError, IndexError):
-            logger.error(f'Could not parse date from changelog ID: {changelog_id}')
-            return None
-
-    def _get_existing_update_pages(self) -> List[Tuple[datetime, str]]:
-        """
-        Fetch all Update pages from wiki and return list of (date, title) tuples.
-        Handles both underscore format (bot-created) and space format (API returns).
-        """
-        update_pages = []
-        try:
-            namespace_id = self._get_namespace_id('Update')
-            logger.debug(f'Found Update namespace ID: {namespace_id}')
-
-            pages = self.site.allpages(namespace=namespace_id)
-            count = 0
-
-            for page in pages:
-                count += 1
-                if ':' not in page.name:
-                    continue
-
-                # Parse "Update:January_20,_2026" or "Update:January 20, 2026"
-                title_part = page.name.split(':', 1)[1]
-
-                # Remove any subpage suffix (e.g., "/ru")
-                if '/' in title_part:
-                    title_part = title_part.split('/', 1)[0]
-
-                # Try space format first (API returns spaces even for underscore titles)
-                # Examples: "January 20, 2026" or "August 1, 2024"
-                try:
-                    date_obj = datetime.strptime(title_part, '%B %d, %Y')
-                    update_pages.append((date_obj, page.name))
-                    continue
-                except ValueError:
-                    pass
-
-                # Try underscore format (fallback)
-                try:
-                    date_obj = datetime.strptime(title_part, '%B_%d,_%Y')
-                    update_pages.append((date_obj, page.name))
-                    continue
-                except ValueError:
-                    logger.trace(f'Skipping page with non-date title: {page.name}')
-                    continue
-
-            logger.debug(f'Scanned {count} pages in Update namespace, found {len(update_pages)} valid update pages')
-
-        except Exception as e:
-            logger.error(f'Failed to fetch existing update pages: {e}')
-            return []
-
-        return update_pages
-
-    def _calculate_prev_update_link(self, date_obj: datetime, current_title: str, uploads_this_run: List[Tuple[datetime, str]] = None) -> str:
-        """
-        Calculate the correct prev_update link by querying actual wiki state plus uploads in current run.
-        Uses <= for date comparison to handle same-date variants (e.g., 2026-01-30 and 2026-01-30-1).
-        Returns formatted {{Update link|...}} string or empty string if no previous update.
-        """
-        # Include entries with same date (for variants) but exclude self
-        all_candidates = [(d, t) for d, t in self.wiki_updates if d <= date_obj and t != current_title]
-
-        if uploads_this_run:
-            all_candidates.extend([(d, t) for d, t in uploads_this_run if d <= date_obj and t != current_title])
-
-        # Strictly earlier dates take precedence, but same-date earlier variants are valid
-        # Filter to only those strictly earlier OR same date with earlier variant (processed earlier in loop)
-        earlier_dates = [(d, t) for d, t in all_candidates if d < date_obj]
-        same_date = [(d, t) for d, t in all_candidates if d == date_obj]
-
-        # Prefer strictly earlier dates; only use same-date if no earlier dates exist
-        # (This shouldn't happen due to sort order, but for safety)
-        final_candidates = earlier_dates if earlier_dates else same_date
-
-        if not final_candidates:
-            return ''
-
-        # Get the most recent one among them (chronologically, then by upload order)
-        final_candidates.sort(key=lambda x: x[0])
-        prev_date, prev_title = final_candidates[-1]
-
-        # Format: {{Update link|Month|Day|Year}}
-        return f"{{{{Update link|{prev_date.strftime('%B')}|{prev_date.day}|{prev_date.year}}}}}"
-
-    def _inject_prev_update(self, content: str, prev_update_link: str) -> str:
-        """
-        Inject the correct prev_update link into the wikitext content.
-        Replaces any existing prev_update value or adds if missing.
-        """
-        if not prev_update_link:
-            # If no previous update, ensure prev_update is empty
-            pattern = r'(\|\s*prev_update\s*=\s*)(.*?)(?=\n\||\n\}\}|\Z)'
-            return re.sub(pattern, r'\1', content, count=1, flags=re.DOTALL)
-
-        # Check if prev_update field exists
-        pattern = r'(\|\s*prev_update\s*=\s*)(.*?)(?=\n\||\n\}\}|\Z)'
-        match = re.search(pattern, content, re.DOTALL)
-
-        if match:
-            # Replace existing value
-            return re.sub(pattern, rf'\1{prev_update_link}', content, count=1, flags=re.DOTALL)
-        else:
-            # Add prev_update field after the template opening
-            layout_match = re.search(r'(\{\{\s*Update\s+layout\s*\n)', content)
-            if layout_match:
-                insert_pos = layout_match.end()
-                return content[:insert_pos] + f'| prev_update = {prev_update_link}\n' + content[insert_pos:]
-            else:
-                # Fallback: prepend to content
-                return f'| prev_update = {prev_update_link}\n' + content
-
-    def _update_latest_chain(self):
-        """
-        Updates the linked list of updates on the wiki by setting next_update on the previous page.
-
-        Queries the wiki to find the most recent update page that is strictly earlier
-        than the current patch and links it forward. This ensures the chain is correctly maintained
-        even if intermediate update pages were created manually on the wiki.
-        """
-        changelog_dir = os.path.join(self.OUTPUT_DIR, 'changelogs', 'wiki')
-        if not os.path.isdir(changelog_dir):
-            return
-
-        # Get all changelog files sorted by date
-        files = self._sort_changelog_files([f for f in os.listdir(changelog_dir) if f.endswith('.txt')])
-        if not files:
-            return
-
-        # Get the latest file being processed now
-        latest_file = files[-1]
-        latest_id = latest_file.replace('.txt', '')
-        latest_date = self._parse_changelog_date_from_id(latest_id)
-
-        if not latest_date:
-            logger.error(f'Could not parse date from {latest_file}, cannot update chain')
-            return
-
-        latest_page_title = f"Update:{latest_date.strftime('%B')}_{latest_date.day},_{latest_date.year}"
-
-        # Use cached wiki updates from earlier fetch
-        if not self.wiki_updates:
-            logger.warning(f'No existing update pages found on wiki to link with {latest_page_title}')
-            return
-
-        # Filter for updates strictly earlier than the latest date
-        earlier_updates = [(date, title) for date, title in self.wiki_updates if date < latest_date]
-
-        if not earlier_updates:
-            logger.info(f'No previous update found on wiki for {latest_page_title}')
-            return
-
-        # Get the most recent one among them (chronologically)
-        earlier_updates.sort(key=lambda x: x[0])
-        prev_date, prev_page_title = earlier_updates[-1]
-
-        logger.info(f"Found previous update: {prev_page_title} (date: {prev_date.strftime('%Y-%m-%d')})")
-
-        # Link the previous update to the latest one
-        self._link_updates(prev_page_title, latest_page_title, prev_date, latest_date)
-
-    def _link_updates(self, prev_title: str, next_title: str, prev_date: datetime, next_date: datetime):
-        """
-        Update the next_update field on prev_title to point to next_title.
-        Uses regex to safely edit the wikitext without affecting other parameters.
-        """
-        page = self.site.pages[prev_title]
-        if not page.exists:
-            logger.warning(f'Previous page {prev_title} does not exist, cannot link')
-            return
-
-        current_text = page.text()
-
-        # Create the link string: {{Update link|Month|Day|Year}}
-        next_link_str = f"{{{{Update link|{next_date.strftime('%B')}|{next_date.day}|{next_date.year}}}}}"
-
-        # Robust idempotency check: normalize whitespace and match the template
-        # Handles extra spaces inside template like {{Update link | January | 29 | 2026 }}
-        normalized_pattern = (
-            r'\{\{\s*Update\s+link\s*\|\s*'
-            + re.escape(next_date.strftime('%B'))
-            + r'\s*\|\s*'
-            + str(next_date.day)
-            + r'\s*\|\s*'
-            + str(next_date.year)
-            + r'\s*\}\}'
-        )
-        if re.search(normalized_pattern, current_text):
-            logger.trace(f'Page {prev_title} is already linked to next update {next_title}')
-            return
-
-        # Regex handles various whitespace patterns.
-        # Pattern stops at newline followed by | (next parameter), newline followed by }} (end), or end of string.
-        pattern = r'(\|\s*next_update\s*=\s*)(.*?)(?=\n\||\n\}\}|\Z)'
-
-        if not re.search(pattern, current_text, re.DOTALL):
-            logger.warning(f"Could not find '| next_update =' parameter in {prev_title}")
-            return
-
-        new_text = re.sub(pattern, rf'\1{next_link_str}', current_text, count=1, flags=re.DOTALL)
-
-        logger.info(f'Linking {prev_title} -> {next_title}')
-        if not self.dry_run:
-            page.save(new_text, summary=f"{self.upload_message}: Linking next update to {next_date.strftime('%Y-%m-%d')}")
-            logger.success(f'Updated {prev_title}')
 
     def _process_hotfixes(self):
         """
@@ -419,6 +232,100 @@ class WikiUpload:
 
         page.save(content, summary=self.upload_message)
         logger.success(f'Successfully saved page "{title}"')
+
+    def _update_latest_chain(self):
+        """
+        Updates the linked list of updates on the wiki by setting next_update on the previous page.
+
+        Queries the wiki to find the most recent update page that is strictly earlier
+        than the current patch and links it forward. This ensures the chain is correctly maintained
+        even if intermediate update pages were created manually on the wiki.
+        """
+        changelog_dir = os.path.join(self.OUTPUT_DIR, 'changelogs', 'wiki')
+        if not os.path.isdir(changelog_dir):
+            return
+
+        # Get all changelog files sorted by date
+        files = changelog_utils.sort_changelog_files([f for f in os.listdir(changelog_dir) if f.endswith('.txt')])
+        if not files:
+            return
+
+        # Get the latest file being processed now
+        latest_file = files[-1]
+        latest_id = latest_file.replace('.txt', '')
+        latest_date = changelog_utils.parse_changelog_date_from_id(latest_id)
+
+        if not latest_date:
+            logger.error(f'Could not parse date from {latest_file}, cannot update chain')
+            return
+
+        latest_page_title = f"Update:{latest_date.strftime('%B')}_{latest_date.day},_{latest_date.year}"
+
+        # Use cached wiki updates from earlier fetch
+        if not self.wiki_updates:
+            logger.warning(f'No existing update pages found on wiki to link with {latest_page_title}')
+            return
+
+        # Filter for updates strictly earlier than the latest date
+        earlier_updates = [(date, title) for date, title in self.wiki_updates if date < latest_date]
+
+        if not earlier_updates:
+            logger.info(f'No previous update found on wiki for {latest_page_title}')
+            return
+
+        # Get the most recent one among them (chronologically)
+        earlier_updates.sort(key=lambda x: x[0])
+        prev_date, prev_page_title = earlier_updates[-1]
+
+        logger.info(f"Found previous update: {prev_page_title} (date: {prev_date.strftime('%Y-%m-%d')})")
+
+        # Link the previous update to the latest one
+        self._link_updates(prev_page_title, latest_page_title, prev_date, latest_date)
+
+    def _link_updates(self, prev_title: str, next_title: str, prev_date: datetime, next_date: datetime):
+        """
+        Update the next_update field on prev_title to point to next_title.
+        Uses regex to safely edit the wikitext without affecting other parameters.
+        """
+        page = self.site.pages[prev_title]
+        if not page.exists:
+            logger.warning(f'Previous page {prev_title} does not exist, cannot link')
+            return
+
+        current_text = page.text()
+
+        # Create the link string: {{Update link|Month|Day|Year}}
+        next_link_str = f"{{{{Update link|{next_date.strftime('%B')}|{next_date.day}|{next_date.year}}}}}"
+
+        # Robust idempotency check: normalize whitespace and match the template
+        # Handles extra spaces inside template like {{Update link | January | 29 | 2026 }}
+        normalized_pattern = (
+            r'\{\{\s*Update\s+link\s*\|\s*'
+            + re.escape(next_date.strftime('%B'))
+            + r'\s*\|\s*'
+            + str(next_date.day)
+            + r'\s*\|\s*'
+            + str(next_date.year)
+            + r'\s*\}\}'
+        )
+        if re.search(normalized_pattern, current_text):
+            logger.trace(f'Page {prev_title} is already linked to next update {next_title}')
+            return
+
+        # Regex handles various whitespace patterns.
+        # Pattern stops at newline followed by | (next parameter), newline followed by }} (end), or end of string.
+        pattern = r'(\|\s*next_update\s*=\s*)(.*?)(?=\n\||\n\}\}|\Z)'
+
+        if not re.search(pattern, current_text, re.DOTALL):
+            logger.warning(f"Could not find '| next_update =' parameter in {prev_title}")
+            return
+
+        new_text = re.sub(pattern, rf'\1{next_link_str}', current_text, count=1, flags=re.DOTALL)
+
+        logger.info(f'Linking {prev_title} -> {next_title}')
+        if not self.dry_run:
+            page.save(new_text, summary=f"{self.upload_message}: Linking next update to {next_date.strftime('%Y-%m-%d')}")
+            logger.success(f'Updated {prev_title}')
 
     def _update_page(self, page, updated_text):
         logger.info(f'Updating page: "{page.name}"')
