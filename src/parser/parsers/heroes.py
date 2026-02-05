@@ -42,7 +42,7 @@ class HeroParser:
 
                 # Convert scale values to percentages and rename keys for clarity
                 received_scale = hero_stats.pop('CritDamageReceivedScale')
-                hero_stats['CritDamageReceivedPercent'] = round_sig_figs((received_scale - 1) * 100, 5)
+                hero_stats['CritDamageReceivedPercent'] = round_sig_figs((1 - received_scale) * 100, 5)
 
                 bonus_scale = hero_stats.pop('CritDamageBonusScale')
                 hero_stats['CritDamageBonusPercent'] = round_sig_figs((bonus_scale - 1) * 100, 5)
