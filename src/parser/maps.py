@@ -201,35 +201,3 @@ def get_scale_type(scale):
         raise Exception(f'No scale map found for {scale}')
 
     return SCALE_TYPE_MAP[scale]
-
-
-NPC_INTRINSIC_MODIFIER_MAP = {
-    'MODIFIER_VALUE_BULLET_DAMAGE_REDUCTION_PERCENT': 'IntrinsicBulletResistance',
-    'MODIFIER_VALUE_ABILITY_DAMAGE_REDUCTION_PERCENT': 'IntrinsicAbilityResistance',
-    'MODIFIER_VALUE_HEALTH_REGEN_PER_SECOND': 'HealthRegenPerSecond',
-}
-
-
-def get_npc_intrinsic_modifier(value):
-    return NPC_INTRINSIC_MODIFIER_MAP.get(value)
-
-
-NPC_AURA_MODIFIER_MAP = {
-    'MODIFIER_VALUE_TECH_ARMOR_DAMAGE_RESIST': 'FriendlyAuraSpiritArmor',
-    'MODIFIER_VALUE_BULLET_ARMOR_DAMAGE_RESIST': 'FriendlyAuraBulletArmor',
-}
-
-
-def get_npc_aura_modifier(value):
-    return NPC_AURA_MODIFIER_MAP.get(value)
-
-
-NPC_REBIRTH_MODIFIER_MAP = {
-    'MODIFIER_VALUE_HEALTH_MAX_PERCENT': 'BonusMaxHealth',
-    'MODIFIER_VALUE_FIRE_RATE': 'BonusFireRate',
-    'MODIFIER_VALUE_TECH_DAMAGE_PERCENT': 'BonusSpiritDamage',
-}
-
-
-def get_npc_rebirth_modifier(value):
-    return NPC_REBIRTH_MODIFIER_MAP.get(value)

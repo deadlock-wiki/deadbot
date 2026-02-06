@@ -11,6 +11,11 @@ class HeroParser:
         self.parsed_abilities = parsed_abilities
         self.localizations = localizations
 
+        # Manually add localization for transformed Silver
+        base_name = self.localizations.get('hero_werewolf')
+        if base_name:
+            self.localizations['hero_werewolf_transformed'] = f'{base_name} (Transformed)'
+
         # Ability 4 on werewolf changes abilities 1, 2 and 3. So we will instead create a duplicate hero with its own key
         # in order to maintain the format of a hero having 4 abilities
         self.hero_data['hero_werewolf_transformed'] = self._create_werewolf_transformed()
@@ -42,7 +47,7 @@ class HeroParser:
 
                 # Convert scale values to percentages and rename keys for clarity
                 received_scale = hero_stats.pop('CritDamageReceivedScale')
-                hero_stats['CritDamageReceivedPercent'] = round_sig_figs((received_scale - 1) * 100, 5)
+                hero_stats['CritDamageReceivedPercent'] = round_sig_figs((1 - received_scale) * 100, 5)
 
                 bonus_scale = hero_stats.pop('CritDamageBonusScale')
                 hero_stats['CritDamageBonusPercent'] = round_sig_figs((bonus_scale - 1) * 100, 5)
