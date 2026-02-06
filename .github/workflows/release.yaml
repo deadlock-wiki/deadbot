@@ -38,8 +38,8 @@ jobs:
       - name: Increment version
         if: github.event_name == 'pull_request'
         run: |
-          chmod +x ./.github/workflows/scripts/increment_project_version.sh 
-          ./.github/workflows/scripts/increment_project_version.sh 
+          chmod +x ./.github/workflows/scripts/increment_release_version.sh 
+          ./.github/workflows/scripts/increment_release_version.sh 
 
       # Set up BuildKit Docker container builder to be able to build
       # multi-platform images and export cache

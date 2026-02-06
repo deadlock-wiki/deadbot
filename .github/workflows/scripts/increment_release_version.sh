@@ -21,7 +21,6 @@ elif [[ "$BRANCH_LOWER" == hotfix/* ]]; then
   PCH=$((PCH + 1))
   NEW_VERSION="$MJR.$MNR.$PCH"
 
-
 # throw error if correct branching is not used
 else
   echo "Branch must match 'Release/vX.Y.Z' or 'hotfix/*'"
