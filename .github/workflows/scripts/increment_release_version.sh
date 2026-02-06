@@ -41,4 +41,4 @@ git config user.name "Deadbot0"
 
 git add $FILE
 git commit -m "[skip ci] chore: bumped version to $NEW_VERSION" || echo "No changes to commit"
-git push
+git push --force-with-lease origin "HEAD:$GITHUB_HEAD_REF"
