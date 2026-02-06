@@ -2,7 +2,7 @@
 set -e
 
 FILE="pyproject.toml"
-BRANCH="${GITHUB_REF#refs/heads/}"
+BRANCH="${GITHUB_HEAD_REF#refs/heads/}"
 echo branch=$BRANCH
 # lowercase branch for matching
 BRANCH_NAME=${BRANCH,,}
