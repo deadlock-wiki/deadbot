@@ -40,10 +40,5 @@ git config user.email "deadbot1101@gmail.com"
 git config user.name "Deadbot0"
 
 git add pyproject.toml
-
-if git diff --cached --quiet; then
-  echo "No changes to commit"
-else
-  git commit -m "[skip ci] chore: bumped version to v$NEW_VERSION"
-  git push origin "$GITHUB_REF"
-fi
+git commit -m "[skip ci] chore: bumped version to $NEW_VERSION" || echo "No changes to commit"
+git push --force-with-lease origin "$GITHUB_REF"
