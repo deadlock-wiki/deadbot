@@ -10,6 +10,7 @@ from utils import csv_writer
 from decompiler.decompiler import Decompiler
 import constants
 from changelogs import parse_changelogs, fetch_changelogs
+from wiki import fetch as wiki_fetch
 from parser import parser
 from utils.parameters import Args
 from utils.process import run_process
@@ -63,6 +64,13 @@ def main():
         logger.trace('! Skipping Parser !')
 
     if args.changelogs:
+        logger.info('Fetching Wiki Page List...')
+        wiki_page_list_path = os.path.join(args.inputdir, 'wiki_pages.json')
+        try:
+            wiki_fetch.fetch_page_list(wiki_page_list_path)
+        except Exception as e:
+            logger.warning(f'Failed to fetch wiki pages: {e}. Changelogs will be parsed without automatic page linking.')
+
         logger.info('Parsing Changelogs...')
         act_changelog_parse(args)
     else:
@@ -96,7 +104,7 @@ def act_changelog_parse(args: Args):
     )
     chlog_fetcher.run()
 
-    chlog_parser = parse_changelogs.ChangelogParser(args.output)
+    chlog_parser = parse_changelogs.ChangelogParser(args.output, args.inputdir)
     chlog_parser.run_all(chlog_fetcher.changelogs)
     chlog_parser.format_and_save_wikitext_changelogs(
         chlog_fetcher.changelogs,
