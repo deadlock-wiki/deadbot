@@ -1,7 +1,7 @@
-from loguru import logger
 import parser.maps as maps
 import utils.json_utils as json_utils
 import utils.num_utils as num_utils
+from loguru import logger
 
 
 class AbilityParser:
@@ -42,13 +42,7 @@ class AbilityParser:
             'IsDisabled': ability.get('m_bDisabled', False),
         }
 
-        # Exclude Patron from being parsed as an ability.
-        # Patron is an Objective, but has an internal ability entry.
-        # Including it causes it to be tagged as "Hero" and "Ability" in changelogs.
-        if ability_data['Name'] == 'Patron':
-            return
-
-        stats = ability.get('m_mapAbilityProperties', [])
+        stats = ability.get('m_mapAbilityProperties', {})
         for key in stats:
             stat = stats[key]
             value = self._get_stat_value(key, stat)
@@ -57,16 +51,6 @@ class AbilityParser:
                 ability_data[key] = {'Value': value, 'Scale': scale}
             else:
                 ability_data[key] = value
-
-        # Special handling for Patron's Damage Pulse, which stores stats in a unique location.
-        if ability_key == 'citadel_ability_tier3boss_damage_pulse':
-            modifiers_list = ability.get('m_AutoIntrinsicModifiers')
-            if modifiers_list and isinstance(modifiers_list, list) and len(modifiers_list) > 0:
-                modifier = modifiers_list[0]
-                ability_data['PulseRadius'] = num_utils.assert_number(modifier.get('m_flRadius'))
-                ability_data['MaxTargets'] = num_utils.assert_number(modifier.get('m_iMaxTargets'))
-                ability_data['DamagePerPulse'] = num_utils.assert_number(modifier.get('m_flDamagePerPulse'))
-                ability_data['PulseInterval'] = num_utils.assert_number(modifier.get('m_flTickRate'))
 
         if 'm_vecAbilityUpgrades' in ability:
             ability_data['Upgrades'] = self._parse_upgrades(ability)
@@ -143,7 +127,7 @@ class AbilityParser:
         elif 'm_strVAlue' in stat:
             value = stat['m_strVAlue']
         else:
-            return None
+            return
 
         return self._convert_stat(stat, key, value)
 
@@ -202,4 +186,4 @@ class AbilityParser:
                     'Type': maps.get_scale_type(scale.get('m_eSpecificStatScaleType', 'ETechPower')),
                 }
 
-        return None
+        return

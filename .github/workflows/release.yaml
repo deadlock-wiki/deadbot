@@ -35,12 +35,11 @@ jobs:
         if: github.event_name == 'pull_request'
         run: git fetch origin master:master
 
-      # Fails the CI as a reminder if version has not been incremented
-      - name: Version increment check
+      - name: Increment version
         if: github.event_name == 'pull_request'
         run: |
-          chmod +x ./.github/workflows/scripts/version_has_updated.sh 
-          ./.github/workflows/scripts/version_has_updated.sh 
+          chmod +x ./.github/workflows/scripts/increment_release_version.sh 
+          ./.github/workflows/scripts/increment_release_version.sh 
 
       # Set up BuildKit Docker container builder to be able to build
       # multi-platform images and export cache
