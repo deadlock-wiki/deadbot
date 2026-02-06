@@ -41,4 +41,4 @@ git config user.name "Deadbot0"
 
 git add pyproject.toml
 git commit -m "[skip ci] chore: bumped version to $NEW_VERSION" || echo "No changes to commit"
-git push --force-with-lease origin "$GITHUB_REF"
+git push --force-with-lease origin "$GITHUB_HEAD_REF"
