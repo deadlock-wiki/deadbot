@@ -34,11 +34,11 @@ fi
 
 echo "Updating version from $MASTER_VERSION to $NEW_VERSION"
 
-sed -i -E "s/version = \"[0-9]+\.[0-9]+\.[0-9]+\"/version = \"$NEW_VERSION\"/" "$FILE"
+sed -i '' "s/version = \"[^\"]*\"/version = \"$NEW_VERSION\"/" "$FILE"
 
 git config user.email "deadbot1101@gmail.com"
 git config user.name "Deadbot0"
 
-git add pyproject.toml
+git add $FILE
 git commit -m "[skip ci] chore: bumped version to $NEW_VERSION" || echo "No changes to commit"
 git push --force-with-lease origin "$GITHUB_HEAD_REF"
