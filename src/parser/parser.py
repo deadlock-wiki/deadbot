@@ -208,6 +208,10 @@ class Parser:
 
         stripped_abilities = {}
         for key, ability in parsed_abilities.items():
+            # Exclude Patron from being written to the public json to prevent it being tagged as a Hero Ability
+            if ability.get('Name') == 'Patron':
+                continue
+
             stripped_abilities[key] = json_utils.strip_zeroes(ability)
 
         json_utils.write(self.OUTPUT_DIR + '/json/ability-data.json', json_utils.sort_dict(stripped_abilities))
