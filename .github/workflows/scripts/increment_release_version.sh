@@ -37,7 +37,14 @@ echo "Updating version from $MASTER_VERSION to $NEW_VERSION"
 
 sed -i -E "s/version = \"[0-9]+\.[0-9]+\.[0-9]+\"/version = \"$NEW_VERSION\"/" "$FILE"
 
-git config --global user.email "deadbot1101@gmail.com"
-git config --global user.name "Deadbot0"
+git config user.email "deadbot1101@gmail.com"
+git config user.name "Deadbot0"
+
 git add pyproject.toml
-git commit -m "[skip ci] chore: bumped version to v$NEW_VERSION" || echo "No changes to commit"
+
+if git diff --cached --quiet; then
+  echo "No changes to commit"
+else
+  git commit -m "[skip ci] chore: bumped version to v$NEW_VERSION"
+  git push origin "$BRANCH_NAME"
+fi
