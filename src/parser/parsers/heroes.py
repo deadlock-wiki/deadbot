@@ -11,6 +11,11 @@ class HeroParser:
         self.parsed_abilities = parsed_abilities
         self.localizations = localizations
 
+        # Manually add localization for transformed Silver
+        base_name = self.localizations.get('hero_werewolf')
+        if base_name:
+            self.localizations['hero_werewolf_transformed'] = f'{base_name} (Transformed)'
+
         # Ability 4 on werewolf changes abilities 1, 2 and 3. So we will instead create a duplicate hero with its own key
         # in order to maintain the format of a hero having 4 abilities
         self.hero_data['hero_werewolf_transformed'] = self._create_werewolf_transformed()
