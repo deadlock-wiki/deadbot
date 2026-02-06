@@ -12,11 +12,11 @@ MASTER_VERSION=$(git show origin/master:$FILE | grep -Po '(?<=version = ")[0-9]+
 IFS='.' read -r MJR MNR PCH <<< "$MASTER_VERSION"
 
 # Release/vX.Y.Z branch directly sets the new version
-if [[ "$BRANCH_NAME" =~ ^release/v([0-9]+\.[0-9]+\.[0-9]+)$ ]]; then
+if [[ "$BRANCH_NAME" =~ ^release\/v([0-9]+\.[0-9]+\.[0-9]+) ]]; then
   NEW_VERSION="${BASH_REMATCH[1]}"
 
 # hotfix/* branch increments fix version
-elif [[ "$BRANCH_NAME" =~ ^hotfix/ ]]; then
+elif [[ "$BRANCH_NAME" =~ ^hotfix\/ ]]; then
   PCH=$((PCH + 1))
   NEW_VERSION="$MJR.$MNR.$PCH"
 
