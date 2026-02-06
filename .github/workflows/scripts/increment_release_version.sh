@@ -2,28 +2,27 @@
 set -e
 
 FILE="pyproject.toml"
-BRANCH="$BRANCH_NAME"
+BRANCH="${GITHUB_REF#refs/heads/}"
+# lowercase branch for matching
+BRANCH_NAME=${BRANCH,,}
 
 git fetch origin master
 
 MASTER_VERSION=$(git show origin/master:$FILE | grep -Po '(?<=version = ")[0-9]+\.[0-9]+\.[0-9]+')
 IFS='.' read -r MJR MNR PCH <<< "$MASTER_VERSION"
 
-# lowercase branch for matching
-BRANCH_LOWER=${BRANCH,,}
-
 # Release/vX.Y.Z branch directly sets the new version
-if [[ "$BRANCH_LOWER" =~ ^release/v([0-9]+\.[0-9]+\.[0-9]+)$ ]]; then
+if [[ "$BRANCH_NAME" =~ ^release/v([0-9]+\.[0-9]+\.[0-9]+)$ ]]; then
   NEW_VERSION="${BASH_REMATCH[1]}"
 
 # hotfix/* branch increments fix version
-elif [[ "$BRANCH_LOWER" == hotfix/* ]]; then
+elif [[ "$BRANCH_NAME" =~ ^hotfix/ ]]; then
   PCH=$((PCH + 1))
   NEW_VERSION="$MJR.$MNR.$PCH"
 
 # throw error if correct branching is not used
 else
-  echo "Branch must match 'Release/vX.Y.Z' or 'hotfix/*'"
+  echo "Branch must match 'release/vX.Y.Z' or 'hotfix/*'"
   exit 1
 fi
 
@@ -46,5 +45,5 @@ if git diff --cached --quiet; then
   echo "No changes to commit"
 else
   git commit -m "[skip ci] chore: bumped version to v$NEW_VERSION"
-  git push origin "$BRANCH_NAME"
+  git push origin "$GITHUB_REF"
 fi
