@@ -131,6 +131,27 @@ class ItemParser:
                 parent_name = key
             self._add_children_to_tree(parent_name, parsed_item_data['Components'])
 
+        property_upgrades = {}
+        vec_ability_upgrades = item_value.get('m_vecAbilityUpgrades', [])
+        for ability_upgrade in vec_ability_upgrades:
+            vec_property_upgrades = ability_upgrade.get('m_vecPropertyUpgrades', [])
+            for prop_upgrade in vec_property_upgrades:
+                prop_name = prop_upgrade.get('m_strPropertyName')
+                bonus_str = prop_upgrade.get('m_strBonus')
+
+                if not prop_name or bonus_str is None:
+                    continue
+
+                try:
+                    bonus_value = num_utils.assert_number(bonus_str)
+                except (ValueError, TypeError):
+                    continue
+
+                property_upgrades.setdefault(prop_name, []).append(bonus_value)
+
+        if property_upgrades:
+            parsed_item_data['PropertyUpgrades'] = property_upgrades
+
         return parsed_item_data
 
     def _extract_scaling(self, attr: Dict[str, Any], item_key: str, attr_key: str) -> Optional[Dict[str, Any]]:
