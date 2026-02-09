@@ -41,6 +41,10 @@ class AttributeParser:
         # Manually add DPS to the Weapon category
         all_attributes['Weapon']['DPS'] = {}
 
+        # Manually add Dash Speed stats to Vitality category (calculated from distance/duration)
+        all_attributes['Vitality']['GroundDashSpeed'] = {}
+        all_attributes['Vitality']['AirDashSpeed'] = {}
+
         # Determine the unlocalized name of each attribute that they should map to
         all_attributes.update(self._map_to_unlocalized(all_attributes))
 

@@ -118,6 +118,8 @@ ATTRIBUTE_MANUAL_MAP = {
         'label': 'OutOfCombatHealthRegen_label',
         'postfix': 'OutOfCombatHealthRegen_prefix',
     },
+    'GroundDashSpeed': {'label': 'StatDesc_DashSpeedInMeters', 'postfix': 'StatDesc_DashSpeedInMeters_postfix'},
+    'AirDashSpeed': {'label': 'StatDesc_DashSpeedInMeters', 'postfix': 'StatDesc_DashSpeedInMeters_postfix'},
 }
 
 
