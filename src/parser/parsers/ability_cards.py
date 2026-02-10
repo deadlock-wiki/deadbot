@@ -92,7 +92,9 @@ class AbilityCardsParser:
             parsed_ui['DescKey'] = ability_desc_key
 
             # update localization file with formatted description
-            self.localization_updates[ability_desc_key] = ability_desc
+            # Prioritize released heroes to prevent WIP hero names from overwriting live ones
+            if not self.hero.get('InDevelopment', False) or ability_desc_key not in self.localization_updates:
+                self.localization_updates[ability_desc_key] = ability_desc
 
         raw_ability = self._get_raw_ability()
 
@@ -151,7 +153,8 @@ class AbilityCardsParser:
                     description = string_utils.format_description(description, *format_vars)
 
                     # update localization file with formatted description
-                    self.localization_updates[desc_key] = description
+                    if not self.hero.get('InDevelopment', False) or desc_key not in self.localization_updates:
+                        self.localization_updates[desc_key] = description
 
             # some blocks might just be a description
             if 'm_vecAbilityPropertiesBlock' in info_section:
@@ -396,7 +399,8 @@ class AbilityCardsParser:
                 upgrade_desc = self._format_desc(desc_key, upgrade)
 
                 # update localization file with formatted description
-                self.localization_updates[desc_key] = upgrade_desc
+                if not self.hero.get('InDevelopment', False) or desc_key not in self.localization_updates:
+                    self.localization_updates[desc_key] = upgrade_desc
                 upgrade['DescKey'] = desc_key
 
             parsed_upgrades.append(upgrade)
