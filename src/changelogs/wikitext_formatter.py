@@ -75,16 +75,18 @@ def format_changelog(
     if not sorted_names:
         return wikitext
 
-    # Create a single regex to find all entity names.
-    # We escape the names to handle special regex characters (like dots or parenthesis).
+    # Create a single regex to find all entity names. The pattern is built from the
+    # length-sorted list, using word boundaries (\b) to prevent partial matches.
     pattern_str = r'\b(' + '|'.join(re.escape(name) for name in sorted_names) + r')\b'
     pattern = re.compile(pattern_str)
 
+    # Define a replacer function to look up the template for a matched name.
     def replace_with_template(match: re.Match) -> str:
         matched_name = match.group(0)
         # Fallback to the original name if it's somehow not in the map.
         return entity_to_template.get(matched_name, matched_name)
 
+    # Apply the replacement across the entire text.
     wikitext = pattern.sub(replace_with_template, wikitext)
 
     return wikitext

@@ -9,9 +9,8 @@ from . import wikitext_formatter
 
 
 class ChangelogParser:
-    def __init__(self, output_dir, input_dir):
+    def __init__(self, output_dir):
         self.OUTPUT_DIR = output_dir
-        self.INPUT_DIR = input_dir
         self.OUTPUT_CHANGELOGS = self.OUTPUT_DIR + '/changelogs'
         self.resources = self._get_resources()
         self.localization_en = self.get_lang_en()
@@ -85,10 +84,10 @@ class ChangelogParser:
                 if isinstance(link_targets, dict):
                     logger.trace(f'Loaded {len(link_targets)} link targets for changelogs.')
                 else:
-                    logger.warning('changelog_link_targets.json format is invalid (expected dict). Skipping wiki links.')
+                    logger.warning('link_targets.json format is invalid (expected dict). Skipping wiki links.')
                     link_targets = {}
         except Exception as e:
-            logger.warning(f'Could not load changelog_link_targets.json: {e}')
+            logger.warning(f'Could not load link_targets.json: {e}')
 
         output_path = os.path.join(self.OUTPUT_DIR, 'changelogs', 'wiki')
         os.makedirs(output_path, exist_ok=True)
