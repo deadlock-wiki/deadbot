@@ -45,6 +45,13 @@ class HeroParser:
                 # Change formatting on some numbers to match whats shown in game
                 hero_stats['StaminaCooldown'] = 1 / hero_stats['StaminaRegenPerSecond']
 
+                # Calculate dash speeds (distance / duration)
+                if 'GroundDashDistanceInMeters' in hero_stats and 'GroundDashDuration' in hero_stats:
+                    hero_stats['GroundDashSpeed'] = round_sig_figs(hero_stats['GroundDashDistanceInMeters'] / hero_stats['GroundDashDuration'], 3)
+
+                if 'AirDashDistanceInMeters' in hero_stats and 'AirDashDuration' in hero_stats:
+                    hero_stats['AirDashSpeed'] = round_sig_figs(hero_stats['AirDashDistanceInMeters'] / hero_stats['AirDashDuration'], 3)
+
                 # Convert scale values to percentages and rename keys for clarity
                 received_scale = hero_stats.pop('CritDamageReceivedScale')
                 hero_stats['CritDamageReceivedPercent'] = round_sig_figs((1 - received_scale) * 100, 5)
