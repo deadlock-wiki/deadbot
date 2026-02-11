@@ -9,8 +9,9 @@ from . import wikitext_formatter
 
 
 class ChangelogParser:
-    def __init__(self, output_dir):
+    def __init__(self, output_dir, input_dir):
         self.OUTPUT_DIR = output_dir
+        self.INPUT_DIR = input_dir
         self.OUTPUT_CHANGELOGS = self.OUTPUT_DIR + '/changelogs'
         self.resources = self._get_resources()
         self.localization_en = self.get_lang_en()
@@ -75,6 +76,20 @@ class ChangelogParser:
             logger.error(f'Could not find required data files for changelog formatting: {e}. Skipping wikitext generation.')
             return
 
+        # Load link targets (curated whitelist)
+        link_targets = {}
+        try:
+            link_targets_path = os.path.join(os.path.dirname(__file__), 'link_targets.json')
+            if os.path.exists(link_targets_path):
+                link_targets = json_utils.read(link_targets_path, ignore_error=True) or {}
+                if isinstance(link_targets, dict):
+                    logger.trace(f'Loaded {len(link_targets)} link targets for changelogs.')
+                else:
+                    logger.warning('changelog_link_targets.json format is invalid (expected dict). Skipping wiki links.')
+                    link_targets = {}
+        except Exception as e:
+            logger.warning(f'Could not load changelog_link_targets.json: {e}')
+
         output_path = os.path.join(self.OUTPUT_DIR, 'changelogs', 'wiki')
         os.makedirs(output_path, exist_ok=True)
 
@@ -95,7 +110,7 @@ class ChangelogParser:
                 logger.warning(f"Changelog '{changelog_id}' is missing a date. Skipping wiki page creation.")
                 continue
 
-            formatted_body = wikitext_formatter.format_changelog(raw_text, hero_data, item_data, ability_data)
+            formatted_body = wikitext_formatter.format_changelog(raw_text, hero_data, item_data, ability_data, link_targets=link_targets)
 
             date_obj = datetime.strptime(changelog_date, '%Y-%m-%d')
 

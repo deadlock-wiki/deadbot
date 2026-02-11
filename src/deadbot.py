@@ -96,7 +96,7 @@ def act_changelog_parse(args: Args):
     )
     chlog_fetcher.run()
 
-    chlog_parser = parse_changelogs.ChangelogParser(args.output)
+    chlog_parser = parse_changelogs.ChangelogParser(args.output, args.inputdir)
     chlog_parser.run_all(chlog_fetcher.changelogs)
     chlog_parser.format_and_save_wikitext_changelogs(
         chlog_fetcher.changelogs,
