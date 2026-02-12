@@ -47,6 +47,7 @@ IGNORE_KEYS = [
     'TurretHealthScaling',
     'DisarmDuration',
     '​ไซเลนเซอร์​adius',
+    '',
 ]
 
 
