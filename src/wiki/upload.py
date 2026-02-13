@@ -57,7 +57,7 @@ class WikiUpload:
     def _get_existing_update_pages(self) -> List[Tuple[datetime, str]]:
         """
         Fetch all Update pages from wiki and return list of (date, title) tuples.
-        Simplified by replacing underscores with spaces per maintainer suggestion.
+        Simplified by replacing underscores with spaces.
         """
         update_pages = []
         try:
@@ -153,6 +153,7 @@ class WikiUpload:
         hotfixes_path = os.path.join(self.OUTPUT_DIR, 'changelogs/hotfixes.json')
         hotfixes = json_utils.read(hotfixes_path, ignore_error=True)
         if not hotfixes:
+            logger.info('No hotfixes detected to append')
             return
 
         logger.info(f'Processing {len(hotfixes)} hotfixes for appending...')
@@ -164,13 +165,13 @@ class WikiUpload:
                 page = self.site.pages[page_title]
 
                 if not page.exists:
-                    logger.trace(f'Skipping hotfix append for {page_title} as page does not exist.')
+                    logger.warning(f'Cannot append hotfix to {page_title} - page does not exist')
                     continue
 
                 current_text = page.text()
                 # Idempotency check: don't append if the text is already there
                 if hotfix['text'] in current_text:
-                    logger.trace(f'Hotfix for {page_title} already exists on wiki, skipping.')
+                    logger.info(f'Hotfix for {page_title} already exists on wiki, skipping.')
                     continue
 
                 # Perform the append before the closing }} of the layout template
