@@ -108,12 +108,11 @@ class ChangelogFetcher:
                 logger.trace(f'Using local file content for {date_key}')
                 return content
 
-        # 2. Check wiki if connection is available (manual pages, etc.)
-        if self.wiki_site:
-            content = self._get_wiki_content(date_key)
-            if content:
-                logger.info(f'Using wiki page content for {date_key}')
-                return content
+        # 2. Check wiki page content if local file doesn't exist
+        content = self._get_wiki_content(date_key)
+        if content:
+            logger.info(f'Using wiki page content for {date_key}')
+            return content
 
         # 3. No existing content found
         return ''
