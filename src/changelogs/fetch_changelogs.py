@@ -72,14 +72,7 @@ class ChangelogFetcher:
 
         self.TAGS_TO_REMOVE = ['<ul>', '</ul>', '<b>', '</b>', '<i>', '</i>']
 
-        # Initialize wiki connection for checking existing pages
         self.wiki_site = None
-        try:
-            self.wiki_site = mwclient.Site('deadlock.wiki', path='/')
-            logger.info('Connected to wiki for changelog fetching (read-only)')
-        except Exception as e:
-            logger.warning(f'Could not connect to wiki: {e}. Will only check local files.')
-            self.wiki_site = None
 
         self._load_input_data()
 
@@ -136,8 +129,13 @@ class ChangelogFetcher:
         Returns:
             str: Notes content from wiki page or empty string
         """
-        if not self.wiki_site:
-            return ''
+        if self.wiki_site is None:
+            try:
+                self.wiki_site = mwclient.Site('deadlock.wiki', path='/')
+                logger.info('Connected to wiki for changelog fetching (read-only)')
+            except Exception as e:
+                logger.warning(f'Could not connect to wiki: {e}. Will only check local files.')
+                return ''
 
         try:
             date_obj = datetime.strptime(date_key, '%Y-%m-%d')
@@ -168,6 +166,17 @@ class ChangelogFetcher:
         except Exception as e:
             logger.trace(f'Could not fetch wiki content for {date_key}: {e}')
             return ''
+
+    def _normalize_text_for_comparison(self, text: str) -> str:
+        """Strip formatting differences to allow comparison between wiki and forum text"""
+        # Strip icon templates
+        text = re.sub(r'\{\{(?:Hero|Item|Ability)Icon\|([^}]+)\}\}', r'\1', text)
+        # Strip bullet points
+        text = re.sub(r'^\s*[*\-]\s+', '', text, flags=re.MULTILINE)
+        # Normalize whitespace
+        text = '\n'.join(line.strip() for line in text.splitlines())
+        text = re.sub(r'\n{3,}', '\n\n', text).strip()
+        return text
 
     def _get_patch_section(self, header: str, full_text: str) -> str:
         """
@@ -486,9 +495,12 @@ class ChangelogFetcher:
             # If we have existing content and new content is different,
             # treat it as an append rather than a replacement
             if old_text and main_entry:
-                # Check if this content is genuinely new
-                main_text_clean = main_entry['text'].replace('=== Patch 2 ===\n', '').strip()
-                if main_entry['text'] not in old_text and main_text_clean not in old_text:
+                old_normalized = self._normalize_text_for_comparison(old_text)
+                main_normalized = self._normalize_text_for_comparison(main_entry['text'])
+                main_text_clean = re.sub(r'=== Patch \d+ ===\n*', '', main_entry['text']).strip()
+                main_clean_normalized = self._normalize_text_for_comparison(main_text_clean)
+
+                if main_normalized not in old_normalized and main_clean_normalized not in old_normalized:
                     logger.info(f'Detected new forum content for existing page {date_key}, treating as append')
                     # Move main_entry to append_entries since we already have base content
                     append_entries.insert(0, main_entry)
@@ -515,8 +527,10 @@ class ChangelogFetcher:
                 entry_text = entry['text']
                 entry_text = re.sub(r'=== Patch \d+ ===\n*', '', entry_text).strip()
 
-                # Check if this content is already present
-                if entry_text not in final_text:
+                entry_normalized = self._normalize_text_for_comparison(entry_text)
+                final_normalized = self._normalize_text_for_comparison(final_text)
+
+                if entry_normalized not in final_normalized:
                     patch_num = get_next_patch_num(final_text)
                     final_text += f'\n\n=== Patch {patch_num} ===\n\n{entry_text}'
                     logger.debug(f'Adding Patch {patch_num} to {date_key}')
@@ -534,9 +548,21 @@ class ChangelogFetcher:
             self.changelogs[changelog_id] = final_text
 
             self.changelog_configs[changelog_id] = {
-                'forum_id': main_entry['version'] if main_entry else existing_config.get('forum_id'),
+                'forum_id': main_entry['version']
+                if main_entry
+                else existing_config.get('forum_id')
+                if existing_config
+                else append_entries[0]['version']
+                if append_entries
+                else None,
                 'date': date_key,
-                'link': main_entry['link'] if main_entry else existing_config.get('link'),
+                'link': main_entry['link']
+                if main_entry
+                else existing_config.get('link')
+                if existing_config
+                else append_entries[0]['link']
+                if append_entries
+                else None,
                 'is_hero_lab': False,
             }
 
