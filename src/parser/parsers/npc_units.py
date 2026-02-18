@@ -114,6 +114,11 @@ class NpcParser:
         if isinstance(data, dict):
             parsed = {}
 
+            # Extract value from standard stat objects to allow unit conversion
+            if 'm_strValue' in data:
+                raw_value = data.get('m_strValue')
+                return num_utils.assert_number(raw_value)
+
             # 1. Special Handling: Flatten Intrinsic Modifiers / Script Values
             # We merge these into the 'parsed' dict instead of returning early
             if 'm_vecScriptValues' in data and isinstance(data['m_vecScriptValues'], list):
