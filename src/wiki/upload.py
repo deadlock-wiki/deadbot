@@ -222,8 +222,9 @@ class WikiUpload:
             title (str): The full title of the page (e.g., "Update:May_27,_2025").
             content (str): The wikitext content for the page.
         """
-        page = self.site.pages[title]
-        if page.exists:
+        existing_titles = {t for _, t in self.wiki_updates}
+        normalized_title = title.replace('_', ' ')
+        if normalized_title in existing_titles:
             logger.trace(f'Page "{title}" already exists, skipping creation.')
             return
 
@@ -231,6 +232,7 @@ class WikiUpload:
         if self.dry_run:
             return
 
+        page = self.site.pages[title]
         page.save(content, summary=self.upload_message)
         logger.success(f'Successfully saved page "{title}"')
 
@@ -315,7 +317,7 @@ class WikiUpload:
 
         # Regex handles various whitespace patterns.
         # Pattern stops at newline followed by | (next parameter), newline followed by }} (end), or end of string.
-        pattern = r'(\|\s*next_update\s*=\s*)(.*?)(?=\n\||\n\}\}|\Z)'
+        pattern = r'(\|\s*next_update\s*=[ \t]*)(.*?)(?=\n\||\n\}\}|\Z)'
 
         if not re.search(pattern, current_text, re.DOTALL):
             logger.warning(f"Could not find '| next_update =' parameter in {prev_title}")
