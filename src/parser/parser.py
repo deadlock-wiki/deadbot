@@ -254,7 +254,7 @@ class Parser:
             modifiers_data=self.data['scripts']['modifiers'],
             misc_data=self.data['scripts']['misc'],
             localizations=self.localizations[self.language],
-            parsed_abilities=parsed_abilities,
+            abilities_data=self.data['scripts']['abilities'],
         ).run()
 
         json_utils.write(self.OUTPUT_DIR + '/json/npc-data.json', json_utils.sort_dict(parsed_npcs))

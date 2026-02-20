@@ -2,6 +2,7 @@ from loguru import logger
 import utils.json_utils as json_utils
 import utils.num_utils as num_utils
 from utils.num_utils import convert_engine_units_to_meters
+from . import weapon_parser
 
 
 class NpcParser:
@@ -12,16 +13,16 @@ class NpcParser:
     Filters out audiovisual data (particles, sounds, models) to focus on gameplay stats.
     """
 
-    def __init__(self, npc_units_data, modifiers_data, misc_data, localizations, parsed_abilities):
+    def __init__(self, npc_units_data, modifiers_data, misc_data, localizations, abilities_data):
         self.npc_units_data = npc_units_data
         self.modifiers_data = modifiers_data
         self.misc_data = misc_data
         self.localizations = localizations
-        self.parsed_abilities = parsed_abilities
+        self.abilities_data = abilities_data
 
         # Define prefixes
         # m_nav is added to prevent m_n from matching m_navHull -> avHull
-        raw_prefixes = ['m_fl', 'm_b', 'm_n', 'm_i', 'm_str', 'm_vec', 'm_map', 'm_e', 'm_s', 'm_', 'm_nav', 'MODIFIER_VALUE_']
+        raw_prefixes = ['m_fl', 'm_b', 'm_n', 'm_i', 'm_str', 'm_vec', 'm_map', 'm_e', 'm_subclass', 'm_s', 'm_', 'm_nav', 'MODIFIER_VALUE_']
 
         # Sort by length descending to ensure "m_nav" (len 5) is matched before "m_n" (len 3)
         self.PREFIXES = sorted(raw_prefixes, key=len, reverse=True)
@@ -55,6 +56,11 @@ class NpcParser:
             'Display',
             'Localization',
             'NearDeathModifier',
+            '_multibase',
+            '_editor',
+            'itsPostCastEnabledStateMask',
+            'itsChannelEnabledStateMask',
+            'itsPreCastEnabledStateMask',
         ]
 
         # Exceptions to the blocklist (stats that might contain blocked words)
@@ -87,9 +93,9 @@ class NpcParser:
                 # 4. Enhance with external data (Spawn times, Shields from modifiers file)
                 self._enhance_with_external_data(key, parsed_data)
 
-                # 5. Clean up BoundAbilities (map keys to names)
+                # 5. Parse BoundAbilities using generic parser to capture all nested data
                 if 'BoundAbilities' in parsed_data:
-                    parsed_data['BoundAbilities'] = self._resolve_abilities(parsed_data['BoundAbilities'])
+                    parsed_data['BoundAbilities'] = self._parse_npc_abilities(parsed_data['BoundAbilities'])
 
                 all_npcs[key] = json_utils.sort_dict(parsed_data)
 
@@ -108,6 +114,11 @@ class NpcParser:
         if isinstance(data, dict):
             parsed = {}
 
+            # Extract value from standard stat objects to allow unit conversion
+            if 'm_strValue' in data:
+                raw_value = data.get('m_strValue')
+                return num_utils.assert_number(raw_value)
+
             # 1. Special Handling: Flatten Intrinsic Modifiers / Script Values
             # We merge these into the 'parsed' dict instead of returning early
             if 'm_vecScriptValues' in data and isinstance(data['m_vecScriptValues'], list):
@@ -123,6 +134,11 @@ class NpcParser:
 
                 # Check Blocklist
                 if self._is_blocked(clean_key):
+                    continue
+
+                # Special handling for WeaponInfo - parse using shared weapon parser
+                if clean_key == 'WeaponInfo' and isinstance(value, dict):
+                    parsed[clean_key] = weapon_parser.parse_weapon_info(value)
                     continue
 
                 parsed_val = self._recursive_parse(value)
@@ -231,27 +247,39 @@ class NpcParser:
                 flat[modifier_enum] = val
         return flat
 
-    def _resolve_abilities(self, bound_abilities):
+    def _parse_npc_abilities(self, bound_abilities):
         """
-        Maps ability keys (citadel_ability_...) to their full stats or human-readable names.
+        Parse NPC abilities using generic recursive parsing.
+        This captures all custom nested data structures (weapons, modifiers, etc.).
         """
         if not isinstance(bound_abilities, dict):
             return bound_abilities
 
         resolved = {}
-        for slot, key in bound_abilities.items():
-            if key in self.parsed_abilities:
-                # Copy full ability stats from abilities parser
-                ability_data = self.parsed_abilities[key].copy()
-                ability_data['Key'] = key  # Ensure the key is explicitly set
-                resolved[slot] = ability_data
-            else:
+        for slot, ability_key in bound_abilities.items():
+            # Get raw ability data
+            raw_ability = self.abilities_data.get(ability_key)
+
+            if not raw_ability:
                 # Fallback for missing abilities
-                ability_info = {
-                    'Key': key,
-                    'Name': self.localizations.get(key, key),
+                resolved[slot] = {
+                    'Key': ability_key,
+                    'Name': self.localizations.get(ability_key, ability_key),
                 }
-                resolved[slot] = ability_info
+                continue
+
+            # Use generic recursive parsing to capture everything
+            parsed_ability = self._recursive_parse(raw_ability)
+
+            if not isinstance(parsed_ability, dict):
+                parsed_ability = {}
+
+            # Ensure key metadata is present
+            parsed_ability['Key'] = ability_key
+            parsed_ability['Name'] = self.localizations.get(ability_key, ability_key)
+
+            resolved[slot] = parsed_ability
+
         return resolved
 
     def _enhance_with_external_data(self, npc_key, parsed_data):
