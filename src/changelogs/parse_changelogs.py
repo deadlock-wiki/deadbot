@@ -75,6 +75,21 @@ class ChangelogParser:
             logger.error(f'Could not find required data files for changelog formatting: {e}. Skipping wikitext generation.')
             return
 
+        # Load link targets (curated whitelist)
+        link_targets = {}
+        try:
+            link_targets_path = os.path.join(os.path.dirname(__file__), 'link_targets.json')
+            if os.path.exists(link_targets_path):
+                link_targets = json_utils.read(link_targets_path, ignore_error=True) or {}
+                if isinstance(link_targets, dict):
+                    total_aliases = sum(len(aliases) for aliases in link_targets.values())
+                    logger.trace(f'Loaded {len(link_targets)} link target pages ({total_aliases} total aliases) for changelogs.')
+                else:
+                    logger.warning('link_targets.json format is invalid (expected dict). Skipping wiki links.')
+                    link_targets = {}
+        except Exception as e:
+            logger.warning(f'Could not load link_targets.json: {e}')
+
         output_path = os.path.join(self.OUTPUT_DIR, 'changelogs', 'wiki')
         os.makedirs(output_path, exist_ok=True)
 
@@ -95,7 +110,7 @@ class ChangelogParser:
                 logger.warning(f"Changelog '{changelog_id}' is missing a date. Skipping wiki page creation.")
                 continue
 
-            formatted_body = wikitext_formatter.format_changelog(raw_text, hero_data, item_data, ability_data)
+            formatted_body = wikitext_formatter.format_changelog(raw_text, hero_data, item_data, ability_data, link_targets=link_targets)
 
             date_obj = datetime.strptime(changelog_date, '%Y-%m-%d')
 
