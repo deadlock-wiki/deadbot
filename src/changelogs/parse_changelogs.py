@@ -82,7 +82,8 @@ class ChangelogParser:
             if os.path.exists(link_targets_path):
                 link_targets = json_utils.read(link_targets_path, ignore_error=True) or {}
                 if isinstance(link_targets, dict):
-                    logger.trace(f'Loaded {len(link_targets)} link targets for changelogs.')
+                    total_aliases = sum(len(aliases) for aliases in link_targets.values())
+                    logger.trace(f'Loaded {len(link_targets)} link target pages ({total_aliases} total aliases) for changelogs.')
                 else:
                     logger.warning('link_targets.json format is invalid (expected dict). Skipping wiki links.')
                     link_targets = {}
