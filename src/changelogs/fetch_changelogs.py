@@ -89,34 +89,6 @@ class ChangelogFetcher:
             changelog_id = file.replace('.txt', '')
             self.changelogs[changelog_id] = raw_changelog
 
-    def _get_existing_content(self, date_key: str) -> str:
-        """
-        Get existing changelog content from available sources.
-        Checks local files first (fastest), then wiki if available.
-
-        Args:
-            date_key: Date in YYYY-MM-DD format
-
-        Returns:
-            str: Existing content or empty string if none found
-        """
-        # 1. Check local input files first (no API calls needed)
-        local_path = os.path.join(self.INPUT_DIR, 'changelogs/raw', f'{date_key}.txt')
-        if os.path.exists(local_path):
-            content = file_utils.read(local_path)
-            if content:
-                logger.trace(f'Using local file content for {date_key}')
-                return content
-
-        # 2. Check wiki page content if local file doesn't exist
-        content = self._get_wiki_content(date_key)
-        if content:
-            logger.info(f'Using wiki page content for {date_key}')
-            return content
-
-        # 3. No existing content found
-        return ''
-
     def _get_wiki_content(self, date_key: str) -> str:
         """
         Fetch existing changelog content from wiki page.
@@ -165,17 +137,6 @@ class ChangelogFetcher:
         except Exception as e:
             logger.trace(f'Could not fetch wiki content for {date_key}: {e}')
             return ''
-
-    def _normalize_text_for_comparison(self, text: str) -> str:
-        """Strip formatting differences to allow comparison between wiki and forum text"""
-        # Strip icon templates
-        text = re.sub(r'\{\{(?:Hero|Item|Ability)Icon\|([^}]+)\}\}', r'\1', text)
-        # Strip bullet points
-        text = re.sub(r'^\s*[*\-]\s+', '', text, flags=re.MULTILINE)
-        # Normalize whitespace
-        text = '\n'.join(line.strip() for line in text.splitlines())
-        text = re.sub(r'\n{3,}', '\n\n', text).strip()
-        return text
 
     def _get_patch_section(self, header: str, full_text: str) -> str:
         """
@@ -469,8 +430,12 @@ class ChangelogFetcher:
         for date_key, entries in updates_by_day.items():
             changelog_id = date_key
 
-            # Check for existing content from ANY source (local or wiki)
-            old_text = self._get_existing_content(changelog_id)
+            # Check for local file first (already processed by bot)
+            local_path = os.path.join(self.INPUT_DIR, 'changelogs/raw', f'{changelog_id}.txt')
+            local_content = file_utils.read(local_path) if os.path.exists(local_path) else ''
+
+            # Check for wiki page (manual pages created by editors)
+            wiki_content = self._get_wiki_content(changelog_id) if not local_content else ''
 
             existing_config = self.changelog_configs.get(changelog_id)
 
@@ -491,25 +456,22 @@ class ChangelogFetcher:
                 main_entry = entries[0]
                 append_entries = entries[1:]
 
-            # If we have existing content and new content is different,
-            # treat it as an append rather than a replacement
-            if old_text and main_entry:
-                old_normalized = self._normalize_text_for_comparison(old_text)
-                main_normalized = self._normalize_text_for_comparison(main_entry['text'])
-                main_text_clean = re.sub(r'=== Patch \d+ ===\n*', '', main_entry['text']).strip()
-                main_clean_normalized = self._normalize_text_for_comparison(main_text_clean)
-
-                if main_normalized not in old_normalized and main_clean_normalized not in old_normalized:
-                    logger.info(f'Detected new forum content for existing page {date_key}, treating as append')
-                    # Move main_entry to append_entries since we already have base content
-                    append_entries.insert(0, main_entry)
-                    current_text = old_text
-                    main_entry = None
-                else:
-                    current_text = main_entry['text'] if main_entry else old_text
+            # Determine base content and whether to append
+            if local_content:
+                # Local file exists - use it as base, don't append to file
+                # (will still check for hotfixes to append to wiki later)
+                current_text = local_content
+            elif wiki_content and main_entry:
+                # Wiki page exists but no local file - append forum content to wiki
+                logger.info(f'Found wiki page for {date_key} without local file, appending forum content')
+                append_entries.insert(0, main_entry)
+                current_text = wiki_content
+                main_entry = None
             else:
-                # Set Base Text
+                # No existing content - use forum as base
                 current_text = main_entry['text'] if main_entry else (self.changelogs.get(changelog_id, ''))
+
+            old_text = local_content or wiki_content or ''
 
             # Helper to get next patch number
             def get_next_patch_num(txt):
@@ -526,10 +488,8 @@ class ChangelogFetcher:
                 entry_text = entry['text']
                 entry_text = re.sub(r'=== Patch \d+ ===\n*', '', entry_text).strip()
 
-                entry_normalized = self._normalize_text_for_comparison(entry_text)
-                final_normalized = self._normalize_text_for_comparison(final_text)
-
-                if entry_normalized not in final_normalized:
+                # Skip if this content is already in final_text (prevents duplicates)
+                if entry_text not in final_text:
                     patch_num = get_next_patch_num(final_text)
                     final_text += f'\n\n=== Patch {patch_num} ===\n\n{entry_text}'
                     logger.debug(f'Adding Patch {patch_num} to {date_key}')
