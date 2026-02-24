@@ -506,22 +506,30 @@ class ChangelogFetcher:
             # Save to memory and update config
             self.changelogs[changelog_id] = final_text
 
+            # Determine forum_id with priority: main_entry > existing_config > append_entries
+            if main_entry:
+                forum_id = main_entry['version']
+            elif existing_config:
+                forum_id = existing_config.get('forum_id')
+            elif append_entries:
+                forum_id = append_entries[0]['version']
+            else:
+                forum_id = None
+
+            # Determine link with same priority
+            if main_entry:
+                link = main_entry['link']
+            elif existing_config:
+                link = existing_config.get('link')
+            elif append_entries:
+                link = append_entries[0]['link']
+            else:
+                link = None
+
             self.changelog_configs[changelog_id] = {
-                'forum_id': main_entry['version']
-                if main_entry
-                else existing_config.get('forum_id')
-                if existing_config
-                else append_entries[0]['version']
-                if append_entries
-                else None,
+                'forum_id': forum_id,
                 'date': date_key,
-                'link': main_entry['link']
-                if main_entry
-                else existing_config.get('link')
-                if existing_config
-                else append_entries[0]['link']
-                if append_entries
-                else None,
+                'link': link,
                 'is_hero_lab': False,
             }
 
