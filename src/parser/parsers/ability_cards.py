@@ -2,7 +2,7 @@ from utils import num_utils
 import utils.string_utils as string_utils
 from loguru import logger
 
-SUPPORTED_LANGS = ['english', 'russian']
+SUPPORTED_LANGS = ['english']
 
 
 class AbilityCardsParser:
@@ -68,6 +68,11 @@ class AbilityCardsParser:
 
         return (output, self.localization_updates)
 
+    def _update_localization(self, key: str, value: str):
+        """Update localization, prioritizing released heroes over unreleased ones."""
+        if not self.hero.get('InDevelopment', False) or key not in self.localization_updates:
+            self.localization_updates[key] = value
+
     def _parse_ability_card(self, ability):
         self.ability = ability
         self.ability_key = ability['Key']
@@ -91,8 +96,8 @@ class AbilityCardsParser:
             ability_desc = string_utils.format_description(ability_desc, *format_vars)
             parsed_ui['DescKey'] = ability_desc_key
 
-            # update localization file with formatted description
-            self.localization_updates[ability_desc_key] = ability_desc
+            # Prioritize released heroes to prevent WIP hero names from overwriting live ones
+            self._update_localization(ability_desc_key, ability_desc)
 
         raw_ability = self._get_raw_ability()
 
@@ -158,7 +163,7 @@ class AbilityCardsParser:
                     description = string_utils.format_description(description, *format_vars)
 
                     # update localization file with formatted description
-                    self.localization_updates[desc_key] = description
+                    self._update_localization(desc_key, description)
 
             # some blocks might just be a description
             if 'm_vecAbilityPropertiesBlock' in info_section:
@@ -402,7 +407,7 @@ class AbilityCardsParser:
                 upgrade_desc = self._format_desc(desc_key, upgrade)
 
                 # update localization file with formatted description
-                self.localization_updates[desc_key] = upgrade_desc
+                self._update_localization(desc_key, upgrade_desc)
                 upgrade['DescKey'] = desc_key
 
             parsed_upgrades.append(upgrade)
@@ -482,6 +487,7 @@ class AbilityCardsParser:
 
         # required variables to insert into the description
         format_vars = (
+            self.ability,
             overrides,
             format_data,
             {'ability_key': self.ability_index},

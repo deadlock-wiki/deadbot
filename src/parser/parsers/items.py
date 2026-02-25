@@ -9,13 +9,12 @@ from loguru import logger
 
 
 class ItemParser:
-    nodes = []
-    links = []
-
     def __init__(self, abilities_data, generic_data, localizations):
         self.abilities_data = abilities_data
         self.generic_data = generic_data
         self.localizations = localizations
+        self.nodes = []
+        self.links = []
 
     def run(self):
         all_items = {}
@@ -23,9 +22,14 @@ class ItemParser:
             ability = self.abilities_data[key]
             if type(ability) is not dict:
                 continue
+
+            # Skip the base class for cosmetics
+            if key == 'cosmetic_base':
+                continue
+
             if 'm_eAbilityType' not in ability:
                 continue
-            if ability['m_eAbilityType'] != 'EAbilityType_Item':
+            if ability['m_eAbilityType'] not in ['EAbilityType_Item', 'EAbilityType_Cosmetic']:
                 continue
             try:
                 all_items[key] = self._parse_item(key)
@@ -38,7 +42,7 @@ class ItemParser:
     def _parse_item(self, key):
         ability = self.abilities_data[key]
         item_value = ability
-        item_ability_attrs = item_value['m_mapAbilityProperties']
+        item_ability_attrs = item_value.get('m_mapAbilityProperties', {})
 
         # Assign target types
         target_types = None
@@ -55,17 +59,22 @@ class ItemParser:
         if tier is not None:
             cost = self.generic_data['m_nItemPricePerTier'][int(tier)]
 
+        # Determine if the item is in Street Brawl.
+        requirements = item_value.get('m_eAbilityRequirements', '')
+        is_street_brawl = 'ERequirementStreetBrawl' in [r.strip() for r in requirements.split('|')]
+
         parsed_item_data = {
             'Name': self.localizations.get(key),
             'Description': '',
             'Cost': cost,
             'Tier': int(tier) if tier is not None else None,
-            'Activation': maps.get_ability_activation(item_value['m_eAbilityActivation']),
+            'Activation': maps.get_ability_activation(item_value.get('m_eAbilityActivation')),
             'Slot': maps.get_slot_type(item_value.get('m_eItemSlotType')),
             'Components': None,
             'TargetTypes': target_types,
             'ShopFilters': shop_filters,
             'IsDisabled': self._is_disabled(item_value),
+            'StreetBrawl': is_street_brawl,
         }
 
         # Process attributes and extract scaling information
@@ -84,6 +93,23 @@ class ItemParser:
                 parsed_item_data[attr_key] = value
             else:
                 logger.trace(f'Missing m_strValue attr in item {key} attribute {attr_key}')
+
+        if 'm_iMaxLevel' in item_value:
+            parsed_item_data['MaxLevel'] = item_value['m_iMaxLevel']
+
+        # Extract progression stats (e.g. for seasonal items like Snowball)
+        progression = {}
+        for k, v in item_value.items():
+            if k.startswith('m_progression'):
+                prop_name = k.replace('m_progression', '')
+                if isinstance(v, dict) and 'm_mapLevelsToValue' in v:
+                    prog_entry = {'Levels': v['m_mapLevelsToValue']}
+                    if 'm_eBetweenBehavior' in v:
+                        prog_entry['Behavior'] = v['m_eBetweenBehavior']
+                    progression[prop_name] = prog_entry
+
+        if progression:
+            parsed_item_data['Progression'] = progression
 
         # ignore description formatting for disabled items
         if not parsed_item_data['IsDisabled']:
@@ -105,7 +131,28 @@ class ItemParser:
                 parent_name = key
             self._add_children_to_tree(parent_name, parsed_item_data['Components'])
 
+        property_upgrades = self._parse_property_upgrades(item_value)
+        if property_upgrades:
+            parsed_item_data['PropertyUpgrades'] = property_upgrades
+
         return parsed_item_data
+
+    def _parse_property_upgrades(self, item_value):
+        property_upgrades = {}
+        vec_ability_upgrades = item_value.get('m_vecAbilityUpgrades', [])
+        for ability_upgrade in vec_ability_upgrades:
+            vec_property_upgrades = ability_upgrade.get('m_vecPropertyUpgrades', [])
+            for prop_upgrade in vec_property_upgrades:
+                prop_name = prop_upgrade.get('m_strPropertyName')
+                bonus_str = prop_upgrade.get('m_strBonus')
+
+                if not prop_name or bonus_str is None:
+                    continue
+
+                bonus_value = num_utils.assert_number(bonus_str)
+                property_upgrades[prop_name] = bonus_value
+
+        return property_upgrades
 
     def _extract_scaling(self, attr: Dict[str, Any], item_key: str, attr_key: str) -> Optional[Dict[str, Any]]:
         """

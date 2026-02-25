@@ -1,0 +1,181 @@
+- Added hero banning to Standard Mode and Street Brawl. You can now select one hero in your roster screen (using middle click) to tell the matchmaker that you prefer to avoid that hero. When the game starts, it will tell you which heroes were banned. We are doing just 2 total bans for now. This does not affect new heroes in the initial release window.
+
+- Parties of 3+ players now need to have an additional hero in their roster (from 3 to 4)
+
+- Fire Rate increases and reductions from most abilities and items are reduced globally by a small amount
+
+- Updated various on bullet hit resistance reduction debuffs to apply increased damage for subsequent hits rather than initial hit (similar to the spirit damage proc cases)
+
+- Added Dash Speed to the Vitality stat screen
+
+- Kinetic Dash: Bonus ammo no longer scales with % increase
+- Intensifying Magazine: Time for Max Damage reduced from 3s to 2.5s
+- Slowing Bullets: No longer provides Fire Rate
+- Slowing Bullets: Now provides +15% Weapon Damage
+- Slowing Bullets: Dash Distance reduction increased from -20% to -25%
+- Slowing Bullets: Minor improvement in buildup rate
+- Hollow Point: Bullet Resist Reduction reduced from -12% to -9%
+- Alchemical Fire: Bullet Resist Reduction reduced from -8% to -7%
+- Alchemical Fire: Bullet Resist Reduction spirit scaling reduced from 0.07 to 0.055
+- Glass Cannon: Max Health penalty increased from -13% to -15%
+- Lucky Shot: Ammo reduced from +40% to +30%
+- Lucky Shot: Crit reduced from 110% to 100%
+- Capacitor: Debuff duration reduced from 4s to 3s
+- Capacitor: Cooldown reduced from 50s to 40s
+- Melee Lifesteal: Light Melee cooldown penalty reduced from 2x to 1.5x
+- Lifestrike: Light Melee cooldown penalty reduced from 2x to 1.5x
+- Extra Regen: Now provides +1 Out of Combat Regen
+- Healing Booster: Now provides +1 Out of Combat Regen
+- Healing Tempo: Now provides +4 Out of Combat Regen
+- Restorative Locket: Cooldown reduced from 30s to 20s
+- Restorative Locket: Changed from +6% Spirit Resist to +8%
+- Restorative Locket: Changed to self cast only
+- Restorative Locket: Now restores up to 3 stamina based on the percentage of stacks you have relative to the max
+- Fury Trance: Bullet Lifesteal reduced from 22% to 18%
+- Stamina Mastery: Air Dash distance reduced from 30% to 23%
+- Stamina Mastery: Stamina recovery reduced from 20% to 18%
+- Metal Skin: Cooldown increased from 20s to 24s
+- Bullet Resilience: Low HP threshold increased from 30% to 35% health
+- Spirit Resilience: Low HP threshold increased from 30% to 35% health
+- Debuff Remover: Now renamed to Dispel Magic
+- Dispel Magic: No longer builds from Debuff Reducer
+- Dispel Magic: No longer grants +30% Debuff Resistance
+- Dispel Magic: Now grants +14% Spirit Resistance
+- Dispel Magic: No longer grants +100 HP
+- Dispel Magic: Move Speed bonus reduced from 2.25 to 2
+- Debuff Reducer: Debuff Resistance increased from 20% to 25%
+- Debuff Reducer: No longer grants +50 Health
+- Unstoppable: Bonus Health increased from +75 to +125
+- Unstoppable: Debuff Resistance increased from 20% to 25%
+- Spellbreaker: Now builds out of Debuff Reducer
+- Spellbreaker: Spirit Resistance reduced from 25% to 18%
+- Inhibitor: Weapon Damage increased from 15% to 22%
+- Inhibitor: Bonus Health increased from 125 to 150
+- Bullet Resist Shredder: Bullet Resistance increased from 7% to 8%
+- Bullet Resist Shredder: Bullet Resist Reduction reduced from -12% to -10%
+- Mystic Regeneration: Now provides +40 Health
+- Radiant Regeneration: Now provides +65 Health
+- Cold Front: Vertical hitbox increased from 2.5m to 3.5m
+- Cold Front: Spread duration increased from 0.5s to 0.6s
+- Arctic Blast: Vertical hitbox increased from 2.5m to 3.5m
+- Arctic Blast: Spread duration increased from 0.5s to 0.6s
+- Mystic Slow: Dash distance increased from -10% to -12%
+- Lightning Scroll: Dash distance increased from -10% to -12%
+- Quicksilver Reload: Bonus damage now has spirit scaling (0.16)
+- Mercurial Magnum: Bonus damage now has spirit scaling (0.16)
+- Silence Wave: Spirit damage scaling increased from 0.3 to 0.6
+- Rapid Recharge: Bonus Spirit Power for Charged Abilities reduced from +16 to +10
+- Rapid Recharge: Time between charges reduced from +50% to +30%
+- Rapid Recharge: Now reduces cooldown on charged abilities by 14%
+- Mystic Reverb: Spirit Lifesteal reduced from 15% to 10%
+- Mystic Reverb: Imbued ability now provides +30% Spirit Lifesteal for any damage it does (including the reverb)
+- Echo Shard: Removed cast time
+- Spirit Burn: Burn DPS now scales with spirit power (0.05)
+- Curse: Renamed Curse to Cursed Relic
+- Curse: No longer grants +15% Weapon Damage
+- Curse: While holding this item you have a -8% Total Damage Penalty
+
+- Abrams: Gun Falloff range reduced from 20m-46m to 17m-40m
+- Abrams: Bullet damage growth reduced from +0.154 to +0.13
+- Abrams: Siphon Life T3 reduced from +31 DPS to +20 DPS and Increased Spirit Scaling (+0.12)
+- Abrams: Fixed Shoulder Charge T1 triggering from non-heroes
+- Abrams: Seismic Impact damage increased from 55 to 75
+- Abrams: Seismic Impact stun duration increased from 1.5s to 1.6s
+- Abrams: Improved collision consistency with Seismic Impact
+- Bebop: Exploding Uppercut T3 no longer grants +100% Ammo
+- Bebop: Exploding Uppercut T3 now also restores 20% of your Missing HP on enemy hero hit
+- Bebop: Fixed some bugs with Sticky Bomb tooltip
+- Bebop: Sticky Bomb stacks now diminish after 60 hits and 7 kills (rather than 100/10)
+- Bebop: Sticky Bomb now drops on the ground and continues counting down when dispelled
+- Bebop: Sticky Bomb can no longer be selfcast
+- Bebop: Sticky Bomb T2 increased from +70 Damage to +75
+- Billy: Bullet damage growth reduced from 0.18 to 0.165
+- Billy: Blasted Amp increased from 9% to 10%
+- Billy: Blasted Melee Bonus Health reduced from 80 to 70
+- Billy: Blasted Melee Bonus Health spirit scaling increased from 0.7 to 0.8
+- Billy: Chain Gang damage reduced from 150 to 120
+- Billy: Chain Gang now always goes on full cooldown after interruption
+- Drifter: Bloodscent Isolation Range reduced from 25m to 20m
+- Drifter: Stalker's Mark T3 now also increases duration by 2s
+- Drifter: Fixed Stalkers Mark not gaining charges from items after upgrading the T3
+- Drifter: Eternal Night cooldown reduced from 130s to 120s
+- Grey Talon: Rain of Arrows air speed from 3.8 to 4.1
+- Grey Talon: Spirit Snare lifetime increased from 20s to 22s
+- Grey Talon: Guided Owl cooldown reduced from 120s to 110s
+- Grey Talon: Guided Owl spirit power per kill increased from 8 to 10
+- Ivy: No longer has reduced melee damage
+- Ivy: Air Drop now has a very brief period where allies cannot cancel to prevent accidental cancels
+- Kelvin: Ice Path T2 increased from -15s Cooldown to -17s
+- Kelvin: Ice Path T3 max spirit increased from 75 to 90
+- Kelvin: Ice Path T3 duration increased from 8s to 9s
+- Kelvin: Frozen Shelter duration increased from 5s to 5.25s
+- Lash: Ground Strike rotation is restricted to 90 degrees rather than 360
+- Lash: Fixed bugs with Ground Strike where it would sometimes not do damage on ramps and special locations
+- Lash: Grapple T1 reduced from -19s Cooldown to -17s
+- Lash: Flog damage spirit scaling reduced from 1.1 to 0.85
+- Mina: Move speed reduced from 6.6 to 6.5
+- Mina: Stamina cooldown increased from 3.6s to 3.9s
+- Mina: Rake Heal spirit scaling reduced from 0.5 to 0.43
+- Mina: Love Bites bonus damage spirit power scaling reduced from 1.7 to 1.6
+- Mina: Love Bites T3 reduced from -2 Stamina to -1
+- Paige: Defend and Fight barrier reduced from 150 to 125
+- Paige: Captivating Read damage reduced from 120 to 90
+- Shiv: Serrated Knives impact damage spirit ratio reduced from 0.558 to 0.25
+- Victor: Aura of Suffering spirit scaling reduced from 0.23/1.15 to 0.18/0.92
+- Viscous: Spirit per boon increased from 1.1 to 1.3
+- Viscous: Bullet damage per boon reduced from +0.5 to +0.36
+- Viscous: The Cube T3 no longer removes ult debuffs
+- Viscous: Puddle Punch displacement duration reduced from 1s to 0.8s
+- Vyper: Lethal Venom Max Venom damage reduced from 165 to 140
+- Vyper: Lethal Venom Max Damage now happens at 30% HP instead of 25%
+- Vyper: Lethal Venom cooldown increased from 20s to 24s
+- Vyper: Lethal Venom T2 now also reduces cooldown by 8s
+- Vyper: Screwjab Dagger T3 increased from 40% Charge Cooldown to 55%
+- Vyper: Petrifying Bola damage increased from 45/165 to 50/180
+- Vindicta: Stake Tether Length no longer increases when Capture Radius increases
+- Vindicta: Assassinate now grants +5% Weapon Damage per kill rather than Bonus Souls
+- Vindicta: Assassinate T3 now provides an additional +4% Weapon Damage per kill (retroactive)
+- Warden: Bullet damage growth reduced from 0.47 to 0.44
+
+
+
+Street Brawl:
+- Street Brawl now has custom balancing for heroes and items. These will be used on occasion as needed. The tooltip will now show a special mark (similar to how Enhanced Items work), where you can see what was changed on that ability.
+
+- Selecting the 'Random Hero' option will now grant you a bonus reroll for round 1 and 2
+- Troopers now have 20% Spirit Resist. During overtime they have an additional 20% Spirit Resist.
+- Legendary items drop rates increased very slightly
+- Ultimates initial cooldown increased by 5s
+- Trooper Spawn Rate from: 20/20/20/15/15 to 18/18/15/15/15
+- Trooper Overtime DPS bonus increased by 20%
+- Objective resist decay now peaks at 2.2 minutes rather than 2.5 minutes
+- Objective resist decay now goes to -60% instead of -50%
+- Removed global 40% healing reduction (balance note: it didn't actually work on many things that it was supposed to work on. We'll be adjusting specific things that need healing reductions directly instead.)
+
+- Prism Blast: DPS reduced from 300 to 270
+- Enhanced Unstable Concoction: Now increases Bonus Health, Weapon Damage, Spirit Power and Stun Duration
+- Enhanced Unstable Concoction: No longer increases duration or cooldown
+
+
+Brawl Specific Balance:
+--
+- Bebop: Hyperbeam duration reduced from 11s to 7s
+- McGinnis: Mini Turret cooldown increased from 18s to 26s
+- McGinnis: Medicinal Specter regen reduced by 20% (was unaffected by the global regen change previously)
+- Seven: Storm Cloud damage reduced by 25%
+- Dynamo: Rejuvenating Aurora T3 reduced from 2.5% to 2% (was previously being reduced)
+- Dynamo: Singularity max HP damage reduced from 1.5% to 1%
+- Lash: Death Slam throw distance reduced by 30%
+- Lash: Ground Strike damage reduced by 10%
+- Warden: Last Stand healing reduced by 25%
+- Graves: Borrowed Decree duration reduced by 30%
+- Graves: Borrowed Decree ghoul damage reduced by 30%
+
+- Drifter: Bloodscent Isolation Range reduced from 20m to 10m
+- Holliday: Crackshot Spirit Scaling increased from 1.1 to 2.5
+- Holliday: Bounce Pad cooldown reduced by 20s
+- Mirage: Traveler Cooldown reduced from 155s to 60s
+- Calico: Return to Shadows cooldown reduced from 90s to 60s
+
+- Alchemical Fire: Damage reduced by 30%
+- Curse: Duration reduced from 3.25s to 2.75s

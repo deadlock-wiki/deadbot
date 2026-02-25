@@ -11,6 +11,7 @@ TARGET_TYPE_MAP = {
     'CITADEL_UNIT_TARGET_NEUTRAL': 'Neutral',
     'CITADEL_UNIT_TARGET_PROP_ENEMY': 'PropEnemy',
     'CITADEL_UNIT_TARGET_TROOPER_ENEMY': 'TrooperEnemy',
+    'CITADEL_UNIT_TARGET_TROOPER_FRIENDLY': 'TrooperFriendly',
     'CITADEL_UNIT_TARGET_TROPHY_ENEMY': 'TrophyEnemy',
 }
 
@@ -60,6 +61,8 @@ ABILITY_ACTIVATION_MAP = {
     'CITADEL_ABILITY_ACTIVATION_PASSIVE': 'Passive',
     'CITADEL_ABILITY_ACTIVATION_PRESS_TOGGLE': 'Toggle',
     'CITADEL_ABILITY_ACTIVATION_PRESS': 'Press',
+    'CITADEL_ABILITY_ACTIVATION_INSTANT_CAST_TOGGLE': 'InstantCastToggle',
+    'CITADEL_ABILITY_ACTIVATION_ON_BUTTON_RELEASE': 'OnRelease',
 }
 
 
@@ -115,6 +118,8 @@ ATTRIBUTE_MANUAL_MAP = {
         'label': 'OutOfCombatHealthRegen_label',
         'postfix': 'OutOfCombatHealthRegen_prefix',
     },
+    'GroundDashSpeed': {'label': 'StatDesc_DashSpeedInMeters', 'postfix': 'StatDesc_DashSpeedInMeters_postfix'},
+    'AirDashSpeed': {'label': 'StatDesc_DashSpeedInMeters', 'postfix': 'StatDesc_DashSpeedInMeters_postfix'},
 }
 
 
@@ -179,6 +184,7 @@ SCALE_TYPE_MAP = {
     'ELevelUpBoons': 'power_increase',
     'ELightMeleeDamage': 'melee',
     'EMaxChargesIncrease': 'max_charges',
+    'EParryCooldown': 'parry_cd',
     'EStatsCount': 'stats_count',
     'ETechCooldown': 'cooldown',
     'ETechDuration': 'duration',
@@ -197,35 +203,3 @@ def get_scale_type(scale):
         raise Exception(f'No scale map found for {scale}')
 
     return SCALE_TYPE_MAP[scale]
-
-
-NPC_INTRINSIC_MODIFIER_MAP = {
-    'MODIFIER_VALUE_BULLET_DAMAGE_REDUCTION_PERCENT': 'IntrinsicBulletResistance',
-    'MODIFIER_VALUE_ABILITY_DAMAGE_REDUCTION_PERCENT': 'IntrinsicAbilityResistance',
-    'MODIFIER_VALUE_HEALTH_REGEN_PER_SECOND': 'HealthRegenPerSecond',
-}
-
-
-def get_npc_intrinsic_modifier(value):
-    return NPC_INTRINSIC_MODIFIER_MAP.get(value)
-
-
-NPC_AURA_MODIFIER_MAP = {
-    'MODIFIER_VALUE_TECH_ARMOR_DAMAGE_RESIST': 'FriendlyAuraSpiritArmor',
-    'MODIFIER_VALUE_BULLET_ARMOR_DAMAGE_RESIST': 'FriendlyAuraBulletArmor',
-}
-
-
-def get_npc_aura_modifier(value):
-    return NPC_AURA_MODIFIER_MAP.get(value)
-
-
-NPC_REBIRTH_MODIFIER_MAP = {
-    'MODIFIER_VALUE_HEALTH_MAX_PERCENT': 'BonusMaxHealth',
-    'MODIFIER_VALUE_FIRE_RATE': 'BonusFireRate',
-    'MODIFIER_VALUE_TECH_DAMAGE_PERCENT': 'BonusSpiritDamage',
-}
-
-
-def get_npc_rebirth_modifier(value):
-    return NPC_REBIRTH_MODIFIER_MAP.get(value)

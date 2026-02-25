@@ -133,7 +133,6 @@ jobs:
 
       - uses: docker/setup-buildx-action@v3
         with:
-          install: true
           driver: docker-container
 
       - name: Build Deadbot
