@@ -42,7 +42,11 @@ class ItemParser:
     def _parse_item(self, key):
         ability = self.abilities_data[key]
         item_value = ability
-        item_ability_attrs = item_value.get('m_mapAbilityProperties', {})
+
+        item_ability_attrs = item_value.get('m_mapAbilityProperties', {}).copy()
+        elevated_attrs = item_value.get('m_vecElevatedAbilityProperties', {})
+        if isinstance(elevated_attrs, dict):
+            item_ability_attrs.update(elevated_attrs)
 
         # Assign target types
         target_types = None
@@ -80,17 +84,34 @@ class ItemParser:
         # Process attributes and extract scaling information
         for attr_key in item_ability_attrs.keys():
             attr = item_ability_attrs[attr_key]
+            metadata = self._extract_attr_metadata(attr)
 
             scaling_data = self._extract_scaling(attr, key, attr_key)
 
+            include_attr = True
+            if attr.get('m_eStatsUsageFlags') == 'ConditionallyApplied':
+                include_attr = True
+            if attr.get('m_strLocTokenOverride'):
+                include_attr = True
+
             if scaling_data:
+                if metadata:
+                    scaling_data.update(metadata)
                 parsed_item_data[attr_key] = scaling_data
             elif 'm_strValue' in attr:
                 value = num_utils.assert_number(attr['m_strValue'])
                 # Only filter if the value is a number and it is zero
                 if num_utils.is_zero(value):
                     continue  # Skip this zero-value attribute
-                parsed_item_data[attr_key] = value
+                if metadata:
+                    parsed_item_data[attr_key] = {
+                        'Value': value,
+                        **metadata,
+                    }
+                else:
+                    parsed_item_data[attr_key] = value
+            elif include_attr:
+                parsed_item_data[attr_key] = metadata or {}
             else:
                 logger.trace(f'Missing m_strValue attr in item {key} attribute {attr_key}')
 
@@ -135,7 +156,28 @@ class ItemParser:
         if property_upgrades:
             parsed_item_data['PropertyUpgrades'] = property_upgrades
 
+        tooltip_sections = self._parse_tooltip_sections(item_value)
+        if tooltip_sections:
+            parsed_item_data['TooltipSections'] = tooltip_sections
+
         return parsed_item_data
+
+    def _extract_attr_metadata(self, attr):
+        metadata = {}
+
+        css_class = attr.get('m_strCSSClass')
+        if css_class:
+            metadata['CSSClass'] = css_class
+
+        usage_flags = attr.get('m_eStatsUsageFlags')
+        if usage_flags and usage_flags != 'IntrinsicallyProvidedInAbility':
+            metadata['UsageFlags'] = usage_flags
+
+        loc_override = attr.get('m_strLocTokenOverride')
+        if loc_override:
+            metadata['LocTokenOverride'] = loc_override
+
+        return metadata or None
 
     def _parse_property_upgrades(self, item_value):
         property_upgrades = {}
@@ -153,6 +195,50 @@ class ItemParser:
                 property_upgrades[prop_name] = bonus_value
 
         return property_upgrades
+
+    def _parse_tooltip_sections(self, item_value):
+        sections = item_value.get('m_vecTooltipSectionInfo')
+        if not isinstance(sections, list):
+            return None
+
+        parsed_sections = []
+
+        for section in sections:
+            section_type = section.get('m_eAbilitySectionType')
+            vec_attrs = section.get('m_vecSectionAttributes', [])
+
+            parsed_entries = []
+            for attr in vec_attrs:
+                entry = {
+                    'LocString': attr.get('m_strLocString'),
+                    'ImportantProperties': [],
+                    'Properties': [],
+                }
+
+                important = attr.get('m_vecImportantAbilityProperties', [])
+                for imp in important:
+                    prop = imp.get('m_strImportantProperty')
+                    if prop:
+                        entry['ImportantProperties'].append(prop)
+
+                elevated_props = attr.get('m_vecElevatedAbilityProperties', [])
+                props = attr.get('m_vecAbilityProperties', [])
+
+                if isinstance(elevated_props, list):
+                    entry['Properties'].extend(elevated_props)
+                if isinstance(props, list):
+                    entry['Properties'].extend(props)
+
+                parsed_entries.append(entry)
+
+            parsed_sections.append(
+                {
+                    'Type': section_type,
+                    'Entries': parsed_entries,
+                }
+            )
+
+        return parsed_sections
 
     def _extract_scaling(self, attr: Dict[str, Any], item_key: str, attr_key: str) -> Optional[Dict[str, Any]]:
         """
