@@ -107,6 +107,9 @@ class AbilityParser:
                         parsed_upgrade_set[prop]['Value'] = value
 
                 elif upgrade_type in ['EAddToScale', 'EMultiplyScale']:
+                    # Default to ETechPower/spirit if no scale type specified
+                    if scale_type is None:
+                        scale_type = 'ETechPower'
                     parsed_upgrade_set[prop] = {
                         'Value': parsed_upgrade_set.get(prop, 0),
                         'Scale': {
