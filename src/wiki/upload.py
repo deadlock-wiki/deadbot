@@ -57,7 +57,7 @@ class WikiUpload:
     def _get_existing_update_pages(self) -> List[Tuple[datetime, str]]:
         """
         Fetch all Update pages from wiki and return list of (date, title) tuples.
-        Simplified by replacing underscores with spaces per maintainer suggestion.
+        Simplified by replacing underscores with spaces.
         """
         update_pages = []
         try:
@@ -153,6 +153,7 @@ class WikiUpload:
         hotfixes_path = os.path.join(self.OUTPUT_DIR, 'changelogs/hotfixes.json')
         hotfixes = json_utils.read(hotfixes_path, ignore_error=True)
         if not hotfixes:
+            logger.info('No hotfixes detected to append')
             return
 
         logger.info(f'Processing {len(hotfixes)} hotfixes for appending...')
@@ -164,13 +165,13 @@ class WikiUpload:
                 page = self.site.pages[page_title]
 
                 if not page.exists:
-                    logger.trace(f'Skipping hotfix append for {page_title} as page does not exist.')
+                    logger.warning(f'Cannot append hotfix to {page_title} - page does not exist')
                     continue
 
                 current_text = page.text()
                 # Idempotency check: don't append if the text is already there
                 if hotfix['text'] in current_text:
-                    logger.trace(f'Hotfix for {page_title} already exists on wiki, skipping.')
+                    logger.info(f'Hotfix for {page_title} already exists on wiki, skipping.')
                     continue
 
                 # Perform the append before the closing }} of the layout template
@@ -221,8 +222,9 @@ class WikiUpload:
             title (str): The full title of the page (e.g., "Update:May_27,_2025").
             content (str): The wikitext content for the page.
         """
-        page = self.site.pages[title]
-        if page.exists:
+        existing_titles = {t for _, t in self.wiki_updates}
+        normalized_title = title.replace('_', ' ')
+        if normalized_title in existing_titles:
             logger.trace(f'Page "{title}" already exists, skipping creation.')
             return
 
@@ -230,6 +232,7 @@ class WikiUpload:
         if self.dry_run:
             return
 
+        page = self.site.pages[title]
         page.save(content, summary=self.upload_message)
         logger.success(f'Successfully saved page "{title}"')
 
@@ -314,7 +317,7 @@ class WikiUpload:
 
         # Regex handles various whitespace patterns.
         # Pattern stops at newline followed by | (next parameter), newline followed by }} (end), or end of string.
-        pattern = r'(\|\s*next_update\s*=\s*)(.*?)(?=\n\||\n\}\}|\Z)'
+        pattern = r'(\|\s*next_update\s*=[ \t]*)(.*?)(?=\n\||\n\}\}|\Z)'
 
         if not re.search(pattern, current_text, re.DOTALL):
             logger.warning(f"Could not find '| next_update =' parameter in {prev_title}")
