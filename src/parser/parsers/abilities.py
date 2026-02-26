@@ -107,6 +107,15 @@ class AbilityParser:
                         parsed_upgrade_set[prop]['Value'] = value
 
                 elif upgrade_type in ['EAddToScale', 'EMultiplyScale']:
+                    # If no explicit scale type, look up from the base property
+                    if scale_type is None:
+                        base_stat = json_utils.deep_get(ability, 'm_mapAbilityProperties', prop)
+                        if base_stat and 'm_subclassScaleFunction' in base_stat:
+                            scale_func = base_stat['m_subclassScaleFunction']
+                            scale_type = scale_func.get('m_eSpecificStatScaleType')
+                            # Infer from scale function class if no specific type
+                            if scale_type is None and 'tech' in scale_func.get('_class', ''):
+                                scale_type = 'ETechPower'
                     parsed_upgrade_set[prop] = {
                         'Value': parsed_upgrade_set.get(prop, 0),
                         'Scale': {
