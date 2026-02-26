@@ -249,6 +249,7 @@ class Parser:
 
         with open(self.OUTPUT_DIR + '/item-component-tree.txt', 'w') as f:
             f.write(str(item_component_chart))
+        return parsed_items
 
     def _parse_item_cards(self, parsed_items):
         parsed_item_cards = item_cards.ItemCardParser(parsed_items=parsed_items, abilities=self.data['scripts']['abilities']).run()

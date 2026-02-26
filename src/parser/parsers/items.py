@@ -84,7 +84,6 @@ class ItemParser:
         # Process attributes and extract scaling information
         for attr_key in item_ability_attrs.keys():
             attr = item_ability_attrs[attr_key]
-            metadata = self._extract_attr_metadata(attr)
 
             scaling_data = self._extract_scaling(attr, key, attr_key)
 
@@ -95,23 +94,16 @@ class ItemParser:
                 include_attr = True
 
             if scaling_data:
-                if metadata:
-                    scaling_data.update(metadata)
                 parsed_item_data[attr_key] = scaling_data
             elif 'm_strValue' in attr:
                 value = num_utils.assert_number(attr['m_strValue'])
                 # Only filter if the value is a number and it is zero
                 if num_utils.is_zero(value):
                     continue  # Skip this zero-value attribute
-                if metadata:
-                    parsed_item_data[attr_key] = {
-                        'Value': value,
-                        **metadata,
-                    }
                 else:
                     parsed_item_data[attr_key] = value
             elif include_attr:
-                parsed_item_data[attr_key] = metadata or {}
+                parsed_item_data[attr_key] = {}
             else:
                 logger.trace(f'Missing m_strValue attr in item {key} attribute {attr_key}')
 
@@ -161,23 +153,6 @@ class ItemParser:
             parsed_item_data['TooltipSections'] = tooltip_sections
 
         return parsed_item_data
-
-    def _extract_attr_metadata(self, attr):
-        metadata = {}
-
-        css_class = attr.get('m_strCSSClass')
-        if css_class:
-            metadata['CSSClass'] = css_class
-
-        usage_flags = attr.get('m_eStatsUsageFlags')
-        if usage_flags and usage_flags != 'IntrinsicallyProvidedInAbility':
-            metadata['UsageFlags'] = usage_flags
-
-        loc_override = attr.get('m_strLocTokenOverride')
-        if loc_override:
-            metadata['LocTokenOverride'] = loc_override
-
-        return metadata or None
 
     def _parse_property_upgrades(self, item_value):
         property_upgrades = {}
