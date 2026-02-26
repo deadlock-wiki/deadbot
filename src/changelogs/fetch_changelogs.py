@@ -13,6 +13,7 @@ from collections import defaultdict
 from datetime import datetime
 from zoneinfo import ZoneInfo
 import re
+import mwclient
 
 
 class ChangelogConfig(TypedDict):
@@ -70,6 +71,9 @@ class ChangelogFetcher:
         self.HEROLABS_PATCH_NOTES_PATH = herolab_patch_notes_path
 
         self.TAGS_TO_REMOVE = ['<ul>', '</ul>', '<b>', '</b>', '<i>', '</i>']
+
+        self.wiki_site = None
+
         self._load_input_data()
 
     def _load_input_data(self):
@@ -84,6 +88,70 @@ class ChangelogFetcher:
             raw_changelog = file_utils.read(f'{self.INPUT_DIR}/changelogs/raw/{file}')
             changelog_id = file.replace('.txt', '')
             self.changelogs[changelog_id] = raw_changelog
+
+    def _get_wiki_content(self, date_key: str) -> str:
+        """
+        Fetch existing changelog content from wiki page.
+        Returns empty string if page doesn't exist or wiki not available.
+
+        Args:
+            date_key: Date in YYYY-MM-DD format
+
+        Returns:
+            str: Notes content from wiki page or empty string
+        """
+        if self.wiki_site is None:
+            try:
+                self.wiki_site = mwclient.Site('deadlock.wiki', path='/')
+                logger.info('Connected to wiki for changelog fetching (read-only)')
+            except Exception as e:
+                logger.warning(f'Could not connect to wiki: {e}. Will only check local files.')
+                return ''
+
+        try:
+            date_obj = datetime.strptime(date_key, '%Y-%m-%d')
+            # Format: Update:February_12,_2026
+            page_title = f"Update:{date_obj.strftime('%B')}_{date_obj.day},_{date_obj.year}"
+
+            page = self.wiki_site.pages[page_title]
+            if not page.exists:
+                return ''
+
+            page_text = page.text()
+
+            # Extract just the notes section (the actual changelog content)
+            pattern = r'\|\s*notes\s*=\s*(.*?)(?:\n\}\}|\Z)'
+            match = re.search(pattern, page_text, re.DOTALL)
+            if match:
+                notes_content = match.group(1).strip()
+
+                # Only strip specific icons the bot auto-generates.
+                # This turns {{HeroIcon|Hero}} -> Hero, so the parser can re-wrap it later.
+                notes_content = re.sub(r'\{\{(?:Hero|Item|Ability)Icon\|([^}]+)\}\}', r'\1', notes_content)
+
+                logger.debug(f'Found existing wiki page for {date_key}')
+                return notes_content
+
+            return ''
+
+        except Exception as e:
+            logger.trace(f'Could not fetch wiki content for {date_key}: {e}')
+            return ''
+
+    def _get_patch_section(self, header: str, full_text: str) -> str:
+        """
+        Extract a specific patch section from changelog text.
+
+        Args:
+            header: Patch header like "=== Patch 2 ==="
+            full_text: Complete changelog text
+
+        Returns:
+            str: The patch section including header, or empty string if not found
+        """
+        pattern = re.compile(rf'({re.escape(header)})(.*?)(?=(=== Patch \d+ ===)|$)', re.DOTALL)
+        match = pattern.search(full_text)
+        return match.group(0).strip() if match else ''
 
     def run(self):
         self.load_localization()
@@ -362,10 +430,12 @@ class ChangelogFetcher:
         for date_key, entries in updates_by_day.items():
             changelog_id = date_key
 
-            # Determine "Old" local text before we overwrite it.
-            # This allows us to detect what sections are truly "new" locally.
-            old_local_raw_path = os.path.join(self.INPUT_DIR, 'changelogs/raw', f'{changelog_id}.txt')
-            old_text = file_utils.read(old_local_raw_path) if os.path.exists(old_local_raw_path) else ''
+            # Check for local file first (already processed by bot)
+            local_path = os.path.join(self.INPUT_DIR, 'changelogs/raw', f'{changelog_id}.txt')
+            local_content = file_utils.read(local_path) if os.path.exists(local_path) else ''
+
+            # Check for wiki page (manual pages created by editors)
+            wiki_content = self._get_wiki_content(changelog_id) if not local_content else ''
 
             existing_config = self.changelog_configs.get(changelog_id)
 
@@ -386,43 +456,80 @@ class ChangelogFetcher:
                 main_entry = entries[0]
                 append_entries = entries[1:]
 
-            # Set Base Text
-            current_text = main_entry['text'] if main_entry else (self.changelogs.get(changelog_id, ''))
+            # Determine base content and whether to append
+            if local_content:
+                # Local file exists - use it as base, don't append to file
+                # (will still check for hotfixes to append to wiki later)
+                current_text = local_content
+            elif wiki_content and main_entry:
+                # Wiki page exists but no local file - append forum content to wiki
+                logger.info(f'Found wiki page for {date_key} without local file, appending forum content')
+                append_entries.insert(0, main_entry)
+                current_text = wiki_content
+                main_entry = None
+            else:
+                # No existing content - use forum as base
+                current_text = main_entry['text'] if main_entry else (self.changelogs.get(changelog_id, ''))
 
-            # Helpers for patch manipulation
-            def get_patch_section(header, full_text):
-                pattern = re.compile(rf'({re.escape(header)})(.*?)(?=(=== Patch \d+ ===)|$)', re.DOTALL)
-                match = pattern.search(full_text)
-                return match.group(0).strip() if match else None
+            old_text = local_content or wiki_content or ''
 
+            # Helper to get next patch number
             def get_next_patch_num(txt):
                 matches = re.findall(r'=== Patch (\d+) ===', txt)
                 if matches:
                     return max(map(int, matches)) + 1
-                return 2
+                # If there's existing content but no patches yet, this will be Patch 2
+                return 2 if txt.strip() else 1
 
-            # Merge any secondary entries found into the current text
+            # Merge any secondary entries into current text with proper patch headers
             final_text = current_text
             for entry in append_entries:
-                if entry['text'] not in final_text:
-                    patch_num = get_next_patch_num(final_text)
-                    final_text += f"\n\n=== Patch {patch_num} ===\n{entry['text']}"
+                # Remove any existing patch headers from the entry first
+                entry_text = entry['text']
+                entry_text = re.sub(r'=== Patch \d+ ===\n*', '', entry_text).strip()
 
-            # Detect any patches (=== Patch X ===) that are in the final text but NOT in the old file
+                # Skip if this content is already in final_text (prevents duplicates)
+                if entry_text not in final_text:
+                    patch_num = get_next_patch_num(final_text)
+                    final_text += f'\n\n=== Patch {patch_num} ===\n\n{entry_text}'
+                    logger.debug(f'Adding Patch {patch_num} to {date_key}')
+
+            # Detect hotfixes - compare new patches against old content
             potential_headers = re.findall(r'=== Patch \d+ ===', final_text)
             for h in potential_headers:
                 if h not in old_text:
-                    section_text = get_patch_section(h, final_text)
+                    section_text = self._get_patch_section(h, final_text)
                     if section_text:
                         self.hotfixes.append({'date': date_key, 'text': section_text})
+                        logger.debug(f'Detected hotfix: {h} for {date_key}')
 
             # Save to memory and update config
             self.changelogs[changelog_id] = final_text
 
+            # Determine forum_id with priority: main_entry > existing_config > append_entries
+            if main_entry:
+                forum_id = main_entry['version']
+            elif existing_config:
+                forum_id = existing_config.get('forum_id')
+            elif append_entries:
+                forum_id = append_entries[0]['version']
+            else:
+                forum_id = None
+
+            # Determine link with same priority
+            if main_entry:
+                link = main_entry['link']
+            elif existing_config:
+                link = existing_config.get('link')
+            elif append_entries:
+                link = append_entries[0]['link']
+            else:
+                link = None
+
             self.changelog_configs[changelog_id] = {
-                'forum_id': main_entry['version'] if main_entry else existing_config['forum_id'],
+                'forum_id': forum_id,
                 'date': date_key,
-                'link': main_entry['link'] if main_entry else existing_config['link'],
+                'link': link,
                 'is_hero_lab': False,
             }
 

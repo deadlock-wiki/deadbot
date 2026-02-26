@@ -6,6 +6,7 @@ DATA_PAGE_FILE_MAP = {
     'AttributeData.json': 'json/attribute-data.json',
     'GenericData.json': 'json/generic-data.json',
     'HeroData.json': 'json/hero-data.json',
+    'HeroMeaningfulStats.json': 'json/hero-meaningful-stats.json',
     'ItemData.json': 'json/item-data.json',
     'NpcData.json': 'json/npc-data.json',
     'Lang bg.json': 'localizations/bulgarian.json',

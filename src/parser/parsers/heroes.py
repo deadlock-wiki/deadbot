@@ -1,7 +1,8 @@
 import copy
 import parser.maps as maps
 import utils.json_utils as json_utils
-from utils.num_utils import convert_engine_units_to_meters, round_sig_figs
+from utils.num_utils import round_sig_figs
+from . import weapon_parser
 
 
 class HeroParser:
@@ -99,7 +100,7 @@ class HeroParser:
 
                 # Parse DPS and Sustained DPS level scaling
                 if 'Weapon' in hero_stats and 'DPS' in hero_stats['Weapon']:
-                    dps_stats = self._get_dps_stats(hero_stats['Weapon'])
+                    dps_stats = weapon_parser.get_dps_calculation_stats(hero_stats['Weapon'])
                     scaling_containers = ['LevelScaling', 'SpiritScaling']
                     dps_types = ['burst', 'sustained']
                     dps_types_localized = ['DPS', 'SustainedDPS']
@@ -238,55 +239,7 @@ class HeroParser:
         Parses a 'm_WeaponInfo' block for a primary or alternate fire mode.
         Returns a dictionary of parsed weapon stats.
         """
-        stats = {}
-
-        # Core Stats
-        stats['BulletSpeed'] = convert_engine_units_to_meters(weapon_info.get('m_flBulletSpeed'))
-        stats['BulletDamage'] = weapon_info.get('m_flBulletDamage', 0)
-        stats['RoundsPerSecond'] = round_sig_figs(self._calc_rounds_per_sec(weapon_info), 5)
-        stats['ClipSize'] = weapon_info.get('m_iClipSize')
-        stats['ReloadTime'] = weapon_info.get('m_reloadDuration')
-        stats['ReloadMovespeed'] = float(weapon_info.get('m_flReloadMoveSpeed', '0')) / 10000
-        stats['ReloadDelay'] = weapon_info.get('m_flReloadSingleBulletsInitialDelay', 0)
-        stats['ReloadSingle'] = weapon_info.get('m_bReloadSingleBullets', False)
-
-        # Falloff and Range
-        stats['FalloffStartRange'] = convert_engine_units_to_meters(weapon_info.get('m_flDamageFalloffStartRange', 0))
-        stats['FalloffEndRange'] = convert_engine_units_to_meters(weapon_info.get('m_flDamageFalloffEndRange', 0))
-        stats['FalloffStartScale'] = weapon_info.get('m_flDamageFalloffStartScale', 1.0)
-        stats['FalloffEndScale'] = weapon_info.get('m_flDamageFalloffEndScale', 1.0)
-        stats['FalloffBias'] = weapon_info.get('m_flDamageFalloffBias', 0.5)
-
-        # Bullet Properties
-        stats['BulletGravityScale'] = weapon_info.get('m_flBulletGravityScale', 0)
-        stats['BulletsPerShot'] = weapon_info.get('m_iBullets', 1)
-        stats['BulletsPerBurst'] = weapon_info.get('m_iBurstShotCount', 1)
-        stats['BurstInterShotInterval'] = weapon_info.get('m_flIntraBurstCycleTime', 0)
-        stats['ShootMoveSpeed'] = weapon_info.get('m_flShootMoveSpeedPercent', 1.0)
-        stats['HitOnceAcrossAllBullets'] = weapon_info.get('m_bHitOnceAcrossAllBullets', False)
-        stats['CanCrit'] = weapon_info.get('m_bCanCrit', True)
-        stats['AmmoConsumedPerShot'] = weapon_info.get('m_iAmmoConsumedPerShot', 1)
-
-        # Explosive Properties (often for alt-fire)
-        if 'm_flExplosionRadius' in weapon_info:
-            stats['ExplosionRadius'] = convert_engine_units_to_meters(weapon_info['m_flExplosionRadius'])
-        if 'm_flExplosionDamageScaleAtMaxRadius' in weapon_info:
-            stats['ExplosionDamageScaleAtMaxRadius'] = weapon_info['m_flExplosionDamageScaleAtMaxRadius']
-
-        # Spin-up Properties
-        if weapon_info.get('m_bSpinsUp'):
-            max_spin_cycle_time = weapon_info.get('m_flMaxSpinCycleTime')
-            stats['RoundsPerSecondAtMaxSpin'] = 1 / max_spin_cycle_time if max_spin_cycle_time and max_spin_cycle_time > 0 else 0
-            stats['SpinAcceleration'] = weapon_info.get('m_flSpinIncreaseRate', 0)
-            stats['SpinDeceleration'] = weapon_info.get('m_flSpinDecayRate', 0)
-
-        # Calculate DPS
-        dps_stats = self._get_dps_stats(stats)
-        if dps_stats.get('RoundsPerSecond', 0) > 0:
-            stats['DPS'] = round_sig_figs(self._calc_dps(dps_stats, 'burst'), 5)
-            stats['SustainedDPS'] = round_sig_figs(self._calc_dps(dps_stats, 'sustained'), 5)
-
-        return stats
+        return weapon_parser.parse_weapon_info(weapon_info)
 
     def _parse_hero_weapon(self, hero_value, hero_key):
         weapon_stats = {}
@@ -327,10 +280,10 @@ class HeroParser:
                         alt_stats['ReloadTime'] = weapon_stats.get('ReloadTime')
 
                     # Recalculate DPS with inherited stats if needed
-                    alt_dps_stats = self._get_dps_stats(alt_stats)
+                    alt_dps_stats = weapon_parser.get_dps_calculation_stats(alt_stats)
                     if alt_dps_stats.get('RoundsPerSecond', 0) > 0:
-                        alt_stats['DPS'] = round_sig_figs(self._calc_dps(alt_dps_stats, 'burst'), 5)
-                        alt_stats['SustainedDPS'] = round_sig_figs(self._calc_dps(alt_dps_stats, 'sustained'), 5)
+                        alt_stats['DPS'] = round_sig_figs(weapon_parser.calculate_dps(alt_dps_stats, 'burst'), 5)
+                        alt_stats['SustainedDPS'] = round_sig_figs(weapon_parser.calculate_dps(alt_dps_stats, 'sustained'), 5)
 
                     # Alt-fire uses its own ability ID for its name and description key.
                     alt_stats['NameKey'] = ability_id
@@ -346,94 +299,6 @@ class HeroParser:
 
         return weapon_stats
 
-    def _get_dps_stats(self, weapon_stats):
-        """Returns a dictionary of stats used to calculate DPS"""
-        return {
-            'ReloadSingle': weapon_stats.get('ReloadSingle'),
-            'ReloadDelay': weapon_stats.get('ReloadDelay'),
-            'ReloadTime': weapon_stats.get('ReloadTime'),
-            'ClipSize': weapon_stats.get('ClipSize'),
-            'RoundsPerSecond': (
-                weapon_stats.get('RoundsPerSecondAtMaxSpin')
-                if 'SpinAcceleration' in weapon_stats and weapon_stats.get('RoundsPerSecondAtMaxSpin')
-                else weapon_stats.get('RoundsPerSecond')
-            ),
-            'BurstInterShotInterval': weapon_stats.get('BurstInterShotInterval'),
-            'BulletDamage': weapon_stats.get('BulletDamage'),
-            'BulletsPerShot': weapon_stats.get('BulletsPerShot'),
-            'BulletsPerBurst': weapon_stats.get('BulletsPerBurst'),
-            'HitOnceAcrossAllBullets': weapon_stats.get('HitOnceAcrossAllBullets'),
-        }
-
-    def _calc_rounds_per_sec(self, weapon_info):
-        """
-        Calculates the rounds per second of a mouse click by dividing the total bullets per shot
-        by the total shot time, taking consideration of the cooldown between shots during a burst
-        """
-        shot_cd = weapon_info.get('m_flCycleTime', 0)
-        burst_cd = weapon_info.get('m_flBurstShotCooldown', 0)
-        intra_burst_cd = weapon_info.get('m_flIntraBurstCycleTime', 0)
-        bullets_per_shot = weapon_info.get('m_iBurstShotCount', 0)
-
-        total_shot_time = bullets_per_shot * intra_burst_cd + shot_cd + burst_cd
-
-        return bullets_per_shot / total_shot_time
-
-    def _calc_dps(self, dps_stats, type='burst'):
-        """Calculates Burst or Sustained DPS of a weapon"""
-        # Burst, not to be confused with burst as in burst fire, but rather
-        # a burst of damage where delta time is 0.
-        # Sustained has a delta time of infinity, meaning it takes into
-        # account time-to-empty-clip and reload time.
-        stats = {k: v for k, v in dps_stats.items() if v is not None}
-
-        if stats.get('RoundsPerSecond', 0) == 0:
-            return 0
-
-        # If damage is dealt once for all bullets (e.g. shotguns), treat as 1 bullet for DPS
-        bullets_per_shot = 1 if stats.get('HitOnceAcrossAllBullets') else stats.get('BulletsPerShot', 1)
-        cycle_time = 1 / stats['RoundsPerSecond']
-        total_cycle_time = cycle_time * stats.get('BulletsPerBurst', 1)
-
-        if total_cycle_time == 0:
-            return 0
-
-        # Burst DPS accounts for burst weapons and assumes maximum spinup (if applicable)
-        if type == 'burst':
-            dps = stats.get('BulletDamage', 0) * bullets_per_shot * stats.get('BulletsPerBurst', 1) / total_cycle_time
-            return dps
-
-        # Sustained DPS also accounts for reloads/clipsize
-        elif type == 'sustained':
-            clip_size = stats.get('ClipSize', 0)
-            if clip_size == 0:
-                # For weapons with no clip (like Bebop's beam), sustained DPS is the same as burst DPS
-                sustained_dps = stats.get('BulletDamage', 0) * bullets_per_shot * stats.get('BulletsPerBurst', 1) / total_cycle_time
-                return sustained_dps
-
-            # All reload actions have ReloadDelay played first,
-            # but typically only single bullet reloads have a non-zero delay
-            if stats.get('ReloadSingle'):
-                # If reloading 1 bullet at a time, reload time is actually per bullet
-                time_to_reload = stats.get('ReloadTime', 0) * clip_size
-            else:
-                time_to_reload = stats.get('ReloadTime', 0)
-
-            time_to_reload += stats.get('ReloadDelay', 0)
-            time_to_empty_clip = clip_size / stats.get('BulletsPerBurst', 1) * total_cycle_time
-            # BulletsPerShot doesn't consume more ammo, but BulletsPerBurst does.
-            damage_from_clip = stats.get('BulletDamage', 0) * bullets_per_shot * clip_size
-
-            total_time = time_to_empty_clip + time_to_reload
-            if total_time == 0:
-                return 0
-
-            sustained_dps = damage_from_clip / total_time
-            return sustained_dps
-
-        else:
-            raise Exception('Invalid DPS type, must be one of: ' + ', '.join(['burst', 'sustained']))
-
     def _calc_dps_scaling(self, dps_stats_, scalings, type='burst'):
         """
         Calc DPS level/spirit scaling based on the scalars.
@@ -446,8 +311,8 @@ class HeroParser:
             if scalar_key in dps_stats_scaled and dps_stats_scaled[scalar_key] is not None:
                 dps_stats_scaled[scalar_key] += scalar_value
 
-        scaled_dps = self._calc_dps(dps_stats_scaled, type)
-        dps = self._calc_dps(dps_stats, type)
+        scaled_dps = weapon_parser.calculate_dps(dps_stats_scaled, type)
+        dps = weapon_parser.calculate_dps(dps_stats, type)
 
         return round_sig_figs(scaled_dps - dps, 5)
 

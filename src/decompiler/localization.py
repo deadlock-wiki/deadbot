@@ -50,6 +50,9 @@ def process_files(input_folder, output_folder):
                     # literal newline characters with <br> tags for the wiki.
                     right = unescaped_right.replace('\n', '<br>').strip()
 
+                    # Strip Valve gender markers (e.g., #|m|#, #|f|#) from values
+                    right = re.sub(r'#\|[mf]\|#', '', right)
+
                     out[left] = right
 
             output_file_json = os.path.join(output_folder, filename.replace('.txt', '.json'))
