@@ -331,6 +331,7 @@ class AbilityCardsParser:
             # These props are directly referenced and should live on the top level
             if prop in [
                 'AbilityCharges',
+                'AbilityChannelTime',
                 'AbilityCooldownBetweenCharge',
                 'AbilityCooldown',
                 'AbilityCastDelay',
