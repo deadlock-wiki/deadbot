@@ -35,6 +35,8 @@ class ItemCardParser:
             'ShopFilters',
             'IsDisabled',
             'StreetBrawl',
+            'PropertyUpgrades',
+            'AbilityCooldown',
         ]
 
         card = {
