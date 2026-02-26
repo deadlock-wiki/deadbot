@@ -1,3 +1,6 @@
+from parser.maps import get_section_type
+
+
 class ItemCardParser:
     def __init__(self, parsed_items, abilities):
         self.parsed_items = parsed_items
@@ -5,8 +8,8 @@ class ItemCardParser:
         self.used_attributes = []
 
     def run(self):
+        """Parse all items in parsed_items."""
         output = {}
-
         for key, item in self.parsed_items.items():
             try:
                 parsed = self._parse_item_card(key, item)
@@ -14,52 +17,64 @@ class ItemCardParser:
                     output[key] = parsed
             except Exception as e:
                 raise Exception(f'Failed to parse item card for {key}: {e}')
-
         return output
 
     def _parse_item_card(self, key, item):
+        """Parse a single item card."""
         self.item_key = key
         self.item = item
-        self.used_attributes = ['Name', 'Description']
+        self.used_attributes = [
+            'Name',
+            'Description',
+            'Cost',
+            'Tier',
+            'Slot',
+            'Activation',
+            'Components',
+            'TargetTypes',
+            'ShopFilters',
+            'IsDisabled',
+            'StreetBrawl',
+        ]
 
         card = {
             'Key': key,
             'Name': item.get('Name', key),
+            'Description': item.get('Description', ''),
             'Cost': item.get('Cost'),
             'Tier': item.get('Tier'),
             'Slot': item.get('Slot'),
             'Activation': item.get('Activation'),
             'Components': item.get('Components'),
+            'TargetTypes': item.get('TargetTypes'),
+            'ShopFilters': item.get('ShopFilters'),
+            'IsDisabled': item.get('IsDisabled'),
             'StreetBrawl': item.get('StreetBrawl'),
         }
 
-        # Tooltip sections → Main/Alt blocks
-        tooltip = item.get('TooltipSections')
-        if tooltip:
-            card.update(self._parse_tooltip_sections(tooltip))
+        # Parse tooltip sections if available
+        raw_ability = self.abilities.get(key)
+        tooltip_sections = raw_ability.get('m_vecTooltipSectionInfo') if raw_ability else None
+        if tooltip_sections:
+            card.update(self._parse_tooltip_sections(tooltip_sections))
 
-        # Property upgrades
+        # Include property upgrades
         if 'PropertyUpgrades' in item:
             card['Upgrades'] = item['PropertyUpgrades']
 
-        # Remaining attributes grouped by type
+        # Parse remaining attributes inline
         card.update(self._parse_remaining_attributes())
 
         return card
 
-    SECTION_TYPE_MAP = {
-        'EArea_Innate': 'Innate',
-        'EArea_Active': 'Active',
-        'EArea_Passive': 'Passive',
-    }
-
     def _parse_tooltip_sections(self, sections):
+        """Parse Info sections into Main/Alt blocks."""
         ui_sections = {}
         index = 1
 
         for section in sections:
             raw_type = section.get('Type') or section.get('m_eAbilitySectionType')
-            human_type = self.SECTION_TYPE_MAP.get(raw_type, raw_type)
+            human_type = get_section_type(raw_type)
 
             parsed = {
                 'Type': human_type,
@@ -70,33 +85,40 @@ class ItemCardParser:
                 'Alt': [],
             }
 
-            # entries may be under 'Entries' or 'm_vecSectionAttributes'
             entries = section.get('Entries') or section.get('m_vecSectionAttributes') or []
 
-            # Try to get DescKey from the first entry or any entry
+            # Get description key from first entry if available
             for entry in entries:
                 parsed['DescKey'] = entry.get('m_strLocString') or entry.get('LocString') or entry.get('m_strLocStringOverride')
                 if parsed['DescKey']:
                     break
 
+                elevated_props = entry.get('m_vecElevatedAbilityProperties') or []
+                for key in elevated_props:
+                    prop_obj = self._build_prop_object(key)
+                    if prop_obj:
+                        parsed['Main'].append(prop_obj)
+
             for entry in entries:
-                # Important properties
+                # Process important properties
                 important_props = entry.get('ImportantProperties') or entry.get('m_vecImportantAbilityProperties') or []
                 for prop in important_props:
+                    key = None
                     if isinstance(prop, dict):
                         key = prop.get('Key') or prop.get('m_strImportantProperty')
                     else:
-                        key = prop  # string directly
-
+                        key = prop
                     if key in ['AbilityCooldown', 'AbilityChargeUpTime']:
                         if key == 'AbilityCooldown':
                             parsed['Cooldown'] = self.item.get(key)
                         else:
                             parsed['ChargeUp'] = self.item.get(key)
                     elif key:
-                        parsed['Main'].append(self._build_prop_object(key))
+                        prop_obj = self._build_prop_object(key)
+                        if prop_obj:
+                            parsed['Main'].append(prop_obj)
 
-                # Normal properties
+                # Process normal properties
                 normal_props = entry.get('Properties') or entry.get('m_vecAbilityProperties') or []
                 for key in normal_props:
                     if key in ['AbilityCooldown', 'AbilityChargeUpTime']:
@@ -105,7 +127,9 @@ class ItemCardParser:
                         else:
                             parsed['ChargeUp'] = self.item.get(key)
                     else:
-                        parsed['Alt'].append(self._build_prop_object(key))
+                        prop_obj = self._build_prop_object(key)
+                        if prop_obj:
+                            parsed['Alt'].append(prop_obj)
 
             ui_sections[f'Info{index}'] = parsed
             index += 1
@@ -113,25 +137,54 @@ class ItemCardParser:
         return ui_sections
 
     def _build_prop_object(self, prop_key):
+        """Build a property object for an item attribute, including scale if available."""
         if prop_key not in self.item:
-            return {'Key': prop_key, 'Missing': True}
+            return None  # safely skip missing attributes
 
         value = self.item[prop_key]
         raw_attr = self._get_raw_item_attr(prop_key)
 
-        obj = {
-            'Key': prop_key,
-        }
+        # start with Key at the top
+        obj = {'Key': prop_key}
 
+        # Base value
         if isinstance(value, dict):
             obj.update(value)
         else:
             obj['Value'] = value
 
+        # Safe scaling handling
+        scale_data = None
         if raw_attr:
-            css = raw_attr.get('m_strCSSClass')
-            if css:
-                obj['CSSClass'] = css
+            scale_func = raw_attr.get('m_subclassScaleFunction')
+            if isinstance(scale_func, dict):
+                raw_scale_value = scale_func.get('m_flStatScale')
+                base_value_str = raw_attr.get('m_strValue') or value
+                scale_type = scale_func.get('m_eSpecificStatScaleType')
+                if raw_scale_value is not None and scale_type:
+                    try:
+                        from parser.maps import get_scale_type
+
+                        try:
+                            human_type = get_scale_type(scale_type)
+                        except Exception:
+                            human_type = None  # unknown scale type is safely ignored
+
+                        if human_type:
+                            scale_value = float(raw_scale_value)
+                            base_value = float(base_value_str)
+                            scale_data = {
+                                'Key': prop_key,  # put Key at the top
+                                'Value': base_value,
+                                'Scale': {'Value': scale_value, 'Type': human_type},
+                            }
+                    except (ValueError, TypeError):
+                        scale_data = None
+
+            # CSS class and other attributes
+            type = raw_attr.get('m_strCSSClass') or raw_attr.get('CSSClass')
+            if type:
+                obj['Type'] = type
 
             usage = raw_attr.get('m_eStatsUsageFlags')
             if usage:
@@ -142,67 +195,43 @@ class ItemCardParser:
                 obj['LocTokenOverride'] = override
 
         self.used_attributes.append(prop_key)
-        return obj
+        return scale_data if scale_data else obj
 
     def _parse_remaining_attributes(self):
-        """
-        Group leftover attributes into UI categories.
-        """
-        categories = {
-            'Stats': {},
-            'Effects': {},
-            'Scaling': {},
-            'Other': {},
-        }
+        """Process leftover item attributes into a single 'Other' category."""
+        other = {}
 
         for prop, value in self.item.items():
             if prop in self.used_attributes:
                 continue
-            if prop in ['Cost', 'Tier', 'Slot', 'Activation', 'Components', 'StreetBrawl']:
+
+            entry = self._build_prop_object(prop)
+            if entry is None:
                 continue
 
-            raw_attr = self._get_raw_item_attr(prop)
-            if raw_attr is None:
-                continue
+            other[prop] = entry
 
-            entry = {'Name': prop}
-
-            if isinstance(value, dict):
-                entry.update(value)
-            else:
-                entry['Value'] = value
-
-            css = raw_attr.get('CSSClass')
-            if css:
-                entry['Type'] = css
-
-            # Categorization rules
-            if 'Scale' in entry:
-                categories['Scaling'][prop] = entry
-            elif css in ['damage', 'tech_damage', 'bullet_damage']:
-                categories['Effects'][prop] = entry
-            elif css in ['health', 'healing', 'armor']:
-                categories['Stats'][prop] = entry
-            else:
-                categories['Other'][prop] = entry
-
-        # Remove empty categories
-        return {k: v for k, v in categories.items() if v}
+        return {'Other': other} if other else {}
 
     def _get_raw_item_attr(self, attr_key):
-        """
-        Look up raw ability data for the item.
-        """
+        """Return the raw ability attribute data for a given item key."""
         raw = self.abilities.get(self.item_key)
         if not raw:
             return None
 
-        props = raw.get('m_mapAbilityProperties', {})
-        elevated = raw.get('m_vecElevatedAbilityProperties', {})
-
         merged = {}
-        merged.update(props)
+        props = raw.get('m_mapAbilityProperties', {})
+        if isinstance(props, dict):
+            merged.update(props)
+
+        elevated = raw.get('m_vecElevatedAbilityProperties', {})
         if isinstance(elevated, dict):
             merged.update(elevated)
+        elif isinstance(elevated, list):
+            for entry in elevated:
+                if isinstance(entry, dict) and 'm_strPropertyName' in entry:
+                    merged[entry['m_strPropertyName']] = entry
+                elif isinstance(entry, str):
+                    merged[entry] = entry
 
         return merged.get(attr_key)

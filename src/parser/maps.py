@@ -203,3 +203,20 @@ def get_scale_type(scale):
         raise Exception(f'No scale map found for {scale}')
 
     return SCALE_TYPE_MAP[scale]
+
+
+SECTION_TYPE_MAP = {
+    'EArea_Innate': 'Innate',
+    'EArea_Active': 'Active',
+    'EArea_Passive': 'Passive',
+}
+
+
+def get_section_type(value):
+    if value is None:
+        return None
+
+    if value not in SECTION_TYPE_MAP:
+        raise Exception(f'{value} is not a valid item tooltip section type')
+
+    return SECTION_TYPE_MAP[value]
