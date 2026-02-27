@@ -103,17 +103,16 @@ class ItemCardParser:
 
             entries = section.get('Entries') or section.get('m_vecSectionAttributes') or []
 
-            # Get description key from first entry if available
             for entry in entries:
-                parsed['DescKey'] = entry.get('m_strLocString') or entry.get('LocString') or entry.get('m_strLocStringOverride')
-                if parsed['DescKey']:
-                    break
+                if not parsed['DescKey']:
+                    parsed['DescKey'] = entry.get('m_strLocString') or entry.get('LocString') or entry.get('m_strLocStringOverride')
 
                 elevated_props = entry.get('m_vecElevatedAbilityProperties') or []
                 for key in elevated_props:
                     prop_obj = self._build_prop_object(key)
                     if prop_obj:
                         parsed['Main'].append(prop_obj)
+                        self.used_attributes.append(key)
 
             for entry in entries:
                 # Process important properties
@@ -149,6 +148,7 @@ class ItemCardParser:
                         prop_obj = self._build_prop_object(key)
                         if prop_obj:
                             parsed['Alt'].append(prop_obj)
+                            self.used_attributes.append(key)
 
             ui_sections[f'Info{index}'] = parsed
             index += 1
@@ -157,11 +157,15 @@ class ItemCardParser:
 
     def _build_prop_object(self, prop_key):
         """Build a property object for an item attribute, including scale if available."""
-        if prop_key not in self.item:
-            return None  # safely skip missing attributes
-
-        value = self.item[prop_key]
+        value = self.item.get(prop_key)
         raw_attr = self._get_raw_item_attr(prop_key)
+
+        # If missing in item, use raw ability attribute
+        if value is None and raw_attr:
+            value = raw_attr.get('m_strValue') or 0
+
+        if value is None:
+            return None
 
         # start with Key at the top
         obj = {'Key': prop_key}
