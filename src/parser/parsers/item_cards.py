@@ -157,15 +157,11 @@ class ItemCardParser:
 
     def _build_prop_object(self, prop_key):
         """Build a property object for an item attribute, including scale if available."""
-        value = self.item.get(prop_key)
+        if prop_key not in self.item:
+            return None  # safely skip missing attributes
+
+        value = self.item[prop_key]
         raw_attr = self._get_raw_item_attr(prop_key)
-
-        # If missing in item, use raw ability attribute
-        if value is None and raw_attr:
-            value = raw_attr.get('m_strValue') or 0
-
-        if value is None:
-            return None
 
         # start with Key at the top
         obj = {'Key': prop_key}
