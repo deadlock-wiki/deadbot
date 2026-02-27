@@ -36,7 +36,6 @@ class ItemCardParser:
             'IsDisabled',
             'StreetBrawl',
             'PropertyUpgrades',
-            'AbilityCooldown',
         ]
 
         card = {
@@ -66,6 +65,21 @@ class ItemCardParser:
 
         # Parse remaining attributes inline
         card.update(self._parse_remaining_attributes())
+
+        # Promote AbilityCooldown from Other into the last non-Innate Info
+        if 'Other' in card and 'AbilityCooldown' in card['Other']:
+            ability_cd = card['Other']['AbilityCooldown']
+            info_keys = [k for k in card.keys() if k.startswith('Info')]
+            non_innate_infos = [card[k] for k in info_keys if card[k].get('Type') != 'Innate']
+            if non_innate_infos:
+                last_info = non_innate_infos[-1]
+                # Only set if Cooldown or ChargeUp is missing
+                if last_info.get('Cooldown') is None and last_info.get('ChargeUp') is None:
+                    last_info['Cooldown'] = ability_cd.get('Value')
+                    # Remove from Other
+                    del card['Other']['AbilityCooldown']
+                    if not card['Other']:
+                        del card['Other']
 
         return card
 
@@ -105,7 +119,6 @@ class ItemCardParser:
                 # Process important properties
                 important_props = entry.get('ImportantProperties') or entry.get('m_vecImportantAbilityProperties') or []
                 for prop in important_props:
-                    key = None
                     if isinstance(prop, dict):
                         key = prop.get('Key') or prop.get('m_strImportantProperty')
                     else:
@@ -113,8 +126,10 @@ class ItemCardParser:
                     if key in ['AbilityCooldown', 'AbilityChargeUpTime']:
                         if key == 'AbilityCooldown':
                             parsed['Cooldown'] = self.item.get(key)
+                            self.used_attributes.append(key)
                         else:
                             parsed['ChargeUp'] = self.item.get(key)
+                            self.used_attributes.append(key)
                     elif key:
                         prop_obj = self._build_prop_object(key)
                         if prop_obj:
@@ -126,8 +141,10 @@ class ItemCardParser:
                     if key in ['AbilityCooldown', 'AbilityChargeUpTime']:
                         if key == 'AbilityCooldown':
                             parsed['Cooldown'] = self.item.get(key)
+                            self.used_attributes.append(key)
                         else:
                             parsed['ChargeUp'] = self.item.get(key)
+                            self.used_attributes.append(key)
                     else:
                         prop_obj = self._build_prop_object(key)
                         if prop_obj:
@@ -156,7 +173,6 @@ class ItemCardParser:
             obj['Value'] = value
 
         # Safe scaling handling
-        scale_data = None
         if raw_attr:
             scale_func = raw_attr.get('m_subclassScaleFunction')
             if isinstance(scale_func, dict):
@@ -175,13 +191,10 @@ class ItemCardParser:
                         if human_type:
                             scale_value = float(raw_scale_value)
                             base_value = float(base_value_str)
-                            scale_data = {
-                                'Key': prop_key,  # put Key at the top
-                                'Value': base_value,
-                                'Scale': {'Value': scale_value, 'Type': human_type},
-                            }
+                            obj['Value'] = base_value
+                            obj['Scale'] = {'Value': scale_value, 'Type': human_type}
                     except (ValueError, TypeError):
-                        scale_data = None
+                        pass
 
             # CSS class and other attributes
             type = raw_attr.get('m_strCSSClass') or raw_attr.get('CSSClass')
@@ -197,7 +210,7 @@ class ItemCardParser:
                 obj['LocTokenOverride'] = override
 
         self.used_attributes.append(prop_key)
-        return scale_data if scale_data else obj
+        return obj
 
     def _parse_remaining_attributes(self):
         """Process leftover item attributes into a single 'Other' category."""
