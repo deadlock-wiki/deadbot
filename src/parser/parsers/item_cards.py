@@ -66,16 +66,16 @@ class ItemCardParser:
         # Parse remaining attributes inline
         card.update(self._parse_remaining_attributes())
 
-        # Promote AbilityCooldown from Other into the last non-Innate Info
+        # Promote AbilityCooldown from Other into the first non-Innate Info
         if 'Other' in card and 'AbilityCooldown' in card['Other']:
             ability_cd = card['Other']['AbilityCooldown']
             info_keys = [k for k in card.keys() if k.startswith('Info')]
             non_innate_infos = [card[k] for k in info_keys if card[k].get('Type') != 'Innate']
             if non_innate_infos:
-                last_info = non_innate_infos[-1]
+                first_info = non_innate_infos[0]
                 # Only set if Cooldown or ChargeUp is missing
-                if last_info.get('Cooldown') is None and last_info.get('ChargeUp') is None:
-                    last_info['Cooldown'] = ability_cd.get('Value')
+                if first_info.get('Cooldown') is None and first_info.get('ChargeUp') is None:
+                    first_info['Cooldown'] = ability_cd.get('Value')
                     # Remove from Other
                     del card['Other']['AbilityCooldown']
                     if not card['Other']:
@@ -84,7 +84,8 @@ class ItemCardParser:
         return card
 
     def _parse_tooltip_sections(self, sections):
-        """Parse Info sections into Main/Alt blocks."""
+        """Parse Info sections into Main/Alt blocks.
+        Each entry in m_vecSectionAttributes becomes its own Info section."""
         ui_sections = {}
         index = 1
 
@@ -92,21 +93,22 @@ class ItemCardParser:
             raw_type = section.get('Type') or section.get('m_eAbilitySectionType')
             human_type = get_section_type(raw_type)
 
-            parsed = {
-                'Type': human_type,
-                'DescKey': None,
-                'Cooldown': None,
-                'ChargeUp': None,
-                'Main': [],
-                'Alt': [],
-            }
-
             entries = section.get('Entries') or section.get('m_vecSectionAttributes') or []
 
             for entry in entries:
-                if not parsed['DescKey']:
-                    parsed['DescKey'] = entry.get('m_strLocString') or entry.get('LocString') or entry.get('m_strLocStringOverride')
+                parsed = {
+                    'Type': human_type,
+                    'DescKey': None,
+                    'Cooldown': None,
+                    'ChargeUp': None,
+                    'Main': [],
+                    'Alt': [],
+                }
 
+                # Description key
+                parsed['DescKey'] = entry.get('m_strLocString') or entry.get('LocString') or entry.get('m_strLocStringOverride')
+
+                # Elevated properties (always Main)
                 elevated_props = entry.get('m_vecElevatedAbilityProperties') or []
                 for key in elevated_props:
                     prop_obj = self._build_prop_object(key)
@@ -114,57 +116,47 @@ class ItemCardParser:
                         parsed['Main'].append(prop_obj)
                         self.used_attributes.append(key)
 
-            for entry in entries:
-                # Process important properties
+                # Important properties (Main, or Cooldown/ChargeUp)
                 important_props = entry.get('ImportantProperties') or entry.get('m_vecImportantAbilityProperties') or []
                 for prop in important_props:
                     if isinstance(prop, dict):
                         key = prop.get('Key') or prop.get('m_strImportantProperty')
                     else:
                         key = prop
-                    if key in ['AbilityCooldown', 'AbilityChargeUpTime', 'ProcCooldown']:
-                        if key == 'AbilityCooldown':
-                            parsed['Cooldown'] = self.item.get(key)
-                            self.used_attributes.append(key)
-                        elif key == 'ProcCooldown':
-                            prop_obj = self._build_prop_object(key)
-                            if prop_obj:
-                                parsed['Cooldown'] = prop_obj.get('Value')
-                                self.used_attributes.append(key)
-                        else:
-                            parsed['ChargeUp'] = self.item.get(key)
-                            self.used_attributes.append(key)
-                    elif key:
-                        prop_obj = self._build_prop_object(key)
-                        if prop_obj:
-                            parsed['Main'].append(prop_obj)
-                            self.used_attributes.append(key)
+                    self._assign_prop(parsed, key, target='Main')
 
-                # Process normal properties
+                # Normal properties (Alt, or Cooldown/ChargeUp)
                 normal_props = entry.get('Properties') or entry.get('m_vecAbilityProperties') or []
                 for key in normal_props:
-                    if key in ['AbilityCooldown', 'AbilityChargeUpTime', 'ProcCooldown']:
-                        if key == 'AbilityCooldown':
-                            parsed['Cooldown'] = self.item.get(key)
-                            self.used_attributes.append(key)
-                        elif key == 'ProcCooldown':
-                            prop_obj = self._build_prop_object(key)
-                            if prop_obj:
-                                parsed['Cooldown'] = prop_obj.get('Value')
-                                self.used_attributes.append(key)
-                        else:
-                            parsed['ChargeUp'] = self.item.get(key)
-                            self.used_attributes.append(key)
-                    else:
-                        prop_obj = self._build_prop_object(key)
-                        if prop_obj:
-                            parsed['Alt'].append(prop_obj)
-                            self.used_attributes.append(key)
+                    self._assign_prop(parsed, key, target='Alt')
 
-            ui_sections[f'Info{index}'] = parsed
-            index += 1
+                ui_sections[f'Info{index}'] = parsed
+                index += 1
 
         return ui_sections
+
+    def _assign_prop(self, parsed, key, target):
+        """Assign a property to Main/Alt, or extract Cooldown/ChargeUp."""
+        if not key:
+            return
+
+        if key in ['AbilityCooldown', 'AbilityChargeUpTime', 'ProcCooldown']:
+            if key == 'AbilityCooldown':
+                parsed['Cooldown'] = self.item.get(key)
+                self.used_attributes.append(key)
+            elif key == 'ProcCooldown':
+                prop_obj = self._build_prop_object(key)
+                if prop_obj:
+                    parsed['Cooldown'] = prop_obj.get('Value')
+                    self.used_attributes.append(key)
+            else:
+                parsed['ChargeUp'] = self.item.get(key)
+                self.used_attributes.append(key)
+        else:
+            prop_obj = self._build_prop_object(key)
+            if prop_obj:
+                parsed[target].append(prop_obj)
+                self.used_attributes.append(key)
 
     def _build_prop_object(self, prop_key):
         """Build a property object for an item attribute, including scale if available."""
@@ -196,7 +188,7 @@ class ItemCardParser:
 
                         try:
                             human_type = get_scale_type(scale_type)
-                        except Exception:
+                        except (KeyError, ValueError, TypeError):
                             human_type = None  # unknown scale type is safely ignored
 
                         if human_type:
