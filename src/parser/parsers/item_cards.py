@@ -122,10 +122,15 @@ class ItemCardParser:
                         key = prop.get('Key') or prop.get('m_strImportantProperty')
                     else:
                         key = prop
-                    if key in ['AbilityCooldown', 'AbilityChargeUpTime']:
+                    if key in ['AbilityCooldown', 'AbilityChargeUpTime', 'ProcCooldown']:
                         if key == 'AbilityCooldown':
                             parsed['Cooldown'] = self.item.get(key)
                             self.used_attributes.append(key)
+                        elif key == 'ProcCooldown':
+                            prop_obj = self._build_prop_object(key)
+                            if prop_obj:
+                                parsed['Cooldown'] = prop_obj.get('Value')
+                                self.used_attributes.append(key)
                         else:
                             parsed['ChargeUp'] = self.item.get(key)
                             self.used_attributes.append(key)
@@ -133,14 +138,20 @@ class ItemCardParser:
                         prop_obj = self._build_prop_object(key)
                         if prop_obj:
                             parsed['Main'].append(prop_obj)
+                            self.used_attributes.append(key)
 
                 # Process normal properties
                 normal_props = entry.get('Properties') or entry.get('m_vecAbilityProperties') or []
                 for key in normal_props:
-                    if key in ['AbilityCooldown', 'AbilityChargeUpTime']:
+                    if key in ['AbilityCooldown', 'AbilityChargeUpTime', 'ProcCooldown']:
                         if key == 'AbilityCooldown':
                             parsed['Cooldown'] = self.item.get(key)
                             self.used_attributes.append(key)
+                        elif key == 'ProcCooldown':
+                            prop_obj = self._build_prop_object(key)
+                            if prop_obj:
+                                parsed['Cooldown'] = prop_obj.get('Value')
+                                self.used_attributes.append(key)
                         else:
                             parsed['ChargeUp'] = self.item.get(key)
                             self.used_attributes.append(key)
