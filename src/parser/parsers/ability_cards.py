@@ -411,6 +411,10 @@ class AbilityCardsParser:
                 self._update_localization(desc_key, upgrade_desc)
                 upgrade['DescKey'] = desc_key
 
+            # Skip LaunchWindowCooldown when both it and AbilityCooldown exist (Mirage Fire Scarabs)
+            if 'LaunchWindowCooldown' in upgrade and 'AbilityCooldown' in upgrade:
+                del upgrade['LaunchWindowCooldown']
+
             parsed_upgrades.append(upgrade)
 
         return parsed_upgrades
