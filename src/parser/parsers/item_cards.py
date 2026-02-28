@@ -161,6 +161,8 @@ class ItemCardParser:
     def _build_prop_object(self, prop_key):
         """Build a property object for an item attribute, including scale if available."""
         if prop_key not in self.item:
+            if prop_key.startswith('StatusEffect'):
+                return {'Key': prop_key, 'Value': None}
             return None  # safely skip missing attributes
 
         value = self.item[prop_key]
