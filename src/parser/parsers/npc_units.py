@@ -274,6 +274,10 @@ class NpcParser:
             if not isinstance(parsed_ability, dict):
                 parsed_ability = {}
 
+            # Only keep WeaponInfo for actual weapon slots
+            if slot != 'ESlot_Weapon_Primary' and 'WeaponInfo' in parsed_ability:
+                del parsed_ability['WeaponInfo']
+
             # Ensure key metadata is present
             parsed_ability['Key'] = ability_key
             parsed_ability['Name'] = self.localizations.get(ability_key, ability_key)
