@@ -66,16 +66,20 @@ class ItemCardParser:
         # Parse remaining attributes inline
         card.update(self._parse_remaining_attributes())
 
-        # Promote AbilityCooldown from Other into the first non-Innate Info
+        # Promote AbilityCooldown from Other into the first non-Innate, non-null Info
         if 'Other' in card and 'AbilityCooldown' in card['Other']:
             ability_cd = card['Other']['AbilityCooldown']
             info_keys = [k for k in card.keys() if k.startswith('Info')]
-            non_innate_infos = [card[k] for k in info_keys if card[k].get('Type') != 'Innate']
-            if non_innate_infos:
-                first_info = non_innate_infos[0]
+
+            # Filter Info entries: Type exists, not 'Innate'
+            valid_infos = [card[k] for k in info_keys if card[k].get('Type') is not None and card[k].get('Type') != 'Innate']
+
+            if valid_infos:
+                first_info = valid_infos[0]
                 # Only set if Cooldown or ChargeUp is missing
                 if first_info.get('Cooldown') is None and first_info.get('ChargeUp') is None:
                     first_info['Cooldown'] = ability_cd.get('Value')
+
                     # Remove from Other
                     del card['Other']['AbilityCooldown']
                     if not card['Other']:
