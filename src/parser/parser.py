@@ -1,9 +1,11 @@
 import os
 import shutil
+
 from .parsers import (
     abilities,
     ability_cards,
     items,
+    item_cards,
     heroes,
     localizations,
     attributes,
@@ -129,7 +131,8 @@ class Parser:
         parsed_abilities = self._parse_abilities()
         parsed_heroes = self._parse_heroes(parsed_abilities)
         self._parsed_ability_cards(parsed_heroes)
-        self._parse_items()
+        parsed_items = self._parse_items()
+        self._parse_item_cards(parsed_items)
         self._parse_npcs(parsed_abilities)
         self._parse_attributes()
         self._parse_localizations()
@@ -246,6 +249,11 @@ class Parser:
 
         with open(self.OUTPUT_DIR + '/item-component-tree.txt', 'w') as f:
             f.write(str(item_component_chart))
+        return parsed_items
+
+    def _parse_item_cards(self, parsed_items):
+        parsed_item_cards = item_cards.ItemCardParser(parsed_items=parsed_items, abilities=self.data['scripts']['abilities']).run()
+        json_utils.write(self.OUTPUT_DIR + '/json/item-cards.json', parsed_item_cards)
 
     def _parse_npcs(self, parsed_abilities):
         logger.trace('Parsing NPCs...')
