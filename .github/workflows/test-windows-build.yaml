@@ -1,7 +1,9 @@
 name: Test Windows Build
 
 on:
-  workflow_dispatch:  # Manual trigger only
+  push:
+    branches: [fix/windows-executable]
+  workflow_dispatch:
 
 jobs:
   test-windows-build:
