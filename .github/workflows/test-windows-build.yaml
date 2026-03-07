@@ -1,0 +1,31 @@
+name: Test Windows Build
+
+on:
+  push:
+    branches: [fix/windows-executable]
+  workflow_dispatch:
+
+jobs:
+  test-windows-build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          
+      - name: Install Poetry
+        run: python -m pip install poetry
+        
+      - name: Install dependencies
+        run: poetry install --with dev
+        
+      - name: Build Windows executable
+        run: poetry run pyinstaller --onefile --name deadbot src/deadbot.py
+        
+      - name: Upload artifact for inspection
+        uses: actions/upload-artifact@v4
+        with:
+          name: deadbot-windows-test
+          path: dist/deadbot.exe
