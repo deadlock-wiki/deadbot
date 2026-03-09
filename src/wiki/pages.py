@@ -7,6 +7,7 @@ DATA_PAGE_FILE_MAP = {
     'GenericData.json': 'json/generic-data.json',
     'HeroData.json': 'json/hero-data.json',
     'HeroMeaningfulStats.json': 'json/hero-meaningful-stats.json',
+    'IconLookup.json': 'json/icon-lookup.json',
     'ItemData.json': 'json/item-data.json',
     'ItemCards.json': 'json/item-cards.json',
     'NpcData.json': 'json/npc-data.json',
