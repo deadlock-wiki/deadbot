@@ -7,9 +7,9 @@ from .parsers import (
     items,
     item_cards,
     heroes,
-    icon_lookup,
     localizations,
     attributes,
+    resource_lookup,
     souls,
     generics,
     npc_units,
@@ -134,7 +134,7 @@ class Parser:
         self._parsed_ability_cards(parsed_heroes)
         parsed_items = self._parse_items()
         self._parse_item_cards(parsed_items)
-        self._generate_icon_lookup(parsed_heroes, parsed_abilities, parsed_items)
+        self._generate_resource_lookup(parsed_heroes, parsed_abilities, parsed_items)
         self._parse_npcs(parsed_abilities)
         self._parse_attributes()
         self._parse_localizations()
@@ -276,12 +276,12 @@ class Parser:
         json_utils.write(self.OUTPUT_DIR + '/json/attribute-data.json', parsed_attributes)
         json_utils.write(self.OUTPUT_DIR + '/json/stat-infobox-order.json', attribute_orders)
 
-    def _generate_icon_lookup(self, parsed_heroes, parsed_abilities, parsed_items):
-        logger.trace('Generating Icon lookup...')
-        lookup = icon_lookup.IconLookupParser(
+    def _generate_resource_lookup(self, parsed_heroes, parsed_abilities, parsed_items):
+        logger.trace('Generating resource lookup...')
+        lookup = resource_lookup.ResourceLookupParser(
             parsed_heroes,
             parsed_abilities,
             parsed_items,
         ).run()
 
-        json_utils.write(self.OUTPUT_DIR + '/json/icon-lookup.json', lookup)
+        json_utils.write(self.OUTPUT_DIR + '/json/resource-lookup.json', lookup)
