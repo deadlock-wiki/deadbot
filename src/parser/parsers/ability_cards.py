@@ -531,7 +531,12 @@ class AbilityCardsParser:
         for attr, value in data.items():
             if isinstance(value, dict) and 'Scale' in value:
                 format_data[attr] = value['Value']
-                format_data[f'{attr}_scale'] = value['Scale']['Value']
+
+                # if there are multiple scales, use the first one as it is usually the more relevant one - eg. spirit power
+                if isinstance(value['Scale'], list):
+                    format_data[f'{attr}_scale'] = value['Scale'][0]['Value']
+                else:
+                    format_data[f'{attr}_scale'] = value['Scale']['Value']
 
         # required variables to insert into the description
         format_vars = (
