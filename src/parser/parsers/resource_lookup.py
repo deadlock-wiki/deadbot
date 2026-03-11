@@ -28,6 +28,7 @@ class ResourceLookupParser:
 
             name = hero['Name']
             lower_name = name.lower()
+            is_disabled = bool(hero.get('IsDisabled'))
 
             lookup[lower_name] = {
                 'name': name,
@@ -36,12 +37,15 @@ class ResourceLookupParser:
             }
 
             # Map ability keys to their parent hero for linking
+            # Non-disabled heroes take priority over disabled ones for shared abilities
             for _, ability in (hero.get('BoundAbilities') or {}).items():
                 if ability.get('Key'):
-                    ability_to_hero[ability['Key']] = {
-                        'hero_name': name,
-                        'hero_key': hero_key,
-                    }
+                    existing_parent = ability_to_hero.get(ability['Key'])
+                    if existing_parent is None or not is_disabled:
+                        ability_to_hero[ability['Key']] = {
+                            'hero_name': name,
+                            'hero_key': hero_key,
+                        }
 
         # Process Abilities
         for ability_key, ability in self.parsed_abilities.items():
