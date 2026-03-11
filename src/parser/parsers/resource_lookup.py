@@ -8,8 +8,8 @@ class ResourceLookupParser:
     to do a direct O(1) lookup via mw.loadJsonData instead of iterating all three
     datasets on every page render.
 
-    Wiki-specific overrides (missing images, disambiguation links) are intentionally
-    left to the wiki side for easier maintenance.
+    Wiki-specific logic (image paths, links, CSS classes) is intentionally left
+    to the wiki side for easier maintenance. Only non-inferable fields are included.
     """
 
     def __init__(self, parsed_heroes, parsed_abilities, parsed_items):
@@ -32,8 +32,6 @@ class ResourceLookupParser:
             lookup[lower_name] = {
                 'name': name,
                 'key': hero_key,
-                'link': name,
-                'image': name + '.png',
                 'type': 'hero',
             }
 
@@ -71,12 +69,9 @@ class ResourceLookupParser:
             lookup[lower_name] = {
                 'name': name,
                 'key': ability_key,
-                'link': hero_name,
                 'hero_name': hero_name,
                 'hero_key': hero_key,
-                'image': name + '.png',
                 'type': 'ability',
-                'class': 'ability',
             }
 
         # Process Items
@@ -92,8 +87,6 @@ class ResourceLookupParser:
             lookup[lower_name] = {
                 'name': name,
                 'key': item_key,
-                'link': name,
-                'image': name + '.png',
                 'type': 'item',
             }
 
