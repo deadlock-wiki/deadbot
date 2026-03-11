@@ -1,3 +1,4 @@
+from collections import defaultdict
 from utils import num_utils
 import utils.string_utils as string_utils
 from loguru import logger
@@ -394,8 +395,15 @@ class AbilityCardsParser:
         return cleared_data
 
     def _parse_upgrades(self):
+        """Parse ability upgrades, filtering out internal properties when canonical variant exists."""
         parsed_upgrades = []
+        raw_ability = self._get_raw_ability()
+        raw_props = raw_ability.get('m_mapAbilityProperties', {})
+
         for index, upgrade in enumerate(self.ability['Upgrades']):
+            # Remove internal duplicate properties (e.g., LaunchWindowCooldown when AbilityCooldown exists)
+            upgrade = self._deduplicate_upgrade_props(upgrade, raw_props)
+
             # Description key includes t1, t2, and t3 denoting the upgrade tier
             desc_key = f'{self.ability["Key"]}_t{index+1}_desc'
 
@@ -414,6 +422,45 @@ class AbilityCardsParser:
             parsed_upgrades.append(upgrade)
 
         return parsed_upgrades
+
+    def _deduplicate_upgrade_props(self, upgrade, raw_props):
+        """
+        Remove internal properties from an upgrade when a canonical variant exists.
+
+        Uses m_bCanSetTokenOverride to identify canonical (displayed) vs internal properties.
+        When two properties have the same bonus value and CSS class, and one is marked
+        as canonical (m_bCanSetTokenOverride=True), remove the internal one.
+        """
+        if not upgrade:
+            return upgrade
+
+        # Build lookup of (bonus_value, css_class) -> [prop_names]
+        groups = defaultdict(list)
+
+        for prop_name, bonus_value in upgrade.items():
+            # Skip metadata keys
+            if prop_name in {'DescKey', 'm_vecPropertyUpgrades'}:
+                continue
+
+            raw = raw_props.get(prop_name, {})
+            css_class = raw.get('m_strCSSClass', '')
+            # Group by (value, css_class) - properties modifying the same thing the same way
+            # Convert bonus_value to string for hashing (handles dict values from scale data)
+            bonus_key = str(bonus_value) if not isinstance(bonus_value, (str, int, float)) else bonus_value
+            groups[(bonus_key, css_class)].append(prop_name)
+
+        props_to_remove = set()
+        for prop_names in groups.values():
+            if len(prop_names) < 2:
+                continue
+
+            canonical = [p for p in prop_names if raw_props.get(p, {}).get('m_bCanSetTokenOverride') is True]
+            internal = [p for p in prop_names if raw_props.get(p, {}).get('m_bCanSetTokenOverride') is not True]
+
+            if canonical and internal:
+                props_to_remove.update(internal)
+
+        return {k: v for k, v in upgrade.items() if k not in props_to_remove}
 
     def _get_uom(self, attr, value):
         """
@@ -484,7 +531,12 @@ class AbilityCardsParser:
         for attr, value in data.items():
             if isinstance(value, dict) and 'Scale' in value:
                 format_data[attr] = value['Value']
-                format_data[f'{attr}_scale'] = value['Scale']['Value']
+
+                # if there are multiple scales, use the first one as it is usually the more relevant one - eg. spirit power
+                if isinstance(value['Scale'], list):
+                    format_data[f'{attr}_scale'] = value['Scale'][0]['Value']
+                else:
+                    format_data[f'{attr}_scale'] = value['Scale']['Value']
 
         # required variables to insert into the description
         format_vars = (

@@ -41,6 +41,7 @@ DATA_PAGE_FILE_MAP = {
     'Lang zh-hant.json': 'localizations/tchinese.json',
     'SoulUnlockData.json': 'json/soul-unlock-data.json',
     'StatInfoboxOrder.json': 'json/stat-infobox-order.json',
+    'ResourceLookup.json': 'json/resource-lookup.json',
 }
 
 # Ignore these pages as they are not automated
