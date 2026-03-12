@@ -12,7 +12,7 @@ def send_wiki_update_notification(webhook_url: Optional[str], upload_summary: di
         logger.info('Dry run: skipping Discord notification')
         return
 
-    data_pages_updated = upload_summary.get('data_pages_updated', 0)
+    data_pages_updated = upload_summary.get('data_pages_updated', [])
     changelogs_uploaded = upload_summary.get('changelogs_uploaded', [])
     hotfixes_applied = upload_summary.get('hotfixes_applied', [])
     game_version = upload_summary.get('game_version', 'Unknown')
