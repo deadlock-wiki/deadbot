@@ -1,8 +1,9 @@
 import requests
 from loguru import logger
+from typing import Optional
 
 
-def send_wiki_update_notification(webhook_url: str, upload_summary: dict, dry_run: bool = False):
+def send_wiki_update_notification(webhook_url: Optional[str], upload_summary: dict, dry_run: bool = False):
     if not webhook_url:
         logger.trace('No Discord webhook URL configured, skipping notification')
         return
@@ -57,7 +58,7 @@ def send_wiki_update_notification(webhook_url: str, upload_summary: dict, dry_ru
         logger.error(f'Failed to send Discord notification: {e}')
 
 
-def send_error_notification(webhook_url: str, error: Exception, dry_run: bool = False):
+def send_error_notification(webhook_url: Optional[str], error: Exception, dry_run: bool = False):
     if not webhook_url or dry_run:
         return
 

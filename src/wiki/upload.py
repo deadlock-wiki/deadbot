@@ -344,12 +344,21 @@ class WikiUpload:
 
     def _update_page(self, page, updated_text):
         logger.info(f'Updating page: "{page.name}"')
-        self.upload_summary['data_pages_updated'].append(page.name)  # moved up
+
         if self.dry_run:
+            self.upload_summary['data_pages_updated'].append(page.name)
             return
 
-        page.save(updated_text, summary=self.upload_message, minor=False, bot=True)
-        logger.success(f'Successfully updated page "{page.name}"')
+        result = page.save(updated_text, summary=self.upload_message, minor=False, bot=True)
+
+        # MediaWiki API returns the result nested under the 'edit' key
+        edit_info = result.get('edit', {})
+
+        if edit_info.get('nochange'):
+            logger.trace(f'No changes for page "{page.name}"')
+        else:
+            logger.success(f'Successfully updated page "{page.name}"')
+            self.upload_summary['data_pages_updated'].append(page.name)
 
     def _get_namespace_id(self, search_namespace):
         for namespace_id, namespace in self.site.namespaces.items():
