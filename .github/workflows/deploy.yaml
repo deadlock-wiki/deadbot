@@ -44,6 +44,8 @@ on:
         required: true
       BOT_WIKI_PASS:
         required: true
+      DISCORD_WEBHOOK_URL:
+        required: false
 
 jobs:
   # Each event type has a different variable for the branch name
@@ -171,6 +173,7 @@ jobs:
           BOT_WIKI_USER: ${{ vars.BOT_WIKI_USER }}
           BOT_WIKI_PASS: ${{ secrets.BOT_WIKI_PASS }}
           VERBOSE: ${{ secrets.ACTIONS_RUNNER_DEBUG == 'true' }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
 
       - name: Read versions
         id: read_versions

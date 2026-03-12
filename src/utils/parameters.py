@@ -67,6 +67,11 @@ def arg_group_base(parser):
         help='Print verbose output for extensive logging',
         default=is_truthy(os.getenv('VERBOSE', False)),
     )
+    group_base.add_argument(
+        '--discord_webhook',
+        help='Discord webhook URL for upload notifications (also set with DISCORD_WEBHOOK_URL environment variable)',
+        default=os.getenv('DISCORD_WEBHOOK_URL', None),
+    )
 
 
 def arg_group_steam(parser):
@@ -154,6 +159,7 @@ class Args(Protocol):
     changelogs: bool
     wiki_upload: bool
     dry_run: bool
+    discord_webhook: Optional[str]
     steam_username: Optional[str]
     steam_password: Optional[str]
     depot_downloader_cmd: Optional[str]

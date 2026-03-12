@@ -6,13 +6,14 @@ from loguru import logger
 from dotenv import load_dotenv
 
 from steam.depot_downloader import DepotDownloader
-from utils import csv_writer
+from utils import csv_writer, game_utils, meta_utils
 from decompiler.decompiler import Decompiler
 import constants
 from changelogs import parse_changelogs, fetch_changelogs
 from parser import parser
 from utils.parameters import Args
 from utils.process import run_process
+from utils.discord_notifier import send_wiki_update_notification, send_error_notification
 from wiki.upload import WikiUpload
 
 load_dotenv()
@@ -70,8 +71,21 @@ def main():
 
     if args.wiki_upload:
         logger.info('Running Wiki Upload...')
-        wiki_upload = WikiUpload(args.output, dry_run=args.dry_run)
-        wiki_upload.run()
+        try:
+            wiki_upload = WikiUpload(args.output, dry_run=args.dry_run)
+            upload_summary = wiki_upload.run()
+            upload_summary['game_version'] = game_utils.load_game_info(f'{args.output}/version.txt').get('ClientVersion', 'Unknown')
+            upload_summary['deadbot_version'] = meta_utils.get_deadbot_version()
+
+            something_changed = upload_summary['data_pages_updated'] or upload_summary['changelogs_uploaded'] or upload_summary['hotfixes_applied']
+
+            if something_changed:
+                send_wiki_update_notification(args.discord_webhook, upload_summary, dry_run=args.dry_run)
+            else:
+                logger.info('No changes detected, skipping Discord notification')
+        except Exception as e:
+            send_error_notification(args.discord_webhook, e, dry_run=args.dry_run)
+            raise
     else:
         logger.trace('! Skipping Wiki Upload !')
 

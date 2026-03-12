@@ -46,13 +46,22 @@ class WikiUpload:
         # Store wiki state to minimize API calls
         self.wiki_updates: List[Tuple[datetime, str]] = []
 
-    def run(self):
+        # Track what was uploaded for the Discord summary
+        self.upload_summary = {
+            'data_pages_updated': [],
+            'changelogs_uploaded': [],
+            'hotfixes_applied': [],
+        }
+
+    def run(self) -> dict:
         logger.info(f'Uploading Data to Wiki - {self.upload_message}')
         self._update_data_pages()
         self.wiki_updates = self._get_existing_update_pages()
         self._upload_changelog_pages()
         self._process_hotfixes()
         self._update_latest_chain()
+        # Return summary for Discord notification
+        return self.upload_summary
 
     def _get_existing_update_pages(self) -> List[Tuple[datetime, str]]:
         """
@@ -135,7 +144,9 @@ class WikiUpload:
                 # Inject the link into the wikitext content
                 content = changelog_utils.inject_prev_update(raw_content, prev_update_link)
 
-                self.upload_new_page(page_title, content)
+                # upload_new_page returns True if a new page was created
+                if self.upload_new_page(page_title, content):
+                    self.upload_summary['changelogs_uploaded'].append(page_title)
 
                 # Track for subsequent iterations in this same run
                 uploads_this_run.append((date_obj, page_title))
@@ -178,8 +189,8 @@ class WikiUpload:
                 if current_text.strip().endswith('}}'):
                     base_text = current_text.strip()
                     new_page_text = base_text[:-2] + f"\n\n{hotfix['text']}\n}}"
-
-                    logger.info(f'Appending new hotfix section to Wiki page: {page_title}')
+                    logger.info(f'Appending hotfix to {page_title}')
+                    self.upload_summary['hotfixes_applied'].append(page_title)  # moved up
                     if not self.dry_run:
                         page.save(new_page_text, summary=f'{self.upload_message}: Appended new hotfix notes')
                         logger.success(f'Successfully appended hotfix to {page_title}')
@@ -214,7 +225,7 @@ class WikiUpload:
             json_string = json.dumps(data, indent=4)
             self._update_page(page, json_string)
 
-    def upload_new_page(self, title, content):
+    def upload_new_page(self, title, content) -> bool:
         """
         Uploads a page to the wiki if it doesn't already exist.
 
@@ -226,15 +237,16 @@ class WikiUpload:
         normalized_title = title.replace('_', ' ')
         if normalized_title in existing_titles:
             logger.trace(f'Page "{title}" already exists, skipping creation.')
-            return
+            return False
 
         logger.info(f'Creating new page: "{title}"')
         if self.dry_run:
-            return
+            return True
 
         page = self.site.pages[title]
         page.save(content, summary=self.upload_message)
         logger.success(f'Successfully saved page "{title}"')
+        return True
 
     def _update_latest_chain(self):
         """
@@ -332,6 +344,7 @@ class WikiUpload:
 
     def _update_page(self, page, updated_text):
         logger.info(f'Updating page: "{page.name}"')
+        self.upload_summary['data_pages_updated'].append(page.name)  # moved up
         if self.dry_run:
             return
 
