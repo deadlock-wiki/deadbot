@@ -1,6 +1,15 @@
 import requests
 from loguru import logger
-from typing import Optional
+from typing import Optional, List
+
+
+def _format_truncated_list(items: List[str], max_items: int = 10) -> str:
+    """Format a list of items, truncating with an ellipsis if there are more than max_items."""
+    truncated = items[:max_items]
+    result = '\n'.join(truncated)
+    if len(items) > max_items:
+        result += f'\n... and {len(items) - max_items} more'
+    return result
 
 
 def send_wiki_update_notification(webhook_url: Optional[str], upload_summary: dict, dry_run: bool = False):
@@ -21,14 +30,14 @@ def send_wiki_update_notification(webhook_url: Optional[str], upload_summary: di
     fields = [
         {'name': 'Game Version', 'value': game_version, 'inline': True},
         {'name': 'Deadbot Version', 'value': f'v{deadbot_version}', 'inline': True},
-        {'name': f'Data Pages Updated ({len(data_pages_updated)})', 'value': '\n'.join(data_pages_updated[:10]), 'inline': False},
+        {'name': f'Data Pages Updated ({len(data_pages_updated)})', 'value': _format_truncated_list(data_pages_updated), 'inline': False},
     ]
 
     if changelogs_uploaded:
         fields.append(
             {
                 'name': f'Changelogs Uploaded ({len(changelogs_uploaded)})',
-                'value': '\n'.join(changelogs_uploaded[:10]),
+                'value': _format_truncated_list(changelogs_uploaded),
                 'inline': False,
             }
         )
@@ -37,7 +46,7 @@ def send_wiki_update_notification(webhook_url: Optional[str], upload_summary: di
         fields.append(
             {
                 'name': f'Hotfixes Applied ({len(hotfixes_applied)})',
-                'value': '\n'.join(hotfixes_applied[:10]),
+                'value': _format_truncated_list(hotfixes_applied),
                 'inline': False,
             }
         )

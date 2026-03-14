@@ -341,6 +341,9 @@ class WikiUpload:
         if not self.dry_run:
             page.save(new_text, summary=f"{self.upload_message}: Linking next update to {next_date.strftime('%Y-%m-%d')}")
             logger.success(f'Updated {prev_title}')
+            self.upload_summary['data_pages_updated'].append(prev_title)
+        else:
+            self.upload_summary['data_pages_updated'].append(prev_title)
 
     def _update_page(self, page, updated_text):
         logger.info(f'Updating page: "{page.name}"')
