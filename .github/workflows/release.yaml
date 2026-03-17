@@ -24,7 +24,8 @@ jobs:
       # This is used to complete the identity challenge
       # with sigstore/fulcio when running outside of PRs.
       id-token: write
-
+    env:
+      BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -75,8 +76,10 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          cache-from: |
+            type=gha,scope=deadbot-master
+            type=gha,scope=deadbot-${{ env.BRANCH_NAME }}
+          cache-to: type=gha,mode=max,scope=deadbot-${{ env.BRANCH_NAME }}
           
       - name: Build deadbot executable
         run: |         
