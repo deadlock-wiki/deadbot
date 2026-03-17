@@ -77,9 +77,9 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: |
-            type=gha,scope=deadbot-master
-            type=gha,scope=deadbot-${{ env.BRANCH_NAME }}
-          cache-to: type=gha,mode=max,scope=deadbot-${{ env.BRANCH_NAME }}
+            type=gha,scope=deadbot-build-master
+            type=gha,scope=deadbot-build-${{ env.BRANCH_NAME }}
+          cache-to: type=gha,mode=max,scope=deadbot-build-${{ env.BRANCH_NAME }}
           
       - name: Build deadbot executable
         run: |         
