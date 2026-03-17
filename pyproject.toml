@@ -23,7 +23,12 @@ bs4 = "^0.0.2"
 loguru = "^0.7.2"
 
 [tool.poetry.group.dev.dependencies]
-pyinstaller = "^6.15.0"
+nuitka = "^4.0.5"
+
+[tool.nuitka]
+onefile = true
+enable-plugin = ["numpy"]
+include-data-files = ["src/steam/steam_db_download_deadlock.sh=steam/steam_db_download_deadlock.sh"]
 
 [tool.ruff]
 line-length = 150
