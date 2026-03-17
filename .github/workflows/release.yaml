@@ -84,7 +84,7 @@ jobs:
             -v ${{ github.workspace }}/dist:/repo/dist \
             --entrypoint bash \
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }} \
-            -c "poetry run pyinstaller --onefile src/deadbot.py"
+            -c "poetry run pyinstaller deadbot.spec"
 
       - name: Get version from pyproject.toml
         if: github.event_name != 'pull_request'
