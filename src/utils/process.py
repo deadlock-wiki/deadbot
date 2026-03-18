@@ -12,14 +12,26 @@ def run_process(params, name=''):
         name (str, optional): An optional name to identify the process in logs. Defaults to ''
     """
     try:
+        # Resolve resource path for string params before any wrapping
+        if isinstance(params, str):
+            process_path = get_resource_path(params)
+        else:
+            process_path = params
+
         # Handle shell scripts on Windows by explicitly using bash
-        if isinstance(params, str) and params.endswith('.sh') and os.name == 'nt':
-            params = ['bash', params]
-        elif isinstance(params, list) and len(params) > 0 and params[0].endswith('.sh') and os.name == 'nt':
-            params = ['bash'] + params
+        if isinstance(process_path, str) and process_path.endswith('.sh') and os.name == 'nt':
+            process_path = ['bash', process_path]
+        elif (
+            isinstance(process_path, list)
+            and len(process_path) > 0
+            and isinstance(process_path[0], str)
+            and process_path[0].endswith('.sh')
+            and os.name == 'nt'
+        ):
+            process_path = ['bash'] + process_path
 
         process = subprocess.Popen(  # noqa: F821
-            params, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True
+            process_path, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True
         )
 
         with process.stdout:
@@ -33,10 +45,11 @@ def run_process(params, name=''):
     if exit_code != 0:
         raise Exception(f'Process {name} exited with code {exit_code}')
 
-def get_resource_path(relative_path):
-    """Get the correct path for a resource, works for both dev and PyInstaller binary"""
+
+_SRC_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
+def get_resource_path(script_params):
     if hasattr(sys, '_MEIPASS'):
-        # Running as PyInstaller bundle
-        return os.path.join(sys._MEIPASS, relative_path)
-    # Running in normal Python environment
-    return os.path.join(os.path.dirname(__file__), relative_path)
+        return os.path.join(sys._MEIPASS, script_params)
+    return os.path.join(_SRC_ROOT, script_params)

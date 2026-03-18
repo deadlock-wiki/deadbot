@@ -13,7 +13,7 @@ from changelogs import parse_changelogs, fetch_changelogs
 from parser import parser
 from utils.meta_utils import get_deadbot_version
 from utils.parameters import Args
-from utils.process import get_resource_path, run_process
+from utils.process import run_process
 from wiki.upload import WikiUpload
 
 load_dotenv()
@@ -36,8 +36,7 @@ def main():
     # import game files from steamdb github and localization files using depot downloader
     if args.import_files:
         logger.info('Importing game files...')
-        script_path = get_resource_path('steam/steam_db_download_deadlock.sh')
-        run_process(script_path, name='download-deadlock-files')
+        run_process('steam/steam_db_download_deadlock.sh', name='download-deadlock-files')
         # non-english localizations are imported using depot downloader
         if not args.english_only:
             logger.info('Downloading non-english localizations...')
