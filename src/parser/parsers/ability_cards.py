@@ -1,9 +1,18 @@
 from collections import defaultdict
+from typing import TypedDict
 from utils import num_utils
 import utils.string_utils as string_utils
 from loguru import logger
 
 SUPPORTED_LANGS = ['english']
+
+
+class ParsedProp(TypedDict):
+    key: str | None
+    requires_upgrade: bool
+    status_effect_key: str | None
+    status_effect: str | None
+    show_prop: bool
 
 
 class AbilityCardsParser:
@@ -223,8 +232,8 @@ class AbilityCardsParser:
                     },
                 )
 
-                if 'status_effect' in parsed_prop:
-                    prop_object['StatusEffect'] = parsed_prop.get('status_effect')
+                if parsed_prop['status_effect']:
+                    prop_object['StatusEffect'] = parsed_prop['status_effect']
 
                 attr_value = self.ability[attr_key]
                 if isinstance(attr_value, dict):
@@ -243,16 +252,15 @@ class AbilityCardsParser:
         return main_block
 
     def _parse_ability_prop(self, ability_prop):
-        attribute = {'key': None, 'requires_upgrade': False}
+        attribute: ParsedProp = {'key': None, 'requires_upgrade': False, 'status_effect_key': None, 'status_effect': None, 'show_prop': False}
 
         for attr, value in ability_prop.items():
             match attr:
                 case 'm_strStatusEffectValue':
-                    attribute['key'] = value
+                    attribute['status_effect_key'] = value
 
                 case 'm_strImportantProperty':
-                    if attribute['key'] is None:
-                        attribute['key'] = value
+                    attribute['key'] = value
                     if value.startswith('StatusEffect'):
                         attribute['status_effect'] = value.replace('StatusEffect', '')
 
@@ -260,11 +268,14 @@ class AbilityCardsParser:
                     attribute['requires_upgrade'] = value
 
                 case 'm_bShowPropertyValue':
-                    # this has no use at the moment, as we want to always show the prop value
+                    attribute['show_prop'] = value
                     continue
 
                 case _:
                     logger.error('Unhandled property', attr)
+
+        if attribute['status_effect_key'] and attribute['show_prop']:
+            attribute['key'] = attribute['status_effect_key']
 
         return attribute
 
