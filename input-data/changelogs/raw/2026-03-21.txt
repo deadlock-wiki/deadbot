@@ -1,0 +1,459 @@
+* Vitality investment tree bonus reverted back to % base hp increase rather than raw constant bonus (back to how it was set up in december)
+* Hero health growth increased by +3 and 4%
+* Spirit investment rescaled from 7/11/15/19/38/52/64/76/89/101 to 7/11/15/19/38/48/57/66/75/100
+* Small neutrals spirit resist increased from 35% to 45%
+
+* Greater Expansion: Ability Range reduced from 35% to 30%
+* Guardian Ward: Ability Range reduced from 10% to 8%
+* Ballistic Enchantment: Ability Range reduced from 25% to 20%
+* Cultist Sacrifice: Ability Range reduced from +15% to +12%
+* Healing Nova: Ability Range reduced from +6% to +5%
+* Rescue Beam: Ability Range reduced from +8% to +6%
+* Knockdown: Ability Range reduced from +6% to +5%
+* Divine Barrier: Ability Range reduced from +15% to +10%
+* Arcane Surge: Ability Range reduced from 15% to 12%
+* Echo Shard: No longer grants +5% Ability Range
+* Spirit Burn: Ability Range reduced from +8% to +6%
+* Vortex Web: Ability Range reduced from +10% to +8%
+
+* Weighted Shots: Debuff Resist increased from 18% to 20%
+* Burst Fire: Duration increased from 3.5s to 4.5s
+* Burst Fire: Cooldown increased from 7s to 9s
+* Blood Tribute: Spirit Resist reduced from 10% to 8%
+* Enchanter's Emblem: Spirit Resist increased from 15% to 18%
+* Restorative Locket: Spirit Resist increased from 8% to 10%
+* Metal Skin: Bullet Resist reduced from 15% to 12%
+* Counterspell: Bonus Health reduced from 100 to 75
+* Golden Goose Egg: Now has a 2 second channel to hatch
+* Boundless Spirit: Constant spirit bonus reduced from 35 to 30
+
+* Abrams: Melee damage per boon increased by 10%
+* Abrams: Siphon Life range increased from 7.5m to 8m
+* Abrams: Siphon Life T3 range reduced from +3.5m to +3m
+* Abrams: Infernal Resilience T3 increased from +7% Damage Regenerated to +8%
+* Abrams: Seismic Impact impact height increased from 4m to 6m
+* Abrams: Seismic Impact T2 increased from +0.6s Stun Duration to +0.7s
+* Abrams: Seismic Impact T3 Unstoppable duration increased from 4s to 5s
+
+* Apollo: Bullet damage increased from 17 to 18.5
+* Apollo: Riposte T2 melee resist reduction increased from -22% to -30%
+* Apollo: Riposte T3 increased from +1.2s Stun to +1.6s
+
+* Billy: Rising Ram now uses a break-off angle when grounded, allowing upward movement if looking up enough
+
+* Calico: Leaping Slash scaling reduced from 1.2 to 0.8
+* Calico: Leaping Slash cooldown increased from 11s to 13s
+* Calico: Leaping Slash T2 reduced from "+225s within 4s" to "+200 within 3s"
+* Calico: Ava is no longer disabled by damage over time abilities (same as zipline rules)
+* Calico: Return to Shadows move speed reduced from 30% to 20%
+* Calico: Return to Shadows cooldown increased from 90s to 100s
+
+* Celeste: Bullet/Melee resistance reduced from -6% to -8%
+* Celeste: Gun now has falloff 22m->60m
+* Celeste: Bullet damage increased from 18+0.6 to 22+0.7
+* Celeste: Light Eater spirit scaling increased from 0.23 to 0.28
+* Celeste: Dazzling Trick no longer grants +1m Move Speed
+* Celeste: Dazzling Trick T1 increased from +2.5m Move Speed to +3.5m
+* Celeste: Radiant Daggers spirit scaling increased from 0.42 to 0.56
+* Celeste: Radiant Daggers T2 increased from "-15s Cooldown and +60 Damage" to "-18s Cooldown and +70 Damage"
+* Celeste: Radiant Daggers T3 fire rate increased from 6% to 7%
+* Celeste: Shining Wonder range reduced from 15m to 14m
+* Celeste: Shining Wonder T3 reduced from +10 Max Bounces to +8
+
+* Doorman: Call Bell now continuously emits slow
+* Doorman: Call Bell impact damage spirit scaling reduced from 1 to 0.7
+* Doorman: Call Bell explosion damage spirit scaling reduced from 1.7 to 1.4
+* Doorman: Call Bell T1 changed from "+3m Radius" to "+1 Charge"
+* Doorman: Call Bell T3 no longer grants +1 Charge
+* Doorman: Call Bell T3 now also grants +4m Radius
+* Doorman: Call Bell T3 duration increased from +22s to +26s
+* Doorman: Call Bell T3 now also increases spirit scaling by +0.4
+* Doorman: Call Bell T3 no longer increases slow by -15%
+* Doorman: Doorway now shows the range of where the second door can be placed on the minimap.
+* Doorman: Doorway T3 distance spirit scaling reduced from 0.25 to 0.15
+* Doorman: Doorway T3 reduced from +50m to +45m
+* Doorman: Fixed Luggage Cart moving targets with Unstoppable if it goes through a Doorway
+
+* Dynamo: Ammo increased from 18 to 20
+* Dynamo: Kinetic Pulse spirit scaling reduced from 2.1 to 1.8
+* Dynamo: Kinetic Pulse width increased from 5m to 5.5m
+* Dynamo: Kinetic Pulse T3 increased from +16m Range to +20m
+* Dynamo: Quantum Entanglement T3 now also replenishes 1 charge for charged abilities (half effect on allies)
+* Dynamo: Singularity T3 Max health as damage increased from 5.5% to 6%
+
+* Graves: Jar of Dead spirit scaling increased from 0.25 to 0.35
+* Graves: Jar of Dead health per boon increased from 1 to 1.3
+* Graves: Jar of Dead fixed colliding with the world sometimes
+* Graves: Jar of Dead T2 now increases duration by +4s
+* Graves: Grasping Hands deploy time reduced from 0.7s to 0.6s
+* Graves: Grasping Hands T3 changed from "+1s Immobilize and -12s Cooldown" to "+1s Immobilize and +2 Ghouls Summoned"
+* Graves: Essence Theft T3 fixed to latch onto targets nearby more readily
+* Graves: Borrowed Decree now summons 2 Ghouls on cast
+* Graves: Borrowed Decree T3 no longer summons 3 Ghouls on cast
+* Graves: Borrowed Decree T3 increased from +5% Current Health to +6%
+
+* Infernus: Reload time reduced from 2.491 to 2.25
+* Infernus: Flame Dash speed now moves faster by the same amount of speed above your base
+* Infernus: Concussive Combustion T2 increased from +65% Explosion Lifesteal to +85%
+
+* Ivy: Stone Form spirit scaling reduced from 0.8 to 0.6
+* Ivy: Stone Form T3 spirit scaling reduced from +2 to +1.7
+* Ivy: Air Drop ally cast range increased from 18m to 22m
+* Ivy: Air Drop is no longer disabled by damage over time abilities (same as zipline rules)
+* Ivy: Air Drop cooldown increased from 65s to 85s
+* Ivy: Air Drop cooldown is reduced by 25% when used on allies
+
+* Kelvin: Frost Grenade radius increased from 6m to 6.5m
+* Kelvin: Frost Grenade damage spirit scaling reduced from 0.914 to 0.8
+* Kelvin: Frost Grenade T3 damage spirit scaling reduced from 1.0 to 0.9
+* Kelvin: Ice Path T2 increased from -20s Cooldown to -25s
+* Kelvin: Ice Path T3 now also grants +20 Spirit Power
+* Kelvin: Frozen Shelter T3 increased from 50 Health Regen to 65
+
+* McGinnis: Bullet damage increased from 6.0+0.15/boon to 6.2+0.16/boon
+* McGinnis: Mini Turret attack range increased from 25m to 30m
+* McGinnis: Medicinal Specter radius increased from 5m to 5.5m
+* McGinnis: Spectral Wall duration increased from 4.5s to 5s
+* McGinnis: Heavy Barrage cooldown increased from 165s to 175s
+* McGinnis: Heavy Barrage spirit scaling reduced from 0.23 to 0.2
+* McGinnis: Heavy Barrage T3 spirit scaling reduced from 0.2 to 0.16
+* McGinnis: Heavy Barrage T3 DPS reduced from 22 to 18
+
+* Mina: Fixed a bug with Rake with how the low hp bonus damage against non-hero targets was dealt (when they were low, the spirit resist didn't matter effectively)
+* Mina: Float time with umbrella increased from 2.5s to 4s
+* Mina: Can now zoom in again to continue floating if you let go of the zoom, as long as the total zoom time is still under the max
+* Mina: Fixed various issues with Nox Nostra bats not hitting things properly (DPS values reduced to compensate for this indirect buff)
+
+* Mirage: Fire Scarabs no longer does max health steal
+* Mirage: Fire Scarabs now drains life from the enemy, dealing DPS to the enemy and healing you for 8s.
+* Mirage: Fire Scarabs no longer applies +10% Damage Amp
+* Mirage: Fire Scarabs now reduces enemy damage output by 20% (and +15% in T3)
+* Mirage: Dust Devil radius increased from 3.5m to 4m
+* Mirage: Dust Devil T3 window to recast increased from 5s to 6s
+* Mirage: Djinn's Mark spirit scaling reduced from 0.51 to 0.44
+* Mirage: Djinn's Mark debuff visuals improved
+* Mirage: Djinn's Mark T1 slow duration increased from 0.5s to 0.8s
+* Mirage: Djinn's Mark T2 multiplier duration increased from 2.5s to 3s
+* Mirage: Traveler no longer gets interrupted by non-hero sources nor DOT damage
+* Mirage: Traveler wait time reduced from 3s to 2s
+* Mirage: Traveler interrupt cooldown reduced from 6s to 4s
+* Mirage: Traveler cooldown reduced from 145s to 120s
+* Mirage: Traveler can now be manually canceled
+* Mirage: Traveler can now also target units
+
+* Mo & Krill: Combo range reduced from 4.8m to 4m
+* Mo & Krill: Combo DPS reduced from 45 to 40
+* Mo & Krill: Combo DPS spirit scaling reduced from 1.2 to 0.6
+* Mo & Krill: Combo cooldown reduced from 140s to 130s
+* Mo & Krill: Combo T3 DPS reduced from +60 to +50
+* Mo & Krill: Combo T3 now also increases spirit scaling +0.4
+* Mo & Krill: Combo health rescaled from 50 to 30 + 1/Boon (not retroactive)
+
+* Shiv: Stamina increased from 2 to 3
+* Shiv: Stamina cooldown increased from 4.5s to 5.5s
+* Shiv: Bloodletting no longer interrupts sliding when cast
+* Shiv: Bloodletting is now affected by healing modifiers
+* Shiv: Fixed a bug with Killing Blow T3 causing the cooldown to be delayed if you failed to execute during the allowed window
+* Shiv: Killing Blow now continues forward (and dealing damage) until it reaches a target it can kill or runs out of range
+
+* Silver: Slam Fire Weapon Accuracy reduced from -25% to -30%
+* Silver: Go For The Throat, Boot Kick and Mauling Leap now benefit from range increases
+* Silver: Boot Kick now uses a break-off angle when grounded, allowing upward movement if looking up enough
+* Silver: Tail Whack spirit scaling increased from 1 to 1.5
+* Silver: Lycan Curse now grants 1.5m Move Speed
+* Silver: Lycan Curse T1 increased from +18% Resists to +20%
+* Silver: Lycan Curse T2 increased from +150 Bonus Health to +200
+* Silver: Lycan Curse T3 now has a 1.5s buffer for kill credit
+
+* Victor: Health per boon increased from 46 to 50
+* Victor: Now has 30% less effectiveness from lifesteal (Lifesteal Effectiveness stat added to Vitality tooltip)
+* Victor: Shocking Reanimation radius increased from 12m to 18m
+* Victor: Shocking Reanimation cooldown increased from 210s to 230s
+* Victor: Shocking Reanimation T3 no longer increases radius by 6m
+* Victor: Shocking Reanimation T3 cooldown from -70s to -100s
+* Victor: Shocking Reanimation T3 now also deals +150 Damage
+
+* Viscous: Puddle Punch scaling reduced from 0.8 to 0.6
+* Viscous: Puddle Punch now has +20 bonus damage
+* Viscous: Puddle Punch wind up time increased from 0.15s to 0.2s
+* Viscous: Puddle Punch displacement duration reduced from 0.8s to 0.6s
+* Viscous: Goo Ball stun duration reduced from 0.7s to 0.5s
+* Viscous: Goo Ball lockout period from being affected again increased from 1.25s to 1.35s
+* Viscous: Goo Ball duration increased from 10s to 11s
+
+* Wraith: Card Trick heart now only heals for half the amount for secondary targets in the area
+* Wraith: Card Trick now randomly pulls cards out of a 2 deck stack (lowers overall variance. Gets a new 2 deck stack after that is depleted)
+* Wraith: Project Mind cooldown increased from 42s to 46s
+* Wraith: Project Mind T3 cooldown increased from -28s to -32s
+* Wraith: Full Auto T3 now interrupts/finishes an ongoing reload
+* Wraith: Telekinesis cast time increased from 0.35s to 0.45s
+* Wraith: Telekinesis debuff duration reduced from 2.75s to 2.25s
+* Wraith: Telekinesis cast range reduced from 13m to 10m
+* Wraith: Telekinesis cooldown increased from 120s to 130s
+
+* Yamato: Fixed Flying Slash|l1=Flying Strike{{sic}} triggering heavy melee procs rather than light melee (damage amount was light melee still)
+
+
+
+[ Street Brawl ]
+
+* Improved the following Enhanced Items: Blood Tribute, Shadow Weave, Cultist Sacrifice, Magic Carpet, Healing Rite, Majestic Leap, Metal Skin, Monster Rounds, Veil Walker, Fury Trance, Return Fire, Restorative Locket, Rebuttal, Disarming Hex, Split Shot, Rescue Beam, Spirit Sap, Cursed Relic, Heroic Aura, Rusted Barrel, Weapon Shielding, Nullification Burst|l1=Nullification Blast{{sic}}, Cloak of Opportunity
+
+* Unstable Concoction: Now grants you unstoppable during the pre explosion state
+* Unstable Concoction: Radius increased from 18m to 22m
+* Shadow Strike: Stamina increased from +2 to +3
+* Shadow Strike: Now grants +350 Health
+* Shadow Strike: DPS increased from 75 to 125
+* Shadow Strike: DPS spirit scaling increased from 0.2 to 0.4
+* Shadow Strike: Invis duration increased from 2.5s to 3s
+* Electric Slippers: Damage radius increased from 8m to 12m
+* Electric Slippers: Slide Fire Rate increased from 50% to 60%
+* Nullification Burst: Radius increased from 12m to 20m
+* Nullification Burst: Now grants +40% Debuff Resistance
+* Celestial Blessing: Cooldown reduced from 50s to 30s
+* Celestial Blessing: Heal increased from up to 50% of your HP to 60%
+* Celestial Blessing: Heal min increased from 300 to 400
+* Runed Gauntlets: Melee distance increased from 130% to 150%
+* Runed Gauntlets: Cooldown on hit reduced from -12% to -16%
+* Runed Gauntlets: Cooldown on hit reduced from -3s to -4s
+* Seraphim Wings: In Air Damage Reduction increased from -40% to -60%
+* Seraphim Wings: Additional air dash/jump increased from +1 to unlimited
+* Cloak of Opportunity: Barrier increased from 300 to 500
+* Cloak of Opportunity: Cooldown reduced from 14s to 12s
+* Infinite Rounds: Fire Rate increased from 30% to 35%
+* Mystical Piano: Radius increased from 11m to 12m
+* Shrink Ray: Now grants +20% Fire Rate while shrunk
+
+* Brawl Victor: Aura of Suffering aura radius reduced by 2m
+* Brawl Bebop: Hyper Beam duration from -4s to -5s
+
+=== Patch 2 ===
+
+- Vitality investment tree bonus reverted back to % base hp increase rather than raw constant bonus (back to how it was set up in december)
+- Hero health growth increased by +3 and 4%
+- Spirit investment rescaled from 7/11/15/19/38/52/64/76/89/101 to 7/11/15/19/38/48/57/66/75/100
+- Small neutrals spirit resist increased from 35% to 45%
+
+- Greater Expansion: Ability Range reduced from 35% to 30%
+- Guardian Ward: Ability Range reduced from 10% to 8%
+- Ballistic Enchantment: Ability Range reduced from 25% to 20%
+- Cultist Sacrifice: Ability Range reduced from +15% to +12%
+- Healing Nova: Ability Range reduced from +6% to +5%
+- Rescue Beam: Ability Range reduced from +8% to +6%
+- Knockdown: Ability Range reduced from +6% to +5%
+- Divine Barrier: Ability Range reduced from +15% to +10%
+- Arcane Surge: Ability Range reduced from 15% to 12%
+- Echo Shard: No longer grants +5% Ability Range
+- Spirit Burn: Ability Range reduced from +8% to +6%
+- Vortex Web: Ability Range reduced from +10% to +8%
+
+- Weighted Shots: Debuff Resist increased from 18% to 20%
+- Burst Fire: Duration increased from 3.5s to 4.5s
+- Burst Fire: Cooldown increased from 7s to 9s
+- Blood Tribute: Spirit Resist reduced from 10% to 8%
+- Enchanter's Emblem: Spirit Resist increased from 15% to 18%
+- Restorative Locket: Spirit Resist increased from 8% to 10%
+- Metal Skin: Bullet Resist reduced from 15% to 12%
+- Counterspell: Bonus Health reduced from 100 to 75
+- Golden Goose Egg: Now has a 2 second channel to hatch
+- Boundless Spirit: Constant spirit bonus reduced from 35 to 30
+
+- Abrams: Melee damage per boon increased by 10%
+- Abrams: Siphon Life range increased from 7.5m to 8m
+- Abrams: Siphon Life T3 range reduced from +3.5m to +3m
+- Abrams: Infernal Resilience T3 increased from +7% Damage Regenerated to +8%
+- Abrams: Seismic Impact impact height increased from 4m to 6m
+- Abrams: Seismic Impact T2 increased from +0.6s Stun Duration to +0.7s
+- Abrams: Seismic Impact T3 Unstoppable duration increased from 4s to 5s
+
+- Apollo: Bullet damage increased from 17 to 18.5
+- Apollo: Riposte T2 melee resist reduction increased from -22% to -30%
+- Apollo: Riposte T3 increased from +1.2s Stun to +1.6s
+
+- Billy: Rising Ram now uses a break-off angle when grounded, allowing upward movement if looking up enough
+
+- Calico: Leaping Slash scaling reduced from 1.2 to 0.8
+- Calico: Leaping Slash cooldown increased from 11s to 13s
+- Calico: Leaping Slash T2 reduced from "+225s within 4s" to "+200 within 3s"
+- Calico: Ava is no longer disabled by damage over time abilities (same as zipline rules)
+- Calico: Return to Shadows move speed reduced from 30% to 20%
+- Calico: Return to Shadows cooldown increased from 90s to 100s
+
+- Celeste: Bullet/Melee resistance reduced from -6% to -8%
+- Celeste: Gun now has falloff 22m->60m
+- Celeste: Bullet damage increased from 18+0.6 to 22+0.7
+- Celeste: Light Eater spirit scaling increased from 0.23 to 0.28
+- Celeste: Dazzling Trick no longer grants +1m Move Speed
+- Celeste: Dazzling Trick T1 increased from +2.5m Move Speed to +3.5m
+- Celeste: Radiant Daggers spirit scaling increased from 0.42 to 0.56
+- Celeste: Radiant Daggers T2 increased from "-15s Cooldown and +60 Damage" to "-18s Cooldown and +70 Damage"
+- Celeste: Radiant Daggers T3 fire rate increased from 6% to 7%
+- Celeste: Shining Wonder range reduced from 15m to 14m
+- Celeste: Shining Wonder T3 reduced from +10 Max Bounces to +8
+
+- Doorman: Call Bell now continuously emits slow
+- Doorman: Call Bell impact damage spirit scaling reduced from 1 to 0.7
+- Doorman: Call Bell explosion damage spirit scaling reduced from 1.7 to 1.4
+- Doorman: Call Bell T1 changed from "+3m Radius" to "+1 Charge"
+- Doorman: Call Bell T3 no longer grants +1 Charge
+- Doorman: Call Bell T3 now also grants +4m Radius
+- Doorman: Call Bell T3 duration increased from +22s to +26s
+- Doorman: Call Bell T3 now also increases spirit scaling by +0.4
+- Doorman: Call Bell T3 no longer increases slow by -15%
+- Doorman: Doorway now shows the range of where the second door can be placed on the minimap.
+- Doorman: Doorway T3 distance spirit scaling reduced from 0.25 to 0.15
+- Doorman: Doorway T3 reduced from +50m to +45m
+- Doorman: Fixed Luggage Cart moving targets with Unstoppable if it goes through a Doorway
+
+- Dynamo: Ammo increased from 18 to 20
+- Dynamo: Kinetic Pulse spirit scaling reduced from 2.1 to 1.8
+- Dynamo: Kinetic Pulse width increased from 5m to 5.5m
+- Dynamo: Kinetic Pulse T3 increased from +16m Range to +20m
+- Dynamo: Quantum Entanglement T3 now also replenishes 1 charge for charged abilities (half effect on allies)
+- Dynamo: Singularity T3 Max health as damage increased from 5.5% to 6%
+
+- Graves: Jar of Dead spirit scaling increased from 0.25 to 0.35
+- Graves: Jar of Dead health per boon increased from 1 to 1.3
+- Graves: Jar of Dead fixed colliding with the world sometimes
+- Graves: Jar of Dead T2 now increases duration by +4s
+- Graves: Grasping Hands deploy time reduced from 0.7s to 0.6s
+- Graves: Grasping Hands T3 changed from "+1s Immobilize and -12s Cooldown" to "+1s Immobilize and +2 Ghouls Summoned"
+- Graves: Essence Theft T3 fixed to latch onto targets nearby more readily
+- Graves: Borrowed Decree now summons 2 Ghouls on cast
+- Graves: Borrowed Decree T3 no longer summons 3 Ghouls on cast
+- Graves: Borrowed Decree T3 increased from +5% Current Health to +6%
+
+- Infernus: Reload time reduced from 2.491 to 2.25
+- Infernus: Flame Dash speed now moves faster by the same amount of speed above your base
+- Infernus: Concussive Combustion T2 increased from +65% Explosion Lifesteal to +85%
+
+- Ivy: Stone Form spirit scaling reduced from 0.8 to 0.6
+- Ivy: Stone Form T3 spirit scaling reduced from +2 to +1.7
+- Ivy: Air Drop ally cast range increased from 18m to 22m
+- Ivy: Air Drop is no longer disabled by damage over time abilities (same as zipline rules)
+- Ivy: Air Drop cooldown increased from 65s to 85s
+- Ivy: Air Drop cooldown is reduced by 25% when used on allies
+
+- Kelvin: Frost Grenade radius increased from 6m to 6.5m
+- Kelvin: Frost Grenade damage spirit scaling reduced from 0.914 to 0.8
+- Kelvin: Frost Grenade T3 damage spirit scaling reduced from 1.0 to 0.9
+- Kelvin: Ice Path T2 increased from -20s Cooldown to -25s
+- Kelvin: Ice Path T3 now also grants +20 Spirit Power
+- Kelvin: Frozen Shelter T3 increased from 50 Health Regen to 65
+
+- McGinnis: Bullet damage increased from 6.0+0.15/boon to 6.2+0.16/boon
+- McGinnis: Mini Turret attack range increased from 25m to 30m
+- McGinnis: Medicinal Specter radius increased from 5m to 5.5m
+- McGinnis: Spectral Wall duration increased from 4.5s to 5s
+- McGinnis: Heavy Barrage cooldown increased from 165s to 175s
+- McGinnis: Heavy Barrage spirit scaling reduced from 0.23 to 0.2
+- McGinnis: Heavy Barrage T3 spirit scaling reduced from 0.2 to 0.16
+- McGinnis: Heavy Barrage T3 DPS reduced from 22 to 18
+
+- Mina: Fixed a bug with Rake with how the low hp bonus damage against non-hero targets was dealt (when they were low, the spirit resist didn't matter effectively)
+- Mina: Float time with umbrella increased from 2.5s to 4s
+- Mina: Can now zoom in again to continue floating if you let go of the zoom, as long as the total zoom time is still under the max
+- Mina: Fixed various issues with Nox Nostra bats not hitting things properly (DPS values reduced to compensate for this indirect buff)
+
+- Mirage: Fire Scarabs no longer does max health steal
+- Mirage: Fire Scarabs now drains life from the enemy, dealing DPS to the enemy and healing you for 8s.
+- Mirage: Fire Scarabs no longer applies +10% Damage Amp
+- Mirage: Fire Scarabs now reduces enemy damage output by 20% (and +15% in T3)
+- Mirage: Dust Devil radius increased from 3.5m to 4m
+- Mirage: Dust Devil T3 window to recast increased from 5s to 6s
+- Mirage: Djinn's Mark spirit scaling reduced from 0.51 to 0.44
+- Mirage: Djinn's Mark debuff visuals improved
+- Mirage: Djinn's Mark T1 slow duration increased from 0.5s to 0.8s
+- Mirage: Djinn's Mark T2 multiplier duration increased from 2.5s to 3s
+- Mirage: Traveler no longer gets interrupted by non-hero sources nor DOT damage
+- Mirage: Traveler wait time reduced from 3s to 2s
+- Mirage: Traveler interrupt cooldown reduced from 6s to 4s
+- Mirage: Traveler cooldown reduced from 145s to 120s
+- Mirage: Traveler can now be manually canceled
+- Mirage: Traveler can now also target units
+
+- Mo & Krill: Combo range reduced from 4.8m to 4m
+- Mo & Krill: Combo DPS reduced from 45 to 40
+- Mo & Krill: Combo DPS spirit scaling reduced from 1.2 to 0.6
+- Mo & Krill: Combo cooldown reduced from 140s to 130s
+- Mo & Krill: Combo T3 DPS reduced from +60 to +50
+- Mo & Krill: Combo T3 now also increases spirit scaling +0.4
+- Mo & Krill: Combo health rescaled from 50 to 30 + 1/Boon (not retroactive)
+
+- Shiv: Stamina increased from 2 to 3
+- Shiv: Stamina cooldown increased from 4.5s to 5.5s
+- Shiv: Bloodletting no longer interrupts sliding when cast
+- Shiv: Bloodletting is now affected by healing modifiers
+- Shiv: Fixed a bug with Killing Blow T3 causing the cooldown to be delayed if you failed to execute during the allowed window
+- Shiv: Killing Blow now continues forward (and dealing damage) until it reaches a target it can kill or runs out of range
+
+- Silver: Slam Fire Weapon Accuracy reduced from -25% to -30%
+- Silver: Go For The Throat, Boot Kick and Mauling Leap now benefit from range increases
+- Silver: Boot Kick now uses a break-off angle when grounded, allowing upward movement if looking up enough
+- Silver: Tail Whack spirit scaling increased from 1 to 1.5
+- Silver: Lycan Curse now grants 1.5m Move Speed
+- Silver: Lycan Curse T1 increased from +18% Resists to +20%
+- Silver: Lycan Curse T2 increased from +150 Bonus Health to +200
+- Silver: Lycan Curse T3 now has a 1.5s buffer for kill credit
+
+- Victor: Health per boon increased from 46 to 50
+- Victor: Now has 30% less effectiveness from lifesteal (Lifesteal Effectiveness stat added to Vitality tooltip)
+- Victor: Shocking Reanimation radius increased from 12m to 18m
+- Victor: Shocking Reanimation cooldown increased from 210s to 230s
+- Victor: Shocking Reanimation T3 no longer increases radius by 6m
+- Victor: Shocking Reanimation T3 cooldown from -70s to -100s
+- Victor: Shocking Reanimation T3 now also deals +150 Damage
+
+- Viscous: Puddle Punch scaling reduced from 0.8 to 0.6
+- Viscous: Puddle Punch now has +20 bonus damage
+- Viscous: Puddle Punch wind up time increased from 0.15s to 0.2s
+- Viscous: Puddle Punch displacement duration reduced from 0.8s to 0.6s
+- Viscous: Goo Ball stun duration reduced from 0.7s to 0.5s
+- Viscous: Goo Ball lockout period from being affected again increased from 1.25s to 1.35s
+- Viscous: Goo Ball duration increased from 10s to 11s
+
+- Wraith: Card Trick heart now only heals for half the amount for secondary targets in the area
+- Wraith: Card Trick now randomly pulls cards out of a 2 deck stack (lowers overall variance. Gets a new 2 deck stack after that is depleted)
+- Wraith: Project Mind cooldown increased from 42s to 46s
+- Wraith: Project Mind T3 cooldown increased from -28s to -32s
+- Wraith: Full Auto T3 now interrupts/finishes an ongoing reload
+- Wraith: Telekinesis cast time increased from 0.35s to 0.45s
+- Wraith: Telekinesis debuff duration reduced from 2.75s to 2.25s
+- Wraith: Telekinesis cast range reduced from 13m to 10m
+- Wraith: Telekinesis cooldown increased from 120s to 130s
+
+- Yamato: Fixed Flying Strike triggering heavy melee procs rather than light melee (damage amount was light melee still)
+
+
+
+[ Street Brawl ]
+
+- Improved the following Enhanced Items: Blood Tribute, Shadow Weave, Cultist Sacrifice, Magic Carpet, Healing Rite, Majestic Leap, Metal Skin, Monster Rounds, Veil Walker, Fury Trance, Return Fire, Restorative Locket, Rebuttal, Disarming Hex, Split Shot, Rescue Beam, Spirit Sap, Cursed Relic, Heroic Aura, Rusted Barrel, Weapon Shielding, Nullification Blast, Cloak of Opportunity
+
+- Unstable Concoction: Now grants you unstoppable during the pre explosion state
+- Unstable Concoction: Radius increased from 18m to 22m
+- Shadow Strike: Stamina increased from +2 to +3
+- Shadow Strike: Now grants +350 Health
+- Shadow Strike: DPS increased from 75 to 125
+- Shadow Strike: DPS spirit scaling increased from 0.2 to 0.4
+- Shadow Strike: Invis duration increased from 2.5s to 3s
+- Electric Slippers: Damage radius increased from 8m to 12m
+- Electric Slippers: Slide Fire Rate increased from 50% to 60%
+- Nullification Burst: Radius increased from 12m to 20m
+- Nullification Burst: Now grants +40% Debuff Resistance
+- Celestial Blessing: Cooldown reduced from 50s to 30s
+- Celestial Blessing: Heal increased from up to 50% of your HP to 60%
+- Celestial Blessing: Heal min increased from 300 to 400
+- Runed Gauntlet: Melee distance increased from 130% to 150%
+- Runed Gauntlet: Cooldown on hit reduced from -12% to -16%
+- Runed Gauntlet: Cooldown on hit reduced from -3s to -4s
+- Seraphim Wings: In Air Damage Reduction increased from -40% to -60%
+- Seraphim Wings: Additional air dash/jump increased from +1 to unlimited
+- Cloak of Opportunity: Barrier increased from 300 to 500
+- Cloak of Opportunity: Cooldown reduced from 14s to 12s
+- Infinite Rounds: Fire Rate increased from 30% to 35%
+- Mystical Piano: Radius increased from 11m to 12m
+- Shrink Ray: Now grants +20% Fire Rate while shrunk
+
+- Brawl Victor: Aura of Suffering aura radius reduced by 2m
+- Brawl Bebop: Hyper Beam duration from -4s to -5s
