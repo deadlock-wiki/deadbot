@@ -120,6 +120,10 @@ ATTRIBUTE_MANUAL_MAP = {
     },
     'GroundDashSpeed': {'label': 'StatDesc_DashSpeedInMeters', 'postfix': 'StatDesc_DashSpeedInMeters_postfix'},
     'AirDashSpeed': {'label': 'StatDesc_DashSpeedInMeters', 'postfix': 'StatDesc_DashSpeedInMeters_postfix'},
+    'HeroSpiritLifestealEffectiveness': {
+        'label': 'StatDesc_SpiritLifestealEffectiveness',
+        'postfix': 'StatDesc_SpiritLifestealEffectiveness_postfix',
+    },
 }
 
 
