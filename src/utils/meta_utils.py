@@ -1,10 +1,8 @@
-import tomllib
+from importlib.metadata import version
 
 
 def get_deadbot_version():
-    # Read the file and parse the version
-    with open('pyproject.toml', 'rb') as f:
-        pyproject_data = tomllib.load(f)
-
-    deadbot_version = pyproject_data.get('tool', {}).get('poetry', {}).get('version')
-    return deadbot_version
+    try:
+        return version('Deadbot')
+    except Exception as e:
+        raise Exception('Deadbot package version not found') from e
