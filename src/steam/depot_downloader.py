@@ -42,6 +42,42 @@ class DepotDownloader:
         self._download(manifest_id)
         self._write_downloaded_manifest_id(manifest_id)
 
+    def download_files(self, files: list[str] = None, file_list_path: str = None, manifest_id: str = None, logger_name: str = 'download-files'):
+        """
+        Download a list of files from the configured depot. Use either `files` or `file_list_path`, not both.
+        If `manifest_id` is None, the latest manifest will be referenced.
+        """
+        if files is None and file_list_path is None:
+            raise ValueError('Either files or file_list_path must be provided')
+        if files is not None and file_list_path is not None:
+            raise ValueError('Only one of files or file_list_path can be provided')
+
+        if files is not None:  # "Convert" `files` to `file_list_path`
+            file_list_path = os.path.join(self.output_dir, 'files_to_download.txt')
+            with open(file_list_path, 'w') as file_list:
+                file_list.write('\n'.join(files))
+
+        subprocess_params = [
+            os.path.join(self.depot_downloader_cmd),
+            '-app',
+            self.app_id,
+            '-depot',
+            self.depot_id,
+            '-username',
+            self.steam_username,
+            '-password',
+            self.steam_password,
+            '-remember-password',
+            '-filelist',
+            file_list_path,
+            '-dir',
+            self.deadlock_dir,
+        ]
+        if manifest_id is not None:
+            subprocess_params.extend(['-manifest', manifest_id])
+
+        run_process(subprocess_params, name=logger_name)
+
     def _download(self, manifest_id):
         logger.trace(f'Downloading game with manifest id {manifest_id}')
 
