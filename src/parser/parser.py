@@ -291,8 +291,13 @@ class Parser:
             map_vpk = os.path.join(self.game_dir, 'game/citadel/maps/dl_midtown.vpk')
             map_data = game_map.GameMapParser(self.entity_helper_cmd, map_vpk).run()
 
-            json_utils.write(self.OUTPUT_DIR + '/json/golden-statues.json', map_data['statues'])
-            json_utils.write(self.OUTPUT_DIR + '/json/crates.json', map_data['crates'])
+            json_utils.write(os.path.join(self.OUTPUT_DIR, 'json/midtown-metadata.json'), map_data['midtown']['metadata'])
+
+            os.makedirs(os.path.join(self.OUTPUT_DIR, 'assets'), exist_ok=True)
+            map_data['midtown']['plots']['golden_statues'].savefig(
+                os.path.join(self.OUTPUT_DIR, 'assets/golden-statues-map.png'), bbox_inches='tight', pad_inches=0
+            )
+            map_data['midtown']['plots']['crate'].savefig(os.path.join(self.OUTPUT_DIR, 'assets/crate-map.png'), bbox_inches='tight', pad_inches=0)
 
     def _generate_resource_lookup(self, parsed_heroes, parsed_abilities, parsed_items):
         logger.trace('Generating resource lookup...')
