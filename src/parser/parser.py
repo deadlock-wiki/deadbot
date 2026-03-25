@@ -298,6 +298,7 @@ class Parser:
                 os.path.join(self.OUTPUT_DIR, 'assets/golden-statues-map.png'), bbox_inches='tight', pad_inches=0
             )
             map_data['midtown']['plots']['crate'].savefig(os.path.join(self.OUTPUT_DIR, 'assets/crate-map.png'), bbox_inches='tight', pad_inches=0)
+            map_data['midtown']['plots']['shops'].savefig(os.path.join(self.OUTPUT_DIR, 'assets/shops-map.png'), bbox_inches='tight', pad_inches=0)
 
     def _generate_resource_lookup(self, parsed_heroes, parsed_abilities, parsed_items):
         logger.trace('Generating resource lookup...')
