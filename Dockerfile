@@ -1,7 +1,7 @@
 FROM python:3.11-slim
 
 RUN apt update && \
-    apt install -y --no-install-recommends wget unzip libicu-dev binutils git dos2unix && \
+    apt install -y --no-install-recommends wget unzip libicu-dev binutils git dos2unix gcc patchelf ccache && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /tools
