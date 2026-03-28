@@ -1,14 +1,13 @@
 import functools
 import json
 import os
-import subprocess
-
-from loguru import logger
 import matplotlib.pyplot as plt
 from matplotlib.legend_handler import HandlerBase
 from matplotlib.lines import Line2D
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 from PIL import Image
+
+from src.utils.process import run_process
 
 
 class GameMapParser:
@@ -190,10 +189,8 @@ class GameMapParser:
         :return: a list of entity properties
         """
         args = [self.entity_helper_cmd, 'extract', '--verbose', self.game_map_path, entity_key, entity_value, *property_list]
-        helper_output = subprocess.run(args, capture_output=True, check=True, text=True)
-        logger.trace(helper_output.stderr)
-
-        return json.loads(helper_output.stdout)
+        helper_output = run_process(args, 'extract-map-entities')
+        return json.loads(helper_output)
 
 
 class _ImageHandler(HandlerBase):
