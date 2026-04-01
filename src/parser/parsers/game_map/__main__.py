@@ -1,18 +1,17 @@
-import functools
 import json
 import os
 import matplotlib.pyplot as plt
-from matplotlib.legend_handler import HandlerBase
 from matplotlib.lines import Line2D
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
-from PIL import Image
 
+from src.utils.plot_utils import ImageHandler, load_image
 from src.utils.process import run_process
 
 
 class GameMapParser:
-    HIDDEN_KING_COLOR = '#FFAC11'
-    ARCHMOTHER_COLOR = '#3874AE'
+    """
+    Parse the Deadlock map for relevant wiki data
+    """
 
     def __init__(self, entity_helper_cmd, game_map_path):
         if not entity_helper_cmd:
@@ -47,7 +46,8 @@ class GameMapParser:
         }
 
     def _midtown_golden_statues_plot(self, statues_data):
-        glitched_statues = [[-704, -2320.0002, 704], [704, 2320.0002, 704]]
+        # These should be hard-coded exact coords, because if they ever change, they are probably not glitched anymore
+        glitched_statues = [[-704, -2320.0002, 704], [704, 2320.0002, 704], [3647.9998, 1440.0004, 1048.0]]
 
         x_coords = []
         y_coords = []
@@ -76,13 +76,16 @@ class GameMapParser:
         return self._create_plot(x_coords, y_coords, colors, None, legend_elements, 'midtown_golden_statues')
 
     def _midtown_crate_plot(self, crates_data):
+        glitched_crates = [[-7158.9175, -6115.6543, 640]]
         x_coords = []
         y_coords = []
         colors = []
         for entry in crates_data:
             x_coords.append(entry['origin'][0])
             y_coords.append(entry['origin'][1])
-            if entry['scales'][0] <= 0.5:
+            if entry['origin'] in glitched_crates:
+                colors.append('#F52D9C')
+            elif entry['scales'][0] <= 0.5:
                 colors.append('blue')
             elif entry['initial_spawn_time_override'] > 0:
                 colors.append('green')
@@ -91,6 +94,7 @@ class GameMapParser:
 
         legend_elements = [
             Line2D([0], [0], marker='o', color='w', label='Vent access required', markerfacecolor='blue', markersize=10),
+            Line2D([0], [0], marker='o', color='w', label='Glitched Crate', markerfacecolor='#F52D9C', markersize=10),
             Line2D([0], [0], marker='o', color='w', label='Mid-Boss Crate (spawns after 10 minutes)', markerfacecolor='green', markersize=10),
             Line2D([0], [0], marker='o', color='w', label='Normal Crate', markerfacecolor='#cc5500', markersize=10),
         ]
@@ -121,7 +125,7 @@ class GameMapParser:
         # element.get_label() is annotated as returning an object which causes a warning,
         # but in this case we are sure it is a string since we just set it above
         # noinspection PyTypeChecker
-        handler_map = {element: _ImageHandler(legend_info[element.get_label()], size=0.9) for element in legend_elements}
+        handler_map = {element: ImageHandler(legend_info[element.get_label()], size=0.9) for element in legend_elements}
 
         return self._create_plot(x_coords, y_coords, None, image_paths, legend_elements, 'midtown_shops', size=1.2, handler_map=handler_map)
 
@@ -130,7 +134,7 @@ class GameMapParser:
         fig = plt.figure(num=plot_id, figsize=(20, 20))
 
         # Extracted from Deadlock/game/citadel/pak01_dir.vpk:materials/minimap/dl_midtown.vmat_c
-        img = _load_image(os.path.join(os.path.dirname(__file__), 'assets/minimap_midtown_mid_opaque.png'))
+        img = load_image(os.path.join(os.path.dirname(__file__), 'assets/minimap_midtown_mid_opaque.png'))
 
         scale = 10750.0
         plt.imshow(img, extent=(-scale, scale, -scale, scale))
@@ -140,7 +144,7 @@ class GameMapParser:
         else:
             axes = plt.gca()
             for x, y, img_path in zip(x_coords, y_coords, markers):
-                image = _load_image(img_path)
+                image = load_image(img_path)
                 image_box = OffsetImage(image, zoom=size)
                 ab = AnnotationBbox(image_box, (x, y), frameon=False)
                 axes.add_artist(ab)
@@ -186,30 +190,8 @@ class GameMapParser:
         Runs `DeadlockEntityHelper extract` with the specified arguments
         :param property_list: the remaining args are treated as property name-type pairs, e.g.:
             `_extract_entities('citadel_breakable_prop_wooden_crate', 'origin', 'vector3', 'subclass_name', 'string')`
-        :return: a list of entity properties
+        :return: a list of entities with the requested properties
         """
         args = [self.entity_helper_cmd, 'extract', '--verbose', self.game_map_path, entity_key, entity_value, *property_list]
         helper_output = run_process(args, 'extract-map-entities')
         return json.loads(helper_output)
-
-
-class _ImageHandler(HandlerBase):
-    """This adds support for images in a chart's legend"""
-
-    def __init__(self, image_path, size=1.0):
-        super().__init__()
-        self.image_path = image_path
-        self.size = size
-
-    def create_artists(self, legend, orig_handle, xdescent, ydescent, width, height, fontsize, trans):
-        image = _load_image(self.image_path)
-        image_box = OffsetImage(image, zoom=self.size)
-        # Center the image and apply the given transform
-        annotation_box = AnnotationBbox(image_box, (width / 2, height / 2), xycoords=trans, frameon=False)
-        return [annotation_box]
-
-
-@functools.cache
-def _load_image(image_path):
-    # Cached to avoid reloading the same images
-    return Image.open(image_path)
