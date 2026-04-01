@@ -9,17 +9,15 @@ from src.utils.process import run_process
 
 
 class GameMapParser:
-    """
-    Parse the Deadlock map for relevant wiki data
-    """
+    """Parse the Deadlock map for relevant wiki data"""
 
     def __init__(self, entity_helper_cmd, game_map_path):
         if not entity_helper_cmd:
-            raise Exception('Config for DeadlockEntityHelper path is required for game map parsing')
+            raise ValueError('Config for DeadlockEntityHelper path is required for game map parsing')
         if not os.path.exists(entity_helper_cmd):
-            raise Exception(f'Could not find DeadlockEntityHelper at path "{entity_helper_cmd}"')
+            raise FileNotFoundError(f'Could not find DeadlockEntityHelper at path "{entity_helper_cmd}"')
         if not os.path.exists(game_map_path):
-            raise Exception(f'Could not find game map at path "{game_map_path}"')
+            raise FileNotFoundError(f'Could not find game map at path "{game_map_path}". Run with --import_files to download the map')
 
         self.entity_helper_cmd = entity_helper_cmd
         self.game_map_path = game_map_path
@@ -192,6 +190,6 @@ class GameMapParser:
             `_extract_entities('citadel_breakable_prop_wooden_crate', 'origin', 'vector3', 'subclass_name', 'string')`
         :return: a list of entities with the requested properties
         """
-        args = [self.entity_helper_cmd, 'extract', '--verbose', self.game_map_path, entity_key, entity_value, *property_list]
-        helper_output = run_process(args, 'extract-map-entities')
+        args = [self.entity_helper_cmd, 'extract', '--verbose', '--compact', self.game_map_path, entity_key, entity_value, *property_list]
+        helper_output = run_process(args, 'extract-map-entities', suppress_stdout=True)
         return json.loads(helper_output)

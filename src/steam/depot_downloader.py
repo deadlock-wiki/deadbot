@@ -28,33 +28,34 @@ class DepotDownloader:
         self.manifest_path = os.path.join(self.deadlock_dir, 'manifest.txt')
         self.force = force
 
-    def run(self, manifest_id):
-        # no input manifest id downloads the latest version
-        if manifest_id is None:
-            manifest_id = self._get_latest_manifest_id()
-
-        # Check if the manifest is already downloaded
-        downloaded_manifest_id = self._read_downloaded_manifest_id()
-        if downloaded_manifest_id == manifest_id and not self.force:
-            logger.info(f'Already downloaded manifest {manifest_id}')
-            return
-
-        self._download(manifest_id)
-        self._write_downloaded_manifest_id(manifest_id)
-
     def download_files(self, files: list[str] = None, file_list_path: str = None, manifest_id: str = None, logger_name: str = 'download-files'):
         """
-        Download a list of files from the configured depot. Use either `files` or `file_list_path`, not both.
-        If `manifest_id` is None, the latest manifest will be referenced.
+        Download a list of files from the configured depot. If `manifest_id` is None, the latest manifest will be referenced.
+        If `files` and `file_list_path` are both provided, the final file list will be the combination of both.
+        Args:
+            files (list[str]): List of game files
+            file_list_path (str): Path to a file containing a list of game files to download
+            manifest_id (str): ID of the manifest to download files from. If None, the latest manifest will be used.
+            logger_name (str): Name of the logger to use for logging. Defaults to 'download-files'.
         """
         if files is None and file_list_path is None:
-            raise ValueError('Either files or file_list_path must be provided')
-        if files is not None and file_list_path is not None:
-            raise ValueError('Only one of files or file_list_path can be provided')
+            raise ValueError('At least one of files or file_list_path must be provided')
 
-        if files is not None:  # "Convert" `files` to `file_list_path`
-            file_list_path = os.path.join(self.output_dir, 'files_to_download.txt')
-            with open(file_list_path, 'w') as file_list:
+        combined_file_list_path = os.path.join(self.deadlock_dir, 'files_to_download.txt')
+
+        try:
+            # Clear the old file list if it exists
+            os.remove(combined_file_list_path)
+        except FileNotFoundError:
+            pass
+
+        # Do not handle exceptions here, if a file is not found, can't be opened, etc. we should crash
+        if file_list_path is not None:
+            shutil.copy(file_list_path, combined_file_list_path)
+
+        # Append the passed list of files to the file list
+        if files is not None:
+            with open(combined_file_list_path, 'a', encoding='utf-8') as file_list:
                 file_list.write('\n'.join(files))
 
         subprocess_params = [
@@ -69,7 +70,7 @@ class DepotDownloader:
             self.steam_password,
             '-remember-password',
             '-filelist',
-            file_list_path,
+            combined_file_list_path,
             '-dir',
             self.deadlock_dir,
         ]
