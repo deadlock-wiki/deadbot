@@ -1,5 +1,9 @@
 import json
 import os
+from os import PathLike
+
+from typing import TypedDict, Any
+
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
@@ -8,10 +12,30 @@ from utils.plot_utils import ImageHandler, load_image
 from utils.process import run_process
 
 
+class GameMapData(TypedDict):
+    plots: dict[str, plt.Figure]
+    metadata: dict[str, Any]
+
+
+class _EntityData(TypedDict):
+    origin: list[float]
+
+
+class _BreakablesData(_EntityData):
+    scales: list[float]
+    initial_spawn_time_override: float
+
+
 class GameMapParser:
     """Parse the Deadlock map for relevant wiki data"""
 
-    def __init__(self, entity_helper_cmd, game_map_path):
+    def __init__(self, entity_helper_cmd: PathLike | str, game_map_path: PathLike | str):
+        """
+        Initialize a GameMapParser for the midtown map
+        Args:
+            entity_helper_cmd: Path to the DeadlockEntityHelper executable
+            game_map_path: Path to the game map file
+        """
         if not entity_helper_cmd:
             raise ValueError('Config for DeadlockEntityHelper path is required for game map parsing')
         if not os.path.exists(entity_helper_cmd):
@@ -22,7 +46,12 @@ class GameMapParser:
         self.entity_helper_cmd = entity_helper_cmd
         self.game_map_path = game_map_path
 
-    def run(self):
+    def run(self) -> dict[str, GameMapData]:
+        """
+        Parse the game map
+        Returns:
+            A dict containing the plots and metadata for the Midtown map
+        """
         midtown_crates_data, midtown_statues_data = self._get_breakables_data()
         midtown_shop_data = self._get_shop_data()
 
@@ -43,7 +72,14 @@ class GameMapParser:
             }
         }
 
-    def _midtown_golden_statues_plot(self, statues_data):
+    def _midtown_golden_statues_plot(self, statues_data: list[_BreakablesData]) -> plt.Figure:
+        """
+        Generate a plot of the midtown golden statues
+        Args:
+            statues_data: The data for the golden statues from DeadlockEntityHelper
+        Returns:
+            The plot of the midtown golden statues
+        """
         # These should be hard-coded exact coords, because if they ever change, they are probably not glitched anymore
         glitched_statues = [[-704, -2320.0002, 704], [704, 2320.0002, 704], [3647.9998, 1440.0004, 1048.0]]
 
@@ -62,8 +98,6 @@ class GameMapParser:
             else:
                 colors.append('orange')
 
-        from matplotlib.lines import Line2D
-
         legend_elements = [
             Line2D([0], [0], marker='o', color='w', label='Vent access required', markerfacecolor='blue', markersize=10),
             Line2D([0], [0], marker='o', color='w', label='T2 Statue (spawns after 10 minutes)', markerfacecolor='green', markersize=10),
@@ -73,7 +107,14 @@ class GameMapParser:
 
         return self._create_plot(x_coords, y_coords, colors, None, legend_elements, 'midtown_golden_statues')
 
-    def _midtown_crate_plot(self, crates_data):
+    def _midtown_crate_plot(self, crates_data: list[_BreakablesData]) -> plt.Figure:
+        """
+        Generate a plot of the midtown crates
+        Args:
+            crates_data: The data for the crates from DeadlockEntityHelper
+        Returns:
+            The plot of the midtown crates
+        """
         glitched_crates = [[-7158.9175, -6115.6543, 640]]
         x_coords = []
         y_coords = []
@@ -99,7 +140,14 @@ class GameMapParser:
 
         return self._create_plot(x_coords, y_coords, colors, None, legend_elements, 'midtown_crate')
 
-    def _midtown_shop_plot(self, shop_data):
+    def _midtown_shop_plot(self, shop_data: list[_EntityData]) -> plt.Figure:
+        """
+        Generate a plot of the midtown shops
+        Args:
+            shop_data: The data for the shops from DeadlockEntityHelper
+        Returns:
+            The plot of the midtown shops
+        """
         x_coords = []
         y_coords = []
         image_paths = []
@@ -128,7 +176,34 @@ class GameMapParser:
         return self._create_plot(x_coords, y_coords, None, image_paths, legend_elements, 'midtown_shops', size=1.2, handler_map=handler_map)
 
     @staticmethod
-    def _create_plot(x_coords, y_coords, colors, markers, legend_elements, plot_id, size=20.0, handler_map=None, **kwargs):
+    def _create_plot(
+        x_coords: list[float],
+        y_coords: list[float],
+        colors: list[str] | None,
+        markers: list[PathLike | str] | None,
+        legend_elements: list[Line2D],
+        plot_id: str,
+        size: float = 20.0,
+        handler_map: dict[Line2D, ImageHandler] = None,
+        **kwargs,
+    ) -> plt.Figure:
+        """
+        Plots the given coordinates onto the midtown map
+        Parameters:
+            x_coords: The x coordinates of the points to plot
+            y_coords: The y coordinates of the points to plot
+            colors: A list of colors for the points. If `None`, markers should be provided
+            markers: A list of file paths pointing to marker images to be displayed
+            legend_elements: A list of `Line2D` objects to display in the plot's legend
+            plot_id: A unique identifier for the plot
+            size: A multiplier for the size of points or markers in the plot
+            handler_map: If you want legend icons to be images, this should be a map of your `Line2D` legend elements
+                to `utils.plot_utils.ImageHandler` objects (see `GameMapParser._midtown_shop_plot` for an example)
+            **kwargs: Additional keyword arguments are passed to the `matplotlib.pyploy.scatter` function.
+                This is unused if `markers` are provided
+        Returns:
+            The generated plot
+        """
         fig = plt.figure(num=plot_id, figsize=(20, 20))
 
         # Extracted from Deadlock/game/citadel/pak01_dir.vpk:materials/minimap/dl_midtown.vmat_c
@@ -156,19 +231,32 @@ class GameMapParser:
 
         return fig
 
-    def _get_shop_data(self):
+    def _get_shop_data(self) -> list[_EntityData]:
+        """
+        Extract shop entities from the map
+        Returns:
+            A list of shop entities
+        """
         shop_trigger_properties = [
             'origin',
             'vector3',
         ]
 
-        shop_data = self._extract_entities('classname', 'citadel_shop_prop_dynamic', *shop_trigger_properties)
+        shop_data: list[_EntityData] = self._extract_entities('classname', 'citadel_shop_prop_dynamic', *shop_trigger_properties)
+
         # Hardcoded base shops because there is no actual base shop
-        # it's a longer story than that, but this is easier to explain than using unrelated entities
-        shop_data.extend([{'origin': [0, -9500, 100]}, {'origin': [0, 9500, 100]}])
+        #   it's a longer story than that, but this is easier to explain than using unrelated entities
+        # PyCharm's linter cannot type-check this for some reason
+        # noinspection PyTypeChecker
+        shop_data.extend([{'origin': [0, -9500, 100]}, {'origin': [0, -9500, 100]}])
         return shop_data
 
-    def _get_breakables_data(self):
+    def _get_breakables_data(self) -> tuple[list[_BreakablesData], ...]:
+        """
+        Extract breakable entities from the map
+        Returns:
+            A list of breakable entities
+        """
         breakables_properties = [
             'initial_spawn_time_override',
             'double',  # Used to identify breakables that are spawned late
@@ -183,7 +271,7 @@ class GameMapParser:
             self._extract_entities('subclass_name', 'citadel_breakable_item_container', *breakables_properties),
         )
 
-    def _extract_entities(self, entity_key, entity_value, *property_list) -> list:
+    def _extract_entities(self, entity_key, entity_value, *property_list) -> list[Any]:
         """
         Runs `DeadlockEntityHelper extract` with the specified arguments
         :param property_list: the remaining args are treated as property name-type pairs, e.g.:
