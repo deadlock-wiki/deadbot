@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 
-from src.utils.plot_utils import ImageHandler, load_image
-from src.utils.process import run_process
+from utils.plot_utils import ImageHandler, load_image
+from utils.process import run_process
 
 
 class GameMapParser:
