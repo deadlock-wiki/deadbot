@@ -59,7 +59,6 @@ def main():
                 depot_downloader_cmd=args.depot_downloader_cmd,
                 steam_username=args.steam_username,
                 steam_password=args.steam_password,
-                force=args.force,
             )
             depot_downloader.download_files(
                 files=misc_files,
