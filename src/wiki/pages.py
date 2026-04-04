@@ -42,6 +42,7 @@ DATA_PAGE_FILE_MAP = {
     'SoulUnlockData.json': 'json/soul-unlock-data.json',
     'StatInfoboxOrder.json': 'json/stat-infobox-order.json',
     'ResourceLookup.json': 'json/resource-lookup.json',
+    'MidtownMetadata.json': 'json/midtown-metadata.json',
 }
 
 # Ignore these pages as they are not automated

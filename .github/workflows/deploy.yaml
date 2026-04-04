@@ -161,6 +161,7 @@ jobs:
         env:
           IMPORT_FILES: true
           ENGLISH_ONLY: ${{ github.event.inputs.english-only == 'true' }}
+          PARSE_MAP: true
           DECOMPILE: true
           PARSE: true
           CHANGELOGS: true
