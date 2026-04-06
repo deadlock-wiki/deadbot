@@ -90,7 +90,10 @@ class ItemParser:
                 # Only filter if the value is a number and it is zero
                 if num_utils.is_zero(value):
                     continue  # Skip this zero-value attribute
-                parsed_item_data[attr_key] = value
+                parsed_item_data[attr_key] = {
+                    'Value': value,
+                    'Scale': None
+                }
             else:
                 logger.trace(f'Missing m_strValue attr in item {key} attribute {attr_key}')
 
