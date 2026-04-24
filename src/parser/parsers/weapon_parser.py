@@ -16,7 +16,7 @@ def parse_weapon_info(weapon_info: Dict[str, Any]) -> Dict[str, Any]:
     stats['ClipSize'] = weapon_info.get('m_iClipSize')
     stats['ReloadTime'] = weapon_info.get('m_reloadDuration')
     stats['ReloadMovespeed'] = float(weapon_info.get('m_flReloadMoveSpeed', '0')) / 10000
-    stats['ReloadDelay'] = weapon_info.get('m_flReloadSingleBulletsInitialDelay', 0)
+    stats['ReloadDelay'] = weapon_info.get('m_flReloadSingleBulletsInitialDelay', 0) if weapon_info.get('m_bReloadSingleBullets') else 0
     stats['ReloadSingle'] = weapon_info.get('m_bReloadSingleBullets', False)
 
     # Falloff and Range
