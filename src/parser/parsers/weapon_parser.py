@@ -150,6 +150,10 @@ def calculate_fire_rate(weapon_info: Dict[str, Any]) -> float:
     intra_burst_cd = weapon_info.get('m_flIntraBurstCycleTime', 0)
     bullets_per_shot = weapon_info.get('m_iBurstShotCount', 0)
 
+    # Only use intra‑burst delay if the weapon actually fires multiple shots per burst
+    if bullets_per_shot <= 1:
+        intra_burst_cd = 0
+
     total_shot_time = bullets_per_shot * intra_burst_cd + shot_cd + burst_cd
 
     return bullets_per_shot / total_shot_time if total_shot_time > 0 else 0
