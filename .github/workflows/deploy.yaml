@@ -161,6 +161,7 @@ jobs:
         env:
           IMPORT_FILES: true
           ENGLISH_ONLY: ${{ github.event.inputs.english-only == 'true' }}
+          PARSE_MAP: true
           DECOMPILE: true
           PARSE: true
           CHANGELOGS: true
@@ -179,10 +180,10 @@ jobs:
           DEADBOT_VERSION=$(grep -m1 '^version' pyproject.toml | sed 's/version *= *"\(.*\)"/\1/')
           echo "deadbot=$DEADBOT_VERSION" >> $GITHUB_OUTPUT
           
-          DEADLOCK_VERSION=$(grep '^ClientVersion=' "./decompiled-data/version.txt" | cut -d'=' -f2)
+          DEADLOCK_VERSION=$(grep '^ClientVersion=' "./decompiled-data/version.txt" | cut -d'=' -f2 | tr -d '\r')
           echo "deadlock=$DEADLOCK_VERSION" >> $GITHUB_OUTPUT
 
-          DATE=$(grep '^VersionDate=' "./decompiled-data/version.txt" | cut -d'=' -f2)
+          DATE=$(grep '^VersionDate=' "./decompiled-data/version.txt" | cut -d'=' -f2 | tr -d '\r')
           echo "date=$DATE" >> $GITHUB_OUTPUT
           
       - name: Commit and push input-data changes to deadbot

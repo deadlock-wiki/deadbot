@@ -21,6 +21,11 @@ RUN wget https://github.com/SteamRE/DepotDownloader/releases/download/DepotDownl
     && chmod +x DepotDownloader
 ENV DEPOT_DOWNLOADER_CMD="/tools/DepotDownloader"
 
+ENV ENTITY_HELPER_VER="v2.1.0"
+run wget https://github.com/deadlock-wiki/DeadlockEntityHelper/releases/download/$ENTITY_HELPER_VER/DeadlockEntityHelper \
+    && chmod +x DeadlockEntityHelper
+ENV ENTITY_HELPER_CMD="/tools/DeadlockEntityHelper"
+
 WORKDIR /repo
 
 COPY pyproject.toml poetry.lock ./

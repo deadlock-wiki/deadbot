@@ -61,6 +61,11 @@ def arg_group_base(parser):
         default=is_truthy(os.getenv('FORCE', False)),
     )
     group_base.add_argument(
+        '--entity_helper_cmd',
+        help='Path to DeadlockEntityHelper executable (also set with ENTITY_HELPER_CMD environment variable)',
+        default=os.getenv('ENTITY_HELPER_CMD', None),
+    )
+    group_base.add_argument(
         '-v',
         '--verbose',
         action='store_true',
@@ -137,6 +142,12 @@ def arg_group_action(parser):
         help='Run the wiki upload in dry-run mode (also set with DRY_RUN environment variable)',
         default=is_truthy(os.getenv('DRY_RUN', False)),
     )
+    group_actions.add_argument(
+        '--parse_map',
+        action='store_true',
+        help='Parse map data from the game files (also set with PARSE_MAP environment variable)',
+        default=is_truthy(os.getenv('PARSE_MAP', False)),
+    )
     return group_actions
 
 
@@ -154,6 +165,8 @@ class Args(Protocol):
     changelogs: bool
     wiki_upload: bool
     dry_run: bool
+    parse_map: bool
+    entity_helper_cmd: Optional[str]
     steam_username: Optional[str]
     steam_password: Optional[str]
     depot_downloader_cmd: Optional[str]
