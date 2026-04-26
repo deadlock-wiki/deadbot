@@ -16,7 +16,7 @@ def parse_weapon_info(weapon_info: Dict[str, Any]) -> Dict[str, Any]:
     stats['ClipSize'] = weapon_info.get('m_iClipSize')
     stats['ReloadTime'] = weapon_info.get('m_reloadDuration')
     stats['ReloadMovespeed'] = float(weapon_info.get('m_flReloadMoveSpeed', '0')) / 10000
-    stats['ReloadDelay'] = weapon_info.get('m_flReloadSingleBulletsInitialDelay', 0)
+    stats['ReloadDelay'] = weapon_info.get('m_flReloadSingleBulletsInitialDelay', 0.0) if weapon_info.get('m_bReloadSingleBullets') else 0.0
     stats['ReloadSingle'] = weapon_info.get('m_bReloadSingleBullets', False)
 
     # Falloff and Range
@@ -149,6 +149,10 @@ def calculate_fire_rate(weapon_info: Dict[str, Any]) -> float:
     burst_cd = weapon_info.get('m_flBurstShotCooldown', 0)
     intra_burst_cd = weapon_info.get('m_flIntraBurstCycleTime', 0)
     bullets_per_shot = weapon_info.get('m_iBurstShotCount', 0)
+
+    # Only use intra‑burst delay if the weapon actually fires multiple shots per burst
+    if bullets_per_shot <= 1:
+        intra_burst_cd = 0
 
     total_shot_time = bullets_per_shot * intra_burst_cd + shot_cd + burst_cd
 

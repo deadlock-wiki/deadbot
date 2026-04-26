@@ -31,22 +31,41 @@ def main():
         format='<white><dim>{time:YYYY-MM-DD HH:mm:ss.SSS} | </dim>' '</white><level>{level:<7} <dim>|</dim> <normal>{message}</normal></level>',
     )
 
-    # import game files from steamdb github and localization files using depot downloader
+    # import game files from steamdb github and localization + map files using depot downloader
     if args.import_files:
         logger.info('Importing game files...')
         script_path = os.path.join(os.path.dirname(__file__), 'steam/steam_db_download_deadlock.sh')
         run_process(script_path, name='download-deadlock-files')
+
         # non-english localizations are imported using depot downloader
+        localization_filelist_path = None
         if not args.english_only:
             logger.info('Downloading non-english localizations...')
-            DepotDownloader(
+            localization_filelist_path = os.path.join(os.path.dirname(__file__), 'steam', 'depot_downloader_file_list.txt')
+        else:
+            logger.trace('! Skipping non-english localizations download !')
+
+        misc_files = []
+        if args.parse_map:
+            logger.info('Downloading map...')
+            misc_files.extend(['game/citadel/maps/dl_midtown.vpk'])
+        else:
+            logger.trace('! Skipping map download !')
+
+        if None not in (localization_filelist_path, misc_files):
+            depot_downloader = DepotDownloader(
                 output_dir=args.workdir,
                 deadlock_dir=args.dldir,
                 depot_downloader_cmd=args.depot_downloader_cmd,
                 steam_username=args.steam_username,
                 steam_password=args.steam_password,
-                force=args.force,
-            ).run(args.manifest_id)
+            )
+            depot_downloader.download_files(
+                files=misc_files,
+                file_list_path=localization_filelist_path,
+                manifest_id=args.manifest_id,
+                logger_name='depot-downloader',
+            )
     else:
         logger.trace('! Skipping Import !')
 
@@ -79,7 +98,9 @@ def main():
 
 
 def act_gamefile_parse(args: Args):
-    game_parser = parser.Parser(args.workdir, args.output, english_only=args.english_only)
+    game_parser = parser.Parser(
+        args.workdir, args.output, args.dldir, english_only=args.english_only, parse_map=args.parse_map, entity_helper_cmd=args.entity_helper_cmd
+    )
     game_parser.run()
     logger.trace('Exporting to CSV...')
     csv_writer.export_json_file_to_csv('item-data', args.output)
