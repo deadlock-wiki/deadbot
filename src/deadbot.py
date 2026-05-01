@@ -11,6 +11,7 @@ from decompiler.decompiler import Decompiler
 import constants
 from changelogs import parse_changelogs, fetch_changelogs
 from parser import parser
+from utils.meta_utils import get_deadbot_version
 from utils.parameters import Args
 from utils.process import run_process
 from wiki.upload import WikiUpload
@@ -31,6 +32,7 @@ def main():
         format='<white><dim>{time:YYYY-MM-DD HH:mm:ss.SSS} | </dim>' '</white><level>{level:<7} <dim>|</dim> <normal>{message}</normal></level>',
     )
 
+    logger.info(f'Running Deadbot v{get_deadbot_version()}')
     # import game files from steamdb github and localization + map files using depot downloader
     if args.import_files:
         logger.info('Importing game files...')
