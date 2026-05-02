@@ -489,7 +489,8 @@ class ChangelogFetcher:
                 entry_text = re.sub(r'=== Patch \d+ ===\n*', '', entry_text).strip()
 
                 # Skip if this content is already in final_text (prevents duplicates)
-                if entry_text not in final_text:
+                normalized_entry = re.sub(r'^- ', '* ', entry_text, flags=re.MULTILINE)
+                if entry_text not in final_text and normalized_entry not in final_text:
                     patch_num = get_next_patch_num(final_text)
                     final_text += f'\n\n=== Patch {patch_num} ===\n\n{entry_text}'
                     logger.debug(f'Adding Patch {patch_num} to {date_key}')
