@@ -54,7 +54,7 @@ def main():
         else:
             logger.trace('! Skipping map download !')
 
-        if None not in (localization_filelist_path, misc_files):
+        if localization_filelist_path is not None or misc_files is not None:
             depot_downloader = DepotDownloader(
                 output_dir=args.workdir,
                 deadlock_dir=args.dldir,
