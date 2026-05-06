@@ -24,8 +24,7 @@ def run_process(
         if isinstance(params, str):
             process_path = get_resource_path(params)
         else:
-            process_path = params
-
+            process_path = [get_resource_path(params[0])] + [str(p) for p in params[1:]]
         # Handle shell scripts on Windows by explicitly using bash
         if isinstance(process_path, str) and process_path.endswith('.sh') and os.name == 'nt':
             process_path = ['bash', process_path]
@@ -38,8 +37,8 @@ def run_process(
         ):
             process_path = ['bash'] + process_path
 
-        logger.trace(f'[process: {name}] Starting process with command {params}')
-        with subprocess.Popen(process_path, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True) as process:
+        logger.trace(f'[process: {name}] Starting process with command {process_path}')
+        with subprocess.Popen(process_path, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, cwd=_SRC_ROOT) as process:
             output_lines = []
             for line in process.stdout:
                 stripped = line.strip()
@@ -63,6 +62,13 @@ _SRC_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 def get_resource_path(script_params):
-    if hasattr(sys, '_MEIPASS'):
-        return os.path.join(sys._MEIPASS, script_params)
+    # Don't remap absolute paths
+    if os.path.isabs(script_params):
+        return script_params
+
+    # Used by Nuitka onefile to build binary
+    if '__compiled__' in dir(__builtins__) or hasattr(sys, 'frozen'):
+        base = os.path.dirname(sys.executable)
+        return os.path.join(base, script_params)
+
     return os.path.join(_SRC_ROOT, script_params)

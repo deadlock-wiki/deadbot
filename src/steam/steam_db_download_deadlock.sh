@@ -1,5 +1,5 @@
 #!/bin/bash
-GAME_DIR=$DEADLOCK_DIR
+GAME_DIR=$1
 
 if [ -z "$GAME_DIR" ]; then
     echo "Error: GAME_DIR is required"

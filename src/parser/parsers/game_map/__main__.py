@@ -37,7 +37,7 @@ class GameMapParser:
             game_map_path: Path to the game map file
         """
         if not entity_helper_cmd:
-            raise ValueError('Config for DeadlockEntityHelper path is required for game map parsing')
+            entity_helper_cmd = 'tools/DeadlockEntityHelper'
         if not os.path.exists(entity_helper_cmd):
             raise FileNotFoundError(f'Could not find DeadlockEntityHelper at path "{entity_helper_cmd}"')
         if not os.path.exists(game_map_path):
