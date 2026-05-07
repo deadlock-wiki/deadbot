@@ -66,8 +66,24 @@ class ItemCardParser:
         # Parse remaining attributes inline
         card.update(self._parse_remaining_attributes())
 
-        # Promote AbilityCooldown from Other into the first non-Innate, non-null Info
+        # Check if this item has an active ability (non-passive, non-innate section)
+        has_active_ability = False
+        if tooltip_sections:
+            for section in tooltip_sections:
+                raw_type = section.get('Type') or section.get('m_eAbilitySectionType')
+                human_type = get_section_type(raw_type)
+                if human_type and human_type not in ['Passive', 'Innate']:
+                    has_active_ability = True
+                    break
+
+        # Promote AbilityCooldown if item has active ability OR cooldown != 1
+        should_promote_cooldown = False
         if 'Other' in card and 'AbilityCooldown' in card['Other']:
+            ability_cd_value = card['Other']['AbilityCooldown'].get('Value')
+            if has_active_ability or (ability_cd_value is not None and ability_cd_value != 1):
+                should_promote_cooldown = True
+
+        if should_promote_cooldown:
             ability_cd = card['Other']['AbilityCooldown']
             info_keys = [k for k in card.keys() if k.startswith('Info')]
 
