@@ -81,6 +81,7 @@ jobs:
             type=gha,scope=deadbot-build-${{ env.BRANCH_NAME }}
           cache-to: type=gha,mode=max,scope=deadbot-build-${{ env.BRANCH_NAME }}
           
+      # TODO - use caching on builds if possible
       - name: Build deadbot executable
         run: |         
           docker run --rm \
@@ -91,9 +92,10 @@ jobs:
                 --static-libpython=no \
                 --onefile \
                 --output-dir=/dist \
+                --include-data-dir=./src/parser/parsers/game_map/assets=parser/parsers/game_map/assets \
+                --include-data-dir=./src/tools=tools \
                 --include-data-files=./src/steam/steam_db_download_deadlock.sh=steam/steam_db_download_deadlock.sh \
-                --include-data-files=./src/tools/DepotDownloader=tools/DepotDownloader \
-                --include-data-files=./src/tools/DeadlockEntityHelper=tools/DeadlockEntityHelper"
+                --include-data-files=./src/steam/depot_downloader_file_list.txt=steam/depot_downloader_file_list.txt 
               
       - name: Get version from pyproject.toml
         if: github.event_name != 'pull_request'

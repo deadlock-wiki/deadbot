@@ -10,8 +10,8 @@ class DepotDownloader:
     def __init__(self, output_dir, deadlock_dir, depot_downloader_cmd, steam_username, steam_password):
         if not depot_downloader_cmd:
             depot_downloader_cmd = 'tools/DepotDownloader'
-        if not os.path.exists(depot_downloader_cmd):
-            raise Exception(f'Could not find DepotDownloader at path "{depot_downloader_cmd}"')
+        # if not os.path.exists(depot_downloader_cmd):
+        #     raise Exception(f'Could not find DepotDownloader at path "{depot_downloader_cmd}"')
         if not steam_username or not steam_password:
             raise Exception('Steam username and password are required')
 

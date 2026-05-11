@@ -38,8 +38,8 @@ class GameMapParser:
         """
         if not entity_helper_cmd:
             entity_helper_cmd = 'tools/DeadlockEntityHelper'
-        if not os.path.exists(entity_helper_cmd):
-            raise FileNotFoundError(f'Could not find DeadlockEntityHelper at path "{entity_helper_cmd}"')
+        # if not os.path.exists(entity_helper_cmd):
+        #     raise FileNotFoundError(f'Could not find DeadlockEntityHelper at path "{entity_helper_cmd}"')
         if not os.path.exists(game_map_path):
             raise FileNotFoundError(f'Could not find game map at path "{game_map_path}". Run with --import_files to download the map')
 
