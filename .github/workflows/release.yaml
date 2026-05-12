@@ -81,21 +81,26 @@ jobs:
             type=gha,scope=deadbot-build-${{ env.BRANCH_NAME }}
           cache-to: type=gha,mode=max,scope=deadbot-build-${{ env.BRANCH_NAME }}
           
-      # TODO - use caching on builds if possible
       - name: Build deadbot executable
         run: |         
           docker run --rm \
             -v ${{ github.workspace }}/dist:/repo/dist \
             --entrypoint bash \
+            --cpus=$(nproc) \
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }} \
             -c "poetry run nuitka ./src/deadbot.py \
                 --static-libpython=no \
                 --onefile \
                 --output-dir=/dist \
+                --jobs=$(nproc) \
+                --lto=yes \
+                --enable-plugin=anti-bloat \
+                --python-flag=no_site \
+                --python-flag=no_warnings \
                 --include-data-dir=./src/parser/parsers/game_map/assets=parser/parsers/game_map/assets \
                 --include-data-dir=./src/tools=tools \
                 --include-data-files=./src/steam/steam_db_download_deadlock.sh=steam/steam_db_download_deadlock.sh \
-                --include-data-files=./src/steam/depot_downloader_file_list.txt=steam/depot_downloader_file_list.txt 
+                --include-data-files=./src/steam/depot_downloader_file_list.txt=steam/depot_downloader_file_list.txt"
               
       - name: Get version from pyproject.toml
         if: github.event_name != 'pull_request'
