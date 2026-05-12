@@ -123,7 +123,6 @@ poetry run deadbot --import_files --parse
 |                  | `-v, --verbose`                               | Enable verbose logging for detailed output.                                                                                             |                        |
 | **Steam Config** | `--steam_username STEAM_USERNAME`             | Steam username for downloading game files.                                                                                              | `STEAM_USERNAME`       |
 |                  | `--steam_password STEAM_PASSWORD`             | Steam password for downloading game files.                                                                                              | `STEAM_PASSWORD`       |
-|                  | `--depot_downloader_cmd DEPOT_DOWNLOADER_CMD` | Path to the **DepotDownloader** executable directory.                                                                                   | `DEPOT_DOWNLOADER_CMD` |
 |                  | `--manifest_id MANIFEST_ID`                   | Manifest ID to download. Defaults to `latest`. Browse manifests: [SteamDB Depot 1422456](https://steamdb.info/depot/1422456/manifests/) | `MANIFEST_ID`          |
 | **Bot Actions**  | `-i, --import_files`                          | Import game and localization files using DepotDownloader.                                                                               | `IMPORT_FILES`         |
 |                  | `-d, --decompile`                             | Decompile Deadlock game files.                                                                                                          | `DECOMPILE`            |
@@ -131,6 +130,7 @@ poetry run deadbot --import_files --parse
 |                  | `-c, --changelogs`                            | Fetch and parse both forum and local changelogs.                                                                                        | `CHANGELOGS`           |
 |                  | `-u, --wiki_upload`                           | Upload parsed data to the Wiki.                                                                                                         | `WIKI_UPLOAD`          |
 |                  | `--dry_run`                                   | Run wiki upload in dry-run mode (no actual upload).                                                                                     | `DRY_RUN`              |
+|                  | `--parse_map`                                 | Parse map data.                                                                                                                         | `PARSE_MAP`            |
 
 
 ## Docker

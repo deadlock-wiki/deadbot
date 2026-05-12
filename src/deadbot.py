@@ -57,7 +57,6 @@ def main():
             depot_downloader = DepotDownloader(
                 output_dir=args.workdir,
                 deadlock_dir=args.dldir,
-                depot_downloader_cmd=args.depot_downloader_cmd,
                 steam_username=args.steam_username,
                 steam_password=args.steam_password,
             )
@@ -99,9 +98,7 @@ def main():
 
 
 def act_gamefile_parse(args: Args):
-    game_parser = parser.Parser(
-        args.workdir, args.output, args.dldir, english_only=args.english_only, parse_map=args.parse_map, entity_helper_cmd=args.entity_helper_cmd
-    )
+    game_parser = parser.Parser(args.workdir, args.output, args.dldir, english_only=args.english_only, parse_map=args.parse_map)
     game_parser.run()
     logger.trace('Exporting to CSV...')
     csv_writer.export_json_file_to_csv('item-data', args.output)
