@@ -40,9 +40,6 @@ OUTPUT_DIR="/output"
 
 RUN mkdir -p /repo/src/tools
 RUN cp /tools/DepotDownloader /repo/src/tools/DepotDownloader
-ENV DEPOT_DOWNLOADER_CMD="/tools/DepotDownloader"
-
 RUN cp /tools/DeadlockEntityHelper /repo/src/tools/DeadlockEntityHelper
-ENV ENTITY_HELPER_CMD="/tools/DeadlockEntityHelper"
 
 ENTRYPOINT [ "python3", "src/deadbot.py" ]
