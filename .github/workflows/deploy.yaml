@@ -263,6 +263,7 @@ jobs:
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
+          load: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: |
@@ -276,8 +277,8 @@ jobs:
             -v ${{ github.workspace }}/dist:/repo/dist \
             --cpus=$(nproc) \
             --entrypoint bash \
-            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }} \
-            -c "python3 -m nuitka ./src/deadbot.py \
+            ${{ steps.build-and-push.outputs.imageid }} \
+            -c "poetry run nuitka ./src/deadbot.py \
                 --static-libpython=no \
                 --onefile \
                 --output-dir=/dist \
