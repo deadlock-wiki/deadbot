@@ -3,6 +3,7 @@ import argparse
 from typing import Optional, Protocol
 from dotenv import load_dotenv
 
+from utils.meta_utils import get_deadbot_version
 from utils.string_utils import is_truthy
 
 load_dotenv()
@@ -66,6 +67,11 @@ def arg_group_base(parser):
         action='store_true',
         help='Print verbose output for extensive logging',
         default=is_truthy(os.getenv('VERBOSE', False)),
+    )
+    group_base.add_argument(
+        '--version',
+        action='store_true',
+        help='Print version number',
     )
 
 
@@ -169,6 +175,11 @@ def load_arguments() -> Args:
     arg_group_action(ARG_PARSER)
 
     args = ARG_PARSER.parse_args()
+
+    if args.version:
+        print(get_deadbot_version())
+        ARG_PARSER.exit()
+
     actions = [args.import_files, args.decompile, args.parse, args.changelogs, args.wiki_upload]
     if not any(actions):
         print('At least one action must be selected\n')
