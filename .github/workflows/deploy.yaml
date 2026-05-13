@@ -46,172 +46,172 @@ on:
         required: true
 
 jobs:
-  # Each event type has a different variable for the branch name
-  get-branch:
-    name: Get branch name
-    runs-on: ubuntu-latest
-    outputs:
-      branch: ${{ steps.branch.outputs.branch }}
-    steps:
-      - name: Determine branch name
-        id: branch
-        run: |
-          # override with input branch if it exists
-          if [[ -n "${{ inputs.branch-override }}" ]]; then
-            echo "branch=${{ inputs.branch-override }}" >> $GITHUB_OUTPUT
-          elif [[ "${GITHUB_EVENT_NAME}" == "push" ]]; then
-            echo "branch=${{ github.ref_name }}" >> $GITHUB_OUTPUT
-          elif [[ "${GITHUB_EVENT_NAME}" == "pull_request" ]]; then
-            echo "branch=${{ github.head_ref }}" >> $GITHUB_OUTPUT
-          elif [[ "${GITHUB_EVENT_NAME}" == "workflow_dispatch" ]]; then 
-            echo "branch=${{ github.ref_name }}" >> $GITHUB_OUTPUT
-          else
-            echo "branch=INVALID_EVENT_BRANCH_UNKNOWN" >> $GITHUB_OUTPUT
-          fi
+  # # Each event type has a different variable for the branch name
+  # get-branch:
+  #   name: Get branch name
+  #   runs-on: ubuntu-latest
+  #   outputs:
+  #     branch: ${{ steps.branch.outputs.branch }}
+  #   steps:
+  #     - name: Determine branch name
+  #       id: branch
+  #       run: |
+  #         # override with input branch if it exists
+  #         if [[ -n "${{ inputs.branch-override }}" ]]; then
+  #           echo "branch=${{ inputs.branch-override }}" >> $GITHUB_OUTPUT
+  #         elif [[ "${GITHUB_EVENT_NAME}" == "push" ]]; then
+  #           echo "branch=${{ github.ref_name }}" >> $GITHUB_OUTPUT
+  #         elif [[ "${GITHUB_EVENT_NAME}" == "pull_request" ]]; then
+  #           echo "branch=${{ github.head_ref }}" >> $GITHUB_OUTPUT
+  #         elif [[ "${GITHUB_EVENT_NAME}" == "workflow_dispatch" ]]; then 
+  #           echo "branch=${{ github.ref_name }}" >> $GITHUB_OUTPUT
+  #         else
+  #           echo "branch=INVALID_EVENT_BRANCH_UNKNOWN" >> $GITHUB_OUTPUT
+  #         fi
 
-  check-branch:
-    name: Check deadlock-data branch exists
-    runs-on: ubuntu-latest
-    needs: get-branch
-    outputs:
-      branch_exists: ${{ steps.branch.outputs.branch_exists }}
-    steps:
-      - name: Check if deadlock-data branch exists
-        id: branch      
-        run: |
-          branch_exists=$(git ls-remote --heads https://${{ secrets.GH_TOKEN }}@github.com/deadlock-wiki/deadlock-data.git refs/heads/${{ needs.get-branch.outputs.branch }})
-          if [ -z "$branch_exists" ]; then
-            echo "Branch does not exist, skipping the rest of the job"
-            echo "branch_exists=false" >> $GITHUB_OUTPUT
-          else
-            echo "branch_exists=true" >> $GITHUB_OUTPUT
-          fi
+  # check-branch:
+  #   name: Check deadlock-data branch exists
+  #   runs-on: ubuntu-latest
+  #   needs: get-branch
+  #   outputs:
+  #     branch_exists: ${{ steps.branch.outputs.branch_exists }}
+  #   steps:
+  #     - name: Check if deadlock-data branch exists
+  #       id: branch      
+  #       run: |
+  #         branch_exists=$(git ls-remote --heads https://${{ secrets.GH_TOKEN }}@github.com/deadlock-wiki/deadlock-data.git refs/heads/${{ needs.get-branch.outputs.branch }})
+  #         if [ -z "$branch_exists" ]; then
+  #           echo "Branch does not exist, skipping the rest of the job"
+  #           echo "branch_exists=false" >> $GITHUB_OUTPUT
+  #         else
+  #           echo "branch_exists=true" >> $GITHUB_OUTPUT
+  #         fi
 
-  # Parse game data and commit the parsed output to deadlock-data repo. 
-  # This repo is kept separate to keep the deadbot repo diff cleaner, whilst allowing
-  # for easy source control and diff viewing
-  parse:
-    name: Parse
-    runs-on: ubuntu-latest
-    needs: [get-branch, check-branch]
-    if: ${{ needs.check-branch.outputs.branch_exists == 'true' }}
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ needs.get-branch.outputs.branch }}
-          path: deadbot
-          token:  ${{ secrets.GH_TOKEN }}     
+  # # Parse game data and commit the parsed output to deadlock-data repo. 
+  # # This repo is kept separate to keep the deadbot repo diff cleaner, whilst allowing
+  # # for easy source control and diff viewing
+  # parse:
+  #   name: Parse
+  #   runs-on: ubuntu-latest
+  #   needs: [get-branch, check-branch]
+  #   if: ${{ needs.check-branch.outputs.branch_exists == 'true' }}
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #       with:
+  #         ref: ${{ needs.get-branch.outputs.branch }}
+  #         path: deadbot
+  #         token:  ${{ secrets.GH_TOKEN }}     
 
-      - name: Checkout deadlock-data repo
-        uses: actions/checkout@v4
-        with:
-          repository: deadlock-wiki/deadlock-data
-          path: deadlock-data
-          token:  ${{ secrets.GH_TOKEN }}     
+  #     - name: Checkout deadlock-data repo
+  #       uses: actions/checkout@v4
+  #       with:
+  #         repository: deadlock-wiki/deadlock-data
+  #         path: deadlock-data
+  #         token:  ${{ secrets.GH_TOKEN }}     
 
-      - name: Configure Git for deadbot repo
-        working-directory: deadbot 
-        run: |
-          git config --global user.email "deadbot1101@gmail.com"
-          git config --global user.name "Deadbot0"
-          git config --global --add safe.directory ./data
-          git config pull.rebase true    
+  #     - name: Configure Git for deadbot repo
+  #       working-directory: deadbot 
+  #       run: |
+  #         git config --global user.email "deadbot1101@gmail.com"
+  #         git config --global user.name "Deadbot0"
+  #         git config --global --add safe.directory ./data
+  #         git config pull.rebase true    
 
-      - name: Configure Git for data repo
-        working-directory: deadlock-data 
-        run: |
-          git config --global user.email "deadbot1101@gmail.com"
-          git config --global user.name "Deadbot0"
-          git config pull.rebase true     
+  #     - name: Configure Git for data repo
+  #       working-directory: deadlock-data 
+  #       run: |
+  #         git config --global user.email "deadbot1101@gmail.com"
+  #         git config --global user.name "Deadbot0"
+  #         git config pull.rebase true     
         
-      - name: Switch to same branch name on deadlock-data. If not found, skip job
-        working-directory: deadlock-data
-        run: |
-          git fetch origin ${{ needs.get-branch.outputs.branch }}
-          git switch ${{ needs.get-branch.outputs.branch }}
-        continue-on-error: true  # Allow the job to stop if this step fails
+  #     - name: Switch to same branch name on deadlock-data. If not found, skip job
+  #       working-directory: deadlock-data
+  #       run: |
+  #         git fetch origin ${{ needs.get-branch.outputs.branch }}
+  #         git switch ${{ needs.get-branch.outputs.branch }}
+  #       continue-on-error: true  # Allow the job to stop if this step fails
 
-      - uses: docker/setup-buildx-action@v3
-        with:
-          driver: docker-container
+  #     - uses: docker/setup-buildx-action@v3
+  #       with:
+  #         driver: docker-container
 
-      - name: Build Deadbot
-        uses: docker/build-push-action@v6
-        with:
-          context: ./deadbot
-          file: ./deadbot/Dockerfile
-          push: false
-          tags: deadbot:latest
-          cache-from: |
-            type=gha,scope=deadbot-master
-            type=gha,scope=deadbot-${{ needs.get-branch.outputs.branch }}
-          cache-to: type=gha,mode=max,scope=deadbot-${{ needs.get-branch.outputs.branch }}
-          load: true   
+  #     - name: Build Deadbot
+  #       uses: docker/build-push-action@v6
+  #       with:
+  #         context: ./deadbot
+  #         file: ./deadbot/Dockerfile
+  #         push: false
+  #         tags: deadbot:latest
+  #         cache-from: |
+  #           type=gha,scope=deadbot-master
+  #           type=gha,scope=deadbot-${{ needs.get-branch.outputs.branch }}
+  #         cache-to: type=gha,mode=max,scope=deadbot-${{ needs.get-branch.outputs.branch }}
+  #         load: true   
 
-      - name: Cache decompiled-data
-        uses: actions/cache@v4
-        with:
-          path: deadbot/decompiled-data
-          key: deadbot-decompiled-${{ hashFiles('deadbot/src/decompiler/**/*') }}
-          restore-keys: deadbot-decompiled-
+  #     - name: Cache decompiled-data
+  #       uses: actions/cache@v4
+  #       with:
+  #         path: deadbot/decompiled-data
+  #         key: deadbot-decompiled-${{ hashFiles('deadbot/src/decompiler/**/*') }}
+  #         restore-keys: deadbot-decompiled-
 
-      - name: Run Deadbot
-        working-directory: deadbot
-        run: docker compose up --exit-code-from deadbot --abort-on-container-exit
-        env:
-          IMPORT_FILES: true
-          ENGLISH_ONLY: ${{ github.event.inputs.english-only == 'true' }}
-          PARSE_MAP: true
-          DECOMPILE: true
-          PARSE: true
-          CHANGELOGS: true
-          CLEANUP: false
-          WIKI_UPLOAD: ${{ needs.get-branch.outputs.branch == 'master' }}
-          STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
-          STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
-          BOT_WIKI_USER: ${{ vars.BOT_WIKI_USER }}
-          BOT_WIKI_PASS: ${{ secrets.BOT_WIKI_PASS }}
-          VERBOSE: ${{ secrets.ACTIONS_RUNNER_DEBUG == 'true' }}
+  #     - name: Run Deadbot
+  #       working-directory: deadbot
+  #       run: docker compose up --exit-code-from deadbot --abort-on-container-exit
+  #       env:
+  #         IMPORT_FILES: true
+  #         ENGLISH_ONLY: ${{ github.event.inputs.english-only == 'true' }}
+  #         PARSE_MAP: true
+  #         DECOMPILE: true
+  #         PARSE: true
+  #         CHANGELOGS: true
+  #         CLEANUP: false
+  #         WIKI_UPLOAD: ${{ needs.get-branch.outputs.branch == 'master' }}
+  #         STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
+  #         STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
+  #         BOT_WIKI_USER: ${{ vars.BOT_WIKI_USER }}
+  #         BOT_WIKI_PASS: ${{ secrets.BOT_WIKI_PASS }}
+  #         VERBOSE: ${{ secrets.ACTIONS_RUNNER_DEBUG == 'true' }}
 
-      - name: Read versions
-        id: read_versions
-        working-directory: deadbot
-        run: |
-          DEADBOT_VERSION=$(grep -m1 '^version' pyproject.toml | sed 's/version *= *"\(.*\)"/\1/')
-          echo "deadbot=$DEADBOT_VERSION" >> $GITHUB_OUTPUT
+  #     - name: Read versions
+  #       id: read_versions
+  #       working-directory: deadbot
+  #       run: |
+  #         DEADBOT_VERSION=$(grep -m1 '^version' pyproject.toml | sed 's/version *= *"\(.*\)"/\1/')
+  #         echo "deadbot=$DEADBOT_VERSION" >> $GITHUB_OUTPUT
           
-          DEADLOCK_VERSION=$(grep '^ClientVersion=' "./decompiled-data/version.txt" | cut -d'=' -f2 | tr -d '\r')
-          echo "deadlock=$DEADLOCK_VERSION" >> $GITHUB_OUTPUT
+  #         DEADLOCK_VERSION=$(grep '^ClientVersion=' "./decompiled-data/version.txt" | cut -d'=' -f2 | tr -d '\r')
+  #         echo "deadlock=$DEADLOCK_VERSION" >> $GITHUB_OUTPUT
 
-          DATE=$(grep '^VersionDate=' "./decompiled-data/version.txt" | cut -d'=' -f2 | tr -d '\r')
-          echo "date=$DATE" >> $GITHUB_OUTPUT
+  #         DATE=$(grep '^VersionDate=' "./decompiled-data/version.txt" | cut -d'=' -f2 | tr -d '\r')
+  #         echo "date=$DATE" >> $GITHUB_OUTPUT
           
-      - name: Commit and push input-data changes to deadbot
-        working-directory: deadbot
-        run: |
-          git add input-data
-          git commit -m "[skip ci] chore: updated input data" || echo "No changes to commit"
-          git push --force-with-lease origin ${{ needs.get-branch.outputs.branch }}
+  #     - name: Commit and push input-data changes to deadbot
+  #       working-directory: deadbot
+  #       run: |
+  #         git add input-data
+  #         git commit -m "[skip ci] chore: updated input data" || echo "No changes to commit"
+  #         git push --force-with-lease origin ${{ needs.get-branch.outputs.branch }}
 
-      - name: Pull data branch
-        working-directory: deadlock-data 
-        run: git pull origin ${{ needs.get-branch.outputs.branch }} -X ours     
+  #     - name: Pull data branch
+  #       working-directory: deadlock-data 
+  #       run: git pull origin ${{ needs.get-branch.outputs.branch }} -X ours     
 
-      - name: Copy files to data repo
-        run: |         
-          cp -r ./deadbot/output-data/. ./deadlock-data/data
+  #     - name: Copy files to data repo
+  #       run: |         
+  #         cp -r ./deadbot/output-data/. ./deadlock-data/data
       
-      - name: Commit and push changes to data repo
-        working-directory: deadlock-data
-        env:
-          DEADBOT_VER: ${{ steps.read_versions.outputs.deadbot }}
-          DEADLOCK_VER: ${{ steps.read_versions.outputs.deadlock }}
-          DATE: ${{ steps.read_versions.outputs.date }}
-        run: |
-          SHORT_SHA="${GITHUB_SHA::7}"          
-          git add -A
-          git commit -m "Deadbot v$DEADBOT_VER | Client $DEADLOCK_VER - $DATE (deadbot@${SHORT_SHA})" || echo "No changes to commit"
-          git push --force-with-lease origin ${{ needs.get-branch.outputs.branch }}
+  #     - name: Commit and push changes to data repo
+  #       working-directory: deadlock-data
+  #       env:
+  #         DEADBOT_VER: ${{ steps.read_versions.outputs.deadbot }}
+  #         DEADLOCK_VER: ${{ steps.read_versions.outputs.deadlock }}
+  #         DATE: ${{ steps.read_versions.outputs.date }}
+  #       run: |
+  #         SHORT_SHA="${GITHUB_SHA::7}"          
+  #         git add -A
+  #         git commit -m "Deadbot v$DEADBOT_VER | Client $DEADLOCK_VER - $DATE (deadbot@${SHORT_SHA})" || echo "No changes to commit"
+  #         git push --force-with-lease origin ${{ needs.get-branch.outputs.branch }}
   
   binary:
     runs-on: ubuntu-latest
