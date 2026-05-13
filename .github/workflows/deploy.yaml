@@ -277,7 +277,7 @@ jobs:
             --cpus=$(nproc) \
             --entrypoint bash \
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }} \
-            -c "poetry run nuitka ./src/deadbot.py \
+            -c "python3 -m nuitka ./src/deadbot.py \
                 --static-libpython=no \
                 --onefile \
                 --output-dir=/dist \
