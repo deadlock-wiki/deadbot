@@ -215,10 +215,6 @@ jobs:
   
   binary:
     runs-on: ubuntu-latest
-    env:
-      REGISTRY: ghcr.io
-      IMAGE_NAME: ${{ github.repository }}
-
     permissions:
       contents: write
       packages: write
@@ -227,6 +223,8 @@ jobs:
       id-token: write
     env:
       BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+      REGISTRY: ghcr.io
+      IMAGE_NAME: ${{ github.repository }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
