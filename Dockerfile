@@ -1,7 +1,7 @@
 FROM python:3.11-slim
 
 RUN apt update && \
-    apt install -y --no-install-recommends wget unzip libicu-dev binutils git dos2unix && \
+    apt install -y --no-install-recommends wget unzip libicu-dev binutils git dos2unix gcc patchelf ccache && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /tools
@@ -19,12 +19,10 @@ RUN wget https://github.com/SteamRE/DepotDownloader/releases/download/DepotDownl
     && unzip DepotDownloader-linux-x64.zip \
     && rm DepotDownloader-linux-x64.zip \
     && chmod +x DepotDownloader
-ENV DEPOT_DOWNLOADER_CMD="/tools/DepotDownloader"
-
+    
 ENV ENTITY_HELPER_VER="v2.1.0"
 run wget https://github.com/deadlock-wiki/DeadlockEntityHelper/releases/download/$ENTITY_HELPER_VER/DeadlockEntityHelper \
-    && chmod +x DeadlockEntityHelper
-ENV ENTITY_HELPER_CMD="/tools/DeadlockEntityHelper"
+&& chmod +x DeadlockEntityHelper
 
 WORKDIR /repo
 
@@ -33,11 +31,15 @@ RUN poetry install --no-root
 
 COPY . .
 RUN dos2unix /repo/src/steam/steam_db_download_deadlock.sh && \
-    chmod +x /repo/src/steam/steam_db_download_deadlock.sh
+chmod +x /repo/src/steam/steam_db_download_deadlock.sh
 
 ENV DEADLOCK_DIR="/data" \
-    WORK_DIR="/work" \
-    INPUT_DIR="/input" \
-    OUTPUT_DIR="/output"
+WORK_DIR="/work" \
+INPUT_DIR="/input" \
+OUTPUT_DIR="/output"
+
+RUN mkdir -p /repo/src/tools
+RUN cp /tools/DepotDownloader /repo/src/tools/DepotDownloader
+RUN cp /tools/DeadlockEntityHelper /repo/src/tools/DeadlockEntityHelper
 
 ENTRYPOINT [ "python3", "src/deadbot.py" ]

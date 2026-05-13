@@ -22,9 +22,13 @@ requests = "^2.32.3"
 bs4 = "^0.0.2"
 loguru = "^0.7.2"
 matplotlib = "^3.10.8"
+nuitka = "^4.0.5"
+zstandard = "^0.25.0"
 
-[tool.poetry.group.dev.dependencies]
-pyinstaller = "^6.15.0"
+[tool.nuitka]
+enable-plugin = ["numpy"]
+include-data-files = ["src/steam/steam_db_download_deadlock.sh=steam/steam_db_download_deadlock.sh"]
+include-module = ["_json", "_bisect", "pydantic"]
 
 [tool.ruff]
 line-length = 150

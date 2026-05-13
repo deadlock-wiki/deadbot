@@ -61,11 +61,6 @@ def arg_group_base(parser):
         default=is_truthy(os.getenv('FORCE', False)),
     )
     group_base.add_argument(
-        '--entity_helper_cmd',
-        help='Path to DeadlockEntityHelper executable (also set with ENTITY_HELPER_CMD environment variable)',
-        default=os.getenv('ENTITY_HELPER_CMD', None),
-    )
-    group_base.add_argument(
         '-v',
         '--verbose',
         action='store_true',
@@ -85,11 +80,6 @@ def arg_group_steam(parser):
         '--steam_password',
         help='Steam password for downloading game files (also set with STEAM_PASSWORD environment' + ' variable)',
         default=os.getenv('STEAM_PASSWORD', None),
-    )
-    group_steam.add_argument(
-        '--depot_downloader_cmd',
-        help='Path to DepotDownloader directory that contains the executable (also set with DEPOT_DOWNLOADER_CMD environment' + ' variable)',
-        default=os.getenv('DEPOT_DOWNLOADER_CMD', None),
     )
     group_steam.add_argument(
         '--manifest_id',
@@ -166,10 +156,8 @@ class Args(Protocol):
     wiki_upload: bool
     dry_run: bool
     parse_map: bool
-    entity_helper_cmd: Optional[str]
     steam_username: Optional[str]
     steam_password: Optional[str]
-    depot_downloader_cmd: Optional[str]
     manifest_id: Optional[int]
 
 
@@ -180,4 +168,11 @@ def load_arguments() -> Args:
     # Operational Flags
     arg_group_action(ARG_PARSER)
 
-    return ARG_PARSER.parse_args()
+    args = ARG_PARSER.parse_args()
+    actions = [args.import_files, args.decompile, args.parse, args.changelogs, args.wiki_upload]
+    if not any(actions):
+        print('At least one action must be selected\n')
+        ARG_PARSER.print_help()
+        ARG_PARSER.exit()
+
+    return args

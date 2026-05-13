@@ -29,21 +29,16 @@ class _BreakablesData(_EntityData):
 class GameMapParser:
     """Parse the Deadlock map for relevant wiki data"""
 
-    def __init__(self, entity_helper_cmd: PathLike | str, game_map_path: PathLike | str):
+    def __init__(self, game_map_path: PathLike | str):
         """
         Initialize a GameMapParser for the midtown map
         Args:
-            entity_helper_cmd: Path to the DeadlockEntityHelper executable
             game_map_path: Path to the game map file
         """
-        if not entity_helper_cmd:
-            raise ValueError('Config for DeadlockEntityHelper path is required for game map parsing')
-        if not os.path.exists(entity_helper_cmd):
-            raise FileNotFoundError(f'Could not find DeadlockEntityHelper at path "{entity_helper_cmd}"')
         if not os.path.exists(game_map_path):
             raise FileNotFoundError(f'Could not find game map at path "{game_map_path}". Run with --import_files to download the map')
 
-        self.entity_helper_cmd = entity_helper_cmd
+        self.entity_helper_cmd = os.getenv('ENTITY_HELPER_CMD', 'tools/DeadlockEntityHelper')
         self.game_map_path = game_map_path
 
     def run(self) -> dict[str, GameMapData]:
