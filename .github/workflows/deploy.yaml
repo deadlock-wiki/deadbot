@@ -215,6 +215,10 @@ jobs:
   
   binary:
     runs-on: ubuntu-latest
+    env:
+      REGISTRY: ghcr.io
+      IMAGE_NAME: ${{ github.repository }}
+
     permissions:
       contents: write
       packages: write
