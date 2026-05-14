@@ -279,7 +279,6 @@ jobs:
             --entrypoint bash \
             ${{ steps.build-and-push.outputs.imageid }} \
             -c "poetry run nuitka ./src/deadbot.py \
-                --output-filename=deadbot \
                 --onefile \
                 --output-dir=/dist \
                 --jobs=$(nproc) \
@@ -296,4 +295,3 @@ jobs:
         with:
           name: deadbot
           path: ./dist/deadbot.bin
-          if-no-files-found: error
