@@ -218,8 +218,6 @@ jobs:
     permissions:
       contents: write
       packages: write
-      # This is used to complete the identity challenge
-      # with sigstore/fulcio when running outside of PRs.
       id-token: write
     env:
       BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
@@ -231,14 +229,9 @@ jobs:
         with:
           fetch-depth: 0
 
-      # Set up BuildKit Docker container builder to be able to build
-      # multi-platform images and export cache
-      # https://github.com/docker/setup-buildx-action
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@f95db51fddba0c2d1ec667646a06c2ce06100226 # v3.0.0
 
-      # Login against a Docker registry except on PR
-      # https://github.com/docker/login-action
       - name: Log into registry ${{ env.REGISTRY }}
         if: github.event_name != 'pull_request'
         uses: docker/login-action@343f7c4344506bcbf9b4de18042ae17996df046d # v3.0.0
@@ -247,16 +240,12 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      # Extract metadata (tags, labels) for Docker
-      # https://github.com/docker/metadata-action
       - name: Extract Docker metadata
         id: meta
         uses: docker/metadata-action@96383f45573cb7f253c731d3b3ab81c87ef81934 # v5.0.0
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
-      # Build and push Docker image with Buildx (don't push on PR)
-      # https://github.com/docker/build-push-action
       - name: Build and push Docker image
         id: build-and-push
         uses: docker/build-push-action@0565240e2d4ab88bba5387d719585280857ece09 # v5.0.0
@@ -270,31 +259,41 @@ jobs:
             type=gha,scope=deadbot-build-master
             type=gha,scope=deadbot-build-${{ env.BRANCH_NAME }}
           cache-to: type=gha,mode=max,scope=deadbot-build-${{ env.BRANCH_NAME }}
-          
+
+      - name: Restore Nuitka cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}/.nuitka-cache
+          key: nuitka-${{ env.BRANCH_NAME }}-${{ hashFiles('src/**/*.py', 'pyproject.toml') }}
+          restore-keys: |
+            nuitka-${{ env.BRANCH_NAME }}-
+            nuitka-master-
+
       - name: Build deadbot executable
-        run: |         
+        run: |
+          mkdir -p ${{ github.workspace }}/.nuitka-cache
           docker run --rm \
             -v ${{ github.workspace }}/dist:/repo/dist \
+            -v ${{ github.workspace }}/.nuitka-cache:/root/.cache/Nuitka \
             --cpus=$(nproc) \
             --entrypoint bash \
             ${{ steps.build-and-push.outputs.imageid }} \
             -c "poetry run nuitka ./src/deadbot.py \
-                --static-libpython=no \
+                --output-filename=deadbot \
                 --onefile \
                 --output-dir=/dist \
                 --jobs=$(nproc) \
                 --lto=yes \
-                --enable-plugin=anti-bloat \
-                --python-flag=no_site \
-                --python-flag=no_warnings \
+                --python-flag=no_site,no_warnings,no_docstrings \
                 --include-data-dir=./src/parser/parsers/game_map/assets=parser/parsers/game_map/assets \
                 --include-data-dir=./src/tools=tools \
                 --include-data-files=./src/steam/steam_db_download_deadlock.sh=steam/steam_db_download_deadlock.sh \
-                --include-data-files=./src/steam/depot_downloader_file_list.txt=steam/depot_downloader_file_list.txt"
+                --include-data-files=./src/steam/depot_downloader_file_list.txt=steam/depot_downloader_file_list.txt \
+                --assume-yes-for-downloads"
 
       - name: Upload deadbot artifact
         uses: actions/upload-artifact@v4
         with:
-          name: deadbot-${{ github.sha }}
-          path: dist/deadbot
+          name: deadbot
+          path: ${{ github.workspace }}/dist/deadbot
           if-no-files-found: error
