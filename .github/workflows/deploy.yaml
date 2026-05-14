@@ -260,39 +260,36 @@ jobs:
             type=gha,scope=deadbot-build-${{ env.BRANCH_NAME }}
           cache-to: type=gha,mode=max,scope=deadbot-build-${{ env.BRANCH_NAME }}
 
-      # - name: Restore Nuitka cache
-      #   uses: actions/cache@v4
-      #   with:
-      #     path: ${{ github.workspace }}/.nuitka-cache
-      #     key: nuitka-${{ env.BRANCH_NAME }}-${{ hashFiles('src/**/*.py', 'pyproject.toml') }}
-      #     restore-keys: |
-      #       nuitka-${{ env.BRANCH_NAME }}-
-      #       nuitka-master-
+      - name: Restore Nuitka cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}/.nuitka-cache
+          key: nuitka-${{ env.BRANCH_NAME }}-${{ hashFiles('src/**/*.py', 'pyproject.toml') }}
+          restore-keys: |
+            nuitka-${{ env.BRANCH_NAME }}-
+            nuitka-master-
 
-      # - name: Build deadbot executable
-      #   run: |
-      #     mkdir -p ${{ github.workspace }}/.nuitka-cache
-      #     docker run --rm \
-      #       -v ${{ github.workspace }}/dist:/repo/dist \
-      #       -v ${{ github.workspace }}/.nuitka-cache:/root/.cache/Nuitka \
-      #       --cpus=$(nproc) \
-      #       --entrypoint bash \
-      #       ${{ steps.build-and-push.outputs.imageid }} \
-      #       -c "poetry run nuitka ./src/deadbot.py \
-      #           --output-filename=deadbot \
-      #           --onefile \
-      #           --output-dir=/dist \
-      #           --jobs=$(nproc) \
-      #           --lto=yes \
-      #           --python-flag=no_site,no_warnings,no_docstrings \
-      #           --include-data-dir=./src/parser/parsers/game_map/assets=parser/parsers/game_map/assets \
-      #           --include-data-dir=./src/tools=tools \
-      #           --include-data-files=./src/steam/steam_db_download_deadlock.sh=steam/steam_db_download_deadlock.sh \
-      #           --include-data-files=./src/steam/depot_downloader_file_list.txt=steam/depot_downloader_file_list.txt \
-      #           --assume-yes-for-downloads"
-      - run: |
-          mkdir ${{ github.workspace }}/dist
-          touch ${{ github.workspace }}/dist/deadbot.bin
+      - name: Build deadbot executable
+        run: |
+          mkdir -p ${{ github.workspace }}/.nuitka-cache
+          docker run --rm \
+            -v ${{ github.workspace }}/dist:/repo/dist \
+            -v ${{ github.workspace }}/.nuitka-cache:/root/.cache/Nuitka \
+            --cpus=$(nproc) \
+            --entrypoint bash \
+            ${{ steps.build-and-push.outputs.imageid }} \
+            -c "poetry run nuitka ./src/deadbot.py \
+                --output-filename=deadbot \
+                --onefile \
+                --output-dir=/dist \
+                --jobs=$(nproc) \
+                --lto=yes \
+                --python-flag=no_site,no_warnings,no_docstrings \
+                --include-data-dir=./src/parser/parsers/game_map/assets=parser/parsers/game_map/assets \
+                --include-data-dir=./src/tools=tools \
+                --include-data-files=./src/steam/steam_db_download_deadlock.sh=steam/steam_db_download_deadlock.sh \
+                --include-data-files=./src/steam/depot_downloader_file_list.txt=steam/depot_downloader_file_list.txt \
+                --assume-yes-for-downloads"
 
       - name: Upload deadbot artifact
         uses: actions/upload-artifact@v4
