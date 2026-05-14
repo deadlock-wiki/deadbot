@@ -295,5 +295,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: deadbot
-          path: ${{ github.workspace }}/dist/deadbot
+          path: ./dist/deadbot.bin
           if-no-files-found: error
