@@ -280,7 +280,7 @@ jobs:
             ${{ steps.build-and-push.outputs.imageid }} \
             -c "poetry run nuitka ./src/deadbot.py \
                 --onefile \
-                --output-dir=/dist \
+                --output-dir=/repo/dist \
                 --jobs=$(nproc) \
                 --lto=yes \
                 --python-flag=no_site,no_warnings,no_docstrings \
