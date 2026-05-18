@@ -36,6 +36,7 @@ class ItemCardParser:
             'IsDisabled',
             'StreetBrawl',
             'PropertyUpgrades',
+            'IsImbued',
         ]
 
         card = {
@@ -51,6 +52,7 @@ class ItemCardParser:
             'ShopFilters': item.get('ShopFilters'),
             'IsDisabled': item.get('IsDisabled'),
             'StreetBrawl': item.get('StreetBrawl'),
+            'IsImbued': item.get('IsImbued', False),
         }
 
         # Parse tooltip sections if available

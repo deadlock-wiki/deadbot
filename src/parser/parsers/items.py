@@ -63,6 +63,9 @@ class ItemParser:
         requirements = item_value.get('m_eAbilityRequirements', '')
         is_street_brawl = 'ERequirementStreetBrawl' in [r.strip() for r in requirements.split('|')]
 
+        target_effects = item_value.get('m_TargetAbilityEffectsToApply', '')
+        is_imbued = 'CITADEL_TARGET_ABILITY_BEHAVIOR_IMBUE_MODIFIER_VALUE' in target_effects
+
         parsed_item_data = {
             'Name': self.localizations.get(key),
             'Description': '',
@@ -75,6 +78,7 @@ class ItemParser:
             'ShopFilters': shop_filters,
             'IsDisabled': self._is_disabled(item_value),
             'StreetBrawl': is_street_brawl,
+            'IsImbued': is_imbued,
         }
 
         # Process attributes and extract scaling information
