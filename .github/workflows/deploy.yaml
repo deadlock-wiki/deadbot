@@ -283,7 +283,7 @@ jobs:
                 --output-dir=/repo/dist \
                 --jobs=$(nproc) \
                 --lto=yes \
-                --python-flag=no_site,no_warnings,no_docstrings \
+                --python-flag=no_site,no_warnings \
                 --include-data-dir=./src/parser/parsers/game_map/assets=parser/parsers/game_map/assets \
                 --include-data-dir=./src/tools=tools \
                 --include-data-files=./src/steam/steam_db_download_deadlock.sh=steam/steam_db_download_deadlock.sh \
