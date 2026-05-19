@@ -75,6 +75,7 @@ class ItemParser:
             'ShopFilters': shop_filters,
             'IsDisabled': self._is_disabled(item_value),
             'StreetBrawl': is_street_brawl,
+            'IsImbue': self._is_imbue(item_value),
         }
 
         # Process attributes and extract scaling information
@@ -197,6 +198,28 @@ class ItemParser:
             else:
                 raise ValueError(f'New unexpected value for m_bDisabled: {flag}')
         return is_disabled
+
+    def _is_imbue(self, item_value):
+        effects = item_value.get('m_TargetAbilityEffectsToApply')
+        if not effects:
+            return False
+
+        imbue_tags = maps.get_imbue_tags()
+
+        def contains_imbue_tag(value):
+            if isinstance(value, str):
+                # Handles either a single tag or pipe-separated tags
+                return any(tag.strip() in imbue_tags for tag in value.split('|'))
+
+            if isinstance(value, dict):
+                return any(contains_imbue_tag(k) or contains_imbue_tag(v) for k, v in value.items())
+
+            if isinstance(value, (list, tuple, set)):
+                return any(contains_imbue_tag(v) for v in value)
+
+            return False
+
+        return contains_imbue_tag(effects)
 
     def _add_children_to_tree(self, parent_key, child_keys):
         """Add items to mermaid tree"""
