@@ -36,6 +36,7 @@ class ItemCardParser:
             'IsDisabled',
             'StreetBrawl',
             'PropertyUpgrades',
+            'IsImbue',
         ]
 
         card = {
