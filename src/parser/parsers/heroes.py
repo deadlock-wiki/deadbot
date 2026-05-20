@@ -1,6 +1,7 @@
 import copy
 import parser.maps as maps
 import utils.json_utils as json_utils
+from utils import num_utils
 from utils.num_utils import round_sig_figs
 from . import weapon_parser
 
@@ -86,6 +87,12 @@ class HeroParser:
                     hero_stats['LevelScaling'] = {}
                     for key in level_scalings:
                         hero_stats['LevelScaling'][maps.get_level_mod(key)] = level_scalings[key]
+
+                    # Convert BonusAttackRange from engine units (inches) to meters
+                    if 'BonusAttackRange' in hero_stats['LevelScaling']:
+                        hero_stats['LevelScaling']['BonusAttackRange'] = num_utils.convert_engine_units_to_meters(
+                            hero_stats['LevelScaling']['BonusAttackRange'], sigfigs=3
+                        )
 
                     # Spread the MeleeDamage level scaling into Light and Heavy, using H/L ratio
                     if 'MeleeDamage' in hero_stats['LevelScaling']:
