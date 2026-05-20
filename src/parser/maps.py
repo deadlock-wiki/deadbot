@@ -224,3 +224,14 @@ def get_section_type(value):
         raise Exception(f'{value} is not a valid item tooltip section type')
 
     return SECTION_TYPE_MAP[value]
+
+
+IMBUE_TAGS = {
+    'CITADEL_TARGET_ABILITY_BEHAVIOR_IMBUE_ACTIVE',
+    'CITADEL_TARGET_ABILITY_BEHAVIOR_IMBUE_MODIFIER_VALUE',
+    'CITADEL_TARGET_ABILITY_BEHAVIOR_IMBUE_ACTIVE_NON_ULT',
+}
+
+
+def get_imbue_tags():
+    return IMBUE_TAGS

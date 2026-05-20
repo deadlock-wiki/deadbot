@@ -27,6 +27,10 @@ class RawUpgrade(TypedDict):
     scale_type: str | None
 
 
+BASE_UPGRADE_TYPES = [None, 'EAddToBase', 'EMultiplyBase']
+SCALE_UPGRADE_TYPES = ['EAddToScale', 'EMultiplyScale']
+
+
 def parse_upgrades(ability):
     upgrade_sets = ability['m_vecAbilityUpgrades']
     parsed_upgrade_sets = []
@@ -69,11 +73,14 @@ def parse_upgrades(ability):
         for prop, entries in upgrades_by_prop.items():
             base_value: int | float = 0
             scales: list[ScaleEntry] = []
+            multiply_base: bool = False
 
             for entry in entries:
-                if entry['upgrade_type'] in ['EAddToBase', None]:
+                upgrade_type = entry['upgrade_type']
+                if upgrade_type in BASE_UPGRADE_TYPES:
                     base_value = entry['value']
-                elif entry['upgrade_type'] in ['EAddToScale', 'EMultiplyScale']:
+                    multiply_base = upgrade_type == 'EMultiplyBase'
+                elif upgrade_type in SCALE_UPGRADE_TYPES:
                     scale_type = entry['scale_type']
                     if scale_type is None:
                         base_stat = json_utils.deep_get(ability, 'm_mapAbilityProperties', prop)
@@ -82,12 +89,16 @@ def parse_upgrades(ability):
                             scale_type = scale_func.get('m_eSpecificStatScaleType')
                             if scale_type is None and 'tech' in scale_func.get('_class', ''):
                                 scale_type = 'ETechPower'
-                    scales.append(
-                        {
-                            'Value': entry['value'],
-                            'Type': maps.get_scale_type(scale_type),
-                        }
-                    )
+                    scale = {
+                        'Value': entry['value'],
+                        'Type': maps.get_scale_type(scale_type),
+                    }
+                    if upgrade_type == 'EMultiplyScale':
+                        scale['Multiply'] = True
+
+                    scales.append(scale)
+                else:
+                    raise Exception(f'Unhandled upgrade type {entry["upgrade_type"]}')
 
             if scales:
                 # if there are multiple scales for a prop, output as an array
@@ -95,6 +106,8 @@ def parse_upgrades(ability):
                     parsed_upgrade_set[prop] = {'Value': base_value, 'Scale': scales}
                 else:
                     parsed_upgrade_set[prop] = {'Value': base_value, 'Scale': scales[0]}
+                if multiply_base:
+                    parsed_upgrade_set[prop]['Multiply'] = True
             else:
                 parsed_upgrade_set[prop] = base_value
 
