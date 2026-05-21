@@ -44,6 +44,8 @@ def parse_upgrades(ability):
         raw_upgrades: list[RawUpgrade] = []
         for upgrade in upgrades:
             prop = upgrade.get('m_strPropertyName')
+            if prop is None:
+                prop = upgrade.get('m_StrPropertyNAme')  # known typo
             raw_value = upgrade.get('m_strBonus')
             upgrade_type = upgrade.get('m_eUpgradeType')
             scale_type = upgrade.get('m_eScaleStatFilter')
