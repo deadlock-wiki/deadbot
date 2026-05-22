@@ -201,6 +201,52 @@ SCALE_TYPE_MAP = {
 }
 
 
+def _class_to_scale_type(class_str: str) -> str | None:
+    """
+    Infer the human-readable scale type from a _class string.
+    Returns a value like 'spirit', 'range', 'duration', 'cooldown', etc.
+    """
+    if not class_str:
+        return None
+
+    # Pattern 1: scale_function_<suffix>
+    if class_str.startswith('scale_function_'):
+        suffix = class_str[len('scale_function_') :]
+        # Map suffix to SCALE_TYPE_MAP key, then to human type
+        suffix_to_enum = {
+            'tech_damage': 'ETechPower',
+            'tech_range': 'ETechRange',
+            'tech_duration': 'ETechDuration',
+            'tech_cooldown': 'ETechCooldown',
+            'weapon_damage': 'EWeaponDamageScale',
+            'ability_charges': 'EMaxChargesIncrease',
+            'ability_recharge_time': 'ETechCooldown',  # cooldown between charges
+        }
+        enum_key = suffix_to_enum.get(suffix)
+        if enum_key:
+            return SCALE_TYPE_MAP.get(enum_key)
+
+    # Pattern 2: C<Name>ScaleFunction (e.g., CTechPowerScaleFunction)
+    elif class_str.startswith('C') and class_str.endswith('ScaleFunction'):
+        middle = class_str[1 : -len('ScaleFunction')]  # e.g., 'TechPower'
+        enum_key = 'E' + middle
+        return SCALE_TYPE_MAP.get(enum_key)
+
+    return None
+
+
+def _class_to_scale_enum(class_str: str) -> str | None:
+    """Return the enum key (e.g., 'ETechRange') from a _class string."""
+    human_type = _class_to_scale_type(class_str)
+    if not human_type:
+        return None
+    # Reverse lookup in SCALE_TYPE_MAP
+    for enum_key, human in SCALE_TYPE_MAP.items():
+        if human == human_type:
+            return enum_key
+    return None
+
+
 def get_scale_type(scale):
     if scale is None:
         return scale
