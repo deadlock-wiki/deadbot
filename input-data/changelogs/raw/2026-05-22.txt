@@ -1,0 +1,712 @@
+=== General ===
+
+
+* Base HP reduced by 10 for all heroes
+
+* HP per boon reduced by 3
+
+
+* Guardians scaling resistance from +75%->-50% over 12 minutes to +50%->-50% (takes more damage early)
+
+* Medium neutrals initial spawn time reduced from 6 minutes to 5 minutes
+
+* Breakables spawn time increased from 2 minutes to 3 minutes
+
+
+* Shrines are now invulnerable until one pair of Base Guardians are destroyed
+
+* Backdoor removal linger duration reduced from 20s to 14s
+
+
+* Knockup durations are now affected by debuff reduction
+
+
+* Removed two jump pads from around the middle of the map that point to outwards (to the left and right respectively)
+
+* Sliding no longer resets sprint speed
+
+
+* Stamina Regeneration is reduced by 25% for 5s after using a Wall Jump. This does not trigger when out of combat or when mantling soon after.
+
+
+* Bullet Velocity now stacks additively rather than diminishingly
+
+
+* Medic trooper heal duration increased from 2s to 4s (same overall heal amount)
+
+* When receiving multiple of the Medic trooper orb the duration will now be added ontop rather than stacking directly (so picking up 4 in a row will give the regen over 16s instead of over 4s, overall heal is the same just slower)
+
+* Medic Trooper heal increased from 12% missing hp to 13%
+
+
+* Fixed Parry FX not always matching state
+
+
+* Base Guardian Bullet Resistance increased from 10% to 20%
+
+* Shrine Bullet Resistance increased from 10% to 20%
+
+* Tier 2 Bullet Resistance increased from 25% to 35%
+
+
+* Midboss now starts spawned at the beginning of the game
+
+
+* Total Damage Reduction debuffs now stack diminishingly rather than additively (Inhibitor, Fire Scarabs, etc)
+
+
+* Movespeed diminish point increased from 11 to 12 (very slightly less aggressive diminishing scaling)
+
+
+* Weapon Investment Bonus now has a 6.4k line, changed from 4.8k/7.2k/9.6k/16k to 4.8k/6.4k/8k/11.2k/16k with bonuses from 46/55/70/85 to 46/54/62/74/86
+
+* Vitality Investment Bonus now has a 6.4k line, changed from 4.8k/7.2k/9.6k/16k to 4.8k/6.4k/8k/11.2k/16k with bonuses from 38/42/46/50 to 38/42/46/50 (final two tiers shifted up by +4)
+
+* Spirit Investment Bonus now has a 6.4k line, changed from 4.8k/7.2k/9.6k/16k to 4.8k/6.4k/8k/11.2k/16k with bonuses from 38/48/57/66 to 38/45/52/59/66
+
+
+* Fixed various item barrier durations not scaling with duration increases
+
+* Walkers will interrupt a rocket barrage during the 1s windup if stomp becomes an option.
+
+* Fixed a bug where walkers were spinning while lasering.
+
+* Smoothed zipline grabbing to fix some jitter
+
+* Added ropes to zipline binding (so if a player rebinds zipline to something other than SPACE it will also apply to mounting/dismounting ropes)
+
+* Removed delay on ziplines when using alternative key binds
+
+
+* Fixed the following abilities taking you out of zoom temporarily when cast: Blasted, Gloom Bombs, Shining Wonder, Call Bell, Luggage Cart, Stalker's Mark, Rejuvenating Aurora, Charged Shot, Powder Keg, Bounce Pad, Spirit Lasso, Napalm, Ice Path, Flog, Spectral Wall, Rake, Fire Scarabs, Scorn, Sand Blast, Time Wall, Paradoxical Swap, Barrage, Flying Cloak, Pillow Toss, Lightning Ball, Entangling Bola, Go For The Throat, Vexing Bolt, Consecrating Grenade, Gut Shot, Snap Trap, Ira Domini, Pain Battery, Jumpstart, Flight, Crow Familiar, Lethal Venom, Petrifying Bola, Alchemical Flask, Card Trick, Capacitor, Restorative Locket, Healing Nova, Silence Wave, Magic Carpet, Refresher
+
+
+* Fixed the following items and abilities not working through veils: Heroic Aura, Healing Rite, Healing Nova, Rescue Beam, Divine Barrier, Kudzu Connection, Cube, Tag Along, Lil Helpers, Guardian Ward, Scourge, Plot Armor
+
+
+
+=== Soul Urn ===
+
+
+* We are experimenting with an alternate set of Urn mechanics. Please give us your thoughts on this after you've played with it some.
+
+
+Primary Rules:
+
+* To pickup the Urn, rather than standing in place to channel, you now light or heavy melee the Urn to pick it up.
+
+* The Urn is now always dropped off on top of the bridge on the middle of the map.
+
+* Once dropped off, the Urn will go into a "Depositing" phase for a set amount of time, depending on which team the urn favors (3s/5s/10s for Favored/Neutral/Unfavored).
+
+* While in the Depositing phase, the enemy team can Heavy Melee the urn to have their team claim it and cause it to switch sides. This adds +1.25s to that team's timer.
+
+* If the urn is Favored or Unfavored (in a comeback state), then the Favored team will get +50% Bullet and Spirit Resist in a 60m radius around the urn while it is being carried, dropped or deposited.
+
+
+
+Other Details:
+
+* After 35s (aggregate time held per team), the carrier will start taking 5% Max HP damage per second (previously was 45s and 0.15% Max HP damage).
+
+* Urn damage is lethal
+
+* Like before, when the Urn is fumbled, it will wait 13s if there is a player within 25m. However afterwards, with this new version, it can no longer be picked up anymore and will very quickly run back to its spawn position.
+
+* No longer silences you while carrying. You are still disarmed and movement silenced.
+
+* No longer grants +30% Bullet and Spirit Resist while carrying it
+
+* Area around deposting the urn is revealed (urn runner is also revealed as usual)
+
+* The rules for Favored/Unfavored remain the same (+15% soul difference for the first urn at 10:00, +10% for all future urns)
+
+* Souls are all instant after the deposit is complete
+
+* All rewards are the same. The last person to contest the urn gets the +3 Golden Idol buffs, falling back to the original carrier if nobody contested it.
+
+
+
+
+
+=== Items ===
+
+
+* Added a new T1 Vitality Item, Grit. Active grants you 200 Barrier for 4s duration. Innate grants 1 Out of Combat Regen. Cooldown: 60s. Upgrades to Weapon Shielding, Spirit Shielding, Reactive Barrier (these do not inherit the manual cast active) and Guardian Ward.
+
+
+* Restorative Shot: NPC Healing increased from 15 to 20
+
+* Melee Charge: Cooldown reduced from 7s to 5s
+
+* Active Reload: Lifesteal increased from 14% to 16%
+
+* Weakening Headshot: Now works vs NPCs
+
+* Fleetfoot: Now grants +6% Weapon Damage
+
+* Fleetfoot: Active slow resistance increased from 35% to 40%
+
+* Opening Rounds: Spirit Power reduced from +7 to +4
+
+* Slowing Bullets: Dash Distance slow reduced from -25% to -22%
+
+* Mystic Shot: Spirit scaling increased from 1 to 1.2
+
+* Recharging Rush: Cooldown increased from 24s to 25s
+
+* Tesla Bullets: Proc cooldown reduced from 0.25s to 0.2s
+
+* Alchemical Fire: Damage per Second spirit scaling increased from 0.152 to 0.2
+
+* Ballistic Enhancement: Now upgrades from Mystic Expansion
+
+* Ballistic Enhancement: Ability Range increased from +20% to +22%
+
+* Weighted Shots: Dash Distance slow reduced from -25% to -22%
+
+* Weighted Shots: Debuff resistance increased from 20% to 22%
+
+* Shadow Weave: Duration increased from 10s to 13s
+
+* Shadow Weave: Ambush Fire Rate increased from 20% to 25%
+
+* Shadow Weave: Ambush Spirit Power increased from 20 to 25
+
+* Shadow Weave: Ambush Melee Damage increased from 20% to 25%
+
+* Escalating Resilience: Max Ammo increased from 30% to 35%
+
+* Escalating Resilience: Weapon Damage increased from 15% to 18%
+
+* Heroic Aura: Radius increased from 30m to 35m
+
+* Sharpshooter: Now upgrades from High-Velocity Rounds (in addition to Long Range). Grants +60% Bullet Velocity.
+
+* Sharpshooter: Long range weapon damage reduced from 70% to 60%
+
+* Sharpshooter: Now has innate 10% Weapon Damage (from components)
+
+* Hunter's Aura: Fire Rate reduction increased from -14% to -15%
+
+* Cultist Sacrifice: Weapon Damage increased from 8% to 10%
+
+* Cultist Sacrifice: Weapon Damage boon scaling increased from 0.7 to 0.8
+
+* Cultist Sacrifice: Bonus Souls increased from 170% to 180%
+
+* Toxic Bullets: No longer builds up from melee attacks
+
+* Capacitor: Proc cooldown reduced from 0.25s to 0.2s
+
+* Crushing Fists: Cooldown reduced from 7s to 5s
+
+* Crushing Fists: Melee damage increased from 20% to 22%
+
+* Frenzy: Triggered debuff resistance increased from 30% to 40%
+
+* Crippling Headshot: Now works vs NPCs
+
+* Crippling Headshot: Bullet Resist reduction increased from -16% to -17%
+
+* Crippling Headshot: Spirit Resist reduction increased from -16% to -17%
+
+* Spiritual Overflow: Spirit Lifesteal moved from Active to Innate (reduced from 16% to 13%)
+
+* Spiritual Overflow: Now builds from Spirit Lifesteal (gains the innates it has)
+
+* Glass Cannon: Max Health reduction reduced from -15% to -13%
+
+* Silencer: Spirit Resistance reduced from 15% to 12%
+
+* Spellslinger: Cooldown Reduction reduced from 6% to 5%
+
+
+* Healing Rite: Spirit scaling increased from 0.93 to 1.1
+
+* Extra Regen: Regen reduced from 3 to 2.5
+
+* Extra Regen: Out of Combat regen increased from 1 to 1.5
+
+* Rebuttal: Parry cooldown reduced from -2s to -1.75s
+
+* Debuff Reducer: Now grants +90 Health
+
+* Return Fire: Duration increased from 6s to 6.5s
+
+* Healing Booster: Fixed various abilities and items not being boosted correctly
+
+* Restorative Locket: No longer has a minimum of 1 stamina restore
+
+* Restorative Locket: Max stamina restored reduced from 4 to 3
+
+* Reactive Barrier: Now grants +1 Out of Combat Regen (from components)
+
+* Spirit Shielding: No longer grants +1.75m Move Speed on activation
+
+* Spirit Shielding: Proc now also temporarily grants +18% Spirit Resistance (for the 8s duration)
+
+* Weapon Shielding: No longer grants +1.75m Move Speed on activation
+
+* Weapon Shielding: Proc now also temporarily grants +18% Bullet Resistance (for the 8s duration)
+
+* Guardian Ward: Barrier increased from 200 to 250
+
+* Guardian Ward: Cooldown increased from 45s to 60s
+
+* Guardian Ward: Now grants +1.5 Out of Combat Regen (from components)
+
+* Bullet Lifesteal: Now grants +6% Weapon Damage
+
+* Battle Vest: Weapon Damage increased from 15% to 18%
+
+* Dispel Magic: Cooldown increased from 40s to 45s
+
+* Spirit Lifesteal: Bonus Health increased from +70 to +90
+
+* Fury Trance: Active duration increased from 6s to 6.5s
+
+* Fury Trance: Gains the +6% Weapon Damage (from component)
+
+* Fury Trance: Fire Rate increased from 30% to 32%
+
+* Majestic Leap: Now grants +50% air control for the duration of the barrier
+
+* Majestic Leap: Barrier boon scaling increased from 8 to 12
+
+* Fortitude: Move speed increased from 1.25m to 1.5m
+
+* Veil Walker: Heal per boon increased from 6 to 8
+
+* Veil Walker: Invisibility duration increased from 7s to 8s
+
+* Counterspell: Spirit Power reduced from +8 to +5
+
+* Divine Barrier: Now grants +1.5 Out of Combat Regen (from components)
+
+* Juggernaut: Fire Rate reduction increased from -36% to -40%
+
+* Juggernaut: Move speed bonus increased from +2m to +2.5m
+
+* Spellbreaker: Now grants +90 Health (from components)
+
+* Indomitable: Barrier scaling increased from 1.8 to 2.0
+
+* Indomitable: Now has +2 Out of Combat Regen (from components)
+
+* Indomitable: Bullet Resist increased from 8% to 10%
+
+* Indomitable: Spirit Resist increased from 8% to 10%
+
+* Witchmail: Spirit Resist increased from 20% to 22%
+
+* Unstoppable: Cooldown reduced from 65s to 60s
+
+* Infuser: Duration increased from 6s to 7s
+
+* Infuser: Gains +6 Spirit Power (from components)
+
+* Vampiric Burst: Duration increased from 4.5s to 5s
+
+* Vampiric Burst: Now grants +6% Weapon Power (from components)
+
+* Leech: Updated bonus HP to match the components
+
+
+* Golden Goose Egg: Permanent buff from every 100 souls to every 80
+
+* Mystic Regeneration: Regen duration increased from 6s to 7s
+
+* Rusted Barrel: Bonus health increased from 50 to 60
+
+* Cold Front: Radius reduced from 12m to 10m
+
+* Cold Front: Damage height increased from 5m to 7m
+
+* Bullet Resist Shredder: No longer grants +65 Bonus Health
+
+* Bullet Resist Shredder: Bullet Resist increased from 8% to 9%
+
+* Bullet Resist Shredder: Now grants +9% Weapon Damage
+
+* Mystic Slow: Bonus Health increased from +30 to +50
+
+* Arcane Surge: Fixed various interaction bugs with different abilities
+
+* Surge of Power: Imbued Spirit Power increased from 24 to 25
+
+* Spirit Snatch: Bonus damage spirit scaling increased from 0.744 to 0.84
+
+* Spirit Snatch: Spirit Power Steal increased from 20 to 28
+
+* Decay: Cooldown reduced from 32s to 30s
+
+* Disarming Hex: Duration increased from 4s to 4.25s
+
+* Torment Pulse: Melee Resist increased from 15% to 18%
+
+* Radiant Regeneration: Regen duration increased from 6s to 7s
+
+* Rapid Recharge: Spirit Power for Charged Abilities increased from +10 to +14
+
+* Magic Carpet: Now innately grants -15% Gravity and Air Control by +25%
+
+* Arctic Blast: Slowed targets now have their stamina regen frozen for the 4s slow duration
+
+* Arctic Blast: Radius increased from 12m to 16m
+
+* Arctic Blast: Damage height increased from 5m to 7m
+
+* Arctic Blast: No longer does 15% damage amp
+
+* Arctic Blast: Immobilize increased from 0.75s to 1s
+
+* Focus Lens: Duration increased from 4s to 4.5s
+
+* Scourge: Debuff resist increased from 15% to 17%
+
+* Mercurial Magnum: Base Bullet Damage spirit scaling increased from 0.465 to 0.49
+
+* Vortex Web: Fixed the debuff losing gravity modification when upgraded from Slowing Hex
+
+
+
+=== Heroes ===
+
+
+* Abrams: Infernal Resilience T1 changed from "+1.5 Health Regen" to "+200 Max Health"
+
+* Abrams: Infernal Resilience T2 changed from "200 Max Health" to "+18% Melee Lifesteal" (40% effective vs non-heroes)
+
+* Abrams: Seismic Impact T2 increased from +0.7s Stun Duration to +0.8s
+
+* Abrams: Seismic Impact T3 Unstoppable duration increased from 5s to 6s
+
+
+* Apollo: Improved the hero's hitboxes (easier to hit)
+
+* Apollo: Base regen reduced from 2 to 1
+
+* Apollo: Riposte no longer automatically dashes. It now grants you a sub ability immediately to target the hero you want to jump to for a brief duration (can target the enemy before the parry to buffer it). Cast range is 25m.
+
+* Apollo: Riposte no longer triggers on damage auras (things like Flame Dash)
+
+* Apollo: Riposte no longer triggers off of objective damage
+
+* Apollo: Flawless Advance hitbox reduced by 10%
+
+
+* Bebop: Bullet damage per boon reduced from 0.139 to 0.115
+
+* Bebop: Exploding Uppercut T2 weapon damage reduced from +40% to +30%
+
+* Bebop: Sticky Bomb T2 increased from +75 Damage to +85
+
+
+* Billy: Health per boon increased from +48 to +59
+
+* Billy: Bullet damage per boon reduced from 0.165 to 0.142
+
+* Billy: Rising Ram cooldown increased from 30s to 32s
+
+* Billy: Rising Ram T2 increased from +0.3s Duration to +0.4s
+
+* Billy: Rising Ram T3 increased from -10s Cooldown to -13s
+
+
+* Calico: Gloom Bomb T2 changed from "+75 Damage to Barriers" to "-5% Melee Resist for 5s Per Bomb" (stacks)
+
+
+* Celeste: Improved the hero's hitboxes (easier to hit)
+
+* Celeste: Stamina cooldown increased from 4.5s to 5s
+
+* Celeste: Radiant Daggers T2 changed from "-18s Cooldown and +70 Damage" to "-22s Cooldown and +80 Damage"
+
+* Celeste: Shining Wonder T2 increased from +50 Damage to +70
+
+
+* Doorman: Call Bell radius reduced from 6m to 5.5m
+
+* Doorman: Call Bell T3 radius increased from +4m to +4.5m
+
+* Doorman: Call Bell explosion damage spirit scaling reduced from 1.4 to 1.3
+
+* Doorman: Call Bell inaccuracy debuff no longer diminishes from 100% to 0% over 1 second (the rest of the debuff is 4s)
+
+* Doorman: Call Bell inaccuracy debuff reduced from -100% to -40% (lasts the full duration)
+
+* Doorman: Doorways close sub ability now starts on cooldown for 8s
+
+* Doorman: Doorway is no longer unsilenceable
+
+* Doorman: Fixed recent bug causing Luggage Cart not being dispelled
+
+
+* Drifter: Rend T3 no longer increases scaling by 0.4
+
+* Drifter: Rend T3 now also deals Heavy Melee Damage (0.55 scale)
+
+
+* Dynamo: Kinetic Pulse T2 reduced from -18% Bullet Resistance to -15%
+
+* Dynamo: Kinetic Pulse spirit scaling reduced from 1.65 to 1.55
+
+* Dynamo: Quantum Entanglement T3 changed from dispelling non-ult debuffs to reducing the duration of non-ult debuffs by 50%
+
+
+* Graves: Sprint speed increased from 1.6 to 2.2
+
+* Graves: Grasping Hands now spawns a ghoul in the base ability (T3 still increases it by 1)
+
+* Graves: Updated dash ranges for Deadheads to be calculated from the center of Graves when they are following her
+
+* Graves: Fixed Fire Rate buffs for Deadheads not being applied to their next attack, but only on subsequent attacks
+
+* Graves: Fixed Deadheads being unable to dash through veils
+
+* Graves: Fixed Deadheads being unable to dash to targets at the very end of your attack range when they are in follow mode
+
+* Graves: Fixed Deadhead's damage taken from bullets being unaffected by fall-off
+
+* Graves: Added 0.1s buffer duration for Deadheads losing line-of-sight before they stop following an enemy
+
+* Graves: Fixed Deadheads becoming inactive if Graves dies while they are following her
+
+* Graves: Jar of Dead spirit scaling reduced from 0.35 to 0.31 (they are better at dealing damage now)
+
+* Graves: Increased speed & acceleration of Deadheads only when they are following Graves - doesn't affect in-combat
+
+* Graves: Fixed certain projectiles (i.e Gray Talon's Bird) colliding with Deadheads
+
+* Graves: Update Grave's melee to also set the dash target for Deadheads
+
+* Graves: Bullet damage and growth reduced by -10%
+
+
+* Grey Talon: Rain of Arrows cooldown reduced from 30s to 22s
+
+* Grey Talon: Rain of Arrows cast delay reduced from 0.5s to 0.2s
+
+* Grey Talon: Rain of Arrows duration reduced from 7s to 4s
+
+* Grey Talon: Rain of Arrows moving ability in air improved
+
+* Grey Talon: Rain of Arrow stamina distance changed from being -9% to +25%
+
+* Grey Talon: Rain of Arrows Weapon Damage bonus reduced from +4 to +3
+
+* Grey Talon: Rain of Arrows T1 changed from "-14s Cooldown" to "+3 Weapon Damage and +30% Slow for 1.5s"
+
+* Grey Talon: Rain of Arrows T2 changed from "+5 Weapon Damage and +40% Slow for 1.5s" to "-13s Cooldown" (Total CD from 16s to 9s)
+
+
+* Haze: Fixation T3 increased from +0.12 to +0.14
+
+
+* Holliday: Base bullet damage increased from 18.8 to 19.7
+
+* Holliday: Health regen increased from 1 to 2
+
+
+* Infernus: Bullet size increased from 3 to 4
+
+* Infernus: Concussive Combustion T3 increased from +0.75s Stun Duration to +0.9s
+
+
+* Kelvin: Frost Grenade damage spirit scaling reduced from 0.7 to 0.6
+
+* Kelvin: When interrupted on Ice Path, it no longer creates an ice path below him and instead lets him fall to the ground
+
+* Kelvin: Arctic Beam DPS spirit scaling reduced from 0.5 to 0.38
+
+
+* Lash: Bullet damage per boon reduced from 0.341 to 0.31
+
+* Lash: Ground Strike damage per meter spirit scaling increased from 0.0372 to 0.04
+
+* Lash: Grapple T2 bonus damage no longer stacks with itself, but instead refreshes the duration
+
+* Lash: Grapple T3 now also grants +1 Charge
+
+
+* McGinnis: Bullet damage per boon increased from 0.17 to 0.18
+
+* McGinnis: Fixed Heavy Barrage not triggering Diviner's Kevlar
+
+* McGinnis: Medicinal Specter radius increased from 5.5m to 6m
+
+
+* Mina: Innate -8% Debuff Resist
+
+* Mina: Fixed Rake sometimes not working with high ping
+
+* Mina: Love Bites T3 increased from -4s Cooldown to -5s
+
+* Mina: Love Bites no longer applies the flat on hit damage to abilities (was doing 20% of its value on Nox Nostra)
+
+* Mina: Nox Nostra T3 reduced from 1% Current HP to 0.5%
+
+
+* Mirage: Updated Djinn's Mark visuals
+
+
+* Mo & Krill: Getting hit with a melee no longer knocks you up when you are burrowed
+
+* Mo & Krill: Sand Blast T3 increased from +1s Duration to +1.5s
+
+
+* Paige: Bookwyrm T2 improved from -8s Cooldown to -12s
+
+* Paige: Rallying Charge T3 increased from +135 Damage to +160
+
+* Paige: Rallying Charge now has half cooldown if it hits no allies or enemies
+
+
+* Paradox: Time Wall T1 duration increased from +2.5s to +3.5s
+
+* Paradox: Time Wall T3 increased from +1 Charge to +2
+
+* Paradox: Time Wall T3 Charge Delay reduced from 4s to 2s
+
+* Paradox: Kinetic Carbine T3 increased from +50% Max Damage Scaling to +55%
+
+* Paradox: Paradoxical Swap damage increased from 125 to 150
+
+
+* Pocket: Flying Cloak T2 weapon damage duration reduced from 8s to 6s
+
+* Pocket: Affliction cooldown increased from 140s to 150s
+
+
+* Rem: Pillow Toss charge time reduced from 9s to 8s
+
+* Rem: Pillow Toss T3 increased from +90 to +100 Damage
+
+* Rem: Tag Along burst heal now also applies to secondary allies that you jump to
+
+* Rem: Tag Along lingering heal duration reduced from 3s to 2s (values rebalanced to be the same overall heal just faster)
+
+* Rem: Tag Along T2 Barrier and Item Duration/Range effectiveness increased from 25% to 35%
+
+* Rem: Tag Along T3 now also increases Missing Health Heal from 0.03 to 0.05 and Regen Per Second from 0.66 to 1.0
+
+* Rem: Tag Along can now be cast through veils
+
+* Rem: Reduced lockout period after ejecting from Tag Along from 1s to 0.3s
+
+* Rem: Tag Along time to fly to your ally is now 50% faster
+
+* Rem: Tag Along heal duration is now displayed on the hud as well as the healthbar icon
+
+* Rem: Tag Along fixed specific abilities/items that could kill Rem while he's napping
+
+* Rem: Tag Along now allows friendly auras to affect Rem
+
+* Rem: Tag Along eject is no longer affected by debuff resistance and now launches upwards slightly more to prevent hitting the ground
+
+* Rem: Tag Along eject no longer briefly restricts movement abilities and input
+
+* Rem: Naptime now provides +30% damage reduction in the base ability (T3 still adds +50%)
+
+
+* Seven: Bullet damage growth reduced from 0.374 to 0.337
+
+* Seven: Crit reduction increased from 35% to 55%
+
+
+* Shiv: Slice and Dice T2 reduced from -8% Spirit Resist to -6%
+
+* Shiv: Bloodletting Deferred Damage Cleared reduced from 40% to 35%
+
+* Shiv: Bloodletting T3 increased from +45% Deferred Damage Cleared to +50%
+
+* Shiv: Killing Blow cooldown increased from 105s to 125s
+
+* Shiv: Killing Blow full rage damage bonus reduced from 14% to 12%
+
+* Shiv: Killing Blow T2 increased from +8% Full Rage Damage Bonus to +10%
+
+* Shiv: Killing Blow T2 now also reduces cooldown by -30s
+
+
+* Silver: Bullet Cycle Time reduced from 0.9s to 0.85s (overall DPS adjusted to remain the same)
+
+* Silver: Entangling Bola no longer prevents you from jumping and mantling
+
+* Silver: Entangling Bola T2 changed from "+0.75s Duration" to "-5s Cooldown"
+
+* Silver: Entangling Bola T3 changed from "-5s Cooldown and Ricochet to 2 additional targets" to "+0.75s Duration and Ricochet to 2 additional targets"
+
+* Silver: Lycan Curse Fire Rate reduced from 80% to 65%
+
+* Silver: Lycan Curse Fire Rate spirit scaling increased from 0.25 to 0.45
+
+
+* Venator: Health increased from 790+43/boon to 830+48/boon
+
+* Venator: Hex-Lined Snap Trap T3 increased from +25% Damage Against Revealed Targets to +30%
+
+* Venator: Hex-Lined Snap Trap T3 now also grants +1 Charge
+
+
+* Victor: Bullet damage reduced from 13+0.3135 to 12+0.26
+
+* Victor: Jumpstart T3 spirit scaling increased from +0.6 to +0.9
+
+* Victor: Aura of Suffering now does 50% damage to objectives
+
+
+* Viscous: Puddle Punch T1 now also increases damage by +20
+
+* Viscous: Puddle Punch T2 no longer increases damage by +30
+
+* Viscous: Puddle Punch T2 now also grants +40% Lifesteal (1/4th against non-heroes)
+
+
+* Vyper: Screwjab Dagger T2 bullet resist per stack from -5% to -6%
+
+* Vyper: Screwjab Dagger T3 now also increases max stacks by 2
+
+
+* Warden: Bullet damage per boon reduced from 0.38 to 0.34
+
+* Warden: Willpower T3 debuff resistance now retroactively applies to existing debuffs when cast
+
+* Warden: Binding Word T2 no longer increases cast range by +12m
+
+
+* Yamato: Power Slash post cast time reduced from 0.4s to 0.2s
+
+* Yamato: Power Slash spirit scaling increased from 1.86s to 2.1
+
+* Yamato: Flying Slash range increased from 25m to 30m
+
+* Yamato: Flying Slash T2 no longer grants +20m Cast Range
+
+* Yamato: Flying Slash T3 now also grants +15m Cast Range
+
+* Yamato: Flying Slash T3 increased from +1 Charge to +2
+
+* Yamato: Fixed Crimson Slash not being able to hit anything if the player is aimed too high or low
+
+* Yamato: Shadow Transformation T1 increased from +5 Weapon Damage to +7
+
+
+
+=== Street Brawl ===
+
+
+* Fixed the following Enhanced Items not maintaining their stats from components: Opening Rounds, Tankbuster, Kinetic Dash, Radiant Regeneration, Burst Fire, Veil Walker, Arcane Surge, Fury Trance, Leech
+
+=== Patch 2 ===
+
+Deadlock -  Gameplay Update - 05-22-2026 - Steam News
+					
+
+[ General ] - Base HP reduced by 10 for all heroes - HP per boon reduced by 3 - Guardians scaling resistance from +75%->-50% over 12 minutes to +50%->-50% (takes more damage early) - Medium neutrals initial spawn time reduced from 6 minutes to 5 minutes - Breakables spawn time increased from 2...
+
+
+
+
+					store.steampowered.com
