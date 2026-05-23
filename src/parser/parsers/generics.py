@@ -14,7 +14,7 @@ class GenericParser:
     """
 
     def __init__(self, output_dir, generic_data):
-        self.STRUCTURE_KEYS_TO_VALIDATE = ['ObjectiveParams', 'RejuvParams', 'ItemPricePerTier']
+        self.STRUCTURE_KEYS_TO_VALIDATE = ['ObjectiveParams', 'RejuvParams', 'ItemPricePerTier', 'ItemInvestments']
         self.POSSIBLE_PREFIXES = ['m_str', 'm_map', 'm_n', 'm_fl', 'm_', 'fl', 'E', 'n']
         self.generic_data_dir = output_dir
         self.generic_data = generic_data
