@@ -31,7 +31,9 @@ BASE_UPGRADE_TYPES = [None, 'EAddToBase', 'EMultiplyBase']
 SCALE_UPGRADE_TYPES = ['EAddToScale', 'EMultiplyScale']
 
 
-def parse_upgrades(ability):
+def parse_upgrades(ability: dict) -> dict:
+    if 'm_vecAbilityUpgrades' not in ability:
+        return {'Upgrades': []}
     upgrade_sets = ability['m_vecAbilityUpgrades']
     parsed_upgrade_sets = []
 
@@ -115,4 +117,4 @@ def parse_upgrades(ability):
 
         parsed_upgrade_sets.append(parsed_upgrade_set)
 
-    return parsed_upgrade_sets
+    return {'Upgrades': parsed_upgrade_sets}
