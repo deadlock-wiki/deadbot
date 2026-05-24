@@ -20,7 +20,7 @@ class ItemParser:
         all_items = {}
         for key in self.abilities_data:
             ability = self.abilities_data[key]
-            if type(ability) is not dict:
+            if not isinstance(ability, dict):
                 continue
 
             # Skip the base class for cosmetics
