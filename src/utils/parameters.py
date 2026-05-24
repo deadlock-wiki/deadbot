@@ -3,9 +3,15 @@ import argparse
 from typing import Optional, Protocol
 from dotenv import load_dotenv
 
-from utils.string_utils import is_truthy
-
 load_dotenv()
+
+
+# Local helper kept here (not in utils.string_utils) so this module has no
+# dependency on string_utils. That avoids a circular import chain:
+#   parameters -> string_utils -> num_utils -> constants -> parameters
+def is_truthy(value):
+    return value in (True, 'true', 'True', 'TRUE', 't', 'T', 1)
+
 
 ARG_PARSER = argparse.ArgumentParser(
     prog='Deadbot',
