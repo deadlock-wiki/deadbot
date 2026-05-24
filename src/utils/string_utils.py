@@ -4,7 +4,7 @@ import re
 
 from loguru import logger
 
-from utils import num_utils
+from utils import json_utils, num_utils
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import parser.maps as maps
@@ -24,12 +24,8 @@ def format_description(description, *data_sets):
         "<span class=\"highlight\">+{s:AbilityCastRange}m</span> Cast Range and gain <span class=\"highlight\">+{s:WeaponDamageBonus}</span> Weapon Damage for {s:WeaponDamageBonusDuration}s"
     ->  "+7 Weapon Damage for 10s after teleporting with Flying Cloak"
     """  # noqa: E501
-    # Local import to avoid a circular dependency
-    # (utils.json_utils <-> utils.num_utils <-> constants <-> utils.parameters <-> utils.string_utils).
     # Case-insensitive so typo'd variable names inside localization strings
     # (e.g. {s:AbilitYCharges}) still resolve to the canonical data key.
-    from utils import json_utils
-
     data = json_utils.CaseInsensitiveDict()
     for data_set in data_sets:
         data.update(data_set)
@@ -91,19 +87,6 @@ def _replace_variables(desc, data):
 def remove_letters(input_string):
     """Remove letters from a string. Eg. -4.5m -> -4.5"""
     return re.sub(r'[^0-9.\-]', '', input_string)
-
-
-def is_truthy(string):
-    TRUE_THO = [
-        True,
-        'true',
-        'True',
-        'TRUE',
-        't',
-        'T',
-        1,
-    ]
-    return string in TRUE_THO
 
 
 def remove_prefix(str, prefix):
