@@ -162,7 +162,7 @@ def remove_keys(data, keys_to_remove, depths_to_search=1):
     """Remove keys from the first depths_to_search levels of a dictionary"""
     if depths_to_search == 0:
         return data
-    if type(data) is dict:
+    if isinstance(data, dict):
         data = data.copy()  # Don't alter the original data's memory
         for key in keys_to_remove:
             if key in data:

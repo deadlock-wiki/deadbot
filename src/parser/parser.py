@@ -79,12 +79,16 @@ class Parser:
         # Convert .vdata_c to .vdata and .json
         scripts_path = 'scripts'
 
-        # Load json files to memory
+        # Load json files to memory. Each script tree is wrapped in a
+        # CaseInsensitiveDict so downstream parsers tolerate Valve's
+        # occasional capitalization typos (e.g. m_strVAlue, AbilitYCharges)
+        # without per-parser fallback code.
         for file_name in os.listdir(os.path.join(self.DATA_DIR, scripts_path)):
             if file_name.endswith('.json'):
                 # path/to/scripts/abilities.json -> abilities
                 key = file_name.split('.')[0].split('/')[-1]
-                self.data['scripts'][key] = json_utils.read(os.path.join(self.DATA_DIR, scripts_path, file_name))
+                raw = json_utils.read(os.path.join(self.DATA_DIR, scripts_path, file_name))
+                self.data['scripts'][key] = json_utils.wrap_case_insensitive(raw)
 
     def _load_localizations(self):
         """
