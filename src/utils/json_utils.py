@@ -4,6 +4,124 @@ import os
 from utils import num_utils
 
 
+class CaseInsensitiveDict(dict):
+    """A dict that looks up string keys case-insensitively while preserving
+    the original key casing for iteration, JSON serialization, etc.
+
+    Designed to absorb inconsistent capitalization that occasionally appears
+    in Valve's data files (e.g. ``m_strVAlue`` vs ``m_strValue``,
+    ``AbilitYCharges`` vs ``AbilityCharges``).
+
+    Semantics:
+      - ``d[key]``, ``d.get(key)``, ``key in d`` all compare keys via
+        ``key.lower()``. The first stored casing of a key wins; subsequent
+        writes with a different casing replace the value but keep the
+        original key string. Non-string keys are stored exactly as-is.
+      - The dict still serializes / iterates with the original keys, so
+        downstream consumers see PascalCase or whatever casing the source
+        used.
+
+    Use ``wrap_case_insensitive`` to recursively convert a parsed JSON tree.
+    """
+
+    def __init__(self, data=None, **kwargs):
+        super().__init__()
+        # lowercased str key -> the canonical str key currently stored
+        self._ci_index: dict[str, str] = {}
+        if data is not None:
+            self.update(data)
+        if kwargs:
+            self.update(kwargs)
+
+    def __setitem__(self, key, value):
+        if isinstance(key, str):
+            lower = key.lower()
+            existing = self._ci_index.get(lower)
+            if existing is not None and existing != key:
+                # collision: drop the prior case-variant so only one stays
+                dict.__delitem__(self, existing)
+            self._ci_index[lower] = key
+        dict.__setitem__(self, key, value)
+
+    def __getitem__(self, key):
+        if isinstance(key, str):
+            actual = self._ci_index.get(key.lower())
+            if actual is None:
+                raise KeyError(key)
+            return dict.__getitem__(self, actual)
+        return dict.__getitem__(self, key)
+
+    def __delitem__(self, key):
+        if isinstance(key, str):
+            actual = self._ci_index.pop(key.lower(), None)
+            if actual is None:
+                raise KeyError(key)
+            dict.__delitem__(self, actual)
+            return
+        dict.__delitem__(self, key)
+
+    def __contains__(self, key):
+        if isinstance(key, str):
+            return key.lower() in self._ci_index
+        return dict.__contains__(self, key)
+
+    def get(self, key, default=None):
+        try:
+            return self[key]
+        except KeyError:
+            return default
+
+    def pop(self, key, *args):
+        try:
+            value = self[key]
+        except KeyError:
+            if args:
+                return args[0]
+            raise
+        del self[key]
+        return value
+
+    def setdefault(self, key, default=None):
+        if key in self:
+            return self[key]
+        self[key] = default
+        return default
+
+    def update(self, other=None, **kwargs):
+        if other is not None:
+            if hasattr(other, 'items'):
+                for k, v in other.items():
+                    self[k] = v
+            else:
+                for k, v in other:
+                    self[k] = v
+        for k, v in kwargs.items():
+            self[k] = v
+
+    def copy(self):
+        new = CaseInsensitiveDict()
+        for k, v in self.items():
+            new[k] = v
+        return new
+
+
+def wrap_case_insensitive(obj):
+    """Recursively wrap dict-trees in CaseInsensitiveDict.
+
+    Lists are traversed and their dict elements are wrapped; non-dict /
+    non-list values pass through unchanged. The input tree is not mutated;
+    a new wrapped tree is returned.
+    """
+    if isinstance(obj, dict):
+        wrapped = CaseInsensitiveDict()
+        for k, v in obj.items():
+            wrapped[k] = wrap_case_insensitive(v)
+        return wrapped
+    if isinstance(obj, list):
+        return [wrap_case_insensitive(item) for item in obj]
+    return obj
+
+
 def read(path, ignore_error=False):
     """
     Read data from a JSON file to memory.

@@ -43,9 +43,8 @@ def parse_upgrades(ability):
         # 1. Extract raw data from each upgrade entry
         raw_upgrades: list[RawUpgrade] = []
         for upgrade in upgrades:
+            # Case-insensitive lookup handles the 'm_StrPropertyNAme' typo variant.
             prop = upgrade.get('m_strPropertyName')
-            if prop is None:
-                prop = upgrade.get('m_StrPropertyNAme')  # known typo
             raw_value = upgrade.get('m_strBonus')
             upgrade_type = upgrade.get('m_eUpgradeType')
             scale_type = upgrade.get('m_eScaleStatFilter')
