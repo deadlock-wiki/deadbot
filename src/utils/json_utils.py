@@ -106,12 +106,7 @@ class CaseInsensitiveDict(dict):
 
 
 def wrap_case_insensitive(obj):
-    """Recursively wrap dict-trees in CaseInsensitiveDict.
-
-    Lists are traversed and their dict elements are wrapped; non-dict /
-    non-list values pass through unchanged. The input tree is not mutated;
-    a new wrapped tree is returned.
-    """
+    """Recursively wrap dict-trees in CaseInsensitiveDict."""
     if isinstance(obj, dict):
         wrapped = CaseInsensitiveDict()
         for k, v in obj.items():

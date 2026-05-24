@@ -24,8 +24,6 @@ def format_description(description, *data_sets):
         "<span class=\"highlight\">+{s:AbilityCastRange}m</span> Cast Range and gain <span class=\"highlight\">+{s:WeaponDamageBonus}</span> Weapon Damage for {s:WeaponDamageBonusDuration}s"
     ->  "+7 Weapon Damage for 10s after teleporting with Flying Cloak"
     """  # noqa: E501
-    # Case-insensitive so typo'd variable names inside localization strings
-    # (e.g. {s:AbilitYCharges}) still resolve to the canonical data key.
     data = json_utils.CaseInsensitiveDict()
     for data_set in data_sets:
         data.update(data_set)

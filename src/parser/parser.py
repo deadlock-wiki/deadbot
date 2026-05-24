@@ -79,10 +79,7 @@ class Parser:
         # Convert .vdata_c to .vdata and .json
         scripts_path = 'scripts'
 
-        # Load json files to memory. Each script tree is wrapped in a
-        # CaseInsensitiveDict so downstream parsers tolerate Valve's
-        # occasional capitalization typos (e.g. m_strVAlue, AbilitYCharges)
-        # without per-parser fallback code.
+        # Load json files to memory
         for file_name in os.listdir(os.path.join(self.DATA_DIR, scripts_path)):
             if file_name.endswith('.json'):
                 # path/to/scripts/abilities.json -> abilities

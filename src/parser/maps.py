@@ -161,11 +161,6 @@ def get_bound_abilities(value):
 
 
 LOCALIZATION_OVERRIDE_MAP = {
-    # Semantic renames: the variable name in a localization string is
-    # different from (not just a case variant of) the data key. Case-only
-    # typos (e.g. AbilitYCharges, MinDPS) are handled by the
-    # CaseInsensitiveDict in string_utils.format_description and do not
-    # need entries here.
     'ArcaneSurgeWindow': 'AbilityDuration',
     'MaxChargeDuration': 'SpeedBoostDuration',
 }
