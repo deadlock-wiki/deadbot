@@ -137,7 +137,6 @@ class Parser:
 
     def run(self):
         logger.trace('Parsing...')
-        os.system(f'cp "{self.DATA_DIR}/version.txt" "{self.OUTPUT_DIR}/version.txt"')
         parsed_abilities = self._parse_abilities()
         parsed_heroes = self._parse_heroes(parsed_abilities)
         self._parsed_ability_cards(parsed_heroes)
