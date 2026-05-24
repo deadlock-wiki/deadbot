@@ -9,10 +9,6 @@ from loguru import logger
 
 class AbilityParser:
     def __init__(self, abilities_data, heroes_data, localizations):
-        # abilities_data and heroes_data arrive already wrapped in
-        # CaseInsensitiveDict by Parser._load_vdata, so inconsistent
-        # capitalization in Valve's source (e.g. m_strVAlue, AbilitYCharges)
-        # resolves transparently. Original key casing is preserved in output.
         self.abilities_data = abilities_data
         self.heroes_data = heroes_data
         self.localizations = localizations
@@ -69,7 +65,6 @@ class AbilityParser:
         return json_utils.sort_dict(formatted_ability_data)
 
     def _get_stat_value(self, key, stat):
-        # Case-insensitive lookup handles the 'm_strVAlue' typo variant.
         if 'm_strValue' not in stat:
             return
         value = stat['m_strValue']

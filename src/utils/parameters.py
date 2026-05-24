@@ -6,9 +6,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-# Local helper kept here (not in utils.string_utils) so this module has no
-# dependency on string_utils. That avoids a circular import chain:
-#   parameters -> string_utils -> num_utils -> constants -> parameters
 def is_truthy(value):
     return value in (True, 'true', 'True', 'TRUE', 't', 'T', 1)
 
