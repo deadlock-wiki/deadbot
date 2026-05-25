@@ -185,7 +185,7 @@ class ItemParser:
         try:
             base_value = num_utils.assert_number(base_value_str)
             scale_value = num_utils.assert_number(raw_scale_value)
-            if math.isnan(scale_value) or math.isinf(scale_value):
+            if math.isnan(scale_value) or math.isinf(scale_value) or scale_value == 0:
                 return None
         except (ValueError, TypeError):
             return None
