@@ -29,7 +29,7 @@ class AbilityParser:
     def _parse_ability(self, ability_key):
         ability = self.abilities_data[ability_key]
 
-        if type(ability) is not dict:
+        if not isinstance(ability, dict):
             return
 
         if 'm_eAbilityType' not in ability:
@@ -66,14 +66,9 @@ class AbilityParser:
         return json_utils.sort_dict(formatted_ability_data)
 
     def _get_stat_value(self, key, stat):
-        value = None
-
-        if 'm_strValue' in stat:
-            value = stat['m_strValue']
-        elif 'm_strVAlue' in stat:
-            value = stat['m_strVAlue']
-        else:
+        if 'm_strValue' not in stat:
             return
+        value = stat['m_strValue']
 
         return utils.convert_stat(stat, key, value)
 

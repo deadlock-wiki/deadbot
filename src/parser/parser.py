@@ -84,7 +84,8 @@ class Parser:
             if file_name.endswith('.json'):
                 # path/to/scripts/abilities.json -> abilities
                 key = file_name.split('.')[0].split('/')[-1]
-                self.data['scripts'][key] = json_utils.read(os.path.join(self.DATA_DIR, scripts_path, file_name))
+                raw = json_utils.read(os.path.join(self.DATA_DIR, scripts_path, file_name))
+                self.data['scripts'][key] = json_utils.wrap_case_insensitive(raw)
 
     def _load_localizations(self):
         """
@@ -136,7 +137,6 @@ class Parser:
 
     def run(self):
         logger.trace('Parsing...')
-        os.system(f'cp "{self.DATA_DIR}/version.txt" "{self.OUTPUT_DIR}/version.txt"')
         parsed_abilities = self._parse_abilities()
         parsed_heroes = self._parse_heroes(parsed_abilities)
         self._parsed_ability_cards(parsed_heroes)

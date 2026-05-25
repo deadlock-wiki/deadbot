@@ -3,9 +3,12 @@ import argparse
 from typing import Optional, Protocol
 from dotenv import load_dotenv
 
-from utils.string_utils import is_truthy
-
 load_dotenv()
+
+
+def is_truthy(value):
+    return value in (True, 'true', 'True', 'TRUE', 't', 'T', 1)
+
 
 ARG_PARSER = argparse.ArgumentParser(
     prog='Deadbot',

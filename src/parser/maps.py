@@ -161,10 +161,8 @@ def get_bound_abilities(value):
 
 
 LOCALIZATION_OVERRIDE_MAP = {
-    'AbilitYCharges': 'AbilityCharges',
     'ArcaneSurgeWindow': 'AbilityDuration',
     'MaxChargeDuration': 'SpeedBoostDuration',
-    'MinDPS': 'MinDps',
 }
 
 
