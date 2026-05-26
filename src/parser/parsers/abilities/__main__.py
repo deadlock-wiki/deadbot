@@ -3,6 +3,7 @@ from . import utils
 import utils.json_utils as json_utils
 import utils.num_utils as num_utils
 from .upgrades import parse_upgrades
+from .modifiers import parse_modifiers
 from loguru import logger
 
 
@@ -54,10 +55,8 @@ class AbilityParser:
             else:
                 ability_data[key] = value
 
-        if 'm_vecAbilityUpgrades' in ability:
-            ability_data['Upgrades'] = parse_upgrades(ability)
-        else:
-            ability_data['Upgrades'] = []
+        ability_data.update(parse_upgrades(ability))
+        ability_data.update(parse_modifiers(ability))
 
         formatted_ability_data = {}
         for attr_key, attr_value in ability_data.items():
