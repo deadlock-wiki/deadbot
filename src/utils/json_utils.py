@@ -1,6 +1,8 @@
 import json
 import os
 
+from utils import num_utils
+
 
 def read(path, ignore_error=False):
     """
@@ -121,3 +123,27 @@ def validate_structures(datas1, datas2, structure_keys_to_validate):
                                 invalid_keys[key] = more_invalid_keys
 
     return invalid_keys
+
+
+def strip_zeroes(obj: dict):
+    output = obj.copy()
+    for key, value in obj.items():
+        if num_utils.is_zero(value):
+            output.pop(key)
+
+    return output
+
+
+def deep_get(data, *keys):
+    """Safely access nested dictionary keys."""
+    for key in keys:
+        if not isinstance(data, dict) or key not in data:
+            return None
+        data = data[key]
+    return data
+
+
+def read_value(data, *keys):
+    """Safely access nested dictionary keys and convert to number if possible."""
+    value = deep_get(data, *keys)
+    return num_utils.assert_number(value)

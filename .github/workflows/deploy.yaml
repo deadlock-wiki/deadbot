@@ -1,9 +1,22 @@
 name: Deploy
 on: 
   push:
+    branches:
+      - develop
+      - master
+    paths:
+      - 'src/**'
+      - 'Dockerfile'
+      - '.github/workflows/deploy.yaml'
+      - 'poetry.lock'
 
   pull_request:
-    types: [opened]
+    types: [opened, reopened]
+    paths:
+      - 'src/**'
+      - 'Dockerfile'
+      - '.github/workflows/deploy.yaml'
+      - 'poetry.lock'
 
   workflow_dispatch:
     inputs:
@@ -96,6 +109,14 @@ jobs:
           path: deadlock-data
           token:  ${{ secrets.GH_TOKEN }}     
 
+      - name: Configure Git for deadbot repo
+        working-directory: deadbot 
+        run: |
+          git config --global user.email "deadbot1101@gmail.com"
+          git config --global user.name "Deadbot0"
+          git config --global --add safe.directory ./data
+          git config pull.rebase true    
+
       - name: Configure Git for data repo
         working-directory: deadlock-data 
         run: |
@@ -109,25 +130,43 @@ jobs:
           git fetch origin ${{ needs.get-branch.outputs.branch }}
           git switch ${{ needs.get-branch.outputs.branch }}
         continue-on-error: true  # Allow the job to stop if this step fails
-        
-      - name: Install docker-compose
-        run: sudo apt-get install -y docker-compose
+
+      - uses: docker/setup-buildx-action@v3
+        with:
+          driver: docker-container
 
       - name: Build Deadbot
-        run: docker-compose build
-        working-directory: deadbot 
+        uses: docker/build-push-action@v6
+        with:
+          context: ./deadbot
+          file: ./deadbot/Dockerfile
+          push: false
+          tags: deadbot:latest
+          cache-from: |
+            type=gha,scope=deadbot-master
+            type=gha,scope=deadbot-${{ needs.get-branch.outputs.branch }}
+          cache-to: type=gha,mode=max,scope=deadbot-${{ needs.get-branch.outputs.branch }}
+          load: true   
+
+      - name: Cache decompiled-data
+        uses: actions/cache@v4
+        with:
+          path: deadbot/decompiled-data
+          key: deadbot-decompiled-${{ hashFiles('deadbot/src/decompiler/**/*') }}
+          restore-keys: deadbot-decompiled-
 
       - name: Run Deadbot
-        run: docker-compose up --exit-code-from deadbot
         working-directory: deadbot
+        run: docker compose up --exit-code-from deadbot --abort-on-container-exit
         env:
           IMPORT_FILES: true
           ENGLISH_ONLY: ${{ github.event.inputs.english-only == 'true' }}
+          PARSE_MAP: true
           DECOMPILE: true
           PARSE: true
           CHANGELOGS: true
-          CLEANUP: true
-          WIKI_UPLOAD: ${{ needs.get-branch.outputs.branch == 'master' }}          
+          CLEANUP: false
+          WIKI_UPLOAD: ${{ needs.get-branch.outputs.branch == 'master' }}
           STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
           STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
           BOT_WIKI_USER: ${{ vars.BOT_WIKI_USER }}
@@ -141,24 +180,17 @@ jobs:
           DEADBOT_VERSION=$(grep -m1 '^version' pyproject.toml | sed 's/version *= *"\(.*\)"/\1/')
           echo "deadbot=$DEADBOT_VERSION" >> $GITHUB_OUTPUT
           
-          DEADLOCK_VERSION=$(grep '^ClientVersion=' "./decompiled-data/version.txt" | cut -d'=' -f2)
+          DEADLOCK_VERSION=$(grep '^ClientVersion=' "./decompiled-data/version.txt" | cut -d'=' -f2 | tr -d '\r')
           echo "deadlock=$DEADLOCK_VERSION" >> $GITHUB_OUTPUT
 
-          DATE=$(grep '^VersionDate=' "./decompiled-data/version.txt" | cut -d'=' -f2)
+          DATE=$(grep '^VersionDate=' "./decompiled-data/version.txt" | cut -d'=' -f2 | tr -d '\r')
           echo "date=$DATE" >> $GITHUB_OUTPUT
-
-      - name: Configure Git for deadbot repo
-        working-directory: deadbot 
-        run: |
-          git config --global user.email "deadbot1101@gmail.com"
-          git config --global user.name "Deadbot0"
-          git config pull.rebase true     
           
       - name: Commit and push input-data changes to deadbot
         working-directory: deadbot
         run: |
           git add input-data
-          git commit -m "chore: updated input data" || echo "No changes to commit"
+          git commit -m "[skip ci] chore: updated input data" || echo "No changes to commit"
           git push --force-with-lease origin ${{ needs.get-branch.outputs.branch }}
 
       - name: Pull data branch
@@ -176,6 +208,7 @@ jobs:
           DEADLOCK_VER: ${{ steps.read_versions.outputs.deadlock }}
           DATE: ${{ steps.read_versions.outputs.date }}
         run: |
+          SHORT_SHA="${GITHUB_SHA::7}"          
           git add -A
-          git commit -m "Deadbot v$DEADBOT_VER | Client $DEADLOCK_VER - $DATE" || echo "No changes to commit"
+          git commit -m "Deadbot v$DEADBOT_VER | Client $DEADLOCK_VER - $DATE (deadbot@${SHORT_SHA})" || echo "No changes to commit"
           git push --force-with-lease origin ${{ needs.get-branch.outputs.branch }}

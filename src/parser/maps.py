@@ -11,6 +11,7 @@ TARGET_TYPE_MAP = {
     'CITADEL_UNIT_TARGET_NEUTRAL': 'Neutral',
     'CITADEL_UNIT_TARGET_PROP_ENEMY': 'PropEnemy',
     'CITADEL_UNIT_TARGET_TROOPER_ENEMY': 'TrooperEnemy',
+    'CITADEL_UNIT_TARGET_TROOPER_FRIENDLY': 'TrooperFriendly',
     'CITADEL_UNIT_TARGET_TROPHY_ENEMY': 'TrophyEnemy',
 }
 
@@ -60,6 +61,8 @@ ABILITY_ACTIVATION_MAP = {
     'CITADEL_ABILITY_ACTIVATION_PASSIVE': 'Passive',
     'CITADEL_ABILITY_ACTIVATION_PRESS_TOGGLE': 'Toggle',
     'CITADEL_ABILITY_ACTIVATION_PRESS': 'Press',
+    'CITADEL_ABILITY_ACTIVATION_INSTANT_CAST_TOGGLE': 'InstantCastToggle',
+    'CITADEL_ABILITY_ACTIVATION_ON_BUTTON_RELEASE': 'OnRelease',
 }
 
 
@@ -115,6 +118,12 @@ ATTRIBUTE_MANUAL_MAP = {
         'label': 'OutOfCombatHealthRegen_label',
         'postfix': 'OutOfCombatHealthRegen_prefix',
     },
+    'GroundDashSpeed': {'label': 'StatDesc_DashSpeedInMeters', 'postfix': 'StatDesc_DashSpeedInMeters_postfix'},
+    'AirDashSpeed': {'label': 'StatDesc_DashSpeedInMeters', 'postfix': 'StatDesc_DashSpeedInMeters_postfix'},
+    'HeroSpiritLifestealEffectiveness': {
+        'label': 'StatDesc_SpiritLifestealEffectiveness',
+        'postfix': 'StatDesc_SpiritLifestealEffectiveness_postfix',
+    },
 }
 
 
@@ -152,6 +161,8 @@ def get_bound_abilities(value):
 
 
 LOCALIZATION_OVERRIDE_MAP = {
+    'AbilitYCharges': 'AbilityCharges',
+    'ArcaneSurgeWindow': 'AbilityDuration',
     'MaxChargeDuration': 'SpeedBoostDuration',
     'MinDPS': 'MinDps',
 }
@@ -172,18 +183,21 @@ def override_localization(attr):
 
 
 SCALE_TYPE_MAP = {
-    'ETechPower': 'spirit',
-    'ELightMeleeDamage': 'melee',
-    'ETechRange': 'range',
-    'ETechCooldown': 'cooldown',
-    'EBulletDamage': 'damage',
-    'ETechDuration': 'duration',
-    'EWeaponDamageScale': 'weapon_damage',
-    'EMaxChargesIncrease': 'max_charges',
-    'ELevelUpBoons': 'power_increase',
     'EBaseWeaponDamageIncrease': 'weapon_damage_increase',
-    'EWeaponPower': 'weapon_power',
+    'EBulletDamage': 'damage',
+    'EHealingOutput': 'healing',
+    'EHeavyMeleeDamage': 'heavy_melee',
+    'ELevelUpBoons': 'power_increase',
+    'ELightMeleeDamage': 'melee',
+    'EMaxChargesIncrease': 'max_charges',
+    'EParryCooldown': 'parry_cd',
     'EStatsCount': 'stats_count',
+    'ETechCooldown': 'cooldown',
+    'ETechDuration': 'duration',
+    'ETechPower': 'spirit',
+    'ETechRange': 'range',
+    'EWeaponDamageScale': 'weapon_damage',
+    'EWeaponPower': 'weapon_power',
 }
 
 
@@ -195,3 +209,31 @@ def get_scale_type(scale):
         raise Exception(f'No scale map found for {scale}')
 
     return SCALE_TYPE_MAP[scale]
+
+
+SECTION_TYPE_MAP = {
+    'EArea_Innate': 'Innate',
+    'EArea_Active': 'Active',
+    'EArea_Passive': 'Passive',
+}
+
+
+def get_section_type(value):
+    if value is None:
+        return None
+
+    if value not in SECTION_TYPE_MAP:
+        raise Exception(f'{value} is not a valid item tooltip section type')
+
+    return SECTION_TYPE_MAP[value]
+
+
+IMBUE_TAGS = {
+    'CITADEL_TARGET_ABILITY_BEHAVIOR_IMBUE_ACTIVE',
+    'CITADEL_TARGET_ABILITY_BEHAVIOR_IMBUE_MODIFIER_VALUE',
+    'CITADEL_TARGET_ABILITY_BEHAVIOR_IMBUE_ACTIVE_NON_ULT',
+}
+
+
+def get_imbue_tags():
+    return IMBUE_TAGS

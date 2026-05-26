@@ -11,9 +11,9 @@ from decompiler.decompiler import Decompiler
 import constants
 from changelogs import parse_changelogs, fetch_changelogs
 from parser import parser
+from utils.parameters import Args
 from utils.process import run_process
 from wiki.upload import WikiUpload
-from utils.string_utils import is_truthy
 
 load_dotenv()
 
@@ -24,69 +24,90 @@ def main():
 
     # setup custom logger
     logger.remove(0)
-    log_level = 'TRACE' if is_truthy(args.verbose) else 'INFO'
+    log_level = 'TRACE' if args.verbose else 'INFO'
     logger.add(
         sys.stderr,
         level=log_level,
         format='<white><dim>{time:YYYY-MM-DD HH:mm:ss.SSS} | </dim>' '</white><level>{level:<7} <dim>|</dim> <normal>{message}</normal></level>',
     )
 
-    # import game files from steamdb github and localization files using depot downloader
-    if is_truthy(args.import_files):
+    # import game files from steamdb github and localization + map files using depot downloader
+    if args.import_files:
         logger.info('Importing game files...')
         script_path = os.path.join(os.path.dirname(__file__), 'steam/steam_db_download_deadlock.sh')
         run_process(script_path, name='download-deadlock-files')
+
         # non-english localizations are imported using depot downloader
-        if not is_truthy(args.english_only):
+        localization_filelist_path = None
+        if not args.english_only:
             logger.info('Downloading non-english localizations...')
-            DepotDownloader(
+            localization_filelist_path = os.path.join(os.path.dirname(__file__), 'steam', 'depot_downloader_file_list.txt')
+        else:
+            logger.trace('! Skipping non-english localizations download !')
+
+        misc_files = []
+        if args.parse_map:
+            logger.info('Downloading map...')
+            misc_files.extend(['game/citadel/maps/dl_midtown.vpk'])
+        else:
+            logger.trace('! Skipping map download !')
+
+        if None not in (localization_filelist_path, misc_files):
+            depot_downloader = DepotDownloader(
                 output_dir=args.workdir,
                 deadlock_dir=args.dldir,
                 depot_downloader_cmd=args.depot_downloader_cmd,
                 steam_username=args.steam_username,
                 steam_password=args.steam_password,
-                force=args.force,
-            ).run(args.manifest_id)
+            )
+            depot_downloader.download_files(
+                files=misc_files,
+                file_list_path=localization_filelist_path,
+                manifest_id=args.manifest_id,
+                logger_name='depot-downloader',
+            )
     else:
         logger.trace('! Skipping Import !')
 
-    if is_truthy(args.decompile):
+    if args.decompile:
         logger.info('Decompiling source files...')
         Decompiler(deadlock_dir=args.dldir, work_dir=args.workdir, force=args.force).run()
     else:
         logger.trace('! Skipping Decompiler !')
 
-    if is_truthy(args.parse):
+    if args.parse:
         logger.info('Parsing decompiled files...')
         act_gamefile_parse(args)
     else:
         logger.trace('! Skipping Parser !')
 
-    if is_truthy(args.changelogs):
+    if args.changelogs:
         logger.info('Parsing Changelogs...')
         act_changelog_parse(args)
     else:
         logger.trace('! Skipping Changelogs !')
 
-    if is_truthy(args.wiki_upload):
+    if args.wiki_upload:
         logger.info('Running Wiki Upload...')
-        wiki_upload = WikiUpload(args.output)
-        wiki_upload.update_data_pages()
+        wiki_upload = WikiUpload(args.output, dry_run=args.dry_run)
+        wiki_upload.run()
     else:
         logger.trace('! Skipping Wiki Upload !')
 
     logger.success('Done!')
 
 
-def act_gamefile_parse(args):
-    game_parser = parser.Parser(args.workdir, args.output)
+def act_gamefile_parse(args: Args):
+    game_parser = parser.Parser(
+        args.workdir, args.output, args.dldir, english_only=args.english_only, parse_map=args.parse_map, entity_helper_cmd=args.entity_helper_cmd
+    )
     game_parser.run()
     logger.trace('Exporting to CSV...')
     csv_writer.export_json_file_to_csv('item-data', args.output)
     csv_writer.export_json_file_to_csv('hero-data', args.output)
 
 
-def act_changelog_parse(args):
+def act_changelog_parse(args: Args):
     herolab_patch_notes_path = os.path.join(args.workdir, 'localizations', 'patch_notes', 'citadel_patch_notes_english.json')
     chlog_fetcher = fetch_changelogs.ChangelogFetcher(
         update_existing=False,
@@ -96,9 +117,12 @@ def act_changelog_parse(args):
     )
     chlog_fetcher.run()
 
-    # Now that we gathered the changelogs, extract out data
     chlog_parser = parse_changelogs.ChangelogParser(args.output)
     chlog_parser.run_all(chlog_fetcher.changelogs)
+    chlog_parser.format_and_save_wikitext_changelogs(
+        chlog_fetcher.changelogs,
+        chlog_fetcher.changelog_configs,
+    )
     return chlog_parser
 
 

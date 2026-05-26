@@ -35,12 +35,11 @@ jobs:
         if: github.event_name == 'pull_request'
         run: git fetch origin master:master
 
-      # Fails the CI as a reminder if version has not been incremented
-      - name: Version increment check
+      - name: Increment version
         if: github.event_name == 'pull_request'
         run: |
-          chmod +x ./.github/workflows/scripts/version_has_updated.sh 
-          ./.github/workflows/scripts/version_has_updated.sh 
+          chmod +x ./.github/workflows/scripts/increment_release_version.sh 
+          ./.github/workflows/scripts/increment_release_version.sh 
 
       # Set up BuildKit Docker container builder to be able to build
       # multi-platform images and export cache
@@ -110,3 +109,29 @@ jobs:
           files: dist/deadbot
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  merge-back-to-develop:
+    name: Merge master back to develop
+    runs-on: ubuntu-latest
+    needs: release
+    if: github.event_name != 'pull_request'
+    permissions:
+      contents: write # Needed to push to the develop branch
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          fetch-depth: 0 # Fetch all history for merging
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "Deadbot0"
+          git config --global user.email "deadbot1101@gmail.com"
+
+      - name: Merge master into develop and push
+        run: |
+          git switch develop
+          git pull origin develop
+          git merge master
+          git push origin develop
