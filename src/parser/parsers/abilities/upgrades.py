@@ -92,7 +92,7 @@ def parse_upgrades(ability):
                             if scale_type is None:
                                 class_str = scale_func.get('_class', '')
                                 if class_str:
-                                    scale_type = maps._class_to_scale_enum(class_str)
+                                    scale_type = maps.class_to_scale_enum(class_str)
                     scale = {
                         'Value': entry['value'],
                         'Type': maps.get_scale_type(scale_type),

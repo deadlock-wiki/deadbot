@@ -96,7 +96,7 @@ class AbilityParser:
             # Fallback: infer from _class
             class_str = scale.get('_class', '')
             if class_str:
-                human_type = maps._class_to_scale_type(class_str)
+                human_type = maps.class_to_scale_type(class_str)
             if not human_type:
                 # Last resort: default to spirit
                 human_type = maps.get_scale_type('ETechPower')

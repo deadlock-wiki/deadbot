@@ -201,7 +201,7 @@ SCALE_TYPE_MAP = {
 }
 
 
-def _class_to_scale_type(class_str: str) -> str | None:
+def class_to_scale_type(class_str: str) -> str | None:
     """
     Infer the human-readable scale type from a _class string.
     Returns a value like 'spirit', 'range', 'duration', 'cooldown', etc.
@@ -235,9 +235,9 @@ def _class_to_scale_type(class_str: str) -> str | None:
     return None
 
 
-def _class_to_scale_enum(class_str: str) -> str | None:
+def class_to_scale_enum(class_str: str) -> str | None:
     """Return the enum key (e.g., 'ETechRange') from a _class string."""
-    human_type = _class_to_scale_type(class_str)
+    human_type = class_to_scale_type(class_str)
     if not human_type:
         return None
     # Reverse lookup in SCALE_TYPE_MAP

@@ -178,7 +178,7 @@ class ItemParser:
         if not human_type:
             class_str = scale_func.get('_class', '')
             if class_str:
-                human_type = maps._class_to_scale_type(class_str)
+                human_type = maps.class_to_scale_type(class_str)
             if not human_type:
                 return None
 
