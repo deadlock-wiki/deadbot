@@ -1,4 +1,7 @@
 import os
+import re
+import json
+import mwclient
 from os import listdir
 from os.path import isfile, join
 from loguru import logger
@@ -8,12 +11,10 @@ from urllib import request
 from urllib.parse import urlparse
 from utils import file_utils, json_utils
 from typing import TypedDict
-from .constants import CHANGELOG_RSS_URL
+from .constants import CHANGELOG_RSS_URL, STEAM_NEWS_API_URL
 from collections import defaultdict
-from datetime import datetime
+from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
-import re
-import mwclient
 
 
 class ChangelogConfig(TypedDict):
@@ -23,6 +24,7 @@ class ChangelogConfig(TypedDict):
     """
 
     forum_id: str
+    steam_gid: str  # Steam News article GID (new field, None for forum-only entries)
     date: str
     link: str
 
@@ -48,9 +50,103 @@ class ChangelogString(TypedDict):
     changelog_string: str
 
 
+# ---------------------------------------------------------------------------
+# BBCode -> plain-text helpers for Steam News content
+# ---------------------------------------------------------------------------
+
+# Section headers: [h1]Foo[/h1] or [h2]Foo[/h2] -> [ Foo ]
+_BBCODE_HEADER = re.compile(r'\[h[1-6]\](.*?)\[/h[1-6]\]', re.IGNORECASE | re.DOTALL)
+# List items: [*]text  (inside [list][/list])
+_BBCODE_LIST_ITEM = re.compile(r'\[\*\](.*?)(?=\[\*\]|\[/list\]|$)', re.IGNORECASE | re.DOTALL)
+_BBCODE_LIST_WRAPPER = re.compile(r'\[/?list[^\]]*\]', re.IGNORECASE)
+# Simple inline tags: [b], [i], [u], [s], [/b] ... etc.
+_BBCODE_INLINE = re.compile(r'\[/?(b|i|u|s|strike|code|quote)[^\]]*\]', re.IGNORECASE)
+# URL tags: [url=...]text[/url] or [url]...[/url]
+_BBCODE_URL = re.compile(r'\[url=[^\]]*\](.*?)\[/url\]', re.IGNORECASE | re.DOTALL)
+_BBCODE_URL_BARE = re.compile(r'\[url\](.*?)\[/url\]', re.IGNORECASE | re.DOTALL)
+# Any remaining bracketed tags
+_BBCODE_REMAINING = re.compile(r'\[[^\]]+\]')
+
+
+def _clean_steam_content(raw: str) -> str:
+    """
+    Convert Steam News BBCode content to the plain-text changelog format
+    the rest of the bot expects:
+
+        [ Section Header ]
+        - Bullet line
+        - Bullet line
+
+    Valve's Deadlock patch notes are mostly already plain text, but this
+    handles any BBCode markup they may introduce.
+    """
+    text = raw
+
+    # Section headers
+    text = _BBCODE_HEADER.sub(lambda m: f'\n[ {m.group(1).strip()} ]', text)
+
+    # URL tags -- keep visible text, drop URL
+    text = _BBCODE_URL.sub(r'\1', text)
+    text = _BBCODE_URL_BARE.sub(r'\1', text)
+
+    # Convert [*] list items to hyphen bullets
+    def _list_item(m):
+        content = m.group(1).strip()
+        return f'\n- {content}' if content else ''
+
+    text = _BBCODE_LIST_ITEM.sub(_list_item, text)
+    text = _BBCODE_LIST_WRAPPER.sub('', text)
+
+    # Strip remaining simple inline tags
+    text = _BBCODE_INLINE.sub('', text)
+
+    # Drop any unknown bracketed tags that remain
+    text = _BBCODE_REMAINING.sub('', text)
+
+    # Normalise whitespace: collapse 3+ blank lines into 2
+    text = re.sub(r'\n{3,}', '\n\n', text)
+
+    return text.strip()
+
+
+# Structural check helpers
+_SECTION_HEADER = re.compile(r'^\s*\[.+\]\s*$', re.MULTILINE)
+_BULLET_LINE = re.compile(r'^\s*-\s+\S', re.MULTILINE)
+
+
+def _looks_like_patch_notes(text: str) -> bool:
+    has_header = bool(_SECTION_HEADER.search(text))
+    bullet_count = len(_BULLET_LINE.findall(text))
+    return has_header and bullet_count >= 3
+
+
+def _strip_wiki_syntax(text: str) -> str:
+    """
+    Strips wiki formatting (links, templates, bold/italics) from text
+    to ensure it is in a raw state before being processed or saved.
+    """
+    if not text:
+        return text
+
+    # Strip Icon templates: {{HeroIcon|Name}} -> Name
+    text = re.sub(r'\{\{(?:Hero|Item|Ability)Icon\|([^}]+)\}\}', r'\1', text)
+
+    # Strip PageRef templates: {{PageRef|Name|alt_name=text}} -> text
+    text = re.sub(r'\{\{PageRef\|([^|}]+)(?:\|alt_name=([^}]+))?\}\}', lambda m: m.group(2) or m.group(1), text)
+
+    # Strip wiki links: [[Page|text]] -> text, [[Page]] -> Page
+    text = re.sub(r'\[\[(?:[^|\]]+\|)?([^\]]+)\]\]', r'\1', text)
+
+    # Strip bold/italics
+    text = re.sub(r"'{2,}", '', text)
+
+    return text
+
+
 class ChangelogFetcher:
     """
-    Fetches changelogs from the deadlock forums and game files and parses them into a dictionary
+    Fetches changelogs from the deadlock forums, Steam News, and game files,
+    then parses them into a unified dictionary keyed by date (YYYY-MM-DD).
     """
 
     def __init__(self, update_existing, input_dir, output_dir, herolab_patch_notes_path):
@@ -63,6 +159,7 @@ class ChangelogFetcher:
         self.INPUT_DIR = input_dir
         self.OUTPUT_DIR = output_dir
         self.RSS_URL = CHANGELOG_RSS_URL
+        self.STEAM_NEWS_API_URL = STEAM_NEWS_API_URL
 
         # Safely derive base url (e.g., https://forums.playdeadlock.com)
         parsed_url = urlparse(self.RSS_URL)
@@ -125,9 +222,8 @@ class ChangelogFetcher:
             if match:
                 notes_content = match.group(1).strip()
 
-                # Only strip specific icons the bot auto-generates.
-                # This turns {{HeroIcon|Hero}} -> Hero, so the parser can re-wrap it later.
-                notes_content = re.sub(r'\{\{(?:Hero|Item|Ability)Icon\|([^}]+)\}\}', r'\1', notes_content)
+                # Strip all wiki syntax so we only work with raw text
+                notes_content = _strip_wiki_syntax(notes_content)
 
                 logger.debug(f'Found existing wiki page for {date_key}')
                 return notes_content
@@ -155,7 +251,8 @@ class ChangelogFetcher:
 
     def run(self):
         self.load_localization()
-        self.fetch_forum_changelogs()
+        self.fetch_steam_changelogs()  # Steam first -- it's the current primary source
+        self.fetch_forum_changelogs()  # Forum fills in gaps / older entries
         self.get_gamefile_changelogs()
         self.changelogs_to_file()
 
@@ -196,6 +293,121 @@ class ChangelogFetcher:
 
         # Save decoupled hotfixes for the uploader
         json_utils.write(f'{self.OUTPUT_DIR}/changelogs/hotfixes.json', self.hotfixes)
+
+    # ------------------------------------------------------------------
+    # Steam News fetching
+    # ------------------------------------------------------------------
+
+    def fetch_steam_changelogs(self):
+        """
+        Fetch patch notes posted to the Steam News hub and integrate them
+        into the changelog dictionary.
+
+        Steam is now the primary source for Deadlock patch notes.  Each
+        article is stored under a date-keyed changelog_id (YYYY-MM-DD),
+        exactly like forum entries.  The article's GID is saved as
+        ``steam_gid`` in the config so callers can identify the source.
+
+        Entries are skipped if:
+        - A local .txt file already exists for that date (already processed).
+        - The entry is not a gameplay/patch-note post (filtered by feedname
+          and title keywords).
+        """
+        logger.trace('Fetching Steam News changelogs')
+
+        try:
+            with request.urlopen(self.STEAM_NEWS_API_URL, timeout=15) as resp:
+                data = json.loads(resp.read().decode('utf-8'))
+        except Exception as e:
+            logger.error(f'Failed to fetch Steam News feed: {e}')
+            return
+
+        items = data.get('appnews', {}).get('newsitems', [])
+        if not items:
+            logger.warning('Steam News feed returned no items')
+            return
+
+        target_tz = ZoneInfo('US/Pacific')
+
+        for item in items:
+            # Only process official Steam announcements, not third-party feeds
+            feedname = item.get('feedname', '')
+            if feedname != 'steam_community_announcements':
+                logger.trace(f"Skipping Steam item with feedname '{feedname}'")
+                continue
+
+            title: str = item.get('title', '')
+            gid: str = item.get('gid', '')
+            url: str = item.get('url', '')
+            unix_ts: int = item.get('date', 0)
+
+            # Convert Unix timestamp to US/Pacific date
+            try:
+                dt_utc = datetime.fromtimestamp(unix_ts, tz=timezone.utc)
+                dt_valve = dt_utc.astimezone(target_tz)
+                date_key = dt_valve.strftime('%Y-%m-%d')
+            except Exception as e:
+                logger.warning(f"Could not parse date for Steam item '{title}': {e}")
+                continue
+
+            changelog_id = date_key
+
+            # Skip if we already have a processed local file for this date
+            local_path = os.path.join(self.INPUT_DIR, 'changelogs/raw', f'{changelog_id}.txt')
+            if os.path.exists(local_path):
+                logger.trace(f'Local file already exists for {changelog_id}, skipping Steam fetch')
+                # Still update steam_gid in the config if it's missing
+                existing_config = self.changelog_configs.get(changelog_id, {})
+                if existing_config and not existing_config.get('steam_gid'):
+                    existing_config['steam_gid'] = gid
+                    self.changelog_configs[changelog_id] = existing_config
+                continue
+
+            raw_content: str = item.get('contents', '')
+            if not raw_content:
+                logger.warning(f"Steam item '{title}' has empty content, skipping")
+                continue
+
+            clean_text = _clean_steam_content(raw_content)
+
+            if not clean_text:
+                logger.warning(f"Steam item '{title}' produced empty content after cleaning, skipping")
+                continue
+
+            if not _looks_like_patch_notes(clean_text):
+                logger.debug(f"Skipping Steam item '{title}' (no patch note structure found)")
+                continue
+
+            existing_config = self.changelog_configs.get(changelog_id)
+
+            if existing_config:
+                # A config already exists (possibly from a previous forum fetch or
+                # a previous run).  Only overwrite content if we have no text yet.
+                if changelog_id not in self.changelogs or not self.changelogs[changelog_id]:
+                    logger.info(f'Backfilling Steam content for existing config {changelog_id}')
+                    self.changelogs[changelog_id] = clean_text
+                # Always record the GID so we know it came from Steam
+                existing_config['steam_gid'] = gid
+                if not existing_config.get('link'):
+                    existing_config['link'] = url
+                self.changelog_configs[changelog_id] = existing_config
+            else:
+                # Brand-new entry sourced from Steam
+                logger.info(f'New Steam changelog for {changelog_id}: "{title}"')
+                self.changelogs[changelog_id] = clean_text
+                self.changelog_configs[changelog_id] = {
+                    'forum_id': None,
+                    'steam_gid': gid,
+                    'date': date_key,
+                    'link': url,
+                    'is_hero_lab': False,
+                }
+
+        logger.success(f'Steam News fetch complete ({len(items)} items scanned)')
+
+    # ------------------------------------------------------------------
+    # Forum fetching (unchanged from original, kept as fallback)
+    # ------------------------------------------------------------------
 
     def _fetch_update_html(self, link):
         """
@@ -331,6 +543,7 @@ class ChangelogFetcher:
                 if raw_changelog_id not in self.changelog_configs:
                     self.changelog_configs[raw_changelog_id] = {
                         'forum_id': None,
+                        'steam_gid': None,
                         'date': date,
                         'link': None,
                         'is_hero_lab': True,
@@ -381,7 +594,13 @@ class ChangelogFetcher:
         return value
 
     def fetch_forum_changelogs(self):
-        """download rss feed from changelog forum and save all available entries"""
+        """
+        Download RSS feed from the changelog forum and save all available entries.
+
+        Forum entries are now treated as a secondary source: they fill in dates
+        that Steam News did not cover (older patches, or dates where no Steam
+        post matched the filter).
+        """
         logger.trace('Parsing Changelog RSS feed')
         # fetches 20 most recent entries
         feed = feedparser.parse(self.RSS_URL)
@@ -434,7 +653,15 @@ class ChangelogFetcher:
             local_path = os.path.join(self.INPUT_DIR, 'changelogs/raw', f'{changelog_id}.txt')
             local_content = file_utils.read(local_path) if os.path.exists(local_path) else ''
 
-            # Check for wiki page (manual pages created by editors)
+            # If Steam already populated this date, skip forum content entirely
+            # unless the Steam entry has no content (shouldn't happen but be safe)
+            steam_already_populated = (
+                changelog_id in self.changelogs and self.changelogs[changelog_id] and self.changelog_configs.get(changelog_id, {}).get('steam_gid')
+            )
+            if steam_already_populated:
+                logger.trace(f'Steam content already present for {changelog_id}, skipping forum fetch')
+                continue
+
             wiki_content = self._get_wiki_content(changelog_id) if not local_content else ''
 
             existing_config = self.changelog_configs.get(changelog_id)
@@ -445,7 +672,7 @@ class ChangelogFetcher:
             # Find the main entry
             if existing_config:
                 for e in entries:
-                    if e['version'] == existing_config['forum_id']:
+                    if e['version'] == existing_config.get('forum_id'):
                         main_entry = e
                         break
                 for e in entries:
@@ -459,7 +686,6 @@ class ChangelogFetcher:
             # Determine base content and whether to append
             if local_content:
                 # Local file exists - use it as base, don't append to file
-                # (will still check for hotfixes to append to wiki later)
                 current_text = local_content
             elif wiki_content and main_entry:
                 # Wiki page exists but no local file - append forum content to wiki
@@ -470,6 +696,11 @@ class ChangelogFetcher:
             else:
                 # No existing content - use forum as base
                 current_text = main_entry['text'] if main_entry else (self.changelogs.get(changelog_id, ''))
+
+            # IMPORTANT: Strip any existing wiki syntax from current_text.
+            # This repairs corrupted raw files from previous runs and ensures
+            # the formatter only applies wiki syntax exactly once.
+            current_text = _strip_wiki_syntax(current_text)
 
             old_text = local_content or wiki_content or ''
 
@@ -491,6 +722,8 @@ class ChangelogFetcher:
                 # Skip if this content is already in final_text
                 normalized_entry = re.sub(r'^- ', '* ', entry_text, flags=re.MULTILINE)
                 normalized_final = re.sub(r'^- ', '* ', final_text, flags=re.MULTILINE)
+                normalized_final = re.sub(r'\[\[(?:[^|\]]+\|)?([^\]]+)\]\]', r'\1', normalized_final)
+                normalized_final = re.sub(r'\{\{[^|]+\|([^}]+)\}\}', r'\1', normalized_final)
                 if normalized_entry not in normalized_final:
                     patch_num = get_next_patch_num(final_text)
                     final_text += f'\n\n=== Patch {patch_num} ===\n\n{entry_text}'
@@ -530,6 +763,7 @@ class ChangelogFetcher:
 
             self.changelog_configs[changelog_id] = {
                 'forum_id': forum_id,
+                'steam_gid': existing_config.get('steam_gid') if existing_config else None,
                 'date': date_key,
                 'link': link,
                 'is_hero_lab': False,
