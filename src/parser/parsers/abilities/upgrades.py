@@ -91,8 +91,10 @@ def parse_upgrades(ability: dict) -> dict:
                         if base_stat and 'm_subclassScaleFunction' in base_stat:
                             scale_func = base_stat['m_subclassScaleFunction']
                             scale_type = scale_func.get('m_eSpecificStatScaleType')
-                            if scale_type is None and 'tech' in scale_func.get('_class', ''):
-                                scale_type = 'ETechPower'
+                            if scale_type is None:
+                                class_str = scale_func.get('_class', '')
+                                if class_str:
+                                    scale_type = maps.class_to_scale_enum(class_str)
                     scale = {
                         'Value': entry['value'],
                         'Type': maps.get_scale_type(scale_type),
