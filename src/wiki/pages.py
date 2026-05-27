@@ -43,6 +43,7 @@ DATA_PAGE_FILE_MAP = {
     'StatInfoboxOrder.json': 'json/stat-infobox-order.json',
     'ResourceLookup.json': 'json/resource-lookup.json',
     'MidtownMetadata.json': 'json/midtown-metadata.json',
+    'MiscData.json': 'json/misc-data.json',
 }
 
 # Ignore these pages as they are not automated
