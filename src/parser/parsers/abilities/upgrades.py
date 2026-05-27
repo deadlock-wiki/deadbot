@@ -1,17 +1,19 @@
 from parser import maps
 from . import utils
 from utils import json_utils, num_utils
-from typing import TypedDict
+from typing import NotRequired, TypedDict
 
 
 class ScaleEntry(TypedDict):
     Value: int | float
     Type: str | None
+    Multiply: NotRequired[bool]
 
 
 class UpgradeWithScale(TypedDict):
     Value: int | float
     Scale: ScaleEntry | list[ScaleEntry]
+    Multiply: NotRequired[bool]
 
 
 ParsedUpgradeValue = int | float | UpgradeWithScale
@@ -95,7 +97,7 @@ def parse_upgrades(ability: dict) -> dict:
                                 class_str = scale_func.get('_class', '')
                                 if class_str:
                                     scale_type = maps.class_to_scale_enum(class_str)
-                    scale = {
+                    scale: ScaleEntry = {
                         'Value': entry['value'],
                         'Type': maps.get_scale_type(scale_type),
                     }
@@ -107,15 +109,23 @@ def parse_upgrades(ability: dict) -> dict:
                     raise Exception(f'Unhandled upgrade type {entry["upgrade_type"]}')
 
             if scales:
+                parsed_upgrade: ParsedUpgradeValue = {}
                 # if there are multiple scales for a prop, output as an array
                 if len(scales) > 1:
-                    parsed_upgrade_set[prop] = {'Value': base_value, 'Scale': scales}
+                    parsed_upgrade = {'Value': base_value, 'Scale': scales}
                 else:
-                    parsed_upgrade_set[prop] = {'Value': base_value, 'Scale': scales[0]}
+                    parsed_upgrade = {'Value': base_value, 'Scale': scales[0]}
+
                 if multiply_base:
-                    parsed_upgrade_set[prop]['Multiply'] = True
+                    parsed_upgrade['Multiply'] = True
+                    # convert the game's percentage increase to a simple multiplication
+                    # as this convention is used by multiply of scale upgrade
+                    # eg. 113 -> 1.13 + 1 = 2.13
+                    parsed_upgrade['Value'] = base_value / 100 + 1
             else:
-                parsed_upgrade_set[prop] = base_value
+                parsed_upgrade = base_value
+
+            parsed_upgrade_set[prop] = parsed_upgrade
 
         parsed_upgrade_sets.append(parsed_upgrade_set)
 
