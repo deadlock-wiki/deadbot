@@ -180,7 +180,7 @@ class ItemParser:
             if class_str:
                 human_type = maps.class_to_scale_type(class_str)
             if not human_type:
-                return None
+                human_type = maps.get_scale_type('ETechPower')
 
         try:
             base_value = num_utils.assert_number(base_value_str)
