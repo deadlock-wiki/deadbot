@@ -221,6 +221,8 @@ def class_to_scale_type(class_str: str) -> str | None:
             'weapon_damage': 'EWeaponDamageScale',
             'ability_charges': 'EMaxChargesIncrease',
             'ability_recharge_time': 'ETechCooldown',  # cooldown between charges
+            'healing_spirit_scale': 'ETechPower',
+            'healing_boon_scale': 'ELevelUpBoons',
         }
         enum_key = suffix_to_enum.get(suffix)
         if enum_key:
