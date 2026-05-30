@@ -172,14 +172,20 @@ class ItemParser:
             return None
 
         scale_type = scale_func.get('m_eSpecificStatScaleType')
-        human_type = get_scale_type(scale_type)
+        human_type = get_scale_type(scale_type) if scale_type else None
+
+        # Fallback to inferring from _class
         if not human_type:
-            return None
+            class_str = scale_func.get('_class', '')
+            if class_str:
+                human_type = maps.class_to_scale_type(class_str)
+            if not human_type:
+                human_type = maps.get_scale_type('ETechPower')
 
         try:
             base_value = num_utils.assert_number(base_value_str)
             scale_value = num_utils.assert_number(raw_scale_value)
-            if math.isnan(scale_value) or math.isinf(scale_value):
+            if math.isnan(scale_value) or math.isinf(scale_value) or scale_value == 0:
                 return None
         except (ValueError, TypeError):
             return None

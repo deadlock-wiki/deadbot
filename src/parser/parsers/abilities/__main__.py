@@ -76,14 +76,26 @@ class AbilityParser:
         Get scale data for the ability attribute, which will refer to how the value of the attribute
         scales with another stat, usually Spirit
         """
-        if 'm_subclassScaleFunction' in stat:
-            scale = stat['m_subclassScaleFunction']
-            # Only include scale with a value, as not sure what
-            # any others mean so far.
-            if 'm_flStatScale' in scale:
-                return {
-                    'Value': scale['m_flStatScale'],
-                    'Type': maps.get_scale_type(scale.get('m_eSpecificStatScaleType', 'ETechPower')),
-                }
+        if 'm_subclassScaleFunction' not in stat:
+            return
+        scale = stat['m_subclassScaleFunction']
+        if 'm_flStatScale' not in scale:
+            return
 
-        return
+        scale_type = scale.get('m_eSpecificStatScaleType')
+        human_type = None
+        if scale_type:
+            human_type = maps.get_scale_type(scale_type)
+        else:
+            # Fallback: infer from _class
+            class_str = scale.get('_class', '')
+            if class_str:
+                human_type = maps.class_to_scale_type(class_str)
+            if not human_type:
+                # Last resort: default to spirit
+                human_type = maps.get_scale_type('ETechPower')
+
+        return {
+            'Value': scale['m_flStatScale'],
+            'Type': human_type,
+        }
