@@ -4,6 +4,10 @@ import re
 _PREFIX_RE = re.compile(r'[A-Z]')
 _MODIFIER_VALUES_KEY = 'm_vecAutoRegisterModifierValueFromAbilityPropertyName'
 
+# Value prefixes shared by class/subclass names and state mask flags.
+# Checked longest-first so MODIFIER_STATE_ wins over MODIFIER_.
+_MODIFIER_NAME_PREFIXES = ('MODIFIER_STATE_', 'MODIFIER_')
+
 
 def parse_modifiers(ability: dict) -> dict:
     """Walk an ability and extract a nested modifier hierarchy.
@@ -14,13 +18,17 @@ def parse_modifiers(ability: dict) -> dict:
     m_AutoIntrinsicModifiers -> AutoIntrinsicModifiers).
 
     From each modifier node, copy:
-      - _class -> Class (verbatim, only if a non-empty string)
-      - _my_subclass_name -> Subclass (verbatim, only if a non-empty string)
+      - _class -> Class (PascalCased, e.g. modifier_uppercut_debuff ->
+        UppercutDebuff, only if a non-empty string)
+      - _my_subclass_name -> Subclass (PascalCased, only if a non-empty string)
       - m_vecAutoRegisterModifierValueFromAbilityPropertyName ->
         AutoRegisterModifierValueFromAbilityPropertyName (verbatim list of
         property names, only if non-empty).
       - direct int/float children -> key stripped of its lowercase prefix
         (e.g. m_flDuration -> Duration), value verbatim.
+      - state mask children (key contains 'StateMask') -> key stripped of its
+        prefix (e.g. EnabledStateMask), value split on '|' into a list of
+        PascalCased flags (e.g. MODIFIER_STATE_NO_WINDUP -> NoWindup).
       - nested modifier-named children, recursively (same recursion gate).
 
     Nodes that end up with no fields at all (only empty class etc.) are omitted.
@@ -33,6 +41,32 @@ def _strip_prefix(key: str) -> str:
     if match:
         return key[match.start() :]
     return key
+
+
+def _format_modifier_name(value: str) -> str:
+    """Strip a modifier_ / MODIFIER_STATE_ prefix and PascalCase the remainder.
+
+    Each '_'-delimited segment is capitalized (first letter up, rest down) and
+    the underscores are dropped, e.g.
+      MODIFIER_STATE_NO_WINDUP -> NoWindup
+      modifier_uppercut_debuff -> UppercutDebuff
+    """
+    text = value
+    for prefix in _MODIFIER_NAME_PREFIXES:
+        if text.lower().startswith(prefix.lower()):
+            text = text[len(prefix) :]
+            break
+    return ''.join(part.capitalize() for part in text.split('_') if part)
+
+
+def _parse_state_mask(value: str):
+    """Split a pipe-delimited state mask string into a list of PascalCased flags.
+
+    e.g. "MODIFIER_STATE_DISARMED | MODIFIER_STATE_NO_WINDUP" -> ['Disarmed', 'NoWindup'].
+    Returns None when no flags are present.
+    """
+    states = [_format_modifier_name(token.strip()) for token in value.split('|') if token.strip()]
+    return states or None
 
 
 def _parse_dict_modifiers(node: dict) -> dict:
@@ -66,10 +100,10 @@ def _parse_modifier_node(node: dict) -> dict | None:
 
     cls = node.get('_class')
     if isinstance(cls, str) and cls:
-        out['Class'] = cls
+        out['Class'] = _format_modifier_name(cls)
     subclass = node.get('_my_subclass_name')
     if isinstance(subclass, str) and subclass:
-        out['Subclass'] = subclass
+        out['Subclass'] = _format_modifier_name(subclass)
 
     auto_register = node.get(_MODIFIER_VALUES_KEY)
     if isinstance(auto_register, list) and auto_register:
@@ -82,6 +116,11 @@ def _parse_modifier_node(node: dict) -> dict | None:
             continue
         if isinstance(v, (int, float)):
             out[_strip_prefix(k)] = v
+            continue
+        if 'statemask' in k.lower() and isinstance(v, str):
+            states = _parse_state_mask(v)
+            if states is not None:
+                out[_strip_prefix(k)] = states
             continue
         if 'modifier' in k.lower():
             parsed = _parse_modifier_value(v)
