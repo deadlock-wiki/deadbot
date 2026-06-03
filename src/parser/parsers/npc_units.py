@@ -320,3 +320,33 @@ class NpcParser:
             resist_modifier = self.modifiers_data.get('modifier_citadel_trooper_in_enemy_base_resist')
             if resist_modifier:
                 parsed_data['EnemyBaseDamageReduction'] = resist_modifier.get('m_flDamageReductionForTroopers')
+
+        # Trooper Medic AOE Health Pickup (from misc_data)
+        if npc_key == 'trooper_medic':
+            pickup_data = self.misc_data.get('medic_trooper_aoe_health_pickup_amber')
+            if pickup_data:
+                pickup_radius = pickup_data.get('m_flPickupRadius', {})
+                expiration_duration = pickup_data.get('m_flPickupExpirationDuration', {})
+                regen_fixed = pickup_data.get('m_flRegenFixed', {})
+                heal_fixed = pickup_data.get('m_flHealFixed', {})
+                parsed_data['AOEHealthPickup'] = {
+                    'AOERadius': convert_engine_units_to_meters(pickup_data.get('m_flAOERadius')),
+                    'PickupRadiusBase': convert_engine_units_to_meters(pickup_radius.get('m_flBase')),
+                    'PickupRadiusScaling': convert_engine_units_to_meters(pickup_radius.get('m_flPerMinuteAfterStart')),
+                    'PickupRadiusMax': convert_engine_units_to_meters(pickup_radius.get('m_flMaxValue')),
+                    'PickupRadiusStartMinute': pickup_radius.get('m_flStartMinute'),
+                    'MissingPctRegen': pickup_data.get('m_flMissingPctRegen', {}).get('m_flBase'),
+                    'RegenFixed': regen_fixed.get('m_flBase'),
+                    'RegenFixedScaling': regen_fixed.get('m_flPerMinuteAfterStart'),
+                    'RegenDuration': pickup_data.get('m_flRegenDuration'),
+                    'RegenDurationTroopers': pickup_data.get('m_flRegenDurationTroopers'),
+                    'RegenTrooperMultiplier': pickup_data.get('m_flRegenTrooperMulti'),
+                    'RegenHPS': pickup_data.get('m_flRegenHPS'),
+                    'HealFixed': heal_fixed.get('m_flBase'),
+                    'HealFixedScaling': heal_fixed.get('m_flPerMinuteAfterStart'),
+                    'PickupExpirationDurationBase': expiration_duration.get('m_flBase'),
+                    'PickupExpirationDurationScaling': expiration_duration.get('m_flPerMinuteAfterStart'),
+                    'PickupExpirationDurationMax': expiration_duration.get('m_flMaxValue'),
+                    'PickupExpirationStartMinute': expiration_duration.get('m_flStartMinute'),
+                    'SameTeamOnly': pickup_data.get('m_bSameTeamOnly'),
+                }
