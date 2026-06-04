@@ -320,3 +320,31 @@ class NpcParser:
             resist_modifier = self.modifiers_data.get('modifier_citadel_trooper_in_enemy_base_resist')
             if resist_modifier:
                 parsed_data['EnemyBaseDamageReduction'] = resist_modifier.get('m_flDamageReductionForTroopers')
+
+        # Trooper Medic AOE Health Pickup (from misc_data)
+        if npc_key == 'trooper_medic':
+            pickup_data = self.misc_data.get('medic_trooper_aoe_health_pickup_amber')
+            if pickup_data:
+                parsed_data['AOEHealthPickup'] = {
+                    'AOERadius': convert_engine_units_to_meters(json_utils.deep_get(pickup_data, 'm_flAOERadius')),
+                    'PickupRadiusBase': convert_engine_units_to_meters(json_utils.deep_get(pickup_data, 'm_flPickupRadius', 'm_flBase')),
+                    'PickupRadiusScaling': convert_engine_units_to_meters(
+                        json_utils.deep_get(pickup_data, 'm_flPickupRadius', 'm_flPerMinuteAfterStart')
+                    ),
+                    'PickupRadiusMax': convert_engine_units_to_meters(json_utils.deep_get(pickup_data, 'm_flPickupRadius', 'm_flMaxValue')),
+                    'PickupRadiusStartMinute': json_utils.deep_get(pickup_data, 'm_flPickupRadius', 'm_flStartMinute'),
+                    'MissingPctRegen': json_utils.deep_get(pickup_data, 'm_flMissingPctRegen', 'm_flBase'),
+                    'RegenFixed': json_utils.deep_get(pickup_data, 'm_flRegenFixed', 'm_flBase'),
+                    'RegenFixedScaling': json_utils.deep_get(pickup_data, 'm_flRegenFixed', 'm_flPerMinuteAfterStart'),
+                    'RegenDuration': json_utils.deep_get(pickup_data, 'm_flRegenDuration'),
+                    'RegenDurationTroopers': json_utils.deep_get(pickup_data, 'm_flRegenDurationTroopers'),
+                    'RegenTrooperMultiplier': json_utils.deep_get(pickup_data, 'm_flRegenTrooperMulti'),
+                    'RegenHPS': json_utils.deep_get(pickup_data, 'm_flRegenHPS'),
+                    'HealFixed': json_utils.deep_get(pickup_data, 'm_flHealFixed', 'm_flBase'),
+                    'HealFixedScaling': json_utils.deep_get(pickup_data, 'm_flHealFixed', 'm_flPerMinuteAfterStart'),
+                    'PickupExpirationDurationBase': json_utils.deep_get(pickup_data, 'm_flPickupExpirationDuration', 'm_flBase'),
+                    'PickupExpirationDurationScaling': json_utils.deep_get(pickup_data, 'm_flPickupExpirationDuration', 'm_flPerMinuteAfterStart'),
+                    'PickupExpirationDurationMax': json_utils.deep_get(pickup_data, 'm_flPickupExpirationDuration', 'm_flMaxValue'),
+                    'PickupExpirationStartMinute': json_utils.deep_get(pickup_data, 'm_flPickupExpirationDuration', 'm_flStartMinute'),
+                    'SameTeamOnly': json_utils.deep_get(pickup_data, 'm_bSameTeamOnly'),
+                }

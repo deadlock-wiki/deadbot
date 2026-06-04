@@ -8,10 +8,10 @@ from dotenv import load_dotenv
 from steam.depot_downloader import DepotDownloader
 from utils import csv_writer
 from decompiler.decompiler import Decompiler
-import constants
 from changelogs import parse_changelogs, fetch_changelogs
 from parser import parser
-from utils.parameters import Args
+from utils.meta_utils import get_deadbot_version
+from utils.parameters import load_arguments, Args
 from utils.process import run_process
 from wiki.upload import WikiUpload
 
@@ -19,8 +19,7 @@ load_dotenv()
 
 
 def main():
-    # load arguments from constants file
-    args = constants.ARGS
+    args = load_arguments()
 
     # setup custom logger
     logger.remove(0)
@@ -31,11 +30,11 @@ def main():
         format='<white><dim>{time:YYYY-MM-DD HH:mm:ss.SSS} | </dim>' '</white><level>{level:<7} <dim>|</dim> <normal>{message}</normal></level>',
     )
 
+    logger.info(f'Running Deadbot v{get_deadbot_version()}')
     # import game files from steamdb github and localization + map files using depot downloader
     if args.import_files:
         logger.info('Importing game files...')
-        script_path = os.path.join(os.path.dirname(__file__), 'steam/steam_db_download_deadlock.sh')
-        run_process(script_path, name='download-deadlock-files')
+        run_process(['steam/steam_db_download_deadlock.sh', args.dldir], name='download-deadlock-files')
 
         # non-english localizations are imported using depot downloader
         localization_filelist_path = None
@@ -52,11 +51,10 @@ def main():
         else:
             logger.trace('! Skipping map download !')
 
-        if None not in (localization_filelist_path, misc_files):
+        if localization_filelist_path is not None or len(misc_files) != 0:
             depot_downloader = DepotDownloader(
                 output_dir=args.workdir,
                 deadlock_dir=args.dldir,
-                depot_downloader_cmd=args.depot_downloader_cmd,
                 steam_username=args.steam_username,
                 steam_password=args.steam_password,
             )
@@ -98,9 +96,7 @@ def main():
 
 
 def act_gamefile_parse(args: Args):
-    game_parser = parser.Parser(
-        args.workdir, args.output, args.dldir, english_only=args.english_only, parse_map=args.parse_map, entity_helper_cmd=args.entity_helper_cmd
-    )
+    game_parser = parser.Parser(args.workdir, args.output, args.dldir, english_only=args.english_only, parse_map=args.parse_map)
     game_parser.run()
     logger.trace('Exporting to CSV...')
     csv_writer.export_json_file_to_csv('item-data', args.output)
