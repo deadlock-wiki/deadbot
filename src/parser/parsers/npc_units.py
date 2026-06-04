@@ -325,28 +325,26 @@ class NpcParser:
         if npc_key == 'trooper_medic':
             pickup_data = self.misc_data.get('medic_trooper_aoe_health_pickup_amber')
             if pickup_data:
-                pickup_radius = pickup_data.get('m_flPickupRadius', {})
-                expiration_duration = pickup_data.get('m_flPickupExpirationDuration', {})
-                regen_fixed = pickup_data.get('m_flRegenFixed', {})
-                heal_fixed = pickup_data.get('m_flHealFixed', {})
                 parsed_data['AOEHealthPickup'] = {
-                    'AOERadius': convert_engine_units_to_meters(pickup_data.get('m_flAOERadius')),
-                    'PickupRadiusBase': convert_engine_units_to_meters(pickup_radius.get('m_flBase')),
-                    'PickupRadiusScaling': convert_engine_units_to_meters(pickup_radius.get('m_flPerMinuteAfterStart')),
-                    'PickupRadiusMax': convert_engine_units_to_meters(pickup_radius.get('m_flMaxValue')),
-                    'PickupRadiusStartMinute': pickup_radius.get('m_flStartMinute'),
-                    'MissingPctRegen': pickup_data.get('m_flMissingPctRegen', {}).get('m_flBase'),
-                    'RegenFixed': regen_fixed.get('m_flBase'),
-                    'RegenFixedScaling': regen_fixed.get('m_flPerMinuteAfterStart'),
-                    'RegenDuration': pickup_data.get('m_flRegenDuration'),
-                    'RegenDurationTroopers': pickup_data.get('m_flRegenDurationTroopers'),
-                    'RegenTrooperMultiplier': pickup_data.get('m_flRegenTrooperMulti'),
-                    'RegenHPS': pickup_data.get('m_flRegenHPS'),
-                    'HealFixed': heal_fixed.get('m_flBase'),
-                    'HealFixedScaling': heal_fixed.get('m_flPerMinuteAfterStart'),
-                    'PickupExpirationDurationBase': expiration_duration.get('m_flBase'),
-                    'PickupExpirationDurationScaling': expiration_duration.get('m_flPerMinuteAfterStart'),
-                    'PickupExpirationDurationMax': expiration_duration.get('m_flMaxValue'),
-                    'PickupExpirationStartMinute': expiration_duration.get('m_flStartMinute'),
-                    'SameTeamOnly': pickup_data.get('m_bSameTeamOnly'),
+                    'AOERadius': convert_engine_units_to_meters(json_utils.deep_get(pickup_data, 'm_flAOERadius')),
+                    'PickupRadiusBase': convert_engine_units_to_meters(json_utils.deep_get(pickup_data, 'm_flPickupRadius', 'm_flBase')),
+                    'PickupRadiusScaling': convert_engine_units_to_meters(
+                        json_utils.deep_get(pickup_data, 'm_flPickupRadius', 'm_flPerMinuteAfterStart')
+                    ),
+                    'PickupRadiusMax': convert_engine_units_to_meters(json_utils.deep_get(pickup_data, 'm_flPickupRadius', 'm_flMaxValue')),
+                    'PickupRadiusStartMinute': json_utils.deep_get(pickup_data, 'm_flPickupRadius', 'm_flStartMinute'),
+                    'MissingPctRegen': json_utils.deep_get(pickup_data, 'm_flMissingPctRegen', 'm_flBase'),
+                    'RegenFixed': json_utils.deep_get(pickup_data, 'm_flRegenFixed', 'm_flBase'),
+                    'RegenFixedScaling': json_utils.deep_get(pickup_data, 'm_flRegenFixed', 'm_flPerMinuteAfterStart'),
+                    'RegenDuration': json_utils.deep_get(pickup_data, 'm_flRegenDuration'),
+                    'RegenDurationTroopers': json_utils.deep_get(pickup_data, 'm_flRegenDurationTroopers'),
+                    'RegenTrooperMultiplier': json_utils.deep_get(pickup_data, 'm_flRegenTrooperMulti'),
+                    'RegenHPS': json_utils.deep_get(pickup_data, 'm_flRegenHPS'),
+                    'HealFixed': json_utils.deep_get(pickup_data, 'm_flHealFixed', 'm_flBase'),
+                    'HealFixedScaling': json_utils.deep_get(pickup_data, 'm_flHealFixed', 'm_flPerMinuteAfterStart'),
+                    'PickupExpirationDurationBase': json_utils.deep_get(pickup_data, 'm_flPickupExpirationDuration', 'm_flBase'),
+                    'PickupExpirationDurationScaling': json_utils.deep_get(pickup_data, 'm_flPickupExpirationDuration', 'm_flPerMinuteAfterStart'),
+                    'PickupExpirationDurationMax': json_utils.deep_get(pickup_data, 'm_flPickupExpirationDuration', 'm_flMaxValue'),
+                    'PickupExpirationStartMinute': json_utils.deep_get(pickup_data, 'm_flPickupExpirationDuration', 'm_flStartMinute'),
+                    'SameTeamOnly': json_utils.deep_get(pickup_data, 'm_bSameTeamOnly'),
                 }
