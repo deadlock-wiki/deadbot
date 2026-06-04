@@ -275,14 +275,13 @@ jobs:
           docker run --rm \
             -v ${{ github.workspace }}/dist:/repo/dist \
             -v ${{ github.workspace }}/.nuitka-cache:/root/.cache/Nuitka \
-            --cpus=$(nproc) \
             --entrypoint bash \
             ${{ steps.build-and-push.outputs.imageid }} \
             -c "poetry run nuitka ./src/deadbot.py \
                 --onefile \
                 --output-dir=/repo/dist \
                 --jobs=$(nproc) \
-                --lto=yes \
+                --lto=no \
                 --python-flag=no_site,no_warnings \
                 --include-data-dir=./src/parser/parsers/game_map/assets=parser/parsers/game_map/assets \
                 --include-data-dir=./src/tools=tools \
