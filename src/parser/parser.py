@@ -30,7 +30,6 @@ class Parser:
         language='english',
         english_only=False,
         parse_map=False,
-        entity_helper_cmd=None,
     ):
         # constants
         self.OUTPUT_DIR = output_dir
@@ -43,7 +42,6 @@ class Parser:
         self.data = {'scripts': {}}
         self.localization_groups = self._get_localization_groups()
         self.parse_map = parse_map
-        self.entity_helper_cmd = entity_helper_cmd
 
         if english_only:
             self.languages = ['english']
@@ -85,7 +83,8 @@ class Parser:
             if file_name.endswith('.json'):
                 # path/to/scripts/abilities.json -> abilities
                 key = file_name.split('.')[0].split('/')[-1]
-                self.data['scripts'][key] = json_utils.read(os.path.join(self.DATA_DIR, scripts_path, file_name))
+                raw = json_utils.read(os.path.join(self.DATA_DIR, scripts_path, file_name))
+                self.data['scripts'][key] = json_utils.wrap_case_insensitive(raw)
 
     def _load_localizations(self):
         """
@@ -137,7 +136,6 @@ class Parser:
 
     def run(self):
         logger.trace('Parsing...')
-        os.system(f'cp "{self.DATA_DIR}/version.txt" "{self.OUTPUT_DIR}/version.txt"')
         parsed_abilities = self._parse_abilities()
         parsed_heroes = self._parse_heroes(parsed_abilities)
         self._parsed_ability_cards(parsed_heroes)
@@ -291,16 +289,14 @@ class Parser:
         if self.parse_map:
             logger.trace('Parsing Map...')
             map_vpk = os.path.join(self.game_dir, 'game/citadel/maps/dl_midtown.vpk')
-            map_data = game_map.GameMapParser(self.entity_helper_cmd, map_vpk).run()
+            map_data = game_map.GameMapParser(map_vpk).run()
 
             json_utils.write(os.path.join(self.OUTPUT_DIR, 'json/midtown-metadata.json'), map_data['midtown']['metadata'])
 
             os.makedirs(os.path.join(self.OUTPUT_DIR, 'assets'), exist_ok=True)
-            map_data['midtown']['plots']['golden_statues'].savefig(
-                os.path.join(self.OUTPUT_DIR, 'assets/golden-statues-map.png'), bbox_inches='tight', pad_inches=0
-            )
-            map_data['midtown']['plots']['crate'].savefig(os.path.join(self.OUTPUT_DIR, 'assets/crate-map.png'), bbox_inches='tight', pad_inches=0)
-            map_data['midtown']['plots']['shops'].savefig(os.path.join(self.OUTPUT_DIR, 'assets/shops-map.png'), bbox_inches='tight', pad_inches=0)
+            map_data['midtown']['plots']['golden_statues'].save(os.path.join(self.OUTPUT_DIR, 'assets/golden-statues-map.png'))
+            map_data['midtown']['plots']['crate'].save(os.path.join(self.OUTPUT_DIR, 'assets/crate-map.png'))
+            map_data['midtown']['plots']['shops'].save(os.path.join(self.OUTPUT_DIR, 'assets/shops-map.png'))
 
     def _generate_resource_lookup(self, parsed_heroes, parsed_abilities, parsed_items):
         logger.trace('Generating resource lookup...')

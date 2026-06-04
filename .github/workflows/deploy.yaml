@@ -164,7 +164,7 @@ jobs:
           PARSE_MAP: true
           DECOMPILE: true
           PARSE: true
-          CHANGELOGS: true
+          CHANGELOGS: false
           CLEANUP: false
           WIKI_UPLOAD: ${{ needs.get-branch.outputs.branch == 'master' }}
           STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}

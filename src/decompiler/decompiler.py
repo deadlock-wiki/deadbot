@@ -37,7 +37,7 @@ class Decompiler:
         self._import_localization_data()
 
         # Save version information to prevent unnecessary future decompiles
-        os.system(f'cp "{steam_inf_path}" "{version_path}"')
+        shutil.copy(steam_inf_path, version_path)
 
     def _import_game_data(self):
         """

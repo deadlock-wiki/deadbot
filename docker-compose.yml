@@ -2,6 +2,7 @@ services:
   deadbot:
     image: deadbot:latest
     build:
+      target: runtime
       context: .
       dockerfile: ./Dockerfile
     environment:
