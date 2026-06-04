@@ -87,6 +87,10 @@ def remove_letters(input_string):
     return re.sub(r'[^0-9.\-]', '', input_string)
 
 
+def is_truthy(value):
+    return value in (True, 'true', 'True', 'TRUE', 't', 'T', 1)
+
+
 def remove_prefix(str, prefix):
     """
     Attempt to remove a given prefix from a str
