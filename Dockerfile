@@ -32,7 +32,7 @@ RUN poetry install --no-root --no-cache --only main
 
 # Build image includes nuitka for creating the binary
 FROM base AS build
-RUN poetry install --no-root --no-cache --only main --with build 
+RUN poetry install --no-root --no-cache --only main --only build 
 
 COPY . .
 RUN dos2unix /repo/src/steam/steam_db_download_deadlock.sh && \
