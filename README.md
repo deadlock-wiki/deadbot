@@ -35,7 +35,7 @@ The data flow is as follows:
 The recommended way to use Deadbot is by downloading the pre-built executable. This method does not require Python, Poetry, or any other development tools.
 
 1.  **Download the executable** for your operating system from the [**latest release**](https://github.com/deadlock-wiki/deadbot/releases/latest).
-2.  (On macOS/Linux) May need to make the file executable: `chmod +x ./deadbot.bin.bin`
+2.  (On macOS/Linux) May need to make the file executable: `chmod +x ./deadbot.bin`
 3.  Run commands from your terminal
 
     ```sh
@@ -114,7 +114,8 @@ poetry run deadbot --import_files --parse
 | Section          | Argument                                      | Description                                                                                                                             | Environment Var        |
 | ---------------- | --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
 | **General**      | `-h, --help`                                  | Show help message and exit.                                                                                                             |                        |
-|                  | `-g, --dldir DLDIR`                           | Directory of Deadlock game files.                                                                                                       | `DEADLOCK_DIR`
+|                  | `--version`                                   | Show Deadbot version number and exit.                                                                                                   |                        |
+|                  | `-g, --dldir DLDIR`                           | Directory of Deadlock game files.                                                                                                       | `DEADLOCK_DIR`         |
 |                  | `-w, --workdir WORKDIR`                       | Directory for temporary working files.                                                                                                  | `WORK_DIR`             |
 |                  | `-n, --inputdir INPUTDIR`                     | Input directory for changelogs and wiki pages.                                                                                          | `INPUT_DIR`            |
 |                  | `-o, --output OUTPUT`                         | Output directory for generated files.                                                                                                   | `OUTPUT_DIR`           |

@@ -65,6 +65,13 @@ class GameMapParser:
         }
 
     def _midtown_golden_statues_plot(self, statues_data: list[_BreakablesData]) -> Image.Image:
+        """
+        Generate a plot of the midtown golden statues
+        Args:
+            statues_data: The data for the golden statues from DeadlockEntityHelper
+        Returns:
+            The plot of the midtown golden statues
+        """
         glitched_statues = [[-704, -2320.0002, 704], [704, 2320.0002, 704], [3647.9998, 1440.0004, 1048.0]]
         x_coords, y_coords, colors = [], [], []
         for entry in statues_data:
@@ -88,6 +95,13 @@ class GameMapParser:
         return self._create_circle_plot(x_coords, y_coords, colors, legend)
 
     def _midtown_crate_plot(self, crates_data: list[_BreakablesData]) -> Image.Image:
+        """
+        Generate a plot of the midtown crates
+        Args:
+            crates_data: The data for the crates from DeadlockEntityHelper
+        Returns:
+            The plot of the midtown crates
+        """
         glitched_crates = [[-7158.9175, -6115.6543, 640]]
         x_coords, y_coords, colors = [], [], []
         for entry in crates_data:
@@ -137,6 +151,16 @@ class GameMapParser:
         colors: list[str],
         legend: list[tuple[str, str]],
     ) -> Image.Image:
+        """
+        Plots the given coordinates onto the midtown map
+        Parameters:
+            x_coords: The x coordinates of the points to plot
+            y_coords: The y coordinates of the points to plot
+            colors: A list of colors for the points. If `None`, markers should be provided
+            legend: A list of label and color pairs to display in the plot's legend
+        Returns:
+            The generated plot
+        """
         base_map = os.path.join(os.path.dirname(__file__), 'assets/minimap_midtown_mid_opaque.png')
         plotter = MapPlotter(base_map)
         plotter.place_circle_markers(x_coords, y_coords, colors, diameter=10)
@@ -150,6 +174,16 @@ class GameMapParser:
         image_paths: list[str],
         legend: list[tuple[str, str]],
     ) -> Image.Image:
+        """
+        Plots the given images onto the midtown map
+        Parameters:
+            x_coords: The x coordinates of the points to plot
+            y_coords: The y coordinates of the points to plot
+            image_paths: List of image paths to read and plot
+            legend: A list of label and colour pairs to display in the plot's legend
+        Returns:
+            The generated plot
+        """
         base_map = os.path.join(os.path.dirname(__file__), 'assets/minimap_midtown_mid_opaque.png')
         plotter = MapPlotter(base_map)
         plotter.place_image_markers(x_coords, y_coords, image_paths, size=0.035)

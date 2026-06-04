@@ -28,10 +28,6 @@ nuitka = "^4.0.5"
 ruff = "^0.6.2"
 pre-commit = "^3.8.0"
 
-[tool.nuitka]
-include-data-files = ["src/steam/steam_db_download_deadlock.sh=steam/steam_db_download_deadlock.sh"]
-include-module = ["_json", "_bisect", "pydantic"]
-
 [tool.ruff]
 line-length = 150
 
