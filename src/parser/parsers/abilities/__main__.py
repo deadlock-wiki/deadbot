@@ -3,6 +3,7 @@ from . import utils
 import utils.json_utils as json_utils
 import utils.num_utils as num_utils
 from .upgrades import parse_upgrades
+from .modifiers import parse_modifiers
 from loguru import logger
 
 
@@ -54,10 +55,8 @@ class AbilityParser:
             else:
                 ability_data[key] = value
 
-        if 'm_vecAbilityUpgrades' in ability:
-            ability_data['Upgrades'] = parse_upgrades(ability)
-        else:
-            ability_data['Upgrades'] = []
+        ability_data.update(parse_upgrades(ability))
+        ability_data.update(parse_modifiers(ability))
 
         formatted_ability_data = {}
         for attr_key, attr_value in ability_data.items():
@@ -82,14 +81,26 @@ class AbilityParser:
         Get scale data for the ability attribute, which will refer to how the value of the attribute
         scales with another stat, usually Spirit
         """
-        if 'm_subclassScaleFunction' in stat:
-            scale = stat['m_subclassScaleFunction']
-            # Only include scale with a value, as not sure what
-            # any others mean so far.
-            if 'm_flStatScale' in scale:
-                return {
-                    'Value': scale['m_flStatScale'],
-                    'Type': maps.get_scale_type(scale.get('m_eSpecificStatScaleType', 'ETechPower')),
-                }
+        if 'm_subclassScaleFunction' not in stat:
+            return
+        scale = stat['m_subclassScaleFunction']
+        if 'm_flStatScale' not in scale:
+            return
 
-        return
+        scale_type = scale.get('m_eSpecificStatScaleType')
+        human_type = None
+        if scale_type:
+            human_type = maps.get_scale_type(scale_type)
+        else:
+            # Fallback: infer from _class
+            class_str = scale.get('_class', '')
+            if class_str:
+                human_type = maps.class_to_scale_type(class_str)
+            if not human_type:
+                # Last resort: default to spirit
+                human_type = maps.get_scale_type('ETechPower')
+
+        return {
+            'Value': scale['m_flStatScale'],
+            'Type': human_type,
+        }

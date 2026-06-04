@@ -75,6 +75,7 @@ class ItemParser:
             'ShopFilters': shop_filters,
             'IsDisabled': self._is_disabled(item_value),
             'StreetBrawl': is_street_brawl,
+            'IsImbue': self._is_imbue(item_value),
         }
 
         # Process attributes and extract scaling information
@@ -171,14 +172,20 @@ class ItemParser:
             return None
 
         scale_type = scale_func.get('m_eSpecificStatScaleType')
-        human_type = get_scale_type(scale_type)
+        human_type = get_scale_type(scale_type) if scale_type else None
+
+        # Fallback to inferring from _class
         if not human_type:
-            return None
+            class_str = scale_func.get('_class', '')
+            if class_str:
+                human_type = maps.class_to_scale_type(class_str)
+            if not human_type:
+                human_type = maps.get_scale_type('ETechPower')
 
         try:
             base_value = num_utils.assert_number(base_value_str)
             scale_value = num_utils.assert_number(raw_scale_value)
-            if math.isnan(scale_value) or math.isinf(scale_value):
+            if math.isnan(scale_value) or math.isinf(scale_value) or scale_value == 0:
                 return None
         except (ValueError, TypeError):
             return None
@@ -197,6 +204,16 @@ class ItemParser:
             else:
                 raise ValueError(f'New unexpected value for m_bDisabled: {flag}')
         return is_disabled
+
+    def _is_imbue(self, item_value):
+        effects = item_value.get('m_TargetAbilityEffectsToApply')
+
+        if not effects:
+            return False
+
+        parsed_effects = self._format_pipe_sep_string(effects, lambda x: x)
+
+        return any(effect in maps.get_imbue_tags() for effect in parsed_effects)
 
     def _add_children_to_tree(self, parent_key, child_keys):
         """Add items to mermaid tree"""

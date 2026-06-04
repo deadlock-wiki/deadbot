@@ -14,6 +14,7 @@ from .parsers import (
     generics,
     npc_units,
     game_map,
+    misc,
 )
 from utils import json_utils
 from loguru import logger
@@ -146,6 +147,7 @@ class Parser:
         self._parse_localizations()
         self._parse_soul_unlocks()
         self._parse_generics()
+        self._parse_misc()
         self._parse_map()
         logger.trace('Done parsing')
 
@@ -307,3 +309,9 @@ class Parser:
         ).run()
 
         json_utils.write(self.OUTPUT_DIR + '/json/resource-lookup.json', lookup)
+
+    def _parse_misc(self):
+        logger.trace('Parsing Misc...')
+        parsed_misc = misc.MiscParser(self.data['scripts']['misc']).run()
+
+        json_utils.write(self.OUTPUT_DIR + '/json/misc-data.json', json_utils.sort_dict(parsed_misc))

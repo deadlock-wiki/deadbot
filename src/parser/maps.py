@@ -132,16 +132,18 @@ def get_attr_manual_map():
 
 
 LEVEL_MOD_MAP = {
-    'MODIFIER_VALUE_BASE_BULLET_DAMAGE_FROM_LEVEL': 'BulletDamage',
     'MODIFIER_VALUE_BASE_BULLET_DAMAGE_FROM_LEVEL_ALT_FIRE': 'BulletDamageAltFire',
-    'MODIFIER_VALUE_BASE_MELEE_DAMAGE_FROM_LEVEL': 'MeleeDamage',
+    'MODIFIER_VALUE_BASE_BULLET_DAMAGE_FROM_LEVEL': 'BulletDamage',
     'MODIFIER_VALUE_BASE_HEALTH_FROM_LEVEL': 'MaxHealth',
-    'MODIFIER_VALUE_TECH_DAMAGE_PERCENT': 'TechDamagePerc',
-    'MODIFIER_VALUE_TECH_ARMOR_DAMAGE_RESIST': 'TechResist',
-    'MODIFIER_VALUE_BULLET_ARMOR_DAMAGE_RESIST': 'BulletResist',
+    'MODIFIER_VALUE_BASE_MELEE_DAMAGE_FROM_LEVEL': 'MeleeDamage',
     'MODIFIER_VALUE_BONUS_ATTACK_RANGE': 'BonusAttackRange',
     'MODIFIER_VALUE_BOON_COUNT': 'PowerIncreases',
+    'MODIFIER_VALUE_BULLET_ARMOR_DAMAGE_RESIST': 'BulletResist',
+    'MODIFIER_VALUE_TECH_ARMOR_DAMAGE_RESIST': 'TechResist',
+    'MODIFIER_VALUE_TECH_DAMAGE_MULTIPLIER': 'TechDamagePerc',
+    'MODIFIER_VALUE_TECH_DAMAGE_PERCENT': 'TechDamagePerc',
     'MODIFIER_VALUE_TECH_POWER': 'TechPower',
+    'MODIFIER_VALUE_TECH_RESIST': 'TechResist',
 }
 
 
@@ -161,6 +163,8 @@ def get_bound_abilities(value):
 
 
 LOCALIZATION_OVERRIDE_MAP = {
+    'AbilitYCharges': 'AbilityCharges',
+    'ArcaneSurgeWindow': 'AbilityDuration',
     'MaxChargeDuration': 'SpeedBoostDuration',
     'MinDPS': 'MinDps',
 }
@@ -199,6 +203,54 @@ SCALE_TYPE_MAP = {
 }
 
 
+def class_to_scale_type(class_str: str) -> str | None:
+    """
+    Infer the human-readable scale type from a _class string.
+    Returns a value like 'spirit', 'range', 'duration', 'cooldown', etc.
+    """
+    if not class_str:
+        return None
+
+    # Pattern 1: scale_function_<suffix>
+    if class_str.startswith('scale_function_'):
+        suffix = class_str[len('scale_function_') :]
+        # Map suffix to SCALE_TYPE_MAP key, then to human type
+        suffix_to_enum = {
+            'tech_damage': 'ETechPower',
+            'tech_range': 'ETechRange',
+            'tech_duration': 'ETechDuration',
+            'tech_cooldown': 'ETechCooldown',
+            'weapon_damage': 'EWeaponDamageScale',
+            'ability_charges': 'EMaxChargesIncrease',
+            'ability_recharge_time': 'ETechCooldown',  # cooldown between charges
+            'healing_spirit_scale': 'ETechPower',
+            'healing_boon_scale': 'ELevelUpBoons',
+        }
+        enum_key = suffix_to_enum.get(suffix)
+        if enum_key:
+            return SCALE_TYPE_MAP.get(enum_key)
+
+    # Pattern 2: C<Name>ScaleFunction (e.g., CTechPowerScaleFunction)
+    elif class_str.startswith('C') and class_str.endswith('ScaleFunction'):
+        middle = class_str[1 : -len('ScaleFunction')]  # e.g., 'TechPower'
+        enum_key = 'E' + middle
+        return SCALE_TYPE_MAP.get(enum_key)
+
+    return None
+
+
+def class_to_scale_enum(class_str: str) -> str | None:
+    """Return the enum key (e.g., 'ETechRange') from a _class string."""
+    human_type = class_to_scale_type(class_str)
+    if not human_type:
+        return None
+    # Reverse lookup in SCALE_TYPE_MAP
+    for enum_key, human in SCALE_TYPE_MAP.items():
+        if human == human_type:
+            return enum_key
+    return None
+
+
 def get_scale_type(scale):
     if scale is None:
         return scale
@@ -224,3 +276,14 @@ def get_section_type(value):
         raise Exception(f'{value} is not a valid item tooltip section type')
 
     return SECTION_TYPE_MAP[value]
+
+
+IMBUE_TAGS = {
+    'CITADEL_TARGET_ABILITY_BEHAVIOR_IMBUE_ACTIVE',
+    'CITADEL_TARGET_ABILITY_BEHAVIOR_IMBUE_MODIFIER_VALUE',
+    'CITADEL_TARGET_ABILITY_BEHAVIOR_IMBUE_ACTIVE_NON_ULT',
+}
+
+
+def get_imbue_tags():
+    return IMBUE_TAGS

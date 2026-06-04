@@ -1,6 +1,7 @@
 import copy
 import parser.maps as maps
 import utils.json_utils as json_utils
+from utils import num_utils
 from utils.num_utils import round_sig_figs
 from . import weapon_parser
 
@@ -67,9 +68,10 @@ class HeroParser:
                 hero_stats['SpiritScaling'] = self._parse_spirit_scaling(hero_value)
 
                 # Parse weapon data and nest it under a 'Weapon' key
-                weapon_data = self._parse_hero_weapon(hero_value, hero_key)
+                weapon_data, gravity_stats = self._parse_hero_weapon(hero_value, hero_key)
                 if weapon_data:
                     hero_stats['Weapon'] = weapon_data
+                hero_stats.update(gravity_stats)
 
                 # Lore, Playstyle, and Role keys from localization
                 for key in ['Lore', 'Playstyle', 'Role']:
@@ -86,6 +88,12 @@ class HeroParser:
                     hero_stats['LevelScaling'] = {}
                     for key in level_scalings:
                         hero_stats['LevelScaling'][maps.get_level_mod(key)] = level_scalings[key]
+
+                    # Convert BonusAttackRange from engine units (inches) to meters
+                    if 'BonusAttackRange' in hero_stats['LevelScaling']:
+                        hero_stats['LevelScaling']['BonusAttackRange'] = num_utils.convert_engine_units_to_meters(
+                            hero_stats['LevelScaling']['BonusAttackRange'], sigfigs=3
+                        )
 
                     # Spread the MeleeDamage level scaling into Light and Heavy, using H/L ratio
                     if 'MeleeDamage' in hero_stats['LevelScaling']:
@@ -247,6 +255,7 @@ class HeroParser:
 
         # Primary weapon
         primary_slot = 'ESlot_Weapon_Primary'
+        primary_ability_data = None
         if primary_slot in bound_abilities:
             weapon_prim_id = bound_abilities[primary_slot]
             if weapon_prim_id in self.abilities_data and 'm_WeaponInfo' in self.abilities_data[weapon_prim_id]:
@@ -297,7 +306,47 @@ class HeroParser:
             types = shop_ui_weapon_stats['m_eWeaponAttributes'].split(' | ')
             weapon_stats['WeaponTypes'] = ['Attribute_' + wtype for wtype in types]
 
-        return weapon_stats
+        # Extract gravity stats from the primary weapon ability
+        # Some heroes define gravity/air-control modifiers on their weapon ability
+        # rather than in the hero data file; promote them to top-level hero stats
+        gravity_stats = self._extract_gravity_stats(primary_ability_data)
+
+        return weapon_stats, gravity_stats
+
+    def _extract_gravity_stats(self, weapon_ability):
+        """Extract gravity-related stats from a hero's primary weapon ability.
+
+        Some heroes have gravity and air control modifiers defined in their weapon
+        ability's m_mapAbilityProperties and m_AutoIntrinsicModifiers rather than
+        in the hero data file. This extracts those stats so they can be exported
+        at the hero level alongside other hero stats.
+        """
+        gravity_stats = {}
+
+        if not weapon_ability:
+            return gravity_stats
+
+        # Extract AirControlPercent and AirControlAccelPercent from m_mapAbilityProperties
+        ability_props = weapon_ability.get('m_mapAbilityProperties', {})
+
+        air_control = ability_props.get('AirControlPercent')
+        if air_control and 'm_strValue' in air_control:
+            gravity_stats['AirControlPercent'] = num_utils.assert_number(air_control['m_strValue'])
+
+        air_control_accel = ability_props.get('AirControlAccelPercent')
+        if air_control_accel and 'm_strValue' in air_control_accel:
+            gravity_stats['AirControlAccelPercent'] = num_utils.assert_number(air_control_accel['m_strValue'])
+
+        # Extract GravityChange from modifier_hero_gravity in m_AutoIntrinsicModifiers
+        intrinsic_modifiers = weapon_ability.get('m_AutoIntrinsicModifiers', [])
+        if isinstance(intrinsic_modifiers, list):
+            for modifier in intrinsic_modifiers:
+                if isinstance(modifier, dict) and modifier.get('_class') == 'modifier_hero_gravity':
+                    if 'm_flGravityChange' in modifier:
+                        gravity_stats['GravityChange'] = modifier['m_flGravityChange']
+                    break
+
+        return gravity_stats
 
     def _calc_dps_scaling(self, dps_stats_, scalings, type='burst'):
         """

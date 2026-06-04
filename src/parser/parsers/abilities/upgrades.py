@@ -1,17 +1,19 @@
 from parser import maps
 from . import utils
 from utils import json_utils, num_utils
-from typing import TypedDict
+from typing import NotRequired, TypedDict
 
 
 class ScaleEntry(TypedDict):
     Value: int | float
     Type: str | None
+    Multiply: NotRequired[bool]
 
 
 class UpgradeWithScale(TypedDict):
     Value: int | float
     Scale: ScaleEntry | list[ScaleEntry]
+    Multiply: NotRequired[bool]
 
 
 ParsedUpgradeValue = int | float | UpgradeWithScale
@@ -27,7 +29,13 @@ class RawUpgrade(TypedDict):
     scale_type: str | None
 
 
-def parse_upgrades(ability):
+BASE_UPGRADE_TYPES = [None, 'EAddToBase', 'EMultiplyBase']
+SCALE_UPGRADE_TYPES = ['EAddToScale', 'EMultiplyScale']
+
+
+def parse_upgrades(ability: dict) -> dict:
+    if 'm_vecAbilityUpgrades' not in ability:
+        return {'Upgrades': []}
     upgrade_sets = ability['m_vecAbilityUpgrades']
     parsed_upgrade_sets = []
 
@@ -40,6 +48,8 @@ def parse_upgrades(ability):
         raw_upgrades: list[RawUpgrade] = []
         for upgrade in upgrades:
             prop = upgrade.get('m_strPropertyName')
+            if prop is None:
+                prop = upgrade.get('m_StrPropertyNAme')  # known typo
             raw_value = upgrade.get('m_strBonus')
             upgrade_type = upgrade.get('m_eUpgradeType')
             scale_type = upgrade.get('m_eScaleStatFilter')
@@ -69,35 +79,54 @@ def parse_upgrades(ability):
         for prop, entries in upgrades_by_prop.items():
             base_value: int | float = 0
             scales: list[ScaleEntry] = []
+            multiply_base: bool = False
 
             for entry in entries:
-                if entry['upgrade_type'] in ['EAddToBase', None]:
+                upgrade_type = entry['upgrade_type']
+                if upgrade_type in BASE_UPGRADE_TYPES:
                     base_value = entry['value']
-                elif entry['upgrade_type'] in ['EAddToScale', 'EMultiplyScale']:
+                    multiply_base = upgrade_type == 'EMultiplyBase'
+                elif upgrade_type in SCALE_UPGRADE_TYPES:
                     scale_type = entry['scale_type']
                     if scale_type is None:
                         base_stat = json_utils.deep_get(ability, 'm_mapAbilityProperties', prop)
                         if base_stat and 'm_subclassScaleFunction' in base_stat:
                             scale_func = base_stat['m_subclassScaleFunction']
                             scale_type = scale_func.get('m_eSpecificStatScaleType')
-                            if scale_type is None and 'tech' in scale_func.get('_class', ''):
-                                scale_type = 'ETechPower'
-                    scales.append(
-                        {
-                            'Value': entry['value'],
-                            'Type': maps.get_scale_type(scale_type),
-                        }
-                    )
+                            if scale_type is None:
+                                class_str = scale_func.get('_class', '')
+                                if class_str:
+                                    scale_type = maps.class_to_scale_enum(class_str)
+                    scale: ScaleEntry = {
+                        'Value': entry['value'],
+                        'Type': maps.get_scale_type(scale_type),
+                    }
+                    if upgrade_type == 'EMultiplyScale':
+                        scale['Multiply'] = True
+
+                    scales.append(scale)
+                else:
+                    raise Exception(f'Unhandled upgrade type {entry["upgrade_type"]}')
 
             if scales:
+                parsed_upgrade: ParsedUpgradeValue = {}
                 # if there are multiple scales for a prop, output as an array
                 if len(scales) > 1:
-                    parsed_upgrade_set[prop] = {'Value': base_value, 'Scale': scales}
+                    parsed_upgrade = {'Value': base_value, 'Scale': scales}
                 else:
-                    parsed_upgrade_set[prop] = {'Value': base_value, 'Scale': scales[0]}
+                    parsed_upgrade = {'Value': base_value, 'Scale': scales[0]}
+
+                if multiply_base:
+                    parsed_upgrade['Multiply'] = True
+                    # convert the game's percentage increase to a simple multiplication
+                    # as this convention is used by multiply of scale upgrade
+                    # eg. 113 -> 1.13 + 1 = 2.13
+                    parsed_upgrade['Value'] = base_value / 100 + 1
             else:
-                parsed_upgrade_set[prop] = base_value
+                parsed_upgrade = base_value
+
+            parsed_upgrade_set[prop] = parsed_upgrade
 
         parsed_upgrade_sets.append(parsed_upgrade_set)
 
-    return parsed_upgrade_sets
+    return {'Upgrades': parsed_upgrade_sets}
