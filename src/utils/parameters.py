@@ -7,6 +7,7 @@ from utils.string_utils import is_truthy
 
 load_dotenv()
 
+
 ARG_PARSER = argparse.ArgumentParser(
     prog='Deadbot',
     description='Bot that lives to serve deadlock.wiki',
@@ -181,3 +182,6 @@ def load_arguments() -> Args:
     arg_group_action(ARG_PARSER)
 
     return ARG_PARSER.parse_args()
+
+
+ARGS = load_arguments()

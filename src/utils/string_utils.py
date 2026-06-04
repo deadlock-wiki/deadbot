@@ -4,7 +4,7 @@ import re
 
 from loguru import logger
 
-from utils import num_utils
+from utils import json_utils, num_utils
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import parser.maps as maps
@@ -24,7 +24,7 @@ def format_description(description, *data_sets):
         "<span class=\"highlight\">+{s:AbilityCastRange}m</span> Cast Range and gain <span class=\"highlight\">+{s:WeaponDamageBonus}</span> Weapon Damage for {s:WeaponDamageBonusDuration}s"
     ->  "+7 Weapon Damage for 10s after teleporting with Flying Cloak"
     """  # noqa: E501
-    data = {}
+    data = json_utils.CaseInsensitiveDict()
     for data_set in data_sets:
         data.update(data_set)
 
@@ -87,17 +87,8 @@ def remove_letters(input_string):
     return re.sub(r'[^0-9.\-]', '', input_string)
 
 
-def is_truthy(string):
-    TRUE_THO = [
-        True,
-        'true',
-        'True',
-        'TRUE',
-        't',
-        'T',
-        1,
-    ]
-    return string in TRUE_THO
+def is_truthy(value):
+    return value in (True, 'true', 'True', 'TRUE', 't', 'T', 1)
 
 
 def remove_prefix(str, prefix):
