@@ -5,7 +5,7 @@ PROJECT_FILE="pyproject.toml"
 VERSION_FILE="./src/_version.py"
 BRANCH="${GITHUB_HEAD_REF#refs/heads/}"
 # lowercase branch for matching
-BRANCH_NAME=release/v1.2.3
+BRANCH_NAME=${BRANCH,,}
 
 git fetch origin master
 
