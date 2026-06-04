@@ -21,11 +21,11 @@ jobs:
     permissions:
       contents: write
       packages: write
-      # This is used to complete the identity challenge
-      # with sigstore/fulcio when running outside of PRs.
       id-token: write
     env:
       BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+      REGISTRY: ghcr.io
+      IMAGE_NAME: ${{ github.repository }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -72,35 +72,47 @@ jobs:
         id: build-and-push
         uses: docker/build-push-action@0565240e2d4ab88bba5387d719585280857ece09 # v5.0.0
         with:
+          target: build
           context: .
           push: ${{ github.event_name != 'pull_request' }}
+          load: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: |
             type=gha,scope=deadbot-build-master
             type=gha,scope=deadbot-build-${{ env.BRANCH_NAME }}
           cache-to: type=gha,mode=max,scope=deadbot-build-${{ env.BRANCH_NAME }}
-          
+
+      - name: Restore Nuitka cache
+        if: github.event_name != 'pull_request'
+        uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}/.nuitka-cache
+          key: nuitka-${{ env.BRANCH_NAME }}-${{ hashFiles('src/**/*.py', 'pyproject.toml') }}
+          restore-keys: |
+            nuitka-${{ env.BRANCH_NAME }}-
+            nuitka-master-
+
       - name: Build deadbot executable
-        run: |         
+        if: github.event_name != 'pull_request'
+        run: |
+          mkdir -p ${{ github.workspace }}/.nuitka-cache
           docker run --rm \
             -v ${{ github.workspace }}/dist:/repo/dist \
+            -v ${{ github.workspace }}/.nuitka-cache:/root/.cache/Nuitka \
             --entrypoint bash \
-            --cpus=$(nproc) \
-            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }} \
+            ${{ steps.build-and-push.outputs.imageid }} \
             -c "poetry run nuitka ./src/deadbot.py \
-                --static-libpython=no \
                 --onefile \
-                --output-dir=/dist \
+                --output-dir=/repo/dist \
                 --jobs=$(nproc) \
-                --lto=yes \
-                --enable-plugin=anti-bloat \
-                --python-flag=no_site \
-                --python-flag=no_warnings \
+                --lto=no \
+                --python-flag=no_site,no_warnings \
                 --include-data-dir=./src/parser/parsers/game_map/assets=parser/parsers/game_map/assets \
                 --include-data-dir=./src/tools=tools \
                 --include-data-files=./src/steam/steam_db_download_deadlock.sh=steam/steam_db_download_deadlock.sh \
-                --include-data-files=./src/steam/depot_downloader_file_list.txt=steam/depot_downloader_file_list.txt"
+                --include-data-files=./src/steam/depot_downloader_file_list.txt=steam/depot_downloader_file_list.txt \
+                --assume-yes-for-downloads"
               
       - name: Get version from pyproject.toml
         if: github.event_name != 'pull_request'
@@ -122,7 +134,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           tag_name: "v${{ steps.get_version.outputs.version }}"
-          files: dist/deadbot
+          files: ./dist/deadbot.bin
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

@@ -35,17 +35,17 @@ The data flow is as follows:
 The recommended way to use Deadbot is by downloading the pre-built executable. This method does not require Python, Poetry, or any other development tools.
 
 1.  **Download the executable** for your operating system from the [**latest release**](https://github.com/deadlock-wiki/deadbot/releases/latest).
-2.  (On macOS/Linux) May need to make the file executable: `chmod +x ./deadbot`
+2.  (On macOS/Linux) May need to make the file executable: `chmod +x ./deadbot.bin.bin`
 3.  Run commands from your terminal
 
     ```sh
     # On macOS/Linux
-    ./deadbot --parse --decompile --dldir "/path/to/Deadlock"                       # parse existing game files stored locally
-    ./deabot -idp --english-only                                                    # import and parse game files from external sources
-    ./deadbot -idp --parse_map --steam_username <user> --steam_password <password>  # retrieve data using steam's depot downloader
+    ./deadbot.bin --parse --decompile --dldir "/path/to/Deadlock"                       # parse existing game files stored locally
+    ./deadbot.bin -idp --english-only                                                    # import and parse game files from external sources
+    ./deadbot.bin -idp --parse_map --steam_username <user> --steam_password <password>  # retrieve data using steam's depot downloader
 
     # On Windows
-    wsl ./deadbot --dldir "/mnt/c/Path/To/Deadlock" --parse --decompile
+    wsl ./deadbot.bin --dldir "/mnt/c/Path/To/Deadlock" --parse --decompile
     ```
 
 ## Developer Setup
