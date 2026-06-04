@@ -1,8 +1,10 @@
 import sys
 import tomllib
 from typing import TypedDict, Optional, Literal
+from pathlib import Path
 
-VERSION_DIR = 'pyproject.toml'
+VERSION_DIR = Path('pyproject.toml')
+VERSION_FILE = Path('src/_version.py')
 
 
 class VersionInfo(TypedDict):
@@ -68,32 +70,27 @@ def read_version() -> VersionInfo:
 
 
 def write_version(version: VersionInfo):
-    version_string = ''
-    version_string += f'{version["major"]}.'
-    version_string += f'{version["minor"]}.'
-    version_string += f'{version["patch"]}'
+    version_string = f'{version["major"]}.' f'{version["minor"]}.' f'{version["patch"]}'
 
     if version['beta']:
         version_string += f'-beta.{version["beta"]}'
 
-    # Load the pyproject.toml file
-    with open(VERSION_DIR, 'rb') as file:
-        data = tomllib.load(file)
-
-    data['tool']['poetry']['version'] = version_string
-
-    # Convert the updated data back to TOML format
+    # Update pyproject.toml
     lines = []
-    with open(VERSION_DIR, 'r') as file:
+    with open(VERSION_DIR, 'r', encoding='utf-8') as file:
         for line in file:
-            # Update the version line in the [tool.poetry] section
             if line.strip().startswith('version ='):
                 lines.append(f'version = "{version_string}"\n')
             else:
                 lines.append(line)
 
-    with open(VERSION_DIR, 'w') as file:
+    with open(VERSION_DIR, 'w', encoding='utf-8') as file:
         file.writelines(lines)
+
+    VERSION_FILE.write_text(
+        f"__version__ = '{version_string}'\n",
+        encoding='utf-8',
+    )
 
 
 if __name__ == '__main__':

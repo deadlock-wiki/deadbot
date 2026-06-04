@@ -1,14 +1,15 @@
 #!/usr/bin/env bash
 set -e
 
-FILE="pyproject.toml"
+PROJECT_FILE="pyproject.toml"
+VERSION_FILE="./src/_version.py"
 BRANCH="${GITHUB_HEAD_REF#refs/heads/}"
 # lowercase branch for matching
 BRANCH_NAME=${BRANCH,,}
 
 git fetch origin master
 
-MASTER_VERSION=$(git show origin/master:$FILE | grep -Po '(?<=version = ")[0-9]+\.[0-9]+\.[0-9]+')
+MASTER_VERSION=$(git show origin/master:$PROJECT_FILE | grep -Po '(?<=version = ")[0-9]+\.[0-9]+\.[0-9]+')
 IFS='.' read -r MJR MNR PCH <<< "$MASTER_VERSION"
 
 # Release/vX.Y.Z branch directly sets the new version
@@ -26,7 +27,7 @@ else
   exit 1
 fi
 
-CURRENT_VERSION=$(grep -Po '(?<=version = ")[0-9]+\.[0-9]+\.[0-9]+' "$FILE")
+CURRENT_VERSION=$(grep -Po '(?<=version = ")[0-9]+\.[0-9]+\.[0-9]+' "$PROJECT_FILE")
 if [[ "$CURRENT_VERSION" == "$NEW_VERSION" ]]; then
   echo "Version already updated. Skipping."
   exit 0
@@ -34,11 +35,13 @@ fi
 
 echo "Updating version from $MASTER_VERSION to $NEW_VERSION"
 
-sed -i "s/version = \"[^\"]*\"/version = \"$NEW_VERSION\"/" "$FILE"
+# Update versions
+sed -i "s/version = \"[^\"]*\"/version = \"$NEW_VERSION\"/" "$PROJECT_FILE"
+sed -i -E "s/__version__ = ['\"][^'\"]*['\"]/__version__ = \'$NEW_VERSION\'/" "$VERSION_FILE"
 
 git config user.email "deadbot1101@gmail.com"
 git config user.name "Deadbot0"
 
-git add $FILE
+git add "$PROJECT_FILE" "$VERSION_FILE"
 git commit -m "[skip ci] chore: bumped version to $NEW_VERSION" || echo "No changes to commit"
 git push --force-with-lease origin "HEAD:$GITHUB_HEAD_REF"

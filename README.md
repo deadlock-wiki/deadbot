@@ -35,15 +35,17 @@ The data flow is as follows:
 The recommended way to use Deadbot is by downloading the pre-built executable. This method does not require Python, Poetry, or any other development tools.
 
 1.  **Download the executable** for your operating system from the [**latest release**](https://github.com/deadlock-wiki/deadbot/releases/latest).
-2.  (On macOS/Linux) Make the file executable: `chmod +x ./deadbot`
-3.  Run commands from your terminal. For example, to parse a local Deadlock installation:
+2.  (On macOS/Linux) May need to make the file executable: `chmod +x ./deadbot.bin`
+3.  Run commands from your terminal
 
     ```sh
     # On macOS/Linux
-    ./deadbot --dldir "/path/to/Deadlock" --parse
+    ./deadbot.bin --parse --decompile --dldir "/path/to/Deadlock"                       # parse existing game files stored locally
+    ./deadbot.bin -idp --english-only                                                    # import and parse game files from external sources
+    ./deadbot.bin -idp --parse_map --steam_username <user> --steam_password <password>  # retrieve data using steam's depot downloader
 
     # On Windows
-    .\deadbot.exe --dldir "C:\Path\To\Deadlock" --parse
+    wsl ./deadbot.bin --dldir "/mnt/c/Path/To/Deadlock" --parse --decompile
     ```
 
 ## Developer Setup
@@ -112,7 +114,8 @@ poetry run deadbot --import_files --parse
 | Section          | Argument                                      | Description                                                                                                                             | Environment Var        |
 | ---------------- | --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
 | **General**      | `-h, --help`                                  | Show help message and exit.                                                                                                             |                        |
-|                  | `-g, --dldir DLDIR`                           | Directory of Deadlock game files.                                                                                                       | `DEADLOCK_DIR`
+|                  | `--version`                                   | Show Deadbot version number and exit.                                                                                                   |                        |
+|                  | `-g, --dldir DLDIR`                           | Directory of Deadlock game files.                                                                                                       | `DEADLOCK_DIR`         |
 |                  | `-w, --workdir WORKDIR`                       | Directory for temporary working files.                                                                                                  | `WORK_DIR`             |
 |                  | `-n, --inputdir INPUTDIR`                     | Input directory for changelogs and wiki pages.                                                                                          | `INPUT_DIR`            |
 |                  | `-o, --output OUTPUT`                         | Output directory for generated files.                                                                                                   | `OUTPUT_DIR`           |
@@ -121,7 +124,6 @@ poetry run deadbot --import_files --parse
 |                  | `-v, --verbose`                               | Enable verbose logging for detailed output.                                                                                             |                        |
 | **Steam Config** | `--steam_username STEAM_USERNAME`             | Steam username for downloading game files.                                                                                              | `STEAM_USERNAME`       |
 |                  | `--steam_password STEAM_PASSWORD`             | Steam password for downloading game files.                                                                                              | `STEAM_PASSWORD`       |
-|                  | `--depot_downloader_cmd DEPOT_DOWNLOADER_CMD` | Path to the **DepotDownloader** executable directory.                                                                                   | `DEPOT_DOWNLOADER_CMD` |
 |                  | `--manifest_id MANIFEST_ID`                   | Manifest ID to download. Defaults to `latest`. Browse manifests: [SteamDB Depot 1422456](https://steamdb.info/depot/1422456/manifests/) | `MANIFEST_ID`          |
 | **Bot Actions**  | `-i, --import_files`                          | Import game and localization files using DepotDownloader.                                                                               | `IMPORT_FILES`         |
 |                  | `-d, --decompile`                             | Decompile Deadlock game files.                                                                                                          | `DECOMPILE`            |
@@ -129,6 +131,7 @@ poetry run deadbot --import_files --parse
 |                  | `-c, --changelogs`                            | Fetch and parse both forum and local changelogs.                                                                                        | `CHANGELOGS`           |
 |                  | `-u, --wiki_upload`                           | Upload parsed data to the Wiki.                                                                                                         | `WIKI_UPLOAD`          |
 |                  | `--dry_run`                                   | Run wiki upload in dry-run mode (no actual upload).                                                                                     | `DRY_RUN`              |
+|                  | `--parse_map`                                 | Parse map data.                                                                                                                         | `PARSE_MAP`            |
 
 
 ## Docker

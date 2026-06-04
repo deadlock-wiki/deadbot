@@ -4,16 +4,13 @@ from os import PathLike
 
 from typing import TypedDict, Any
 
-import matplotlib.pyplot as plt
-from matplotlib.lines import Line2D
-from matplotlib.offsetbox import OffsetImage, AnnotationBbox
-
-from utils.plot_utils import ImageHandler, load_image
+from PIL import Image
+from utils.plot_utils import MapPlotter
 from utils.process import run_process
 
 
 class GameMapData(TypedDict):
-    plots: dict[str, plt.Figure]
+    plots: dict[str, Image.Image]  # was plt.Figure
     metadata: dict[str, Any]
 
 
@@ -29,21 +26,16 @@ class _BreakablesData(_EntityData):
 class GameMapParser:
     """Parse the Deadlock map for relevant wiki data"""
 
-    def __init__(self, entity_helper_cmd: PathLike | str, game_map_path: PathLike | str):
+    def __init__(self, game_map_path: PathLike | str):
         """
         Initialize a GameMapParser for the midtown map
         Args:
-            entity_helper_cmd: Path to the DeadlockEntityHelper executable
             game_map_path: Path to the game map file
         """
-        if not entity_helper_cmd:
-            raise ValueError('Config for DeadlockEntityHelper path is required for game map parsing')
-        if not os.path.exists(entity_helper_cmd):
-            raise FileNotFoundError(f'Could not find DeadlockEntityHelper at path "{entity_helper_cmd}"')
         if not os.path.exists(game_map_path):
             raise FileNotFoundError(f'Could not find game map at path "{game_map_path}". Run with --import_files to download the map')
 
-        self.entity_helper_cmd = entity_helper_cmd
+        self.entity_helper_cmd = os.getenv('ENTITY_HELPER_CMD', 'tools/DeadlockEntityHelper')
         self.game_map_path = game_map_path
 
     def run(self) -> dict[str, GameMapData]:
@@ -72,7 +64,7 @@ class GameMapParser:
             }
         }
 
-    def _midtown_golden_statues_plot(self, statues_data: list[_BreakablesData]) -> plt.Figure:
+    def _midtown_golden_statues_plot(self, statues_data: list[_BreakablesData]) -> Image.Image:
         """
         Generate a plot of the midtown golden statues
         Args:
@@ -80,12 +72,8 @@ class GameMapParser:
         Returns:
             The plot of the midtown golden statues
         """
-        # These should be hard-coded exact coords, because if they ever change, they are probably not glitched anymore
         glitched_statues = [[-704, -2320.0002, 704], [704, 2320.0002, 704], [3647.9998, 1440.0004, 1048.0]]
-
-        x_coords = []
-        y_coords = []
-        colors = []
+        x_coords, y_coords, colors = [], [], []
         for entry in statues_data:
             x_coords.append(entry['origin'][0])
             y_coords.append(entry['origin'][1])
@@ -98,16 +86,15 @@ class GameMapParser:
             else:
                 colors.append('orange')
 
-        legend_elements = [
-            Line2D([0], [0], marker='o', color='w', label='Vent access required', markerfacecolor='blue', markersize=10),
-            Line2D([0], [0], marker='o', color='w', label='T2 Statue (spawns after 10 minutes)', markerfacecolor='green', markersize=10),
-            Line2D([0], [0], marker='o', color='w', label='Glitched Statue', markerfacecolor='red', markersize=10),
-            Line2D([0], [0], marker='o', color='w', label='Normal Statue', markerfacecolor='orange', markersize=10),
+        legend = [
+            ('Vent access required', 'blue'),
+            ('T2 Statue (spawns after 10 minutes)', 'green'),
+            ('Glitched Statue', 'red'),
+            ('Normal Statue', 'orange'),
         ]
+        return self._create_circle_plot(x_coords, y_coords, colors, legend)
 
-        return self._create_plot(x_coords, y_coords, colors, None, legend_elements, 'midtown_golden_statues')
-
-    def _midtown_crate_plot(self, crates_data: list[_BreakablesData]) -> plt.Figure:
+    def _midtown_crate_plot(self, crates_data: list[_BreakablesData]) -> Image.Image:
         """
         Generate a plot of the midtown crates
         Args:
@@ -116,9 +103,7 @@ class GameMapParser:
             The plot of the midtown crates
         """
         glitched_crates = [[-7158.9175, -6115.6543, 640]]
-        x_coords = []
-        y_coords = []
-        colors = []
+        x_coords, y_coords, colors = [], [], []
         for entry in crates_data:
             x_coords.append(entry['origin'][0])
             y_coords.append(entry['origin'][1])
@@ -129,29 +114,19 @@ class GameMapParser:
             elif entry['initial_spawn_time_override'] > 0:
                 colors.append('green')
             else:
-                colors.append('#cc5500')  # burnt orange
+                colors.append('#cc5500')
 
-        legend_elements = [
-            Line2D([0], [0], marker='o', color='w', label='Vent access required', markerfacecolor='blue', markersize=10),
-            Line2D([0], [0], marker='o', color='w', label='Glitched Crate', markerfacecolor='#F52D9C', markersize=10),
-            Line2D([0], [0], marker='o', color='w', label='Mid-Boss Crate (spawns after 10 minutes)', markerfacecolor='green', markersize=10),
-            Line2D([0], [0], marker='o', color='w', label='Normal Crate', markerfacecolor='#cc5500', markersize=10),
+        legend = [
+            ('Vent access required', 'blue'),
+            ('Glitched Crate', '#F52D9C'),
+            ('Mid-Boss Crate (spawns after 10 minutes)', 'green'),
+            ('Normal Crate', '#cc5500'),
         ]
+        return self._create_circle_plot(x_coords, y_coords, colors, legend)
 
-        return self._create_plot(x_coords, y_coords, colors, None, legend_elements, 'midtown_crate')
-
-    def _midtown_shop_plot(self, shop_data: list[_EntityData]) -> plt.Figure:
-        """
-        Generate a plot of the midtown shops
-        Args:
-            shop_data: The data for the shops from DeadlockEntityHelper
-        Returns:
-            The plot of the midtown shops
-        """
-        x_coords = []
-        y_coords = []
-        image_paths = []
+    def _midtown_shop_plot(self, shop_data: list[_EntityData]) -> Image.Image:
         assets_dir = os.path.join(os.path.dirname(__file__), 'assets')
+        x_coords, y_coords, image_paths = [], [], []
         for entry in shop_data:
             x_coords.append(entry['origin'][0])
             y_coords.append(entry['origin'][1])
@@ -162,74 +137,58 @@ class GameMapParser:
             else:
                 image_paths.append(os.path.join(assets_dir, 'minimap_shop_psd_archmother.png'))
 
-        legend_info = {
-            'Hidden King': os.path.join(assets_dir, 'minimap_shop_psd_hidden_king.png'),
-            'Archmother': os.path.join(assets_dir, 'minimap_shop_psd_archmother.png'),
-            'Secret Shop': os.path.join(assets_dir, 'minimap_shop_psd.png'),
-        }
-        legend_elements = [Line2D(label=label, xdata=[0], ydata=[0]) for label in legend_info.keys()]
-        # element.get_label() is annotated as returning an object which causes a warning,
-        # but in this case we are sure it is a string since we just set it above
-        # noinspection PyTypeChecker
-        handler_map = {element: ImageHandler(legend_info[element.get_label()], size=0.9) for element in legend_elements}
+        legend = [
+            ('Hidden King', os.path.join(assets_dir, 'minimap_shop_psd_hidden_king.png')),
+            ('Archmother', os.path.join(assets_dir, 'minimap_shop_psd_archmother.png')),
+            ('Secret Shop', os.path.join(assets_dir, 'minimap_shop_psd.png')),
+        ]
+        return self._create_image_plot(x_coords, y_coords, image_paths, legend)
 
-        return self._create_plot(x_coords, y_coords, None, image_paths, legend_elements, 'midtown_shops', size=1.2, handler_map=handler_map)
-
-    @staticmethod
-    def _create_plot(
+    def _create_circle_plot(
+        self,
         x_coords: list[float],
         y_coords: list[float],
-        colors: list[str] | None,
-        markers: list[PathLike | str] | None,
-        legend_elements: list[Line2D],
-        plot_id: str,
-        size: float = 20.0,
-        handler_map: dict[Line2D, ImageHandler] = None,
-        **kwargs,
-    ) -> plt.Figure:
+        colors: list[str],
+        legend: list[tuple[str, str]],
+    ) -> Image.Image:
         """
         Plots the given coordinates onto the midtown map
         Parameters:
             x_coords: The x coordinates of the points to plot
             y_coords: The y coordinates of the points to plot
             colors: A list of colors for the points. If `None`, markers should be provided
-            markers: A list of file paths pointing to marker images to be displayed
-            legend_elements: A list of `Line2D` objects to display in the plot's legend
-            plot_id: A unique identifier for the plot
-            size: A multiplier for the size of points or markers in the plot
-            handler_map: If you want legend icons to be images, this should be a map of your `Line2D` legend elements
-                to `utils.plot_utils.ImageHandler` objects (see `GameMapParser._midtown_shop_plot` for an example)
-            **kwargs: Additional keyword arguments are passed to the `matplotlib.pyploy.scatter` function.
-                This is unused if `markers` are provided
+            legend: A list of label and color pairs to display in the plot's legend
         Returns:
             The generated plot
         """
-        fig = plt.figure(num=plot_id, figsize=(20, 20))
+        base_map = os.path.join(os.path.dirname(__file__), 'assets/minimap_midtown_mid_opaque.png')
+        plotter = MapPlotter(base_map)
+        plotter.place_circle_markers(x_coords, y_coords, colors, diameter=10)
+        plotter.add_circle_legend(legend)
+        return plotter.get_image()
 
-        # Extracted from Deadlock/game/citadel/pak01_dir.vpk:materials/minimap/dl_midtown.vmat_c
-        img = load_image(os.path.join(os.path.dirname(__file__), 'assets/minimap_midtown_mid_opaque.png'))
-
-        scale = 10750.0
-        plt.imshow(img, extent=(-scale, scale, -scale, scale))
-
-        if colors is not None:
-            plt.scatter(x_coords, y_coords, s=size, c=colors, alpha=1, **kwargs)
-        else:
-            axes = plt.gca()
-            for x, y, img_path in zip(x_coords, y_coords, markers):
-                image = load_image(img_path)
-                image_box = OffsetImage(image, zoom=size)
-                ab = AnnotationBbox(image_box, (x, y), frameon=False)
-                axes.add_artist(ab)
-
-        plt.legend(handles=legend_elements, loc='upper left', fontsize='xx-large', framealpha=1, handler_map=handler_map)
-
-        plt.axis('off')
-
-        plt.xlim(-10000, 10000)
-        plt.ylim(-10000, 10000)
-
-        return fig
+    def _create_image_plot(
+        self,
+        x_coords: list[float],
+        y_coords: list[float],
+        image_paths: list[str],
+        legend: list[tuple[str, str]],
+    ) -> Image.Image:
+        """
+        Plots the given images onto the midtown map
+        Parameters:
+            x_coords: The x coordinates of the points to plot
+            y_coords: The y coordinates of the points to plot
+            image_paths: List of image paths to read and plot
+            legend: A list of label and colour pairs to display in the plot's legend
+        Returns:
+            The generated plot
+        """
+        base_map = os.path.join(os.path.dirname(__file__), 'assets/minimap_midtown_mid_opaque.png')
+        plotter = MapPlotter(base_map)
+        plotter.place_image_markers(x_coords, y_coords, image_paths, size=0.035)
+        plotter.add_image_legend(legend)
+        return plotter.get_image()
 
     def _get_shop_data(self) -> list[_EntityData]:
         """
