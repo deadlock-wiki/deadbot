@@ -28,9 +28,9 @@ WORKDIR /repo
 COPY pyproject.toml poetry.lock ./
 
 FROM base AS runtime
-RUN RUN poetry install --no-root --no-cache --only main
+RUN poetry install --no-root --no-cache --only main
 
-# Build image includes nuitka for creating the binaryu
+# Build image includes nuitka for creating the binary
 FROM base AS build
 RUN poetry install --no-root --no-cache --only main --with build 
 
