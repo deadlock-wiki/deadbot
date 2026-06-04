@@ -1,7 +1,10 @@
 name: Increment Version (develop)
 on: 
   push:
-    paths: 'src/**'
+    paths: |
+      - 'src/**'
+      - '!src/_version.py'
+
     branches:
       - 'develop'
 
