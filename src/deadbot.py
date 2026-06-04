@@ -8,11 +8,10 @@ from dotenv import load_dotenv
 from steam.depot_downloader import DepotDownloader
 from utils import csv_writer
 from decompiler.decompiler import Decompiler
-import constants
 from changelogs import parse_changelogs, fetch_changelogs
 from parser import parser
 from utils.meta_utils import get_deadbot_version
-from utils.parameters import Args
+from utils.parameters import load_arguments, Args
 from utils.process import run_process
 from wiki.upload import WikiUpload
 
@@ -20,8 +19,7 @@ load_dotenv()
 
 
 def main():
-    # load arguments from constants file
-    args = constants.ARGS
+    args = load_arguments()
 
     # setup custom logger
     logger.remove(0)

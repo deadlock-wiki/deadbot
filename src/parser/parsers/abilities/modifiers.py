@@ -2,26 +2,20 @@ import re
 
 
 _PREFIX_RE = re.compile(r'[A-Z]')
-_MODIFIER_VALUES_KEY = 'm_vecAutoRegisterModifierValueFromAbilityPropertyName'
+_MODIFIER_NAME_PREFIXES = ('MODIFIER_STATE_', 'MODIFIER_')
 
 
 def parse_modifiers(ability: dict) -> dict:
     """Walk an ability and extract a nested modifier hierarchy.
 
     Any key whose name contains 'modifier' (case-insensitive).
-    The output uses the same keys as source but strips the prefixes
-    (e.g. m_DebuffModifier -> DebuffModifier,
-    m_AutoIntrinsicModifiers -> AutoIntrinsicModifiers).
+    The output strips the prefixes (e.g. m_DebuffModifier -> DebuffModifier).
 
     From each modifier node, copy:
-      - _class -> Class (verbatim, only if a non-empty string)
-      - _my_subclass_name -> Subclass (verbatim, only if a non-empty string)
-      - m_vecAutoRegisterModifierValueFromAbilityPropertyName ->
-        AutoRegisterModifierValueFromAbilityPropertyName (verbatim list of
-        property names, only if non-empty).
-      - direct int/float children -> key stripped of its lowercase prefix
-        (e.g. m_flDuration -> Duration), value verbatim.
-      - nested modifier-named children, recursively (same recursion gate).
+      - _class / _my_subclass_name
+      - int/float children
+      - state mask children
+      - nested modifier-named children, recursively
 
     Nodes that end up with no fields at all (only empty class etc.) are omitted.
     """
@@ -33,6 +27,25 @@ def _strip_prefix(key: str) -> str:
     if match:
         return key[match.start() :]
     return key
+
+
+def _format_modifier_name(value: str) -> str:
+    """Strip uninformative prefixes and PascalCase the remainder.
+
+    Each '_'-delimited segment is capitalized (first letter up, rest down) and
+    the underscores are dropped, e.g. MODIFIER_STATE_NO_WINDUP -> NoWindup
+    """
+    text = value
+    for prefix in _MODIFIER_NAME_PREFIXES:
+        if text.lower().startswith(prefix.lower()):
+            text = text[len(prefix) :]
+            break
+    return ''.join(part.capitalize() for part in text.split('_') if part)
+
+
+def _parse_state_mask(value: str) -> list:
+    """MODIFIER_STATE_DISARMED | MODIFIER_STATE_NO_WINDUP -> ['Disarmed', 'NoWindup']."""
+    return [_format_modifier_name(token.strip()) for token in value.split('|') if token.strip()]
 
 
 def _parse_dict_modifiers(node: dict) -> dict:
@@ -66,22 +79,21 @@ def _parse_modifier_node(node: dict) -> dict | None:
 
     cls = node.get('_class')
     if isinstance(cls, str) and cls:
-        out['Class'] = cls
+        out['Class'] = _format_modifier_name(cls)
     subclass = node.get('_my_subclass_name')
     if isinstance(subclass, str) and subclass:
-        out['Subclass'] = subclass
-
-    auto_register = node.get(_MODIFIER_VALUES_KEY)
-    if isinstance(auto_register, list) and auto_register:
-        out[_strip_prefix(_MODIFIER_VALUES_KEY)] = auto_register
+        out['Subclass'] = _format_modifier_name(subclass)
 
     for k, v in node.items():
-        if k in ('_class', '_my_subclass_name', _MODIFIER_VALUES_KEY):
+        if k in ('_class', '_my_subclass_name'):
             continue
         if isinstance(v, bool):
             continue
         if isinstance(v, (int, float)):
             out[_strip_prefix(k)] = v
+            continue
+        if 'statemask' in k.lower() and isinstance(v, str) and v:
+            out[_strip_prefix(k)] = _parse_state_mask(v)
             continue
         if 'modifier' in k.lower():
             parsed = _parse_modifier_value(v)
