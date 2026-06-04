@@ -294,11 +294,9 @@ class Parser:
             json_utils.write(os.path.join(self.OUTPUT_DIR, 'json/midtown-metadata.json'), map_data['midtown']['metadata'])
 
             os.makedirs(os.path.join(self.OUTPUT_DIR, 'assets'), exist_ok=True)
-            map_data['midtown']['plots']['golden_statues'].savefig(
-                os.path.join(self.OUTPUT_DIR, 'assets/golden-statues-map.png'), bbox_inches='tight', pad_inches=0
-            )
-            map_data['midtown']['plots']['crate'].savefig(os.path.join(self.OUTPUT_DIR, 'assets/crate-map.png'), bbox_inches='tight', pad_inches=0)
-            map_data['midtown']['plots']['shops'].savefig(os.path.join(self.OUTPUT_DIR, 'assets/shops-map.png'), bbox_inches='tight', pad_inches=0)
+            map_data['midtown']['plots']['golden_statues'].save(os.path.join(self.OUTPUT_DIR, 'assets/golden-statues-map.png'))
+            map_data['midtown']['plots']['crate'].save(os.path.join(self.OUTPUT_DIR, 'assets/crate-map.png'))
+            map_data['midtown']['plots']['shops'].save(os.path.join(self.OUTPUT_DIR, 'assets/shops-map.png'))
 
     def _generate_resource_lookup(self, parsed_heroes, parsed_abilities, parsed_items):
         logger.trace('Generating resource lookup...')
