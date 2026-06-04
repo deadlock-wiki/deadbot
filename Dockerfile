@@ -1,5 +1,4 @@
-FROM python:3.11-slim
-
+FROM python:3.11-slim AS base
 RUN apt update && \
     apt install -y --no-install-recommends wget unzip libicu-dev binutils git dos2unix gcc patchelf ccache make && \
     rm -rf /var/lib/apt/lists/*
@@ -27,7 +26,13 @@ run wget https://github.com/deadlock-wiki/DeadlockEntityHelper/releases/download
 WORKDIR /repo
 
 COPY pyproject.toml poetry.lock ./
-RUN poetry install --no-root
+
+FROM base AS runtime
+RUN RUN poetry install --no-root --no-cache --only main
+
+# Build image includes nuitka for creating the binaryu
+FROM base AS build
+RUN poetry install --no-root --no-cache --only main --with build 
 
 COPY . .
 RUN dos2unix /repo/src/steam/steam_db_download_deadlock.sh && \
