@@ -27,7 +27,7 @@ class WikiUpload:
         deadbot_version = meta_utils.get_deadbot_version()
         self.upload_message = f'Deadbot v{deadbot_version}-{game_version}'
 
-        self.site = mwclient.Site('deadlock.wiki', path='/')
+        self.site = mwclient.Site('deadlock.wiki', path='/', clients_useragent=f'Deadbot/{deadbot_version}')
 
         if not self.dry_run:
             self.auth = {
