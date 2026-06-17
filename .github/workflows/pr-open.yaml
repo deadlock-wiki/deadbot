@@ -87,8 +87,8 @@ jobs:
         with:
           filters: |
             should_deploy:
-              - 'src/**'
-              - '!src/_version.py'
+              - 'src/!(_version.py)'
+              - 'src/!(_version.py)/**'
               - 'Dockerfile'
               - '.github/workflows/deploy.yaml'
               - 'poetry.lock'
