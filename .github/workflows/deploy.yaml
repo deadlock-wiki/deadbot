@@ -6,14 +6,7 @@ on:
       - master
     paths:
       - 'src/**'
-      - 'Dockerfile'
-      - '.github/workflows/deploy.yaml'
-      - 'poetry.lock'
-
-  pull_request:
-    types: [opened, reopened]
-    paths:
-      - 'src/**'
+      - '!src/_version.py'
       - 'Dockerfile'
       - '.github/workflows/deploy.yaml'
       - 'poetry.lock'
@@ -61,8 +54,6 @@ jobs:
             echo "branch=${{ inputs.branch-override }}" >> $GITHUB_OUTPUT
           elif [[ "${GITHUB_EVENT_NAME}" == "push" ]]; then
             echo "branch=${{ github.ref_name }}" >> $GITHUB_OUTPUT
-          elif [[ "${GITHUB_EVENT_NAME}" == "pull_request" ]]; then
-            echo "branch=${{ github.head_ref }}" >> $GITHUB_OUTPUT
           elif [[ "${GITHUB_EVENT_NAME}" == "workflow_dispatch" ]]; then 
             echo "branch=${{ github.ref_name }}" >> $GITHUB_OUTPUT
           else
