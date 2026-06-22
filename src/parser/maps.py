@@ -74,6 +74,27 @@ def get_ability_activation(value):
     return ABILITY_ACTIVATION_MAP.get(value)
 
 
+def get_behaviour_bits(value):
+    """Split a '|'-delimited behaviour bits string into a PascalCased list.
+
+    Each flag has its CITADEL_ABILITY_ prefix stripped, e.g.
+      "CITADEL_ABILITY_BEHAVIOR_MOVEMENT | CITADEL_ABILITY_BEHAVIOR_DEACTIVATE_CROUCH_TOGGLE_ON_CAST"
+      -> ['BehaviorMovement', 'BehaviorDeactivateCrouchToggleOnCast']
+    """
+    if not value:
+        return None
+
+    bits = []
+    for token in value.split('|'):
+        token = token.strip()
+        if not token:
+            continue
+        if token.startswith('CITADEL_ABILITY_'):
+            token = token[len('CITADEL_ABILITY_') :]
+        bits.append(''.join(part.capitalize() for part in token.split('_') if part))
+    return bits
+
+
 # i.e. ECitadelStat_Vitality -> Vitality
 def get_attr_group(value):
     return value.split('ECitadelStat_')[1]
