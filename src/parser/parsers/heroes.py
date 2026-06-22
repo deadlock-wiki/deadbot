@@ -126,6 +126,11 @@ class HeroParser:
                 if 'm_RecommendedUpgrades' in hero_value:
                     hero_stats['RecommendedItems'] = hero_value['m_RecommendedUpgrades']
 
+                # Street Brawl item draft bucketing (Good/Normal/Counter)
+                item_draft_bucketing = self._parse_item_draft_bucketing(hero_value)
+                if item_draft_bucketing is not None:
+                    hero_stats['ItemDraftBucketing'] = item_draft_bucketing
+
                 all_hero_stats[hero_key] = json_utils.sort_dict(hero_stats)
 
         # Write meaningful stats to json file
@@ -215,6 +220,43 @@ class HeroParser:
                         meaningful_stats[level_key] = True
 
         return meaningful_stats
+
+    def _parse_item_draft_bucketing(self, hero_value):
+        """
+        Parse Street Brawl item draft bucketing.
+
+        Source data:
+            m_mapItemDraftBucketing maps each item to {m_strBucket, m_flWeight},
+                where m_strBucket is 'Good' (more likely) or 'Normal',
+                and m_flWeight fine-tunes likelihood within the bucket (e.g. 0.4).
+            m_mapItemDraftCounterWeights is a separate map of item -> weight (a raw
+                float) and is surfaced here as a third 'Counter' bucket.
+
+        Returns a dict of bucket name -> list of {Item, Weight}.
+        A bucket is only included when it has items.
+        Returns None if the hero has no bucketing data at all.
+        """
+        bucketing = hero_value.get('m_mapItemDraftBucketing')
+        if not bucketing:
+            return None
+
+        buckets = {'Good': [], 'Normal': []}
+        for item_key, entry in bucketing.items():
+            bucket = entry['m_strBucket']
+            # Tolerate any future bucket names rather than dropping them
+            buckets.setdefault(bucket, [])
+            buckets[bucket].append({'Item': item_key, 'Weight': entry['m_flWeight']})
+
+        counter_weights = hero_value.get('m_mapItemDraftCounterWeights')
+        if counter_weights:
+            buckets['Counter'] = [{'Item': item_key, 'Weight': weight} for item_key, weight in counter_weights.items()]
+
+        # Sort each bucket by item name for deterministic output
+        for bucket_items in buckets.values():
+            bucket_items.sort(key=lambda item: item['Item'])
+
+        # Only emit buckets that have items, matching how other optional hero data is written
+        return {name: bucket_items for name, bucket_items in buckets.items() if bucket_items}
 
     def _parse_hero_type(self, hero_value):
         hero_type = hero_value.get('m_eHeroType')
