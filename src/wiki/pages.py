@@ -45,6 +45,7 @@ DATA_PAGE_FILE_MAP = {
     'MidtownMetadata.json': 'json/midtown-metadata.json',
     'MiscData.json': 'json/misc-data.json',
     'Convars.json': 'json/convars.json',
+    'StreetBrawlData.json': 'json/street-brawl-data.json',
 }
 
 # Ignore these pages as they are not automated

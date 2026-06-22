@@ -16,6 +16,7 @@ from .parsers import (
     game_map,
     misc,
     convars,
+    street_brawl,
 )
 from utils import json_utils
 from loguru import logger
@@ -150,6 +151,7 @@ class Parser:
         self._parse_generics()
         self._parse_misc()
         self._parse_convars()
+        self._parse_street_brawl()
         self._parse_map()
         logger.trace('Done parsing')
 
@@ -322,3 +324,9 @@ class Parser:
         parsed_convars = convars.ConvarsParser(convars_file).run()
 
         json_utils.write(self.OUTPUT_DIR + '/json/convars.json', json_utils.sort_dict(parsed_convars))
+
+    def _parse_street_brawl(self):
+        logger.trace('Parsing Street Brawl...')
+        parsed_street_brawl = street_brawl.StreetBrawlParser(self.data['scripts']['heroes']).run()
+
+        json_utils.write(self.OUTPUT_DIR + '/json/street-brawl-data.json', parsed_street_brawl)
