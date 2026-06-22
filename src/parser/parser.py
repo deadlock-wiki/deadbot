@@ -15,6 +15,7 @@ from .parsers import (
     npc_units,
     game_map,
     misc,
+    convars,
 )
 from utils import json_utils
 from loguru import logger
@@ -148,6 +149,7 @@ class Parser:
         self._parse_soul_unlocks()
         self._parse_generics()
         self._parse_misc()
+        self._parse_convars()
         self._parse_map()
         logger.trace('Done parsing')
 
@@ -313,3 +315,10 @@ class Parser:
         parsed_misc = misc.MiscParser(self.data['scripts']['misc']).run()
 
         json_utils.write(self.OUTPUT_DIR + '/json/misc-data.json', json_utils.sort_dict(parsed_misc))
+
+    def _parse_convars(self):
+        logger.trace('Parsing Convars...')
+        convars_file = os.path.join(self.game_dir, 'DumpSource2', 'convars.txt')
+        parsed_convars = convars.ConvarsParser(convars_file).run()
+
+        json_utils.write(self.OUTPUT_DIR + '/json/convars.json', json_utils.sort_dict(parsed_convars))
