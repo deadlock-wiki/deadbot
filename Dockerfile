@@ -5,7 +5,7 @@ RUN apt update && \
 
 WORKDIR /tools
 
-ENV POETRY_VER="1.8.3" \
+ENV POETRY_VER="2.1.4" \
     POETRY_NO_INTERACTION=1 \
     POETRY_VIRTUALENVS_IN_PROJECT=0 \
     POETRY_VIRTUALENVS_CREATE=False \
@@ -20,7 +20,7 @@ RUN wget https://github.com/SteamRE/DepotDownloader/releases/download/DepotDownl
     && chmod +x DepotDownloader
     
 ENV ENTITY_HELPER_VER="v2.1.0"
-run wget https://github.com/deadlock-wiki/DeadlockEntityHelper/releases/download/$ENTITY_HELPER_VER/DeadlockEntityHelper \
+RUN wget https://github.com/deadlock-wiki/DeadlockEntityHelper/releases/download/$ENTITY_HELPER_VER/DeadlockEntityHelper \
 && chmod +x DeadlockEntityHelper
 
 WORKDIR /repo
