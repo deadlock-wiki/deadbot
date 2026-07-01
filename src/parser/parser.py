@@ -1,5 +1,6 @@
 import os
 import shutil
+import json
 
 from .parsers import (
     abilities,
@@ -162,9 +163,56 @@ class Parser:
     def _parse_generics(self):
         logger.trace('Parsing Generics...')
         generic_data_path = self.OUTPUT_DIR + '/json/generic-data.json'
-        parsed_generics = generics.GenericParser(generic_data_path, self.data['scripts']['generic_data']).run()
 
+        generic_data = dict(self.data['scripts']['generic_data'])
+        generic_data.update(self._extract_item_investment_stats())
+
+        parsed_generics = generics.GenericParser(generic_data_path, generic_data).run()
         json_utils.write(generic_data_path, json_utils.sort_dict(parsed_generics))
+
+    INVESTMENT_SLOT_MAP = {
+        'EItemSlotType_WeaponMod': 'Weapon',
+        'EItemSlotType_Armor': 'Vitality',
+        'EItemSlotType_Tech': 'Spirit',
+    }
+
+    def _extract_item_investment_stats(self) -> dict:
+        first = None
+        first_key = None
+        for hero_key, hero_data in self.data['scripts']['heroes'].items():
+            if not isinstance(hero_data, dict):
+                continue
+            if hero_key == 'hero_base':
+                continue
+            if not hero_data.get('m_bPlayerSelectable', False):
+                continue
+            if 'm_MapModCostBonuses' not in hero_data:
+                # This should not happen for a selectable hero, but we'll skip
+                logger.warning(f'Selectable hero {hero_key} missing m_MapModCostBonuses')
+                continue
+
+            remapped = {
+                self.INVESTMENT_SLOT_MAP[slot]: entries
+                for slot, entries in hero_data['m_MapModCostBonuses'].items()
+                if slot in self.INVESTMENT_SLOT_MAP
+            }
+
+            if first is None:
+                first = remapped
+                first_key = hero_key
+            else:
+                # deep compare dictionaries (order shouldn't matter because we use same remapping)
+                if json.dumps(first, sort_keys=True) != json.dumps(remapped, sort_keys=True):
+                    raise ValueError(
+                        f'Item investment stats differ between heroes {first_key} and {hero_key}.\n' f'{first_key}: {first}\n{hero_key}: {remapped}'
+                    )
+
+        if first is None:
+            logger.warning('Could not find m_MapModCostBonuses in any selectable hero')
+            return {}
+
+        logger.trace(f'Extracted item investment stats from {first_key} (validated across all selectable heroes)')
+        return {'ItemInvestments': first}
 
     def _parse_localizations(self):
         logger.trace('Parsing Localizations...')
