@@ -6,6 +6,7 @@ import utils.json_utils as json_utils
 from utils import file_utils
 from .tags import ChangelogTags as Tags
 from . import wikitext_formatter
+from . import constants
 
 
 class ChangelogParser:
@@ -105,6 +106,13 @@ class ChangelogParser:
             changelog_date = config.get('date')
             if not changelog_date:
                 logger.warning(f"Changelog '{changelog_id}' is missing a date. Skipping wiki page creation.")
+                continue
+
+            # Only process changelogs from the Steam API era (on or after
+            # STEAM_MIGRATION_DATE) to avoid reformatting old changelogs that
+            # are already stable on the wiki with the previous formatter output.
+            if changelog_date < constants.STEAM_MIGRATION_DATE:
+                logger.trace(f"Skipping '{changelog_id}' — pre-migration changelog.")
                 continue
 
             formatted_body = wikitext_formatter.format_changelog(raw_text, hero_data, item_data, ability_data, link_targets=link_targets)
