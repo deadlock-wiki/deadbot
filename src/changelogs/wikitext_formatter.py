@@ -1,29 +1,5 @@
 import re
-from typing import Dict, Any, Optional, List, Tuple
-
-GAME_MODE_SECTIONS = ['Street Brawl']
-
-GENERIC_HEADERS = {
-    'general',
-    'general changes',
-    'items',
-    'items changes',
-    'item gameplay',
-    'item gameplay changes',
-    'weapon items',
-    'vitality items',
-    'spirit items',
-    'new items',
-    'heroes',
-    'hero changes',
-    'hero gameplay',
-    'hero gameplay changes',
-    'misc gameplay',
-    'misc gameplay changes',
-    'gameplay changes',
-    'abilities',
-    'ability changes',
-}
+from typing import Dict, Any, Optional
 
 
 def format_changelog(
@@ -33,248 +9,85 @@ def format_changelog(
     ability_data: Dict[str, Any],
     link_targets: Optional[Dict[str, list]] = None,
 ) -> str:
+    """
+    Formats a raw changelog string into wikitext by replacing entity names
+    with icon templates and converting markdown-style bullet points.
+
+    Args:
+        raw_text (str): The raw text of the changelog.
+        hero_data (dict): Parsed hero data from hero-data.json.
+        item_data (dict): Parsed item data from item-data.json.
+        ability_data (dict): Parsed ability data from ability-data.json.
+        link_targets (dict): Map of page_name -> list of aliases for auto-linking common terms.
+
+    Returns:
+        str: The formatted wikitext string.
+    """
     if not raw_text:
         return ''
 
-    heroes = [v.get('Name') for v in hero_data.values() if v.get('Name') and not v.get('IsDisabled')]
-    items = [v.get('Name') for v in item_data.values() if v.get('Name') and not v.get('IsDisabled')]
-    abilities = [v.get('Name') for v in ability_data.values() if v.get('Name') and not v.get('IsDisabled')]
+    # Create a mapping from entity names to their wikitext templates.
+    entity_to_template = {}
 
-    parts = re.split(r'(=== Patch \d+ ===)', raw_text)
+    # 1. High Priority: Game Entities (Heroes, Abilities, Items) get Icons
+    data_sources = [
+        (hero_data, 'HeroIcon'),
+        (ability_data, 'AbilityIcon'),
+        (item_data, 'ItemIcon'),
+    ]
 
-    patch_blocks = []
-    if parts[0].strip():
-        patch_blocks.append(('Patch 1', parts[0]))
-
-    for i in range(1, len(parts), 2):
-        if i + 1 < len(parts):
-            header = parts[i].strip('= ').strip()
-            patch_blocks.append((header, parts[i + 1]))
-
-    out = []
-    is_first_patch = True
-
-    for patch_name, patch_text in patch_blocks:
-        if not is_first_patch or patch_name != 'Patch 1':
-            out.append(f'=== {patch_name} ===')
-            out.append('')
-        is_first_patch = False
-
-        entries = _parse_entries(patch_text)
-        out.extend(_build_output(entries, heroes, items, abilities, link_targets))
-        out.append('')
-
-    return '\n'.join(out).strip() + '\n'
-
-
-def _parse_entries(raw_text: str) -> List[Tuple[str, str]]:
-    entries = []
-    current = None
-
-    for line in raw_text.split('\n'):
-        stripped = line.strip()
-        if not stripped:
-            if current is not None:
-                entries.append(('entry', current))
-                current = None
+    for data, template_name in data_sources:
+        if not data:
             continue
+        for entry in data.values():
+            name = entry.get('Name')
+            # Only add active (not disabled) entities to the template map.
+            is_disabled = entry.get('IsDisabled', False)
+            if name and not is_disabled:
+                entity_to_template[name] = f'{{{{{template_name}|{name}}}}}'
 
-        if stripped.startswith('[') and stripped.endswith(']'):
-            if current is not None:
-                entries.append(('entry', current))
-                current = None
-
-            header_text = stripped[1:-1].strip()
-            if header_text.lower() not in GENERIC_HEADERS:
-                entries.append(('header', header_text))
-            continue
-
-        if stripped.startswith('-') or stripped.startswith('*'):
-            if current is not None:
-                entries.append(('entry', current))
-            current = stripped.lstrip('-* ').strip()
-        elif current is not None:
-            current += ' ' + stripped
-
-    if current is not None:
-        entries.append(('entry', current))
-
-    cleaned_entries = []
-    for kind, text in entries:
-        if kind == 'entry':
-            cleaned_entries.append((kind, re.sub(r'\s+', ' ', text).strip()))
-        else:
-            cleaned_entries.append((kind, text))
-    return cleaned_entries
-
-
-def _classify_entry(entry: str, heroes: list, items: list, game_modes: list) -> Tuple[str, Optional[str], str]:
-    idx = entry.find(':')
-    if idx != -1:
-        prefix = entry[:idx].strip()
-        rest = entry[idx + 1 :].strip()
-
-        if prefix in game_modes:
-            return ('mode', prefix, rest)
-        if prefix in heroes:
-            return ('hero', prefix, rest)
-        if prefix in items:
-            return ('item', prefix, rest)
-
-    return ('general', None, entry)
-
-
-def _find_and_remove_ability(text: str, abilities: list) -> Tuple[Optional[str], str]:
-    best_match = {'ability': None, 'index': float('inf'), 'length': 0}
-
-    for ability in sorted(abilities, key=len, reverse=True):
-        pattern = re.compile(r'(?<!\w)' + re.escape(ability) + r'(?!\w)', re.IGNORECASE)
-        match = pattern.search(text)
-        if match:
-            if match.start() < best_match['index'] or (match.start() == best_match['index'] and len(match.group(0)) > best_match['length']):
-                best_match = {'ability': ability, 'index': match.start(), 'length': len(match.group(0))}
-
-    if best_match['ability']:
-        start, end = best_match['index'], best_match['index'] + best_match['length']
-        cleaned_text = text[:start] + text[end:]
-        cleaned_text = re.sub(r'^[\s:–—-]+', '', cleaned_text).strip()
-        cleaned_text = re.sub(r'\s+', ' ', cleaned_text).strip()
-        return best_match['ability'], cleaned_text
-
-    return None, text
-
-
-def _format_body(
-    text: str,
-    heroes: list,
-    items: list,
-    abilities: list,
-    excluded_ability: Optional[str] = None,
-    link_targets: Optional[dict] = None,
-) -> str:
-    protected_tokens = []
-
-    def protect(value: str) -> str:
-        token = f'\x00{len(protected_tokens)}\x00'
-        protected_tokens.append(value)
-        return token
-
-    text = re.sub(r'\{\{(?:Ability|Hero|Item)Icon\|[^{}]+\}\}', lambda m: protect(m.group(0)), text)
-
-    replacements = {}
-
-    abilities_to_wrap = [a for a in abilities if a != excluded_ability]
-    for name in abilities_to_wrap:
-        replacements[name] = f'{{{{AbilityIcon|{name}}}}}'
-    for name in items:
-        replacements[name] = f'{{{{ItemIcon|{name}}}}}'
-    for name in heroes:
-        replacements[name] = f'{{{{HeroIcon|{name}}}}}'
-
+    # 2. Medium Priority: Curated Wiki Links (from include list)
+    # We add these after Icons. Since we use `get` later, existing keys (Icons) won't be overwritten.
     if link_targets:
         for page_name, aliases in link_targets.items():
-            for alias in aliases:
-                if alias.isdigit() or alias in replacements:
+            for term in aliases:
+                # Skip if this name is already handled by an Icon template (Hero/Ability/Item)
+                if term in entity_to_template:
                     continue
-                if alias != page_name:
-                    replacements[alias] = f'[[{page_name}|{alias}]]'
+
+                # Skip numeric pages to avoid matching parts of numbers
+                if term.isdigit():
+                    continue
+
+                # If term is different from page_name, use pipe to preserve text: [[Page|term]]
+                # Otherwise link directly: [[Page]]
+                if term != page_name:
+                    entity_to_template[term] = f'[[{page_name}|{term}]]'
                 else:
-                    replacements[alias] = f'[[{page_name}]]'
+                    entity_to_template[term] = f'[[{page_name}]]'
 
-    sorted_terms = sorted(replacements.keys(), key=len, reverse=True)
+    # Sort all unique entity names by length in descending order.
+    # This is crucial for the regex to match longer names first (e.g., "Smoke Bomb" before "Smoke").
+    sorted_names = sorted(list(entity_to_template.keys()), key=len, reverse=True)
 
-    for term in sorted_terms:
-        pattern = re.compile(r'(?<!\w)' + re.escape(term) + r'(?!\w)')
-        text = pattern.sub(lambda m: protect(replacements[term]), text)
+    # Convert line-starting hyphens to asterisks for wiki lists.
+    wikitext = re.sub(r'^- ', '* ', raw_text, flags=re.MULTILINE)
 
-    for i, original in enumerate(protected_tokens):
-        text = text.replace(f'\x00{i}\x00', original)
+    if not sorted_names:
+        return wikitext
 
-    return text
+    # Create a single regex to find all entity names. The pattern is built from the
+    # length-sorted list, using word boundaries (\b) to prevent partial matches.
+    pattern_str = r'\b(' + '|'.join(re.escape(name) for name in sorted_names) + r')\b'
+    pattern = re.compile(pattern_str)
 
+    # Define a replacer function to look up the template for a matched name.
+    def replace_with_template(match: re.Match) -> str:
+        matched_name = match.group(0)
+        # Fallback to the original name if it's somehow not in the map.
+        return entity_to_template.get(matched_name, matched_name)
 
-def _build_output(entries: list, heroes: list, items: list, abilities: list, link_targets: Optional[dict]) -> List[str]:
-    general = []
-    modes = {}
-    mode_order = []
-    item_sections = {}
-    item_order = []
-    hero_sections = {}
-    hero_order = []
+    # Apply the replacement across the entire text.
+    wikitext = pattern.sub(replace_with_template, wikitext)
 
-    for kind, entry in entries:
-        if kind == 'header':
-            general.append(f'== {entry} ==')
-            continue
-
-        kind, name, body = _classify_entry(entry, heroes, items, GAME_MODE_SECTIONS)
-
-        if kind == 'general':
-            general.append('* ' + _format_body(body, heroes, items, abilities, link_targets=link_targets))
-
-        elif kind == 'mode':
-            if name not in modes:
-                modes[name] = []
-                mode_order.append(name)
-            modes[name].append('* ' + _format_body(body, heroes, items, abilities, link_targets=link_targets))
-
-        elif kind == 'item':
-            if name not in item_sections:
-                item_sections[name] = []
-                item_order.append(name)
-            item_sections[name].append('* {{Change|}} ' + _format_body(body, heroes, items, abilities, link_targets=link_targets))
-
-        elif kind == 'hero':
-            if name not in hero_sections:
-                hero_sections[name] = {'general': [], 'abilities': {}, 'ability_order': []}
-                hero_order.append(name)
-
-            section = hero_sections[name]
-            ability_name, cleaned_body = _find_and_remove_ability(body, abilities)
-
-            if ability_name and cleaned_body:
-                if ability_name not in section['abilities']:
-                    section['abilities'][ability_name] = []
-                    section['ability_order'].append(ability_name)
-                cleaned_body = cleaned_body[0].upper() + cleaned_body[1:] if cleaned_body else cleaned_body
-                section['abilities'][ability_name].append(
-                    '* {{Change|}} ' + _format_body(cleaned_body, heroes, items, abilities, excluded_ability=ability_name, link_targets=link_targets)
-                )
-            else:
-                section['general'].append('* {{Change|}} ' + _format_body(body, heroes, items, abilities, link_targets=link_targets))
-
-    out = []
-
-    for entry in general:
-        out.append(entry)
-
-    for mode in mode_order:
-        out.append('')
-        out.append(f'== [[{mode}]] ==')
-        for body in modes[mode]:
-            out.append(body)
-
-    if item_order:
-        out.append('')
-        out.append('= Items =')
-        for item in item_order:
-            out.append(f'== {{{{ItemIcon|{item}}}}} ==')
-            for body in item_sections[item]:
-                out.append(body)
-
-    if hero_order:
-        out.append('')
-        out.append('= Heroes =')
-        for hero in hero_order:
-            out.append(f'== {{{{HeroIcon|{hero}}}}} ==')
-            section = hero_sections[hero]
-
-            for body in section['general']:
-                out.append(body)
-
-            for ability in section['ability_order']:
-                out.append(f'==== {{{{AbilityIcon|{ability}}}}} ====')
-                for body in section['abilities'][ability]:
-                    out.append(body)
-
-    return out
+    return wikitext
