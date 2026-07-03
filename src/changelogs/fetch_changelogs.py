@@ -55,7 +55,7 @@ class ChangelogFetcher:
     Fetches changelogs from Steam Web API and game files and parses them into a dictionary
     """
 
-    def __init__(self, update_existing, input_dir, output_dir, herolab_patch_notes_path):
+    def __init__(self, update_existing, input_dir, output_dir):
         self.changelogs: dict[str, ChangelogString] = {}
         self.changelog_configs: dict[str, ChangelogConfig] = {}
         self.hotfixes: list[Hotfix] = []
@@ -66,8 +66,6 @@ class ChangelogFetcher:
         self.OUTPUT_DIR = output_dir
         self.STEAM_NEWS_URL = STEAM_NEWS_API_URL
         self.APP_ID = STEAM_APP_ID
-
-        self.HEROLABS_PATCH_NOTES_PATH = herolab_patch_notes_path
 
         self.TAGS_TO_REMOVE = ['<ul>', '</ul>', '<b>', '</b>', '<i>', '</i>']
 
@@ -185,7 +183,6 @@ class ChangelogFetcher:
     def run(self):
         self.load_localization()
         self.fetch_steam_changelogs()
-        self.get_gamefile_changelogs()
         self.changelogs_to_file()
 
     def load_localization(self):
@@ -382,140 +379,3 @@ class ChangelogFetcher:
                 'title': title,
                 'steam_hash': steam_hash,
             }
-
-    def get_gamefile_changelogs(self):
-        """Read and parse the Hero Labs changelogs in the game files"""
-        changelogs = json_utils.read(self.HEROLABS_PATCH_NOTES_PATH)
-
-        gamefile_changelogs = dict()
-
-        # Iterate each pair in the patch note localization
-        for key, string in changelogs.items():
-            # Not a real patch note
-            if key == 'Language':
-                continue
-
-            # key i.e. Citadel_PatchNotes_HeroLabs_hero_astro_1
-            # string i.e. "<b>10/24/2024</b>\t\t\t
-            #   <li>Hero Added to Hero Labs<li>
-            #   Changed y from x to z</li>"
-
-            # Parse the date from the beginning of the string
-            date_raw = string.split('\t')[0].replace('<b>', '').replace('</b>', '')
-            if len(date_raw) > 10:
-                date_raw = date_raw[:10]
-
-            # Remove date from remaining string
-            remaining_str = string.replace(f'<b>{date_raw}</b>\t\t\t', '')
-
-            # Reformat mm/dd/yyyy to yyyy-mm-dd
-            date = format_date(date_raw)
-
-            # Parse hero name to create a header for the changelog entry
-            # Citadel_PatchNotes_HeroLabs_hero_astro_1 ->
-            # hero_astro ->
-            # Holliday ->
-            # [ HeroLab Holliday ]
-            hero_key = key.split('Citadel_PatchNotes_HeroLabs_')[1][:-2]
-            hero_name_en = self._localize(hero_key)
-            header = f'[ HeroLab {hero_name_en} ]'
-
-            # Initialize the changelog entry if its the first line for this hero's patch (version)
-            # Create the raw changelog id (used as filename in raw folder)
-            # i.e. 2024-10-29_HeroLab
-            raw_changelog_id = f'{date.replace("/", "-")}_HeroLab'
-            if raw_changelog_id not in gamefile_changelogs:
-                gamefile_changelogs[raw_changelog_id] = header + '\n'
-            else:
-                gamefile_changelogs[raw_changelog_id] += '\n' + header + '\n'
-
-            # Ensure the date was able to be removed and was in the correct format
-            if len(remaining_str) == len(string):
-                logger.warning(f'Date format may not have been able to be parsed correctly for {date}')
-
-            # Parse full description by accumulating each description separated by <li> tags
-            # <li>Text 1<li>Text 2</li> -> Text 1\nText 2\n
-            while len(remaining_str) > 0:
-                # Parse the next description
-                description, remaining_str = self._parse_description(remaining_str)
-                if description is None:
-                    break
-
-                # Add to the current changelog entry
-                gamefile_changelogs[raw_changelog_id] += f'- {description}\n'
-
-                # Add the config entry if it doesn't exist
-                if raw_changelog_id not in self.changelog_configs:
-                    self.changelog_configs[raw_changelog_id] = {
-                        'source_id': None,
-                        'date': date,
-                        'link': None,
-                        'is_hero_lab': True,
-                    }
-        self.changelogs.update(gamefile_changelogs)
-
-    def _parse_description(self, string):
-        # Find the next <li> tag
-        li_start, li_end = self._find_li_tags(string)
-        if li_start == -1:
-            # No more list elements to be found
-            return None, string
-        if li_end == -1:
-            raise ValueError(f'No closing </li> tag found in description {string}')
-
-        # Extract the description
-        description = string[li_start + len('<li>') : li_end]
-
-        # Remove the description from the remaining string
-        string = string[li_end + len('<li>') :]
-
-        # Remove any remaining tags that are unneeded
-        for tag in self.TAGS_TO_REMOVE:
-            description = description.replace(tag, '')
-
-        return description, string
-
-    def _find_li_tags(self, string):
-        # Find the next <li> tag
-        li_start = string.find('<li>')
-
-        # If no list elements are found, return right away
-        if li_start == -1:
-            return li_start, -1
-
-        # Find the next li tag, which will either be <li>, or </li>
-        li_end = string.find('<li>', li_start + len('<li>'))
-        # if no more <li>'s, find the last </li>
-        if li_end == -1:
-            li_end = string.find('</li>', li_start + len('<li>'))
-
-        return li_start, li_end
-
-    def _localize(self, key):
-        value = self.localization_data_en.get(key, None)
-        if value is None:
-            raise Exception(f'Localized string not found for key {key}')
-        return value
-
-
-def format_date(date):
-    """
-    Reformat mm/dd/yyyy or mm-dd-yyyy to yyyy-mm-dd
-    Also convert days and months to 2 digits
-    """
-    # Split date by / or -
-    if '/' in date:
-        date = date.split('/')
-    elif '-' in date:
-        date = date.split('-')
-    else:
-        raise ValueError(f'Invalid date format {date}')
-
-    # If the day or month is a single digit, add a leading 0
-    for i in range(2):
-        if len(date[i]) == 1:
-            date[i] = '0' + date[i]
-
-    # Reformat to yyyy-mm-dd
-    date = f'{date[2]}-{date[0]}-{date[1]}'
-    return date

@@ -93,15 +93,12 @@ class ChangelogParser:
         output_path = os.path.join(self.OUTPUT_DIR, 'changelogs', 'wiki')
         os.makedirs(output_path, exist_ok=True)
 
-        # Sort keys to determine chronological order
-        # We filter for valid dates and exclude 'is_hero_lab' so main updates only link to previous main updates.
         sorted_update_ids = sorted(
             [k for k, v in changelog_configs.items() if v.get('date') and not v.get('is_hero_lab')], key=lambda k: changelog_configs[k]['date']
         )
 
         for changelog_id, raw_text in changelogs.items():
             config = changelog_configs.get(changelog_id)
-            # Skip if config is missing or if it's a Hero Lab entry.
             if not config or config.get('is_hero_lab'):
                 continue
 
@@ -129,7 +126,7 @@ class ChangelogParser:
                     except ValueError:
                         pass
 
-            source_link = config.get('link', '')
+            source_link = config.get('link') or ''
             source_title = config.get('title')
 
             is_steam_link = (
@@ -235,13 +232,6 @@ class ChangelogParser:
 
             if heading_tag is not None:
                 tags = self._register_tag(tags, tag=heading_tag)
-
-            # If the heading is a "HeroLab <hero>", register <hero> as well
-            if current_heading.startswith('HeroLab '):
-                hero = current_heading[len('HeroLab ') :]
-                if self.is_hero(hero):
-                    tags = self._register_tag(tags, hero)
-                    tags = self._register_tag(tags, 'Hero')
 
         # if no tag is found, assign to default tag
         if len(tags) == 0:
