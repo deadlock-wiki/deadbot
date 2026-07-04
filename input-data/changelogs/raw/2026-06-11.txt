@@ -1,0 +1,105 @@
+- Urn give up time reduced from 75s to 60s
+- Urn bounty reduced by 10% (unreduced for trailing team)
+
+- Breakables health permanent bonus reduced from 15/25/35 to 15/20/30 for level 1/2/3
+
+- Kill comeback bounty values increased by 8%
+
+- Street Brawl: All ability and item range/radius values are reduced by 10%
+
+- Opening Rounds: Conditional Weapon Damage bonus reduced from 30% to 25%
+- Opening Rounds: Spirit Power increased from +4 to +7
+- Arcane Surge: Fixed various cases with the bonuses not working
+
+- Apollo: Disengaging Sigil velocity increased by 50%
+- Apollo: Disengaging Sigil velocity's vertical:horizontal ratio changed from 1.5:1 to 1:1
+- Apollo: Disengaging Sigil now allows input to alter the direction apollo launches himself (A/D biases to the left/right and W/S affect how much backwards motion is applied
+- Apollo: Disengaging Sigil T1 changed from "+30 Damage" to "Gain +25% Fire Rate and Bullet Speed for 8s"
+- Apollo: Disengaging Sigil T2 changed from "Gain +30% Fire Rate and +50% Bullet Speed for 10s" to "On Player Hit: +1 Stamina restored and resets Air Jump/Dash limit"
+- Apollo: Disengaging Sigil T3 changed from "On Player Hit: +2 stamina restored and reset Air Jump/Dash limit" to "Recast within 4s"
+- Apollo: Flawless Advance now allows Apollo to parry during it
+
+- Bebop: Exploding Uppercut T3 increased from +17% Missing Health to +18%
+- Bebop: Fixed Sticky Bomb T3 duration ending once the bomb went off rather than the 5s duration
+- Bebop: Sticky Bomb T3 changed from "On Cast: +5m Move Speed and +20% Fire Rate for 5s" to "On Cast: +5m Move Speed and +25% Debuff Resistance for 6s" (applies retroactively)
+
+- Calico: Gloom Bombs melee resist debuff now stacks additively
+- Calico: Gloom Bombs T2 increased from -5% Melee Resist for 5s to -6% for 6s
+- Calico: Gloom Bombs melee resist now applies on impact rather than explosion
+- Calico: Return to Shadows damage increased from 140 to 150
+- Calico: Return to Shadows T2 damage increased from +65 to +75
+- Calico: Return to Shadows T3 heal increased from 350 to 450
+
+- Doorman: Call Bell explosion damage spirit scaling reduced from 1.3 to 1.2
+- Doorman: Call Bell T3 spirit scaling reduced from 0.4 to 0.35
+
+- Graves: Jar of Dead collection rate reduced by 20% (takes longer to gain a charge)
+- Graves: Jar of Dead damage reduced from 17+0.27 to 16+0.25
+- Graves: Jar of Dead bounty increased from 5+0.25/boon to 7+0.5/boon
+- Graves: Grasping Hands T3 Immobilize duration reduced from +1s to +0.75s
+
+- Grey Talon: Gun cycle time increased from 0.5775 to 0.6 (~4% DPS nerf)
+- Grey Talon: Bullet damage growth reduced from +1.0 to +0.85
+- Grey Talon: Rain of Arrows cooldown increased from 22s to 23s
+- Grey Talon: Rain of Arrows T2 reduced from -13s Cooldown to -12s
+
+- Holliday: Powder Keg now has an alt cast behavior to place the barrel at her feet
+- Holliday: Powder Keg various improvements to the launch angles, velocities and feel of casting
+- Holliday: Powder Keg now starts with 2 charges
+- Holliday: Powder Keg Charge Time increased from 3.5s to 7s
+- Holliday: Powder Keg spirit scaling reduced from 1.6 to 1.4
+- Holliday: Powder Keg T2 changed from "+58 Damage" to "+1 Charge"
+- Holliday: Powder Keg T3 changed from "+2 Charges and +0.4s Displacement" to "+100 Damage, +0.5 Spirit Scaling and -5s Charge Time"
+- Holliday: Fixed various issues with placing bounce pad on elevated areas
+- Holliday: Bounce Pad landing radius reduced from 12m to 9m
+- Holliday: Bounce Pad T3 changed from "+68 Stomp Damage and Improved Spirit Scaling" to "+0.7s Stomp Stun" (only triggers from Holliday)
+
+- Infernus: Fixed Afterburn Max duration refreshing not properly accounting for both Debuff Resist and +Ability Duration
+- Infernus: Fixed Concussive Combustion cooldown not updating when getting the T2 or other CD reducing items when the ability is on cooldown
+
+- Ivy: Fixed a bug where Stone Form could sometimes do significantly more damage than intended
+
+- McGinnis: Mini Turret DPS rescaled from 30+0.39 to 24+0.42 (break even at 200 spirit power)
+- McGinnis: Mini Turrets T3 Fire Rate reduced from +30% to +25%
+- McGinnis: Fixed some rare cases where Heavy Barrage would stop working
+- McGinnis: Heavy Barrage DPS reduced from 22.5 to 21
+
+- Paige: Rallying Charge distance for max amp reduced from 350m to 250m
+- Paige: Rallying Charge T2 increased from -30s Cooldown to -50s
+- Paige: Plot Armor barrier spirit scaling increased from 1.3 to 1.5
+- Paige: Plot Armor T3 barrier spirit scaling increased from +0.3 to +0.5
+
+- Pocket: Bullet damage growth reduced from +0.2 to +0.16
+- Pocket: Flying Cloak T3 reduced from -13s Cooldown to -12s
+- Pocket: Affliction now does half damage on objectives
+
+- Seven: Bullet damage growth reduced from 0.337 to 0.24
+- Seven: Power Surge T3 reduced from +12s Duration to +10s
+- Seven: Storm Cloud now hits breakables
+
+- Shiv: Killing Blow now has +30% more cooldown whenever it does not impact a player
+
+- Silver: Lycan Curse cooldown increased from 40s to 70s
+- Silver: Lycan Curse T3 no longer heals
+
+- Viscous: Puddle Punch T2 increased from +40% Lifesteal to +60%
+- Viscous: Goo Ball T2 now also increases Bullet and Spirit Resist by +10%
+
+- Victor: Aura of Suffering radius reduced from 9m to 8m
+- Victor: Aura of Suffering T3 now also increases radius by +1m
+- Victor: Fixed some client performance issues when using Aura of Suffering
+- Victor: Shocking Reanimation cooldown increased from 230s to 240s
+- Victor: Shocking Reanimation T3 reduced from -120s Cooldown to -110s
+- Victor: Shocking Reanimation T3 increased from +150 Damage to +175
+
+- Vindicta: Assassinate Max Bonus Damage spirit scaling increased from 1.7 to 2.0
+
+- Warden: Bullet falloff reduced from 20m->58m to 18m->47m
+- Warden: Alchemical Flask spirit scaling reduced from 0.73 to 0.63
+- Warden: Alchemical Flask T2 reduced from +40 Damage to +35
+- Warden: Alchemical Flask T2 increased from -20% Weapon Damage to -25%
+- Warden: Willpower spirit scaling increased from +0.5 to +0.8
+- Warden: Binding Word T3 reduced from -18s Cooldown to -14s
+- Warden: Last Stand lifesteal increased from 65% to 75%
+- Warden: Last Stand T2 increased from -30s Cooldown to -35s
+- Warden: Last Stand T3 increased from +3s Duration to +4s

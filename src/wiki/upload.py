@@ -3,7 +3,7 @@ import mwclient
 import json
 import re
 from datetime import datetime
-from typing import List, Tuple, Optional, Set
+from typing import List, Tuple
 from utils import json_utils, game_utils, meta_utils
 from .pages import DATA_PAGE_FILE_MAP, IGNORE_PAGES
 from loguru import logger
@@ -15,17 +15,9 @@ class WikiUpload:
     Uploads a set of specified data to deadlock.wiki via the MediaWiki API
     """
 
-    def __init__(
-        self,
-        output_dir,
-        dry_run=False,
-        pending_changelog_ids: Optional[Set[str]] = None,
-        wiki_updates: Optional[List[Tuple[datetime, str]]] = None,
-    ):
+    def __init__(self, output_dir, dry_run=False):
         self.OUTPUT_DIR = output_dir
         self.DATA_NAMESPACE = 'Data'
-        # Set of changelog_ids that need processing this run; if None, process all.
-        self.pending_changelog_ids = pending_changelog_ids
 
         if dry_run:
             logger.info('Wiki upload is running in dry-run mode. No changes will be made to the wiki.')
@@ -51,15 +43,13 @@ class WikiUpload:
 
             self.site.login(self.auth['user'], self.auth['password'])
 
-        # Store wiki state; use pre-fetched from caller if provided to avoid
-        # a redundant allpages scan (deadbot.py queries once and distributes).
-        self.wiki_updates: List[Tuple[datetime, str]] = wiki_updates or []
+        # Store wiki state to minimize API calls
+        self.wiki_updates: List[Tuple[datetime, str]] = []
 
     def run(self):
         logger.info(f'Uploading Data to Wiki - {self.upload_message}')
         self._update_data_pages()
-        if not self.wiki_updates:
-            self.wiki_updates = self._get_existing_update_pages()
+        self.wiki_updates = self._get_existing_update_pages()
         self._upload_changelog_pages()
         self._process_hotfixes()
         self._update_latest_chain()
@@ -67,17 +57,48 @@ class WikiUpload:
     def _get_existing_update_pages(self) -> List[Tuple[datetime, str]]:
         """
         Fetch all Update pages from wiki and return list of (date, title) tuples.
-        Uses the shared single-scan helper in changelog_utils.
+        Simplified by replacing underscores with spaces.
         """
-        _, wiki_updates = changelog_utils.fetch_existing_wiki_updates(self.site)
-        logger.debug(f'Found {len(wiki_updates)} valid update pages in Update namespace')
-        return wiki_updates
+        update_pages = []
+        try:
+            namespace_id = self._get_namespace_id('Update')
+            pages = self.site.allpages(namespace=namespace_id)
+            count = 0
+
+            for page in pages:
+                count += 1
+                if ':' not in page.name:
+                    continue
+
+                # Parse title part after "Update:"
+                title_part = page.name.split(':', 1)[1]
+
+                # Remove any subpage suffix (e.g., "/ru")
+                if '/' in title_part:
+                    title_part = title_part.split('/', 1)[0]
+
+                # Replace underscores with spaces to unify format (Maintainer suggestion)
+                normalized_title = title_part.replace('_', ' ')
+
+                try:
+                    date_obj = datetime.strptime(normalized_title, '%B %d, %Y')
+                    update_pages.append((date_obj, page.name))
+                except ValueError:
+                    logger.trace(f'Skipping page with non-date title: {page.name}')
+                    continue
+
+            logger.debug(f'Scanned {count} pages in Update namespace, found {len(update_pages)} valid update pages')
+
+        except Exception as e:
+            logger.error(f'Failed to fetch existing update pages: {e}')
+            return []
+
+        return update_pages
 
     def _upload_changelog_pages(self):
         """
         Reads formatted changelog files and uploads them to the wiki.
         Queries wiki state to ensure correct prev_update linking on first upload.
-        Only processes changelog_ids in self.pending_changelog_ids (if set).
         """
         changelog_dir = os.path.join(self.OUTPUT_DIR, 'changelogs', 'wiki')
         if not os.path.isdir(changelog_dir):
@@ -90,27 +111,16 @@ class WikiUpload:
         changelog_configs_path = os.path.join(self.OUTPUT_DIR, 'changelogs', 'changelog_configs.json')
         changelog_configs = json_utils.read(changelog_configs_path, ignore_error=True) or {}
 
-        # Determine which changelog_ids to process this run.
-        # Only process pending ids when the set is provided; otherwise fall back
-        # to scanning the directory (backward compat).
-        if self.pending_changelog_ids is not None:
-            # Sort chronologically by date+variant so intra-run prev_update linking works.
-            candidate_ids = [
-                f.replace('.txt', '') for f in changelog_utils.sort_changelog_files([f'{cid}.txt' for cid in self.pending_changelog_ids])
-            ]
-        else:
-            candidate_ids = [
-                f.replace('.txt', '') for f in changelog_utils.sort_changelog_files([f for f in os.listdir(changelog_dir) if f.endswith('.txt')])
-            ]
-
-        if not candidate_ids:
+        # Get and sort files with proper variant ordering via utility
+        files = changelog_utils.sort_changelog_files([f for f in os.listdir(changelog_dir) if f.endswith('.txt')])
+        if not files:
             return
 
         # Track uploads in this run for correct intra-run linking
         uploads_this_run: List[Tuple[datetime, str]] = []
 
-        for changelog_id in candidate_ids:
-            filename = f'{changelog_id}.txt'
+        for filename in files:
+            changelog_id = filename.replace('.txt', '')
 
             # Skip if the post was edited by devs to protect manual wiki edits
             if changelog_configs.get(changelog_id, {}).get('was_edited'):
@@ -125,9 +135,6 @@ class WikiUpload:
                 page_title = f'Update:{wiki_date_str}'
 
                 filepath = os.path.join(changelog_dir, filename)
-                if not os.path.exists(filepath):
-                    logger.trace(f'Wikitext file not found for pending changelog {changelog_id}, skipping.')
-                    continue
                 with open(filepath, 'r', encoding='utf-8') as f:
                     raw_content = f.read()
 
@@ -245,27 +252,23 @@ class WikiUpload:
         Queries the wiki to find the most recent update page that is strictly earlier
         than the current patch and links it forward. This ensures the chain is correctly maintained
         even if intermediate update pages were created manually on the wiki.
-
-        Determines the latest changelog by reading changelog_configs.json (which holds full
-        history) rather than scanning wikitext files in the output folder.
         """
-        # Read changelog configs to find the latest entry (holds full history metadata)
-        changelog_configs_path = os.path.join(self.OUTPUT_DIR, 'changelogs', 'changelog_configs.json')
-        changelog_configs = json_utils.read(changelog_configs_path, ignore_error=True)
-        if not changelog_configs:
+        changelog_dir = os.path.join(self.OUTPUT_DIR, 'changelogs', 'wiki')
+        if not os.path.isdir(changelog_dir):
             return
 
-        # Filter out hero lab entries and entries without dates, then sort by date+variant
-        update_ids = [f'{cid}.txt' for cid, cfg in changelog_configs.items() if cfg.get('date') and not cfg.get('is_hero_lab')]
-        sorted_ids = changelog_utils.sort_changelog_files(update_ids)
-        if not sorted_ids:
+        # Get all changelog files sorted by date
+        files = changelog_utils.sort_changelog_files([f for f in os.listdir(changelog_dir) if f.endswith('.txt')])
+        if not files:
             return
 
-        latest_id = sorted_ids[-1].replace('.txt', '')
+        # Get the latest file being processed now
+        latest_file = files[-1]
+        latest_id = latest_file.replace('.txt', '')
         latest_date = changelog_utils.parse_changelog_date_from_id(latest_id)
 
         if not latest_date:
-            logger.error(f'Could not parse date from {latest_id}, cannot update chain')
+            logger.error(f'Could not parse date from {latest_file}, cannot update chain')
             return
 
         latest_page_title = f"Update:{latest_date.strftime('%B')}_{latest_date.day},_{latest_date.year}"
