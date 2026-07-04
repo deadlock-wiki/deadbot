@@ -24,8 +24,11 @@ class ChangelogParser:
         self.tags = Tags(self.default_tag, self.OUTPUT_CHANGELOGS)
 
     # Main
-    def run_all(self, dict_changelogs):
+    def run_all(self, dict_changelogs, pending_ids=None):
         for version, changelog in dict_changelogs.items():
+            # Only process pending entries when a pending set is provided.
+            if pending_ids is not None and version not in pending_ids:
+                continue
             self.run(version, changelog)
 
     # Parse a single changelog file
@@ -62,9 +65,10 @@ class ChangelogParser:
         os.makedirs(self.OUTPUT_CHANGELOGS, exist_ok=True)
         # json_utils.write(self.OUTPUT_CHANGELOGS + f'/versions/{version}.json', changelog_with_icons)
 
-    def format_and_save_wikitext_changelogs(self, changelogs, changelog_configs):
+    def format_and_save_wikitext_changelogs(self, changelogs, changelog_configs, pending_ids=None):
         """
         Formats changelogs into wikitext and saves them to files for later upload.
+        Only processes changelog_ids in pending_ids when provided.
         """
         try:
             # Load data required for formatting entity names.
@@ -98,6 +102,9 @@ class ChangelogParser:
         )
 
         for changelog_id, raw_text in changelogs.items():
+            # Only process pending entries when a pending set is provided.
+            if pending_ids is not None and changelog_id not in pending_ids:
+                continue
             config = changelog_configs.get(changelog_id)
             if not config or config.get('is_hero_lab'):
                 continue

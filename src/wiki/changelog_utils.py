@@ -1,6 +1,66 @@
 import re
 from datetime import datetime
-from typing import List, Tuple, Optional
+from typing import List, Tuple, Optional, Set
+import mwclient
+from loguru import logger
+
+
+def fetch_existing_wiki_updates(site: mwclient.Site = None) -> Tuple[Set[str], List[Tuple[datetime, str]]]:
+    """
+    Single bulk allpages traversal of the wiki's Update namespace.
+    Returns both the set of YYYY-MM-DD dates and the full (date, title) tuples
+    so callers that need both avoid redundant scans.
+
+    Args:
+        site: An authenticated or anonymous mwclient.Site for deadlock.wiki.
+              If None, a read-only anonymous connection is created.
+
+    Returns:
+        Tuple of (existing_dates, wiki_updates) where:
+          existing_dates: Set of date strings in 'YYYY-MM-DD' format
+          wiki_updates:   List of (datetime, page_title) tuples
+    """
+    existing_dates: Set[str] = set()
+    wiki_updates: List[Tuple[datetime, str]] = []
+    try:
+        if site is None:
+            site = mwclient.Site('deadlock.wiki', path='/')
+        namespace_id = _get_namespace_id(site, 'Update')
+        pages = site.allpages(namespace=namespace_id)
+
+        for page in pages:
+            if ':' not in page.name:
+                continue
+            title_part = page.name.split(':', 1)[1]
+            if '/' in title_part:
+                title_part = title_part.split('/', 1)[0]
+            normalized_title = title_part.replace('_', ' ')
+            try:
+                date_obj = datetime.strptime(normalized_title, '%B %d, %Y')
+                existing_dates.add(date_obj.strftime('%Y-%m-%d'))
+                wiki_updates.append((date_obj, page.name))
+            except ValueError:
+                continue
+
+    except Exception as e:
+        logger.warning(f'Failed to query wiki for existing update pages: {e}')
+        return set(), []
+
+    return existing_dates, wiki_updates
+
+
+def get_existing_wiki_update_dates(site: mwclient.Site = None) -> Set[str]:
+    """Convenience wrapper around fetch_existing_wiki_updates that returns only the date set."""
+    dates, _ = fetch_existing_wiki_updates(site)
+    return dates
+
+
+def _get_namespace_id(site: mwclient.Site, search_namespace: str) -> int:
+    """Look up a namespace ID by its name."""
+    for namespace_id, namespace in site.namespaces.items():
+        if namespace == search_namespace:
+            return namespace_id
+    raise ValueError(f'Namespace {search_namespace} not found')
 
 
 def sort_changelog_files(files: List[str]) -> List[str]:

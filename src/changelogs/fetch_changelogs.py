@@ -3,7 +3,7 @@ from loguru import logger
 import requests
 import hashlib
 from utils import file_utils, json_utils
-from typing import TypedDict, NotRequired
+from typing import TypedDict, NotRequired, Set, Optional
 from .constants import STEAM_APP_ID, STEAM_NEWS_API_URL, STEAM_MIGRATION_DATE
 from collections import defaultdict
 from datetime import datetime
@@ -55,7 +55,7 @@ class ChangelogFetcher:
     Fetches changelogs from Steam Web API and game files and parses them into a dictionary
     """
 
-    def __init__(self, update_existing, input_dir, output_dir):
+    def __init__(self, update_existing, input_dir, output_dir, existing_dates: Optional[Set[str]] = None):
         self.changelogs: dict[str, ChangelogString] = {}
         self.changelog_configs: dict[str, ChangelogConfig] = {}
         self.hotfixes: list[Hotfix] = []
@@ -71,6 +71,14 @@ class ChangelogFetcher:
 
         self.wiki_site = None
 
+        # Track which changelog_ids need full reprocessing this run.
+        # Preliminary set: entries whose date is not yet on the wiki, or that
+        # have was_edited set. After Steam fetch, recently_fetched_ids are
+        # merged in to cover same-day hotfix landings on already-uploaded dates.
+        self.existing_dates: Set[str] = existing_dates or set()
+        self.pending_prelim: Set[str] = set()
+        self.recently_fetched_ids: Set[str] = set()
+
         self._load_input_data()
 
     def _load_input_data(self):
@@ -79,12 +87,25 @@ class ChangelogFetcher:
         existing_changelogs = json_utils.read(path)
         self.changelog_configs = existing_changelogs
 
-        # load 'changelogs/raw/<changelog_id>.txt' files
-        all_files = os.listdir(f'{self.INPUT_DIR}/changelogs/raw')
-        for file in all_files:
-            raw_changelog = file_utils.read(f'{self.INPUT_DIR}/changelogs/raw/{file}')
-            changelog_id = file.replace('.txt', '')
-            self.changelogs[changelog_id] = raw_changelog
+        # Determine which entries need reprocessing: dates not yet on the wiki
+        # plus any entry flagged was_edited (keeps surfacing until manually resolved).
+        self.pending_prelim = set()
+        for cid, config in self.changelog_configs.items():
+            cid_date = config.get('date', '')
+            if cid_date not in self.existing_dates or config.get('was_edited'):
+                self.pending_prelim.add(cid)
+
+        # Only read raw txt files for changelog_ids in the pending set.
+        # Full history of raw text is not preloaded into memory.
+        raw_dir = f'{self.INPUT_DIR}/changelogs/raw'
+        try:
+            for file in os.listdir(raw_dir):
+                changelog_id = file.replace('.txt', '')
+                if changelog_id in self.pending_prelim:
+                    raw_changelog = file_utils.read(f'{raw_dir}/{file}')
+                    self.changelogs[changelog_id] = raw_changelog
+        except FileNotFoundError:
+            pass
 
     def _get_wiki_content(self, date_key: str) -> str:
         """
@@ -196,6 +217,11 @@ class ChangelogFetcher:
 
         Since output data is paved over each deploy, we need this source for historic
         changelog data.
+
+        Only writes raw txt files back out for changelog_ids in the pending set
+        (entries whose date is not yet on the wiki, was_edited, or just fetched
+        from Steam). Full history of changelog_configs.json is always written
+        since it is small metadata.
         """
 
         # Sort the keys by the date lexicographically
@@ -207,7 +233,13 @@ class ChangelogFetcher:
         raw_output_dir = os.path.join(self.OUTPUT_DIR, 'changelogs/raw')
         raw_input_dir = os.path.join(self.INPUT_DIR, 'changelogs/raw')
 
+        # Merge Steam-fetched IDs into the pending set so that same-day hotfixes
+        # landing on an already-uploaded date still get their files written.
+        final_pending = self.pending_prelim | self.recently_fetched_ids
+
         for changelog_id, changelog in self.changelogs.items():
+            if changelog_id not in final_pending:
+                continue
             os.makedirs(raw_output_dir, exist_ok=True)
 
             file_utils.write(f'{raw_output_dir}/{changelog_id}.txt', changelog)
@@ -218,6 +250,16 @@ class ChangelogFetcher:
 
         # Save decoupled hotfixes for the uploader
         json_utils.write(f'{self.OUTPUT_DIR}/changelogs/hotfixes.json', self.hotfixes)
+
+    def get_pending_changelog_ids(self) -> Set[str]:
+        """
+        Return the set of changelog_ids that need full processing this run.
+        This is the union of:
+        - Entries whose date is not yet live on the wiki (from pending_prelim)
+        - Entries the Steam fetch returned data for this run (recently_fetched_ids)
+        - Entries flagged was_edited (already included via pending_prelim)
+        """
+        return self.pending_prelim | self.recently_fetched_ids
 
     def fetch_steam_changelogs(self):
         """Fetch patch notes from Steam Web API."""
@@ -267,6 +309,7 @@ class ChangelogFetcher:
 
         for date_key, entries in updates_by_day.items():
             changelog_id = date_key
+            self.recently_fetched_ids.add(changelog_id)
 
             local_path = os.path.join(self.INPUT_DIR, 'changelogs/raw', f'{changelog_id}.txt')
             local_content = file_utils.read(local_path) if os.path.exists(local_path) else ''

@@ -14,6 +14,7 @@ from utils.meta_utils import get_deadbot_version
 from utils.parameters import load_arguments, Args
 from utils.process import run_process
 from wiki.upload import WikiUpload
+from wiki.changelog_utils import fetch_existing_wiki_updates
 
 load_dotenv()
 
@@ -81,13 +82,15 @@ def main():
 
     if args.changelogs:
         logger.info('Parsing Changelogs...')
-        act_changelog_parse(args)
+        _, pending_ids, wiki_updates = act_changelog_parse(args)
     else:
+        pending_ids = None
+        wiki_updates = None
         logger.trace('! Skipping Changelogs !')
 
     if args.wiki_upload:
         logger.info('Running Wiki Upload...')
-        wiki_upload = WikiUpload(args.output, dry_run=args.dry_run)
+        wiki_upload = WikiUpload(args.output, dry_run=args.dry_run, pending_changelog_ids=pending_ids, wiki_updates=wiki_updates)
         wiki_upload.run()
     else:
         logger.trace('! Skipping Wiki Upload !')
@@ -104,20 +107,29 @@ def act_gamefile_parse(args: Args):
 
 
 def act_changelog_parse(args: Args):
+    # Single wiki query at the start — fetches both the date set (for pending
+    # computation) and the full (date, title) tuple list (for upload linking).
+    # Both ChangelogFetcher and WikiUpload receive these, avoiding redundant scans.
+    existing_dates, wiki_updates = fetch_existing_wiki_updates()
+
     chlog_fetcher = fetch_changelogs.ChangelogFetcher(
         update_existing=False,
         input_dir=args.inputdir,
         output_dir=args.output,
+        existing_dates=existing_dates,
     )
     chlog_fetcher.run()
 
+    pending_ids = chlog_fetcher.get_pending_changelog_ids()
+
     chlog_parser = parse_changelogs.ChangelogParser(args.output)
-    chlog_parser.run_all(chlog_fetcher.changelogs)
+    chlog_parser.run_all(chlog_fetcher.changelogs, pending_ids=pending_ids)
     chlog_parser.format_and_save_wikitext_changelogs(
         chlog_fetcher.changelogs,
         chlog_fetcher.changelog_configs,
+        pending_ids=pending_ids,
     )
-    return chlog_parser
+    return chlog_parser, pending_ids, wiki_updates
 
 
 if __name__ == '__main__':
