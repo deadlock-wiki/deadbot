@@ -89,8 +89,13 @@ class ChangelogFetcher:
 
         # Determine which entries need reprocessing: dates not yet on the wiki
         # plus any entry flagged was_edited (keeps surfacing until manually resolved).
+        # Hero Lab entries are excluded -- they have non-standard ID formats
+        # (e.g. "2026-06-24_HeroLab") that sort_changelog_files can't parse,
+        # and they are already skipped during wikitext formatting.
         self.pending_prelim = set()
         for cid, config in self.changelog_configs.items():
+            if config.get('is_hero_lab'):
+                continue
             cid_date = config.get('date', '')
             if cid_date not in self.existing_dates or config.get('was_edited'):
                 self.pending_prelim.add(cid)
