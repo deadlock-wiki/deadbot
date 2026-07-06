@@ -24,7 +24,7 @@ pillow = "^12.2.0"
 [tool.poetry.group.build.dependencies]
 nuitka = "^4.0.5"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 ruff = "^0.6.2"
 pre-commit = "^3.8.0"
 
