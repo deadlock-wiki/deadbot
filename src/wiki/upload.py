@@ -5,7 +5,7 @@ import re
 from datetime import datetime
 from typing import List, Tuple
 from utils import json_utils, game_utils, meta_utils
-from .pages import DATA_PAGE_FILE_MAP, IGNORE_PAGES
+from .pages import DATA_PAGE_FILE_MAP, IGNORE_PAGES, IMAGE_FILE_MAP
 from loguru import logger
 from . import changelog_utils
 
@@ -49,6 +49,7 @@ class WikiUpload:
     def run(self):
         logger.info(f'Uploading Data to Wiki - {self.upload_message}')
         self._update_data_pages()
+        self._upload_assets()
         self.wiki_updates = self._get_existing_update_pages()
         self._upload_changelog_pages()
         self._process_hotfixes()
@@ -214,6 +215,31 @@ class WikiUpload:
 
             json_string = json.dumps(data, indent=4)
             self._update_page(page, json_string)
+
+    def _upload_assets(self):
+        assets_dir = os.path.join(self.OUTPUT_DIR, 'assets')
+        if not os.path.isdir(assets_dir):
+            logger.trace(f'Assets directory not found at "{assets_dir}", skipping asset upload.')
+            return
+
+        logger.info('Uploading asset files...')
+        for wiki_filename, file_path in IMAGE_FILE_MAP.items():
+            full_path = os.path.join(self.OUTPUT_DIR, file_path)
+            if not os.path.isfile(full_path):
+                logger.warning(f'Asset file not found: {full_path}')
+                continue
+
+            page_title = f'File:{wiki_filename}'
+            logger.info(f'Uploading file: "{page_title}" from {full_path}')
+            if self.dry_run:
+                continue
+
+            try:
+                with open(full_path, 'rb') as f:
+                    self.site.upload(f, filename=wiki_filename, comment=self.upload_message, ignore=True)
+                logger.success(f'Successfully uploaded file "{page_title}"')
+            except Exception as e:
+                logger.error(f'Failed to upload file "{page_title}": {e}')
 
     def upload_new_page(self, title, content):
         """
