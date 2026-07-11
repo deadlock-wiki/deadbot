@@ -43,6 +43,7 @@ class AbilityParser:
             'Key': ability_key,
             'Name': self.localizations.get(ability_key, None),
             'IsDisabled': ability.get('m_bDisabled', False),
+            'BehaviourBits': maps.get_behaviour_bits(ability.get('m_AbilityBehaviorsBits')),
         }
 
         stats = ability.get('m_mapAbilityProperties', {})
