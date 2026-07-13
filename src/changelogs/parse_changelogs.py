@@ -6,6 +6,7 @@ import utils.json_utils as json_utils
 from utils import file_utils
 from .tags import ChangelogTags as Tags
 from . import wikitext_formatter
+from .constants import STEAM_MIGRATION_DATE
 
 
 class ChangelogParser:
@@ -93,18 +94,26 @@ class ChangelogParser:
         output_path = os.path.join(self.OUTPUT_DIR, 'changelogs', 'wiki')
         os.makedirs(output_path, exist_ok=True)
 
+        # Sort keys to determine chronological order
+        # We filter for valid dates and exclude 'is_hero_lab' so main updates only link to previous main updates.
         sorted_update_ids = sorted(
             [k for k, v in changelog_configs.items() if v.get('date') and not v.get('is_hero_lab')], key=lambda k: changelog_configs[k]['date']
         )
 
         for changelog_id, raw_text in changelogs.items():
             config = changelog_configs.get(changelog_id)
+            # Hero Lab entries no longer exist in the game and don't get updates, skip them.
             if not config or config.get('is_hero_lab'):
                 continue
 
             changelog_date = config.get('date')
             if not changelog_date:
                 logger.warning(f"Changelog '{changelog_id}' is missing a date. Skipping wiki page creation.")
+                continue
+
+            # Skip historical forum changelogs. They are already on the wiki
+            # and don't need to be re-generated or re-uploaded.
+            if changelog_date < STEAM_MIGRATION_DATE:
                 continue
 
             formatted_body = wikitext_formatter.format_changelog(raw_text, hero_data, item_data, ability_data, link_targets=link_targets)
