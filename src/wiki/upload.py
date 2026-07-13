@@ -107,10 +107,6 @@ class WikiUpload:
 
         logger.info('Uploading changelog pages...')
 
-        # Load changelog configs to check for edit flags
-        changelog_configs_path = os.path.join(self.OUTPUT_DIR, 'changelogs', 'changelog_configs.json')
-        changelog_configs = json_utils.read(changelog_configs_path, ignore_error=True) or {}
-
         # Get and sort files with proper variant ordering via utility
         files = changelog_utils.sort_changelog_files([f for f in os.listdir(changelog_dir) if f.endswith('.txt')])
         if not files:
@@ -122,10 +118,6 @@ class WikiUpload:
         for filename in files:
             changelog_id = filename.replace('.txt', '')
 
-            # Skip if the post was edited by devs to protect manual wiki edits
-            if changelog_configs.get(changelog_id, {}).get('was_edited'):
-                logger.info(f'Skipping wiki upload for {changelog_id} because devs edited the post. Manual review required.')
-                continue
             try:
                 date_obj = changelog_utils.parse_changelog_date_from_id(changelog_id)
                 if not date_obj:

@@ -24,7 +24,6 @@ class ChangelogConfig(TypedDict):
     is_hero_lab: bool
     title: NotRequired[str]
     steam_hash: NotRequired[str]
-    was_edited: NotRequired[bool]
 
 
 class ForumUpdate(TypedDict):
@@ -285,20 +284,9 @@ class ChangelogFetcher:
                         main_entry = e
                         matched = True
                         if existing_config.get('steam_hash') and existing_config['steam_hash'] != e['steam_hash']:
-                            logger.warning(f'Steam post for {date_key} was edited by the devs!')
-                            self.changelog_configs[changelog_id] = {
-                                'source_id': e['version'],
-                                'date': date_key,
-                                'link': e['link'],
-                                'is_hero_lab': False,
-                                'title': e.get('title'),
-                                'steam_hash': e['steam_hash'],
-                                'was_edited': True,
-                            }
-                            break
-                if existing_config and self.changelog_configs.get(changelog_id, {}).get('was_edited'):
-                    continue
-
+                            logger.warning(f'Steam post for {date_key} was edited by the devs! Updating local file.')
+                            local_content = ''
+                        break
                 if not matched and entries:
                     main_entry = entries[0]
 
@@ -340,6 +328,14 @@ class ChangelogFetcher:
                     final_text += f'\n\n=== Patch {patch_num} ===\n\n{entry_text}'
                     logger.debug(f'Adding Patch {patch_num} to {date_key}')
 
+            # If we overwrote the local file due to an edit, prevent false hotfix detection
+            # by considering the newly generated text as the "old text".
+            if not local_content and not wiki_content and main_entry:
+                old_text = final_text
+            else:
+                old_text = local_content or wiki_content or ''
+
+            # Detect hotfixes - compare new patches against old content
             potential_headers = re.findall(r'=== Patch \d+ ===', final_text)
             for h in potential_headers:
                 if h not in old_text:
