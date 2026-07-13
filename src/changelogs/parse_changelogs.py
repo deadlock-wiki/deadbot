@@ -350,17 +350,6 @@ class ChangelogParser:
 
         return resources
 
-    def is_hero(self, tag):
-        """
-        Returns True if the tag is a hero name i.e. Abrams
-        """
-        for hero_key, hero_data in self.heroes.items():
-            hero_name = hero_data['Name']
-            if tag == hero_name:
-                return True
-
-        return False
-
     # Given an ability key, return the first hero that has that ability
     def get_hero_from_ability(self, ability_key_to_search):
         for hero_key in self.heroes:

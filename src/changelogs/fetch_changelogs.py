@@ -66,8 +66,6 @@ class ChangelogFetcher:
         self.STEAM_NEWS_URL = STEAM_NEWS_API_URL
         self.APP_ID = STEAM_APP_ID
 
-        self.TAGS_TO_REMOVE = ['<ul>', '</ul>', '<b>', '</b>', '<i>', '</i>']
-
         self.wiki_site = None
 
         self._load_input_data()
@@ -168,9 +166,9 @@ class ChangelogFetcher:
         text = re.sub(r'\[/?url\]', '', text)
 
         # Handle images, steam items, youtube
-        text = re.sub(r'\[img[^\]]*\].*?\[/img\]', '', text)
-        text = re.sub(r'\[steamitem[^\]]*\].*?\[/steamitem\]', '', text)
-        text = re.sub(r'\[previewyoutube[^\]]*\].*?\[/previewyoutube\]', '', text)
+        text = re.sub(r'\[img[^\]]*\].*?\[/img\]', '', text, flags=re.DOTALL)
+        text = re.sub(r'\[steamitem[^\]]*\].*?\[/steamitem\]', '', text, flags=re.DOTALL)
+        text = re.sub(r'\[previewyoutube[^\]]*\].*?\[/previewyoutube\]', '', text, flags=re.DOTALL)
 
         # Catch-all: remove any remaining BBCode tags we missed
         text = re.sub(r'\[/?[a-zA-Z0-9]+(?:\s[^\]]*)?\]', '', text)
@@ -180,12 +178,8 @@ class ChangelogFetcher:
         return text
 
     def run(self):
-        self.load_localization()
         self.fetch_steam_changelogs()
         self.changelogs_to_file()
-
-    def load_localization(self):
-        self.localization_data_en = json_utils.read(os.path.join(self.OUTPUT_DIR, 'localizations', 'english.json'))
 
     def changelogs_to_file(self):
         """
@@ -235,34 +229,38 @@ class ChangelogFetcher:
         updates_by_day: dict[str, list[ForumUpdate]] = defaultdict(list)
 
         for item in news_items:
-            tags = item.get('tags', [])
-            if 'patchnotes' not in tags:
-                logger.trace(f"Skipping non-patch-note news: {item.get('title')} (Tags: {tags})")
+            try:
+                tags = item.get('tags', [])
+                if 'patchnotes' not in tags:
+                    logger.trace(f"Skipping non-patch-note news: {item.get('title')} (Tags: {tags})")
+                    continue
+
+                gid = str(item['gid'])
+                url = item.get('url') or f'https://store.steampowered.com/news/app/{self.APP_ID}/view/{gid}'
+                title = item.get('title', '')
+                date_unix = item['date']
+                contents_bbcode = item.get('contents', '')
+
+                dt_utc = datetime.fromtimestamp(date_unix, tz=ZoneInfo('UTC'))
+                dt_valve = dt_utc.astimezone(target_tz)
+                post_date = dt_valve.strftime('%Y-%m-%d')
+
+                # Only process patch notes on or after 2026-06-04.
+                # Before this date, changelogs were sourced from the Deadlock forums and
+                # already exist in the data directory. Overwriting them with Steam-sourced
+                # content would replace forum URLs and formatting, which is undesirable.
+                if post_date < STEAM_MIGRATION_DATE:
+                    logger.trace(f'Skipping old patch note before 2026-06-04: {title}')
+                    continue
+
+                logger.trace(f'Processing Steam patch note: {title} ({post_date})')
+                text = self._bbcode_to_text(contents_bbcode)
+                steam_hash = hashlib.md5(contents_bbcode.encode('utf-8')).hexdigest()
+
+                updates_by_day[post_date].append({'version': gid, 'text': text, 'link': url, 'title': title, 'steam_hash': steam_hash})
+            except Exception as e:
+                logger.error(f'Failed to parse Steam news item: {e}')
                 continue
-
-            gid = str(item['gid'])
-            url = item.get('url') or f'https://store.steampowered.com/news/app/{self.APP_ID}/view/{gid}'
-            title = item.get('title', '')
-            date_unix = item['date']
-            contents_bbcode = item.get('contents', '')
-
-            dt_utc = datetime.fromtimestamp(date_unix, tz=ZoneInfo('UTC'))
-            dt_valve = dt_utc.astimezone(target_tz)
-            post_date = dt_valve.strftime('%Y-%m-%d')
-
-            # Only process patch notes on or after 2026-06-04.
-            # Before this date, changelogs were sourced from the Deadlock forums and
-            # already exist in the data directory. Overwriting them with Steam-sourced
-            # content would replace forum URLs and formatting, which is undesirable.
-            if post_date < STEAM_MIGRATION_DATE:
-                logger.trace(f'Skipping old patch note before 2026-06-04: {title}')
-                continue
-
-            logger.trace(f'Processing Steam patch note: {title} ({post_date})')
-            text = self._bbcode_to_text(contents_bbcode)
-            steam_hash = hashlib.md5(contents_bbcode.encode('utf-8')).hexdigest()
-
-            updates_by_day[post_date].append({'version': gid, 'text': text, 'link': url, 'title': title, 'steam_hash': steam_hash})
 
         for date_key, entries in updates_by_day.items():
             changelog_id = date_key
@@ -290,6 +288,7 @@ class ChangelogFetcher:
                             was_edited = True
                         break
                 if not matched and entries:
+                    entries.sort(key=lambda x: x['version'])
                     main_entry = entries[0]
 
                 for e in entries:
