@@ -136,34 +136,7 @@ class ChangelogParser:
                         pass
 
             source_link = config.get('link') or ''
-            source_title = config.get('title')
-
-            is_steam_link = (
-                'store.steampowered.com/news/' in source_link
-                or 'steamstore-a.akamaihd.net/news/' in source_link
-                or 'steamcommunity.com/app/' in source_link
-            )
-            if source_link and is_steam_link:
-                if not source_title:
-                    source_title = f"{date_obj.strftime('%m-%d-%Y')} Update"
-            elif source_link:
-                parts = source_link.split('/')
-                slug = ''
-                for part in parts:
-                    if '-update' in part:
-                        slug = part
-                        break
-                if not slug and len(parts) >= 2:
-                    slug = parts[-2] if parts[-1] == '' else parts[-1]
-
-                title_part = slug.split('.')[0]
-                source_title = title_part.replace('-update', ' Update')
-
-                if '/post-' in source_link or '/posts/' in source_link:
-                    source_title += ' (Reply)'
-            else:
-                if not source_title:
-                    source_title = f"{date_obj.strftime('%m-%d-%Y')} Update"
+            source_title = config.get('title') or f"{date_obj.strftime('%m-%d-%Y')} Update"
 
             full_page_content = f"""{{{{Update layout
 | prev_update = {prev_update_link}
