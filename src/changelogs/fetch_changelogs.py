@@ -276,6 +276,7 @@ class ChangelogFetcher:
 
             main_entry = None
             append_entries = []
+            was_edited = False
 
             if existing_config:
                 matched = False
@@ -286,6 +287,7 @@ class ChangelogFetcher:
                         if existing_config.get('steam_hash') and existing_config['steam_hash'] != e['steam_hash']:
                             logger.warning(f'Steam post for {date_key} was edited by the devs! Updating local file.')
                             local_content = ''
+                            was_edited = True
                         break
                 if not matched and entries:
                     main_entry = entries[0]
@@ -338,7 +340,7 @@ class ChangelogFetcher:
 
             # If we overwrote the local file due to an edit, prevent false hotfix detection
             # by considering the newly generated text as the "old text".
-            if not local_content and not wiki_content and main_entry:
+            if was_edited:
                 old_text = final_text
             else:
                 old_text = local_content or wiki_content or ''
