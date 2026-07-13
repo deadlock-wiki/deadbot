@@ -298,29 +298,37 @@ class ChangelogFetcher:
                 main_entry = entries[0]
                 append_entries = entries[1:]
 
+            # Determine base content and whether to append
             if local_content:
+                # Local file exists - use it as base, don't append to file
+                # (will still check for hotfixes to append to wiki later)
                 current_text = local_content
             elif wiki_content and main_entry:
+                # Wiki page exists but no local file - append new content to wiki
                 logger.info(f'Found wiki page for {date_key} without local file, appending new content')
                 append_entries.insert(0, main_entry)
                 current_text = wiki_content
                 main_entry = None
             else:
+                # No existing content - use fetched content as base
                 current_text = main_entry['text'] if main_entry else (self.changelogs.get(changelog_id, ''))
 
-            old_text = local_content or wiki_content or ''
-
+            # Helper to get next patch number
             def get_next_patch_num(txt):
                 matches = re.findall(r'=== Patch (\d+) ===', txt)
                 if matches:
                     return max(map(int, matches)) + 1
+                # If there's existing content but no patches yet, this will be Patch 2
                 return 2 if txt.strip() else 1
 
+            # Merge any secondary entries into current text with proper patch headers
             final_text = current_text
             for entry in append_entries:
+                # Remove any existing patch headers from the entry first
                 entry_text = entry['text']
                 entry_text = re.sub(r'=== Patch \d+ ===\n*', '', entry_text).strip()
 
+                # Skip if this content is already in final_text
                 normalized_entry = re.sub(r'^- ', '* ', entry_text, flags=re.MULTILINE)
                 normalized_final = re.sub(r'^- ', '* ', final_text, flags=re.MULTILINE)
                 if normalized_entry not in normalized_final:
@@ -344,28 +352,18 @@ class ChangelogFetcher:
                         self.hotfixes.append({'date': date_key, 'text': section_text})
                         logger.debug(f'Detected hotfix: {h} for {date_key}')
 
+            # Save to memory and update config
             self.changelogs[changelog_id] = final_text
 
-            if main_entry:
-                source_id = main_entry['version']
-                link = main_entry['link']
-                title = main_entry.get('title')
-                steam_hash = main_entry.get('steam_hash')
-            elif existing_config:
-                source_id = existing_config.get('source_id')
-                link = existing_config.get('link')
-                title = existing_config.get('title')
-                steam_hash = existing_config.get('steam_hash')
-            elif append_entries:
-                source_id = append_entries[0]['version']
-                link = append_entries[0]['link']
-                title = append_entries[0].get('title')
-                steam_hash = append_entries[0].get('steam_hash')
-            else:
-                source_id = None
-                link = None
-                title = None
-                steam_hash = None
+            # Determine source_id, link, title, and steam_hash with priority:
+            # main_entry > existing_config > append_entries
+            source_data = main_entry or existing_config or (append_entries[0] if append_entries else {})
+
+            # main_entry and append_entries use 'version', existing_config uses 'source_id'
+            source_id = source_data.get('version') or source_data.get('source_id')
+            link = source_data.get('link')
+            title = source_data.get('title')
+            steam_hash = source_data.get('steam_hash')
 
             self.changelog_configs[changelog_id] = {
                 'source_id': source_id,
