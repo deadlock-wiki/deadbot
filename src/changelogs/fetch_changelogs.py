@@ -137,13 +137,13 @@ class ChangelogFetcher:
         Extract a specific patch section from changelog text.
 
         Args:
-            header: Patch header like "=== Patch 2 ==="
+            header: Patch header like "== Patch 2 =="
             full_text: Complete changelog text
 
         Returns:
             str: The patch section including header, or empty string if not found
         """
-        pattern = re.compile(rf'({re.escape(header)})(.*?)(?=(=== Patch \d+ ===)|$)', re.DOTALL)
+        pattern = re.compile(rf'({re.escape(header)})(.*?)(?=(== Patch \d+ ==)|$)', re.DOTALL)
         match = pattern.search(full_text)
         return match.group(0).strip() if match else ''
 
@@ -316,7 +316,7 @@ class ChangelogFetcher:
 
             # Helper to get next patch number
             def get_next_patch_num(txt):
-                matches = re.findall(r'=== Patch (\d+) ===', txt)
+                matches = re.findall(r'== Patch (\d+) ==', txt)
                 if matches:
                     return max(map(int, matches)) + 1
                 # If there's existing content but no patches yet, this will be Patch 2
@@ -327,14 +327,14 @@ class ChangelogFetcher:
             for entry in append_entries:
                 # Remove any existing patch headers from the entry first
                 entry_text = entry['text']
-                entry_text = re.sub(r'=== Patch \d+ ===\n*', '', entry_text).strip()
+                entry_text = re.sub(r'== Patch \d+ ==\n*', '', entry_text).strip()
 
                 # Skip if this content is already in final_text
                 normalized_entry = re.sub(r'^- ', '* ', entry_text, flags=re.MULTILINE)
                 normalized_final = re.sub(r'^- ', '* ', final_text, flags=re.MULTILINE)
                 if normalized_entry not in normalized_final:
                     patch_num = get_next_patch_num(final_text)
-                    final_text += f'\n\n=== Patch {patch_num} ===\n\n{entry_text}'
+                    final_text += f'\n\n== Patch {patch_num} ==\n\n{entry_text}'
                     logger.debug(f'Adding Patch {patch_num} to {date_key}')
 
             # If we overwrote the local file due to an edit, prevent false hotfix detection
@@ -345,7 +345,7 @@ class ChangelogFetcher:
                 old_text = local_content or wiki_content or ''
 
             # Detect hotfixes - compare new patches against old content
-            potential_headers = re.findall(r'=== Patch \d+ ===', final_text)
+            potential_headers = re.findall(r'== Patch \d+ ==', final_text)
             for h in potential_headers:
                 if h not in old_text:
                     section_text = self._get_patch_section(h, final_text)
