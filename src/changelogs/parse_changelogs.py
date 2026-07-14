@@ -147,7 +147,7 @@ class ChangelogParser:
 | source = {source_link}
 | source_title = {source_title}
 | notes =
-{formatted_body}
+{formatted_body.rstrip()}
 }}}}"""
 
             file_utils.write(os.path.join(output_path, f'{changelog_id}.txt'), full_page_content)
