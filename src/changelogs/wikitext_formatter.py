@@ -58,14 +58,16 @@ def format_changelog(
 
 
 def _format_entries(
-    entries: List[str],
+    entries: List[Tuple[bool, str]],
     heroes: List[str],
     items: List[str],
     abilities: List[str],
     link_targets: Optional[Dict[str, list]],
 ) -> str:
     """
-    Parses flat bullet-point entries and categorizes them into a structured hierarchy.
+    Parses categorized entries (bullets and raw text) into a structured hierarchy.
+    Each entry is a tuple of ``(is_bullet, text)``. Bullet entries are classified into
+    Game Modes, Items, or Heroes/Abilities; raw text goes to the general section.
     Builds nested dictionaries for Game Modes, Items, and Heroes (with sub-sections for abilities),
     then passes the formatted text to _build_output to generate the final wikitext layout.
     """
@@ -77,17 +79,23 @@ def _format_entries(
     hero_sections: Dict[str, Dict[str, Any]] = {}
     hero_order: List[str] = []
 
-    for entry in entries:
+    for is_bullet, entry in entries:
+        if not is_bullet:
+            # Raw text (like "Primary details:") goes to general without a bullet
+            formatted = _format_body(entry, heroes, abilities, items, link_targets)
+            general.append(formatted)
+            continue
+
         kind, name, body = _classify(entry, heroes, items, GAME_MODE_SECTIONS)
 
         if kind == 'general':
-            general.append(_format_body(body, heroes, abilities, items, link_targets))
+            general.append(f'* {_format_body(body, heroes, abilities, items, link_targets)}')
 
         elif kind == 'mode':
             if name not in modes:
                 modes[name] = []
                 mode_order.append(name)
-            modes[name].append(_format_body(body, heroes, abilities, items, link_targets))
+            modes[name].append(f'* {_format_body(body, heroes, abilities, items, link_targets)}')
 
         elif kind == 'item':
             if name not in item_sections:
@@ -134,28 +142,29 @@ def _active_names(data: Dict[str, Any]) -> List[str]:
     return [entry['Name'] for entry in data.values() if entry.get('Name') and not entry.get('IsDisabled', False)]
 
 
-def _parse_entries(raw_text: str) -> List[str]:
+def _parse_entries(raw_text: str) -> List[Tuple[bool, str]]:
     """
-    Splits raw text into individual bullet-point entries.
-    Lines starting with ``-`` start a new entry; subsequent indented lines without a
-    leading ``-`` are treated as continuation text of the current entry.
+    Splits raw text into individual entries.
+    Returns a list of tuples: (True, text) for bullets, (False, text) for raw prose.
+    Bracket headings like '[ Items ]' are dropped to prevent corruption.
     """
-    entries: List[str] = []
-    current: Optional[str] = None
+    entries: List[Tuple[bool, str]] = []
 
     for line in raw_text.split('\n'):
         stripped = line.strip()
+        if not stripped:
+            continue
+
         if stripped.startswith('-'):
-            if current is not None:
-                entries.append(current)
-            current = stripped[1:].strip()
-        elif current is not None:
-            current += ' ' + stripped
+            entries.append((True, stripped[1:].strip()))
+        else:
+            # Drop bracket headings like [ Items ] or [ General ]
+            if re.match(r'^\[.*\]$', stripped):
+                continue
+            # Keep other lines (like "Primary details:") as raw text
+            entries.append((False, re.sub(r'\s+', ' ', stripped).strip()))
 
-    if current is not None:
-        entries.append(current)
-
-    return [re.sub(r'\s+', ' ', e).strip() for e in entries if e.strip()]
+    return entries
 
 
 def _match_hero_prefix(raw_prefix: str, heroes: List[str]) -> Optional[str]:
@@ -294,13 +303,13 @@ def _build_output(general, modes, mode_order, item_sections, item_order, hero_se
     lines: List[str] = []
 
     for entry in general:
-        lines.append(f'* {entry}')
+        lines.append(entry)
 
     for mode in mode_order:
         lines.append('')
         lines.append(f'== [[{mode}]] ==')
         for body in modes[mode]:
-            lines.append(f'* {body}')
+            lines.append(body)
 
     if item_order:
         lines.append('')
