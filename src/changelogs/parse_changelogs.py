@@ -118,6 +118,10 @@ class ChangelogParser:
 
             formatted_body = wikitext_formatter.format_changelog(raw_text, hero_data, item_data, ability_data, link_targets=link_targets)
 
+            # If the formatted text doesn't start with a bullet point, there are no general changes.
+            # We set hide_general=true so the wiki template doesn't render an empty '== General ==' section.
+            hide_general = 'true' if not formatted_body.lstrip().startswith('*') else ''
+
             date_obj = datetime.strptime(changelog_date, '%Y-%m-%d')
 
             # Calculate Previous Link using {{Update link}}
@@ -146,6 +150,7 @@ class ChangelogParser:
 | next_update =
 | source = {source_link}
 | source_title = {source_title}
+| hide_general = {hide_general}
 | notes =
 {formatted_body.rstrip()}
 }}}}"""
