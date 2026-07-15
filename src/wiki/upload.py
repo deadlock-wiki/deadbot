@@ -117,6 +117,7 @@ class WikiUpload:
 
         for filename in files:
             changelog_id = filename.replace('.txt', '')
+
             try:
                 date_obj = changelog_utils.parse_changelog_date_from_id(changelog_id)
                 if not date_obj:

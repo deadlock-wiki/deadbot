@@ -6,6 +6,7 @@ import utils.json_utils as json_utils
 from utils import file_utils
 from .tags import ChangelogTags as Tags
 from . import wikitext_formatter
+from .constants import STEAM_MIGRATION_DATE
 
 
 class ChangelogParser:
@@ -101,7 +102,7 @@ class ChangelogParser:
 
         for changelog_id, raw_text in changelogs.items():
             config = changelog_configs.get(changelog_id)
-            # Skip if config is missing or if it's a Hero Lab entry.
+            # Hero Lab entries no longer exist in the game and don't get updates, skip them.
             if not config or config.get('is_hero_lab'):
                 continue
 
@@ -110,7 +111,16 @@ class ChangelogParser:
                 logger.warning(f"Changelog '{changelog_id}' is missing a date. Skipping wiki page creation.")
                 continue
 
+            # Skip historical forum changelogs. They are already on the wiki
+            # and don't need to be re-generated or re-uploaded.
+            if changelog_date < STEAM_MIGRATION_DATE:
+                continue
+
             formatted_body = wikitext_formatter.format_changelog(raw_text, hero_data, item_data, ability_data, link_targets=link_targets)
+
+            # If the formatted text doesn't start with a bullet point, there are no general changes.
+            # We set hide_general=true so the wiki template doesn't render an empty '== General ==' section.
+            hide_general = 'true' if not formatted_body.lstrip().startswith('*') else ''
 
             date_obj = datetime.strptime(changelog_date, '%Y-%m-%d')
 
@@ -129,27 +139,8 @@ class ChangelogParser:
                     except ValueError:
                         pass
 
-            source_link = config.get('link', '')
-            source_title = ''
-            if source_link:
-                # Logic to extract title from URL
-                parts = source_link.split('/')
-                slug = ''
-                for part in parts:
-                    if '-update' in part:
-                        slug = part
-                        break
-                if not slug and len(parts) >= 2:
-                    slug = parts[-2] if parts[-1] == '' else parts[-1]
-
-                title_part = slug.split('.')[0]
-                source_title = title_part.replace('-update', ' Update')
-
-                # Check for reply indicators in the URL
-                if '/post-' in source_link or '/posts/' in source_link:
-                    source_title += ' (Reply)'
-            else:
-                source_title = f"{date_obj.strftime('%m-%d-%Y')} Update"
+            source_link = config.get('link') or ''
+            source_title = config.get('title') or f"{date_obj.strftime('%m-%d-%Y')} Update"
 
             full_page_content = f"""{{{{Update layout
 | prev_update = {prev_update_link}
@@ -159,8 +150,9 @@ class ChangelogParser:
 | next_update =
 | source = {source_link}
 | source_title = {source_title}
+| hide_general = {hide_general}
 | notes =
-{formatted_body}
+{formatted_body.rstrip()}
 }}}}"""
 
             file_utils.write(os.path.join(output_path, f'{changelog_id}.txt'), full_page_content)
@@ -227,13 +219,6 @@ class ChangelogParser:
 
             if heading_tag is not None:
                 tags = self._register_tag(tags, tag=heading_tag)
-
-            # If the heading is a "HeroLab <hero>", register <hero> as well
-            if current_heading.startswith('HeroLab '):
-                hero = current_heading[len('HeroLab ') :]
-                if self.is_hero(hero):
-                    tags = self._register_tag(tags, hero)
-                    tags = self._register_tag(tags, 'Hero')
 
         # if no tag is found, assign to default tag
         if len(tags) == 0:
@@ -369,17 +354,6 @@ class ChangelogParser:
         self.heroes = heroes
 
         return resources
-
-    def is_hero(self, tag):
-        """
-        Returns True if the tag is a hero name i.e. Abrams
-        """
-        for hero_key, hero_data in self.heroes.items():
-            hero_name = hero_data['Name']
-            if tag == hero_name:
-                return True
-
-        return False
 
     # Given an ability key, return the first hero that has that ability
     def get_hero_from_ability(self, ability_key_to_search):
