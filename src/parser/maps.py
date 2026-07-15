@@ -145,6 +145,9 @@ ATTRIBUTE_MANUAL_MAP = {
         'label': 'StatDesc_SpiritLifestealEffectiveness',
         'postfix': 'StatDesc_SpiritLifestealEffectiveness_postfix',
     },
+    'GravityChange': {'label': 'GravityScale_label', 'postfix': 'GravityScale_postfix'},
+    'FalloffStartRange': {'postfix': 'StatDesc_WeaponRangeFalloffMin_postfix'},
+    'FalloffEndRange': {'postfix': 'StatDesc_WeaponRangeFalloffMax_postfix'},
 }
 
 
