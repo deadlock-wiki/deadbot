@@ -48,6 +48,14 @@ DATA_PAGE_FILE_MAP = {
     'StreetBrawlData.json': 'json/street-brawl-data.json',
 }
 
+# Maps file name in "File:" namespace on the wiki to
+# the file path in $OUTPUT_DIR
+IMAGE_FILE_MAP = {
+    'Golden_statues_map.png': 'assets/golden_statues_map.png',
+    'Crate_map.png': 'assets/crate_map.png',
+    'Shops_map.png': 'assets/shops_map.png',
+}
+
 # Ignore these pages as they are not automated
 IGNORE_PAGES = [
     'Dictionary',
