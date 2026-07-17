@@ -104,12 +104,10 @@ def act_gamefile_parse(args: Args):
 
 
 def act_changelog_parse(args: Args):
-    herolab_patch_notes_path = os.path.join(args.workdir, 'localizations', 'patch_notes', 'citadel_patch_notes_english.json')
     chlog_fetcher = fetch_changelogs.ChangelogFetcher(
         update_existing=False,
         input_dir=args.inputdir,
         output_dir=args.output,
-        herolab_patch_notes_path=herolab_patch_notes_path,
     )
     chlog_fetcher.run()
 
