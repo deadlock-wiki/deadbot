@@ -77,7 +77,6 @@ class Decompiler:
             'citadel_heroes',
             'citadel_main',
             'citadel_mods',
-            'citadel_patch_notes',
         ]
 
         # Loop through each folder in the array

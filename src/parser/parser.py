@@ -16,6 +16,7 @@ from .parsers import (
     game_map,
     misc,
     convars,
+    street_brawl,
 )
 from utils import json_utils
 from loguru import logger
@@ -150,6 +151,7 @@ class Parser:
         self._parse_generics()
         self._parse_misc()
         self._parse_convars()
+        self._parse_street_brawl()
         self._parse_map()
         logger.trace('Done parsing')
 
@@ -296,9 +298,9 @@ class Parser:
             json_utils.write(os.path.join(self.OUTPUT_DIR, 'json/midtown-metadata.json'), map_data['midtown']['metadata'])
 
             os.makedirs(os.path.join(self.OUTPUT_DIR, 'assets'), exist_ok=True)
-            map_data['midtown']['plots']['golden_statues'].save(os.path.join(self.OUTPUT_DIR, 'assets/golden-statues-map.png'))
-            map_data['midtown']['plots']['crate'].save(os.path.join(self.OUTPUT_DIR, 'assets/crate-map.png'))
-            map_data['midtown']['plots']['shops'].save(os.path.join(self.OUTPUT_DIR, 'assets/shops-map.png'))
+            map_data['midtown']['plots']['golden_statues'].save(os.path.join(self.OUTPUT_DIR, 'assets/golden_statues_map.png'))
+            map_data['midtown']['plots']['crate'].save(os.path.join(self.OUTPUT_DIR, 'assets/crate_map.png'))
+            map_data['midtown']['plots']['shops'].save(os.path.join(self.OUTPUT_DIR, 'assets/shops_map.png'))
 
     def _generate_resource_lookup(self, parsed_heroes, parsed_abilities, parsed_items):
         logger.trace('Generating resource lookup...')
@@ -322,3 +324,9 @@ class Parser:
         parsed_convars = convars.ConvarsParser(convars_file).run()
 
         json_utils.write(self.OUTPUT_DIR + '/json/convars.json', json_utils.sort_dict(parsed_convars))
+
+    def _parse_street_brawl(self):
+        logger.trace('Parsing Street Brawl...')
+        parsed_street_brawl = street_brawl.StreetBrawlParser(self.data['scripts']['heroes']).run()
+
+        json_utils.write(self.OUTPUT_DIR + '/json/street-brawl-data.json', parsed_street_brawl)
