@@ -207,7 +207,12 @@ class GameMapParser:
         #   it's a longer story than that, but this is easier to explain than using unrelated entities
         # PyCharm's linter cannot type-check this for some reason
         # noinspection PyTypeChecker
-        shop_data.extend([{'origin': [0, -9500, 100]}, {'origin': [0, -9500, 100]}])
+        shop_data.extend(
+            [
+                {'origin': [0, -9500, 100]},  # Hidden King base shop
+                {'origin': [0, 9500, 100]},  # Archmother base shop
+            ]
+        )
         return shop_data
 
     def _get_breakables_data(self) -> tuple[list[_BreakablesData], ...]:
