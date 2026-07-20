@@ -1,5 +1,6 @@
 from loguru import logger
 
+import utils.string_utils as string_utils
 from parser.maps import INVESTMENT_SLOT_MAP
 
 
@@ -13,8 +14,27 @@ class ItemInvestmentParser:
     and returns a single merged dict.
     """
 
+    PREFIXES = ['m_str', 'm_map', 'm_n', 'm_fl', 'm_', 'fl', 'E', 'n']
+
     def __init__(self, heroes_data):
         self.heroes_data = heroes_data
+
+    def _clean_keys(self, data: dict) -> dict:
+        """Recursively remove prefixes from keys in a dictionary."""
+        cleaned = {}
+        for key, value in data.items():
+            new_key = key
+            for prefix in self.PREFIXES:
+                new_key = string_utils.remove_prefix(key, prefix)
+                if new_key != key:
+                    break
+
+            # If value is a dict, recursively clean its keys
+            if isinstance(value, dict):
+                value = self._clean_keys(value)
+
+            cleaned[new_key] = value
+        return cleaned
 
     def run(self) -> dict:
         first = None
@@ -34,7 +54,9 @@ class ItemInvestmentParser:
             remapped = {}
             for slot, entries in hero_data['m_MapModCostBonuses'].items():
                 if slot in INVESTMENT_SLOT_MAP:
-                    remapped[INVESTMENT_SLOT_MAP[slot]] = entries
+                    # Clean prefixes from keys (e.g. m_nGoldThreshold -> GoldThreshold)
+                    cleaned_entries = [self._clean_keys(entry) for entry in entries]
+                    remapped[INVESTMENT_SLOT_MAP[slot]] = cleaned_entries
                 else:
                     logger.warning(f'Unknown investment slot {slot} in hero {hero_key}')
 

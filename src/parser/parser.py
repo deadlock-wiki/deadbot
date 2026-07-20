@@ -150,6 +150,7 @@ class Parser:
         self._parse_localizations()
         self._parse_soul_unlocks()
         self._parse_generics()
+        self._parse_item_investments()
         self._parse_misc()
         self._parse_convars()
         self._parse_street_brawl()
@@ -165,13 +166,16 @@ class Parser:
     def _parse_generics(self):
         logger.trace('Parsing Generics...')
         generic_data_path = self.OUTPUT_DIR + '/json/generic-data.json'
+        parsed_generics = generics.GenericParser(generic_data_path, self.data['scripts']['generic_data']).run()
 
-        generic_data = dict(self.data['scripts']['generic_data'])
-        parsed_investments = item_investment.ItemInvestmentParser(self.data['scripts']['heroes']).run()
-        generic_data.update(parsed_investments)
-
-        parsed_generics = generics.GenericParser(generic_data_path, generic_data).run()
         json_utils.write(generic_data_path, json_utils.sort_dict(parsed_generics))
+
+    def _parse_item_investments(self):
+        logger.trace('Parsing Item Investments...')
+        parsed_investments = item_investment.ItemInvestmentParser(self.data['scripts']['heroes']).run()
+
+        investment_data_path = self.OUTPUT_DIR + '/json/item-investment-data.json'
+        json_utils.write(investment_data_path, json_utils.sort_dict(parsed_investments))
 
     def _parse_localizations(self):
         logger.trace('Parsing Localizations...')
