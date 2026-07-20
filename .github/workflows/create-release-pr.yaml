@@ -1,0 +1,66 @@
+name: Create Release PR
+
+on:
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: 'Type of version bump'
+        required: true
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+        default: patch
+
+jobs:
+  create-release-pr:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout develop branch
+        uses: actions/checkout@v4
+        with:
+          ref: develop
+          fetch-depth: 0
+          token: ${{ secrets.GH_TOKEN }}
+
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Configure Git
+        run: |
+          git config user.name "Deadbot0"
+          git config user.email "deadbot1101@gmail.com"
+
+      - name: Compute next version
+        id: version
+        run: |
+          git fetch origin master
+          # Extract the clean MAJOR.MINOR.PATCH from master, ignoring develop's beta suffix
+          MASTER_VERSION=$(git show origin/master:pyproject.toml | grep -Po '(?<=version = ")[0-9]+\.[0-9]+\.[0-9]+')
+          
+          # Calculate the next version using our refactored script
+          NEXT_VERSION=$(python3 ./scripts/increment_version.py ${{ inputs.bump }} --base $MASTER_VERSION --print-only)
+          
+          echo "Next version: $NEXT_VERSION"
+          echo "version=$NEXT_VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Create release branch
+        run: |
+          git checkout -b release/v${{ steps.version.outputs.version }}
+          git push origin release/v${{ steps.version.outputs.version }}
+
+      - name: Create Pull Request
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          gh pr create \
+            --base master \
+            --head release/v${{ steps.version.outputs.version }} \
+            --title "Release v${{ steps.version.outputs.version }}" \
+            --body "Automated PR to release version ${{ steps.version.outputs.version }} into master. Merging this will trigger the version bump, build, and release pipeline."
