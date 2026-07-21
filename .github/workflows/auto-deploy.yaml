@@ -127,7 +127,7 @@ jobs:
     if: >-
       ${{
         always() &&
-        needs.check-commit.outputs.changed &&
+        needs.check-commit.outputs.changed == 'true' &&
         needs.deploy-develop.result != 'failure' &&
         needs.deploy-develop.result != 'cancelled' &&
         needs.deploy-master.result != 'failure' &&
