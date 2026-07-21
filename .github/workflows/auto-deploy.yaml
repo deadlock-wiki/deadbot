@@ -133,6 +133,9 @@ jobs:
         needs.deploy-master.result != 'cancelled'
       }}
     steps:
+      - name: Checkout Deadbot repo
+        uses: actions/checkout@v6
+
       - name: Save latest SteamDB commit sha as a repo variable
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
