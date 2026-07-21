@@ -23,9 +23,6 @@ jobs:
       changed: ${{ steps.compare.outputs.changed }}
       latest_commit_sha: ${{ steps.remote_shas.outputs.steamdb_sha }}
     steps:
-      - name: Checkout Deadbot repo
-        uses: actions/checkout@v6
-
       - name: Get latest remote commit hashes
         id: remote_shas
         run: |
@@ -49,6 +46,9 @@ jobs:
     outputs:
       new_version: ${{ steps.check_version.outputs.new_version }}
     steps:
+      - name: Checkout Deadbot repo
+        uses: actions/checkout@v6
+
       - name: Cache SteamDB repo
         uses: actions/cache@v6
         with:
