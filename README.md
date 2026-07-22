@@ -11,7 +11,7 @@ Deadbot is an open-source automation tool for extracting and processing game dat
 *   **Data Extraction:** Downloads the latest game files by cloning the [SteamDB GameTracking-Deadlock repository](https://github.com/SteamDatabase/GameTracking-Deadlock) and using DepotDownloader for non-English localizations.
 *   **Decompilation:** Processes raw game assets (`.vdata_c`, localization files) into structured JSON.
 *   **Data Parsing:** Parses decompiled files to extract detailed stats for heroes, abilities, items, and NPCs.
-*   **Changelog Aggregation:** Fetches official patch notes and in-game "Hero Lab" changes.
+*   **Changelog Aggregation:** Fetches official patch notes via the Steam Web API. (Historical forum changelogs are retained locally).
 *   **Wiki Integration:** Formats game data as JSON and changelogs into wikitext and uploads them directly to the Deadlock Wiki.
 
 
@@ -86,6 +86,10 @@ The recommended way to use Deadbot is by downloading the pre-built executable. T
     | `STEAM_PASSWORD` | `mySteamPassword` | ❌ (For non-English parsing) | Your Steam account password. |
     | `OUTPUT_DIR` | `../deadlock-data/data/current` | ❌ (Defaults to `./output-data`) | Where the parsed data files will be saved. |
     | `DEPOT_DOWNLOADER_CMD` | `C:\Tools\DepotDownloader.exe` | ❌ (For non-English parsing) | Path to the DepotDownloader executable. |
+    | `WORK_DIR` | `./decompiled-data` | ❌ (Defaults to `./decompiled-data`) | Directory for temporary decompiled working files. |
+    | `INPUT_DIR` | `./input-data` | ❌ (Defaults to `./input-data`) | Input directory for changelogs and wiki pages. |
+    | `ENTITY_HELPER_CMD` | `C:\Tools\DeadlockEntityHelper.exe` | ❌ (For map parsing) | Path to the DeadlockEntityHelper executable. |
+    | `CLEANUP` | `false` | ❌ (Defaults to `false`) | Cleans up the temporary working directory after execution. |
 
     For a full list of all parameters, see the [Parameters](#parameters) section below.
 
@@ -120,8 +124,8 @@ poetry run deadbot --import_files --parse
 |                  | `-n, --inputdir INPUTDIR`                     | Input directory for changelogs and wiki pages.                                                                                          | `INPUT_DIR`            |
 |                  | `-o, --output OUTPUT`                         | Output directory for generated files.                                                                                                   | `OUTPUT_DIR`           |
 |                  | `--english-only`                              | Only parse English localizations.                                                                                                       | `ENGLISH_ONLY`         |
-|                  | `--force`                                     | Forces decompilation even if game files and workdir versions match.                                                                     |                        |
-|                  | `-v, --verbose`                               | Enable verbose logging for detailed output.                                                                                             |                        |
+|                  | `--force`                                     | Forces decompilation even if game files and workdir versions match.                                                                     | `FORCE`                |
+|                  | `-v, --verbose`                               | Enable verbose logging for detailed output.                                                                                             | `VERBOSE`              |
 | **Steam Config** | `--steam_username STEAM_USERNAME`             | Steam username for downloading game files.                                                                                              | `STEAM_USERNAME`       |
 |                  | `--steam_password STEAM_PASSWORD`             | Steam password for downloading game files.                                                                                              | `STEAM_PASSWORD`       |
 |                  | `--manifest_id MANIFEST_ID`                   | Manifest ID to download. Defaults to `latest`. Browse manifests: [SteamDB Depot 1422456](https://steamdb.info/depot/1422456/manifests/) | `MANIFEST_ID`          |
