@@ -2,7 +2,7 @@ name: Auto Deploy
 
 on:
   schedule:
-    - cron: '23 * * * *'
+    - cron: '*/5 * * * *'
 
   workflow_dispatch:
     inputs:
@@ -10,24 +10,47 @@ on:
         type: boolean
         description: Only parse English localizations
         default: false
-      
       force:
         type: boolean
         description: Run deployments even if version has not changed
         default: false
 
 jobs:
-  check-update:
-    name: Check for new version
+  check-commit:
+    name: Check for new commit to SteamDB repo
     runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.compare.outputs.changed }}
+      latest_commit_sha: ${{ steps.remote_shas.outputs.steamdb_sha }}
+    steps:
+      - name: Get latest remote commit hashes
+        id: remote_shas
+        run: |
+          steamdb_sha=$(git ls-remote https://github.com/SteamDatabase/GameTracking-Deadlock.git HEAD | cut -f1)
+          echo "steamdb_sha=$steamdb_sha" >> "$GITHUB_OUTPUT"
+
+      - name: Compare against last known commits
+        id: compare
+        run: |
+          if [ "${{ steps.remote_shas.outputs.steamdb_sha }}" != "${{ vars.LAST_STEAMDB_SHA }}" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+  check-version:
+    name: Check if deadlock version changed
+    runs-on: ubuntu-latest
+    needs: check-commit
+    if: ${{ needs.check-commit.outputs.changed == 'true' || github.event.inputs.force == 'true' }}
     outputs:
       new_version: ${{ steps.check_version.outputs.new_version }}
     steps:
       - name: Checkout Deadbot repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Cache SteamDB repo
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: steamdb
           key: steamdb
@@ -35,16 +58,17 @@ jobs:
 
       - name: Update SteamDB repo
         run: |
-          if [ -d steamdb ]; then
+          if [ -d steamdb/.git ]; then
             cd steamdb
-            git reset --hard
-            git pull
+            git fetch --depth 1 origin
+            git reset --hard origin/HEAD
           else
-            git clone https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/SteamDatabase/GameTracking-Deadlock.git steamdb
+            rm -rf steamdb
+            git clone --depth 1 https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/SteamDatabase/GameTracking-Deadlock.git steamdb
           fi
 
       - name: Cache deadlock-data repo
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: deadlock-data
           key: deadlock-data
@@ -52,12 +76,13 @@ jobs:
 
       - name: Update deadlock-data repo
         run: |
-          if [ -d deadlock-data ]; then
+          if [ -d deadlock-data/.git ]; then
             cd deadlock-data
-            git reset --hard
-            git pull
+            git fetch --depth 1 origin
+            git reset --hard origin/HEAD
           else
-            git clone https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/deadlock-wiki/deadlock-data.git deadlock-data
+            rm -rf deadlock-data
+            git clone --depth 1 https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/deadlock-wiki/deadlock-data.git deadlock-data
           fi
 
       - name: Check for new Deadlock version
@@ -65,12 +90,12 @@ jobs:
         run: |
           chmod +x ./.github/workflows/scripts/check_for_update.sh
           new_version=$(./.github/workflows/scripts/check_for_update.sh './steamdb' './deadlock-data')
-          echo "new_version=$new_version" >> $GITHUB_OUTPUT
+          echo "new_version=$new_version" >> "$GITHUB_OUTPUT"
 
   deploy-develop:
     name: Deploy develop
-    needs: check-update
-    if: ${{ needs.check-update.outputs.new_version || github.event.inputs.force == 'true' }}
+    needs: check-version
+    if: ${{ needs.check-version.outputs.new_version || github.event.inputs.force == 'true' }}
     uses: ./.github/workflows/deploy.yaml
     with:
       branch-override: develop
@@ -80,11 +105,11 @@ jobs:
       STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
       STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
       BOT_WIKI_PASS: ${{ secrets.BOT_WIKI_PASS }}
-  
+
   deploy-master:
     name: Deploy master
-    needs: check-update
-    if: ${{ needs.check-update.outputs.new_version || github.event.inputs.force == 'true' }}
+    needs: check-version
+    if: ${{ needs.check-version.outputs.new_version || github.event.inputs.force == 'true' }}
     uses: ./.github/workflows/deploy.yaml
     with:
       branch-override: master
@@ -94,3 +119,26 @@ jobs:
       STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
       STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
       BOT_WIKI_PASS: ${{ secrets.BOT_WIKI_PASS }}
+
+  save-variables:
+    name: Save variables for next run
+    runs-on: ubuntu-latest
+    needs: [check-commit, deploy-develop, deploy-master]
+    if: >-
+      ${{
+        always() &&
+        needs.check-commit.outputs.changed == 'true' &&
+        needs.deploy-develop.result != 'failure' &&
+        needs.deploy-develop.result != 'cancelled' &&
+        needs.deploy-master.result != 'failure' &&
+        needs.deploy-master.result != 'cancelled'
+      }}
+    steps:
+      - name: Checkout Deadbot repo
+        uses: actions/checkout@v6
+
+      - name: Save latest SteamDB commit sha as a repo variable
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          gh variable set LAST_STEAMDB_SHA -b "${{ needs.check-commit.outputs.latest_commit_sha }}"
