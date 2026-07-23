@@ -1,6 +1,9 @@
 name: Auto Deploy
 
 on:
+  schedule:
+    - cron: '23 * * * *'
+
   repository_dispatch:
     types: [cfw-deadlock-updated]
 
