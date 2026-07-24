@@ -16,6 +16,8 @@ from .parsers import (
     game_map,
     misc,
     convars,
+    street_brawl,
+    item_investment,
 )
 from utils import json_utils
 from loguru import logger
@@ -148,8 +150,10 @@ class Parser:
         self._parse_localizations()
         self._parse_soul_unlocks()
         self._parse_generics()
+        self._parse_item_investments()
         self._parse_misc()
         self._parse_convars()
+        self._parse_street_brawl()
         self._parse_map()
         logger.trace('Done parsing')
 
@@ -165,6 +169,13 @@ class Parser:
         parsed_generics = generics.GenericParser(generic_data_path, self.data['scripts']['generic_data']).run()
 
         json_utils.write(generic_data_path, json_utils.sort_dict(parsed_generics))
+
+    def _parse_item_investments(self):
+        logger.trace('Parsing Item Investments...')
+        parsed_investments = item_investment.ItemInvestmentParser(self.data['scripts']['heroes']).run()
+
+        investment_data_path = self.OUTPUT_DIR + '/json/item-investment-data.json'
+        json_utils.write(investment_data_path, json_utils.sort_dict(parsed_investments))
 
     def _parse_localizations(self):
         logger.trace('Parsing Localizations...')
@@ -296,9 +307,9 @@ class Parser:
             json_utils.write(os.path.join(self.OUTPUT_DIR, 'json/midtown-metadata.json'), map_data['midtown']['metadata'])
 
             os.makedirs(os.path.join(self.OUTPUT_DIR, 'assets'), exist_ok=True)
-            map_data['midtown']['plots']['golden_statues'].save(os.path.join(self.OUTPUT_DIR, 'assets/golden-statues-map.png'))
-            map_data['midtown']['plots']['crate'].save(os.path.join(self.OUTPUT_DIR, 'assets/crate-map.png'))
-            map_data['midtown']['plots']['shops'].save(os.path.join(self.OUTPUT_DIR, 'assets/shops-map.png'))
+            map_data['midtown']['plots']['golden_statues'].save(os.path.join(self.OUTPUT_DIR, 'assets/golden_statues_map.png'))
+            map_data['midtown']['plots']['crate'].save(os.path.join(self.OUTPUT_DIR, 'assets/crate_map.png'))
+            map_data['midtown']['plots']['shops'].save(os.path.join(self.OUTPUT_DIR, 'assets/shops_map.png'))
 
     def _generate_resource_lookup(self, parsed_heroes, parsed_abilities, parsed_items):
         logger.trace('Generating resource lookup...')
@@ -322,3 +333,9 @@ class Parser:
         parsed_convars = convars.ConvarsParser(convars_file).run()
 
         json_utils.write(self.OUTPUT_DIR + '/json/convars.json', json_utils.sort_dict(parsed_convars))
+
+    def _parse_street_brawl(self):
+        logger.trace('Parsing Street Brawl...')
+        parsed_street_brawl = street_brawl.StreetBrawlParser(self.data['scripts']['heroes']).run()
+
+        json_utils.write(self.OUTPUT_DIR + '/json/street-brawl-data.json', parsed_street_brawl)

@@ -28,6 +28,7 @@ def parse_weapon_info(weapon_info: Dict[str, Any]) -> Dict[str, Any]:
 
     # Bullet Properties
     stats['BulletGravityScale'] = weapon_info.get('m_flBulletGravityScale', 0)
+    stats['BulletRadius'] = convert_engine_units_to_meters(weapon_info.get('m_flBulletRadius', 0))
     stats['BulletsPerShot'] = weapon_info.get('m_iBullets', 1)
     stats['BulletsPerBurst'] = weapon_info.get('m_iBurstShotCount', 1)
     stats['BurstInterShotInterval'] = weapon_info.get('m_flIntraBurstCycleTime', 0)

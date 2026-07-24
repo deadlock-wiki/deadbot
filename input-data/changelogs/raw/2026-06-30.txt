@@ -1,0 +1,187 @@
+[ Urn / King of the Hill ]
+
+- King of the Hill objective has been rethemed and renamed to "Unstable Rift"
+- Unstable Rift no longer requires an Urn delivery to trigger the start of the event. It now has a variable start time of +/- 1 minute. There is a global announcement 25s before it spawns. 60s before that there is also an in-world only visual effect to let you know which lane it'll randomly spawn in.
+- Unstable Rift spawn interval increased from every 6 minutes to every 7 minutes
+- Unstable Rift comeback bonuses (resists in the area, extra comeback bounty, and trailing/leading team claiming timer) now all scale linearly based on the amount of NW they are trailing (scales from no bonus at 0% NW behind to full bonus at 15% NW behind)
+- The team that secures the Unstable Rift now also has a wave of 5 Rift Troopers sent down from the rift location. When trailing, spawns up to 12 troopers instead (using the same linear ramp from 0% NW to -15% NW)
+- Rift Troopers drop no souls when killed
+- Rift Troopers spawn with 100% extra health and damage (they also look larger and have custom VFX). Their bonus health and damage grow slightly per event (first one is 100%, then 120%, 140%, etc)
+- Any players in the Unstable Rift Zone are now revealed on the minimap
+- Unstable Rift bounty increased by 35% (to account for the 35% loss with no urn runner bounty, overall objective bounty is unchanged)
+- Unstable Rift no longer grants +1 permanent buff to each player (there is also no +3 buffs to the urn runner)
+
+- Urn running is now its own objective. Spawns on either end of the map (where the previous neutral pickup locations were), and gets delivered to the opposite end. Spawns at 10/15/20/25/etc.
+- Urn runner is no longer revealed and is not disarmed or silenced (going through a doorway or mirage teleport still drops it)
+- Urn cannot be manually dropped. It gets dropped when you get hit with a light or heavy melee, are stunned or are killed. It stays where it drops and does not walk back home.
+- Urn runner can no longer parry
+- Urn bounty value starts decaying after 45s from being picked up. It drains gradually over another 45s and then the urn is removed when the bounty is empty.
+- Urn is deposited immediately at the drop off point.
+- Urn bounty when deposited is worth 250 + 70/min for just the urn runner. Still has the comeback bounty component. Upon deposit all of the souls are released as orbs into the air (if another ally secures the orbs, they share the bounty with the urn runner).
+- Urn runner gets +4 permanent buffs on deposit
+- Urn is now louder when it talks and is easier to hear by nearby enemies
+- After 3 Minutes from spawn the Urn will start walking very slowly on his own towards the deposit location
+- Urn runner's passive bonuses while holding it now scales based on how behind you are, rather than being on or off (same as the Unstable Rift 0%-15% NW linear scaling). Bonuses are the same as the previous urn runner bonuses.
+
+There are two debug commands you can use to test these out
+- citadel_force_spawn_idol - This spawns the Urn
+- citadel_koth_dev_test_spawn - This moves your hero and spawns the Unstable Rift in the early warning state then quickly transitions to the 25s broadcasted timer
+
+[ General ]
+
+- Reworked Boon reward table
+
+- Health per boon reduced by 5%
+- All ultimate base and upgrade cooldowns nerfed by 15% (rounded to the nearest multiple of 5)
+- Rejuv buff duration reduced from 4 minutes to 3
+- Respawn ramp changed from 8-30s from 5-19m to 8-35s from 5-20m
+- Guardian bounty reduced from 1500 to 1250
+- Walker bounty reduced from 4000 to 3500
+- First blood bounty reduced from 150 to 125
+- Base kill bounty reduced from 250 to 200 (max is still 2200 at 40m)
+- Trooper bounty rescaled from 116 + 1.16/m to 100 + 2/m (less before 20m, more after)
+- Trooper bounty ratio in the deniable flying orb increased from 40% to 50%
+- Minimum unsecured souls allowed to drop reduced from 150 to 50 + 5/min
+
+- Dash Jump input window increased from 0.2s to 0.25s duration (start time: 0.3s to end time: 0.55s)
+- Dash Jump distance increased from 18m to 19m
+- Dash Jump vertical impulse increased from 400 to 425
+
+- Jump Pads on top of the double sinner buildings have been removed
+
+- Hovering an item in the shop now shows you a preview for your investment bars
+
+- Street Brawl: No longer locks you out of getting off the zipline in the first few seconds
+- Street Brawl: Increased item randomness a bit
+- Street Brawl: Fixed Enhanced Sharpshooter and Enhanced Spiritual Overflow not maintaining the bonuses from their enhanced components
+
+[ Items ]
+
+- Mystic Shot: Cooldown increased from 8s to 9s
+- Toxic Bullets: Bleed damage increased from 1.7% to 1.9%
+- Scourge: Max Health DPS reduced from 3.5% to 2.6%
+- Scourge: Max Health DPS now scales with spirit power (0.0055)
+- Cursed Relic: Damage Penalty increased from -10% to -14%
+
+[ Heroes ]
+
+- Abrams: Siphon Life T3 reduced from +3m Radius to +2m
+- Abrams: Shoulder Charge T3 reduced from -20s Cooldown to -18s
+
+- Apollo: Riposte T1 increased from -7s Cooldown to -8s
+- Apollo: Riposte grace window to target after channel increased from +1s to +1.3s
+- Apollo: Riposte cast range increased from 25m to 35m
+- Apollo: Riposte targeting angle increased from 70 to 90
+- Apollo: Flawless Advance Heal on hero hit spirit scaling increased from 1 to 1.3
+- Apollo: Itani Lo Sahn T3 increased from +40% Bonus Damage to +50%
+
+- Billy: Bullet damage per boon reduced by 10%
+- Billy: Bashdown melee scaling reduced from 1.1 to 0.9
+- Billy: Bashdown T3 reduced from 60% Heavy Melee damage to 50%
+- Billy: Rising Ram T3 Max HP Damage reduced from 10% to 8%
+- Billy: Rising Ram T3 Max HP Damage spirit scaling increased from 0.017 to 0.035 (break even at 111 spirit power)
+
+- Celeste: Dazzling Trick cooldown reduced from 35s to 32s
+- Celeste: Radiant Daggers buff duration increased from 25s to 30s
+- Celeste: Radiant Daggers spirit scaling increased from 0.56 to 0.63
+- Celeste: Shining Wonder bounce range increased from 15.5m to 16.5m
+- Celeste: Shining Wonder damage increased by 10%
+
+- Doorman: Doorway cooldown increased from 40s to 45s
+
+- Drifter: Health per boon increased from 41 to 43 (global hp boon reduction is after this)
+- Drifter: Rend cast time reduced from 0.5s to 0.4s
+- Drifter: Rend post cast time reduced from 0.5s to 0.4s
+- Drifter: Rend T2 increased from -7s Cooldown to -8s
+- Drifter: Bloodscent T1 increased from +2m/s while near an isolated enemy to +3m/s
+- Drifter: Bloodscent T2 increased from 18% missing health heal to +24%
+
+- Dynamo: Rejuvenating Aurora regeneration increased from 25/s to 30/s
+
+- Grey Talon: Rain of Arrows cooldown increased from 23s to 25s
+- Grey Talon: Guided Owl permanent spirit bonus reduced from 10 to 8
+
+- Holliday: Powder Keg velocity reduced slightly
+- Holliday: Powder Keg charge delay increased from 7s to 7.5s
+- Holliday: Powder Keg spirit scaling reduced from 1.4 to 1.2
+- Holliday: Powder Keg T3 reduced from +100 Damage to +80
+
+- Haze: Sleep Dagger T1 increased from -8% Bullet Resist to -10%
+- Haze: Sleep Dagger T2 increased from -17s Cooldown to -18s
+- Haze: Smoke Bomb T3 increased from +40% Bullet Lifesteal to +50%
+
+- Ivy: Entangling Thorns spirit scaling increased from 0.45 to 0.55
+- Ivy: Kudzu Connection Replicated Healing per boon scale increased from +0.5 to +0.85
+- Ivy: Air Drop cooldown reduction when used on allies increased from -25% to -30%
+
+- Lash: Ground Strike cooldown reduced from 21s to 18s
+- Lash: Flog angle increased from 30 to 38
+
+- Mina: Rake missing health as damage increased from 5% to 6%
+- Mina: Sanguine Retreat T3 now also increases range by +3m
+- Mina: Nox Nostra damage increased from 4.45 to 4.6
+- Mina: Nox Nostra T1 damage increased from +1.74 to +1.9
+
+- Mo & Krill: Sand Blast T2 slow increased from -25% to -30%
+- Mo & Krill: Sand Blast T3 increased from -20s Cooldown to -25s
+- Mo & Krill: Combo bonus max health per kill increased from 30+1/boon to 40+2/boon
+
+- Paige: Health per boon increased from 29 to 33
+- Paige: Bookwyrm T1 changed from "+2s Trail Duration and +1m Radius" to "-12s Cooldown"
+- Paige: Bookwyrm T2 changed from "+10m Range and -12s Cooldown" to "+1 Charge, +1m Radius and +2s Trail Duration"
+- Paige: Bookworm T3 changed from "+100 Damage, +30 DPS and +1 Charge" to "+100 Damage, +30 DPS and +12m Travel Range"
+- Paige: Plot Armor T1 fire rate spirit scaling increased from 0.13 to 0.16
+- Paige: Plot Armor T3 increased from 75% Barrier to 100%
+- Paige: Rallying Charge is now properly counted as a "miss" (for the -50% CD Reduction) if the only thing that was impacted were non-heroes
+- Paige: Rallying Charge T3 Max Amp increased from +50% to +70%
+
+- Paradox: Kinetic Carbine T2 now also increases move speed spirit scaling (0.06)
+- Paradox: Kinetic Carbine T3 changed from affecting Max Damage Scaling to affecting both Min and Max Damage Scaling
+
+- Pocket: Bullet damage per boon reduced from 0.16 to 0.14
+- Pocket: Flying Cloak T3 reduced from -12s Cooldown to -11s
+
+- Rem: Tag Along healing per second spirit scaling reduced from 0.66 to 0.4
+- Rem: Tag Along T3 missing health spirit scaling reduced from +0.02 to +0.016
+- Rem: Lil Helpers Spirit Resist reduced from 15% to 12%
+- Rem: Lil Helpers T1 changed from "+1 Helper" to "+1 Helper and +1.5m/s Move Speed"
+- Rem: Lil Helpers T2 changed from "+8% Spirit Resist and +1.5m/s Move Speed" to "+1 Helper and +15% Trooper Damage and Resist"
+- Rem: Lil Helpers T3 changed from "+2 Helpers and +20% Trooper Damage and Resist" to "+1 Helper and +15% Spirit Resist"
+
+- Seven: Lightning Ball charge delay reduced from 7s to 6s
+- Seven: Storm Cloud time to expand increased from 1.5s to 3.5s
+- Seven: Storm Cloud damage interval increased from 0.25s to 0.3s (DPS unchanged)
+- Seven: Storm Cloud T2 now also increases Initial Radius by +5m
+
+- Shiv: Alt Fire damage now has a custom value per boon (+0.2)
+- Shiv: Alt Fire ammo consumed per shot increased from 3 to 5
+- Shiv: Alt Fire knockback movement is now disabled by slowing hex state
+- Shiv: Serrated Knives cooldown reduced from 18s to 16s
+- Shiv: Slice and Dice now deals +25 light melee damage (75 total) instead of 60 spirit damage
+- Shiv: Slice and Dice changed from -6% Spirit Resist to +4% Damage Amp
+- Shiv: Bloodletting T2 changed from "+15% Incoming Damage Deferred" to "+35% Deferred Damage Cleared"
+- Shiv: Bloodletting T3 changed from "+50% Deferred Damage Cleared" to "+15% Incoming Damage Deferred"
+- Shiv: Killing Blow now deals damage to troopers and neutrals along the way
+- Shiv: Killing Blow executing a hero now instantly fills the rage bar
+- Shiv: Killing Blow now has the T3 "recast within 20s on a hero kill" as part of the base ability
+- Shiv: Killing Blow Full Rage Damage Bonus reduced from +12% to +8%
+- Shiv: Killing Blow range reduced from 18m to 12m
+- Shiv: Killing Blow T1 now also increases range by +6m
+- Shiv: Killing Blow T2 increased from +10% Full Rage Bonus Damage to +16%
+- Shiv: Killing Blow T3 increased from +5% Enemy health Threshold to +10%
+
+- Vindicta: Stake T2 reduced from -20s Cooldown to -22s
+- Vindicta: Crow Familiar T2 increased from -12s Cooldown to -16s
+- Vindicta: Crow Familiar collision radius between each crow increased slightly
+- Vindicta: Assassinate Max Bonus Damage spirit scaling increased from 2 to 2.3
+
+- Viscous: Splatter T3 spirit scaling reduced from +1.1 to +1.0
+- Viscous: Puddle Punch T3 increased from -12s Cooldown to -14s
+- Viscous: Goo Ball T3 increased from +6s Duration to +7s
+
+- Vyper: Screwjab Dagger T3 now also reduces charge delay from 4s to 2s
+- Vyper: Slither T3 spirit scaling increased from 0.6 to 0.8
+
+- Warden: Bullet damage per boon reduced from 0.34 to 0.28
+- Warden: Willpower T2 increased from -22s Cooldown to -24s
+- Warden: Willpower T3 increased from +2.5 spirit power scaling to +2.7

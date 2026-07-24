@@ -9,6 +9,7 @@ DATA_PAGE_FILE_MAP = {
     'HeroMeaningfulStats.json': 'json/hero-meaningful-stats.json',
     'ItemData.json': 'json/item-data.json',
     'ItemCards.json': 'json/item-cards.json',
+    'ItemInvestmentData.json': 'json/item-investment-data.json',
     'NpcData.json': 'json/npc-data.json',
     'Lang bg.json': 'localizations/bulgarian.json',
     'Lang cs.json': 'localizations/czech.json',
@@ -45,6 +46,15 @@ DATA_PAGE_FILE_MAP = {
     'MidtownMetadata.json': 'json/midtown-metadata.json',
     'MiscData.json': 'json/misc-data.json',
     'Convars.json': 'json/convars.json',
+    'StreetBrawlData.json': 'json/street-brawl-data.json',
+}
+
+# Maps file name in "File:" namespace on the wiki to
+# the file path in $OUTPUT_DIR
+IMAGE_FILE_MAP = {
+    'Golden_statues_map.png': 'assets/golden_statues_map.png',
+    'Crate_map.png': 'assets/crate_map.png',
+    'Shops_map.png': 'assets/shops_map.png',
 }
 
 # Ignore these pages as they are not automated

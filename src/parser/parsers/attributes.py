@@ -45,6 +45,14 @@ class AttributeParser:
         all_attributes['Vitality']['GroundDashSpeed'] = {}
         all_attributes['Vitality']['AirDashSpeed'] = {}
 
+        # Manually add other weapon stats not exposed in m_ShopStatDisplay
+        all_attributes['Weapon']['BulletRadius'] = {}
+        all_attributes['Weapon']['FalloffStartRange'] = {}
+        all_attributes['Weapon']['FalloffEndRange'] = {}
+
+        # Manually add GravityChange to Vitality (extracted from modifier_hero_gravity)
+        all_attributes['Vitality']['GravityChange'] = {}
+
         # Determine the unlocalized name of each attribute that they should map to
         all_attributes.update(self._map_to_unlocalized(all_attributes))
 
