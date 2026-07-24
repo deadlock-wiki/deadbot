@@ -23,7 +23,7 @@ jobs:
     name: Check if deadlock version changed
     runs-on: ubuntu-latest
     # force will trigger deploy jobs regardless, so no point checking version
-    if: ${{ github.event.inputs.force == 'false' }}
+    if: ${{ github.event.inputs.force != 'true' }}
     outputs:
       new_version: ${{ steps.check_version.outputs.new_version }}
     steps:
