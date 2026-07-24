@@ -1,9 +1,6 @@
 name: Auto Deploy
 
 on:
-  schedule:
-    - cron: '23 * * * *'
-
   workflow_dispatch:
     inputs:
       english-only:
