@@ -21,10 +21,15 @@ class StreetBrawlParser:
             m_flStatScale     <- m_flStreetBrawlStatScale (its spirit scaling)
             m_strBonus        <- m_strStreetBrawlBonus    (an upgrade's bonus)
         We re-run the ability parser on a copy of the data with those swaps
-        applied, then keep only the leaves that differ from the normal parse.
-        The result mirrors the shape of ability-data.json exactly, so a Street
+        applied, then keep only the leaves that differ from the normal parse, so
+        an entry lists exactly the stats that change and nothing else. Each kept
+        leaf sits at the same key path as in ability-data.json, so a Street
         Brawl value can be referenced the same way as its normal counterpart,
         e.g. {{data|streetbrawl|A|AbilityCooldown}} vs {{data|abilities|A|AbilityCooldown}}.
+        The one shape difference is upgrade tiers: a changed Upgrades list
+        collapses to an object keyed by the 1-based tiers that changed (e.g.
+        {"3": {...}}) instead of a positional list, so unchanged tiers don't
+        appear. The keys stay index-aligned with ability-data.json's list.
 
     "item-buckets"
         In Street Brawl players draft items from a random selection instead of
@@ -90,10 +95,10 @@ class StreetBrawlParser:
             if not delta:
                 continue
 
-            # Key/Name are unchanged so the diff drops them; re-attach so each
-            # entry is self-describing and its properties sit as siblings, just
-            # like in ability-data.json.
-            changes[key] = {'Key': key, 'Name': brawl_ability.get('Name'), **delta}
+            # Name is unchanged so the diff drops it; re-attach so editors can
+            # see which ability an entry is without a second lookup. Its changed
+            # stats sit as siblings, keyed exactly as in ability-data.json.
+            changes[key] = {'Name': brawl_ability.get('Name'), **delta}
 
         return json_utils.sort_dict(changes)
 
@@ -141,14 +146,18 @@ class StreetBrawlParser:
                     out[key] = brawl_value
             return out or self._NO_DIFF
 
-        # Same-length lists are positional (e.g. Upgrades tiers). Keep the list
-        # so callers can address it by index, collapsing unchanged entries to an
-        # empty object rather than dropping them and shifting indices.
+        # Same-length lists are positional (e.g. Upgrades tiers). Collapse to an
+        # object keyed by the changed positions only, so unchanged tiers vanish
+        # instead of leaving empty placeholders the editor has to count past.
+        # Keys are 1-based to line up with Lua's 1-indexed arrays, so the same
+        # index addresses this tier in ability-data.json's Upgrades list.
         if isinstance(base, list) and isinstance(brawl, list) and len(base) == len(brawl):
-            subs = [self._diff_node(b, br) for b, br in zip(base, brawl)]
-            if all(sub is self._NO_DIFF for sub in subs):
-                return self._NO_DIFF
-            return [{} if sub is self._NO_DIFF else sub for sub in subs]
+            changed = {}
+            for index, (base_item, brawl_item) in enumerate(zip(base, brawl)):
+                sub = self._diff_node(base_item, brawl_item)
+                if sub is not self._NO_DIFF:
+                    changed[str(index + 1)] = sub
+            return changed or self._NO_DIFF
 
         return brawl if base != brawl else self._NO_DIFF
 
