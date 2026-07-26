@@ -9,31 +9,18 @@ class StreetBrawlParser:
     """
     Parses Street Brawl deviations from the normal game into "street-brawl-data.json".
 
-    Street Brawl is a smaller game mode that tweaks two things relative to the
-    standard game, each parsed into its own section:
-
     "ability-changes"
-        Some ability stats have a Street-Brawl-only value baked into
-        abilities.vdata alongside the normal one, e.g. a longer cooldown or a
-        smaller radius. Each such override sits next to the base value it
-        replaces:
-            m_strValue        <- m_strStreetBrawlValue   (a property's value)
-            m_flStatScale     <- m_flStreetBrawlStatScale (its spirit scaling)
-            m_strBonus        <- m_strStreetBrawlBonus    (an upgrade's bonus)
+        Some ability stats have a Street-Brawl-only value e.g. a longer cooldown or a
+        smaller radius.
         We re-run the ability parser on a copy of the data with those swaps
         applied, then keep only the leaves that differ from the normal parse, so
-        an entry lists exactly the stats that change and nothing else. Each kept
+        an entry lists exactly the stats that change. Each kept
         leaf sits at the same key path as in ability-data.json, so a Street
         Brawl value can be referenced the same way as its normal counterpart,
         e.g. {{data|streetbrawl|A|AbilityCooldown}} vs {{data|abilities|A|AbilityCooldown}}.
-        The one shape difference is upgrade tiers: a changed Upgrades list
-        collapses to an object keyed by the 1-based tiers that changed (e.g.
-        {"3": {...}}) instead of a positional list, so unchanged tiers don't
-        appear. The keys stay index-aligned with ability-data.json's list.
 
     "item-buckets"
-        In Street Brawl players draft items from a random selection instead of
-        buying them. Every hero shares the same pool of draftable items
+        Every hero shares the same pool of draftable items
         (AvailableItems), and by default each item sits in the "Normal" bucket
         at weight 1.0. Heroes deviate from that default for a subset of items:
             - a different bucket (e.g. "Good", offered more often),
@@ -43,10 +30,6 @@ class StreetBrawlParser:
         that each carry whichever of Bucket/Weight/Counter differ from the
         default. The full per-hero bucketing is reconstructed as: every
         AvailableItem is "Normal" @ 1.0 unless a matching outlier row overrides it.
-
-        Source fields (per hero, in heroes.json):
-            m_mapItemDraftBucketing:      item -> {m_strBucket, m_flWeight}
-            m_mapItemDraftCounterWeights: item -> weight (a raw float)
     """
 
     DEFAULT_BUCKET = 'Normal'
