@@ -216,35 +216,46 @@ def override_localization(attr):
 
 
 SCALE_TYPE_MAP = {
-    'EAirMoveDistanceScale': 'air_move_distance',
     'EBaseWeaponDamageIncrease': 'weapon_damage_increase',
-    'EBuildUpRate': 'build_up_rate',
     'EBulletDamage': 'damage',
-    'EChannelDuration': 'channel_duration',
-    'EClipSizeIncrease': 'clip_size',
-    'EDamageScale': 'damage_scale',
     'EHealingOutput': 'healing',
     'EHeavyMeleeDamage': 'heavy_melee',
-    'EItemCooldown': 'item_cooldown',
     'ELevelUpBoons': 'power_increase',
     'ELightMeleeDamage': 'melee',
     'EMaxChargesIncrease': 'max_charges',
-    'EMeleeRange': 'melee_range',
     'EParryCooldown': 'parry_cd',
-    'EProcBuildUpRateScale': 'proc_build_up_rate',
-    'EReloadSpeed': 'reload_speed',
     'EStatsCount': 'stats_count',
     'ETechCooldown': 'cooldown',
     'ETechCooldownBetweenChargeUses': 'charge_cooldown',
-    'ETechDamageScale': 'spirit_damage',
     'ETechDuration': 'duration',
     'ETechPower': 'spirit',
     'ETechRadius': 'radius',
     'ETechRange': 'range',
     'EWeaponDamageScale': 'weapon_damage',
-    'EWeaponFalloffMaxRange': 'weapon_falloff_range',
     'EWeaponPower': 'weapon_power',
 }
+
+# Scale types the game files use that are of no interest to the wiki, either because they only
+# apply to data we do not export, such as items and weapon sets, or because they say nothing
+# beyond what the attribute itself already does. Listing them keeps get_scale_type free to
+# raise on a scale type that is genuinely new to us
+IGNORED_SCALE_TYPES = {
+    'EAirMoveDistanceScale',
+    'EBuildUpRate',
+    'EChannelDuration',
+    'EClipSizeIncrease',
+    'EDamageScale',
+    'EItemCooldown',
+    'EMeleeRange',
+    'EProcBuildUpRateScale',
+    'EReloadSpeed',
+    'ETechDamageScale',
+    'EWeaponFalloffMaxRange',
+}
+
+
+def is_ignored_scale_type(scale):
+    return scale in IGNORED_SCALE_TYPES
 
 
 def class_to_scale_type(class_str: str) -> str | None:

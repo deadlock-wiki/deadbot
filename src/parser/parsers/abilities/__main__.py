@@ -102,6 +102,8 @@ class AbilityParser:
         if self._is_inactive_stat(value):
             scale_stats = scale_stats[:1] if 'm_flStatScale' in scale_func else []
 
+        scale_stats = [(scale_type, scale_value) for scale_type, scale_value in scale_stats if not maps.is_ignored_scale_type(scale_type)]
+
         if not scale_stats:
             return
 
