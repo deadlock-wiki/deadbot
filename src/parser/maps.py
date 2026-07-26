@@ -216,20 +216,33 @@ def override_localization(attr):
 
 
 SCALE_TYPE_MAP = {
+    'EAirMoveDistanceScale': 'air_move_distance',
     'EBaseWeaponDamageIncrease': 'weapon_damage_increase',
+    'EBuildUpRate': 'build_up_rate',
     'EBulletDamage': 'damage',
+    'EChannelDuration': 'channel_duration',
+    'EClipSizeIncrease': 'clip_size',
+    'EDamageScale': 'damage_scale',
     'EHealingOutput': 'healing',
     'EHeavyMeleeDamage': 'heavy_melee',
+    'EItemCooldown': 'item_cooldown',
     'ELevelUpBoons': 'power_increase',
     'ELightMeleeDamage': 'melee',
     'EMaxChargesIncrease': 'max_charges',
+    'EMeleeRange': 'melee_range',
     'EParryCooldown': 'parry_cd',
+    'EProcBuildUpRateScale': 'proc_build_up_rate',
+    'EReloadSpeed': 'reload_speed',
     'EStatsCount': 'stats_count',
     'ETechCooldown': 'cooldown',
+    'ETechCooldownBetweenChargeUses': 'charge_cooldown',
+    'ETechDamageScale': 'spirit_damage',
     'ETechDuration': 'duration',
     'ETechPower': 'spirit',
+    'ETechRadius': 'radius',
     'ETechRange': 'range',
     'EWeaponDamageScale': 'weapon_damage',
+    'EWeaponFalloffMaxRange': 'weapon_falloff_range',
     'EWeaponPower': 'weapon_power',
 }
 
@@ -252,8 +265,9 @@ def class_to_scale_type(class_str: str) -> str | None:
             'tech_duration': 'ETechDuration',
             'tech_cooldown': 'ETechCooldown',
             'weapon_damage': 'EWeaponDamageScale',
+            'base_weapon_damage': 'EBaseWeaponDamageIncrease',
             'ability_charges': 'EMaxChargesIncrease',
-            'ability_recharge_time': 'ETechCooldown',  # cooldown between charges
+            'ability_recharge_time': 'ETechCooldownBetweenChargeUses',
             'healing_spirit_scale': 'ETechPower',
             'healing_boon_scale': 'ELevelUpBoons',
         }
