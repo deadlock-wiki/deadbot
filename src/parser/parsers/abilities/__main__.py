@@ -9,6 +9,10 @@ from loguru import logger
 # Scale applied to a stat when the game files do not specify one
 DEFAULT_STAT_SCALE = 1
 
+# Values that mark an attribute as not applying to the ability, eg. an ability without charges
+# still carries an AbilityCooldownBetweenCharge, set to -1
+INACTIVE_STAT_VALUES = (0, -1)
+
 
 class AbilityParser:
     def __init__(self, abilities_data, heroes_data, localizations):
@@ -90,17 +94,33 @@ class AbilityParser:
         if scale_func.get('m_bFunctionDisabled'):
             return
 
-        # an attribute of zero stays zero no matter how the hero's duration, range or cooldown
-        # scale it, so leave it as a plain zero for the output to strip
-        if num_utils.is_zero(value) and 'm_flStatScale' not in scale_func:
+        scale_stats = self._get_scale_stats(scale_func)
+
+        # an attribute that does not apply to the ability gains nothing from a stat that scales it
+        # at the default rate, so keep only a scale that the game files explicitly specify. That
+        # scale belongs to the first stat, the rest all scale at the default rate
+        if self._is_inactive_stat(value):
+            scale_stats = scale_stats[:1] if 'm_flStatScale' in scale_func else []
+
+        if not scale_stats:
             return
 
-        scales = [{'Value': scale_value, 'Type': maps.get_scale_type(scale_type)} for scale_type, scale_value in self._get_scale_stats(scale_func)]
+        scales = [{'Value': scale_value, 'Type': maps.get_scale_type(scale_type)} for scale_type, scale_value in scale_stats]
 
         if len(scales) == 1:
             return scales[0]
 
         return scales
+
+    def _is_inactive_stat(self, value):
+        """
+        Whether an attribute's value marks it as not applying to the ability, eg. an ability
+        without charges still carries an AbilityCooldownBetweenCharge, set to -1
+        """
+        if isinstance(value, bool):
+            return False
+
+        return value in INACTIVE_STAT_VALUES
 
     def _get_scale_stats(self, scale_func):
         """

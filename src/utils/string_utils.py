@@ -28,6 +28,19 @@ def format_description(description, *data_sets):
     for data_set in data_sets:
         data.update(data_set)
 
+    # a scaled attribute nests its number under 'Value', eg. {'Value': 6, 'Scale': {...}}.
+    # A description wants that number, with the scale offered separately as '<attr>_scale'
+    for key, value in list(data.items()):
+        if isinstance(value, dict) and 'Scale' in value:
+            data[key] = value['Value']
+
+            scale = value['Scale']
+            # if there are multiple scales, use the first one as it is usually the more relevant one - eg. spirit power
+            if isinstance(scale, list):
+                scale = scale[0]
+
+            data[f'{key}_scale'] = scale['Value']
+
     if isinstance(description, tuple):
         description = description[0]
 
