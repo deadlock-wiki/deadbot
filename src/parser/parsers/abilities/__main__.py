@@ -102,12 +102,17 @@ class AbilityParser:
         if self._is_inactive_stat(value):
             scale_stats = scale_stats[:1] if 'm_flStatScale' in scale_func else []
 
-        scale_stats = [(scale_type, scale_value) for scale_type, scale_value in scale_stats if not maps.is_ignored_scale_type(scale_type)]
+        scales = []
+        for scale_type, scale_value in scale_stats:
+            human_type = maps.get_scale_type(scale_type)
+            # scale types the wiki has no mapping for are dropped, see get_scale_type
+            if human_type is None:
+                continue
 
-        if not scale_stats:
+            scales.append({'Value': scale_value, 'Type': human_type})
+
+        if not scales:
             return
-
-        scales = [{'Value': scale_value, 'Type': maps.get_scale_type(scale_type)} for scale_type, scale_value in scale_stats]
 
         if len(scales) == 1:
             return scales[0]

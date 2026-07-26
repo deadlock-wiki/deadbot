@@ -1,3 +1,5 @@
+from loguru import logger
+
 TARGET_TYPE_MAP = {
     'CITADEL_UNIT_TARGET_ALL_ENEMY': 'AllEnemy',
     'CITADEL_UNIT_TARGET_ALL_FRIENDLY': 'AllFriendly',
@@ -235,28 +237,6 @@ SCALE_TYPE_MAP = {
     'EWeaponPower': 'weapon_power',
 }
 
-# Scale types the game files use that are of no interest to the wiki, either because they only
-# apply to data we do not export, such as items and weapon sets, or because they say nothing
-# beyond what the attribute itself already does. Listing them keeps get_scale_type free to
-# raise on a scale type that is genuinely new to us
-IGNORED_SCALE_TYPES = {
-    'EAirMoveDistanceScale',
-    'EBuildUpRate',
-    'EChannelDuration',
-    'EClipSizeIncrease',
-    'EDamageScale',
-    'EItemCooldown',
-    'EMeleeRange',
-    'EProcBuildUpRateScale',
-    'EReloadSpeed',
-    'ETechDamageScale',
-    'EWeaponFalloffMaxRange',
-}
-
-
-def is_ignored_scale_type(scale):
-    return scale in IGNORED_SCALE_TYPES
-
 
 def class_to_scale_type(class_str: str) -> str | None:
     """
@@ -307,12 +287,27 @@ def class_to_scale_enum(class_str: str) -> str | None:
     return None
 
 
+# Scale types met that SCALE_TYPE_MAP has no entry for, tracked so each is only reported once
+_unmapped_scale_types = set()
+
+
 def get_scale_type(scale):
+    """
+    Get the wiki's name for a scale type, or None for one we have no mapping for
+
+    The game files hold plenty of scale types that the wiki has no use for, and a patch is free
+    to introduce more, so an unmapped type is dropped rather than raising. Each is reported once
+    so it can be added to SCALE_TYPE_MAP if it turns out to be worth exporting
+    """
     if scale is None:
         return scale
 
     if scale not in SCALE_TYPE_MAP:
-        raise Exception(f'No scale map found for {scale}')
+        if scale not in _unmapped_scale_types:
+            _unmapped_scale_types.add(scale)
+            logger.trace(f'No scale map found for {scale}, ignoring it. Add it to SCALE_TYPE_MAP if the wiki needs it')
+
+        return None
 
     return SCALE_TYPE_MAP[scale]
 

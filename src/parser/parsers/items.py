@@ -172,13 +172,14 @@ class ItemParser:
             return None
 
         scale_type = scale_func.get('m_eSpecificStatScaleType')
-        human_type = get_scale_type(scale_type) if scale_type else None
-
-        # Fallback to inferring from _class
-        if not human_type:
-            class_str = scale_func.get('_class', '')
-            if class_str:
-                human_type = maps.class_to_scale_type(class_str)
+        if scale_type:
+            human_type = get_scale_type(scale_type)
+            # a named scale type that the wiki has no mapping for is dropped rather than guessed at
+            if human_type is None:
+                return None
+        else:
+            # Fallback to inferring from _class
+            human_type = maps.class_to_scale_type(scale_func.get('_class', ''))
             if not human_type:
                 human_type = maps.get_scale_type('ETechPower')
 
