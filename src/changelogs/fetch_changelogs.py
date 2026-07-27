@@ -105,7 +105,7 @@ class ChangelogFetcher:
         try:
             date_obj = datetime.strptime(date_key, '%Y-%m-%d')
             # Format: Update:February_12,_2026
-            page_title = f"Update:{date_obj.strftime('%B')}_{date_obj.day},_{date_obj.year}"
+            page_title = f'Update:{date_obj.strftime("%B")}_{date_obj.day},_{date_obj.year}'
 
             page = self.wiki_site.pages[page_title]
             if not page.exists:
@@ -232,7 +232,7 @@ class ChangelogFetcher:
             try:
                 tags = item.get('tags', [])
                 if 'patchnotes' not in tags:
-                    logger.trace(f"Skipping non-patch-note news: {item.get('title')} (Tags: {tags})")
+                    logger.trace(f'Skipping non-patch-note news: {item.get("title")} (Tags: {tags})')
                     continue
 
                 gid = str(item['gid'])
