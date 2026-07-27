@@ -64,7 +64,7 @@ def calculate_prev_update_link(
     prev_date, _ = final_candidates[-1]
 
     # Format: {{Update link|Month|Day|Year}}
-    return f"{{{{Update link|{prev_date.strftime('%B')}|{prev_date.day}|{prev_date.year}}}}}"
+    return f'{{{{Update link|{prev_date.strftime("%B")}|{prev_date.day}|{prev_date.year}}}}}'
 
 
 def inject_prev_update(content: str, prev_update_link: str) -> str:

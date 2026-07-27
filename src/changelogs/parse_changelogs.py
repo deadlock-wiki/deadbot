@@ -135,12 +135,12 @@ class ChangelogParser:
                         prev_date = datetime.strptime(prev_config['date'], '%Y-%m-%d')
                         # Format: {{Update link|Month|Day|Year}}
                         # Double braces {{ }} are required to escape them in an f-string
-                        prev_update_link = f"{{{{Update link|{prev_date.strftime('%B')}|{prev_date.day}|{prev_date.year}}}}}"
+                        prev_update_link = f'{{{{Update link|{prev_date.strftime("%B")}|{prev_date.day}|{prev_date.year}}}}}'
                     except ValueError:
                         pass
 
             source_link = config.get('link') or ''
-            source_title = config.get('title') or f"{date_obj.strftime('%m-%d-%Y')} Update"
+            source_title = config.get('title') or f'{date_obj.strftime("%m-%d-%Y")} Update'
 
             full_page_content = f"""{{{{Update layout
 | prev_update = {prev_update_link}

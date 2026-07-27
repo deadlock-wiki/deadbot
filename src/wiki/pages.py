@@ -9,6 +9,7 @@ DATA_PAGE_FILE_MAP = {
     'HeroMeaningfulStats.json': 'json/hero-meaningful-stats.json',
     'ItemData.json': 'json/item-data.json',
     'ItemCards.json': 'json/item-cards.json',
+    'ItemInvestmentData.json': 'json/item-investment-data.json',
     'NpcData.json': 'json/npc-data.json',
     'Lang bg.json': 'localizations/bulgarian.json',
     'Lang cs.json': 'localizations/czech.json',

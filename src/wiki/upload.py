@@ -124,7 +124,7 @@ class WikiUpload:
                 if not date_obj:
                     raise ValueError(f'Invalid date format in {changelog_id}')
 
-                wiki_date_str = f"{date_obj.strftime('%B')}_{date_obj.day},_{date_obj.year}"
+                wiki_date_str = f'{date_obj.strftime("%B")}_{date_obj.day},_{date_obj.year}'
                 page_title = f'Update:{wiki_date_str}'
 
                 filepath = os.path.join(changelog_dir, filename)
@@ -163,7 +163,7 @@ class WikiUpload:
             try:
                 date_obj = datetime.strptime(hotfix['date'], '%Y-%m-%d')
                 # Assuming standard naming: Update:Month_Day,_Year
-                page_title = f"Update:{date_obj.strftime('%B')}_{date_obj.day},_{date_obj.year}"
+                page_title = f'Update:{date_obj.strftime("%B")}_{date_obj.day},_{date_obj.year}'
                 page = self.site.pages[page_title]
 
                 if not page.exists:
@@ -179,7 +179,7 @@ class WikiUpload:
                 # Perform the append before the closing }} of the layout template
                 if current_text.strip().endswith('}}'):
                     base_text = current_text.strip()
-                    new_page_text = base_text[:-2] + f"\n\n{hotfix['text']}\n}}"
+                    new_page_text = base_text[:-2] + f'\n\n{hotfix["text"]}\n}}'
 
                     logger.info(f'Appending new hotfix section to Wiki page: {page_title}')
                     if not self.dry_run:
@@ -188,7 +188,7 @@ class WikiUpload:
                 else:
                     logger.warning(f"Page {page_title} does not end with '}}', cannot safely append hotfix.")
             except Exception as e:
-                logger.error(f"Failed to process hotfix for {hotfix.get('date')}: {e}")
+                logger.error(f'Failed to process hotfix for {hotfix.get("date")}: {e}')
 
     def _update_data_pages(self):
         namespace_id = self._get_namespace_id(self.DATA_NAMESPACE)
@@ -289,7 +289,7 @@ class WikiUpload:
             logger.error(f'Could not parse date from {latest_file}, cannot update chain')
             return
 
-        latest_page_title = f"Update:{latest_date.strftime('%B')}_{latest_date.day},_{latest_date.year}"
+        latest_page_title = f'Update:{latest_date.strftime("%B")}_{latest_date.day},_{latest_date.year}'
 
         # Use cached wiki updates from earlier fetch
         if not self.wiki_updates:
@@ -307,7 +307,7 @@ class WikiUpload:
         earlier_updates.sort(key=lambda x: x[0])
         prev_date, prev_page_title = earlier_updates[-1]
 
-        logger.info(f"Found previous update: {prev_page_title} (date: {prev_date.strftime('%Y-%m-%d')})")
+        logger.info(f'Found previous update: {prev_page_title} (date: {prev_date.strftime("%Y-%m-%d")})')
 
         # Link the previous update to the latest one
         self._link_updates(prev_page_title, latest_page_title, prev_date, latest_date)
@@ -325,7 +325,7 @@ class WikiUpload:
         current_text = page.text()
 
         # Create the link string: {{Update link|Month|Day|Year}}
-        next_link_str = f"{{{{Update link|{next_date.strftime('%B')}|{next_date.day}|{next_date.year}}}}}"
+        next_link_str = f'{{{{Update link|{next_date.strftime("%B")}|{next_date.day}|{next_date.year}}}}}'
 
         # Robust idempotency check: normalize whitespace and match the template
         # Handles extra spaces inside template like {{Update link | January | 29 | 2026 }}
@@ -354,7 +354,7 @@ class WikiUpload:
 
         logger.info(f'Linking {prev_title} -> {next_title}')
         if not self.dry_run:
-            page.save(new_text, summary=f"{self.upload_message}: Linking next update to {next_date.strftime('%Y-%m-%d')}")
+            page.save(new_text, summary=f'{self.upload_message}: Linking next update to {next_date.strftime("%Y-%m-%d")}')
             logger.success(f'Updated {prev_title}')
 
     def _update_page(self, page, updated_text):

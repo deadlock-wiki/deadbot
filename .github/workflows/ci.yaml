@@ -5,20 +5,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-      - name: Install dependencies
-        run: |
-          python3 -m pip install --upgrade pip
-          pip install ruff
+
+      - name: Install Poetry
+        run: pip install poetry
+
+      - name: Install Ruff
+        run: poetry install --only dev --no-root
+
       # Update output format to enable automatic inline annotations.
       - name: Run Ruff
-        run: ruff check --output-format=github .
-      - name: Run poetry build
-        run: |
-          python3 -m pip install poetry
-          python3 -m poetry install
-          python3 -m poetry check
-          python3 -m poetry build
+        run: poetry run ruff check --output-format=github .
