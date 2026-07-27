@@ -8,6 +8,10 @@ updates:
     labels:
       - "dependencies"
       - "github-actions"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
 
   - package-ecosystem: "pip"
     directory: "/"
@@ -16,6 +20,13 @@ updates:
       day: "monday"
     labels:
       - "dependencies"
+    groups:
+      pip:
+        patterns:
+          - "*"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
 
   - package-ecosystem: "pre-commit"
     directory: "/"
@@ -25,3 +36,7 @@ updates:
     labels:
       - "dependencies"
       - "pre-commit"
+    groups:
+      pre-commit:
+        patterns:
+          - "*"

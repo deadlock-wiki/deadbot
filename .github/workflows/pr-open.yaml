@@ -9,7 +9,7 @@ jobs:
     name: Open deadlock-data PR
     runs-on: ubuntu-latest
     # prevent develop and master being changed by this script
-    if: ${{ github.head_ref != 'develop' && github.head_ref != 'master' }}
+    if: ${{ github.actor != 'dependabot[bot]' && github.head_ref != 'develop' && github.head_ref != 'master' }}
     steps:
       - name: Checkout deadbot repo
         uses: actions/checkout@v4
