@@ -102,15 +102,10 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Increment Deadbot version')
     parser.add_argument('increment_type', choices=['major', 'minor', 'patch', 'beta'])
     parser.add_argument('--print-only', action='store_true', help='Print the next version number without writing to files')
-    parser.add_argument('--base', type=str, help='Base version string to increment (defaults to reading pyproject.toml)')
 
     args = parser.parse_args()
 
-    if args.base:
-        current_version = parse_version_string(args.base)
-    else:
-        current_version = read_version()
-
+    current_version = read_version()
     next_version = get_next_version(current_version, args.increment_type)
 
     if args.print_only:
