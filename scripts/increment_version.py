@@ -70,7 +70,7 @@ def read_version() -> VersionInfo:
 
 
 def write_version(version: VersionInfo):
-    version_string = f'{version["major"]}.' f'{version["minor"]}.' f'{version["patch"]}'
+    version_string = f'{version["major"]}.{version["minor"]}.{version["patch"]}'
 
     if version['beta']:
         version_string += f'-beta.{version["beta"]}'

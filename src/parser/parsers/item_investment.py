@@ -66,11 +66,11 @@ class ItemInvestmentParser:
             else:
                 if first != remapped:
                     raise ValueError(
-                        f'Item investment stats differ between heroes {first_key} and {hero_key}.\n' f'{first_key}: {first}\n{hero_key}: {remapped}'
+                        f'Item investment stats differ between heroes {first_key} and {hero_key}.\n{first_key}: {first}\n{hero_key}: {remapped}'
                     )
 
         if first is None:
-            raise ValueError('Could not find m_MapModCostBonuses in any selectable hero. ' 'Item investment data cannot be extracted.')
+            raise ValueError('Could not find m_MapModCostBonuses in any selectable hero. Item investment data cannot be extracted.')
 
-        logger.trace(f'Extracted item investment stats from {first_key} ' '(validated across all selectable heroes)')
+        logger.trace(f'Extracted item investment stats from {first_key} (validated across all selectable heroes)')
         return {'ItemInvestments': first}
