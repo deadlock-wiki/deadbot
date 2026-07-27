@@ -22,7 +22,7 @@ jobs:
       new_version: ${{ steps.check_version.outputs.new_version }}
     steps:
       - name: Checkout Deadbot repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Cache SteamDB repo
         uses: actions/cache@v6
