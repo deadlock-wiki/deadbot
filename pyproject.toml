@@ -25,7 +25,7 @@ nuitka = "^4.0.5"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.15"
-pre-commit = "^3.8.0"
+pre-commit = ">=3.8,<5.0"
 
 [tool.ruff]
 line-length = 150
