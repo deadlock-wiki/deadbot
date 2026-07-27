@@ -27,7 +27,7 @@ def main():
     logger.add(
         sys.stderr,
         level=log_level,
-        format='<white><dim>{time:YYYY-MM-DD HH:mm:ss.SSS} | </dim>' '</white><level>{level:<7} <dim>|</dim> <normal>{message}</normal></level>',
+        format='<white><dim>{time:YYYY-MM-DD HH:mm:ss.SSS} | </dim></white><level>{level:<7} <dim>|</dim> <normal>{message}</normal></level>',
     )
 
     logger.info(f'Running Deadbot v{get_deadbot_version()}')

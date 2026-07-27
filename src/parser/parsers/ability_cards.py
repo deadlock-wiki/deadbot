@@ -182,7 +182,7 @@ class AbilityCardsParser:
             if 'm_vecBasicProperties' in info_section:
                 parsed_info_section['Alt'] = self._parse_alt_block(info_section)
 
-            parsed_ui[f'Info{index+1}'] = parsed_info_section
+            parsed_ui[f'Info{index + 1}'] = parsed_info_section
 
         parsed_ui['Upgrades'] = self._parse_upgrades()
 
@@ -216,7 +216,7 @@ class AbilityCardsParser:
 
                 attr_key = parsed_prop['key']
                 if attr_key is None:
-                    raise Exception(f"Missing value for ability {self.ability['Name']}")
+                    raise Exception(f'Missing value for ability {self.ability["Name"]}')
 
                 # This is probably an upgrade attr that is not tagged as such, so it will
                 # not be shown in the main block
@@ -416,7 +416,7 @@ class AbilityCardsParser:
             upgrade = self._deduplicate_upgrade_props(upgrade, raw_props)
 
             # Description key includes t1, t2, and t3 denoting the upgrade tier
-            desc_key = f'{self.ability["Key"]}_t{index+1}_desc'
+            desc_key = f'{self.ability["Key"]}_t{index + 1}_desc'
 
             # this key in particular is not accurate to the one in game
             ignore_desc_key = False

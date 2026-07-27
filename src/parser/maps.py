@@ -36,6 +36,15 @@ SLOT_TYPE_MAP = {
     'EItemSlotType_Tech': 'Tech',
 }
 
+# Maps slot-type enums to stat-category names for item investment thresholds.
+# Differs from SLOT_TYPE_MAP above which maps to slot-display names (Armor/Tech).
+# Keeping both is intentional, the wiki modules consume category names.
+INVESTMENT_SLOT_MAP = {
+    'EItemSlotType_WeaponMod': 'Weapon',
+    'EItemSlotType_Armor': 'Vitality',
+    'EItemSlotType_Tech': 'Spirit',
+}
+
 
 def get_slot_type(value):
     if value is None:
