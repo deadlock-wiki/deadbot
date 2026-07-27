@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "Deadbot" 
-version = "1.15.0"
+version = "1.16.0"
 description = "Bot that lives to serve deadlock.wiki"
 readme = "README.md"
 authors=[]
@@ -24,7 +24,7 @@ pillow = "^12.2.0"
 nuitka = "^4.0.5"
 
 [tool.poetry.group.dev.dependencies]
-ruff = "^0.6.2"
+ruff = "^0.15"
 pre-commit = "^3.8.0"
 
 [tool.ruff]

@@ -17,6 +17,7 @@ from .parsers import (
     misc,
     convars,
     street_brawl,
+    item_investment,
 )
 from utils import json_utils
 from loguru import logger
@@ -149,9 +150,10 @@ class Parser:
         self._parse_localizations()
         self._parse_soul_unlocks()
         self._parse_generics()
+        self._parse_item_investments()
         self._parse_misc()
         self._parse_convars()
-        self._parse_street_brawl()
+        self._parse_street_brawl(parsed_abilities)
         self._parse_map()
         logger.trace('Done parsing')
 
@@ -167,6 +169,13 @@ class Parser:
         parsed_generics = generics.GenericParser(generic_data_path, self.data['scripts']['generic_data']).run()
 
         json_utils.write(generic_data_path, json_utils.sort_dict(parsed_generics))
+
+    def _parse_item_investments(self):
+        logger.trace('Parsing Item Investments...')
+        parsed_investments = item_investment.ItemInvestmentParser(self.data['scripts']['heroes']).run()
+
+        investment_data_path = self.OUTPUT_DIR + '/json/item-investment-data.json'
+        json_utils.write(investment_data_path, json_utils.sort_dict(parsed_investments))
 
     def _parse_localizations(self):
         logger.trace('Parsing Localizations...')
@@ -325,8 +334,13 @@ class Parser:
 
         json_utils.write(self.OUTPUT_DIR + '/json/convars.json', json_utils.sort_dict(parsed_convars))
 
-    def _parse_street_brawl(self):
+    def _parse_street_brawl(self, parsed_abilities):
         logger.trace('Parsing Street Brawl...')
-        parsed_street_brawl = street_brawl.StreetBrawlParser(self.data['scripts']['heroes']).run()
+        parsed_street_brawl = street_brawl.StreetBrawlParser(
+            self.data['scripts']['heroes'],
+            self.data['scripts']['abilities'],
+            parsed_abilities,
+            self.localizations[self.language],
+        ).run()
 
         json_utils.write(self.OUTPUT_DIR + '/json/street-brawl-data.json', parsed_street_brawl)

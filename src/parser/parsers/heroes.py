@@ -264,7 +264,7 @@ class HeroParser:
 
                 # The primary weapon name/description key is constructed from the hero's key, not its own ability ID.
                 # e.g., hero_shiv -> citadel_weapon_hero_shiv_set
-                weapon_stats['NameKey'] = f"citadel_weapon_hero_{hero_key.replace('hero_', '')}_set"
+                weapon_stats['NameKey'] = f'citadel_weapon_hero_{hero_key.replace("hero_", "")}_set'
                 weapon_stats['DescKey'] = weapon_stats['NameKey'] + '_desc'
 
         # Alt-fire weapon
