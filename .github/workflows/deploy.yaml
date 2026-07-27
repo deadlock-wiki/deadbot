@@ -122,7 +122,7 @@ jobs:
           git switch ${{ needs.get-branch.outputs.branch }}
         continue-on-error: true  # Allow the job to stop if this step fails
 
-      - uses: docker/setup-buildx-action@v3
+      - uses: docker/setup-buildx-action@v4.2.0
         with:
           driver: docker-container
 
