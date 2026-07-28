@@ -88,7 +88,8 @@ jobs:
     needs: check-version
     if: >-
       (success() || needs.check-version.result == 'skipped') &&
-      (needs.check-version.outputs.new_version || github.event.inputs.force == 'true')    uses: ./.github/workflows/deploy.yaml
+      (needs.check-version.outputs.new_version || github.event.inputs.force == 'true')
+    uses: ./.github/workflows/deploy.yaml
     with:
       branch-override: master
       english-only: ${{ github.event.inputs.english-only == 'true' }}
