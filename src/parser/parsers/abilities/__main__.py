@@ -149,16 +149,27 @@ class AbilityParser:
 
         The named stat is returned first, being the one whose rate the game bothered to spell
         out, and so the one a description is most likely to quote.
+
+        Returns nothing when the scale function identifies no stat at all, which the game files
+        are full of, eg. a bare `{}` left behind on an attribute that does not grow with anything
         """
         named_stat = scale_func.get('m_eSpecificStatScaleType') or maps.class_to_scale_enum(scale_func.get('_class', ''))
         listed_stats = [scale_type for scale_type in scale_func.get('m_vecScalingStats') or [] if scale_type]
+        rate = scale_func.get('m_flStatScale')
 
         if not named_stat:
-            # with no stat named, the rate belongs to the first stat listed, falling back to
-            # spirit as it is by far the most common stat for an attribute to grow with
-            named_stat = listed_stats[0] if listed_stats else 'ETechPower'
+            if listed_stats:
+                # with no stat named, the rate belongs to the first stat listed
+                named_stat = listed_stats[0]
+            elif rate is None:
+                # nothing names a stat and no rate was given either, so there is no scaling here
+                return []
+            else:
+                # a rate on its own means the attribute definitely grows with something, and
+                # spirit is both the most common stat and the one rates are usually spelled out for
+                named_stat = 'ETechPower'
 
-        named_rate = num_utils.assert_number(scale_func.get('m_flStatScale', DEFAULT_STAT_SCALE))
+        named_rate = num_utils.assert_number(DEFAULT_STAT_SCALE if rate is None else rate)
 
         stats = [(named_stat, named_rate)]
         stats += [(scale_type, DEFAULT_STAT_SCALE) for scale_type in listed_stats if scale_type != named_stat]
