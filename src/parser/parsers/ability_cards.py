@@ -535,25 +535,11 @@ class AbilityCardsParser:
             if token_override is not None:
                 overrides[token_override] = value
 
-        # take a copy to prevent modifying the output data
-        format_data = data.copy()
-
-        # For a Scale, map the base and scale values to separate variables for description formatting
-        for attr, value in data.items():
-            if isinstance(value, dict) and 'Scale' in value:
-                format_data[attr] = value['Value']
-
-                # if there are multiple scales, use the first one as it is usually the more relevant one - eg. spirit power
-                if isinstance(value['Scale'], list):
-                    format_data[f'{attr}_scale'] = value['Scale'][0]['Value']
-                else:
-                    format_data[f'{attr}_scale'] = value['Scale']['Value']
-
         # required variables to insert into the description
         format_vars = (
             self.ability,
             overrides,
-            format_data,
+            data,
             {'ability_key': self.ability_index},
             {'hero_name': self.hero['Name']},
             self.localizations[self.language],
