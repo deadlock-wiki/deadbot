@@ -104,6 +104,11 @@ class AbilityParser:
 
         scales = []
         for scale_type, scale_value in scale_stats:
+            # a rate of zero is how the game files opt an attribute out of a stat it would
+            # otherwise grow with, which is already what carrying no scale for it says
+            if num_utils.is_zero(scale_value):
+                continue
+
             human_type = maps.get_scale_type(scale_type)
             # scale types the wiki has no mapping for are dropped, see get_scale_type
             if human_type is None:
