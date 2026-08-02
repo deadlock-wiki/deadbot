@@ -40,3 +40,6 @@ updates:
       pre-commit:
         patterns:
           - "*"
+    ignore:
+      - dependency-name: "astral-sh/ruff-pre-commit"
+        update-types: ["version-update:semver-minor", "version-update:semver-major"]
