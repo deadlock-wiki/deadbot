@@ -122,7 +122,7 @@ def arg_group_action(parser):
         '-c',
         '--changelogs',
         action='store_true',
-        help='Fetch/parse forum and local changelogs. (also set with CHANGELOGS environment variable)',
+        help='Fetch/parse changelogs from the Steam Web API and local files. (also set with CHANGELOGS environment variable)',
         default=is_truthy(os.getenv('CHANGELOGS', False)),
     )
     group_actions.add_argument(
