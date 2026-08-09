@@ -22,7 +22,7 @@ jobs:
       new_version: ${{ steps.check_version.outputs.new_version }}
     steps:
       - name: Checkout Deadbot repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Cache SteamDB repo
         uses: actions/cache@v6
@@ -70,7 +70,9 @@ jobs:
   deploy-develop:
     name: Deploy develop
     needs: check-version
-    if: ${{ needs.check-version.outputs.new_version || github.event.inputs.force == 'true' }}
+    if: >-
+      (success() || needs.check-version.result == 'skipped') &&
+      (needs.check-version.outputs.new_version || github.event.inputs.force == 'true')
     uses: ./.github/workflows/deploy.yaml
     with:
       branch-override: develop
@@ -84,7 +86,9 @@ jobs:
   deploy-master:
     name: Deploy master
     needs: check-version
-    if: ${{ needs.check-version.outputs.new_version || github.event.inputs.force == 'true' }}
+    if: >-
+      (success() || needs.check-version.result == 'skipped') &&
+      (needs.check-version.outputs.new_version || github.event.inputs.force == 'true')
     uses: ./.github/workflows/deploy.yaml
     with:
       branch-override: master

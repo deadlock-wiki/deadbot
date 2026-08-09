@@ -12,12 +12,12 @@ jobs:
     if: ${{ github.actor != 'dependabot[bot]' && github.head_ref != 'develop' && github.head_ref != 'master' }}
     steps:
       - name: Checkout deadbot repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           path: deadbot
 
       - name: Checkout deadlock-data repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: deadlock-wiki/deadlock-data
           path: deadlock-data
@@ -82,7 +82,7 @@ jobs:
     outputs:
       should_deploy: ${{ steps.filter.outputs.should_deploy }}
     steps:
-      - uses: dorny/paths-filter@v3
+      - uses: dorny/paths-filter@v4
         id: filter
         with:
           filters: |

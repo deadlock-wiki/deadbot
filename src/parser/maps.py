@@ -1,3 +1,5 @@
+from loguru import logger
+
 TARGET_TYPE_MAP = {
     'CITADEL_UNIT_TARGET_ALL_ENEMY': 'AllEnemy',
     'CITADEL_UNIT_TARGET_ALL_FRIENDLY': 'AllFriendly',
@@ -226,8 +228,10 @@ SCALE_TYPE_MAP = {
     'EParryCooldown': 'parry_cd',
     'EStatsCount': 'stats_count',
     'ETechCooldown': 'cooldown',
+    'ETechCooldownBetweenChargeUses': 'charge_cooldown',
     'ETechDuration': 'duration',
     'ETechPower': 'spirit',
+    'ETechRadius': 'radius',
     'ETechRange': 'range',
     'EWeaponDamageScale': 'weapon_damage',
     'EWeaponPower': 'weapon_power',
@@ -252,8 +256,9 @@ def class_to_scale_type(class_str: str) -> str | None:
             'tech_duration': 'ETechDuration',
             'tech_cooldown': 'ETechCooldown',
             'weapon_damage': 'EWeaponDamageScale',
+            'base_weapon_damage': 'EBaseWeaponDamageIncrease',
             'ability_charges': 'EMaxChargesIncrease',
-            'ability_recharge_time': 'ETechCooldown',  # cooldown between charges
+            'ability_recharge_time': 'ETechCooldownBetweenChargeUses',
             'healing_spirit_scale': 'ETechPower',
             'healing_boon_scale': 'ELevelUpBoons',
         }
@@ -282,12 +287,27 @@ def class_to_scale_enum(class_str: str) -> str | None:
     return None
 
 
+# Scale types met that SCALE_TYPE_MAP has no entry for, tracked so each is only reported once
+_unmapped_scale_types = set()
+
+
 def get_scale_type(scale):
+    """
+    Get the wiki's name for a scale type, or None for one we have no mapping for
+
+    The game files hold plenty of scale types that the wiki has no use for, and a patch is free
+    to introduce more, so an unmapped type is dropped rather than raising. Each is reported once
+    so it can be added to SCALE_TYPE_MAP if it turns out to be worth exporting
+    """
     if scale is None:
         return scale
 
     if scale not in SCALE_TYPE_MAP:
-        raise Exception(f'No scale map found for {scale}')
+        if scale not in _unmapped_scale_types:
+            _unmapped_scale_types.add(scale)
+            logger.trace(f'No scale map found for {scale}, ignoring it. Add it to SCALE_TYPE_MAP if the wiki needs it')
+
+        return None
 
     return SCALE_TYPE_MAP[scale]
 
