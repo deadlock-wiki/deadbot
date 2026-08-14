@@ -153,8 +153,10 @@ class AbilityParser:
         Returns nothing when the scale function identifies no stat at all, which the game files
         are full of, eg. a bare `{}` left behind on an attribute that does not grow with anything
         """
-        named_stat = scale_func.get('m_eSpecificStatScaleType') or maps.class_to_scale_enum(scale_func.get('_class', ''))
-        listed_stats = [scale_type for scale_type in scale_func.get('m_vecScalingStats') or [] if scale_type]
+        named_stat = maps.get_specific_scale_type(scale_func) or maps.class_to_scale_enum(scale_func.get('_class', ''))
+        listed_stats = [
+            scale_type for scale_type in scale_func.get('m_vecScalingStats') or [] if scale_type and scale_type not in maps.UNSET_SCALE_TYPES
+        ]
         rate = scale_func.get('m_flStatScale')
 
         if not named_stat:
