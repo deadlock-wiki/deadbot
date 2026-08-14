@@ -226,7 +226,6 @@ SCALE_TYPE_MAP = {
     'ELightMeleeDamage': 'melee',
     'EMaxChargesIncrease': 'max_charges',
     'EParryCooldown': 'parry_cd',
-    'EStatsCount': 'stats_count',
     'ETechCooldown': 'cooldown',
     'ETechCooldownBetweenChargeUses': 'charge_cooldown',
     'ETechDuration': 'duration',
@@ -285,6 +284,20 @@ def class_to_scale_enum(class_str: str) -> str | None:
         if human == human_type:
             return enum_key
     return None
+
+
+# The stats enum ends with EStatsCount and EStatsInvalid, which share the value 98, and
+# m_eSpecificStatScaleType defaults to it. A scale function carrying it names no stat at all
+UNSET_SCALE_TYPES = ('EStatsCount', 'EStatsInvalid')
+
+
+def get_specific_scale_type(scale_func):
+    """Read the stat that a scale function names, treating the enum's unset value as naming none"""
+    scale_type = scale_func.get('m_eSpecificStatScaleType')
+    if not scale_type or scale_type in UNSET_SCALE_TYPES:
+        return None
+
+    return scale_type
 
 
 # Scale types met that SCALE_TYPE_MAP has no entry for, tracked so each is only reported once
