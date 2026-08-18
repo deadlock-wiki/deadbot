@@ -13,6 +13,10 @@ DEFAULT_STAT_SCALE = 1
 # still carries an AbilityCooldownBetweenCharge, set to -1
 INACTIVE_STAT_VALUES = (0, -1)
 
+# Scale applied to an ability's damage against bosses, ie. Walkers, Shrines, the Patron and
+# the Mid-Boss, when the game files do not specify one
+DEFAULT_BOSS_DAMAGE_SCALE = 1
+
 
 class AbilityParser:
     def __init__(self, abilities_data, heroes_data, localizations):
@@ -52,6 +56,11 @@ class AbilityParser:
             'IsDisabled': ability.get('m_bDisabled', False),
             'BehaviourBits': maps.get_behaviour_bits(ability.get('m_AbilityBehaviorsBits')),
         }
+
+        # nearly every ability damages bosses in full, so only export a scale that differs
+        boss_damage_scale = num_utils.assert_number(ability.get('m_flBossDamageScale', DEFAULT_BOSS_DAMAGE_SCALE))
+        if boss_damage_scale != DEFAULT_BOSS_DAMAGE_SCALE:
+            ability_data['BossDamageScale'] = boss_damage_scale
 
         stats = ability.get('m_mapAbilityProperties', {})
         for key in stats:
