@@ -171,7 +171,7 @@ class ItemParser:
         if base_value_str is None:
             return None
 
-        scale_type = scale_func.get('m_eSpecificStatScaleType')
+        scale_type = maps.get_specific_scale_type(scale_func)
         if scale_type:
             human_type = get_scale_type(scale_type)
             # a named scale type that the wiki has no mapping for is dropped rather than guessed at
