@@ -27,19 +27,3 @@ updates:
     ignore:
       - dependency-name: "*"
         update-types: ["version-update:semver-major"]
-
-  - package-ecosystem: "pre-commit"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-      day: "monday"
-    labels:
-      - "dependencies"
-      - "pre-commit"
-    groups:
-      pre-commit:
-        patterns:
-          - "*"
-    ignore:
-      - dependency-name: "astral-sh/ruff-pre-commit"
-        update-types: ["version-update:semver-minor", "version-update:semver-major"]
