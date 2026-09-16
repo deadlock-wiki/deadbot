@@ -160,7 +160,51 @@ class HeroParser:
             if new_ability:
                 werewolf_transformed['m_mapBoundAbilities'][key] = new_ability
 
+        self._apply_transformation_stats(werewolf_transformed, transformation_ability)
+
         return werewolf_transformed
+
+    def _apply_transformation_stats(self, werewolf_transformed, transformation_ability):
+        """Apply the stats the transformation modifier grants to the transformed hero.
+
+        The werewolf modifier auto-registers several ability properties against hero modifier values,
+        which are not part of the hero's base data. Fold them into the transformed copy so it matches the
+        stats the hero actually has while transformed.
+        """
+        ability_properties = transformation_ability.get('m_mapAbilityProperties', {})
+        starting_stats = werewolf_transformed['m_mapStartingStats']
+
+        # HeadshotResist is a percent delta on the crit damage received scale, eg. -20 reduces it by 20%
+        headshot_resist = ability_properties.get('HeadshotResist', {}).get('m_strValue')
+        if headshot_resist is not None:
+            crit_scale_key = self._find_stat_key(starting_stats, 'CritDamageReceivedScale')
+            starting_stats[crit_scale_key] *= 1 + num_utils.remove_uom(headshot_resist) / 100
+
+        # BonusHealth grants flat max health, plus extra health per boon through its scale function
+        bonus_health = ability_properties.get('BonusHealth', {})
+        health_value = bonus_health.get('m_strValue')
+        if health_value is not None:
+            starting_stats[self._find_stat_key(starting_stats, 'MaxHealth')] += num_utils.remove_uom(health_value)
+
+        health_scale = bonus_health.get('m_subclassScaleFunction', {})
+        if health_scale.get('m_eSpecificStatScaleType') == 'ELevelUpBoons':
+            boon_health_key = 'MODIFIER_VALUE_BASE_HEALTH_FROM_LEVEL'
+            boon_health = num_utils.remove_uom(health_scale.get('m_flStatScale', 0.0))
+            level_upgrades = werewolf_transformed.setdefault('m_mapStandardLevelUpUpgrades', {})
+            level_upgrades[boon_health_key] = level_upgrades.get(boon_health_key, 0.0) + boon_health
+
+        # BonusMoveSpeed grants flat max move speed
+        move_speed = ability_properties.get('BonusMoveSpeed', {}).get('m_strValue')
+        if move_speed is not None:
+            starting_stats[self._find_stat_key(starting_stats, 'MaxMoveSpeed')] += num_utils.remove_uom(move_speed)
+
+    def _find_stat_key(self, starting_stats, stat_name):
+        """Get the raw starting stat key for a stat name, which carries an 'E' prefix in the game files"""
+        for stat_key in starting_stats:
+            if stat_key.endswith(stat_name):
+                return stat_key
+
+        return stat_name
 
     def _get_meaningful_stats(self, all_hero_stats):
         """
