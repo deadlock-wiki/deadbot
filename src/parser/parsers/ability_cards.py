@@ -300,7 +300,7 @@ class AbilityCardsParser:
             if not raw_attr:
                 logger.warning(f'No raw attr found for prop {prop}')
                 continue
-            
+
             attr_type = raw_attr.get('m_strCSSClass')
             if attr_type is not None:
                 prop_object['Type'] = attr_type
