@@ -296,7 +296,12 @@ class AbilityCardsParser:
             else:
                 prop_object['Value'] = prop_value
 
-            attr_type = self._get_raw_ability_attr(prop).get('m_strCSSClass')
+            raw_attr = self._get_raw_ability_attr(prop)
+            if not raw_attr:
+                logger.warning(f'No raw attr found for prop {prop}')
+                continue
+            
+            attr_type = raw_attr.get('m_strCSSClass')
             if attr_type is not None:
                 prop_object['Type'] = attr_type
 
