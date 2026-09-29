@@ -45,7 +45,7 @@ class ItemInvestmentParser:
                 continue
             if hero_key == 'hero_base':
                 continue
-            if not hero_data.get('m_bPlayerSelectable', False):
+            if hero_data.get('m_bPlayerSelectable') is False:
                 continue
             if 'm_MapModCostBonuses' not in hero_data:
                 logger.warning(f'Selectable hero {hero_key} missing m_MapModCostBonuses')
