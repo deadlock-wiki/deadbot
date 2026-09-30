@@ -1,6 +1,8 @@
 import math
-from typing import Dict, Any, Optional
-from python_mermaid.diagram import MermaidDiagram, Node, Link
+from typing import Any, Callable, Dict, List, Optional, Tuple, TypedDict, TypeVar
+from parser.parsers.items.components import ItemComponentTree
+from parser.parsers.items.progression import extract_progression
+from parser.parsers.items.upgrades import parse_corrupted_upgrades, parse_item_upgrades
 import utils.string_utils as string_utils
 import utils.num_utils as num_utils
 import parser.maps as maps
@@ -8,16 +10,50 @@ from parser.maps import get_scale_type
 from loguru import logger
 
 
+class ScalingValue(TypedDict):
+    Value: int | float
+
+
+class ScalingData(TypedDict):
+    Value: int | float
+    Scale: ScalingValue
+
+
+class ParsedItemData(TypedDict, total=False):
+    Name: Optional[str]
+    Description: Optional[str]
+    Cost: Optional[int]
+    Tier: Optional[int]
+    Activation: object
+    Slot: object
+    Components: object
+    TargetTypes: Optional[List[object]]
+    ShopFilters: Optional[List[object]]
+    IsDisabled: bool
+    StreetBrawl: bool
+    IsImbue: bool
+    MaxLevel: object
+    Progression: object
+    PropertyUpgrades: object
+
+
+MappedValue = TypeVar('MappedValue')
+
+
 class ItemParser:
-    def __init__(self, abilities_data, generic_data, localizations):
+    def __init__(
+        self,
+        abilities_data: Dict[str, object],
+        generic_data: Dict[str, object],
+        localizations: Dict[str, str],
+    ) -> None:
         self.abilities_data = abilities_data
         self.generic_data = generic_data
         self.localizations = localizations
-        self.nodes = []
-        self.links = []
+        self.item_component_tree = ItemComponentTree(localizations)
 
-    def run(self):
-        all_items = {}
+    def run(self) -> Tuple[Dict[str, ParsedItemData], object]:
+        all_items: Dict[str, ParsedItemData] = {}
         for key in self.abilities_data:
             ability = self.abilities_data[key]
             if not isinstance(ability, dict):
@@ -36,10 +72,10 @@ class ItemParser:
             except Exception as e:
                 logger.error(f'Failed to parse item {key}')
                 raise e
-        chart = MermaidDiagram(title='Items', nodes=self.nodes, links=self.links)
-        return (all_items, chart)
 
-    def _parse_item(self, key):
+        return (all_items, self.item_component_tree.get_chart())
+
+    def _parse_item(self, key: str) -> ParsedItemData:
         ability = self.abilities_data[key]
         item_value = ability
         item_ability_attrs = item_value.get('m_mapAbilityProperties', {})
@@ -63,9 +99,9 @@ class ItemParser:
         requirements = item_value.get('m_eAbilityRequirements', '')
         is_street_brawl = 'ERequirementStreetBrawl' in [r.strip() for r in requirements.split('|')]
 
-        parsed_item_data = {
+        parsed_item_data: ParsedItemData = {
             'Name': self.localizations.get(key),
-            'Description': '',
+            'Description': None,
             'Cost': cost,
             'Tier': int(tier) if tier is not None else None,
             'Activation': maps.get_ability_activation(item_value.get('m_eAbilityActivation')),
@@ -82,7 +118,7 @@ class ItemParser:
         for attr_key in item_ability_attrs.keys():
             attr = item_ability_attrs[attr_key]
 
-            scaling_data = self._extract_scaling(attr, key, attr_key)
+            scaling_data = self._extract_scaling(attr)
 
             if scaling_data:
                 parsed_item_data[attr_key] = scaling_data
@@ -98,64 +134,43 @@ class ItemParser:
         if 'm_iMaxLevel' in item_value:
             parsed_item_data['MaxLevel'] = item_value['m_iMaxLevel']
 
-        # Extract progression stats (e.g. for seasonal items like Snowball)
-        progression = {}
-        for k, v in item_value.items():
-            if k.startswith('m_progression'):
-                prop_name = k.replace('m_progression', '')
-                if isinstance(v, dict) and 'm_mapLevelsToValue' in v:
-                    prog_entry = {'Levels': v['m_mapLevelsToValue']}
-                    if 'm_eBetweenBehavior' in v:
-                        prog_entry['Behavior'] = v['m_eBetweenBehavior']
-                    progression[prop_name] = prog_entry
-
+        progression = extract_progression(item_value)
         if progression:
             parsed_item_data['Progression'] = progression
 
+        description = self._extract_description(key, parsed_item_data)
+        if description:
+            parsed_item_data['Description'] = description
+
+        # Process item components if they exist
+        if 'm_vecComponentItems' in item_value:
+            components = item_value['m_vecComponentItems']
+            parsed_item_data['Components'] = components
+            self.item_component_tree.add_component(parsed_item_data['Name'] or key, components)
+
+        item_upgrades = parse_item_upgrades(item_value)
+        if item_upgrades:
+            parsed_item_data['PropertyUpgrades'] = item_upgrades
+
+        corrupted_upgrades = parse_corrupted_upgrades(item_value)
+        if corrupted_upgrades:
+            parsed_item_data['CorruptedUpgrades'] = corrupted_upgrades
+
+        return parsed_item_data
+
+    def _extract_description(self, key: str, parsed_item_data: Dict[str, Any]) -> Optional[str]:
         # ignore description formatting for disabled items
         if not parsed_item_data['IsDisabled']:
             description = self.localizations.get(key + '_desc')
-            parsed_item_data['Description'] = string_utils.format_description(
+            return string_utils.format_description(
                 description,
                 parsed_item_data,
                 self.localizations,
             )
         else:
-            description = self.localizations.get(key + '_desc')
-            parsed_item_data['Description'] = description
+            return self.localizations.get(key + '_desc')
 
-        # Process item components if they exist
-        if 'm_vecComponentItems' in item_value:
-            parsed_item_data['Components'] = item_value['m_vecComponentItems']
-            parent_name = parsed_item_data['Name']
-            if parent_name is None:
-                parent_name = key
-            self._add_children_to_tree(parent_name, parsed_item_data['Components'])
-
-        property_upgrades = self._parse_property_upgrades(item_value)
-        if property_upgrades:
-            parsed_item_data['PropertyUpgrades'] = property_upgrades
-
-        return parsed_item_data
-
-    def _parse_property_upgrades(self, item_value):
-        property_upgrades = {}
-        vec_ability_upgrades = item_value.get('m_vecAbilityUpgrades', [])
-        for ability_upgrade in vec_ability_upgrades:
-            vec_property_upgrades = ability_upgrade.get('m_vecPropertyUpgrades', [])
-            for prop_upgrade in vec_property_upgrades:
-                prop_name = prop_upgrade.get('m_strPropertyName')
-                bonus_str = prop_upgrade.get('m_strBonus')
-
-                if not prop_name or bonus_str is None:
-                    continue
-
-                bonus_value = num_utils.assert_number(bonus_str)
-                property_upgrades[prop_name] = bonus_value
-
-        return property_upgrades
-
-    def _extract_scaling(self, attr: Dict[str, Any], item_key: str, attr_key: str) -> Optional[Dict[str, Any]]:
+    def _extract_scaling(self, attr: Dict[str, object]) -> Optional[ScalingData]:
         """
         Return nested scaling dict for an attribute (matches hero data schema).
         """
@@ -191,9 +206,12 @@ class ItemParser:
         except (ValueError, TypeError):
             return None
 
-        return {'Value': base_value, 'Scale': {'Value': scale_value, 'Type': human_type}}
+        return {
+            'Value': base_value,
+            'Scale': {'Value': scale_value, 'Type': human_type},
+        }
 
-    def _is_disabled(self, item):
+    def _is_disabled(self, item: Dict[str, Any]) -> bool:
         is_disabled = False
         if 'm_bDisabled' in item:
             flag = item['m_bDisabled']
@@ -206,7 +224,7 @@ class ItemParser:
                 raise ValueError(f'New unexpected value for m_bDisabled: {flag}')
         return is_disabled
 
-    def _is_imbue(self, item_value):
+    def _is_imbue(self, item_value: Dict[str, Any]) -> bool:
         effects = item_value.get('m_TargetAbilityEffectsToApply')
 
         if not effects:
@@ -216,12 +234,7 @@ class ItemParser:
 
         return any(effect in maps.get_imbue_tags() for effect in parsed_effects)
 
-    def _add_children_to_tree(self, parent_key, child_keys):
-        """Add items to mermaid tree"""
-        for child_key in child_keys:
-            self.links.append(Link(Node(self.localizations.get(child_key)), Node(parent_key)))
-
-    def _format_pipe_sep_string(self, pipe_sep_string, map_func):
+    def _format_pipe_sep_string(self, pipe_sep_string: str, map_func: Callable[[str], MappedValue]) -> List[MappedValue]:
         """
         Formats pipe separated string and maps the value
         eg. "A | B | C" to [map(A), map(B), map(C)]
