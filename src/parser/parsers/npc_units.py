@@ -137,8 +137,10 @@ class NpcParser:
                     continue
 
                 # Special handling for WeaponInfo - parse using shared weapon parser
-                if clean_key == 'WeaponInfo' and isinstance(value, dict):
-                    parsed[clean_key] = weapon_parser.parse_weapon_info(value)
+                if clean_key == 'WeaponInfos':
+                    weapon = weapon_parser.get_weapon_data(data)
+                    if weapon:
+                        parsed['Weapon'] = weapon_parser.parse_weapon_info(weapon)
                     continue
 
                 parsed_val = self._recursive_parse(value)
