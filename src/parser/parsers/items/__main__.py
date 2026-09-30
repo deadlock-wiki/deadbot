@@ -2,7 +2,7 @@ import math
 from typing import Any, Callable, Dict, List, Optional, Tuple, TypedDict, TypeVar
 from parser.parsers.items.components import ItemComponentTree
 from parser.parsers.items.progression import extract_progression
-from parser.parsers.items.upgrades import parse_property_upgrades
+from parser.parsers.items.upgrades import parse_corrupted_upgrades, parse_item_upgrades
 import utils.string_utils as string_utils
 import utils.num_utils as num_utils
 import parser.maps as maps
@@ -148,9 +148,13 @@ class ItemParser:
             parsed_item_data['Components'] = components
             self.item_component_tree.add_component(parsed_item_data['Name'] or key, components)
 
-        property_upgrades = parse_property_upgrades(item_value)
-        if property_upgrades:
-            parsed_item_data['PropertyUpgrades'] = property_upgrades
+        item_upgrades = parse_item_upgrades(item_value)
+        if item_upgrades:
+            parsed_item_data['PropertyUpgrades'] = item_upgrades
+
+        corrupted_upgrades = parse_corrupted_upgrades(item_value)
+        if corrupted_upgrades:
+            parsed_item_data['CorruptedUpgrades'] = corrupted_upgrades
 
         return parsed_item_data
 
