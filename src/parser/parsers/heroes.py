@@ -149,8 +149,9 @@ class HeroParser:
 
         # Treat claws as having no ammo limit (continuous attacks during transformation)
         claws_id = 'citadel_weapon_werewolf_claws'
-        if claws_id in self.abilities_data and 'm_WeaponInfo' in self.abilities_data[claws_id]:
-            self.abilities_data[claws_id]['m_WeaponInfo']['m_iClipSize'] = 0
+        weapon = self._parse_weapon_stats(self.abilities_data[claws_id])
+        if weapon:
+            weapon['m_iClipSize'] = 0
 
         transformation_ability = self.abilities_data['ability_werewolf_transformation']
         modifier = transformation_ability['m_WerewolfModifier']
@@ -288,10 +289,10 @@ class HeroParser:
 
     def _parse_weapon_stats(self, primary_ability_data):
         """
-        Parses a 'm_WeaponInfo' block for a primary or alternate fire mode.
+        Parses a 'm_mapWeaponInfos' block for a primary or alternate fire mode.
         Returns a dictionary of parsed weapon stats.
         """
-        weapon_info = json_utils.deep_get(primary_ability_data, 'm_mapWeaponInfos', 'primary')
+        weapon_info = weapon_parser.get_weapon_data(primary_ability_data)
         if not weapon_info:
             return None
 
@@ -327,9 +328,8 @@ class HeroParser:
 
             # Check if this ability is flagged as an alternative weapon
             if 'CITADEL_ABILITY_BEHAVIOR_IS_ALTERNATIVE_WEAPON' in ability_data.get('m_AbilityBehaviorsBits', ''):
-                if 'm_WeaponInfo' in ability_data:
-                    alt_stats = self._parse_weapon_stats(ability_data)
-
+                alt_stats = self._parse_weapon_stats(ability_data)
+                if alt_stats:
                     # Inherit clip/reload stats from primary if missing for accurate DPS calculation
                     if alt_stats.get('ClipSize') is None:
                         alt_stats['ClipSize'] = weapon_stats.get('ClipSize')
