@@ -286,11 +286,15 @@ class HeroParser:
             abilities[ability_position] = self.parsed_abilities[bound_ability_key]
         return self._map_attr_names(abilities, maps.get_bound_abilities)
 
-    def _parse_weapon_stats(self, weapon_info):
+    def _parse_weapon_stats(self, primary_ability_data):
         """
         Parses a 'm_WeaponInfo' block for a primary or alternate fire mode.
         Returns a dictionary of parsed weapon stats.
         """
+        weapon_info = json_utils.deep_get(primary_ability_data, 'm_mapWeaponInfos', 'primary')
+        if not weapon_info:
+            return None
+
         return weapon_parser.parse_weapon_info(weapon_info)
 
     def _parse_hero_weapon(self, hero_value, hero_key):
@@ -302,14 +306,14 @@ class HeroParser:
         primary_ability_data = None
         if primary_slot in bound_abilities:
             weapon_prim_id = bound_abilities[primary_slot]
-            if weapon_prim_id in self.abilities_data and 'm_WeaponInfo' in self.abilities_data[weapon_prim_id]:
+            if weapon_prim_id in self.abilities_data:
                 primary_ability_data = self.abilities_data[weapon_prim_id]
-                weapon_stats = self._parse_weapon_stats(primary_ability_data['m_WeaponInfo'])
-
-                # The primary weapon name/description key is constructed from the hero's key, not its own ability ID.
-                # e.g., hero_shiv -> citadel_weapon_hero_shiv_set
-                weapon_stats['NameKey'] = f'citadel_weapon_hero_{hero_key.replace("hero_", "")}_set'
-                weapon_stats['DescKey'] = weapon_stats['NameKey'] + '_desc'
+                weapon_stats = self._parse_weapon_stats(primary_ability_data)
+                if weapon_stats:
+                    # The primary weapon name/description key is constructed from the hero's key, not its own ability ID.
+                    # e.g., hero_shiv -> citadel_weapon_hero_shiv_set
+                    weapon_stats['NameKey'] = f'citadel_weapon_hero_{hero_key.replace("hero_", "")}_set'
+                    weapon_stats['DescKey'] = weapon_stats['NameKey'] + '_desc'
 
         # Alt-fire weapon
         # It's not in a special slot, but is an ability with a specific behavior flag.
@@ -324,7 +328,7 @@ class HeroParser:
             # Check if this ability is flagged as an alternative weapon
             if 'CITADEL_ABILITY_BEHAVIOR_IS_ALTERNATIVE_WEAPON' in ability_data.get('m_AbilityBehaviorsBits', ''):
                 if 'm_WeaponInfo' in ability_data:
-                    alt_stats = self._parse_weapon_stats(ability_data['m_WeaponInfo'])
+                    alt_stats = self._parse_weapon_stats(ability_data)
 
                     # Inherit clip/reload stats from primary if missing for accurate DPS calculation
                     if alt_stats.get('ClipSize') is None:
