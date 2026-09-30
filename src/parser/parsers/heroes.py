@@ -312,9 +312,14 @@ class HeroParser:
                 weapon_stats = self._parse_weapon_stats(primary_ability_data)
                 if weapon_stats:
                     # The primary weapon name/description key is constructed from the hero's key, not its own ability ID.
-                    # e.g., hero_shiv -> citadel_weapon_hero_shiv_set
-                    weapon_stats['NameKey'] = f'citadel_weapon_hero_{hero_key.replace("hero_", "")}_set'
-                    weapon_stats['DescKey'] = weapon_stats['NameKey'] + '_desc'
+                    # e.g., hero_shiv -> citadel_weapon_shiv_set
+                    weapon_name_key = f'citadel_weapon_{hero_key.replace("hero_", "")}_set'
+                    if self.localizations.get(weapon_name_key):
+                        weapon_stats['NameKey'] = weapon_name_key
+
+                    weapon_desc_key = f'{weapon_name_key}_set'
+                    if self.localizations.get(weapon_desc_key):
+                        weapon_stats['DescKey'] = weapon_desc_key
 
         # Alt-fire weapon
         # It's not in a special slot, but is an ability with a specific behavior flag.
