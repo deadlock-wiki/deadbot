@@ -310,7 +310,8 @@ class NpcParser:
 
         # Midboss Shield (from modifiers.vdata)
         if npc_key == 'npc_super_neutral':
-            shield_modifier = self.modifiers_data.get('midboss_modifier_damage_resistance')
+            modifiers = self.npc_units_data[npc_key].get('m_vecIntrinsicModifiers', [])
+            shield_modifier = next((mod for mod in modifiers if mod['_my_subclass_name'] == 'midboss_modifier_damage_resistance'), None)
             if shield_modifier:
                 parsed_data['ShieldLogic'] = {
                     'BaseAbsorptionPerSecond': json_utils.read_value(shield_modifier, 'm_flDamageResistancePerSecond'),
