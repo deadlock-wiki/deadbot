@@ -36,6 +36,7 @@ class ItemCardParser:
             'IsDisabled',
             'StreetBrawl',
             'PropertyUpgrades',
+            'CorruptedUpgrades',
             'IsImbue',
         ]
 
@@ -64,6 +65,9 @@ class ItemCardParser:
         # Include property upgrades
         if 'PropertyUpgrades' in item:
             card['Upgrades'] = item['PropertyUpgrades']
+
+        if 'CorruptedUpgrades' in item:
+            card['CorruptedUpgrades'] = item['CorruptedUpgrades']
 
         # Parse remaining attributes inline
         card.update(self._parse_remaining_attributes())
