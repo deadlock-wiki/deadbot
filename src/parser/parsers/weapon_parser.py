@@ -1,5 +1,11 @@
 from typing import Dict, Any
+from utils import json_utils
 from utils.num_utils import convert_engine_units_to_meters, round_sig_figs
+
+
+def get_weapon_data(ability):
+    weapon_info = json_utils.deep_get(ability, 'm_mapWeaponInfos', 'primary')
+    return weapon_info
 
 
 def parse_weapon_info(weapon_info: Dict[str, Any]) -> Dict[str, Any]:
