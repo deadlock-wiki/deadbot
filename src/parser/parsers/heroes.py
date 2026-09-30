@@ -149,8 +149,9 @@ class HeroParser:
 
         # Treat claws as having no ammo limit (continuous attacks during transformation)
         claws_id = 'citadel_weapon_werewolf_claws'
-        if claws_id in self.abilities_data and 'm_WeaponInfo' in self.abilities_data[claws_id]:
-            self.abilities_data[claws_id]['m_WeaponInfo']['m_iClipSize'] = 0
+        weapon = self._parse_weapon_stats(self.abilities_data[claws_id])
+        if weapon:
+            weapon['m_iClipSize'] = 0
 
         transformation_ability = self.abilities_data['ability_werewolf_transformation']
         modifier = transformation_ability['m_WerewolfModifier']
@@ -160,7 +161,51 @@ class HeroParser:
             if new_ability:
                 werewolf_transformed['m_mapBoundAbilities'][key] = new_ability
 
+        self._apply_transformation_stats(werewolf_transformed, transformation_ability)
+
         return werewolf_transformed
+
+    def _apply_transformation_stats(self, werewolf_transformed, transformation_ability):
+        """Apply the stats the transformation modifier grants to the transformed hero.
+
+        The werewolf modifier auto-registers several ability properties against hero modifier values,
+        which are not part of the hero's base data. Fold them into the transformed copy so it matches the
+        stats the hero actually has while transformed.
+        """
+        ability_properties = transformation_ability.get('m_mapAbilityProperties', {})
+        starting_stats = werewolf_transformed['m_mapStartingStats']
+
+        # HeadshotResist is a percent delta on the crit damage received scale, eg. -20 reduces it by 20%
+        headshot_resist = ability_properties.get('HeadshotResist', {}).get('m_strValue')
+        if headshot_resist is not None:
+            crit_scale_key = self._find_stat_key(starting_stats, 'CritDamageReceivedScale')
+            starting_stats[crit_scale_key] *= 1 + num_utils.remove_uom(headshot_resist) / 100
+
+        # BonusHealth grants flat max health, plus extra health per boon through its scale function
+        bonus_health = ability_properties.get('BonusHealth', {})
+        health_value = bonus_health.get('m_strValue')
+        if health_value is not None:
+            starting_stats[self._find_stat_key(starting_stats, 'MaxHealth')] += num_utils.remove_uom(health_value)
+
+        health_scale = bonus_health.get('m_subclassScaleFunction', {})
+        if health_scale.get('m_eSpecificStatScaleType') == 'ELevelUpBoons':
+            boon_health_key = 'MODIFIER_VALUE_BASE_HEALTH_FROM_LEVEL'
+            boon_health = num_utils.remove_uom(health_scale.get('m_flStatScale', 0.0))
+            level_upgrades = werewolf_transformed.setdefault('m_mapStandardLevelUpUpgrades', {})
+            level_upgrades[boon_health_key] = level_upgrades.get(boon_health_key, 0.0) + boon_health
+
+        # BonusMoveSpeed grants flat max move speed
+        move_speed = ability_properties.get('BonusMoveSpeed', {}).get('m_strValue')
+        if move_speed is not None:
+            starting_stats[self._find_stat_key(starting_stats, 'MaxMoveSpeed')] += num_utils.remove_uom(move_speed)
+
+    def _find_stat_key(self, starting_stats, stat_name):
+        """Get the raw starting stat key for a stat name, which carries an 'E' prefix in the game files"""
+        for stat_key in starting_stats:
+            if stat_key.endswith(stat_name):
+                return stat_key
+
+        return stat_name
 
     def _get_meaningful_stats(self, all_hero_stats):
         """
@@ -242,11 +287,15 @@ class HeroParser:
             abilities[ability_position] = self.parsed_abilities[bound_ability_key]
         return self._map_attr_names(abilities, maps.get_bound_abilities)
 
-    def _parse_weapon_stats(self, weapon_info):
+    def _parse_weapon_stats(self, primary_ability_data):
         """
-        Parses a 'm_WeaponInfo' block for a primary or alternate fire mode.
+        Parses a 'm_mapWeaponInfos' block for a primary or alternate fire mode.
         Returns a dictionary of parsed weapon stats.
         """
+        weapon_info = weapon_parser.get_weapon_data(primary_ability_data)
+        if not weapon_info:
+            return None
+
         return weapon_parser.parse_weapon_info(weapon_info)
 
     def _parse_hero_weapon(self, hero_value, hero_key):
@@ -258,14 +307,14 @@ class HeroParser:
         primary_ability_data = None
         if primary_slot in bound_abilities:
             weapon_prim_id = bound_abilities[primary_slot]
-            if weapon_prim_id in self.abilities_data and 'm_WeaponInfo' in self.abilities_data[weapon_prim_id]:
+            if weapon_prim_id in self.abilities_data:
                 primary_ability_data = self.abilities_data[weapon_prim_id]
-                weapon_stats = self._parse_weapon_stats(primary_ability_data['m_WeaponInfo'])
-
-                # The primary weapon name/description key is constructed from the hero's key, not its own ability ID.
-                # e.g., hero_shiv -> citadel_weapon_hero_shiv_set
-                weapon_stats['NameKey'] = f'citadel_weapon_hero_{hero_key.replace("hero_", "")}_set'
-                weapon_stats['DescKey'] = weapon_stats['NameKey'] + '_desc'
+                weapon_stats = self._parse_weapon_stats(primary_ability_data)
+                if weapon_stats:
+                    # The primary weapon name/description key is constructed from the hero's key, not its own ability ID.
+                    # e.g., hero_shiv -> citadel_weapon_hero_shiv_set
+                    weapon_stats['NameKey'] = f'citadel_weapon_hero_{hero_key.replace("hero_", "")}_set'
+                    weapon_stats['DescKey'] = weapon_stats['NameKey'] + '_desc'
 
         # Alt-fire weapon
         # It's not in a special slot, but is an ability with a specific behavior flag.
@@ -279,9 +328,8 @@ class HeroParser:
 
             # Check if this ability is flagged as an alternative weapon
             if 'CITADEL_ABILITY_BEHAVIOR_IS_ALTERNATIVE_WEAPON' in ability_data.get('m_AbilityBehaviorsBits', ''):
-                if 'm_WeaponInfo' in ability_data:
-                    alt_stats = self._parse_weapon_stats(ability_data['m_WeaponInfo'])
-
+                alt_stats = self._parse_weapon_stats(ability_data)
+                if alt_stats:
                     # Inherit clip/reload stats from primary if missing for accurate DPS calculation
                     if alt_stats.get('ClipSize') is None:
                         alt_stats['ClipSize'] = weapon_stats.get('ClipSize')
