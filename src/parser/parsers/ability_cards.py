@@ -326,6 +326,7 @@ class AbilityCardsParser:
         Parse any data that has not been included in the main or alt block of the info section
         """
         rest_of_data = {
+            'Headers': {},
             'Cooldown': {},
             'Duration': {},
             'Range': {},
@@ -365,9 +366,9 @@ class AbilityCardsParser:
             if attr_type is not None:
                 data['Type'] = attr_type
 
-            # These props are directly referenced and should live on the top level
+            # These props are the ability card's header attributes
             if prop in header_props:
-                rest_of_data[prop] = data
+                rest_of_data['Headers'][prop] = data
                 continue
 
             # skip any attributes that are already placed in other categories
