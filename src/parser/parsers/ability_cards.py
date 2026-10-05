@@ -6,6 +6,17 @@ from loguru import logger
 
 SUPPORTED_LANGS = ['english']
 
+BASE_HEADER_PROPS = (
+    'AbilityCharges',
+    'AbilityChannelTime',
+    'AbilityCooldownBetweenCharge',
+    'AbilityCooldown',
+    'AbilityCastDelay',
+    'AbilityCastRange',
+    'AbilityDuration',
+    'Radius',
+)
+
 
 class ParsedProp(TypedDict):
     key: str | None
@@ -315,6 +326,7 @@ class AbilityCardsParser:
         Parse any data that has not been included in the main or alt block of the info section
         """
         rest_of_data = {
+            'Headers': {},
             'Cooldown': {},
             'Duration': {},
             'Range': {},
@@ -326,6 +338,9 @@ class AbilityCardsParser:
             'Debuff': {},
             'Other': {},
         }
+
+        tooltip_details = self._get_raw_ability().get('m_AbilityTooltipDetails', {}) or {}
+        header_props = set(BASE_HEADER_PROPS) | set(tooltip_details.get('m_vecAdditionalHeaderProperties') or [])
 
         for prop in self.ability:
             data = {
@@ -351,18 +366,9 @@ class AbilityCardsParser:
             if attr_type is not None:
                 data['Type'] = attr_type
 
-            # These props are directly referenced and should live on the top level
-            if prop in [
-                'AbilityCharges',
-                'AbilityChannelTime',
-                'AbilityCooldownBetweenCharge',
-                'AbilityCooldown',
-                'AbilityCastDelay',
-                'AbilityCastRange',
-                'AbilityDuration',
-                'Radius',
-            ]:
-                rest_of_data[prop] = data
+            # These props are the ability card's header attributes
+            if prop in header_props:
+                rest_of_data['Headers'][prop] = data
                 continue
 
             # skip any attributes that are already placed in other categories
