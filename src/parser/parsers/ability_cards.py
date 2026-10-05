@@ -6,6 +6,17 @@ from loguru import logger
 
 SUPPORTED_LANGS = ['english']
 
+BASE_HEADER_PROPS = (
+    'AbilityCharges',
+    'AbilityChannelTime',
+    'AbilityCooldownBetweenCharge',
+    'AbilityCooldown',
+    'AbilityCastDelay',
+    'AbilityCastRange',
+    'AbilityDuration',
+    'Radius',
+)
+
 
 class ParsedProp(TypedDict):
     key: str | None
@@ -327,6 +338,9 @@ class AbilityCardsParser:
             'Other': {},
         }
 
+        tooltip_details = self._get_raw_ability().get('m_AbilityTooltipDetails', {}) or {}
+        header_props = set(BASE_HEADER_PROPS) | set(tooltip_details.get('m_vecAdditionalHeaderProperties') or [])
+
         for prop in self.ability:
             data = {
                 'Name': self._get_ability_display_name(prop),
@@ -352,16 +366,7 @@ class AbilityCardsParser:
                 data['Type'] = attr_type
 
             # These props are directly referenced and should live on the top level
-            if prop in [
-                'AbilityCharges',
-                'AbilityChannelTime',
-                'AbilityCooldownBetweenCharge',
-                'AbilityCooldown',
-                'AbilityCastDelay',
-                'AbilityCastRange',
-                'AbilityDuration',
-                'Radius',
-            ]:
+            if prop in header_props:
                 rest_of_data[prop] = data
                 continue
 
