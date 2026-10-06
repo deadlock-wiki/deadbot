@@ -18,9 +18,40 @@ class _EntityData(TypedDict):
     origin: list[float]
 
 
-class _BreakablesData(_EntityData):
-    scales: list[float]
-    initial_spawn_time_override: float
+class _Breakable(TypedDict):
+    entity_class: str
+    label: str
+    color: str
+
+
+# Plot name -> the map entity it plots. The plot name is also the output file stem, e.g. crate_map.png
+BREAKABLES: dict[str, _Breakable] = {
+    'crate': {
+        'entity_class': 'citadel_breakable_prop_wooden_crate',
+        'label': 'Crate',
+        'color': '#1e90ff',
+    },
+    'golden_statues': {
+        # Valve's name for these is "golden statue", players call them buff containers
+        'entity_class': 'citadel_breakable_item_container',
+        'label': 'Buff containers',
+        'color': '#ffd700',
+    },
+    'heavy_crate': {
+        'entity_class': 'citadel_breakable_prop_tough_crate',
+        'label': 'Heavy crate',
+        'color': '#22c55e',
+    },
+    'healing_snack': {
+        # Not a breakable, but a pickup spawner that re-spawns the snack on a timer
+        'entity_class': 'citadel_pickup_floating_health',
+        'label': 'Healing Snack',
+        'color': '#ec4899',
+    },
+}
+
+# The current Midtown minimap, regenerated with scripts/update_minimap.py
+BREAKABLES_BASE_MAP = os.path.join(os.path.dirname(__file__), 'assets/minimap_midtown.png')
 
 
 class GameMapParser:
@@ -44,85 +75,39 @@ class GameMapParser:
         Returns:
             A dict containing the plots and metadata for the Midtown map
         """
-        midtown_crates_data, midtown_statues_data = self._get_breakables_data()
-        midtown_shop_data = self._get_shop_data()
+        positions = {name: self._get_positions(spec['entity_class']) for name, spec in BREAKABLES.items()}
 
-        midtown_crate_plot = self._midtown_crate_plot(midtown_crates_data)
-        midtown_statues_plot = self._midtown_golden_statues_plot(midtown_statues_data)
-        midtown_shop_plot = self._midtown_shop_plot(midtown_shop_data)
-
-        midtown_metadata = {'golden_statues_count': len(midtown_statues_data), 'crate_count': len(midtown_crates_data)}
+        plots = {name: self._breakables_plot({name: coords}) for name, coords in positions.items()}
+        # Every category on one map
+        plots['breakables'] = self._breakables_plot(positions)
+        plots['shops'] = self._midtown_shop_plot(self._get_shop_data())
 
         return {
             'midtown': {
-                'plots': {
-                    'crate': midtown_crate_plot,
-                    'golden_statues': midtown_statues_plot,
-                    'shops': midtown_shop_plot,
-                },
-                'metadata': midtown_metadata,
+                'plots': plots,
+                'metadata': {f'{name}_count': len(coords) for name, coords in positions.items()},
             }
         }
 
-    def _midtown_golden_statues_plot(self, statues_data: list[_BreakablesData]) -> Image.Image:
+    def _breakables_plot(self, positions: dict[str, list[tuple[float, float]]]) -> Image.Image:
         """
-        Generate a plot of the midtown golden statues
+        Plot one dot per position onto the midtown map at its native resolution, with a legend counting each category
         Args:
-            statues_data: The data for the golden statues from DeadlockEntityHelper
+            positions: Breakable name (a key of BREAKABLES) -> world (x, y) positions
         Returns:
-            The plot of the midtown golden statues
+            The generated plot
         """
-        glitched_statues = [[-704, -2320.0002, 704], [704, 2320.0002, 704], [3647.9998, 1440.0004, 1048.0]]
-        x_coords, y_coords, colors = [], [], []
-        for entry in statues_data:
-            x_coords.append(entry['origin'][0])
-            y_coords.append(entry['origin'][1])
-            if entry['scales'][0] < 0.85:
-                colors.append('blue')
-            elif entry['initial_spawn_time_override'] > 0:
-                colors.append('green')
-            elif entry['origin'] in glitched_statues:
-                colors.append('red')
-            else:
-                colors.append('orange')
+        plotter = MapPlotter(BREAKABLES_BASE_MAP, output_size=None)
+        for name in sorted(positions):
+            plotter.place_dots(positions[name], BREAKABLES[name]['color'])
 
+        total = sum(len(coords) for coords in positions.values())
+        title = f'main   {plotter.output_size}x{plotter.output_size}   markers={total}'
         legend = [
-            ('Vent access required', 'blue'),
-            ('T2 Statue (spawns after 10 minutes)', 'green'),
-            ('Glitched Statue', 'red'),
-            ('Normal Statue', 'orange'),
+            (f'{BREAKABLES[name]["label"]}  ({len(positions[name])})', BREAKABLES[name]['color']) for name in sorted(positions) if positions[name]
         ]
-        return self._create_circle_plot(x_coords, y_coords, colors, legend)
-
-    def _midtown_crate_plot(self, crates_data: list[_BreakablesData]) -> Image.Image:
-        """
-        Generate a plot of the midtown crates
-        Args:
-            crates_data: The data for the crates from DeadlockEntityHelper
-        Returns:
-            The plot of the midtown crates
-        """
-        glitched_crates = [[-7158.9175, -6115.6543, 640]]
-        x_coords, y_coords, colors = [], [], []
-        for entry in crates_data:
-            x_coords.append(entry['origin'][0])
-            y_coords.append(entry['origin'][1])
-            if entry['origin'] in glitched_crates:
-                colors.append('#F52D9C')
-            elif entry['scales'][0] <= 0.5:
-                colors.append('blue')
-            elif entry['initial_spawn_time_override'] > 0:
-                colors.append('green')
-            else:
-                colors.append('#cc5500')
-
-        legend = [
-            ('Vent access required', 'blue'),
-            ('Glitched Crate', '#F52D9C'),
-            ('Mid-Boss Crate (spawns after 10 minutes)', 'green'),
-            ('Normal Crate', '#cc5500'),
-        ]
-        return self._create_circle_plot(x_coords, y_coords, colors, legend)
+        plotter.add_compact_legend(title, legend)
+        return plotter.get_image()
 
     def _midtown_shop_plot(self, shop_data: list[_EntityData]) -> Image.Image:
         assets_dir = os.path.join(os.path.dirname(__file__), 'assets')
@@ -143,29 +128,6 @@ class GameMapParser:
             ('Secret Shop', os.path.join(assets_dir, 'minimap_shop_psd.png')),
         ]
         return self._create_image_plot(x_coords, y_coords, image_paths, legend)
-
-    def _create_circle_plot(
-        self,
-        x_coords: list[float],
-        y_coords: list[float],
-        colors: list[str],
-        legend: list[tuple[str, str]],
-    ) -> Image.Image:
-        """
-        Plots the given coordinates onto the midtown map
-        Parameters:
-            x_coords: The x coordinates of the points to plot
-            y_coords: The y coordinates of the points to plot
-            colors: A list of colors for the points. If `None`, markers should be provided
-            legend: A list of label and color pairs to display in the plot's legend
-        Returns:
-            The generated plot
-        """
-        base_map = os.path.join(os.path.dirname(__file__), 'assets/minimap_midtown_mid_opaque.png')
-        plotter = MapPlotter(base_map)
-        plotter.place_circle_markers(x_coords, y_coords, colors, diameter=10)
-        plotter.add_circle_legend(legend)
-        return plotter.get_image()
 
     def _create_image_plot(
         self,
@@ -215,25 +177,12 @@ class GameMapParser:
         )
         return shop_data
 
-    def _get_breakables_data(self) -> tuple[list[_BreakablesData], ...]:
+    def _get_positions(self, entity_class: str) -> list[tuple[float, float]]:
         """
-        Extract breakable entities from the map
-        Returns:
-            A list of breakable entities
+        Extract the world (x, y) position of every entity of the given class from the map
         """
-        breakables_properties = [
-            'initial_spawn_time_override',
-            'double',  # Used to identify breakables that are spawned late
-            'scales',
-            'vector3',  # Scale of the breakable
-            'origin',
-            'vector3',  # Position on the map
-        ]
-
-        return (
-            self._extract_entities('subclass_name', 'citadel_breakable_prop_wooden_crate', *breakables_properties),
-            self._extract_entities('subclass_name', 'citadel_breakable_item_container', *breakables_properties),
-        )
+        entities: list[_EntityData] = self._extract_entities('subclass_name', entity_class, 'origin', 'vector3')
+        return [(entity['origin'][0], entity['origin'][1]) for entity in entities if entity.get('origin')]
 
     def _extract_entities(self, entity_key, entity_value, *property_list) -> list[Any]:
         """
