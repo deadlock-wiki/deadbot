@@ -302,7 +302,7 @@ class Parser:
         if self.parse_map:
             logger.trace('Parsing Map...')
             map_vpk = os.path.join(self.game_dir, 'game/citadel/maps/dl_midtown.vpk')
-            map_data = game_map.GameMapParser(map_vpk).run()
+            map_data = game_map.GameMapParser(map_vpk, self.data['scripts']['generic_data']['m_BreakableSpawnTimeDesc']).run()
 
             json_utils.write(os.path.join(self.OUTPUT_DIR, 'json/midtown-metadata.json'), map_data['midtown']['metadata'])
 

@@ -63,9 +63,8 @@ class GenericParser:
             if isinstance(value, dict):
                 value = self._remove_prefixes(value, possible_prefixes)
             elif isinstance(value, list):
-                for i, elem in enumerate(value):
-                    if isinstance(elem, dict):
-                        value[i] = self._remove_prefixes(elem, possible_prefixes)
+                # Build a new list, the source data is shared with other parsers
+                value = [self._remove_prefixes(elem, possible_prefixes) if isinstance(elem, dict) else elem for elem in value]
 
             new[new_key] = value
 

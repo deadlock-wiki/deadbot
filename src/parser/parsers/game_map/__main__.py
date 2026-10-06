@@ -2,6 +2,7 @@ import json
 import os
 from os import PathLike
 
+from collections import Counter
 from typing import TypedDict, Any
 
 from PIL import Image
@@ -21,33 +22,53 @@ class _EntityData(TypedDict):
 class _Breakable(TypedDict):
     entity_class: str
     label: str
-    color: str
+    title: str  # Map title when plotted alone
+    # One colour per first spawn time, earliest first. Times come from the spawn groups in use, e.g. 3:00, 5:00, 10:00
+    colors: list[str]
 
 
-# Plot name -> the map entity it plots. The plot name is also the output file stem, e.g. crate_map.png
+class _BreakableEntity(TypedDict):
+    position: tuple[float, float]
+    spawn_time: float | None  # Seconds into the match it first spawns, or None if it has no spawn group
+
+
 BREAKABLES: dict[str, _Breakable] = {
     'crate': {
         'entity_class': 'citadel_breakable_prop_wooden_crate',
         'label': 'Crate',
-        'color': '#1e90ff',
-    },
-    'golden_statues': {
-        # Valve's name for these is "golden statue", players call them buff containers
-        'entity_class': 'citadel_breakable_item_container',
-        'label': 'Buff containers',
-        'color': '#ffd700',
+        'title': 'Crates',
+        'colors': ['#1e90ff', '#22d3ee', '#a855f7'],
     },
     'heavy_crate': {
         'entity_class': 'citadel_breakable_prop_tough_crate',
         'label': 'Heavy crate',
-        'color': '#22c55e',
+        'title': 'Heavy crates',
+        'colors': ['#22c55e', '#bef264', '#ef4444'],
+    },
+    'golden_statues': {
+        # Valve's name for these is "golden statue", players call them buff containers
+        'entity_class': 'citadel_breakable_item_container',
+        'label': 'Buff container',
+        'title': 'Buff containers',
+        'colors': ['#ffd700', '#f97316', '#ec4899'],
     },
     'healing_snack': {
         # Not a breakable, but a pickup spawner that re-spawns the snack on a timer
         'entity_class': 'citadel_pickup_floating_health',
-        'label': 'Healing Snack',
-        'color': '#ec4899',
+        'label': 'Healing snack',
+        'title': 'Healing snacks',
+        'colors': ['#f5f5f5'],
     },
+}
+
+# Output file stem -> (map title, the breakables plotted on it), e.g. crate -> crate_map.png
+MAPS: dict[str, tuple[str, list[str]]] = {
+    'crate': ('Crates', ['crate']),
+    'heavy_crate': ('Heavy crates', ['heavy_crate']),
+    'all_crates': ('Crates and heavy crates', ['crate', 'heavy_crate']),
+    'golden_statues': ('Buff containers', ['golden_statues']),
+    'healing_snack': ('Healing snacks', ['healing_snack']),
+    'everything': ('All breakables and healing snacks', list(BREAKABLES)),
 }
 
 # The current Midtown minimap, regenerated with scripts/update_minimap.py
@@ -57,17 +78,19 @@ BREAKABLES_BASE_MAP = os.path.join(os.path.dirname(__file__), 'assets/minimap_mi
 class GameMapParser:
     """Parse the Deadlock map for relevant wiki data"""
 
-    def __init__(self, game_map_path: PathLike | str):
+    def __init__(self, game_map_path: PathLike | str, breakable_spawn_times: list[dict[str, float]]):
         """
         Initialize a GameMapParser for the midtown map
         Args:
             game_map_path: Path to the game map file
+            breakable_spawn_times: m_BreakableSpawnTimeDesc from generic_data, indexed by each breakable's spawn group
         """
         if not os.path.exists(game_map_path):
             raise FileNotFoundError(f'Could not find game map at path "{game_map_path}". Run with --import_files to download the map')
 
         self.entity_helper_cmd = os.getenv('ENTITY_HELPER_CMD', 'tools/DeadlockEntityHelper')
         self.game_map_path = game_map_path
+        self.breakable_spawn_times = breakable_spawn_times
 
     def run(self) -> dict[str, GameMapData]:
         """
@@ -75,38 +98,65 @@ class GameMapParser:
         Returns:
             A dict containing the plots and metadata for the Midtown map
         """
-        positions = {name: self._get_positions(spec['entity_class']) for name, spec in BREAKABLES.items()}
+        breakables = {name: self._get_breakables(spec['entity_class']) for name, spec in BREAKABLES.items()}
+        # Colours are picked by spawn time order across every kind, so e.g. all 10:00 spawns use their kind's third colour
+        self.spawn_order = sorted({e['spawn_time'] for entities in breakables.values() for e in entities if e['spawn_time'] is not None})
 
-        plots = {name: self._breakables_plot({name: coords}) for name, coords in positions.items()}
-        # Every category on one map
-        plots['breakables'] = self._breakables_plot(positions)
+        plots = {stem: self._breakables_plot({name: breakables[name] for name in names}, title) for stem, (title, names) in MAPS.items()}
+
+        # One map per spawn time for each kind that spawns then, plus every kind together at that time, e.g. crate_5min, everything_5min
+        for spawn_time in self.spawn_order:
+            at_time = {name: [e for e in entities if e['spawn_time'] == spawn_time] for name, entities in breakables.items()}
+            at_time = {name: entities for name, entities in at_time.items() if entities}
+            suffix = _format_minutes(spawn_time)
+            for name, entities in at_time.items():
+                plots[f'{name}_{suffix}'] = self._breakables_plot(
+                    {name: entities}, f'{BREAKABLES[name]["title"]} spawning at {_format_time(spawn_time)}'
+                )
+            plots[f'everything_{suffix}'] = self._breakables_plot(at_time, f'All breakables spawning at {_format_time(spawn_time)}')
+
         plots['shops'] = self._midtown_shop_plot(self._get_shop_data())
+
+        metadata = {}
+        for name, entities in breakables.items():
+            metadata[f'{name}_count'] = len(entities)
+            spawn_counts = Counter(_format_time(e['spawn_time']) for e in entities if e['spawn_time'] is not None)
+            if spawn_counts:
+                metadata[f'{name}_spawn_counts'] = dict(spawn_counts)
 
         return {
             'midtown': {
                 'plots': plots,
-                'metadata': {f'{name}_count': len(coords) for name, coords in positions.items()},
+                'metadata': metadata,
             }
         }
 
-    def _breakables_plot(self, positions: dict[str, list[tuple[float, float]]]) -> Image.Image:
+    def _breakables_plot(self, breakables: dict[str, list[_BreakableEntity]], title: str) -> Image.Image:
         """
-        Plot one dot per position onto the midtown map at its native resolution, with a legend counting each category
+        Plot one dot per breakable onto the midtown map at its native resolution, with a legend counting each kind.
+        Each kind is split by when it first spawns, in its own colour
         Args:
-            positions: Breakable name (a key of BREAKABLES) -> world (x, y) positions
+            breakables: Breakable name (a key of BREAKABLES) -> its entities
+            title: Shown above the legend, so the image says what it is
         Returns:
             The generated plot
         """
-        plotter = MapPlotter(BREAKABLES_BASE_MAP, output_size=None)
-        for name in sorted(positions):
-            plotter.place_dots(positions[name], BREAKABLES[name]['color'])
+        series = []  # [(label, color, positions), ...]
+        for name, entities in breakables.items():
+            spec = BREAKABLES[name]
+            spawn_times = sorted({e['spawn_time'] for e in entities}, key=lambda t: -1 if t is None else t)
+            for spawn_time in spawn_times:
+                positions = [e['position'] for e in entities if e['spawn_time'] == spawn_time]
+                if spawn_time is None:
+                    series.append((spec['label'], spec['colors'][0], positions))
+                    continue
+                color = spec['colors'][min(self.spawn_order.index(spawn_time), len(spec['colors']) - 1)]
+                series.append((f'{spec["label"]}, spawns at {_format_time(spawn_time)}', color, positions))
 
-        total = sum(len(coords) for coords in positions.values())
-        title = f'main   {plotter.output_size}x{plotter.output_size}   markers={total}'
-        legend = [
-            (f'{BREAKABLES[name]["label"]}  ({len(positions[name])})', BREAKABLES[name]['color']) for name in sorted(positions) if positions[name]
-        ]
-        plotter.add_compact_legend(title, legend)
+        plotter = MapPlotter(BREAKABLES_BASE_MAP, output_size=None)
+        for _, color, positions in series:
+            plotter.place_dots(positions, color)
+        plotter.add_compact_legend([(f'{label} ({len(positions)})', color) for label, color, positions in series], title=title)
         return plotter.get_image()
 
     def _midtown_shop_plot(self, shop_data: list[_EntityData]) -> Image.Image:
@@ -177,12 +227,27 @@ class GameMapParser:
         )
         return shop_data
 
-    def _get_positions(self, entity_class: str) -> list[tuple[float, float]]:
+    def _get_breakables(self, entity_class: str) -> list[_BreakableEntity]:
         """
-        Extract the world (x, y) position of every entity of the given class from the map
+        Extract every entity of the given class from the map, with its position and first spawn time
         """
-        entities: list[_EntityData] = self._extract_entities('subclass_name', entity_class, 'origin', 'vector3')
-        return [(entity['origin'][0], entity['origin'][1]) for entity in entities if entity.get('origin')]
+        # The helper reads this integer as 0 when asked for a double, so read it as a string.
+        # It's null for entities without a spawn group, e.g. healing snacks
+        entities = self._extract_entities('subclass_name', entity_class, 'origin', 'vector3', 'breakable_spawn_group', 'string')
+        return [
+            {
+                'position': (entity['origin'][0], entity['origin'][1]),
+                'spawn_time': self._spawn_time(entity['breakable_spawn_group']),
+            }
+            for entity in entities
+            if entity.get('origin')
+        ]
+
+    def _spawn_time(self, spawn_group: str | None) -> float | None:
+        """Seconds into the match that a breakable in the given spawn group first spawns"""
+        if spawn_group is None:
+            return None
+        return self.breakable_spawn_times[int(spawn_group)]['m_flInitialSpawnTime']
 
     def _extract_entities(self, entity_key, entity_value, *property_list) -> list[Any]:
         """
@@ -194,3 +259,13 @@ class GameMapParser:
         args = [self.entity_helper_cmd, 'extract', '--verbose', '--compact', self.game_map_path, entity_key, entity_value, *property_list]
         helper_output = run_process(args, 'extract-map-entities', suppress_stdout=True)
         return json.loads(helper_output)
+
+
+def _format_time(seconds: float) -> str:
+    """180 -> 3:00"""
+    return f'{int(seconds // 60)}:{int(seconds % 60):02d}'
+
+
+def _format_minutes(seconds: float) -> str:
+    """300 -> 5min, for output file names"""
+    return f'{int(seconds // 60)}min' if seconds % 60 == 0 else f'{int(seconds)}s'

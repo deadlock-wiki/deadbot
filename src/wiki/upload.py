@@ -5,7 +5,7 @@ import re
 from datetime import datetime
 from typing import List, Tuple
 from utils import json_utils, game_utils, meta_utils
-from .pages import DATA_PAGE_FILE_MAP, IGNORE_PAGES, IMAGE_FILE_MAP
+from .pages import DATA_PAGE_FILE_MAP, IGNORE_PAGES, IMAGE_FILE_CATEGORY, IMAGE_FILE_MAP
 from loguru import logger
 from . import changelog_utils
 
@@ -231,15 +231,22 @@ class WikiUpload:
 
             page_title = f'File:{wiki_filename}'
             logger.info(f'Uploading file: "{page_title}" from {full_path}')
-            if self.dry_run:
-                continue
+            if not self.dry_run:
+                try:
+                    with open(full_path, 'rb') as f:
+                        # The description is only used when the file page is first created
+                        self.site.upload(f, filename=wiki_filename, description=IMAGE_FILE_CATEGORY, comment=self.upload_message, ignore=True)
+                    logger.success(f'Successfully uploaded file "{page_title}"')
+                except Exception as e:
+                    logger.error(f'Failed to upload file "{page_title}": {e}')
+                    continue
 
-            try:
-                with open(full_path, 'rb') as f:
-                    self.site.upload(f, filename=wiki_filename, comment=self.upload_message, ignore=True)
-                logger.success(f'Successfully uploaded file "{page_title}"')
-            except Exception as e:
-                logger.error(f'Failed to upload file "{page_title}": {e}')
+            # Re-uploads ignore the description, so add the category to existing file pages that lack it
+            page = self.site.pages[page_title]
+            if page.exists:
+                text = page.text()
+                if IMAGE_FILE_CATEGORY not in text:
+                    self._update_page(page, f'{text.rstrip()}\n{IMAGE_FILE_CATEGORY}'.lstrip())
 
     def upload_new_page(self, title, content):
         """
