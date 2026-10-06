@@ -163,15 +163,24 @@ class MapPlotter:
                 font=font,
             )
 
-    def place_dots(self, coords: list[tuple[float, float]], color: str, radius: float = 3.45) -> None:
-        """Draw a solid dot at each world coordinate, at sub-pixel precision."""
+    def place_dots(
+        self,
+        coords: list[tuple[float, float]],
+        color: str,
+        radius: float = 3.45,
+        outline: str = 'black',
+        outline_width: int = 1,
+    ) -> None:
+        """Draw an outlined dot at each world coordinate, at sub-pixel precision, so overlapping dots stay distinct."""
         draw = ImageDraw.Draw(self.canvas)
         half = self.output_size / 2
         scale = half / self.MAP_EXTENT
+        # Pillow draws the outline inside the bounding box, so grow it to keep the fill at `radius`
+        r = radius + outline_width
         for x, y in coords:
             px = half + x * scale
             py = half - y * scale
-            draw.ellipse((px - radius, py - radius, px + radius, py + radius), fill=color)
+            draw.ellipse((px - r, py - r, px + r, py + r), fill=color, outline=outline, width=outline_width)
 
     def add_compact_legend(
         self,
