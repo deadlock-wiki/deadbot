@@ -123,17 +123,23 @@ def _format_entries(
                     section['ability_sections'][ability] = []
                     section['ability_order'].append(ability)
 
-                formatted = _format_body(_capitalize_first(cleaned), heroes, abilities, items, link_targets, excluded_ability=ability)
-                section['ability_sections'][ability].append(f'* {{{{Change|}}}} {formatted}')
+                cleaned = _capitalize_first(cleaned)
+                formatted = _format_body(cleaned, heroes, abilities, items, link_targets, excluded_ability=ability)
+                section['ability_sections'][ability].append(f'** {{{{Change|}}}} {formatted}')
             else:
                 formatted = _format_body(body, heroes, abilities, items, link_targets)
-                section['general'].append(f'* {{{{Change|}}}} {formatted}')
+                section['general'].append(f'** {{{{Change|}}}} {formatted}')
 
     return _build_output(general, modes, mode_order, item_sections, item_order, hero_sections, hero_order)
 
 
 def _collect_names(hero_data, item_data, ability_data) -> Tuple[List[str], List[str], List[str]]:
-    return _active_names(hero_data), _active_names(item_data), _active_names(ability_data)
+    # Only abilities bound to a hero, so generic ones like "Dash" in "Move and Dash Speed" aren't iconified
+    hero_ability_keys = {
+        ability['Key'] for hero in (hero_data or {}).values() for ability in (hero.get('BoundAbilities') or {}).values() if ability.get('Key')
+    }
+    hero_abilities = {key: ability_data[key] for key in hero_ability_keys if key in (ability_data or {})}
+    return _active_names(hero_data), _active_names(item_data), _active_names(hero_abilities)
 
 
 def _active_names(data: Dict[str, Any]) -> List[str]:
@@ -226,7 +232,7 @@ def _format_body(
         protected.append(value)
         return token
 
-    def wrap(terms: List[str], template_name: str) -> None:
+    def wrap(terms: List[str], template_name: str, stat_link: bool = False) -> None:
         nonlocal text
         # Process longer names first so "Smoke Bomb" is matched before "Smoke".
         for term in sorted(dict.fromkeys(terms), key=len, reverse=True):
@@ -234,13 +240,20 @@ def _format_body(
                 continue
             pattern = re.compile(r'(?<!\w)' + re.escape(term) + r'(?!\w)')
             replacement = '{{' + template_name + '|' + term + '}}'
-            text = pattern.sub(lambda m, r=replacement: protect(r), text)
+
+            def replace(m, r=replacement, t=term):
+                # A value right before the name means it's used as a stat, i.e. "+10% Bullet Lifesteal"
+                if stat_link and _STAT_VALUE_BEFORE_RE.search(text, 0, m.start()):
+                    return protect(f'[[{t}]]')
+                return protect(r)
+
+            text = pattern.sub(replace, text)
 
     # Apply icon templates in priority order: ability > item > hero.
     # Exclude the ability that was already used as a sub-heading to avoid redundancy.
     ability_terms = [a for a in abilities if a != excluded_ability]
     wrap(ability_terms, 'AbilityIcon')
-    wrap(items, 'ItemIcon')
+    wrap(items, 'ItemIcon', stat_link=True)
     wrap(heroes, 'HeroIcon')
 
     # Apply link_targets auto-links for terms not already claimed by icon templates.
@@ -286,6 +299,10 @@ def _remove_ability_mention(text: str, start: int, end: int) -> str:
     return re.sub(r'\s+', ' ', remaining).strip()
 
 
+# Matches a numeric value at the end of the text, i.e. "+10% " or "5 "
+_STAT_VALUE_BEFORE_RE = re.compile(r'[+-]?\d+(?:\.\d+)?%?\s+$')
+
+
 def _capitalize_first(text: str) -> str:
     return text[:1].upper() + text[1:] if text else text
 
@@ -298,7 +315,8 @@ def _build_output(general, modes, mode_order, item_sections, item_order, hero_se
         1. General entries (no prefix match)
         2. Game mode sections (``== [[Mode]] ==``)
         3. ``== Items ==`` with per-item sub-headings
-        4. ``== Heroes ==`` with per-hero and per-ability sub-headings
+        4. ``== Heroes ==`` with a ``{{HeroChanges}}`` block per hero, grouping
+           non-ability changes under '''Stats''' followed by each ability
     """
     lines: List[str] = []
 
@@ -323,10 +341,20 @@ def _build_output(general, modes, mode_order, item_sections, item_order, hero_se
         lines.append('== Heroes ==')
         for hero in hero_order:
             section = hero_sections[hero]
-            lines.append(f'=== {{{{HeroIcon|{hero}}}}} ===')
-            lines.extend(section['general'])
+            groups = []
+            if section['general']:
+                groups.append(["* '''Stats'''"] + section['general'])
             for ability in section['ability_order']:
-                lines.append(f'==== {{{{AbilityIcon|{ability}}}}} ====')
-                lines.extend(section['ability_sections'][ability])
+                groups.append([f'* {{{{AbilityIcon|{ability}}}}}'] + section['ability_sections'][ability])
+
+            lines.append('')
+            lines.append('{{HeroChanges')
+            lines.append(f'|hero={hero}')
+            lines.append('|changes=')
+            for i, group in enumerate(groups):
+                if i > 0:
+                    lines.append('')
+                lines.extend(group)
+            lines.append('}}')
 
     return '\n'.join(lines).strip()
