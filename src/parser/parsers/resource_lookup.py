@@ -1,4 +1,7 @@
+from loguru import logger
+
 import utils.json_utils as json_utils
+from utils.string_utils import is_truthy
 
 
 class ResourceLookupParser:
@@ -51,7 +54,9 @@ class ResourceLookupParser:
         for ability_key, ability in self.parsed_abilities.items():
             if not isinstance(ability, dict) or not ability.get('Name'):
                 continue
-            if ability.get('IsDisabled'):
+            if is_truthy(ability.get('IsDisabled')):
+                if ability_key in ability_to_hero:
+                    logger.warning(f'Skipping hero-bound ability {ability_key}: IsDisabled={ability["IsDisabled"]!r}')
                 continue
 
             name = ability['Name']

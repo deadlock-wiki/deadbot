@@ -2,6 +2,7 @@ import parser.maps as maps
 from . import utils
 import utils.json_utils as json_utils
 import utils.num_utils as num_utils
+from utils.string_utils import is_truthy
 from .upgrades import parse_upgrades
 from .modifiers import parse_modifiers
 from loguru import logger
@@ -53,7 +54,7 @@ class AbilityParser:
         ability_data = {
             'Key': ability_key,
             'Name': self.localizations.get(ability_key, None),
-            'IsDisabled': ability.get('m_bDisabled', False),
+            'IsDisabled': is_truthy(ability.get('m_bDisabled', False)),
             'BehaviourBits': maps.get_behaviour_bits(ability.get('m_AbilityBehaviorsBits')),
         }
 
