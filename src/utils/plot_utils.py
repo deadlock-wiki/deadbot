@@ -48,12 +48,12 @@ class MapPlotter:
         self.output_size = output_size or base.width
         self.canvas = base.resize((self.output_size, self.output_size), Image.LANCZOS).copy()
 
-    def _world_to_pixel(self, x: float, y: float) -> tuple[int, int]:
-        """Convert world coordinates to pixel coordinates on the output image."""
+    def _world_to_pixel(self, x: float, y: float) -> tuple[float, float]:
+        """Convert world coordinates to sub-pixel coordinates on the output image."""
         half = self.output_size / 2
         scale = half / self.MAP_EXTENT  # Use full extent, not clip
-        px = int(half + x * scale)
-        py = int(half - y * scale)
+        px = half + x * scale
+        py = half - y * scale
         return px, py
 
     def place_image_markers(
@@ -67,7 +67,7 @@ class MapPlotter:
         icon_size = int(self.output_size * size)
         for x, y, path in zip(x_coords, y_coords, image_paths):
             icon = load_image(path).resize((icon_size, icon_size), Image.LANCZOS)
-            px, py = self._world_to_pixel(x, y)
+            px, py = map(int, self._world_to_pixel(x, y))
             offset = icon_size // 2
             self.canvas.paste(icon, (px - offset, py - offset), icon)
 
@@ -113,13 +113,10 @@ class MapPlotter:
     ) -> None:
         """Draw an outlined dot at each world coordinate, at sub-pixel precision, so overlapping dots stay distinct."""
         draw = ImageDraw.Draw(self.canvas)
-        half = self.output_size / 2
-        scale = half / self.MAP_EXTENT
         # Pillow draws the outline inside the bounding box, so grow it to keep the fill at `radius`
         r = radius + outline_width
         for x, y in coords:
-            px = half + x * scale
-            py = half - y * scale
+            px, py = self._world_to_pixel(x, y)
             draw.ellipse((px - r, py - r, px + r, py + r), fill=color, outline=outline, width=outline_width)
 
     def add_compact_legend(
