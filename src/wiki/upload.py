@@ -54,6 +54,7 @@ class WikiUpload:
         self._upload_changelog_pages()
         self._process_hotfixes()
         self._update_latest_chain()
+        self._update_latest_update_page()
 
     def _get_existing_update_pages(self) -> List[Tuple[datetime, str]]:
         """
@@ -199,6 +200,11 @@ class WikiUpload:
 
             # Filter for pages in the "Data" namespace.
             if namespace != self.DATA_NAMESPACE:
+                continue
+
+            # LatestUpdate.json is changelog derived and handled by _update_latest_update_page
+            if page_name == 'LatestUpdate.json':
+                logger.trace(f'Data page "{page_name}" is handled by the latest update page updater')
                 continue
 
             file_path = DATA_PAGE_FILE_MAP.get(page_name)
@@ -356,6 +362,67 @@ class WikiUpload:
         if not self.dry_run:
             page.save(new_text, summary=f'{self.upload_message}: Linking next update to {next_date.strftime("%Y-%m-%d")}')
             logger.success(f'Updated {prev_title}')
+
+    def _update_latest_update_page(self):
+        """
+        Updates Data:LatestUpdate.json with the date of the newest update changelog,
+        so the wiki can display how long ago the latest update was released.
+
+        The page is never moved backward: if it is already set to a newer date than
+        the latest changelog, it is left untouched.
+        """
+        changelog_dir = os.path.join(self.OUTPUT_DIR, 'changelogs', 'wiki')
+        if not os.path.isdir(changelog_dir):
+            logger.trace(f'Changelog wiki directory not found at "{changelog_dir}", skipping latest update page')
+            return
+
+        files = changelog_utils.sort_changelog_files([f for f in os.listdir(changelog_dir) if f.endswith('.txt')])
+        if not files:
+            logger.trace('No changelog files found, skipping latest update page')
+            return
+
+        latest_date = changelog_utils.parse_changelog_date_from_id(files[-1].replace('.txt', ''))
+        if not latest_date:
+            logger.error(f'Could not parse date from {files[-1]}, cannot update latest update page')
+            return
+
+        latest_update = {
+            'latest_update': {
+                'month': latest_date.strftime('%B'),
+                'day': latest_date.day,
+                'year': latest_date.year,
+            }
+        }
+        updated_text = json.dumps(latest_update, indent=4)
+
+        page_title = f'{self.DATA_NAMESPACE}:LatestUpdate.json'
+        page = self.site.pages[page_title]
+
+        current_date = None
+        if page.exists:
+            try:
+                current_update = json.loads(page.text()).get('latest_update', {})
+                current_date = datetime.strptime(f'{current_update["month"]} {current_update["day"]} {current_update["year"]}', '%B %d %Y')
+            except Exception:
+                logger.warning(f'Could not parse the contents of {page_title}, it will be overwritten')
+
+        if current_date == latest_date:
+            logger.trace(f'{page_title} already set to {latest_date.strftime("%Y-%m-%d")}')
+            return
+
+        if current_date and current_date > latest_date:
+            logger.warning(
+                f'{page_title} is set to a newer update ({current_date.strftime("%Y-%m-%d")}) '
+                f'than the latest changelog ({latest_date.strftime("%Y-%m-%d")}), skipping'
+            )
+            return
+
+        logger.info(f'Updating {page_title} to {latest_date.strftime("%Y-%m-%d")}')
+        if self.dry_run:
+            return
+
+        page.save(updated_text, summary=self.upload_message, minor=False, bot=True)
+        logger.success(f'Successfully updated {page_title}')
 
     def _update_page(self, page, updated_text):
         logger.info(f'Updating page: "{page.name}"')
