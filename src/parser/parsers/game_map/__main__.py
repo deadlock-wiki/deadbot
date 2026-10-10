@@ -61,13 +61,10 @@ BREAKABLES: dict[str, _Breakable] = {
     },
 }
 
-# Output file stem -> (map title, the breakables plotted on it), e.g. crate -> crate_map.png
-MAPS: dict[str, tuple[str, list[str]]] = {
-    'crate': ('Crates', ['crate']),
-    'heavy_crate': ('Heavy crates', ['heavy_crate']),
+# Maps plotting several kinds together. Each kind also gets its own map, e.g. crate -> crate_map.png
+# Output file stem -> (map title, the breakables plotted on it), e.g. all_crates -> all_crates_map.png
+COMBINED_MAPS: dict[str, tuple[str, list[str]]] = {
     'all_crates': ('Crates and heavy crates', ['crate', 'heavy_crate']),
-    'golden_statues': ('Buff containers', ['golden_statues']),
-    'healing_snack': ('Healing snacks', ['healing_snack']),
     'all_breakables': ('All breakables and healing snacks', list(BREAKABLES)),
 }
 
@@ -102,7 +99,11 @@ class GameMapParser:
         # Colours are picked by spawn time order across every kind, so e.g. all 10:00 spawns use their kind's third colour
         spawn_order = sorted({e['spawn_time'] for entities in breakables.values() for e in entities if e['spawn_time'] is not None})
 
-        plots = {stem: self._breakables_plot({name: breakables[name] for name in names}, title, spawn_order) for stem, (title, names) in MAPS.items()}
+        plots = {name: self._breakables_plot({name: entities}, BREAKABLES[name]['title'], spawn_order) for name, entities in breakables.items()}
+        plots |= {
+            stem: self._breakables_plot({name: breakables[name] for name in names}, title, spawn_order)
+            for stem, (title, names) in COMBINED_MAPS.items()
+        }
 
         # One map per spawn time for each kind that spawns then, plus every kind together at that time, e.g. crate_5min, everything_5min
         for spawn_time in spawn_order:
