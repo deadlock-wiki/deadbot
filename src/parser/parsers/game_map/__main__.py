@@ -100,20 +100,20 @@ class GameMapParser:
         """
         breakables = {name: self._get_breakables(spec['entity_class']) for name, spec in BREAKABLES.items()}
         # Colours are picked by spawn time order across every kind, so e.g. all 10:00 spawns use their kind's third colour
-        self.spawn_order = sorted({e['spawn_time'] for entities in breakables.values() for e in entities if e['spawn_time'] is not None})
+        spawn_order = sorted({e['spawn_time'] for entities in breakables.values() for e in entities if e['spawn_time'] is not None})
 
-        plots = {stem: self._breakables_plot({name: breakables[name] for name in names}, title) for stem, (title, names) in MAPS.items()}
+        plots = {stem: self._breakables_plot({name: breakables[name] for name in names}, title, spawn_order) for stem, (title, names) in MAPS.items()}
 
         # One map per spawn time for each kind that spawns then, plus every kind together at that time, e.g. crate_5min, everything_5min
-        for spawn_time in self.spawn_order:
+        for spawn_time in spawn_order:
             at_time = {name: [e for e in entities if e['spawn_time'] == spawn_time] for name, entities in breakables.items()}
             at_time = {name: entities for name, entities in at_time.items() if entities}
             suffix = _format_minutes(spawn_time)
             for name, entities in at_time.items():
                 plots[f'{name}_{suffix}'] = self._breakables_plot(
-                    {name: entities}, f'{BREAKABLES[name]["title"]} spawning at {_format_time(spawn_time)}'
+                    {name: entities}, f'{BREAKABLES[name]["title"]} spawning at {_format_time(spawn_time)}', spawn_order
                 )
-            plots[f'all_breakables_{suffix}'] = self._breakables_plot(at_time, f'All breakables spawning at {_format_time(spawn_time)}')
+            plots[f'all_breakables_{suffix}'] = self._breakables_plot(at_time, f'All breakables spawning at {_format_time(spawn_time)}', spawn_order)
 
         plots['shops'] = self._midtown_shop_plot(self._get_shop_data())
 
@@ -131,13 +131,14 @@ class GameMapParser:
             }
         }
 
-    def _breakables_plot(self, breakables: dict[str, list[_BreakableEntity]], title: str) -> Image.Image:
+    def _breakables_plot(self, breakables: dict[str, list[_BreakableEntity]], title: str, spawn_order: list[float]) -> Image.Image:
         """
         Plot one dot per breakable onto the midtown map at its native resolution, with a legend counting each kind.
         Each kind is split by when it first spawns, in its own colour
         Args:
             breakables: Breakable name (a key of BREAKABLES) -> its entities
             title: Shown above the legend, so the image says what it is
+            spawn_order: Every first spawn time in use, earliest first. Picks each kind's colour for a spawn time
         Returns:
             The generated plot
         """
@@ -150,7 +151,7 @@ class GameMapParser:
                 if spawn_time is None:
                     series.append((spec['label'], spec['colors'][0], positions))
                     continue
-                color = spec['colors'][min(self.spawn_order.index(spawn_time), len(spec['colors']) - 1)]
+                color = spec['colors'][min(spawn_order.index(spawn_time), len(spec['colors']) - 1)]
                 series.append((f'{spec["label"]}, spawns at {_format_time(spawn_time)}', color, positions))
 
         plotter = MapPlotter(BREAKABLES_BASE_MAP)
