@@ -136,7 +136,7 @@ class GameMapParser:
 
     def _breakables_plot(self, breakables: dict[str, list[_BreakableEntity]], title: str, spawn_order: list[float]) -> Image.Image:
         """
-        Plot one dot per breakable onto the midtown map at its native resolution, with a legend counting each kind.
+        Plot one dot per breakable onto the midtown map at MAP_OUTPUT_SIZE, with a legend counting each kind.
         Each kind is split by when it first spawns, in its own colour
         Args:
             breakables: Breakable name (a key of BREAKABLES) -> its entities
