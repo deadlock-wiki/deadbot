@@ -143,21 +143,22 @@ class MapPlotter:
         text_width = max(draw.textlength(label, font=font) for label, _ in entries)
         box_width = int(max(swatch_size + 2 * padding + text_width, draw.textlength(title, font=title_font) + padding if title else 0) + padding)
         box_height = int(title_height + row_height * len(entries) + padding)
-        draw.rectangle((padding, padding, padding + box_width, padding + box_height), fill=(0, 0, 0, 255))
+        draw.rectangle((padding, padding, padding + box_width, padding + box_height), fill=(255, 255, 255, 255))
 
         # Pillow anchors text by its ascender, so nudge rows up slightly to sit level with the swatch
-        text_dy = int(font_size * -0.15)
-        swatch_dy = int(font_size * -0.08)
+        text_dy = font_size * -0.4
+        swatch_dy = 0
+        # swatch_dy = int(font_size * -0.08)
         gap = max(2, int(font_size * 0.4))
         x = padding * 2
         if title:
-            draw.text((x, padding * 2 + int(title_font_size * -0.15)), title, fill=(255, 255, 255, 255), font=title_font)
+            draw.text((x, padding * 2 + int(title_font_size * -0.15)), title, fill=(0, 0, 0, 255), font=title_font)
             divider_y = padding * 2 + title_font_size + padding
             draw.line((x, divider_y, padding + box_width - padding, divider_y), fill=(110, 110, 110, 255), width=1)
         for i, (label, color) in enumerate(entries):
             y = padding * 2 + title_height + i * row_height
-            draw.ellipse((x, y + swatch_dy, x + swatch_size, y + swatch_dy + swatch_size), fill=color, outline=(255, 255, 255, 255))
-            draw.text((x + swatch_size + gap, y + text_dy), label, fill=(255, 255, 255, 255), font=font)
+            draw.ellipse((x, y + swatch_dy, x + swatch_size, y + swatch_dy + swatch_size), fill=color, outline=(0, 0, 0, 255))
+            draw.text((x + swatch_size + gap, y + text_dy), label, fill=(0, 0, 0, 255), font=font)
 
         self.canvas = Image.alpha_composite(self.canvas, overlay)
 

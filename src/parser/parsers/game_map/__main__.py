@@ -68,11 +68,11 @@ MAPS: dict[str, tuple[str, list[str]]] = {
     'all_crates': ('Crates and heavy crates', ['crate', 'heavy_crate']),
     'golden_statues': ('Buff containers', ['golden_statues']),
     'healing_snack': ('Healing snacks', ['healing_snack']),
-    'everything': ('All breakables and healing snacks', list(BREAKABLES)),
+    'all_breakables': ('All breakables and healing snacks', list(BREAKABLES)),
 }
 
 # The current Midtown minimap, regenerated with scripts/update_minimap.py
-BREAKABLES_BASE_MAP = os.path.join(os.path.dirname(__file__), 'assets/minimap_midtown.png')
+BREAKABLES_BASE_MAP = os.path.join(os.path.dirname(__file__), 'assets/minimap_midtown_opaque.png')
 
 
 class GameMapParser:
@@ -113,7 +113,7 @@ class GameMapParser:
                 plots[f'{name}_{suffix}'] = self._breakables_plot(
                     {name: entities}, f'{BREAKABLES[name]["title"]} spawning at {_format_time(spawn_time)}'
                 )
-            plots[f'everything_{suffix}'] = self._breakables_plot(at_time, f'All breakables spawning at {_format_time(spawn_time)}')
+            plots[f'all_breakables_{suffix}'] = self._breakables_plot(at_time, f'All breakables spawning at {_format_time(spawn_time)}')
 
         plots['shops'] = self._midtown_shop_plot(self._get_shop_data())
 
@@ -153,10 +153,17 @@ class GameMapParser:
                 color = spec['colors'][min(self.spawn_order.index(spawn_time), len(spec['colors']) - 1)]
                 series.append((f'{spec["label"]}, spawns at {_format_time(spawn_time)}', color, positions))
 
-        plotter = MapPlotter(BREAKABLES_BASE_MAP, output_size=None)
+        plotter = MapPlotter(BREAKABLES_BASE_MAP)
         for _, color, positions in series:
             plotter.place_dots(positions, color)
-        plotter.add_compact_legend([(f'{label} ({len(positions)})', color) for label, color, positions in series], title=title)
+        plotter.add_compact_legend(
+            [(f'{label} ({len(positions)})', color) for label, color, positions in series],
+            title=title,
+            font_size=26,
+            title_font_size=32,
+            padding=10,
+            swatch_size=14,
+        )
         return plotter.get_image()
 
     def _midtown_shop_plot(self, shop_data: list[_EntityData]) -> Image.Image:
@@ -196,7 +203,7 @@ class GameMapParser:
         Returns:
             The generated plot
         """
-        base_map = os.path.join(os.path.dirname(__file__), 'assets/minimap_midtown_mid_opaque.png')
+        base_map = BREAKABLES_BASE_MAP
         plotter = MapPlotter(base_map)
         plotter.place_image_markers(x_coords, y_coords, image_paths, size=0.035)
         plotter.add_image_legend(legend)
@@ -221,8 +228,8 @@ class GameMapParser:
         # noinspection PyTypeChecker
         shop_data.extend(
             [
-                {'origin': [0, -9500, 100]},  # Hidden King base shop
-                {'origin': [0, 9500, 100]},  # Archmother base shop
+                {'origin': [-1280.0, -10000.0, 100]},  # Hidden King base shop
+                {'origin': [1280.0, 10000.0, 100]},  # Archmother base shop
             ]
         )
         return shop_data
