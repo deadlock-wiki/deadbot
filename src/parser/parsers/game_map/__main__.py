@@ -270,6 +270,20 @@ class GameMapParser:
         return json.loads(helper_output)
 
 
+def map_file_stems(spawn_times: list[float]) -> list[str]:
+    """
+    Every map the parser can generate, as file stems, e.g. crate -> crate_map.png. A kind with nothing spawning
+    at a given time gets no map for it, so not every stem is generated on every run
+    Args:
+        spawn_times: Each breakable spawn group's first spawn time in seconds, from BreakableSpawnTimeDesc in generic_data
+    """
+    stems = [*BREAKABLES, *COMBINED_MAPS, 'shops']
+    for spawn_time in sorted(set(spawn_times)):
+        suffix = _format_minutes(spawn_time)
+        stems += [f'{name}_{suffix}' for name in BREAKABLES] + [f'all_breakables_{suffix}']
+    return stems
+
+
 def _format_time(seconds: float) -> str:
     """180 -> 3:00"""
     return f'{int(seconds // 60)}:{int(seconds % 60):02d}'
