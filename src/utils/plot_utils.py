@@ -36,17 +36,16 @@ class MapPlotter:
     # The map coordinate extents (from the original matplotlib extent)
     MAP_EXTENT = 10750.0
     MAP_CLIP = 10000.0
-    OUTPUT_SIZE = 2000  # Output image resolution (square)
 
-    def __init__(self, base_map_path: PathLike | str, output_size: int | None = OUTPUT_SIZE):
+    def __init__(self, base_map_path: PathLike | str, output_size: int | None = None):
         """
         Args:
             base_map_path: Path to the square base map image
-            output_size: Resolution to resample the base map to. `None` keeps its native resolution
+            output_size: Width and height to resample the base map to. `None` uses the base map as is, without resampling
         """
         base = load_image(base_map_path)
         self.output_size = output_size or base.width
-        self.canvas = base.resize((self.output_size, self.output_size), Image.LANCZOS).copy()
+        self.canvas = base if output_size is None else base.resize((output_size, output_size), Image.LANCZOS)
 
     def _world_to_pixel(self, x: float, y: float) -> tuple[float, float]:
         """Convert world coordinates to sub-pixel coordinates on the output image."""
