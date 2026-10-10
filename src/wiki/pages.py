@@ -49,13 +49,8 @@ DATA_PAGE_FILE_MAP = {
     'StreetBrawlData.json': 'json/street-brawl-data.json',
 }
 
-# Maps file name in "File:" namespace on the wiki to
-# the file path in $OUTPUT_DIR
-IMAGE_FILE_MAP = {
-    'Golden_statues_map.png': 'assets/golden_statues_map.png',
-    'Crate_map.png': 'assets/crate_map.png',
-    'Shops_map.png': 'assets/shops_map.png',
-}
+# Category added to the file page of every uploaded map, from game_map.map_file_stems
+IMAGE_FILE_CATEGORY = '[[Category:Maps]]'
 
 # Ignore these pages as they are not automated
 IGNORE_PAGES = [
