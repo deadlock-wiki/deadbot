@@ -105,7 +105,7 @@ class GameMapParser:
             for stem, (title, names) in COMBINED_MAPS.items()
         }
 
-        # One map per spawn time for each kind that spawns then, plus every kind together at that time, e.g. crate_5min, everything_5min
+        # One map per spawn time for each kind that spawns then, plus every kind together at that time, e.g. crate_5min, all_breakables_5min
         for spawn_time in spawn_order:
             at_time = {name: [e for e in entities if e['spawn_time'] == spawn_time] for name, entities in breakables.items()}
             at_time = {name: entities for name, entities in at_time.items() if entities}
