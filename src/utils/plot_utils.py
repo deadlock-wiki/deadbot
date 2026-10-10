@@ -106,14 +106,14 @@ class MapPlotter:
         self,
         coords: list[tuple[float, float]],
         color: str,
-        radius: float = 3.45,
+        radius: float = 3.45 / 1024,  # Fraction of output image width, 3.45px on a 1024px map
         outline: str = 'black',
         outline_width: int = 1,
     ) -> None:
         """Draw an outlined dot at each world coordinate, at sub-pixel precision, so overlapping dots stay distinct."""
         draw = ImageDraw.Draw(self.canvas)
         # Pillow draws the outline inside the bounding box, so grow it to keep the fill at `radius`
-        r = radius + outline_width
+        r = self.output_size * radius + outline_width
         for x, y in coords:
             px, py = self._world_to_pixel(x, y)
             draw.ellipse((px - r, py - r, px + r, py + r), fill=color, outline=outline, width=outline_width)
