@@ -5,6 +5,7 @@ from os import PathLike
 from collections import Counter
 from typing import TypedDict, Any
 
+from loguru import logger
 from PIL import Image
 from utils.plot_utils import MapPlotter
 from utils.process import run_process
@@ -152,8 +153,12 @@ class GameMapParser:
             for spawn_time in spawn_times:
                 positions = [e['position'] for e in entities if e['spawn_time'] == spawn_time]
                 if spawn_time is None:
+                    if len(spawn_times) > 1:
+                        logger.warning(f'{spec["label"]} without a spawn time may share a colour with timed spawns')
                     series.append((spec['label'], spec['colors'][0], positions))
                     continue
+                if spawn_order.index(spawn_time) >= len(spec['colors']):
+                    logger.warning(f'No colour left for {spec["label"]} spawning at {_format_time(spawn_time)}, reusing its last colour')
                 color = spec['colors'][min(spawn_order.index(spawn_time), len(spec['colors']) - 1)]
                 series.append((f'{spec["label"]}, spawns at {_format_time(spawn_time)}', color, positions))
 
