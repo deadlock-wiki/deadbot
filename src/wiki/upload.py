@@ -5,7 +5,8 @@ import re
 from datetime import datetime
 from typing import List, Tuple
 from utils import json_utils, game_utils, meta_utils
-from .pages import DATA_PAGE_FILE_MAP, IGNORE_PAGES, IMAGE_FILE_CATEGORY, IMAGE_FILE_MAP
+from parser.parsers.game_map import map_file_stems
+from .pages import DATA_PAGE_FILE_MAP, IGNORE_PAGES, IMAGE_FILE_CATEGORY
 from loguru import logger
 from . import changelog_utils
 
@@ -222,11 +223,20 @@ class WikiUpload:
             logger.trace(f'Assets directory not found at "{assets_dir}", skipping asset upload.')
             return
 
+        generic_data = json_utils.read(os.path.join(self.OUTPUT_DIR, 'json/generic-data.json'), ignore_error=True)
+        if generic_data is None:
+            logger.warning('Missing generic-data.json, which names the map files. Skipping asset upload.')
+            return
+
+        spawn_times = [group['InitialSpawnTime'] for group in generic_data.get('BreakableSpawnTimeDesc', [])]
         logger.info('Uploading asset files...')
-        for wiki_filename, file_path in IMAGE_FILE_MAP.items():
-            full_path = os.path.join(self.OUTPUT_DIR, file_path)
+        for stem in map_file_stems(spawn_times):
+            # Wiki file names start with a capital, e.g. File:Crate_5min_map.png
+            wiki_filename = f'{stem[0].upper()}{stem[1:]}_map.png'
+            full_path = os.path.join(self.OUTPUT_DIR, f'assets/{stem}_map.png')
             if not os.path.isfile(full_path):
-                logger.warning(f'Asset file not found: {full_path}')
+                # Not every map is generated on every run, e.g. without --parse_map
+                logger.trace(f'Asset file not found: {full_path}')
                 continue
 
             page_title = f'File:{wiki_filename}'

@@ -49,26 +49,8 @@ DATA_PAGE_FILE_MAP = {
     'StreetBrawlData.json': 'json/street-brawl-data.json',
 }
 
-# Category added to the file page of every image in IMAGE_FILE_MAP, which are all maps
+# Category added to the file page of every uploaded map, from game_map.map_file_stems
 IMAGE_FILE_CATEGORY = '[[Category:Maps]]'
-
-# Maps file name in "File:" namespace on the wiki to
-# the file path in $OUTPUT_DIR
-IMAGE_FILE_MAP = {
-    'Golden_statues_map.png': 'assets/golden_statues_map.png',
-    'Crate_map.png': 'assets/crate_map.png',
-    'Shops_map.png': 'assets/shops_map.png',
-    'Heavy_crate_map.png': 'assets/heavy_crate_map.png',
-    'Healing_snack_map.png': 'assets/healing_snack_map.png',
-    'All_crates_map.png': 'assets/all_crates_map.png',
-    'Everything_map.png': 'assets/everything_map.png',
-}
-
-# Midtown breakables split by first spawn time, e.g. Crate_5min_map.png. These times come from the spawn groups in
-# generic_data, so update this list if Valve adds or changes one
-for _stem in ['crate', 'heavy_crate', 'golden_statues', 'everything']:
-    for _minutes in [3, 5, 10]:
-        IMAGE_FILE_MAP[f'{_stem.capitalize()}_{_minutes}min_map.png'] = f'assets/{_stem}_{_minutes}min_map.png'
 
 # Ignore these pages as they are not automated
 IGNORE_PAGES = [
