@@ -128,7 +128,7 @@ class MapPlotter:
         swatch_size: int = 7,
         padding: int = 5,
     ) -> None:
-        """Render a small dark legend in the top-left corner: an optional title, then one colour swatch and label per row."""
+        """Render a small legend in the top-left corner: an optional title, then one colour swatch and label per row."""
         overlay = Image.new('RGBA', self.canvas.size, (0, 0, 0, 0))
         draw = ImageDraw.Draw(overlay)
         font = _load_font(LEGEND_FONTS, font_size)
@@ -144,8 +144,6 @@ class MapPlotter:
 
         # Pillow anchors text by its ascender, so nudge rows up slightly to sit level with the swatch
         text_dy = font_size * -0.4
-        swatch_dy = 0
-        # swatch_dy = int(font_size * -0.08)
         gap = max(2, int(font_size * 0.4))
         x = padding * 2
         if title:
@@ -154,7 +152,7 @@ class MapPlotter:
             draw.line((x, divider_y, padding + box_width - padding, divider_y), fill=(110, 110, 110, 255), width=1)
         for i, (label, color) in enumerate(entries):
             y = padding * 2 + title_height + i * row_height
-            draw.ellipse((x, y + swatch_dy, x + swatch_size, y + swatch_dy + swatch_size), fill=color, outline=(0, 0, 0, 255))
+            draw.ellipse((x, y, x + swatch_size, y + swatch_size), fill=color, outline=(0, 0, 0, 255))
             draw.text((x + swatch_size + gap, y + text_dy), label, fill=(0, 0, 0, 255), font=font)
 
         self.canvas = Image.alpha_composite(self.canvas, overlay)
