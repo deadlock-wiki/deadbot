@@ -231,15 +231,17 @@ class WikiUpload:
 
             page_title = f'File:{wiki_filename}'
             logger.info(f'Uploading file: "{page_title}" from {full_path}')
-            if not self.dry_run:
-                try:
-                    with open(full_path, 'rb') as f:
-                        # The description is only used when the file page is first created
-                        self.site.upload(f, filename=wiki_filename, description=IMAGE_FILE_CATEGORY, comment=self.upload_message, ignore=True)
-                    logger.success(f'Successfully uploaded file "{page_title}"')
-                except Exception as e:
-                    logger.error(f'Failed to upload file "{page_title}": {e}')
-                    continue
+            if self.dry_run:
+                continue
+
+            try:
+                with open(full_path, 'rb') as f:
+                    # The description is only used when the file page is first created
+                    self.site.upload(f, filename=wiki_filename, description=IMAGE_FILE_CATEGORY, comment=self.upload_message, ignore=True)
+                logger.success(f'Successfully uploaded file "{page_title}"')
+            except Exception as e:
+                logger.error(f'Failed to upload file "{page_title}": {e}')
+                continue
 
             # Re-uploads ignore the description, so add the category to existing file pages that lack it
             page = self.site.pages[page_title]
