@@ -317,7 +317,7 @@ class HeroParser:
                     if self.localizations.get(weapon_name_key):
                         weapon_stats['NameKey'] = weapon_name_key
 
-                    weapon_desc_key = f'{weapon_name_key}_set'
+                    weapon_desc_key = f'{weapon_name_key}_desc'
                     if self.localizations.get(weapon_desc_key):
                         weapon_stats['DescKey'] = weapon_desc_key
 

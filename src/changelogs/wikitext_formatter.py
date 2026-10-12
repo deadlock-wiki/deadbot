@@ -5,6 +5,11 @@ from typing import Any, Dict, List, Optional, Tuple
 # Game mode names that should produce their own section rather than being classified as items or heroes.
 GAME_MODE_SECTIONS = ['Street Brawl']
 
+# Generic ability names that are game-mechanic terms rather than uniquely named hero
+# abilities (eg. the per-hero "Melee" basic attack). These are ordinary words in patch
+# notes and must not be turned into [[Template:AbilityIcon]] templates.
+GENERIC_ABILITY_NAMES = {'Melee'}
+
 # fetch_changelogs.py inserts "=== Patch N ===" headers when merging same-day Steam posts.
 # This regex segments on those headers so each patch block is grouped independently.
 _PATCH_HEADER_RE = re.compile(r'^==\s*Patch\s+\d+\s*==$', re.MULTILINE)
@@ -36,6 +41,7 @@ def format_changelog(
         return ''
 
     heroes, items, abilities = _collect_names(hero_data, item_data, ability_data)
+    abilities = [ability for ability in abilities if ability not in GENERIC_ABILITY_NAMES]
 
     parts = _PATCH_HEADER_RE.split(raw_text)
     headers = _PATCH_HEADER_RE.findall(raw_text)
