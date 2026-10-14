@@ -19,7 +19,7 @@ RUN wget https://github.com/SteamRE/DepotDownloader/releases/download/DepotDownl
     && rm DepotDownloader-linux-x64.zip \
     && chmod +x DepotDownloader
     
-ENV ENTITY_HELPER_VER="v2.1.0"
+ENV ENTITY_HELPER_VER="v2.1.1"
 RUN wget https://github.com/deadlock-wiki/DeadlockEntityHelper/releases/download/$ENTITY_HELPER_VER/DeadlockEntityHelper \
 && chmod +x DeadlockEntityHelper
 
