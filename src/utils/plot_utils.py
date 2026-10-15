@@ -9,12 +9,23 @@ def load_image(image_path: PathLike | str) -> Image.Image:
     return Image.open(image_path).convert('RGBA')
 
 
-def create_circle_marker(color: str, diameter: int = 20) -> Image.Image:
-    """Creates a circular RGBA marker image of the given color."""
-    img = Image.new('RGBA', (diameter, diameter), (0, 0, 0, 0))
-    draw = ImageDraw.Draw(img)
-    draw.ellipse((0, 0, diameter - 1, diameter - 1), fill=color)
-    return img
+# Bold fonts first. Covers the Linux docker image and local Windows runs
+LEGEND_FONTS = (
+    '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf',
+    'C:/Windows/Fonts/segoeuib.ttf',
+    'C:/Windows/Fonts/arialbd.ttf',
+    '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',
+)
+
+
+def _load_font(paths: tuple[str, ...], size: int) -> ImageFont.ImageFont | ImageFont.FreeTypeFont:
+    """Returns the first font that loads from `paths`, falling back to Pillow's built-in font."""
+    for path in paths:
+        try:
+            return ImageFont.truetype(path, size)
+        except OSError:
+            pass
+    return ImageFont.load_default(size=size)
 
 
 class MapPlotter:
@@ -25,33 +36,24 @@ class MapPlotter:
     # The map coordinate extents (from the original matplotlib extent)
     MAP_EXTENT = 10750.0
     MAP_CLIP = 10000.0
-    OUTPUT_SIZE = 2000  # Output image resolution (square)
 
-    def __init__(self, base_map_path: PathLike | str):
+    def __init__(self, base_map_path: PathLike | str, output_size: int | None = None):
+        """
+        Args:
+            base_map_path: Path to the square base map image
+            output_size: Width and height to resample the base map to. `None` uses the base map as is, without resampling
+        """
         base = load_image(base_map_path)
-        self.canvas = base.resize((self.OUTPUT_SIZE, self.OUTPUT_SIZE), Image.LANCZOS).copy()
+        self.output_size = output_size or base.width
+        self.canvas = base if output_size is None else base.resize((output_size, output_size), Image.LANCZOS)
 
-    def _world_to_pixel(self, x: float, y: float) -> tuple[int, int]:
-        """Convert world coordinates to pixel coordinates on the output image."""
-        half = self.OUTPUT_SIZE / 2
+    def _world_to_pixel(self, x: float, y: float) -> tuple[float, float]:
+        """Convert world coordinates to sub-pixel coordinates on the output image."""
+        half = self.output_size / 2
         scale = half / self.MAP_EXTENT  # Use full extent, not clip
-        px = int(half + x * scale)
-        py = int(half - y * scale)
+        px = half + x * scale
+        py = half - y * scale
         return px, py
-
-    def place_circle_markers(
-        self,
-        x_coords: list[float],
-        y_coords: list[float],
-        colors: list[str],
-        diameter: int = 14,
-    ) -> None:
-        """Paste circle markers at the given world coordinates."""
-        for x, y, color in zip(x_coords, y_coords, colors):
-            marker = create_circle_marker(color, diameter)
-            px, py = self._world_to_pixel(x, y)
-            offset = diameter // 2
-            self.canvas.paste(marker, (px - offset, py - offset), marker)
 
     def place_image_markers(
         self,
@@ -61,50 +63,12 @@ class MapPlotter:
         size: float = 0.06,  # Fraction of output image width
     ) -> None:
         """Paste image markers at the given world coordinates."""
-        icon_size = int(self.OUTPUT_SIZE * size)
+        icon_size = int(self.output_size * size)
         for x, y, path in zip(x_coords, y_coords, image_paths):
             icon = load_image(path).resize((icon_size, icon_size), Image.LANCZOS)
-            px, py = self._world_to_pixel(x, y)
+            px, py = map(int, self._world_to_pixel(x, y))
             offset = icon_size // 2
             self.canvas.paste(icon, (px - offset, py - offset), icon)
-
-    def add_circle_legend(
-        self,
-        entries: list[tuple[str, str]],  # [(label, color), ...]
-        font_size: int = 28,
-        marker_diameter: int = 20,
-        padding: int = 16,
-    ) -> None:
-        """Render a simple circle-icon legend in the top-left corner."""
-        draw = ImageDraw.Draw(self.canvas)
-        try:
-            font = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf', font_size)
-        except OSError:
-            font = ImageFont.load_default()
-
-        row_height = marker_diameter + padding
-        legend_height = row_height * len(entries) + padding
-        # Estimate max label width
-        max_label_width = max(draw.textlength(label, font=font) for label, _ in entries)
-        legend_width = int(marker_diameter + padding + max_label_width + padding * 2)
-
-        # Draw background
-        draw.rectangle((padding, padding, padding + legend_width, padding + legend_height), fill=(255, 255, 255, 220))
-
-        for i, (label, color) in enumerate(entries):
-            y_top = padding * 2 + i * row_height
-            # Circle
-            draw.ellipse(
-                (padding * 2, y_top, padding * 2 + marker_diameter, y_top + marker_diameter),
-                fill=color,
-            )
-            # Label
-            draw.text(
-                (padding * 2 + marker_diameter + padding, y_top),
-                label,
-                fill=(0, 0, 0, 255),
-                font=font,
-            )
 
     def add_image_legend(
         self,
@@ -137,6 +101,60 @@ class MapPlotter:
                 fill=(0, 0, 0, 255),
                 font=font,
             )
+
+    def place_dots(
+        self,
+        coords: list[tuple[float, float]],
+        color: str,
+        radius: float = 3.45 / 1024,  # Fraction of output image width, 3.45px on a 1024px map
+        outline: str = 'black',
+        outline_width: int = 1,
+    ) -> None:
+        """Draw an outlined dot at each world coordinate, at sub-pixel precision, so overlapping dots stay distinct."""
+        draw = ImageDraw.Draw(self.canvas)
+        # Pillow draws the outline inside the bounding box, so grow it to keep the fill at `radius`
+        r = self.output_size * radius + outline_width
+        for x, y in coords:
+            px, py = self._world_to_pixel(x, y)
+            draw.ellipse((px - r, py - r, px + r, py + r), fill=color, outline=outline, width=outline_width)
+
+    def add_compact_legend(
+        self,
+        entries: list[tuple[str, str]],  # [(label, color), ...]
+        title: str | None = None,
+        font_size: int = 10,
+        title_font_size: int = 16,
+        swatch_size: int = 7,
+        padding: int = 5,
+    ) -> None:
+        """Render a small legend in the top-left corner: an optional title, then one colour swatch and label per row."""
+        overlay = Image.new('RGBA', self.canvas.size, (0, 0, 0, 0))
+        draw = ImageDraw.Draw(overlay)
+        font = _load_font(LEGEND_FONTS, font_size)
+        title_font = _load_font(LEGEND_FONTS, title_font_size)
+
+        row_height = font_size + padding
+        # The title, then a gap, a divider line and another gap before the first row
+        title_height = title_font_size + padding * 3 if title else 0
+        text_width = max(draw.textlength(label, font=font) for label, _ in entries)
+        box_width = int(max(swatch_size + 2 * padding + text_width, draw.textlength(title, font=title_font) + padding if title else 0) + padding)
+        box_height = int(title_height + row_height * len(entries) + padding)
+        draw.rectangle((padding, padding, padding + box_width, padding + box_height), fill=(255, 255, 255, 255))
+
+        # Pillow anchors text by its ascender, so nudge rows up slightly to sit level with the swatch
+        text_dy = font_size * -0.4
+        gap = max(2, int(font_size * 0.4))
+        x = padding * 2
+        if title:
+            draw.text((x, padding * 2 + int(title_font_size * -0.15)), title, fill=(0, 0, 0, 255), font=title_font)
+            divider_y = padding * 2 + title_font_size + padding
+            draw.line((x, divider_y, padding + box_width - padding, divider_y), fill=(110, 110, 110, 255), width=1)
+        for i, (label, color) in enumerate(entries):
+            y = padding * 2 + title_height + i * row_height
+            draw.ellipse((x, y, x + swatch_size, y + swatch_size), fill=color, outline=(0, 0, 0, 255))
+            draw.text((x + swatch_size + gap, y + text_dy), label, fill=(0, 0, 0, 255), font=font)
+
+        self.canvas = Image.alpha_composite(self.canvas, overlay)
 
     def get_image(self) -> Image.Image:
         return self.canvas

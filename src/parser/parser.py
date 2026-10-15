@@ -302,14 +302,13 @@ class Parser:
         if self.parse_map:
             logger.trace('Parsing Map...')
             map_vpk = os.path.join(self.game_dir, 'game/citadel/maps/dl_midtown.vpk')
-            map_data = game_map.GameMapParser(map_vpk).run()
+            map_data = game_map.GameMapParser(map_vpk, self.data['scripts']['generic_data']['m_BreakableSpawnTimeDesc']).run()
 
             json_utils.write(os.path.join(self.OUTPUT_DIR, 'json/midtown-metadata.json'), map_data['midtown']['metadata'])
 
             os.makedirs(os.path.join(self.OUTPUT_DIR, 'assets'), exist_ok=True)
-            map_data['midtown']['plots']['golden_statues'].save(os.path.join(self.OUTPUT_DIR, 'assets/golden_statues_map.png'))
-            map_data['midtown']['plots']['crate'].save(os.path.join(self.OUTPUT_DIR, 'assets/crate_map.png'))
-            map_data['midtown']['plots']['shops'].save(os.path.join(self.OUTPUT_DIR, 'assets/shops_map.png'))
+            for name, plot in map_data['midtown']['plots'].items():
+                plot.save(os.path.join(self.OUTPUT_DIR, f'assets/{name}_map.png'))
 
     def _generate_resource_lookup(self, parsed_heroes, parsed_abilities, parsed_items):
         logger.trace('Generating resource lookup...')
