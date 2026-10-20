@@ -33,6 +33,7 @@ class HeroParser:
 
                 hero_stats = {
                     'Name': self.localizations.get(hero_key, None),
+                    'HeroID': hero_value['m_HeroID'],
                     'BoundAbilities': self._parse_hero_abilities(hero_value),
                     'InDevelopment': hero_value['m_bInDevelopment'],
                     'IsDisabled': hero_value['m_bDisabled'],
@@ -138,6 +139,9 @@ class HeroParser:
         werewolf: dict = self.hero_data['hero_werewolf']
         werewolf_transformed: dict = copy.deepcopy(werewolf)
 
+        # This pseudo-hero shares its base hero's ID, so clear it to let consumers skip the duplicate
+        werewolf_transformed['m_HeroID'] = None
+
         # Werewolf claws use alt-fire scaling as their base bullet damage modifier
         if 'm_mapStandardLevelUpUpgrades' in werewolf_transformed:
             upgrades = werewolf_transformed['m_mapStandardLevelUpUpgrades']
@@ -236,6 +240,10 @@ class HeroParser:
 
             # Iterate hero stats
             for stat_key, stat_value in flat_data.items():
+                # HeroID is metadata, not a stat, so don't expose it on the Hero Comparison page
+                if stat_key == 'HeroID':
+                    continue
+
                 # Must not be a container type, nor a bool
                 if isinstance(stat_value, dict) or isinstance(stat_value, list):
                     continue
