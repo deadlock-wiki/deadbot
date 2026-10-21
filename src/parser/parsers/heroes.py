@@ -33,7 +33,7 @@ class HeroParser:
 
                 hero_stats = {
                     'Name': self.localizations.get(hero_key, None),
-                    'HeroID': hero_value['m_HeroID'],
+                    'Id': hero_value['m_HeroID'],
                     'BoundAbilities': self._parse_hero_abilities(hero_value),
                     'InDevelopment': hero_value['m_bInDevelopment'],
                     'IsDisabled': hero_value['m_bDisabled'],
@@ -240,8 +240,8 @@ class HeroParser:
 
             # Iterate hero stats
             for stat_key, stat_value in flat_data.items():
-                # HeroID is metadata, not a stat, so don't expose it on the Hero Comparison page
-                if stat_key == 'HeroID':
+                # Hero ID is metadata, not a stat, so don't expose it on the Hero Comparison page
+                if stat_key == 'Id':
                     continue
 
                 # Must not be a container type, nor a bool
