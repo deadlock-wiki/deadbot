@@ -1,7 +1,7 @@
 from utils import num_utils
 
 
-def convert_stat(stat: dict, key: str, value: str | int | float):
+def convert_stat(stat: dict, key: str, value: str | float):
     """Convert a value to the correct unit of measure and format based on the raw stat's information
 
     Args:

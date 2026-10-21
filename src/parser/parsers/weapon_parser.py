@@ -1,4 +1,5 @@
-from typing import Dict, Any
+from typing import Any
+
 from utils import json_utils
 from utils.num_utils import convert_engine_units_to_meters, round_sig_figs
 
@@ -8,7 +9,7 @@ def get_weapon_data(ability):
     return weapon_info
 
 
-def parse_weapon_info(weapon_info: Dict[str, Any]) -> Dict[str, Any]:
+def parse_weapon_info(weapon_info: dict[str, Any]) -> dict[str, Any]:
     """
     Parses a 'm_WeaponInfo' block for a primary or alternate fire mode.
     Returns a dictionary of parsed weapon stats.
@@ -65,7 +66,7 @@ def parse_weapon_info(weapon_info: Dict[str, Any]) -> Dict[str, Any]:
     return stats
 
 
-def get_dps_calculation_stats(weapon_stats: Dict[str, Any]) -> Dict[str, Any]:
+def get_dps_calculation_stats(weapon_stats: dict[str, Any]) -> dict[str, Any]:
     """Returns a dictionary of stats used to calculate DPS"""
     return {
         'ReloadSingle': weapon_stats.get('ReloadSingle'),
@@ -85,7 +86,7 @@ def get_dps_calculation_stats(weapon_stats: Dict[str, Any]) -> Dict[str, Any]:
     }
 
 
-def calculate_dps(dps_stats: Dict[str, Any], dps_type: str = 'burst') -> float:
+def calculate_dps(dps_stats: dict[str, Any], dps_type: str = 'burst') -> float:
     """
     Calculates Burst or Sustained DPS of a weapon.
 
@@ -144,10 +145,10 @@ def calculate_dps(dps_stats: Dict[str, Any], dps_type: str = 'burst') -> float:
         return sustained_dps
 
     else:
-        raise Exception('Invalid DPS type, must be one of: ' + ', '.join(['burst', 'sustained']))
+        raise Exception('Invalid DPS type, must be one of: ' + 'burst, sustained')
 
 
-def calculate_fire_rate(weapon_info: Dict[str, Any]) -> float:
+def calculate_fire_rate(weapon_info: dict[str, Any]) -> float:
     """
     Calculates the rounds per second of a mouse click by dividing the total bullets per shot
     by the total shot time, taking consideration of the cooldown between shots during a burst

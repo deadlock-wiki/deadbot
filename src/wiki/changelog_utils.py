@@ -1,9 +1,8 @@
 import re
 from datetime import datetime
-from typing import List, Tuple, Optional
 
 
-def sort_changelog_files(files: List[str]) -> List[str]:
+def sort_changelog_files(files: list[str]) -> list[str]:
     """
     Sort changelog files with proper variant ordering.
     Base file comes before variants.
@@ -21,7 +20,7 @@ def sort_changelog_files(files: List[str]) -> List[str]:
     return sorted(files, key=sort_key)
 
 
-def parse_changelog_date_from_id(changelog_id: str) -> Optional[datetime]:
+def parse_changelog_date_from_id(changelog_id: str) -> datetime | None:
     """Parse date from changelog ID like '2026-01-30' or '2026-01-30-1'."""
     try:
         parts = changelog_id.split('-')
@@ -35,8 +34,8 @@ def parse_changelog_date_from_id(changelog_id: str) -> Optional[datetime]:
 def calculate_prev_update_link(
     date_obj: datetime,
     current_title: str,
-    wiki_updates: List[Tuple[datetime, str]],
-    uploads_this_run: List[Tuple[datetime, str]] = None,
+    wiki_updates: list[tuple[datetime, str]],
+    uploads_this_run: list[tuple[datetime, str]] | None = None,
 ) -> str:
     """
     Calculate the correct prev_update link by querying actual wiki state plus uploads in current run.

@@ -1,7 +1,7 @@
 from loguru import logger
 
-import utils.string_utils as string_utils
 from parser.maps import INVESTMENT_SLOT_MAP
+from utils import string_utils
 
 
 class ItemInvestmentParser:
@@ -14,7 +14,7 @@ class ItemInvestmentParser:
     and returns a single merged dict.
     """
 
-    PREFIXES = ['m_str', 'm_map', 'm_n', 'm_fl', 'm_', 'fl', 'E', 'n']
+    PREFIXES = ('m_str', 'm_map', 'm_n', 'm_fl', 'm_', 'fl', 'E', 'n')
 
     def __init__(self, heroes_data):
         self.heroes_data = heroes_data

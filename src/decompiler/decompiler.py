@@ -1,10 +1,11 @@
+import filecmp
 import os
 import shutil
-import decompiler.kv3_to_json as kv3_to_json
-import decompiler.localization as localization
-import filecmp
-import utils.game_utils as g_util
+
 from loguru import logger
+
+import utils.game_utils as g_util
+from decompiler import kv3_to_json, localization
 
 
 class Decompiler:

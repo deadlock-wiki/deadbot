@@ -84,7 +84,7 @@ class SoulUnlockParser:
     def _parse_hero_soul_unlocks(self, su_datas):
         parsed_su_datas = []
         # Iterate the hashmap in order, so num (root level key) isn't needed
-        for num, su_data in su_datas.items():
+        for su_data in su_datas.values():
             flattened_su_data = self._flatten_su_data(su_data)
             parsed_su_datas.append(flattened_su_data)
 

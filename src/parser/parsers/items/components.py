@@ -1,5 +1,4 @@
-from typing import List
-from python_mermaid.diagram import MermaidDiagram, Node, Link
+from python_mermaid.diagram import Link, MermaidDiagram, Node
 
 
 class ItemComponentTree:
@@ -17,7 +16,7 @@ class ItemComponentTree:
     def get_chart(self):
         return self.chart
 
-    def _add_children_to_tree(self, parent_key: str, child_keys: List[str]):
+    def _add_children_to_tree(self, parent_key: str, child_keys: list[str]):
         """Add items to mermaid tree"""
         for child_key in child_keys:
             self.links.append(Link(Node(self.localizations.get(child_key)), Node(parent_key)))
