@@ -1,7 +1,9 @@
 from collections import Counter
+
 from loguru import logger
 
 from utils import json_utils
+
 from .abilities import AbilityParser
 
 
@@ -36,11 +38,13 @@ class StreetBrawlParser:
     DEFAULT_WEIGHT = 1.0
 
     # Street-Brawl-only override -> the base ability-property key it replaces.
-    OVERRIDE_KEYS = {
-        'm_strStreetBrawlValue': 'm_strValue',
-        'm_flStreetBrawlStatScale': 'm_flStatScale',
-        'm_strStreetBrawlBonus': 'm_strBonus',
-    }
+    OVERRIDE_KEYS = frozenset(
+        {
+            ('m_strStreetBrawlValue', 'm_strValue'),
+            ('m_flStreetBrawlStatScale', 'm_flStatScale'),
+            ('m_strStreetBrawlBonus', 'm_strBonus'),
+        }
+    )
 
     # Sentinel meaning "these two nodes are identical", distinct from a real
     # None/empty value that could legitimately appear in the parsed data.
@@ -94,7 +98,7 @@ class StreetBrawlParser:
         """
         if isinstance(node, dict):
             out = {key: self._apply_overrides(value) for key, value in node.items()}
-            for override_key, base_key in self.OVERRIDE_KEYS.items():
+            for override_key, base_key in self.OVERRIDE_KEYS:
                 if override_key in node:
                     override = node[override_key]
                     # An empty/None override is a placeholder ("unset in Street

@@ -1,5 +1,6 @@
 import os
 import shutil
+
 from utils.process import run_process
 
 APP_ID = '1422450'  # deadlock's app_id
@@ -22,7 +23,13 @@ class DepotDownloader:
         self.deadlock_dir = deadlock_dir
         self.manifest_path = os.path.join(self.deadlock_dir, 'manifest.txt')
 
-    def download_files(self, files: list[str] = None, file_list_path: str = None, manifest_id: str = None, logger_name: str = 'download-files'):
+    def download_files(
+        self,
+        files: list[str] | None = None,
+        file_list_path: str | None = None,
+        manifest_id: str | None = None,
+        logger_name: str = 'download-files',
+    ):
         """
         Download a list of files from the configured depot. If `manifest_id` is None, the latest manifest will be referenced.
         If `files` and `file_list_path` are both provided, the final file list will be the combination of both.

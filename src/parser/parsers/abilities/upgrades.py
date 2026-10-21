@@ -1,7 +1,9 @@
-from parser import maps
-from . import utils
-from utils import json_utils, num_utils
 from typing import NotRequired, TypedDict
+
+from parser import maps
+from utils import json_utils, num_utils
+
+from . import utils
 
 
 class ScaleEntry(TypedDict):

@@ -32,6 +32,7 @@ line-length = 150
 
 [tool.ruff.lint]
 extend-select = ["E501"]
+ignore = ["B020", "B023", "EXE001", "TRY002", "TRY201", "BLE001", "PERF402", "PLR1704", "SIM102"]
 
 [tool.ruff.format]
 quote-style = "single"

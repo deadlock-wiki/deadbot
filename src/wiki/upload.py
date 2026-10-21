@@ -1,13 +1,15 @@
-import os
-import mwclient
 import json
+import os
 import re
 from datetime import datetime
-from typing import List, Tuple
-from utils import json_utils, game_utils, meta_utils
-from .pages import DATA_PAGE_FILE_MAP, IGNORE_PAGES, IMAGE_FILE_MAP
+
+import mwclient
 from loguru import logger
+
+from utils import game_utils, json_utils, meta_utils
+
 from . import changelog_utils
+from .pages import DATA_PAGE_FILE_MAP, IGNORE_PAGES, IMAGE_FILE_MAP
 
 
 class WikiUpload:
@@ -44,7 +46,7 @@ class WikiUpload:
             self.site.login(self.auth['user'], self.auth['password'])
 
         # Store wiki state to minimize API calls
-        self.wiki_updates: List[Tuple[datetime, str]] = []
+        self.wiki_updates: list[tuple[datetime, str]] = []
 
     def run(self):
         logger.info(f'Uploading Data to Wiki - {self.upload_message}')
@@ -56,7 +58,7 @@ class WikiUpload:
         self._update_latest_chain()
         self._update_latest_update_page()
 
-    def _get_existing_update_pages(self) -> List[Tuple[datetime, str]]:
+    def _get_existing_update_pages(self) -> list[tuple[datetime, str]]:
         """
         Fetch all Update pages from wiki and return list of (date, title) tuples.
         Simplified by replacing underscores with spaces.
@@ -115,7 +117,7 @@ class WikiUpload:
             return
 
         # Track uploads in this run for correct intra-run linking
-        uploads_this_run: List[Tuple[datetime, str]] = []
+        uploads_this_run: list[tuple[datetime, str]] = []
 
         for filename in files:
             changelog_id = filename.replace('.txt', '')
