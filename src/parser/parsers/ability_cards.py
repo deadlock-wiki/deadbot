@@ -236,7 +236,7 @@ class AbilityCardsParser:
 
                 raw_attr = self._get_raw_ability_attr(attr_key)
                 if self._is_hidden_prop(raw_attr):
-                    continue
+                    prop_object['Hidden'] = True
 
                 name_key = raw_attr.get('m_strLocTokenOverride')
                 if name_key:
@@ -313,7 +313,7 @@ class AbilityCardsParser:
                 continue
 
             if self._is_hidden_prop(raw_attr):
-                continue
+                prop_object['Hidden'] = True
 
             name_key = raw_attr.get('m_strLocTokenOverride')
             if name_key:
@@ -378,7 +378,7 @@ class AbilityCardsParser:
                 continue
 
             if self._is_hidden_prop(raw_attr):
-                continue
+                data['Hidden'] = True
 
             prop_value = self.ability.get(prop)
 
@@ -555,7 +555,8 @@ class AbilityCardsParser:
     def _is_hidden_prop(raw_attr):
         """
         Whether the game hides this attribute from its ability tooltip. Hidden attributes are
-        still parsed into the ability data, but must not be shown on the ability card.
+        kept in the card data and flagged with `Hidden`, leaving it to the wiki to skip them or
+        make an exception.
         """
         return bool(raw_attr and raw_attr.get('m_bIsHidden'))
 
