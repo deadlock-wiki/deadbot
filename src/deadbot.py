@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 import os
 import sys
-from loguru import logger
 
 from dotenv import load_dotenv
+from loguru import logger
 
+from changelogs import fetch_changelogs, parse_changelogs
+from decompiler.decompiler import Decompiler
+from parser import parser
 from steam.depot_downloader import DepotDownloader
 from utils import csv_writer
-from decompiler.decompiler import Decompiler
-from changelogs import parse_changelogs, fetch_changelogs
-from parser import parser
 from utils.meta_utils import get_deadbot_version
-from utils.parameters import load_arguments, Args
+from utils.parameters import Args, load_arguments
 from utils.process import run_process
 from wiki.upload import WikiUpload
 

@@ -1,13 +1,15 @@
 import math
-from typing import Any, Callable, Dict, List, Optional, Tuple, TypedDict, TypeVar
+from collections.abc import Callable
+from typing import Any, TypedDict, TypeVar
+
+from loguru import logger
+
+from parser import maps
+from parser.maps import get_scale_type
 from parser.parsers.items.components import ItemComponentTree
 from parser.parsers.items.progression import extract_progression
 from parser.parsers.items.upgrades import parse_corrupted_upgrades, parse_item_upgrades
-import utils.string_utils as string_utils
-import utils.num_utils as num_utils
-import parser.maps as maps
-from parser.maps import get_scale_type
-from loguru import logger
+from utils import num_utils, string_utils
 
 
 class ScalingValue(TypedDict):
@@ -20,15 +22,15 @@ class ScalingData(TypedDict):
 
 
 class ParsedItemData(TypedDict, total=False):
-    Name: Optional[str]
-    Description: Optional[str]
-    Cost: Optional[int]
-    Tier: Optional[int]
+    Name: str | None
+    Description: str | None
+    Cost: int | None
+    Tier: int | None
     Activation: object
     Slot: object
     Components: object
-    TargetTypes: Optional[List[object]]
-    ShopFilters: Optional[List[object]]
+    TargetTypes: list[object] | None
+    ShopFilters: list[object] | None
     IsDisabled: bool
     StreetBrawl: bool
     IsImbue: bool
@@ -43,17 +45,17 @@ MappedValue = TypeVar('MappedValue')
 class ItemParser:
     def __init__(
         self,
-        abilities_data: Dict[str, object],
-        generic_data: Dict[str, object],
-        localizations: Dict[str, str],
+        abilities_data: dict[str, object],
+        generic_data: dict[str, object],
+        localizations: dict[str, str],
     ) -> None:
         self.abilities_data = abilities_data
         self.generic_data = generic_data
         self.localizations = localizations
         self.item_component_tree = ItemComponentTree(localizations)
 
-    def run(self) -> Tuple[Dict[str, ParsedItemData], object]:
-        all_items: Dict[str, ParsedItemData] = {}
+    def run(self) -> tuple[dict[str, ParsedItemData], object]:
+        all_items: dict[str, ParsedItemData] = {}
         for key in self.abilities_data:
             ability = self.abilities_data[key]
             if not isinstance(ability, dict):
@@ -115,7 +117,7 @@ class ItemParser:
         }
 
         # Process attributes and extract scaling information
-        for attr_key in item_ability_attrs.keys():
+        for attr_key in item_ability_attrs:
             attr = item_ability_attrs[attr_key]
 
             scaling_data = self._extract_scaling(attr)
@@ -158,7 +160,7 @@ class ItemParser:
 
         return parsed_item_data
 
-    def _extract_description(self, key: str, parsed_item_data: Dict[str, Any]) -> Optional[str]:
+    def _extract_description(self, key: str, parsed_item_data: dict[str, Any]) -> str | None:
         # ignore description formatting for disabled items
         if not parsed_item_data['IsDisabled']:
             description = self.localizations.get(key + '_desc')
@@ -170,7 +172,7 @@ class ItemParser:
         else:
             return self.localizations.get(key + '_desc')
 
-    def _extract_scaling(self, attr: Dict[str, object]) -> Optional[ScalingData]:
+    def _extract_scaling(self, attr: dict[str, object]) -> ScalingData | None:
         """
         Return nested scaling dict for an attribute (matches hero data schema).
         """
@@ -211,7 +213,7 @@ class ItemParser:
             'Scale': {'Value': scale_value, 'Type': human_type},
         }
 
-    def _is_disabled(self, item: Dict[str, Any]) -> bool:
+    def _is_disabled(self, item: dict[str, Any]) -> bool:
         is_disabled = False
         if 'm_bDisabled' in item:
             flag = item['m_bDisabled']
@@ -224,7 +226,7 @@ class ItemParser:
                 raise ValueError(f'New unexpected value for m_bDisabled: {flag}')
         return is_disabled
 
-    def _is_imbue(self, item_value: Dict[str, Any]) -> bool:
+    def _is_imbue(self, item_value: dict[str, Any]) -> bool:
         effects = item_value.get('m_TargetAbilityEffectsToApply')
 
         if not effects:
@@ -234,7 +236,7 @@ class ItemParser:
 
         return any(effect in maps.get_imbue_tags() for effect in parsed_effects)
 
-    def _format_pipe_sep_string(self, pipe_sep_string: str, map_func: Callable[[str], MappedValue]) -> List[MappedValue]:
+    def _format_pipe_sep_string(self, pipe_sep_string: str, map_func: Callable[[str], MappedValue]) -> list[MappedValue]:
         """
         Formats pipe separated string and maps the value
         eg. "A | B | C" to [map(A), map(B), map(C)]

@@ -1,4 +1,4 @@
-import parser.maps as maps
+from parser import maps
 
 
 class AttributeParser:
@@ -72,7 +72,7 @@ class AttributeParser:
         manual_map = maps.get_attr_manual_map()
 
         for category, attributes in all_attributes.items():
-            for attribute in attributes.keys():
+            for attribute in attributes:
                 # Check if any of the following affix_patterns exist in localization
                 # Affix stands for {prefix, label, postfix} - better name pending
                 affix_patterns = {
@@ -87,14 +87,14 @@ class AttributeParser:
 
                 # Manually map the remaining attributes
                 if attribute in manual_map:
-                    for affix_type in affix_patterns.keys():
+                    for affix_type in affix_patterns:
                         if affix_type in manual_map[attribute]:
                             manual_map_entry = manual_map[attribute][affix_type]
                             all_attributes[category][attribute][affix_type] = manual_map_entry
 
                 else:
                     # Ensure the label is set for all attributes; though the postfix can be blank
-                    if 'label' not in all_attributes[category][attribute]:
+                    if 'label' not in attributes[attribute]:
                         raise Exception(
                             f'Unlocalized name not found for {attribute}, '
                             + 'find the label and postfix'

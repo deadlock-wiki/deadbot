@@ -1,6 +1,5 @@
 import re
 
-
 _PREFIX_RE = re.compile(r'[A-Z]')
 _MODIFIER_NAME_PREFIXES = ('MODIFIER_STATE_', 'MODIFIER_')
 

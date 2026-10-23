@@ -91,7 +91,7 @@ class ItemCardParser:
 
         if should_promote_cooldown:
             ability_cd = card['Other']['AbilityCooldown']
-            info_keys = [k for k in card.keys() if k.startswith('Info')]
+            info_keys = [k for k in card if k.startswith('Info')]
 
             # Filter Info entries: Type exists, not 'Innate'
             valid_infos = [card[k] for k in info_keys if card[k].get('Type') is not None and card[k].get('Type') != 'Innate']
@@ -247,7 +247,7 @@ class ItemCardParser:
         """Process leftover item attributes into a single 'Other' category."""
         other = {}
 
-        for prop, value in self.item.items():
+        for prop in self.item:
             if prop in self.used_attributes:
                 continue
 

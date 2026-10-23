@@ -1,12 +1,13 @@
 import os
 from datetime import datetime
+
 from loguru import logger
 
-import utils.json_utils as json_utils
-from utils import file_utils
-from .tags import ChangelogTags as Tags
+from utils import file_utils, json_utils
+
 from . import wikitext_formatter
 from .constants import STEAM_MIGRATION_DATE
+from .tags import ChangelogTags as Tags
 
 
 class ChangelogParser:
@@ -359,7 +360,7 @@ class ChangelogParser:
     def get_hero_from_ability(self, ability_key_to_search):
         for hero_key in self.heroes:
             hero = self.heroes[hero_key]
-            for _, ability_data in hero['BoundAbilities'].items():
+            for ability_data in hero['BoundAbilities'].values():
                 if ability_data['Key'] == ability_key_to_search:
                     # Use .get() without default. Returns None if key is missing (unreleased heroes).
                     # This prevents KeyErrors and prevents tagging raw IDs.

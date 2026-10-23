@@ -1,10 +1,10 @@
 import json
 import os
 from os import PathLike
-
-from typing import TypedDict, Any
+from typing import Any, TypedDict
 
 from PIL import Image
+
 from utils.plot_utils import MapPlotter
 from utils.process import run_process
 

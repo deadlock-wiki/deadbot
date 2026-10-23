@@ -1,13 +1,13 @@
-import sys
 import os
 import re
+import sys
 
 from loguru import logger
 
 from utils import json_utils, num_utils
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-import parser.maps as maps
+from parser import maps
 
 
 def format_description(description, *data_sets):
@@ -59,7 +59,7 @@ IGNORE_KEYS = [
     'ProjectileRedirectCount',
     'TurretHealthScaling',
     'DisarmDuration',
-    '​ไซเลนเซอร์​adius',
+    '\u200bไซเลนเซอร์\u200badius',
     '',
 ]
 

@@ -1,8 +1,9 @@
 import copy
-import parser.maps as maps
-import utils.json_utils as json_utils
-from utils import num_utils
+
+from parser import maps
+from utils import json_utils, num_utils
 from utils.num_utils import round_sig_figs
+
 from . import weapon_parser
 
 
@@ -25,7 +26,7 @@ class HeroParser:
     def run(self):
         hero_keys = self.hero_data.keys()
 
-        all_hero_stats = dict()
+        all_hero_stats = {}
 
         for hero_key in hero_keys:
             if hero_key.startswith('hero') and hero_key != 'hero_base':
@@ -33,6 +34,7 @@ class HeroParser:
 
                 hero_stats = {
                     'Name': self.localizations.get(hero_key, None),
+                    'Id': hero_value['m_HeroID'],
                     'BoundAbilities': self._parse_hero_abilities(hero_value),
                     'InDevelopment': hero_value['m_bInDevelopment'],
                     'IsDisabled': hero_value['m_bDisabled'],
@@ -138,6 +140,9 @@ class HeroParser:
         werewolf: dict = self.hero_data['hero_werewolf']
         werewolf_transformed: dict = copy.deepcopy(werewolf)
 
+        # This pseudo-hero shares its base hero's ID, so clear it to let consumers skip the duplicate
+        werewolf_transformed['m_HeroID'] = None
+
         # Werewolf claws use alt-fire scaling as their base bullet damage modifier
         if 'm_mapStandardLevelUpUpgrades' in werewolf_transformed:
             upgrades = werewolf_transformed['m_mapStandardLevelUpUpgrades']
@@ -224,7 +229,7 @@ class HeroParser:
         meaningful_stats = {}
 
         # Iterate heroes
-        for hero_key, hero_data in heroes_data.items():
+        for hero_data in heroes_data.values():
             # Create a flattened version of the hero data for comparison
             flat_data = hero_data.copy()
             if 'Weapon' in flat_data:
@@ -236,8 +241,12 @@ class HeroParser:
 
             # Iterate hero stats
             for stat_key, stat_value in flat_data.items():
+                # Hero ID is metadata, not a stat, so don't expose it on the Hero Comparison page
+                if stat_key == 'Id':
+                    continue
+
                 # Must not be a container type, nor a bool
-                if isinstance(stat_value, dict) or isinstance(stat_value, list):
+                if isinstance(stat_value, (dict, list)):
                     continue
 
                 # Ensure the data isn't a localization key
@@ -256,7 +265,7 @@ class HeroParser:
             scaling_containers = ['LevelScaling', 'SpiritScaling']
             for scaling_container in scaling_containers:
                 if scaling_container in hero_data:
-                    for level_key in hero_data[scaling_container].keys():
+                    for level_key in hero_data[scaling_container]:
                         meaningful_stats[level_key] = True
 
         return meaningful_stats
@@ -451,7 +460,7 @@ class HeroParser:
 
     # maps all keys in an object using the provided function
     def _map_attr_names(self, data, func):
-        output_data = dict()
+        output_data = {}
         for key in data:
             mapped_key = func(key)
             output_data[mapped_key] = data[key]

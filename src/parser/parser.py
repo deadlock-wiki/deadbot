@@ -1,27 +1,29 @@
+import copy
 import os
 import shutil
+
+from loguru import logger
+
+from utils import json_utils
 
 from .parsers import (
     abilities,
     ability_cards,
-    items,
-    item_cards,
-    heroes,
-    localizations,
     attributes,
+    convars,
+    game_map,
+    generics,
+    heroes,
+    item_cards,
+    item_investment,
+    items,
+    localizations,
+    misc,
+    npc_units,
     resource_lookup,
     souls,
-    generics,
-    npc_units,
-    game_map,
-    misc,
-    convars,
     street_brawl,
-    item_investment,
 )
-from utils import json_utils
-from loguru import logger
-import copy
 
 
 class Parser:
@@ -210,7 +212,7 @@ class Parser:
             json_utils.sort_dict(parsed_meaningful_stats),
         )
 
-        stripped_heroes = dict()
+        stripped_heroes = {}
         # Remove irrelevant data from BoundAbilities in HeroData
         for hero_key, hero_value in copy.deepcopy(parsed_heroes).items():
             bound_abilities = hero_value['BoundAbilities']

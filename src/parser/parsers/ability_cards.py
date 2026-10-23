@@ -1,8 +1,9 @@
 from collections import defaultdict
 from typing import TypedDict
-from utils import num_utils
-import utils.string_utils as string_utils
+
 from loguru import logger
+
+from utils import num_utils, string_utils
 
 SUPPORTED_LANGS = ['english']
 
@@ -235,6 +236,9 @@ class AbilityCardsParser:
                     continue
 
                 raw_attr = self._get_raw_ability_attr(attr_key)
+                if self._is_hidden_prop(raw_attr):
+                    prop_object['Hidden'] = True
+
                 name_key = raw_attr.get('m_strLocTokenOverride')
                 if name_key:
                     prop_object.update(
@@ -309,6 +313,9 @@ class AbilityCardsParser:
                 logger.warning(f'No raw attr found for prop {prop}')
                 continue
 
+            if self._is_hidden_prop(raw_attr):
+                prop_object['Hidden'] = True
+
             name_key = raw_attr.get('m_strLocTokenOverride')
             if name_key:
                 prop_object.update(
@@ -370,6 +377,9 @@ class AbilityCardsParser:
             raw_attr = self._get_raw_ability_attr(prop)
             if raw_attr is None:
                 continue
+
+            if self._is_hidden_prop(raw_attr):
+                data['Hidden'] = True
 
             prop_value = self.ability.get(prop)
 
@@ -541,6 +551,15 @@ class AbilityCardsParser:
 
     def _get_raw_ability_attr(self, attr_key):
         return self._get_raw_ability()['m_mapAbilityProperties'].get(attr_key)
+
+    @staticmethod
+    def _is_hidden_prop(raw_attr):
+        """
+        Whether the game hides this attribute from its ability tooltip. Hidden attributes are
+        kept in the card data and flagged with `Hidden`, leaving it to the wiki to skip them or
+        make an exception.
+        """
+        return bool(raw_attr and raw_attr.get('m_bIsHidden'))
 
     def _get_raw_ability(self):
         return self.abilities[self.ability_key]

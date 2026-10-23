@@ -1,11 +1,12 @@
-import parser.maps as maps
-from . import utils
-import utils.json_utils as json_utils
-import utils.num_utils as num_utils
-from utils.string_utils import is_truthy
-from .upgrades import parse_upgrades
-from .modifiers import parse_modifiers
 from loguru import logger
+
+from parser import maps
+from utils import json_utils, num_utils
+from utils.string_utils import is_truthy
+
+from . import utils
+from .modifiers import parse_modifiers
+from .upgrades import parse_upgrades
 
 # Scale applied to a stat when the game files do not specify one
 DEFAULT_STAT_SCALE = 1

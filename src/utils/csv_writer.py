@@ -10,7 +10,7 @@ def export_json_file_to_csv(file_name, OUTPUT_DIR):
 
     os.makedirs(f'{OUTPUT_DIR}/csv', exist_ok=True)
     if data:
-        all_keys = dict.fromkeys(k for row in data.values() for k in row.keys())
+        all_keys = dict.fromkeys(k for row in data.values() for k in row)
         fieldnames = [''] + list(all_keys)
         with open(f'{OUTPUT_DIR}/csv/{file_name}.csv', 'w', newline='') as f:
             writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction='ignore')
