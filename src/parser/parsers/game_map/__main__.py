@@ -73,6 +73,9 @@ COMBINED_MAPS: dict[str, tuple[str, list[str]]] = {
 BREAKABLES_BASE_MAP = os.path.join(os.path.dirname(__file__), 'assets/minimap_midtown_opaque.png')
 # Width and height of every generated map, upscaled from the base map
 MAP_OUTPUT_SIZE = 2048
+# MAP_OUTPUT_SIZE is an exact multiple of the base map, so a nearest-neighbour upscale just doubles its pixels.
+# Unlike a smoothing filter it adds no new colours, which keeps the maps small once saved as palette PNGs
+MAP_RESAMPLE = Image.Resampling.NEAREST
 
 
 class GameMapParser:
@@ -162,7 +165,7 @@ class GameMapParser:
                 color = spec['colors'][min(spawn_order.index(spawn_time), len(spec['colors']) - 1)]
                 series.append((f'{spec["label"]}, spawns at {_format_time(spawn_time)}', color, positions))
 
-        plotter = MapPlotter(BREAKABLES_BASE_MAP, MAP_OUTPUT_SIZE)
+        plotter = MapPlotter(BREAKABLES_BASE_MAP, MAP_OUTPUT_SIZE, MAP_RESAMPLE)
         for _, color, positions in series:
             plotter.place_dots(positions, color)
         plotter.add_compact_legend(
@@ -213,7 +216,7 @@ class GameMapParser:
             The generated plot
         """
         base_map = BREAKABLES_BASE_MAP
-        plotter = MapPlotter(base_map, MAP_OUTPUT_SIZE)
+        plotter = MapPlotter(base_map, MAP_OUTPUT_SIZE, MAP_RESAMPLE)
         plotter.place_image_markers(x_coords, y_coords, image_paths, size=0.035)
         plotter.add_image_legend(legend)
         return plotter.get_image()

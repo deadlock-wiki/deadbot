@@ -5,6 +5,7 @@ import shutil
 from loguru import logger
 
 from utils import json_utils
+from utils.plot_utils import save_compact_png
 
 from .parsers import (
     abilities,
@@ -310,7 +311,7 @@ class Parser:
 
             os.makedirs(os.path.join(self.OUTPUT_DIR, 'assets'), exist_ok=True)
             for name, plot in map_data['midtown']['plots'].items():
-                plot.save(os.path.join(self.OUTPUT_DIR, f'assets/{name}_map.png'))
+                save_compact_png(plot, os.path.join(self.OUTPUT_DIR, f'assets/{name}_map.png'))
 
     def _generate_resource_lookup(self, parsed_heroes, parsed_abilities, parsed_items):
         logger.trace('Generating resource lookup...')

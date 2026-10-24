@@ -1,13 +1,28 @@
 import functools
 from os import PathLike
 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageChops, ImageDraw, ImageFont
 
 
 @functools.cache
 def load_image(image_path: PathLike | str) -> Image.Image:
     """Loads and caches an image from the given path."""
     return Image.open(image_path).convert('RGBA')
+
+
+def save_compact_png(image: Image.Image, path: PathLike | str, max_error: int = 2) -> None:
+    """
+    Save an opaque image as a 256 colour palette PNG when that is visually lossless, else as a full colour PNG.
+    A palette PNG is about a quarter of the size, but images with many shades, e.g. smooth gradients, band visibly
+    Args:
+        image: The image to save. Any transparency is dropped
+        path: Where to save the PNG
+        max_error: The most any colour channel may change, out of 255, for the palette version to be used
+    """
+    rgb = image.convert('RGB')
+    palette = rgb.quantize(256, method=Image.Quantize.MAXCOVERAGE)
+    error = max(high for _, high in ImageChops.difference(rgb, palette.convert('RGB')).getextrema())
+    (palette if error <= max_error else rgb).save(path, optimize=True)
 
 
 # Bold fonts first. Covers the Linux docker image and local Windows runs
@@ -38,15 +53,21 @@ class MapPlotter:
     MAP_EXTENT = 10750.0
     MAP_CLIP = 10000.0
 
-    def __init__(self, base_map_path: PathLike | str, output_size: int | None = None):
+    def __init__(
+        self,
+        base_map_path: PathLike | str,
+        output_size: int | None = None,
+        resample: Image.Resampling = Image.Resampling.LANCZOS,
+    ):
         """
         Args:
             base_map_path: Path to the square base map image
             output_size: Width and height to resample the base map to. `None` uses the base map as is, without resampling
+            resample: Filter used to resample the base map to `output_size`
         """
         base = load_image(base_map_path)
         self.output_size = output_size or base.width
-        self.canvas = base if output_size is None else base.resize((output_size, output_size), Image.LANCZOS)
+        self.canvas = base if output_size is None else base.resize((output_size, output_size), resample)
 
     def _world_to_pixel(self, x: float, y: float) -> tuple[float, float]:
         """Convert world coordinates to sub-pixel coordinates on the output image."""
