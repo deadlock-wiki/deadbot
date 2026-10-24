@@ -42,10 +42,14 @@ SRGB_TO_LINEAR = [_srgb_to_linear(v) for v in range(256)]
 def extract_minimap(decompiler: str, game_dir: str, texture: str) -> Image.Image:
     """Export the minimap texture from pak01 as a PNG with the Source2Viewer CLI"""
     vpk = os.path.join(game_dir, 'citadel', 'pak01_dir.vpk')
+
     with tempfile.TemporaryDirectory() as tmp:
-        png = os.path.join(tmp, 'minimap.png')
+        output_dir = os.path.join(tmp, 'minimap.png')
+
         # With a --vpk_filepath matching a single file, --output is that file's path
-        subprocess.run([decompiler, '-i', vpk, '--vpk_filepath', texture, '-o', png, '-d'], check=True)
+        subprocess.run([decompiler, '-i', vpk, '--vpk_filepath', texture, '-o', output_dir, '-d'], check=True)
+
+        png = Path(output_dir) / Path(texture).with_suffix('.png')
         with Image.open(png) as image:
             return image.convert('RGBA')
 
