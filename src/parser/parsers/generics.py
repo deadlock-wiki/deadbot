@@ -1,7 +1,8 @@
-import utils.json_utils as json_utils
-import utils.string_utils as string_utils
 import os
+
 from loguru import logger
+
+from utils import json_utils, string_utils
 
 
 class GenericParser:
@@ -50,7 +51,7 @@ class GenericParser:
         """
         Recursively remove prefixes from keys in a dictionary
         """
-        new = dict()
+        new = {}
         for key, value in generic_data.items():
             # Remove prefix from the key
             for possible_prefix in possible_prefixes:

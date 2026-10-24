@@ -1,7 +1,9 @@
-from parser import maps
-from . import utils
-from utils import json_utils, num_utils
 from typing import NotRequired, TypedDict
+
+from parser import maps
+from utils import json_utils, num_utils
+
+from . import utils
 
 
 class ScaleEntry(TypedDict):
@@ -121,7 +123,10 @@ def parse_upgrades(ability: dict) -> dict:
                     # eg. 113 -> 1.13 + 1 = 2.13
                     parsed_upgrade['Value'] = base_value / 100 + 1
             else:
-                parsed_upgrade = base_value
+                if multiply_base:
+                    parsed_upgrade = {'Value': base_value / 100 + 1, 'Multiply': True}
+                else:
+                    parsed_upgrade = base_value
 
             parsed_upgrade_set[prop] = parsed_upgrade
 

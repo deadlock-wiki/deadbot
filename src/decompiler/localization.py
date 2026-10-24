@@ -25,7 +25,7 @@ def process_files(input_folder, output_folder):
                 text = file.read().replace('<br>\n', '').replace('</li>\n', '')
 
             lines = text.split('\n')
-            out = dict()
+            out = {}
             for line in lines:
                 stripped_line = line.strip()
                 if not stripped_line:

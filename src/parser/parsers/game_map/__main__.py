@@ -1,12 +1,12 @@
 import json
 import os
-from os import PathLike
-
 from collections import Counter
-from typing import TypedDict, Any
+from os import PathLike
+from typing import Any, TypedDict
 
 from loguru import logger
 from PIL import Image
+
 from utils.plot_utils import MapPlotter
 from utils.process import run_process
 

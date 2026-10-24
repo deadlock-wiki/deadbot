@@ -1,4 +1,7 @@
-import utils.json_utils as json_utils
+from loguru import logger
+
+from utils import json_utils
+from utils.string_utils import is_truthy
 
 
 class ResourceLookupParser:
@@ -38,7 +41,7 @@ class ResourceLookupParser:
 
             # Map ability keys to their parent hero for linking
             # Non-disabled heroes take priority over disabled ones for shared abilities
-            for _, ability in (hero.get('BoundAbilities') or {}).items():
+            for ability in (hero.get('BoundAbilities') or {}).values():
                 if ability.get('Key'):
                     existing_parent = ability_to_hero.get(ability['Key'])
                     if existing_parent is None or not is_disabled:
@@ -51,7 +54,9 @@ class ResourceLookupParser:
         for ability_key, ability in self.parsed_abilities.items():
             if not isinstance(ability, dict) or not ability.get('Name'):
                 continue
-            if ability.get('IsDisabled'):
+            if is_truthy(ability.get('IsDisabled')):
+                if ability_key in ability_to_hero:
+                    logger.warning(f'Skipping hero-bound ability {ability_key}: IsDisabled={ability["IsDisabled"]!r}')
                 continue
 
             name = ability['Name']

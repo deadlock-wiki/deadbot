@@ -1,8 +1,9 @@
 from collections import defaultdict
 from typing import TypedDict
-from utils import num_utils
-import utils.string_utils as string_utils
+
 from loguru import logger
+
+from utils import num_utils, string_utils
 
 SUPPORTED_LANGS = ['english']
 
@@ -235,13 +236,25 @@ class AbilityCardsParser:
                     continue
 
                 raw_attr = self._get_raw_ability_attr(attr_key)
+                if self._is_hidden_prop(raw_attr):
+                    prop_object['Hidden'] = True
 
-                prop_object.update(
-                    {
-                        'Key': attr_key,
-                        'Name': self._get_localized_string(attr_key + '_label', fallback=f'Unknown({attr_key})'),
-                    },
-                )
+                name_key = raw_attr.get('m_strLocTokenOverride')
+                if name_key:
+                    prop_object.update(
+                        {
+                            'Key': attr_key,
+                            'NameKey': name_key,
+                            'Name': self._get_localized_string(name_key + '_label', fallback=f'Unknown({name_key})'),
+                        },
+                    )
+                else:
+                    prop_object.update(
+                        {
+                            'Key': attr_key,
+                            'Name': self._get_localized_string(attr_key + '_label', fallback=f'Unknown({attr_key})'),
+                        },
+                    )
 
                 if parsed_prop['status_effect']:
                     prop_object['StatusEffect'] = parsed_prop['status_effect']
@@ -293,24 +306,38 @@ class AbilityCardsParser:
     def _parse_alt_block(self, info_section):
         alt_block = []
         for prop in info_section['m_vecBasicProperties']:
-            prop_object = {
-                'Key': prop,
-            }
+            prop_object = {}
 
-            name = self._get_ability_display_name(prop)
-            if name is not None:
-                prop_object['Name'] = name
+            raw_attr = self._get_raw_ability_attr(prop)
+            if not raw_attr:
+                logger.warning(f'No raw attr found for prop {prop}')
+                continue
+
+            if self._is_hidden_prop(raw_attr):
+                prop_object['Hidden'] = True
+
+            name_key = raw_attr.get('m_strLocTokenOverride')
+            if name_key:
+                prop_object.update(
+                    {
+                        'Key': prop,
+                        'NameKey': name_key,
+                        'Name': self._get_localized_string(name_key + '_label', fallback=f'Unknown({name_key})'),
+                    },
+                )
+            else:
+                prop_object.update(
+                    {
+                        'Key': prop,
+                        'Name': self._get_localized_string(prop + '_label', fallback=f'Unknown({prop})'),
+                    },
+                )
 
             prop_value = self.ability.get(prop)
             if isinstance(prop_value, dict):
                 prop_object.update(prop_value)
             else:
                 prop_object['Value'] = prop_value
-
-            raw_attr = self._get_raw_ability_attr(prop)
-            if not raw_attr:
-                logger.warning(f'No raw attr found for prop {prop}')
-                continue
 
             attr_type = raw_attr.get('m_strCSSClass')
             if attr_type is not None:
@@ -350,6 +377,9 @@ class AbilityCardsParser:
             raw_attr = self._get_raw_ability_attr(prop)
             if raw_attr is None:
                 continue
+
+            if self._is_hidden_prop(raw_attr):
+                data['Hidden'] = True
 
             prop_value = self.ability.get(prop)
 
@@ -521,6 +551,15 @@ class AbilityCardsParser:
 
     def _get_raw_ability_attr(self, attr_key):
         return self._get_raw_ability()['m_mapAbilityProperties'].get(attr_key)
+
+    @staticmethod
+    def _is_hidden_prop(raw_attr):
+        """
+        Whether the game hides this attribute from its ability tooltip. Hidden attributes are
+        kept in the card data and flagged with `Hidden`, leaving it to the wiki to skip them or
+        make an exception.
+        """
+        return bool(raw_attr and raw_attr.get('m_bIsHidden'))
 
     def _get_raw_ability(self):
         return self.abilities[self.ability_key]

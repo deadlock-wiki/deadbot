@@ -1,5 +1,6 @@
 import functools
 from os import PathLike
+
 from PIL import Image, ImageDraw, ImageFont
 
 

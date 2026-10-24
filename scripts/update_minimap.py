@@ -35,7 +35,7 @@ class Vpk:
     """Read-only view of a VPK v2 set: <name>_dir.vpk plus <name>_NNN.vpk"""
 
     def __init__(self, path: str):
-        self._fh = open(path, 'rb')
+        self._fh = open(path, 'rb')  # noqa: SIM115 - closed in __exit__
         self._mm = mmap.mmap(self._fh.fileno(), 0, access=mmap.ACCESS_READ)
         sig, ver, dir_size, *_ = VPK_HEADER.unpack(self._mm[: VPK_HEADER.size])
         if sig != VPK_SIGNATURE or ver != 2:
@@ -108,7 +108,7 @@ class Vpk:
         if archive == SELF_ARCHIVE:
             return self._mm[offset : offset + length]
         if archive not in self._chunks:
-            fh = open(f'{self._stem}_{archive:03d}.vpk', 'rb')
+            fh = open(f'{self._stem}_{archive:03d}.vpk', 'rb')  # noqa: SIM115 - closed in __exit__
             self._chunks[archive] = (fh, mmap.mmap(fh.fileno(), 0, access=mmap.ACCESS_READ))
         return self._chunks[archive][1][offset : offset + length]
 
