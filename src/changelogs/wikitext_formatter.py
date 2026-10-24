@@ -1,6 +1,5 @@
 import re
-from typing import Any, Dict, List, Optional, Tuple
-
+from typing import Any
 
 # Game mode names that should produce their own section rather than being classified as items or heroes.
 GAME_MODE_SECTIONS = ['Street Brawl']
@@ -17,10 +16,10 @@ _PATCH_HEADER_RE = re.compile(r'^==\s*Patch\s+\d+\s*==$', re.MULTILINE)
 
 def format_changelog(
     raw_text: str,
-    hero_data: Dict[str, Any],
-    item_data: Dict[str, Any],
-    ability_data: Dict[str, Any],
-    link_targets: Optional[Dict[str, list]] = None,
+    hero_data: dict[str, Any],
+    item_data: dict[str, Any],
+    ability_data: dict[str, Any],
+    link_targets: dict[str, list] | None = None,
 ) -> str:
     """
     Formats a raw changelog string into structured wikitext.
@@ -64,11 +63,11 @@ def format_changelog(
 
 
 def _format_entries(
-    entries: List[Tuple[bool, str]],
-    heroes: List[str],
-    items: List[str],
-    abilities: List[str],
-    link_targets: Optional[Dict[str, list]],
+    entries: list[tuple[bool, str]],
+    heroes: list[str],
+    items: list[str],
+    abilities: list[str],
+    link_targets: dict[str, list] | None,
 ) -> str:
     """
     Parses categorized entries (bullets and raw text) into a structured hierarchy.
@@ -77,13 +76,13 @@ def _format_entries(
     Builds nested dictionaries for Game Modes, Items, and Heroes (with sub-sections for abilities),
     then passes the formatted text to _build_output to generate the final wikitext layout.
     """
-    general: List[str] = []
-    modes: Dict[str, List[str]] = {}
-    mode_order: List[str] = []
-    item_sections: Dict[str, List[str]] = {}
-    item_order: List[str] = []
-    hero_sections: Dict[str, Dict[str, Any]] = {}
-    hero_order: List[str] = []
+    general: list[str] = []
+    modes: dict[str, list[str]] = {}
+    mode_order: list[str] = []
+    item_sections: dict[str, list[str]] = {}
+    item_order: list[str] = []
+    hero_sections: dict[str, dict[str, Any]] = {}
+    hero_order: list[str] = []
 
     for is_bullet, entry in entries:
         if not is_bullet:
@@ -139,7 +138,7 @@ def _format_entries(
     return _build_output(general, modes, mode_order, item_sections, item_order, hero_sections, hero_order)
 
 
-def _collect_names(hero_data, item_data, ability_data) -> Tuple[List[str], List[str], List[str]]:
+def _collect_names(hero_data, item_data, ability_data) -> tuple[list[str], list[str], list[str]]:
     # Only abilities bound to a hero, so generic ones like "Dash" in "Move and Dash Speed" aren't iconified
     hero_ability_keys = {
         ability['Key'] for hero in (hero_data or {}).values() for ability in (hero.get('BoundAbilities') or {}).values() if ability.get('Key')
@@ -148,19 +147,19 @@ def _collect_names(hero_data, item_data, ability_data) -> Tuple[List[str], List[
     return _active_names(hero_data), _active_names(item_data), _active_names(hero_abilities)
 
 
-def _active_names(data: Dict[str, Any]) -> List[str]:
+def _active_names(data: dict[str, Any]) -> list[str]:
     if not data:
         return []
     return [entry['Name'] for entry in data.values() if entry.get('Name') and not entry.get('IsDisabled', False)]
 
 
-def _parse_entries(raw_text: str) -> List[Tuple[bool, str]]:
+def _parse_entries(raw_text: str) -> list[tuple[bool, str]]:
     """
     Splits raw text into individual entries.
     Returns a list of tuples: (True, text) for bullets, (False, text) for raw prose.
     Bracket headings like '[ Items ]' are dropped to prevent corruption.
     """
-    entries: List[Tuple[bool, str]] = []
+    entries: list[tuple[bool, str]] = []
 
     for line in raw_text.split('\n'):
         stripped = line.strip()
@@ -179,7 +178,7 @@ def _parse_entries(raw_text: str) -> List[Tuple[bool, str]]:
     return entries
 
 
-def _match_hero_prefix(raw_prefix: str, heroes: List[str]) -> Optional[str]:
+def _match_hero_prefix(raw_prefix: str, heroes: list[str]) -> str | None:
     """
     Returns the canonical hero name matching *raw_prefix*, or ``None``.
 
@@ -195,7 +194,7 @@ def _match_hero_prefix(raw_prefix: str, heroes: List[str]) -> Optional[str]:
     return None
 
 
-def _classify(entry: str, heroes: List[str], items: List[str], game_modes: List[str]) -> Tuple[str, Optional[str], str]:
+def _classify(entry: str, heroes: list[str], items: list[str], game_modes: list[str]) -> tuple[str, str | None, str]:
     """
     Determines whether an entry belongs to a game mode, hero, item, or is general.
 
@@ -222,23 +221,23 @@ def _classify(entry: str, heroes: List[str], items: List[str], game_modes: List[
 
 def _format_body(
     text: str,
-    heroes: List[str],
-    abilities: List[str],
-    items: List[str],
-    link_targets: Optional[Dict[str, list]],
-    excluded_ability: Optional[str] = None,
+    heroes: list[str],
+    abilities: list[str],
+    items: list[str],
+    link_targets: dict[str, list] | None,
+    excluded_ability: str | None = None,
 ) -> str:
     # Tokenization strategy: replace matched entities with temporary null-byte tokens.
     # This prevents nested replacements (e.g. matching "Melee" inside an already-generated
     # "{{Heavy Melee}}" icon template). Tokens are restored at the end.
-    protected: List[str] = []
+    protected: list[str] = []
 
     def protect(value: str) -> str:
         token = f'\x00{len(protected)}\x00'
         protected.append(value)
         return token
 
-    def wrap(terms: List[str], template_name: str, stat_link: bool = False) -> None:
+    def wrap(terms: list[str], template_name: str, stat_link: bool = False) -> None:
         nonlocal text
         # Process longer names first so "Smoke Bomb" is matched before "Smoke".
         for term in sorted(dict.fromkeys(terms), key=len, reverse=True):
@@ -279,14 +278,14 @@ def _format_body(
     return text
 
 
-def _find_ability_mention(text: str, abilities: List[str]) -> Optional[Tuple[int, int, str]]:
+def _find_ability_mention(text: str, abilities: list[str]) -> tuple[int, int, str] | None:
     """
     Finds the leftmost ability name in *text*.
 
     Returns ``(start, end, ability_name)`` or ``None``.  When multiple abilities start at
     the same position the longer name wins (e.g. ``Heavy Barrage`` over ``Barrage``).
     """
-    best: Optional[Tuple[int, int, str]] = None
+    best: tuple[int, int, str] | None = None
     for ability in sorted(dict.fromkeys(abilities), key=len, reverse=True):
         pattern = re.compile(r'(?<!\w)' + re.escape(ability) + r'(?!\w)')
         match = pattern.search(text)
@@ -324,7 +323,7 @@ def _build_output(general, modes, mode_order, item_sections, item_order, hero_se
         4. ``== Heroes ==`` with a ``{{HeroChanges}}`` block per hero, grouping
            non-ability changes under '''Stats''' followed by each ability
     """
-    lines: List[str] = []
+    lines: list[str] = []
 
     for entry in general:
         lines.append(entry)

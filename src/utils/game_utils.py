@@ -14,7 +14,7 @@ def load_game_info(game_info_path):
     version_info = {}
     try:
         with open(game_info_path, 'r') as f:
-            for line in f.readlines():
+            for line in f:
                 split_line = line.strip().split('=')
                 # first item is the key, the rest are the value in case there's multiple `=`
                 version_info[split_line[0]] = split_line[1]

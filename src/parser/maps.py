@@ -100,8 +100,7 @@ def get_behaviour_bits(value):
         token = token.strip()
         if not token:
             continue
-        if token.startswith('CITADEL_ABILITY_'):
-            token = token[len('CITADEL_ABILITY_') :]
+        token = token.removeprefix('CITADEL_ABILITY_')
         bits.append(''.join(part.capitalize() for part in token.split('_') if part))
     return bits
 
@@ -120,8 +119,7 @@ def get_shop_attr_group(value):
 
 def get_hero_attr(value):
     # Remove the 'E' prefix if its prefixed
-    if value.startswith('E'):
-        value = value[len('E') :]
+    value = value.removeprefix('E')
 
     remaps = {
         'WeaponPower': 'BaseWeaponDamageIncrease',

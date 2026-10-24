@@ -1,4 +1,4 @@
-import utils.string_utils as string_utils
+from utils import string_utils
 
 
 class MiscParser:
@@ -29,13 +29,15 @@ class MiscParser:
     )
 
     # Internal metadata keys to remove
-    METADATA_KEYS = {
-        '_class',
-        '_my_subclass_name',
-        '_base',
-        '_not_pickable',
-        'generic_data_type',
-    }
+    METADATA_KEYS = frozenset(
+        {
+            '_class',
+            '_my_subclass_name',
+            '_base',
+            '_not_pickable',
+            'generic_data_type',
+        }
+    )
 
     def __init__(self, misc_data):
         self.misc_data = misc_data

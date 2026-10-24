@@ -1,6 +1,7 @@
-import os
 import argparse
-from typing import Optional, Protocol
+import os
+from typing import Protocol
+
 from dotenv import load_dotenv
 
 from utils.meta_utils import get_deadbot_version
@@ -53,20 +54,20 @@ def arg_group_base(parser):
         '--english-only',
         action='store_true',
         help='Only parse for english localizations (also set with ENGLISH_ONLY environment variable)',
-        default=is_truthy(os.getenv('ENGLISH_ONLY', False)),
+        default=is_truthy(os.getenv('ENGLISH_ONLY', 'False')),
     )
     group_base.add_argument(
         '--force',
         action='store_true',
         help='Forces decompilation even if game files and workdir versions match',
-        default=is_truthy(os.getenv('FORCE', False)),
+        default=is_truthy(os.getenv('FORCE', 'False')),
     )
     group_base.add_argument(
         '-v',
         '--verbose',
         action='store_true',
         help='Print verbose output for extensive logging',
-        default=is_truthy(os.getenv('VERBOSE', False)),
+        default=is_truthy(os.getenv('VERBOSE', 'False')),
     )
     group_base.add_argument(
         '--version',
@@ -102,47 +103,47 @@ def arg_group_action(parser):
         '--import_files',
         action='store_true',
         help='Import the game files from SteamDB and localization files using DepotDownloader (also set with IMPORT_FILES environment variable)',
-        default=is_truthy(os.getenv('IMPORT_FILES', False)),
+        default=is_truthy(os.getenv('IMPORT_FILES', 'False')),
     )
     group_actions.add_argument(
         '-d',
         '--decompile',
         action='store_true',
         help='Decompiles Deadlock game files. (also set with DECOMPILE environment variable)',
-        default=is_truthy(os.getenv('DECOMPILE', False)),
+        default=is_truthy(os.getenv('DECOMPILE', 'False')),
     )
     group_actions.add_argument(
         '-p',
         '--parse',
         action='store_true',
         help='Parses decompiled game files into json and csv (also set with PARSE environment variable)',
-        default=is_truthy(os.getenv('PARSE', False)),
+        default=is_truthy(os.getenv('PARSE', 'False')),
     )
     group_actions.add_argument(
         '-c',
         '--changelogs',
         action='store_true',
         help='Fetch/parse changelogs from the Steam Web API and local files. (also set with CHANGELOGS environment variable)',
-        default=is_truthy(os.getenv('CHANGELOGS', False)),
+        default=is_truthy(os.getenv('CHANGELOGS', 'False')),
     )
     group_actions.add_argument(
         '-u',
         '--wiki_upload',
         action='store_true',
         help='Upload parsed data to the Wiki (also set with WIKI_UPLOAD environment variable)',
-        default=is_truthy(os.getenv('WIKI_UPLOAD', False)),
+        default=is_truthy(os.getenv('WIKI_UPLOAD', 'False')),
     )
     group_actions.add_argument(
         '--dry_run',
         action='store_true',
         help='Run the wiki upload in dry-run mode (also set with DRY_RUN environment variable)',
-        default=is_truthy(os.getenv('DRY_RUN', False)),
+        default=is_truthy(os.getenv('DRY_RUN', 'False')),
     )
     group_actions.add_argument(
         '--parse_map',
         action='store_true',
         help='Parse map data from the game files (also set with PARSE_MAP environment variable)',
-        default=is_truthy(os.getenv('PARSE_MAP', False)),
+        default=is_truthy(os.getenv('PARSE_MAP', 'False')),
     )
     return group_actions
 
@@ -162,9 +163,9 @@ class Args(Protocol):
     wiki_upload: bool
     dry_run: bool
     parse_map: bool
-    steam_username: Optional[str]
-    steam_password: Optional[str]
-    manifest_id: Optional[int]
+    steam_username: str | None
+    steam_password: str | None
+    manifest_id: int | None
 
 
 def load_arguments() -> Args:

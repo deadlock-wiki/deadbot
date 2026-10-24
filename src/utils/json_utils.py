@@ -207,13 +207,13 @@ def validate_structures(datas1, datas2, structure_keys_to_validate):
 
     In consecutive layers, the keys of datas1 are displayed for the invalid keys
     """
-    invalid_keys = dict()
+    invalid_keys = {}
 
     data_to_test = [[datas1, datas2], [datas2, datas1]]
 
     # Test both ways
     for datas1, datas2 in data_to_test:
-        for key in datas1.keys():
+        for key in datas1:
             if key not in structure_keys_to_validate:
                 continue
 

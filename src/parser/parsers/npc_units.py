@@ -1,7 +1,8 @@
 from loguru import logger
-import utils.json_utils as json_utils
-import utils.num_utils as num_utils
+
+from utils import json_utils, num_utils
 from utils.num_utils import convert_engine_units_to_meters
+
 from . import weapon_parser
 
 
@@ -209,9 +210,7 @@ class NpcParser:
         """
         if value is None:
             return False
-        if isinstance(value, (dict, list)) and len(value) == 0:
-            return False
-        return True
+        return not (isinstance(value, (dict, list)) and len(value) == 0)
 
     def _clean_key_name(self, key):
         """Removes Hungarian notation prefixes."""
@@ -244,8 +243,7 @@ class NpcParser:
             val = num_utils.assert_number(item.get('m_value'))
 
             if modifier_enum:
-                if modifier_enum.startswith('MODIFIER_VALUE_'):
-                    modifier_enum = modifier_enum[len('MODIFIER_VALUE_') :]
+                modifier_enum = modifier_enum.removeprefix('MODIFIER_VALUE_')
                 flat[modifier_enum] = val
         return flat
 

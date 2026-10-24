@@ -1,15 +1,18 @@
-import os
-from loguru import logger
-import requests
 import hashlib
-from utils import file_utils, json_utils
-from typing import TypedDict, NotRequired
-from .constants import STEAM_APP_ID, STEAM_NEWS_API_URL, STEAM_MIGRATION_DATE
+import os
+import re
 from collections import defaultdict
 from datetime import datetime
+from typing import NotRequired, TypedDict
 from zoneinfo import ZoneInfo
-import re
+
 import mwclient
+import requests
+from loguru import logger
+
+from utils import file_utils, json_utils
+
+from .constants import STEAM_APP_ID, STEAM_MIGRATION_DATE, STEAM_NEWS_API_URL
 
 
 class ChangelogConfig(TypedDict):

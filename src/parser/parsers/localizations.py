@@ -1,6 +1,6 @@
 import os
 
-import utils.json_utils as json_utils
+from utils import json_utils
 
 
 class LocalizationParser:
