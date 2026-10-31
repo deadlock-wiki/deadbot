@@ -67,6 +67,10 @@ class HeroParser:
                 hero_stats['TechDuration'] = hero_stats['TechDuration'] - 1
                 hero_stats['ReloadSpeed'] = hero_stats['ReloadSpeed'] - 1
 
+                # Transformed Silver's weapon never reloads
+                if hero_key == 'hero_werewolf_transformed':
+                    hero_stats['ReloadSpeed'] = 0
+
                 hero_stats['SpiritScaling'] = self._parse_spirit_scaling(hero_value)
 
                 # Parse weapon data and nest it under a 'Weapon' key
@@ -152,12 +156,6 @@ class HeroParser:
                 # Remove the alt-fire key to keep the data clean
                 del upgrades['MODIFIER_VALUE_BASE_BULLET_DAMAGE_FROM_LEVEL_ALT_FIRE']
 
-        # Treat claws as having no ammo limit (continuous attacks during transformation)
-        claws_id = 'citadel_weapon_werewolf_claws'
-        weapon = self._parse_weapon_stats(self.abilities_data[claws_id])
-        if weapon:
-            weapon['m_iClipSize'] = 0
-
         transformation_ability = self.abilities_data['ability_werewolf_transformation']
         modifier = transformation_ability['m_WerewolfModifier']
 
@@ -171,10 +169,10 @@ class HeroParser:
         return werewolf_transformed
 
     def _apply_transformation_stats(self, werewolf_transformed, transformation_ability):
-        """Apply the stats the transformation modifier grants to the transformed hero.
+        """Apply the crit reduction the transformation modifier grants to the transformed hero.
 
-        The werewolf modifier auto-registers several ability properties against hero modifier values,
-        which are not part of the hero's base data. Fold them into the transformed copy so it matches the
+        The werewolf modifier auto-registers HeadshotResist against the hero's crit damage received scale,
+        which is not part of the hero's base data. Fold it into the transformed copy so it matches the
         stats the hero actually has while transformed.
         """
         ability_properties = transformation_ability.get('m_mapAbilityProperties', {})
@@ -185,24 +183,6 @@ class HeroParser:
         if headshot_resist is not None:
             crit_scale_key = self._find_stat_key(starting_stats, 'CritDamageReceivedScale')
             starting_stats[crit_scale_key] *= 1 + num_utils.remove_uom(headshot_resist) / 100
-
-        # BonusHealth grants flat max health, plus extra health per boon through its scale function
-        bonus_health = ability_properties.get('BonusHealth', {})
-        health_value = bonus_health.get('m_strValue')
-        if health_value is not None:
-            starting_stats[self._find_stat_key(starting_stats, 'MaxHealth')] += num_utils.remove_uom(health_value)
-
-        health_scale = bonus_health.get('m_subclassScaleFunction', {})
-        if health_scale.get('m_eSpecificStatScaleType') == 'ELevelUpBoons':
-            boon_health_key = 'MODIFIER_VALUE_BASE_HEALTH_FROM_LEVEL'
-            boon_health = num_utils.remove_uom(health_scale.get('m_flStatScale', 0.0))
-            level_upgrades = werewolf_transformed.setdefault('m_mapStandardLevelUpUpgrades', {})
-            level_upgrades[boon_health_key] = level_upgrades.get(boon_health_key, 0.0) + boon_health
-
-        # BonusMoveSpeed grants flat max move speed
-        move_speed = ability_properties.get('BonusMoveSpeed', {}).get('m_strValue')
-        if move_speed is not None:
-            starting_stats[self._find_stat_key(starting_stats, 'MaxMoveSpeed')] += num_utils.remove_uom(move_speed)
 
     def _find_stat_key(self, starting_stats, stat_name):
         """Get the raw starting stat key for a stat name, which carries an 'E' prefix in the game files"""
@@ -318,6 +298,13 @@ class HeroParser:
             weapon_prim_id = bound_abilities[primary_slot]
             if weapon_prim_id in self.abilities_data:
                 primary_ability_data = self.abilities_data[weapon_prim_id]
+                if hero_key == 'hero_werewolf_transformed':
+                    # Transformed Silver's claws have no ammo count and no reload
+                    primary_ability_data = copy.deepcopy(primary_ability_data)
+                    weapon_info = weapon_parser.get_weapon_data(primary_ability_data)
+                    if weapon_info:
+                        weapon_info['m_iClipSize'] = 0
+                        weapon_info['m_reloadDuration'] = 0
                 weapon_stats = self._parse_weapon_stats(primary_ability_data)
                 if weapon_stats:
                     # The primary weapon name/description key is constructed from the hero's key, not its own ability ID.
