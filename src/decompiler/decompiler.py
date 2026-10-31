@@ -78,6 +78,7 @@ class Decompiler:
             'citadel_heroes',
             'citadel_main',
             'citadel_mods',
+            'citadel_seasonal',
         ]
 
         # Loop through each folder in the array
