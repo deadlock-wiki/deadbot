@@ -44,12 +44,12 @@ def extract_minimap(decompiler: str, game_dir: str, texture: str) -> Image.Image
     vpk = os.path.join(game_dir, 'citadel', 'pak01_dir.vpk')
 
     with tempfile.TemporaryDirectory() as tmp:
-        output_dir = os.path.join(tmp, 'minimap.png')
+        output = os.path.join(tmp, 'minimap')
+        subprocess.run([decompiler, '-i', vpk, '--vpk_filepath', texture, '-o', output, '-d'], check=True)
 
-        # With a --vpk_filepath matching a single file, --output is that file's path
-        subprocess.run([decompiler, '-i', vpk, '--vpk_filepath', texture, '-o', output_dir, '-d'], check=True)
-
-        png = Path(output_dir) / Path(texture).with_suffix('.png')
+        # Depending on the CLI version and platform, --output is either the exported file itself
+        # or a folder it's written into under the texture's own path
+        png = output if os.path.isfile(output) else Path(output) / Path(texture).with_suffix('.png')
         with Image.open(png) as image:
             return image.convert('RGBA')
 
