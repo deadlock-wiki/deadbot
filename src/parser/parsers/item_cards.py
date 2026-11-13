@@ -147,9 +147,22 @@ class ItemCardParser:
                 for prop in important_props:
                     if isinstance(prop, dict):
                         key = prop.get('Key') or prop.get('m_strImportantProperty')
+                        value_key = (
+                            prop.get('m_strStatusEffectValue')
+                            or prop.get('StatusEffectValue')
+                        )
                     else:
                         key = prop
-                    self._assign_prop(parsed, key, target='Main')
+                        value_key = None
+
+                    status_effect = None
+                    if key and key.startswith('StatusEffect'):
+                        status_effect = key[len('StatusEffect'):]
+
+                    self._assign_prop(
+                        parsed, key, target='Main',
+                        value_key=value_key, status_effect=status_effect,
+                    )
 
                 # Normal properties (Alt, or Cooldown/ChargeUp)
                 normal_props = entry.get('Properties') or entry.get('m_vecAbilityProperties') or []
@@ -161,7 +174,7 @@ class ItemCardParser:
 
         return ui_sections
 
-    def _assign_prop(self, parsed, key, target):
+    def _assign_prop(self, parsed, key, target, value_key=None, status_effect=None):
         """Assign a property to Main/Alt, or extract Cooldown/ChargeUp."""
         if not key:
             return
@@ -179,10 +192,38 @@ class ItemCardParser:
                 parsed['ChargeUp'] = self.item.get(key)
                 self.used_attributes.append(key)
         else:
+            if value_key:
+                linked = self._build_linked_prop(value_key, status_effect)
+                if linked:
+                    parsed[target].append(linked)
+                    self.used_attributes.append(value_key)
+                    return
+
             prop_obj = self._build_prop_object(key)
             if prop_obj:
                 parsed[target].append(prop_obj)
                 self.used_attributes.append(key)
+
+    def _build_linked_prop(self, value_key, status_effect=None):
+        """Emit a status effect's linked value using the ability-card layout.
+
+        Item abilities can declare:
+
+            {"m_strImportantProperty": "StatusEffectStun",
+             "m_strStatusEffectValue": "StunDuration"}
+
+        The linked property becomes the key, with StatusEffect metadata, e.g.
+        Key=StunDuration, StatusEffect=Stun, Value=0.75.
+        """
+        prop_obj = self._build_prop_object(value_key)
+        if not prop_obj or prop_obj.get('Value') is None:
+            return None
+
+        if status_effect:
+            prop_obj['StatusEffect'] = status_effect
+            prop_obj.setdefault('Type', 'duration')
+
+        return prop_obj
 
     def _build_prop_object(self, prop_key):
         """Build a property object for an item attribute, including scale if available."""
