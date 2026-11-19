@@ -17,6 +17,7 @@ from .parsers import (
     heroes,
     item_cards,
     item_investment,
+    item_popularity,
     items,
     localizations,
     misc,
@@ -154,6 +155,7 @@ class Parser:
         self._parse_soul_unlocks()
         self._parse_generics()
         self._parse_item_investments()
+        self._parse_item_popularity()
         self._parse_misc()
         self._parse_convars()
         self._parse_street_brawl(parsed_abilities)
@@ -179,6 +181,12 @@ class Parser:
 
         investment_data_path = self.OUTPUT_DIR + '/json/item-investment-data.json'
         json_utils.write(investment_data_path, json_utils.sort_dict(parsed_investments))
+
+    def _parse_item_popularity(self):
+        logger.trace('Parsing Item Popularity...')
+        parsed = item_popularity.ItemPopularityParser(self.data['scripts']['heroes']).run()
+
+        json_utils.write(self.OUTPUT_DIR + '/json/item-popularity.json', parsed)
 
     def _parse_localizations(self):
         logger.trace('Parsing Localizations...')
