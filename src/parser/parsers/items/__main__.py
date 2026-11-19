@@ -10,6 +10,7 @@ from parser.parsers.items.components import ItemComponentTree
 from parser.parsers.items.progression import extract_progression
 from parser.parsers.items.upgrades import parse_corrupted_upgrades, parse_item_upgrades
 from utils import num_utils, string_utils
+from utils.entity_id import entity_id
 
 
 class ScalingValue(TypedDict):
@@ -31,6 +32,7 @@ class ParsedItemData(TypedDict, total=False):
     Components: object
     TargetTypes: list[object] | None
     ShopFilters: list[object] | None
+    AbilityId: int | None
     IsDisabled: bool
     StreetBrawl: bool
     IsImbue: bool
@@ -111,6 +113,7 @@ class ItemParser:
             'Components': None,
             'TargetTypes': target_types,
             'ShopFilters': shop_filters,
+            'AbilityId': entity_id(key),
             'IsDisabled': self._is_disabled(item_value),
             'StreetBrawl': is_street_brawl,
             'IsImbue': self._is_imbue(item_value),
