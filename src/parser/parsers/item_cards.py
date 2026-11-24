@@ -33,6 +33,7 @@ class ItemCardParser:
             'Components',
             'TargetTypes',
             'ShopFilters',
+            'Id',
             'IsDisabled',
             'StreetBrawl',
             'PropertyUpgrades',
