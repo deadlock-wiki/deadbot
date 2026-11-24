@@ -1,7 +1,3 @@
-from collections import Counter
-
-from loguru import logger
-
 from utils import json_utils
 
 from .abilities import AbilityParser
@@ -22,16 +18,14 @@ class StreetBrawlParser:
         e.g. {{data|streetbrawl|A|AbilityCooldown}} vs {{data|abilities|A|AbilityCooldown}}.
 
     "item-buckets"
-        Every hero shares the same pool of draftable items
-        (AvailableItems), and by default each item sits in the "Normal" bucket
-        at weight 1.0. Heroes deviate from that default for a subset of items:
-            - a different bucket (e.g. "Good", offered more often),
-            - a reduced weight (e.g. 0.4, offered less often within its bucket),
-            - a counter weight (a separate per-hero multiplier for specific items).
-        Only these deviations are stored, as a flat list of (Hero, Item) rows
-        that each carry whichever of Bucket/Weight/Counter differ from the
-        default. The full per-hero bucketing is reconstructed as: every
-        AvailableItem is "Normal" @ 1.0 unless a matching outlier row overrides it.
+        Every hero draws from the same shop item pool (AvailableItems).
+        Items default to the "Normal" bucket at weight 1.0. An item without an
+        explicit bucket is instead "Good" when its best pick percentage across
+        the game phases reaches the tier's threshold from generic_data. Heroes
+        can also override an item's bucket, weight, or counter weight. Only
+        deviations are stored, as a flat list of (Hero, Item) rows carrying
+        whichever of Bucket/Weight/Counter differ from the default. The tier
+        thresholds and bucket weights are exposed under TierBuckets.
     """
 
     DEFAULT_BUCKET = 'Normal'
@@ -50,11 +44,13 @@ class StreetBrawlParser:
     # None/empty value that could legitimately appear in the parsed data.
     _NO_DIFF = object()
 
-    def __init__(self, heroes_data, abilities_data, base_abilities, localizations):
+    def __init__(self, heroes_data, abilities_data, base_abilities, localizations, items_data, generic_data):
         self.heroes_data = heroes_data
         self.abilities_data = abilities_data
         self.base_abilities = base_abilities
         self.localizations = localizations
+        self.items_data = items_data
+        self.generic_data = generic_data
 
     def run(self):
         return {
@@ -150,60 +146,121 @@ class StreetBrawlParser:
 
     # --- Item draft bucketing --------------------------------------------
 
+    def _item_tier(self, item_key):
+        item = self.items_data.get(item_key) or {}
+        tier = item.get('Tier')
+        return tier if isinstance(tier, int) and tier > 0 else None
+
+    def _shop_item_keys(self):
+        """
+        The draft pool is every shop item in a draft tier. Items without a shop
+        icon are internal bases (e.g. armor_upgrade_t1), not shop entries.
+        """
+        keys = set()
+        for item_key, item in self.items_data.items():
+            if item.get('IsDisabled') or self._item_tier(item_key) is None:
+                continue
+            raw_item = self.abilities_data.get(item_key) or {}
+            if raw_item.get('m_strShopIconLarge') and not raw_item.get('m_bDisabledForBots'):
+                keys.add(item_key)
+        return keys
+
+    def _tier_bucket_config(self):
+        street_brawl = self.generic_data.get('m_StreetBrawl') or {}
+        buckets = street_brawl.get('m_mapItemTierToItemDraftBuckets') or {}
+        config = {}
+        for key, value in buckets.items():
+            if not key.startswith('EModTier_'):
+                continue
+            try:
+                tier = int(key[len('EModTier_'):])
+            except ValueError:
+                continue
+            config[tier] = value
+        return config
+
+    def _hero_popularity(self, hero_data):
+        popular = hero_data.get('m_PopularItems') or {}
+        generated = popular.get('m_mapGeneratedItemPopularity') or {}
+        manual = popular.get('m_mapManualItemPopularity') or {}
+
+        phases = {phase: dict(entries or {}) for phase, entries in generated.items()}
+        for phase, entries in manual.items():
+            phases.setdefault(phase, {}).update(entries or {})
+        return phases
+
+    def _best_pick_pct(self, popularity, item_key):
+        best = 0.0
+        for entries in popularity.values():
+            entry = entries.get(item_key) or {}
+            pick = entry.get('m_flPickPct')
+            if isinstance(pick, (int, float)):
+                best = max(best, float(pick))
+        return best
+
     def _parse_item_buckets(self):
-        available_items = set()
+        available_items = self._shop_item_keys()
+        tier_buckets = self._tier_bucket_config()
+        default_threshold = 100.0
         outliers = []
+
+        # A hero override can name an item that is not in the shop-icon pool.
+        # Keep those rows rather than silently dropping them.
+        for hero_data in self.heroes_data.values():
+            if not isinstance(hero_data, dict):
+                continue
+            available_items.update((hero_data.get('m_mapItemDraftBucketing') or {}).keys())
+            available_items.update((hero_data.get('m_mapItemDraftCounterWeights') or {}).keys())
 
         for hero_key, hero_data in self.heroes_data.items():
             if not hero_key.startswith('hero') or hero_key == 'hero_base':
                 continue
-
-            bucketing = hero_data.get('m_mapItemDraftBucketing')
-            if not bucketing:
+            if not isinstance(hero_data, dict):
                 continue
 
+            bucketing = hero_data.get('m_mapItemDraftBucketing') or {}
             counter_weights = hero_data.get('m_mapItemDraftCounterWeights') or {}
-            self._warn_if_default_shifted(hero_key, bucketing)
+            popularity = self._hero_popularity(hero_data)
 
-            for item_key, entry in bucketing.items():
-                available_items.add(item_key)
+            for item_key in available_items:
+                entry = bucketing.get(item_key) or {}
+                tier_config = tier_buckets.get(self._item_tier(item_key)) or {}
+
+                bucket = entry.get('m_strBucket')
+                if not bucket:
+                    threshold = tier_config.get('m_flGoodItemPickRateThreshold', default_threshold)
+                    if not isinstance(threshold, (int, float)):
+                        threshold = default_threshold
+                    best_pick = self._best_pick_pct(popularity, item_key)
+                    bucket = 'Good' if best_pick >= threshold else self.DEFAULT_BUCKET
 
                 row = {}
-                if entry['m_strBucket'] != self.DEFAULT_BUCKET:
-                    row['Bucket'] = entry['m_strBucket']
-                if entry['m_flWeight'] != self.DEFAULT_WEIGHT:
-                    row['Weight'] = entry['m_flWeight']
+                if bucket != self.DEFAULT_BUCKET:
+                    row['Bucket'] = bucket
+
+                weight = entry.get('m_flWeight', self.DEFAULT_WEIGHT)
+                if isinstance(weight, (int, float)) and weight != self.DEFAULT_WEIGHT:
+                    row['Weight'] = weight
+
                 if item_key in counter_weights:
                     row['Counter'] = counter_weights[item_key]
 
                 if row:
                     outliers.append({'Hero': hero_key, 'Item': item_key, **row})
 
-            # Defensive: a counter weight on an item outside the bucketing map
-            # would otherwise be dropped. None exist today, but keep it robust.
-            for item_key, counter in counter_weights.items():
-                if item_key not in bucketing:
-                    available_items.add(item_key)
-                    outliers.append({'Hero': hero_key, 'Item': item_key, 'Counter': counter})
-
         outliers.sort(key=lambda row: (row['Hero'], row['Item']))
+
+        tier_config_out = {}
+        for tier, config in sorted(tier_buckets.items()):
+            tier_config_out[str(tier)] = {
+                'Name': config.get('m_strBucketName', ''),
+                'Buckets': dict(config.get('m_mapBuckets') or {}),
+                'GoodPickRateThreshold': config.get('m_flGoodItemPickRateThreshold', default_threshold),
+            }
 
         return {
             'AvailableItems': sorted(available_items),
             'Defaults': {'Bucket': self.DEFAULT_BUCKET, 'Weight': self.DEFAULT_WEIGHT},
+            'TierBuckets': tier_config_out,
             'Outliers': outliers,
         }
-
-    def _warn_if_default_shifted(self, hero_key, bucketing):
-        """
-        The deviation-only encoding assumes "Normal" @ 1.0 is by far the most
-        common (bucket, weight) for every hero. If that ever stops being true,
-        the file stays correct but bloats, so warn to prompt a rethink.
-        """
-        most_common = Counter((entry['m_strBucket'], entry['m_flWeight']) for entry in bucketing.values()).most_common(1)[0][0]
-        if most_common != (self.DEFAULT_BUCKET, self.DEFAULT_WEIGHT):
-            logger.warning(
-                f'Street Brawl: {hero_key} most-common bucket/weight is {most_common}, '
-                f'not the assumed default ({self.DEFAULT_BUCKET}, {self.DEFAULT_WEIGHT}). '
-                'Consider revisiting the deviation-only encoding in [[Module:StreetBrawl]].'
-            )
