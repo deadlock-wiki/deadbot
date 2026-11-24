@@ -158,7 +158,7 @@ class Parser:
         self._parse_item_popularity()
         self._parse_misc()
         self._parse_convars()
-        self._parse_street_brawl(parsed_abilities)
+        self._parse_street_brawl(parsed_abilities, parsed_items)
         self._parse_map()
         logger.trace('Done parsing')
 
@@ -344,13 +344,15 @@ class Parser:
 
         json_utils.write(self.OUTPUT_DIR + '/json/convars.json', json_utils.sort_dict(parsed_convars))
 
-    def _parse_street_brawl(self, parsed_abilities):
+    def _parse_street_brawl(self, parsed_abilities, parsed_items):
         logger.trace('Parsing Street Brawl...')
         parsed_street_brawl = street_brawl.StreetBrawlParser(
             self.data['scripts']['heroes'],
             self.data['scripts']['abilities'],
             parsed_abilities,
             self.localizations[self.language],
+            parsed_items,
+            self.data['scripts']['generic_data'],
         ).run()
 
         json_utils.write(self.OUTPUT_DIR + '/json/street-brawl-data.json', parsed_street_brawl)
