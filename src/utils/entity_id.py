@@ -1,8 +1,8 @@
 """Derive the stable entity id used by build codes from a VData class name.
 
-The game does not serialize the numeric ability id used in the clipboard build
-format.  It is the 32-bit MurmurHash2 of the class name with the same seed used
-by the community asset pipelines (0x31415926), so it can be computed locally.
+The game does not serialize the numeric id used in the clipboard build format.
+It is the 32-bit MurmurHash2 of the class name with the same seed used by the
+community asset pipelines (0x31415926), so it can be computed locally.
 
 Examples:
     upgrade_clip_size        -> 1548066885

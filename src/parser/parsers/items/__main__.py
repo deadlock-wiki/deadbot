@@ -32,7 +32,7 @@ class ParsedItemData(TypedDict, total=False):
     Components: object
     TargetTypes: list[object] | None
     ShopFilters: list[object] | None
-    AbilityId: int | None
+    Id: int | None
     IsDisabled: bool
     StreetBrawl: bool
     IsImbue: bool
@@ -113,7 +113,7 @@ class ItemParser:
             'Components': None,
             'TargetTypes': target_types,
             'ShopFilters': shop_filters,
-            'AbilityId': entity_id(key),
+            'Id': entity_id(key),
             'IsDisabled': self._is_disabled(item_value),
             'StreetBrawl': is_street_brawl,
             'IsImbue': self._is_imbue(item_value),
