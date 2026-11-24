@@ -10,6 +10,7 @@ DATA_PAGE_FILE_MAP = {
     'ItemData.json': 'json/item-data.json',
     'ItemCards.json': 'json/item-cards.json',
     'ItemInvestmentData.json': 'json/item-investment-data.json',
+    'ItemPopularity.json': 'json/item-popularity.json',
     'NpcData.json': 'json/npc-data.json',
     'Lang bg.json': 'localizations/bulgarian.json',
     'Lang cs.json': 'localizations/czech.json',
