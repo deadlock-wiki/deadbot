@@ -161,7 +161,7 @@ class StreetBrawlParser:
             if item.get('IsDisabled') or self._item_tier(item_key) is None:
                 continue
             raw_item = self.abilities_data.get(item_key) or {}
-            if raw_item.get('m_strShopIconLarge') and not raw_item.get('m_bDisabledForBots'):
+            if raw_item.get('m_strShopIconLarge'):
                 keys.add(item_key)
         return keys
 
