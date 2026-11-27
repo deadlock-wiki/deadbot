@@ -1,0 +1,353 @@
+- For one day a year, the people of New York gather beneath their floating idols to give thanks at Crowley’s Thanksgiving Day Parade.
+
+[ General ]
+
+- Hero base health reduced by 8%. The health is redistributed into boons, so total health at max boons is roughly the same.
+- Bullet damage growth per boon increased for all heroes by 5% (except for Haze, Holliday, Venator, Vindicta, Warden, Wraith)
+
+- First kill bonus for each player increased from 125 to 175 souls
+- Comeback souls from all sources reduced by ~5%
+- Players above their own team's average net worth have a portion of their comeback souls redirected to the two poorest teammates. The redirected portion scales from 0% at the team average up to 80% at 20% above it (previously a flat 70% for players above the enemy team's average net worth)
+- Unstable Rift: Trailing bonuses (resists, capture speed and trooper count) now reach their max at a 20% net worth deficit instead of 15% (this means it gives less bonuses at smaller gaps)
+
+- Range for troopers to drop a soul orb reduced from 45m to 42m
+- Soul orb and healing orbs on the ground now have a 7% reduced pickup range
+- Trooper damage against heroes increased by 10%
+
+- Basic crates souls value rescaled from 23 + 1.8/minute to 18 + 2.0/minute
+- Heavy crates souls value rescaled from 46 + 3.6/minute to 36 + 4.0/minute
+- Floating health snacks respawn time reduced from 180s to 120s
+- Floating health snacks pickup range increased from 3m to 3.5m
+
+- Haunts bounty reduced by 5%
+- Haunts abilities now do 30% more damage
+- Haunts Bullet Resist increased by 5%
+- Haunts Spirit Resist increased by 10%
+- Haunted Souls secure rate when trailing increased from up to 50% faster to 75% faster (max rate at 20% NW gap vs the enemy average)
+- Sinner's Sacrifice damage per hit increased from 80 to 80 + 1% Max HP
+- Fixed Haunts briefly taking reduced damage after being knocked into the air
+- Fixed Bullet Resist and Spirit Resist reduction not properly reducing the resistances of Haunts (it was only acting as a flat damage increase)
+
+- Midboss health reduced from 15600 + 234/minute to 12500 + 250/minute
+- Midboss damage increased by 30%
+- Midboss global roar threshold increased from 25% to 30%
+- Midboss Fire Rate reductions now have 50% reduced effectiveness against midboss
+- Claiming a rejuv crystal now also dispels non-ult debuffs on your hero (before the heal)
+- Rejuvenator: Bounty for punching the crystal is now split evenly among the whole team instead of going to the player who punched it
+
+- Permanent Buffs: Bullet Resist increased from 0.5/0.75/1% to 0.5/1/1.5%
+- Permanent Buffs: Spirit Resist increased from 0.5/0.75/1% to 0.5/1/1.5%
+- Permanent Buffs: Ability Range increased from 0.25/0.5/0.75% to 0.5/0.75/1%
+- Permanent Buffs: Move Speed increased from 0.1/0.2/0.3m to 0.1/0.2/0.4m
+- Permanent Buffs: Fixed the second and third tier Ability Range buffs not increasing ability radius (only the first tier did)
+
+- Failed air jumps will make your next ground jump have increasing air drag for each consecutive failed jump (combating macro usage for bunnyhops)
+- Heavy Melee: Becoming immobilized during the attack now resolves the punch immediately
+- Heavy Melee: Being knocked up during the attack now resolves the punch immediately
+
+- Damage amps and damage penalties on the attacker (Rebuttal, Inhibitor, Cheat Death, Curse, Eldritch Shot, etc) now apply to all of their Weapon, Melee and Spirit damage. Previously they missed flat Weapon Damage bonuses, flat damage from items and abilities, the base damage of melee abilities, and abilities that scale with Weapon Damage
+- Multiple damage amps now stack diminishingly for all damage types (previously only for abilities)
+- Multiple damage penalties now stack diminishingly for all damage types (previously only for abilities)
+- Summons now use their owner's current damage amps and penalties rather than the ones active when they were spawned
+- Outgoing Spirit Damage Reductions now stack diminishingly with each other (e.g. Silencer and Afterburn's T2)
+- Outgoing Spirit Damage Reductions (Silencer, Afterburn's T2) now apply to all Spirit Damage, including flat damage from items
+- Fixed Weapon Damage reductions (e.g. Warden's Alchemical Flask) not lowering the damage of abilities that scale with Weapon Damage when the attacker's total Weapon Damage bonus was negative
+
+- Fixed teleport abilities sometimes failing to cast when standing too close to a wall
+- Fixed knockbacks slowing, stopping or pulling back targets that were already moving away from the source
+- Fixed heroes hiding in steam vents staying untargetable after an enemy hero entered the vent
+- Fixed damage over time effects repeatedly revealing you inside Steam Vents
+- Fixed a short delay before hopping onto the roof at the top of a rope when grabbing the rope mid-air (e.g. after dropping off a zipline)
+- Fixed Quick Cast and Confirm Cast abilities not casting while holding fire when the gun can't shoot (reloading, Viscous Goo Ball, etc.)
+- Fixed movement time slows such as Paradox's Kinetic Carbine causing a dash-slide to fail and waste the stamina if slide was pressed during the slow
+- Fixed upgrading an ability with Tab + its ability key triggering the ability's recast when one was available (Solomon's pieces, Sinclair's Assistant, etc)
+- Fixed some camera issues when near dying Walkers
+- Abilities and items that launch a target into the air now break their ledge grab first, instead of the launch being delayed or lost
+- Fixed heroes getting stuck in the rope climbing animation after being pulled off a rope (such as by Threadsap or Rescue Beam)
+
+- Added an indicator next to the stamina meter that shows your remaining air jumps and air dashes once you've used one (turns red when you're out)
+- Holding the Extra Info key (Alt) now shows your Zipline Boost cooldown next to the minimap
+- Unstable Rift: The HUD now shows the trailing team's bonus while the Rift is active
+
+- Added a numeric countdown under each team's Rejuvenator icon in the top bar showing the time remaining on their Rejuvenator
+- Rejuv crystals have numbers next to them to make communicating about them a little easier
+- Hovering a Rejuvenator icon in the top bar now lists which heroes on that team can still spend a Rejuvenation Credit
+- Fixed the Rejuvenator timer ring being wrong after reconnecting
+- Fixed the Rejuvenator timer ring restarting whenever another Rejuvenator was picked up
+
+- Weapon Stats panel now shows Bullets per shot for guns that fire multiple pellets
+- Weapon Stats panel now shows Secondary Fire stats for Shiv, Yamato and Viscous: bullet damage, bullets per sec, bullets per shot, ammo per shot and explosion radius where applicable
+- Weapon Stats panel now shows Charged Shot stats for Deadman Danny: bullet damage, charge time, explosion radius and ammo per shot
+- Boon rewards now list Secondary Fire Damage (or Charged Shot Damage) gained per Boon for Shiv, Yamato, Viscous and Deadman Danny
+- Item tooltips now show the change to Secondary Fire or Charged Shot damage in the stat preview for Shiv, Yamato, Viscous and Deadman Danny
+
+- Added a few new graphs to the post-match player graph list:
+-- Crowd Control Dealt: time you crowd-controlled enemy heroes split by type
+-- Crowd Control Received: time enemy heroes crowd-controlled you split by type
+-- Damage Mitigated By Source: damage you prevented split by type
+
+- Swapping heroes now loads the incoming hero's saved build and next ability upgrade immediately
+
+- Some minor visual updates to the Custom Match UI
+
+- Sandbox: Added a "Bot Drills" section to the Bots++ tab of the Testing Tools, with a "Select Drill" dropdown that spawns an enemy bot in front of you to practice against for certain sequences.
+- Sandbox: Added an "Abrams - Bull Rush" bot drill, where Abrams uses Shoulder Charge at you and follows up with light and heavy melee attacks. Has Superior Duration.
+- Sandbox: Added a "Baba - Granny Rampage" bot drill, where Baba chases you in Granny Long Legs form while using light and heavy melees at random
+- Sandbox: Added a "Baba - Threadsap Tag" bot drill, where Baba moves and jumps around while using Threadsap on you
+- Sandbox: Added a "Bebop - Hook Dodge" bot drill, where Bebop moves and jumps around while repeatedly trying to hook you
+- Sandbox: Added a "Billy - Chain Beatdown" bot drill, where Billy uses Chain Gang into Bashdown and Rising Ram, then a light and a heavy melee. He has Melee Charge
+- Sandbox: Added a "Danny - Dive Bomb" bot drill, where Danny takes off in front of you, overheats and then dives at you and repeats.
+- Sandbox: Added a "Graves - Parry Bait" bot drill, where Graves summons a gravestone and stands in it ready to parry. Bait out her parry, then destroy the gravestone with heavy melees. She has Rebuttal
+- Sandbox: Added a "Grey Talon - Air Raid" bot drill, where Grey Talon takes to the air with Rain of Arrows and shoots at you, sometimes firing a Charged Shot
+- Sandbox: Added a "Holliday - Keg Drop" bot drill, where Holliday places a Bounce Pad, launches off it and throws a Powder Keg at you. She has Greater Expansion
+- Sandbox: Added a "Lash - Sky Slam" bot drill, where Lash uses Grapple to get high, then Death Slam into Ground Strike. He has Stamina Mastery
+- Sandbox: Added a "McGinnis - Wall Barrage" bot drill, where McGinnis fires a Spectral Wall that deploys behind you, then uses Heavy Barrage on you. She dashes away when you come within 10m of her
+- Sandbox: Added a "Paradox - Carbine Swap" bot drill, where Paradox moves and jumps around while charging Kinetic Carbine, hitting you and then using Paradoxical Swap
+- Sandbox: Added a "Silver - Wolf Hunt" bot drill, where Silver chases you in wolf form using her claws, Mauling Leap, Go For The Throat and Tail Whack
+- Sandbox: Added a "Vindicta - Sky Strafe" bot drill, where Vindicta takes Flight in front of you and strafes side to side.
+- Sandbox: Added a "Viscous - Rolling Goo" bot drill, where Viscous moves and jumps around, then rolls after you with Goo Ball. He has Superior Duration.
+- Sandbox: Added a "Viscous - Sucker Punch" bot drill, where Viscous moves and jumps around while using Puddle Punch under you at random intervals
+
+- Sandbox: Fixed No Death, Unlimited Ammo, No Cooldown, Fast Stamina, Legendary Items and Corrupted Variance not working when in a sandbox with a party
+- Sandbox: Fixed the Hero Testing bot ability and item cast buttons not working on abilities with charges while they were recharging
+
+- Street Brawl: Final round now reaches the max 35 boons instead of 34
+- Street Brawl: Cloak of Opportunity now also blocks Fear
+- Street Brawl: The list of items for your hero are now updated dynamically based on the current popular items used, rather than using older item lists system that tends to get outdated (this was released a couple days ago)
+- Street Brawl: Fixed Omnicharge Signet preventing Victor's Pain Battery from charging when imbued on it
+
+[ Items ]
+
+- Express Shot: Secondary Fire Weapon Damage growth per boon reduced by ~10%
+- Sharpshooter: Falloff range reduced from +20% to +18%
+- Capacitor: Shock damage reduced from 43 to 37
+- Capacitor: The tooltip now shows which movement abilities it disables for each enemy hero
+- Spiritual Overflow: Now shows a build up icon on the target to indicate progress
+
+- Majestic Leap: Fixed being able to reactivate the slam down while Cursed
+- Healing Nova: Spirit scaling increased from 1.1 to 1.25
+- Dispel Magic: Cooldown increased from 45s to 52s
+- Witchmail: Fixed the cooldown reduction being wasted on Ivy's Air Drop and Calico's Ava while they are locked out from taking damage
+- Indomitable: Now blocks the pigeon transformation from Feed The Birds
+- Rebuttal: Fixed blocking an ability with Counterspell granting Rebuttal's damage buff
+- Cheat Death: Cooldown increased from 90s to 105s
+- Phantom Strike: The tooltip now shows which flying abilities it interrupts for each enemy hero
+
+- Slowing Hex: The tooltip now shows which movement abilities it disables for each enemy hero
+- Spirit Burn: Debuff duration reduced from 8s to 7s
+- Mystic Reverb: Now correctly accounts for abilities reduced by Spellbreaker (currently reverbs the damage as if it was never reduced by the item)
+- Scourge: Now shows the instant cast target indicator on the targeted ally
+- Vortex Web: The tooltip now shows which movement abilities it disables for each enemy hero
+
+- Restorative Locket: Fixed interaction with the following abilities:
+-- Danny Jettison Fuel now grants a charge
+-- Danny Strix Salvo now grants a charge
+-- Doorman Door Recall no longer grants a charge
+-- Mina Sanguine Retreat recast now grants charges
+-- Nurse Harrow Healing Needles no longer grants a charge
+-- Solomon Move King now grants a charge
+-- Solomon Move Piece (Bishop, Knight and Queen moves) now grants a charge
+-- Venator Ira Domini now grants a charge
+-- Violet Living Ink (draw) now grants a charge
+- Applied similar fixes to Spellslinger and Radiant Regeneration for the above list
+
+[ Heroes ]
+
+- Abrams: Shoulder Charge - Fixed enemies stunned by the charge not being slowed
+- Abrams: Shoulder Charge - Fixed targets being pulled out of the charge by Hex-Lined Snap Trap
+- Abrams: Seismic Impact - Fixed Paradox's Kinetic Carbine causing the slam to go off in mid-air
+- Abrams: Seismic Impact - Fixed Bebop's Grapple Arm causing the slam to go off in mid-air when hooked during the dive
+
+- Apollo: Disengaging Sigil - Cooldown reduced from 12s to 11s
+- Apollo: Disengaging Sigil - Fixed the cooldown not starting until the T3 recast was used or expired
+- Apollo: Riposte - Can now be cast during Flawless Advance (cancels the dash, like parrying)
+- Apollo: Riposte - Pommel Hit on enemy will now knock them up and backwards slightly, applying a 50% slow and preventing stamina usage for 2s (no longer immobilizes, disarms or has any effect on parry state)
+- Apollo: Riposte - Pommel Hit now does bonus spirit damage on impact (100 + 1.5 spirit scaling)
+- Apollo: Riposte - Pommel Hit no longer reduces melee resist
+- Apollo: Riposte - No longer triggers off of bullets (only abilities and items)
+- Apollo: Riposte - Now reflects all bullets to the attackers during the duration (doesn't trigger riposte)
+- Apollo: Riposte - Bullets from troopers, haunts and objective bullets now reflect again
+- Apollo: Riposte - Now deflects all ability damage during the window and lets you target any enemy that hit you to do a Pommel Hit on them (and only them, can no longer pommel hit someone that didn't hit you)
+- Apollo: Riposte - Enemies who triggered it are now highlighted for Apollo
+- Apollo: Riposte - T1 increased from -8s Cooldown to -9s
+- Apollo: Riposte - T2 changed from "-25% Melee Resist and +0.7s Immobilize Duration" to "+100 Damage and +1s debuff duration"
+- Apollo: Flawless Advance - Cooldown increased from 26s to 30s
+- Apollo: Flawless Advance - Cooldown now starts immediately rather than after the recasts were used or expired
+- Apollo: Itani Lo Sahn - Enemies below the bonus damage health threshold now show a health bar indicator
+
+- Baba: Adjustments to the bullet spread
+- Baba: Spirit resist scaling reduced from 0.05 to 0.02
+- Baba: Move speed reduced from 6.5m to 6.4m
+- Baba: Threadsap - Duration reduced from 16s to 10s
+- Baba: Threadsap - T2 duration reduced from +8s to +6s
+- Baba: Threadsap - Spirit damage per bullet increased from 8 to 12
+- Baba: Baba's Brew - Can now be started while riding a zipline
+- Baba: Baba's Brew - Brew bar segments are now always colored and show an icon for each brew
+- Baba: Granny Long Legs - Getting parried now stuns you (like normal melees)
+- Baba: Granny Long Legs - Heavy Melee now takes less time to play out (0.1s difference)
+- Baba: Granny Long Legs - Light and Heavy melee cooldown times are now the same as normal melees (a minor nerf to light melee and a minor buff to heavy melee)
+- Baba: Granny Long Legs - Heavy Melee no longer hits enemies through walls
+- Baba: Granny Long Legs - Fixed being castable while Rabbit Hexed
+- Baba: Feed The Birds - Range increased from 18m to 20m
+- Baba: Feed The Birds - Max Damage increased from 450 to 650
+- Baba: Feed The Birds - Time To Max Stacks increased from 3.5s to 4s
+- Baba: Feed The Birds - The pigeon transformation is now blocked if the target is invulnerable or unstoppable when the final pigeon lands (e.g. during Yamato's Shadow Transformation)
+- Baba: Feed The Birds - Baba now sees which individual lock-ons are losing line of sight during the channel
+- Baba: Feed The Birds - Now shows its range indicator while channeling
+- Baba: Feed The Birds - Fixed enemies killed as a pigeon sometimes respawning as a pigeon
+
+- Bebop: Grapple Arm - Fixed not counting as a Light Melee for items like Spirit Strike, Spirit Snatch, Melee Lifesteal and Lifestrike (it was getting their full Heavy Melee value)
+
+- Billy: Rising Ram - Fixed Paradox's Kinetic Carbine stopping the charge in place (it now resumes once the Time-Stop ends)
+- Billy: Bashdown - Becoming immobilized during the ability now resolves the slam faster
+- Billy: Blasted - Fixed bullet damage amp not working against barriers
+- Billy: Blasted - Fixed bullet damage amp only applying to every other bullet at low weapon damage
+
+- Calico: Leaping Slash - Now stops and slashes as soon as it reaches an enemy hero in its path (rather than right after the target)
+- Calico: Leaping Slash - T3 increased from +90 Damage to +100
+- Calico: Leaping Slash - T3 increased from 50% CD Reduction on Hero Hit to 60%
+
+- Celeste: Light Eater - Fixed not hitting enemies hidden in Steam Vents
+- Celeste: Radiant Daggers - Fixed Spirit Damage amp not applying to flat Spirit Damage (Stalker, etc)
+
+- Deadman Danny: Momentum preservation upon using the jetpack increased slightly
+- Deadman Danny: Somewhat decreased jetpack's ability to switch directions to reduce erratic motion in the air
+- Deadman Danny: Strix Salvo - Cooldown increased from 25s to 26s
+- Deadman Danny: Strix Salvo - Spirit scaling reduced from 0.681 to 0.62
+- Deadman Danny: Chimera Mk1 - Explosion radius reduced from 8m to 6.5m
+- Deadman Danny: Chimera Mk1 - Reduced distance that Danny returns to the air after impacting an enemy while overheating
+- Deadman Danny: Jettison Fuel - Fixed it not triggering Spellslinger and Radiant Regeneration
+- Deadman Danny: Close The Deal - Enemies below the bonus damage health threshold now show a health bar indicator
+
+- Doorman: Doorway - The second door's placement range outline is now shown to Doorman for as long as the first door is waiting for its partner, instead of only while the ability is selected
+- Doorman: Luggage Cart - Fixed the cart being removed from the world when contacting Paradox Time Wall
+
+- Graves: Fixed not gaining the Split Shot weapon damage bonus when hitting multiple heroes
+- Graves: Cycle rate increased by 5% (means fire rate is 5% less)
+- Graves: Move speed reduced from 6.7m to 6.5m
+- Graves: Ghouls now do 25% less damage to objectives
+
+- Holliday: Ammo reduced from 10 to 8
+- Holliday: Bullet damage per boon reduced from 1.144 to 1.05
+- Holliday: Crackshot spirit scaling reduced from 1.116 to 0.9
+
+- Infernus: Napalm - Initial radius increased from 0.5m to 0.75m to help fix some cases where it misses (radius at max range unchanged at 5.5m)
+
+- Ivy: Health per boon reduced by 6%
+- Ivy: Stone Form - T2 changed from "-25s Cooldown" to "+0.75s Stun Duration"
+- Ivy: Stone Form - T3 changed from "+0.75s Stun Duration and increased Damage spirit scaling" to "-25s CD and increased Damage spirit scaling"
+- Ivy: Stone Form - T3 spirit scaling reduced from +1.5 to +1.2
+- Ivy: Air Drop - T1 changed from "300 Barrier to Ivy" to "+32% Slow for 3s on enemies hit"
+- Ivy: Air Drop - T2 changed from "+32% Slow for 3s on enemies hit" to "300 Barrier to Ivy"
+
+- Kelvin: Ice Path - Heroes that break a path piece now also break the adjacent pieces
+- Kelvin: Ice Path - Knocked down heroes now break the path pieces they are on
+- Kelvin: Ice Path - T3 reduced from 35% Spirit to 30%
+- Kelvin: Arctic Beam - Cooldown increased from 28s to 29s
+- Kelvin: Arctic Beam - Time to max debuff increased from 2s to 2.5s
+- Kelvin: Arctic Beam - Spirit scaling reduced from 0.38 to 0.32
+- Kelvin: Arctic Beam - T2 reduced from +0.6 spirit scaling to +0.5
+- Kelvin: Frozen Shelter - Fixed Ricochet triggering when shooting the dome or sloped ground inside it
+
+- Lady Geist: Essence Bomb - Spirit scaling reduced from 1.35 to 1.3
+- Lady Geist: Essence Bomb - Arm time increased from 0.65s to 0.8s
+- Lady Geist: Essence Bomb - Self damage increased from 30% to 50%
+- Lady Geist: Essence Bomb - Damage reduced from 90 to 85
+- Lady Geist: Essence Bomb - T2 reduced from +50 Damage to +45
+
+- Lash: Flog - Fixed not hitting enemies hidden in Steam Vents
+- Lash: Death Slam - Lash now sees which individual latches are losing line of sight during the channel
+- Lash: Death Slam - Fixed enemies standing on certain surfaces (e.g. the bridge in the Patron base) not being lifted
+- Lash: Death Slam - Fixed enemies near ledges, signs and cliff edges getting caught on geometry during the lift and being slammed in place
+
+- McGinnis: Medicinal Specter - Fixed a recent regression where it could block bullets from dealing damage
+
+- Mina: Base health regen reduced from 2 to 1.5
+- Mina: Rake - Fixed heal on kill not scaling with Heal Amp
+- Mina: Rake - Fixed not hitting enemies hidden in Steam Vents
+- Mina: Sanguine Retreat - T3 reduced from +4m Range to +3m
+- Mina: Sanguine Retreat - Fixed being unable to reload while holding bonus bullets when the magazine wasn't full
+- Mina: Sanguine Retreat - Fixed the 2nd to 3rd cast with the T3 having no recast delay
+- Mina: Love Bites - Bonus damage spirit scaling reduced from 1.85 to 1.5
+- Mina: Love Bites - T2 now also increases spirit scaling by +0.35
+
+- Mirage: Dust Devil - Fixed Paradox's Kinetic Carbine stopping the tornado in place (it now resumes once the Time-Stop ends)
+- Mirage: Dust Devil - Fixed the cooldown not starting until the T3 recast was used or expired
+- Mirage: Traveler - Using Alt-Cast will now target your healing area
+
+- Mo & Krill: Ammo increased from 20 to 25
+- Mo & Krill: Scorn - Fixed healing from bonus damage triggered by Scorn not counting damage absorbed by barriers
+- Mo & Krill: Burrow - Now passes under Doorman's Luggage Cart
+- Mo & Krill: Combo - Fixed Mo & Krill being flung away when using Combo on a tethered enemy or an enemy on a rope
+
+- Nurse Harrow: Bullet velocity reduced by 30% and gets slower more aggressively over long distances
+- Nurse Harrow: Leech Therapy - Projectile speed reduced by 15%
+
+- Paradox: Kinetic Carbine - Max damage reduced from 125% to 110%
+- Paradox: Kinetic Carbine - T3 Max damage reduced from +55% to +40%
+
+- Rat King: Royal Pestments - T2 Bullet Return Chance increased from 15% to 20%
+- Rat King: Royal Pestments - T3 Fixed not working vs shotgun type weapons dealing over 250 damage
+- Rat King: Rule, Ratannia! - Move Speed increased from 4m to 5m
+- Rat King: Rule, Ratannia! - Knockup duration increased by 35%
+
+- Shiv: Slice and Dice - Fixed Paradox's Kinetic Carbine ending the dash early
+- Shiv: Slice and Dice - T2's "-4% Spirit Resist" and T3's "+50 Impact Damage" have been swapped
+- Shiv: Bloodletting - Fixed bug allowing damage blocked by both Plated Armor and Spellbreaker being added to deferred damage on block
+- Shiv: Killing Blow - T3 Enemy Health Threshold reduced from 10% to 8%
+
+- Silver: Boot Kick - Fixed Paradox's Kinetic Carbine stopping the leap in place (it now resumes once the Time-Stop ends)
+- Silver: Entangling Bola - The tooltip now shows which movement abilities it disables and flying abilities it interrupts for each enemy hero
+- Silver: Lycan Claws - Fixed being unable to hit invisible enemies
+- Silver: Go For The Throat - Fixed being unable to hit invisible enemies
+- Silver: Tail Whack - Fixed not hitting enemies hidden in Steam Vents
+
+- Sinclair: Vexing Bolt - No longer does reduced damage to objectives
+
+- Solomon: Setup Bishop - Upgrading to T2 with a bishop already deployed now opens the recast window for the second bishop instead of requiring a recall
+- Solomon: Rook Battery - Fixed being removed from the world when contacting Violet Living Ink (Draw) or Paradox Time Wall
+- Solomon: Rook Battery - Fixed rooks being destroyed when hitting a heavy crate instead of reflecting
+
+- Venator: Fixed Melee Resist not including Bullet Resist gained from boons
+- Venator: Consecrating Grenade - No longer bounces off small ledges like curbs, gutters and stairs
+- Venator: Gutshot - Cooldown reduced from 23s to 20s
+- Venator: Gutshot - Hitting an enemy during a ledge grab now breaks the grab before applying knockback
+- Venator: Gutshot - Fixed being able to wall stun enemies by looking up in certain areas
+- Venator: Gutshot - Fixed not hitting enemies hidden in Steam Vents
+- Venator: Hex-Lined Snap Trap - Can no longer be destroyed until it has armed
+- Venator: Hex-Lined Snap Trap - No longer bounces off small ledges like curbs, gutters and stairs
+- Venator: Hex-Lined Snap Trap - Fixed abilities colliding with the trap before it has armed
+- Venator: Hex-Lined Snap Trap - Fixed traps being destroyed by abilities that deal weapon damage
+- Venator: Hex-Lined Snap Trap - T3 now amplifies your pure damage
+- Venator: Ira Domini - Fixed getting stuck zoomed in when activating it while zoomed
+- Venator: Ira Domini - Fixed the crosshair disappearing between shots when hero themed crosshairs are disabled
+
+- Violet: Living Ink - Fixed Draw strokes causing the Mid-Boss to spawn underground
+- Violet: Living Ink - Fixed it's bullet damage having falloff
+- Violet: Living Ink - Melee troopers (allied and enemy) now swing at a drawing that blocks their path, takes 5 hits from a melee trooper to break it (~5.7s)
+- Violet: Living Ink - Drawing is now cancelled if the stroke being drawn gets broken (previously it kept drawing invisible paint)
+- Violet: Living Ink - T3 bullet damage increased from +30% to +45%
+
+- Viscous: Now has 10% headshot resist
+- Viscous: Alt Fire ammo reduced from 5 to 4
+- Viscous: Splatter - No longer bounces off small ledges like curbs, gutters and stairs
+- Viscous: Puddle Punch - Fixed punches not hitting enemies under low ceilings like bridges and doorways
+- Viscous: Puddle Punch - Fixed not hitting enemies hidden in Steam Vents
+- Viscous: Goo Ball - Fixed sometimes bouncing off a curb like a wall when landing on it
+
+- Warden: Health per boon increased by 8%
+- Warden: Willpower - T1 now also increases the barrier by +50
+- Warden: Last Stand - Hero Lifesteal increased from 75% to 90%
+- Warden: Last Stand - Non-Hero Lifesteal increased from 10% to 15%
+
+- Wraith: Health regen reduced from 2 to 1
+- Wraith: Move speed reduced from 7.2m to 6.8m
+- Wraith: Sprint speed reduced from 1.6m to 1.2m (still scales with spirit power)
+- Wraith: Card Trick - Card generation speed reduced by 20%
+- Wraith: Card Trick - Fixed cards flying off into the sky when targeting a dropped Patron (and various issues targeting near a Patron)
+- Wraith: Card Trick - Fixed cards flying over knocked down heroes instead of hitting them (e.g. after a parry)
+- Wraith: Full Auto - T3 spirit scaling reduced from +0.045 to +0.03
+- Wraith: Telekinesis - The tooltip now shows which movement abilities it disables for each enemy hero
+
+- Yamato: Shadow Tranformation - Fixed issues casting your other abilities as the transformation ends
+- Yamato: Shadow Transformation - Fixed being able to waste stamina and an air dash while transforming
